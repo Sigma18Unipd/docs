@@ -1,0 +1,27 @@
+{
+    "tinymist.fontPaths": [
+        "assets/fonts"
+    ],
+    "tinymist.formatterMode": "typstyle",
+    "tinymist.formatterPrintWidth": 160,
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on",
+    "explorer.compactFolders": false,
+    "files.autoSave": "onFocusChange",
+    "editor.tabSize": 2,
+    "cSpell.language": "en,it",
+    "cSpell.words": [
+        "Aleena",
+        "Bernardello",
+        "Borella",
+        "Crotti",
+        "Egidi",
+        "Marangon",
+        "pagebreak",
+        "Russello",
+        "Typst",
+        "Unipd",
+        "versionamento",
+        "vline"
+    ]
+}
