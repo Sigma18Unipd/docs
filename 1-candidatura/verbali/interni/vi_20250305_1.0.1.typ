@@ -1,4 +1,4 @@
-#import "../templates/template.typ": *
+#import "../../../templates/template.typ": *
 
 #show: content => verbale(
   titoloDocumento: "Prima Riunione",
@@ -8,7 +8,7 @@
   verificatori: "Alessandro Bernardello",
   tipo: "Verbale Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.0.1",
   content: content,
 )
 
@@ -37,14 +37,14 @@ Sono state proposte numerose alternative per quanto concerne il nome rappresenta
 Successivamente alla definizione del nome del gruppo, si è proceduto alla creazione del logo. Sono stati valutati diversi design. A seguito di iterazioni sulla proposta più vicina alle aspettative, si è arrivati ai seguenti risultati approvati all'unanimità:
 
 #figure(
-  image("../assets/img/Logo.svg", width: 35%),
+  image("../../../assets/img/Logo.svg", width: 35%),
   caption: [
     Logo in versione estesa
   ],
 )
 #v(2em)
 #figure(
-  image("../assets/img/LogoSlim.svg", width: 25%),
+  image("../../../assets/img/LogoSlim.svg", width: 25%),
   caption: [
     Logo in versione compatta
   ],
