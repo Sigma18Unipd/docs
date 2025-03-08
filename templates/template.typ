@@ -15,6 +15,7 @@
   set page(margin: (x: 2cm, y: 2cm), paper: "a4")
   set par(justify: true)
   set document(title: titoloDocumento)
+  show link: underline
   show enum: it => pad(
     left: 1em,
     {
@@ -56,7 +57,7 @@
           table.vline(x: 1),
           align(right + horizon)[*Responsabile*], responsabili,
           align(right + horizon)[*Redattore*], redattori,
-          align(right + horizon)[*Verificatore:*], verificatori
+          align(right + horizon)[*Verificatore*], verificatori
         ),
       ),
       grid.cell(
@@ -64,9 +65,9 @@
           columns: 2,
           align: left,
           table.vline(x: 1),
-          align(right + top)[*Versione:*], versioneAttuale,
-          align(right + top)[*Tipo:*], tipo,
-          align(right + top)[*Destinatari:*], text(style: "italic", destinatari),
+          align(right + top)[*Versione*], versioneAttuale,
+          align(right + top)[*Tipo*], tipo,
+          align(right + top)[*Destinatari*], text(style: "italic", destinatari),
         ),
       )
     )
@@ -117,4 +118,18 @@
 
   //Contenuto
   content
+}
+
+//Tabella attività programmate
+#let tabellaAttivitaProgrammate(
+  attivita: (),
+) = {
+  v(0.5em)
+  table(
+    columns: (1fr, 3fr),
+    rows: auto,
+    inset: 5pt,
+    table.header([*Identificativo*], [*Descrizione*]),
+    ..attivita,
+  )
 }
