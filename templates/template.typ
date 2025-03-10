@@ -5,7 +5,7 @@
   responsabili: (),
   redattori: (),
   verificatori: (),
-  destinatari: "",
+  destinatari: (),
   versioneAttuale: "",
   versioni: (),
   content: [],
@@ -55,9 +55,21 @@
           columns: 2,
           align: left,
           table.vline(x: 1),
-          align(right + horizon)[*Responsabile*], responsabili,
-          align(right + horizon)[*Redattore*], redattori,
-          align(right + horizon)[*Verificatore*], verificatori
+          ..if type(responsabili) == str {
+            (align(right + top)[*Responsabile*], responsabili)
+          } else {
+            (align(right + top)[*Responsabili*], responsabili.join("\n"))
+          },
+          ..if type(redattori) == str {
+            (align(right + top)[*Redattore*], redattori)
+          } else {
+            (align(right + top)[*Redattori*], redattori.join("\n"))
+          },
+          ..if type(verificatori) == str {
+            (align(right + top)[*Verificatore*], verificatori)
+          } else {
+            (align(right + top)[*Verificatori*], verificatori.join("\n"))
+          }
         ),
       ),
       grid.cell(
@@ -67,7 +79,11 @@
           table.vline(x: 1),
           align(right + top)[*Versione*], versioneAttuale,
           align(right + top)[*Tipo*], tipo,
-          align(right + top)[*Destinatari*], text(style: "italic", destinatari),
+          ..if type(destinatari) == str {
+            (align(right + top)[*Destinatario*], text(style: "italic", destinatari))
+          } else {
+            (align(right + top)[*Destinatari*], text(style: "italic", destinatari.join("\n")))
+          }
         ),
       )
     )
