@@ -2,9 +2,8 @@ name: Document Deployment
 
 on:
   push:
-    paths:
-      - "**/*.typ"
-      - "**/*.py"
+    branches:
+      - main
 
 jobs:
   deploy:
