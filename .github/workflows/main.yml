@@ -30,7 +30,7 @@ jobs:
 
       - name: Deploy to Site Repo
         env:
-          GITHUB_TOKEN: ${{ secrets.SECRET }}
+          GITHUB_TOKEN: ${{ secrets.TOKENSEGRETISSIMO }}
         run: |
           git clone "https://oauth2:$GITHUB_TOKEN@github.com/Sigma18Unipd/sigma18unipd.github.io.git" RepoSito
           cd RepoSito
