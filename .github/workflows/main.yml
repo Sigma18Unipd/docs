@@ -17,8 +17,12 @@ jobs:
 
       - name: Build files
         run: |
-          find . -type f -name "*.typ" ! -path "./templates/*" | parallel 'typst compile --format pdf --root . {} {.}.pdf'
-          find . -name "*.pdf" -exec bash -c 'path="{}"; mkdir -p compiled/$(dirname "$path") && mv "$path" compiled/"$path"' \;
+          find . -name '*.typ' | while read typ_file; do
+            rel_path="${typ_file#./}"
+            pdf_path="${rel_path%.typ}.pdf"
+            mkdir -p "compiled/$(dirname "$pdf_path")"
+            typst compile --root . "$typ_file" "compiled/$pdf_path"
+          done
 
       - name: Deploy to Site Repo
         env:
@@ -27,8 +31,7 @@ jobs:
           git clone "https://oauth2:$GITHUB_TOKEN@github.com/Sigma18Unipd/sigma18unipd.github.io.git" RepoSito
           cd RepoSito
 
-          # Remove old files and copy new ones
-          rm -rf ./documentiCompilati/[0-9]-*
+          rm -rf ./documentiCompilati/*
           cp -r ../compiled/* ./documentiCompilati
 
           # Generate updated index.html
