@@ -1,0 +1,52 @@
+name: Document Deployment
+
+on:
+  push:
+    paths:
+      - "**/*.typ"
+      - "**/*.py"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Docs Repo
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        run: |
+          curl -L https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz | tar xJ
+          echo "$(pwd)/typst-x86_64-unknown-linux-musl" >> $GITHUB_PATH
+
+      - name: Compile All Documents
+        run: |
+          # Compile all .typ files while preserving folder structure
+          find . -name '*.typ' | while read typ_file; do
+            rel_path="${typ_file#./}"
+            pdf_path="${rel_path%.typ}.pdf"
+            mkdir -p "compiled/$(dirname "$pdf_path")"
+            typst compile --root . "$typ_file" "compiled/$pdf_path" --pdf-standard a-2b
+          done
+
+      - name: Deploy to Site Repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.SECRET }}
+        run: |
+          git clone "https://oauth2:$GITHUB_TOKEN@github.com/Sigma18Unipd/sigma18unipd.github.io.git" RepoSito
+          cd RepoSito
+
+          # Remove old files and copy new ones
+          rm -rf [0-9]-*
+          cp -r ../compiled/* ./documentiCompilati
+
+          # Generate updated index.html
+          cd ..
+          python3 .github/workflows/generate_html.py
+
+          # Commit changes
+          cd RepoSito
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Update documents: $(date +'%Y-%m-%d')"
+          git push origin main
