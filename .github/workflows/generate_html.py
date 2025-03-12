@@ -46,7 +46,7 @@ def generate_project_section(project_folder):
         rel_path = os.path.relpath(doc, project_path)
         if "verbali" not in rel_path.split(os.sep):
             doc_name = os.path.basename(doc).replace(".pdf", "").replace('_', ' ').title()
-            non_verbali.append(f'<li><a href="{project_folder}/{rel_path}">{doc_name}</a></li>')
+            non_verbali.append(f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{doc_name}</a></li>')
     
     if non_verbali:
         html += """
