@@ -30,15 +30,11 @@ jobs:
         run: |
           git clone "https://oauth2:$GITHUB_TOKEN@github.com/Sigma18Unipd/sigma18unipd.github.io.git" RepoSito
           cd RepoSito
-
           rm -rf ./documentiCompilati/*
           cp -r ../compiled/* ./documentiCompilati
-
-          # Generate updated index.html
+          rm -rf ./documentiCompilati/templates
           cd ..
           python3 .github/workflows/generate_html.py
-
-          # Commit changes
           cd RepoSito
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
