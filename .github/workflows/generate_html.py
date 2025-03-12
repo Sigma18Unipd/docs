@@ -46,7 +46,7 @@ def generate_project_section(project_folder):
         rel_path = os.path.relpath(doc, project_path)
         if "verbali" not in rel_path.split(os.sep):
             doc_name = os.path.basename(doc).replace(".pdf", "").replace('_', ' ').title()
-            non_verbali.append(f'<li><a href="{project_folder}/{rel_path}">{doc_name}</a></li>')
+            non_verbali.append(f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{doc_name}</a></li>')
     
     if non_verbali:
         html += """
@@ -78,7 +78,7 @@ def generate_project_section(project_folder):
                 except ValueError:
                     date = "Data sconosciuta"
                 rel_path = os.path.relpath(pdf, project_path)
-                html += f'<li><a href="{project_folder}/{rel_path}">{date}</a></li>'
+                html += f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{date}</a></li>'
             html += '</ul>'
     html += '</section>'
     return html
@@ -109,7 +109,7 @@ def update_index():
     )
     
     # Generate main content
-    projects_html = "\n".join([generate_project_section("documentiCompilati/"+ p) for p in projects])
+    projects_html = "\n".join([generate_project_section(p) for p in projects])
     main_content = f'<section>\n    <div class="doubleContainer">\n{projects_html}\n    </div>\n</section>'
     
     # Update main content
