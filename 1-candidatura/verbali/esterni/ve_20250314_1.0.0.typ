@@ -51,7 +51,7 @@ Il gruppo riceverà un _voucher_ di circa 200-250 euro che verra caricato sulla 
 L'azienda _Var Group S.p.A._ chiede inizialmente un incontro nella sede di Guizza (Padova) per fare del _design thinking_ , dopodiche gli incontri settimanali potranno essere fatti in remoto e una volta al mese circa ci potranno essere incontri in presenza per effettuare _training_ sulle tecnologie o metodologie.
 
 === Come verra trattata la licenza finale del prodotto realizzato? Si potra indicare il progetto nel proprio _curriculum_?
-Il software realizzato sara di proprieta di _Var Group S.p.A._ però tutta l'esperienza acquisita potra essere indicata nel proprio curriculum.
+Il software realizzato sara di proprieta di _Var Group S.p.A._ però tutta l'esperienza acquisita potra essere indicata nel proprio _curriculum_.
 
 === Con _agent_ si intende il _client_ o _ui_?
 Si fa il client, poi nel progetto l'agent può essere la parte _actionable_ dell'intelligenza artificiale. Creo quindi un _agent_ che possa sfruttare dei _software_ locali o API( _Application Programming Interface_ ) in _cloud_.
