@@ -8,7 +8,7 @@
   verificatori: "Matteo Marangon",
   tipo: "Verbale Esterno",
   destinatari: "Sigma18",
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "1.1.1",
   versioni: (
     "1.1.1",
     "2025-03-17",
