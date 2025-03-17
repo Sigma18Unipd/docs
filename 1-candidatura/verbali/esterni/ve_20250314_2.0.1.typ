@@ -7,8 +7,9 @@
   verificatori: ("Matteo Marangon", "Mirco Borella"),
   tipo: "Verbale Esterno",
   destinatari: ("Var Group S.p.A.", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "2.0.0",
+  versioneAttuale: "2.0.1",
   content: content,
+  firmaEsterna: true,
 )
 
 = Riferimenti generali
