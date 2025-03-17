@@ -9,6 +9,7 @@
   versioneAttuale: "",
   versioni: (),
   content: [],
+  firmaEsterna: false,
 ) = {
   //Proprietà generali documento
   set text(lang: "it", size: 12pt)
@@ -134,6 +135,10 @@
 
   //Contenuto
   content
+  if firmaEsterna == true {
+    v(25pt)
+    align(right, text(weight: "bold", "Firma dell'azienda"))
+  }
 }
 
 //Tabella attività programmate
