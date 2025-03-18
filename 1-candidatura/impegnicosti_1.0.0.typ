@@ -5,11 +5,16 @@
   abstract: "Divisione ore per membro, definizione dei ruoli, riassunto dei costi e stima data di consegna",
   responsabili: "Marco Egidi",
   redattori: "Mirco Borella",
-  verificatori: ("Carmelo Russello", "Alessandro Bernardello"),
+  verificatori: ("Carmelo Russello", "Alessandro Bernardello", "Aleena Mathew"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.0.1",
   versioni: (
+    "1.0.1",
+    "2025/03/18",
+    "Mirco Borella",
+    "Carmelo Russello\nAlessandro Bernardello\nAleena Mathew",
+    "Correzioni sintattiche",
     "1.0.0",
     "2025/03/18",
     "Mirco Borella",
@@ -19,11 +24,11 @@
   content: content,
 )
 = Riferimenti generali
-Il documento ha lo scopo di definire i ruoli, i costi stimati e fornire una stima della data di consegna per lo svolgimento del capitolato proposto dall'azienda _*Var Group S.p.A*_ dal titolo: _*C3 - Automatizzare le routine digitali tramite l'intelligenza generativa*_.
+Il documento ha lo scopo di definire i ruoli, i costi preventivati e fornire una stima della data di consegna per lo svolgimento del capitolato proposto dall'azienda _*Var Group S.p.A*_ dal titolo: _*C3 - Automatizzare le routine digitali tramite l'intelligenza generativa*_.
 
 = Definizione dei ruoli
 == Amministratore
-L'ammministratore si occupa della gestione degli strumenti IT necessari all'avanzamento dello sviluppo. La figura, che conosce e comprende approfonditamente il _way of working_ offre supporto agli altri ruoli.
+L'ammministratore si occupa della gestione degli strumenti _IT_ necessari all'avanzamento dello sviluppo. La figura, che conosce e comprende approfonditamente il _way of working_ offre supporto agli altri ruoli.
 Si ritiene che la figura abbia maggior importanza nelle fasi iniziali dello sviluppo, con alcuni picchi nei momenti di rilascio del prodotto.
 
 == Analista
@@ -34,7 +39,7 @@ La figura produrrà il documento di analisi dei requisiti.
 
 == Progettista
 Il progettista è responsabile della definizione dell'architettura del sistema e della progettazione delle componenti _software_.
-Deve essere in grado di comunicare efficacemente con gli altri membri del team, inclusi programmatori e verificatori, per assicurarsi che la visione progettuale sia compresa e implementata correttamente e con l'analista per assicurarsi che i requisiti siano tradotti in una soluzione tecnica adatta.
+Deve essere in grado di comunicare efficacemente con gli altri membri del team, tra cui programmatori, analisti e verificatori, per assicurarsi che la visione progettuale sia compresa e implementata correttamente e che i requisiti siano tradotti in una soluzione tecnica adatta.
 
 Le ore stimate ammontano ad un valore compreso tra le ore dell'analista e quelle del programmatore.
 
@@ -107,7 +112,7 @@ Il gruppo prende atto delle possibilità di ritardi dovuti alle circostanze in s
 Considerando che il periodo di consegna preferibile coincide con le settimane centrali del mese di Agosto, teniamo in considerazione la possibilità che l'azienda proponente del capitolato sia chiusa per ferie.
 
 === Imprevisti personali
-Prendiamo atto che possano sorgere imprevisti personali che potrebbero andare a compromettere lo svolgimento delle mansioni assegnate ad un componente entro le scadenze assegnate, causando ritardi.
+Prendiamo atto che possano sorgere imprevisti personali i quali potrebbero andare a compromettere lo svolgimento delle mansioni assegnate ad un componente entro le scadenze assegnate, causando ritardi.
 
 == Difficoltà nello sviluppo
 Riconosciamo che l'uso di nuove tecnologie assieme alla complessità del progetto possano portare a rallentamenti o scelte sbagliate durante lo sviluppo.
