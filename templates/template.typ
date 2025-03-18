@@ -119,7 +119,7 @@
       columns: (auto, auto, auto, auto, 1fr),
       rows: auto,
       inset: 7pt,
-      table.header([Versione], [Data], [Autore], [Verificatore], [Descrizione Modifiche]),
+      table.header([Versione], [Data], [Autori], [Verificatori], [Descrizione Modifiche]),
       ..versioni
     )
     pagebreak()

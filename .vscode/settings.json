@@ -3,7 +3,7 @@
         "assets/fonts"
     ],
     "tinymist.formatterMode": "typstyle",
-    "tinymist.formatterPrintWidth": 160,
+    "tinymist.formatterPrintWidth": 140,
     "editor.formatOnSave": true,
     "editor.wordWrap": "on",
     "explorer.compactFolders": false,
