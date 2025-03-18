@@ -87,26 +87,7 @@ def update_index():
     with open(cartellaRepo + "/index.html", "r") as f:
         content = f.read()
     
-    # Generate aside links
     projects = get_projects()
-    aside_links = []
-    for p in projects:
-        name_part = re.sub(r'^\d+-', '', p)
-        if name_part.islower() and 3 <= len(name_part) <= 5:
-            display_name = name_part.upper()
-        else:
-            display_name = name_part.replace('-', ' ').title()
-        aside_links.append(f'<li><a href="#{p}">{display_name}</a></li>')
-    
-    # Update aside
-    aside_start = "<!-- AUTO-GENERATED ASIDE START -->"
-    aside_end = "<!-- AUTO-GENERATED ASIDE END -->"
-    content = re.sub(
-        re.escape(aside_start) + r".*?" + re.escape(aside_end),
-        f"{aside_start}\n{''.join(aside_links)}\n{aside_end}",
-        content,
-        flags=re.DOTALL
-    )
     
     # Generate main content
     projects_html = "\n".join([generate_project_section(p) for p in projects])
