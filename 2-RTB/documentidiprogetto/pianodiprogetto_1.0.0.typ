@@ -1,4 +1,4 @@
-#import "../templates/template.typ": *
+#import "../../templates/template.typ": *
 
 #show: content => verbale(
   titoloDocumento: "Piano di progetto",
@@ -7,14 +7,14 @@
   redattori: "Carmelo Russello",
   verificatori: "",
   tipo: "Documento Esterno",
-  destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
+  destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
   versioneAttuale: "1.0.0",
   versioni: (
     "1.0.0",
     "2025/04/07",
     "Carmelo Russello",
     "",
-    "Stesura documento",
+    "Stesura iniziale documento",
   ),
   content: content,
 )
