@@ -1,6 +1,5 @@
 #let verbale(
   titoloDocumento: "",
-  abstract: "",
   tipo: "",
   responsabili: (),
   redattori: (),
@@ -9,7 +8,6 @@
   versioneAttuale: "",
   versioni: (),
   content: [],
-  firmaEsterna: false,
 ) = {
   //Proprietà generali documento
   set text(lang: "it", size: 12pt)
@@ -90,12 +88,6 @@
     )
     #v(2em)
     #set par(spacing: 0.7em)
-
-    #if abstract != "" {
-      text(size: 16pt, weight: 800, style: "italic", "Abstract dei contenuti:")
-      linebreak()
-      text(size: 14pt, abstract)
-    }
   ]
   pagebreak()
 
@@ -132,28 +124,10 @@
   show outline.entry.where(level: 1): it => {
     strong(it)
   }
+  show outline.entry.where(level: 2): it => { }
   outline(title: [Indice #v(0.5em)], indent: 1em)
   pagebreak()
-  set heading(numbering: "1.")
 
   //Contenuto
   content
-  if firmaEsterna == true {
-    v(25pt)
-    align(right, text(weight: "bold", "Firma dell'azienda"))
-  }
-}
-
-//Tabella attività programmate
-#let tabellaAttivitaProgrammate(
-  attivita: (),
-) = {
-  v(0.5em)
-  table(
-    columns: (1fr, 3fr),
-    rows: auto,
-    inset: 5pt,
-    table.header([*Identificativo*], [*Descrizione*]),
-    ..attivita,
-  )
 }
