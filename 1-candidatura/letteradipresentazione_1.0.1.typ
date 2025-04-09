@@ -1,7 +1,7 @@
 #import "../templates/templateLettera.typ": *
 
 #show: content => verbale(
-  titoloDocumento: "Lettera di candidatura",
+  titoloDocumento: "Lettera di presentazione",
   mittenti: (
     "Alessandro Bernardello",
     "Mirco Borella",
