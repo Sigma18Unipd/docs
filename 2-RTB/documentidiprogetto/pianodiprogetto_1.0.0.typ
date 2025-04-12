@@ -20,13 +20,13 @@
 )
 = Introduzione
 == Scopo del documento
-Lo scopo del documento è quello di definire e documentare tutte le attività svolte e da svolgere dal team nel corso della realizzazione del progetto.
+Il presente documento ha l'obiettivo di definire e tenere traccia di tutte le attività eseguite e pianificate dal team durante lo sviluppo del progetto.
 
-Il piano di progetto pone particolare attenzione ai seguenti temi:
+Il piano di progetto si concentra in particolare su i seguenti aspetti:
 
-- Analisi dei rischi
-- Modello di sviluppo
-- Pianificazione
+- *Analisi dei rischi*
+- *Modello di sviluppo*
+- *Pianificazione*
 
 È importante sottolineare che il piano di progetto nasce come documento in continua evoluzione il quale potrà definirsi completo soltanto al termine del progetto. Il team si impegna ad aggiornarlo regolarmente, in modo da avere una visione chiara e attendibile dell'andamento del progetto.
 
@@ -36,9 +36,8 @@ Il prodotto consiste in un servizio che permette agli utenti di automatizzare le
 
 Nello specifico, il prodotto sarà composto da un *client* che permetterà all'utente di personalizzare i propri flussi di lavoro tramite un interfaccia _*drag & drop*_. Nell'interfaccia, i *blocchi* rappresentano applicazioni esterne, mentre gli *archi* che li collegano corrispondono ad automazioni espresse in linguaggio naturale. Tali istruzioni verranno interpretate da un *agente*, incaricato di eseguirle.
 == Glossario
-Per evitare equivoci e garantire chiarezza sulla terminologia utilizzata nei documenti, viene adottato un Glossario contenente tutti i termini potenzialmente ambigui.
-
-Tutti i termini che possiedono un riferimento nel Glossario verranno indicati nel seguente modo: *parola#super[g]*
+Per assicurare la massima chiarezza e prevenire qualsiasi possibile malinteso legato all'interpretazione dei termini utilizzati nei documenti, è stato predisposto un Glossario dedicato. Questo strumento raccoglie e definisce in maniera precisa tutti i termini che potrebbero risultare ambigui, tecnici o comunque soggetti a interpretazioni diverse.\
+All'interno dei documenti, ogni termine presente nel Glossario sarà opportunamente segnalato tramite la seguente notazione: *parola#sub()[GL]*, in modo da permettere al lettore di identificarne facilmente il significato esatto facendo riferimento al Glossario stesso.
 
 == Riferimenti
 === Riferimenti normativi
@@ -53,7 +52,7 @@ Tutti i termini che possiedono un riferimento nel Glossario verranno indicati ne
 
 === Riferimenti informativi
 
-- #link("TBA")[Glossario]
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario]
 #pagebreak()
 
 = Analisi dei rischi
@@ -107,7 +106,7 @@ Il seguente è l'approccio scelto per l'identificazione dei rischi:
   inset: 9pt,
   [*Codice*], [*RT1*],
   [*Descrizione*],
-  [L’utilizzo di tecnologie con cui i membri del gruppo non hanno ancora familiarità potrebbe causare rallentamenti nelle varie fasi dello sviluppo.],
+  [L'utilizzo di tecnologie con cui i membri del gruppo non hanno ancora familiarità potrebbe causare rallentamenti nelle varie fasi dello sviluppo.],
 
   [*Probabilità*], [Alta],
   [*Impatto*], [Medio],
@@ -163,6 +162,8 @@ Il seguente è l'approccio scelto per l'identificazione dei rischi:
   [Stabilire canali di comunicazione condivisi, in cui tutti i membri possano fornire aggiornamenti sul proprio lavoro, e programmare riunioni frequenti per mantenere il gruppo costantemente informato.],
 )
 
+#pagebreak()
+
 = Modello di sviluppo
 
 Il modello di sviluppo scelto dal team è il modello *Agile*, per la sua flessibilità rispetto ai modelli tradizionali. L'approccio è focalizzato sulla consegna al cliente, in tempi brevi e con frequenza regolare, e prevede il coinvolgimento diretto e continuo del cliente durante tutto il processo di sviluppo.
@@ -179,11 +180,21 @@ Una pratica essenziale da seguire con l'uso del modello *Agile* è la suddivisio
 
 = Pianificazione
 
-Avendo scelto il modello Agile le attività di lavoro verranno tramite la suddivisione in _*Sprint*_, un breve periodo di tempo nel quale il team lavora per completare una predeterminata quantità di lavoro per raggiungere gli obiettivi prefissati.
+Avendo scelto il modello *Agile* le attività di lavoro verranno tramite la suddivisione in _*Sprint*_, un breve periodo di tempo nel quale il team lavora per completare una predeterminata quantità di lavoro per raggiungere gli obiettivi prefissati.
 
-Il gruppo si occupa di prefissare gli obbiettivi da raggiungere all'inizio di ogni _*Sprint*_, effettuando la rotazione dei ruoli in modo tale da dividere il carico di lavoro in modo equo, come definito nel documento #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[*Preventivo dei costi e dichiarazione impegni*].
+== Ruolo del Team
+- *Pianificazione condivisa*: all'inizio di ogni *_Sprint_*, il gruppo stabilisce congiuntamente gli obiettivi.
 
-Alla fine di uno _*Sprint*_ viene proposta una riunione di resoconto con l'azienda su ciò che è stato portato a termine, si lavora su quello in cui si può migliorare e si stendono le basi per le successive settimane di lavoro.
+- *Rotazione dei ruoli*: per garantire equità e crescita trasversale tra i membri.
+
+- *Monitoraggio continuo*: uso di *_GitHub_* per tracciare l'avanzamento e segnalare le attività (_*issue*_).
+
+- *Interazione con l'azienda*: confronto regolare per mantenere l'allineamento tra team e committenza.
+
+Per approfondimenti sull'impegno dei membri e la stima dei costi, si fa riferimento al documento:
+#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[*Preventivo dei costi e dichiarazione impegni*].
+
+== Struttura Operativa degli Sprint
 
 Gli _*Sprint*_ verranno strutturati nel seguente modo:
 
@@ -202,6 +213,8 @@ Gli _*Sprint*_ verranno strutturati nel seguente modo:
 - *Consuntivo*: Una tabella che mostra il consuntivo delle ore svolte da ciascun membro, suddiviso per ruolo, insieme ai costi assegnati a ciascun ruolo. Necessario per una visione più ampia sul rendimento del gruppo durante l'analisi conclusiva.
 
 - *Analisi conclusiva*: Un resoconto di cosa è stato portato a termine durante lo _sprint_, delle cose da migliorare e dei nuovi obiettivi prefissati per la prossima iterazione.
+
+== Fasi Principali del Progetto
 
 Il progetto verrà suddiviso nelle seguenti fasi:
 
