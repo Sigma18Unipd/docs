@@ -157,3 +157,6 @@
     ..attivita,
   )
 }
+
+//Glossario
+#let glossario(term) = text[*_ #term#sub()[GL] _*]
