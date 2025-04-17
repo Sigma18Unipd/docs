@@ -107,3 +107,123 @@ Misura l’efficienza del costo per il lavoro svolto fino a un determinato momen
 
 
 === Sviluppo
+Attività che hanno lo scopo di descrivere le attività e i compiti necessari per creare e mantenere un sistema software, necessari per un prodotto finale che soddisfi i requisiti specificati nel contratto.
+
+Di seguito sono riportate le relative metriche.
+
+==== MPC-RSI (_Requirements Stability Index_)
+Indica la percentuale di requisiti modificati rispetto al totale dei requisiti.\
+Un valore alto indica che i requisiti sono stabili e non soggetti a modifiche frequenti.
+==== MPC-TD (_Technical Debt Ratio_)
+È il rapporto tra il tempo necessario per risolvere problemi tecnici e il tempo necessario per sviluppare nuove funzionalità.\
+Un valore basso indica che il codice è ben strutturato e non presenta problemi tecnici.
+
+#align(
+  center,
+  table(
+    columns: (auto, 1fr, auto, auto),
+    align: center,
+    rows: auto,
+    inset: 7pt,
+    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+    [MPC-RSI], [Requirements Stability Index], [≥75%], [100%],
+    [MPC-TD], [Technical Debt Ratio], [≤15%], [≤5%],
+  ),
+)
+#align(center, text("Tabella 1: Valori accettabili e ottimi del processo di sviluppo."))
+
+
+== Processi di supporto
+I processi di supporto forniscono servizi e attività che assistono i processi primari.
+Si tratta di documentazione, controllo qualità e verifica.
+
+=== Documentazione
+Permette di avere un tracciamento delle attività svolte.
+
+==== MPC-IG (_Indice di Gulpease_)
+Valuta la leggibilità di un testo basandosi su variabili quali il numero e la lunghezza delle parole e delle frasi.\
+Fornisce un punteggio da 0 a 100, dove punteggi più alti indicano una maggiore leggibilità.
+
+==== MPC-CO (_Correttezza ortografica_)
+Indica il numero di errori grammaticali e ortografici presenti in un documento.\
+
+#align(
+  center,
+  table(
+    columns: (auto, 1fr, auto, auto),
+    align: center,
+    rows: auto,
+    inset: 7pt,
+    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+    [MPC-IG], [Indice di Gulpease], [≥40], [≥70],
+    [MPC-CO], [Correttezza ortografica], [0], [0],
+  ),
+)
+#align(center, text("Tabella 1: Valori accettabili e ottimi del processo di documentazione."))
+
+
+=== Verifica
+
+==== MPC-CCO (_Code coverage_)
+È la quantità di codice eseguito durante i test.
+È utile per valutare la qualità dei test e per garantire che il codice sia stato testato adeguatamente.\
+
+
+
+==== MPC-TSP (_Test superati in percentuale_)
+Indica la percentuale di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti.
+Una percentuale alta indica che il sistema è stabile e che la maggior parte delle funzionalità funzionano come previsto.
+
+#align(
+  center,
+  table(
+    columns: (auto, 1fr, auto, auto),
+    align: center,
+    rows: auto,
+    inset: 7pt,
+    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+    [MPC-CCO], [Code coverage], [≥85%], [100%],
+    [MPC-TSP], [Test superati in percentuale], [100%], [100%],
+  ),
+)
+#align(center, text("Tabella 1: Valori accettabili e ottimi del processo di verifica."))
+
+=== Gestione della qualità
+
+==== MPC-SQM (_Satisfaction of Quality Metrics_)
+Indica la percentuale di metriche che soddisfano gli obiettivi minimi di qualità.\
+Il valore è ottenuto dalla somma delle metriche di qualità soddisfatte in rapporto al numero totale di metriche di qualità.
+
+#align(
+  center,
+  table(
+    columns: (auto, 1fr, auto, auto),
+    align: center,
+    rows: auto,
+    inset: 7pt,
+    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+    [MPC-SQM], [Satisfaction of Quality Metrics], [≥80%], [100%],
+  ),
+)
+#align(center, text("Tabella 1: Valori accettabili e ottimi del processo di gestione della qualità."))
+
+== Processi organizzativi
+I processi organizzativi riguardano la gestione e l’organizzazione del progetto come gestione dei processi, miglioramento, e formazione.
+
+=== MPC-ET (_ Efficienza temporale _)
+Valuta l'efficienza con cui il tempo disponibile viene impiegato in attività produttive, ovvero quelle contribuiscono al raggiungimento degli obiettivi del progetto.
+
+#align(
+  center,
+  table(
+    columns: (auto, 1fr, auto, auto),
+    align: center,
+    rows: auto,
+    inset: 7pt,
+    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+    [MPC-ET], [Efficienza temporale ], [≤3], [≤1],
+  ),
+)
+#align(center, text("Tabella 1: Valori accettabili e ottimi dei processi organizzativi."))
+
+= Qualità del prodotto
