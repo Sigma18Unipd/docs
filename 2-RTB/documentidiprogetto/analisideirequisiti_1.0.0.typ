@@ -58,6 +58,103 @@ L'utente base è colui che utilizza il prodotto per la prima volta e ha bisogno 
 === Utente avanzato
 L'utente avanzato è colui che possiede una formazione tale da comprendere il funzionamento di una #glossario("LLM") e che, pertanto, è in grado di sfruttare impostazioni avanzate per un'esperienza d'uso più personalizzata.
 == Funzionalità e vincoli
+Il prodotto dovrà consentire all'utente di creare flussi di lavoro sia in modo automatico che manuale, per automatizzare le operazioni digitali ricorrenti di determinate applicazioni supportate.\
+Infatti l'utente potrà:
+- Fornire una descrizione dell'automazione desiderata e poi visualizzarla e modificarla , se necessario , tramite un'interfaccia grafica che utilizza un sistema di #glossario("drag & drop").
+- Creare un flusso di lavoro in modo manuale, selezionando i blocchi e collegandoli tra loro.
+- Avviare l'automazione selezionata tramite l'apposito pulsante.
+- Visualizzare lo stato dell'automazione in esecuzione e ricevere eventuali messaggi di errore.
+- Interrompere l'automazione in esecuzione in qualsiasi momento.
+- Dare un feedback dell'automazione generata.
+#pagebreak()
+
+
 = Casi d'uso
+== Introduzione
+Questa sezione del documento descrive ogni caso d'uso del progetto proposto da _Var Group S.p.A._ , i seguenti casi d'uso sono stati individuati grazie ad un attento studio del capitolato e ad una sessione di #glossario("design thinking") svolta in presenza con l'azienda proponente.\
+È stata adottata una nomenclatura standard per definire i casi d'uso nel formato seguente: *UC[numero_caso_uso]*.\
+== Attori
+L'applicativo ha due tipi di attori:
+- *utente non autenticato* : colui che non ha effettuato il login e quindi non ha accesso al servizio.
+- *utente autenticato* : colui che ha effettuato il login e ha accesso al servizio.
+== Elenco dei casi d'uso
+=== UC[1] : Login
+- *Attori principali* : utente non autenticato
+- *Pre-condizioni* : l'utente non è autenticato e possiede un _account_.
+- *Post-condizioni* : l'utente è autenticato
+- *Scenario principale* :
+  1. L'utente accede all' applicativo.
+  2. L'utente inserisce la propria email (*UC[2]*).
+  3. L'utente inserisce la propria password (*UC[3]*).
+  4. Il sistema verifica le credenziali e lo fa accedere alla _dashboard_.
+- *Estensioni* : credenziali non valide (*UC[4]*).
+
+=== UC[2] : Inserimento email
+- *Attori principali* : utente non autenticato.
+- *Pre-condizioni* : l'utente non è autenticato e possiede un _account_.
+- *Post-condizioni* : l'utente ha inserito la propria email.
+- *Scenario principale* :
+  1. L'utente accede all'applicativo.
+  2. L'utente inserisce la propria email.
+
+=== UC[3] : Inserimento _password_
+- *Attori principali* : utente non autenticato.
+- *Pre-condizioni* : l'utente non è autenticato e possiede un _account_.
+- *Post-condizioni* : l'utente ha inserito la propria _password_.
+- *Scenario principale* :
+  1. L'utente accede all'applicativo.
+  2. L'utente inserisce la propria _password_.
+
+=== UC[4] : Credenziali non valide
+- *Attori principali* : utente non autenticato.
+- *Pre-condizioni* : l'utente non autenticato inserisce le proprie credenziali .
+- *Post-condizioni* : il sistema individua credenziali errate.
+- *Scenario principale* :
+  1. L'utente inserisce le proprie credenziali.
+  2. Il sistema individua le credenziali errate e invia un codice di errore all'utente.
+  3. L'utente può ripetere l'inserimento delle credenziali (*UC[2]*, *UC[3]*).
+
+=== UC[5] : Registrazione
+- *Attori principali* : utente non autenticato.
+- *Pre-condizioni* : l'utente non ha un _account_.
+- *Post-condizioni* : l'utente ha un _account_.
+- *Scenario principale* :
+  1. L'utente accede all'applicativo.
+  2. L'utente accede alla pagina di registrazione.
+  3. L'utente inserisce la propria _email_ (*UC[2]*).
+  4. L'utente crea la _password_ (*UC[3]*).
+  5. L'utente reinserisce la _password_ creata (*UC[6]*).
+  6. Il sistema verifica che le due _password_ siano uguali.
+  7. Il sistema verifica che l'email non sia già in uso.
+  8. Il sistema crea l' _account_ e salva le credenziali nel database.
+- *Estensioni* : email già in uso (*UC[7]*), _password_ non valide (*UC[8]*).
+
+=== UC[6] : Conferma _password_
+- *Attori principali* : utente non autenticato.
+- *Pre-condizioni* : l'utente ha scelto una _password_ da utilizzare .
+- *Post-condizioni* : l'utente ha reinserito la _password_ scelta.
+- *Scenario principale* :
+  1. L'utente conferma la _password_ scelta.
+  2. Il sistema controlla che le due _password_ siano uguali.
+- *Estensioni* : _password_ non valide (*UC[8]*).
+
+=== UC[7] : Email già in uso
+- *Attori principali* : utente non autenticato.
+- *Pre-condizioni* : l'utente ha scelto una _email_ da utilizzare .
+- *Post-condizioni* : la _email_ scelta dall'utente è gia in uso.
+- *Scenario principale* :
+  1. L'utente inserisce la propria _email_ per la registrazione.
+  2. Il sistema individua che esiste gia un _account_ che utilizza la _email_ scelta.
+  3. Il sistema invia un codice di errore all'utente.
+
+=== UC[8] : Password non valide
+- *Attori principali* : utente non autenticato.
+- *Pre-condizioni* : l'utente ha inserito la _password_ e l'ha confermata .
+- *Post-condizioni* : la _password_ scelta non adempie ai requisiti di sicurezza o le due _password_ non sono uguali.
+- *Scenario principale* :
+  1. L'utente inserisce la _password_ scelta e la conferma.
+  2. Il sistema individua che le due _password_ non corrispondono o non adempiono ai requisiti minimi di sicurezza.
+  3. Il sistema invia un codice di errore all'utente.
+
 = Requisiti
 
