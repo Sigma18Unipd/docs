@@ -3,12 +3,17 @@
 #show: content => verbale(
   titoloDocumento: "Glossario",
   responsabili: "Matteo Marangon",
-  redattori: "Mirco Borella",
+  redattori: ("Mirco Borella", "Matteo Marangon"),
   verificatori: ("Marco Egidi", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
   versioneAttuale: "1.1.0",
   versioni: (
+    "1.2.0",
+    "2025-04-18",
+    "Matteo Marangon",
+    "Pietro Crotti",
+    "Aggiunta nuovi termini",
     "1.1.0",
     "2025-04-16",
     "Mirco Borella",
@@ -56,6 +61,9 @@ Componente o programma che accede ad un servizio reso disponibile da un #glossar
 #pagebreak()
 = D
 
+== Dashboard
+Pagina principale del #glossario("client") contenente le #glossario("routine") create dall'utente e la possibilità di crearne di nuove.
+
 == Design Thinking
 Approccio di progettazione di un software centrato sull'esperienza utente che prende in considerazione il target di riferimento per costruire un'esperienza solida e mirata, particolarmente funzionale in un ambiente agile.
 
@@ -71,6 +79,15 @@ Sistema di controllo di versione distribuito che consente a più utenti di lavor
 
 == GitHub
 Piattaforma web basata su #glossario("git") che fornisce strumenti per l'hosting di repository, il versionamento del codice e la collaborazione tra sviluppatori.
+
+#pagebreak()
+= L
+
+== LLM (_Large Language Model_)
+Un Large Language Model (LLM) è un modello statistico di intelligenza artificiale, generalmente basato su reti neurali profonde e sull'architettura dei transformer, addestrato su vaste collezioni di dati testuali con l'obiettivo di apprendere le regolarità e le strutture del linguaggio naturale.
+
+== Log
+File che genera e registra le attività di un'applicazione al fine di comprenderne il funzionamento e i problemi.
 
 #pagebreak()
 = M
