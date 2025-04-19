@@ -213,7 +213,7 @@ def process_file(filepath: str) -> set[str]:
     for term in used_terms:
         if term not in glossary_terms:
              terms_not_found.add(term)
-             logger.debug(f"Term '{term}' not found in glossary for pattern '{pattern}'")
+    logger.debug(f"Terms not found in glossary for '{filepath}': {list(terms_not_found)}")
     return terms_not_found
 
 
@@ -264,7 +264,7 @@ if __name__ == "__main__":
             with file_pool as executor:
                 results = list(executor.map(process_file, files))
         elif os.path.isfile(path) and path.endswith(".typ"):
-            results=process_file(path)
+            results=[process_file(path)]
         else:
             logger.error(f"'{path}' is not a valid file or directory.")
             sys.exit(0)
@@ -281,7 +281,7 @@ if __name__ == "__main__":
     else:
         logger.info("All glossary citations have a backing glossary entry")
 
-
+    # lookup missing glossary definitions, requires awaiting all futures
     with glossary_dict_lock:
         glossary_futures_to_wait = list(glossary_pattern_terms.values())
 
