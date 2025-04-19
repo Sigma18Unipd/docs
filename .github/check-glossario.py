@@ -22,7 +22,7 @@ SEARCH_PATTERNS = ("2-RTB", "3-PB")
 GLOSSARY_NAME="glossario.typ"
 # specifies a list of glossary terms not to report missing
 # path is relative to the project root 
-IGNORE_SET = "pythonAct/.github/ignore.yml"
+IGNORE_SET = ".github/glossario-ignorelist.yml"
 
 logger = logging.getLogger(__name__)
 LOG_LEVELS = {0: logging.ERROR, 1: logging.WARNING, 2: logging.INFO, 3: logging.DEBUG}
@@ -31,7 +31,7 @@ glossary_pattern_mapping: dict[str, str] = {}
 glossary_dict_lock = threading.Lock()
 ignore_set: set[str] = set()
 ignore_set_lock = threading.Lock()
-manual_glossary_path= None
+manual_glossary_path = None
 file_pool: ThreadPoolExecutor | None = None
 glossary_pool = ThreadPoolExecutor(max_workers=1)
 
