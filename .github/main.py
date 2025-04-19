@@ -2,6 +2,7 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
+#    "pyyaml",
 # ]
 # ///
 
@@ -13,15 +14,23 @@ import logging
 from concurrent.futures import ThreadPoolExecutor, Future
 import sys
 import threading
+import yaml
 
+# each file's filepath will be trimmed to whatever matches a search pattern
+# from there the script will look for a file matching GLOSSARY_NAME to parse
 SEARCH_PATTERNS = ("2-RTB", "3-PB")
 GLOSSARY_NAME="glossario.typ"
+# specifies a list of glossary terms not to report missing
+# path is relative to the project root 
+IGNORE_SET = "pythonAct/.github/ignore.yml"
 
 logger = logging.getLogger(__name__)
 LOG_LEVELS = {0: logging.ERROR, 1: logging.WARNING, 2: logging.INFO, 3: logging.DEBUG}
 glossary_pattern_terms: dict[str, Future | None] = {}
 glossary_pattern_mapping: dict[str, str] = {}
 glossary_dict_lock = threading.Lock()
+ignore_set: set[str] = set()
+ignore_set_lock = threading.Lock()
 manual_glossary_path= None
 file_pool: ThreadPoolExecutor | None = None
 glossary_pool = ThreadPoolExecutor(max_workers=1)
@@ -171,7 +180,53 @@ def get_glossary_terms(filepath: str) -> tuple[Future| None, str]:
         with glossary_dict_lock:
              glossary_pattern_terms[pattern] = None # Mark as failed
         return None, pattern
+    
+def find_project_root(starting_filepath, max_depth=6) -> str:
+    """
+    Walks up the directory tree and finds the root by looking for the .git directory.
+    """
+    current_dir = os.path.abspath(os.path.dirname(starting_filepath))
+    parent_dir = None
+    for _ in range(max_depth):
+        if os.path.isdir(os.path.join(current_dir, ".git")):
+            logger.debug(f"Project root found: {current_dir}")
+            return current_dir
+        parent_dir = os.path.dirname(current_dir)
+        if parent_dir == current_dir or not os.path.exists(parent_dir):
+            break
+        current_dir = parent_dir
+    return ""
 
+def load_ignore_set() -> set[str]:
+    """
+    Loads the ignore list from a YAML file.
+    Returns:
+        dict: A dictionary of ignored terms.
+    """
+    global ignore_set
+    with ignore_set_lock:
+        if ignore_set:
+            return ignore_set
+        project_root = find_project_root(__file__)
+        if project_root:
+            logger.debug(f"Project root for ignore set: {project_root}")
+            ignore_path = os.path.join(project_root, IGNORE_SET)
+            if os.path.exists(ignore_path):
+                with open(ignore_path, 'r', encoding='utf-8') as f:
+                    parsed = yaml.safe_load(f)
+                    if parsed and "ignore_list" in parsed:
+                        ignore_set = set(parsed["ignore_list"])
+                        logger.debug(f"Loaded ignore list from '{ignore_path}': {list(ignore_set)}")
+                    else:
+                        logger.warning(f"No 'ignore_list' key found in '{ignore_path}'.")
+                        ignore_set = {}
+            else:
+                logger.warning(f"Ignore list file '{ignore_path}' not found.")
+                ignore_set = {}
+        else:
+            logger.warning("Project root not found, cannot load ignore set.")
+            ignore_set = {}
+    return ignore_set
 
 def process_file(filepath: str) -> set[str]:
     """
@@ -210,9 +265,10 @@ def process_file(filepath: str) -> set[str]:
     logger.debug(f"Extracted terms from '{filepath}': {list(used_terms)}")
 
     # wait until future completion
+    ignore_set = load_ignore_set()
     glossary_terms = glossary_terms_future.result()
     for term in used_terms:
-        if term not in glossary_terms:
+        if term not in glossary_terms and term not in ignore_set:
              terms_not_found.add(term)
     logger.debug(f"Terms not found in glossary for '{filepath}': {list(terms_not_found)}")
     return terms_not_found
