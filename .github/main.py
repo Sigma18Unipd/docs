@@ -21,6 +21,7 @@ LOG_LEVELS = {0: logging.ERROR, 1: logging.WARNING, 2: logging.INFO, 3: logging.
 glossary_pattern_terms: dict[str, Future | None] = {}
 glossary_pattern_mapping: dict[str, str] = {}
 glossary_dict_lock = threading.Lock()
+manual_glossary_path= None
 file_pool: ThreadPoolExecutor | None = None
 glossary_pool = ThreadPoolExecutor(max_workers=1)
 
@@ -113,6 +114,9 @@ def find_glossary_for_pattern(subdir_root: str, pattern: str) -> str | None:
     Caches the result.
     """
     # GIL does not help with concurrent writes, this avoids spaciughi
+    if manual_glossary_path:
+        logger.debug(f"Using manual glossary path '{manual_glossary_path}' for pattern '{pattern}'")
+        return manual_glossary_path
     with glossary_dict_lock:
         if pattern in glossary_pattern_mapping:
             logger.debug(f"Using cached glossary '{glossary_pattern_mapping[pattern]}' for pattern '{pattern}'")
@@ -237,7 +241,7 @@ if __name__ == "__main__":
         "-g",
         "--glossary",
         type=str,
-        help="Manually provide the glossary file path",
+        help="Manually provide the glossary file path. Will override automatic glossary detection.",
     )
     args = parser.parse_args()
     formatter='%(levelname)s: %(message)s'
