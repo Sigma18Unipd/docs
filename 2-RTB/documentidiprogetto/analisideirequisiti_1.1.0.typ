@@ -27,6 +27,8 @@
     "Stesura iniziale documento",
   ),
 )
+#outline(title: "Diagrammi dei casi d'uso", target: figure.where(kind: image))
+#pagebreak()
 
 = Introduzione
 == Scopo del documento
@@ -60,7 +62,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 #pagebreak()
 = Descrizione del prodotto
 == Obiettivi del prodotto
-L'obiettivo del prodotto è garantire l'ottimizzazione del tempo per i nostri utenti, automatizzando le routine digitali che altrimenti richiederebbero interventi manuali, attraverso l'utilizzo delle API fornite dagli agenti.
+L'obiettivo del prodotto è garantire l'ottimizzazione del tempo per i nostri utenti, automatizzando le #glossario("routine")  digitali che altrimenti richiederebbero interventi manuali, attraverso l'utilizzo delle #glossario("API")  fornite dagli agenti.
 == Utenti
 Il prodotto è destinato a due tipologie di utenti: utente base e utente avanzato.\
 === Utente base
@@ -97,7 +99,8 @@ L'applicativo ha due tipi di attori:
   2. L'utente inserisce la propria email (#link(<UC2>)[*UC[2]*]).
   3. L'utente inserisce la propria password (#link(<UC3>)[*UC[3]*]).
   4. Il sistema verifica le credenziali e permette di accedere alla #glossario("dashboard").
-- *Estensioni* : credenziali non valide (#link(<UC4>)[*UC[4]*]).
+- *Estensioni* : 
+  - Credenziali non valide (#link(<UC4>)[*UC[4]*]).
 
 === UC[2] : Inserimento email <UC2>
 - *Attore principale* : utente non autenticato.
@@ -123,6 +126,7 @@ L'applicativo ha due tipi di attori:
   1. L'utente inserisce le proprie credenziali.
   2. Il sistema individua le credenziali errate e invia un codice di errore all'utente.
   3. L'utente può ripetere l'inserimento delle credenziali (#link(<UC2>)[*UC[2]*], #link(<UC3>)[*UC[3]*]).
+#figure(image("../../assets/usecasediagrams/UC_1_2_3_4.png"), caption:[Diagramma casi d'uso UC[1], UC[2], UC[3], UC[4]],) 
 
 === UC[5] : Registrazione
 - *Attore principale* : utente non autenticato.
@@ -131,24 +135,42 @@ L'applicativo ha due tipi di attori:
 - *Scenario principale* :
   1. L'utente accede all'applicativo.
   2. L'utente accede alla pagina di registrazione.
-  3. L'utente inserisce la propria _email_ (#link(<UC2>)[*UC[2]*]).
-  4. L'utente crea la _password_ (#link(<UC3>)[*UC[3]*]).
-  5. L'utente reinserisce la _password_ creata (#link(<UC6>)[*UC[6]*]).
+  3. L'utente inserisce la propria _email_ (#link(<UC6>)[*UC[6]*]).
+  4. L'utente crea la _password_ (#link(<UC7>)[*UC[7]*]).
+  5. L'utente reinserisce la _password_ creata (#link(<UC8>)[*UC[8]*]).
   6. Il sistema verifica che le due _password_ siano uguali.
   7. Il sistema verifica che l'email non sia già in uso.
   8. Il sistema crea l'_account_ e salva le credenziali nel database.
-- *Estensioni* : email già in uso (#link(<UC7>)[*UC[7]*]), _password_ non valide (#link(<UC8>)[*UC[8]*]).
+- *Estensioni* :
+  - Email già in uso (#link(<UC9>)[*UC[9]*])
+  - _Password_ non valide (#link(<UC10>)[*UC[10]*]).
 
-=== UC[6] : Conferma _password_ <UC6>
+=== UC[6] : Registrazione email <UC6>
+- *Attore principale* : utente non autenticato.
+- *Pre-condizioni* : l'utente non è autenticato e non possiede un _account_.
+- *Post-condizioni* : l'utente ha inserito l'email scelta.
+- *Scenario principale* :
+  1. L'utente accede all'applicativo.
+  2. L'utente inserisce la propria email.
+
+=== UC[7] : Creazione _password_ <UC7>
+- *Attore principale* : utente non autenticato.
+- *Pre-condizioni* : l'utente non è autenticato e non possiede un _account_.
+- *Post-condizioni* : l'utente ha inserito la _password_ scelta.
+- *Scenario principale* :
+  1. L'utente accede all'applicativo.
+  2. L'utente inserisce la _password_ scelta.
+
+=== UC[8] : Conferma _password_ <UC8>
 - *Attore principale* : utente non autenticato.
 - *Pre-condizioni* : l'utente ha scelto una _password_ da utilizzare.
 - *Post-condizioni* : l'utente ha reinserito la _password_ scelta.
 - *Scenario principale* :
   1. L'utente conferma la _password_ scelta.
   2. Il sistema controlla che le due _password_ siano uguali.
-- *Estensioni* : _password_ non valide (#link(<UC8>)[*UC[8]*]).
+//- *Estensioni* : _password_ non valide (#link(<UC10>)[*UC[10]*]).
 
-=== UC[7] : Email già in uso <UC7>
+=== UC[9] : Email già in uso <UC9>
 - *Attore principale* : utente non autenticato.
 - *Pre-condizioni* : l'utente ha scelto una _email_ da utilizzare.
 - *Post-condizioni* : la _email_ scelta dall'utente è gia in uso.
@@ -157,7 +179,7 @@ L'applicativo ha due tipi di attori:
   2. Il sistema individua che esiste gia un _account_ che utilizza la _email_ scelta.
   3. Il sistema invia un codice di errore all'utente.
 
-=== UC[8] : Password non valida <UC8>
+=== UC[10] : Password non valida <UC10>
 - *Attore principale* : utente non autenticato.
 - *Pre-condizioni* : l'utente ha inserito la _password_ e l'ha confermata.
 - *Post-condizioni* : la _password_ scelta non adempie ai requisiti di sicurezza o le due _password_ non combaciano.
@@ -165,103 +187,85 @@ L'applicativo ha due tipi di attori:
   1. L'utente inserisce la _password_ scelta e la conferma.
   2. Il sistema individua che le due _password_ non corrispondono o non adempiono ai requisiti minimi di sicurezza.
   3. Il sistema invia un codice di errore all'utente.
-
-=== UC[9] : Creazione nuova _routine_ <UC9>
+#figure(image("../../assets/usecasediagrams/UC_5_6_7_8_9_10.png"), caption:[Diagramma casi d'uso UC[5], UC[6], UC[7], UC[8], UC[9], UC[10]],) 
+=== UC[11] : Creazione nuova _routine_ <UC11>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
 - *Post-condizioni* : viene creata una nuova _routine_ nella _dashboard_.
 - *Scenario principale* :
   1. L'utente scrive in linguaggio naturale la _routine_ che vuole creare nel campo di testo dedicato.
-  2. La richiesta viene elaborata da un _LLM_.
+  2. La richiesta viene elaborata da un #glossario("LLM").
   3. Il sistema genera un flusso di lavoro in base alla richiesta dell'utente.
   4. Il sistema mostra il flusso di lavoro accanto a quelli precedentemente creati.
-- *Estensioni* : modifica delle funzionalità di generazione avanzata (#link(<UC18>)[*UC[18]*]).
+- *Estensioni* : 
+  - Modifica delle funzionalità di generazione avanzata (#link(<UC13>)[*UC[13]*])
+  - Creazione di una #glossario("routine")  vuota (#link(<UC12>)[*UC[12]*]).
 
-=== UC[10] : Creazione nuova _routine_ vuota
+=== UC[12] : Creazione nuova _routine_ vuota <UC12>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
 - *Post-condizioni* : viene creata una nuova _routine_ vuota nella _dashboard_.
 - *Scenario principale* :
   1. L'utente seleziona l'opzione di creazione di una nuova _routine_ vuota nella _dashboard_.
   2. Il sistema crea una nuova _routine_ vuota e la mostra nella _dashboard_.
-- *Estensioni* : modifica della _routine_ (#link(<UC12>)[*UC[12]*]).
+//- *Estensioni* : modifica della _routine_ (#link(<UC14>)[*UC[14]*]).
 
-=== UC[11] : Visualizzare i dettagli di una _routine_ esistente <UC11>
-- *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : viene visualizzata una pagina con i dettagli di una _routine_ già esistente.
-- *Scenario principale* :
-  1. L'utente seleziona una _routine_ esistente dalla lista dei flussi nella _dashboard_.
-  2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
 
-=== UC[12] : Modifica di una _routine_ esistente tramite drag & drop <UC12> // singolo use case per la modifica o uno use case per ogni opzione di modifica?
-- *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : viene modificato il comportamento della _routine_ selezionata.
-- *Scenario principale* :
-  1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC11>)[*UC[11]*]).
-  2. L'utente trascina un blocco dalla barra laterale e lo rilascia nella posizione desiderata.
-  3. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_.
-
-=== UC[13] : Eliminare una _routine_ esistente
-- *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : la _dashboard_ viene aggiornata e la _routine_ selezionata viene eliminata.
-- *Scenario principale* :
-  1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC11>)[*UC[11]*]).
-  2. L'utente seleziona l'opzione di eliminazione della _routine_.
-  3. Il sistema mostra un messaggio di conferma dell'eliminazione.
-  4. L'utente conferma l'eliminazione.
-  5. Il sistema elimina la _routine_ e aggiorna la _dashboard_.
-
-=== UC[14] : Avviare una _routine_ esistente tramite _dashboard_ <UC14>
-- *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : la _routine_ selezionata viene avviata.
-- *Scenario principale* :
-  1. L'utente seleziona l'opzione di avvio della _routine_.
-  2. Il sistema avvia la _routine_
-  3. Il sistema registra un #glossario("log") dell'esecuzione.
-
-=== UC[15] : Avviare una _routine_ esistente tramite _dettagli flusso_
-- *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli del flusso.
-- *Post-condizioni* : la _routine_ selezionata viene avviata.
-- *Scenario principale* :
-  1. L'utente seleziona l'opzione di avvio della _routine_.
-  2. Il sistema avvia la _routine_.
-  3. Il sistema registra un log dell'esecuzione.
-
-=== UC[16] : Interrompere una _routine_ avviata
-- *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e ha avviato una _routine_.
-- *Post-condizioni* : l'esecuzione della _routine_ in corso viene interrotta.
-- *Scenario principale* :
-  1. L'utente seleziona l'opzione di interruzione della _routine_.
-  2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
-  3. Il sistema registra nel log il motivo dell'interruzione.
-
-=== UC[17] : Modificare le impostazioni generali
-- *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso.
-- *Post-condizioni* : le impostazioni vengono aggiornate secondo le preferenze dell'utente.
-- *Scenario principale* :
-  1. L'utente seleziona l'icona delle impostazioni all'interno del _client_.
-  2. Il sistema mostra una pagina con le impostazioni generali.
-  3. L'utente modifica le impostazioni desiderate.
-  4. Il sistema salva le modifiche.
-
-=== UC[18] : Accedere a funzionalità di generazione avanzate <UC18>
+=== UC[13] : Accedere a funzionalità di generazione avanzate <UC13>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
 - *Post-condizioni* : le impostazioni di generazione vengono modificate secondo le preferenze dell'utente.
 - *Scenario principale* :
   1. L'utente seleziona l'icona delle impostazioni di generazione accanto al campo di testo per la creazione di una nuova _routine_.
   2. Il sistema mostra una finestra con le impostazioni di generazione.
-  3. L'utente modifica le impostazioni desiderate, legate a scelta modello, contesto o temperatura dell'_LLM_.
+  3. L'utente modifica le impostazioni desiderate, legate a scelta modello, contesto o temperatura dell'#glossario("LLM") .
   4. Il sistema salva le modifiche per la generazione corrente.
 
-=== UC[19] : Modificare le impostazioni di un singolo blocco
+#figure(image("../../assets/usecasediagrams/UC_11_12_13.png"), caption:[Diagramma casi d'uso UC[11], UC[12], UC[13],],) 
+
+=== UC[14] : Visualizzare i dettagli di una _routine_ esistente <UC14>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
+- *Post-condizioni* : viene visualizzata una pagina con i dettagli di una _routine_ già esistente.
+- *Scenario principale* :
+  1. L'utente seleziona una _routine_ esistente dalla lista dei flussi nella _dashboard_.
+  2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
+- *Estensioni* : 
+  - Modifica della _routine_ (#link(<UC15>)[*UC[15]*]).
+  - Eliminazione di una #glossario("routine")  esistente (#link(<UC16>)[*UC[16]*]).
+  - Avviare una _routine_ esistente tramite _dettagli flusso_ (#link(<UC17>)[*UC[17]*]).
+  - Modificare le impostazioni di un singolo blocco (#link(<UC18>)[*UC[18]*]).
+
+=== UC[15] : Modifica di una _routine_ esistente tramite drag & drop <UC15> // singolo use case per la modifica o uno use case per ogni opzione di modifica?
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
+- *Post-condizioni* : viene modificato il comportamento della _routine_ selezionata.
+- *Scenario principale* :
+  1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
+  2. L'utente trascina un blocco dalla barra laterale e lo rilascia nella posizione desiderata.
+  3. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_.
+
+=== UC[16] : Eliminare una _routine_ esistente <UC16>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
+- *Post-condizioni* : la _dashboard_ viene aggiornata e la _routine_ selezionata viene eliminata.
+- *Scenario principale* :
+  1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
+  2. L'utente seleziona l'opzione di eliminazione della _routine_.
+  3. Il sistema mostra un messaggio di conferma dell'eliminazione.
+  4. L'utente conferma l'eliminazione.
+  5. Il sistema elimina la _routine_ e aggiorna la _dashboard_.
+
+=== UC[17] : Avviare una _routine_ esistente tramite _dettagli flusso_ <UC17>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli del flusso.
+- *Post-condizioni* : la _routine_ selezionata viene avviata.
+- *Scenario principale* :
+  1. L'utente seleziona l'opzione di avvio della _routine_.
+  2. Il sistema avvia la _routine_.
+  3. Il sistema registra un #glossario("log") dell'esecuzione.
+
+  === UC[18] : Modificare le impostazioni di un singolo blocco <UC18>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli del flusso.
 - *Post-condizioni* : le impostazioni del singolo blocco vengono modificate.
@@ -272,26 +276,62 @@ L'applicativo ha due tipi di attori:
   4. L'utente modifica le impostazioni desiderate.
   5. Il sistema salva le modifiche per il relativo blocco.
 
+  #figure(image("../../assets/usecasediagrams/UC_14_15_16_17_18.png"), caption:[Diagramma casi d'uso UC[14], UC[15], UC[16], UC[17], UC[18],],)
+
+=== UC[19] : Avviare una _routine_ esistente tramite _dashboard_ <UC19>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
+- *Post-condizioni* : la _routine_ selezionata viene avviata.
+- *Scenario principale* :
+  1. L'utente seleziona l'opzione di avvio della _routine_.
+  2. Il sistema avvia la _routine_
+  3. Il sistema registra un #glossario("log") dell'esecuzione.
+
+#figure(image("../../assets/usecasediagrams/UC_19.png"), caption:[Diagramma casi d'uso UC[19],],)
+
+=== UC[20] : Interrompere una _routine_ avviata
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e ha avviato una _routine_.
+- *Post-condizioni* : l'esecuzione della _routine_ in corso viene interrotta.
+- *Scenario principale* :
+  1. L'utente seleziona l'opzione di interruzione della _routine_.
+  2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
+  3. Il sistema registra nel #glossario("log") il motivo dell'interruzione.
+
+#figure(image("../../assets/usecasediagrams/UC_20.png"), caption:[Diagramma casi d'uso UC[20],],)
+
+=== UC[21] : Modificare le impostazioni generali
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso.
+- *Post-condizioni* : le impostazioni vengono aggiornate secondo le preferenze dell'utente.
+- *Scenario principale* :
+  1. L'utente seleziona l'icona delle impostazioni all'interno del _client_.
+  2. Il sistema mostra una pagina con le impostazioni generali.
+  3. L'utente modifica le impostazioni desiderate.
+  4. Il sistema salva le modifiche.
+
+#figure(image("../../assets/usecasediagrams/UC_21.png"), caption:[Diagramma casi d'uso UC[21],],)
+
 // metto UC[X] perche gli errori credo vadano alla fine e quindi ricordarsi di aggiornare i numeri
-=== UC[X] : Visualizzazione dell'errore "Il server non risponde"
+=== UC[X] : Visualizzazione dell'errore "Il #glossario("server")  non risponde"
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso.
 - *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
 - *Scenario principale* :
-  1. Il sistema rileva che la connessione al server non è più disponibile.
+  1. Il sistema rileva che la connessione al #glossario("server")  non è più disponibile.
   2. Il sistema mostra un messaggio di errore all'utente.
 
 === UC[X] : Visualizzazione dell'errore "Impossibile generare il flusso"
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di generare il flusso tramite linguaggio naturale (#link(<UC9>)[*UC[9]*]) , ma si verifica un errore.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di generare il flusso tramite linguaggio naturale (#link(<UC11>)[*UC[11]*]) , ma si verifica un errore.
 - *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
 - *Scenario principale* :
   1. L'utente sta generando il flusso tramite linguaggio naturale.
-  2. L' _LLM_ non riesce a generare il flusso e il sistema mostra un messaggio di errore.
+  2. L' #glossario("LLM") non riesce a generare il flusso e il sistema mostra un messaggio di errore.
 
 === UC[X] : Visualizzazione dell'errore "Impossibile avviare il flusso"
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di avviare il flusso (#link(<UC14>)[*UC[14]*]) , ma si verifica un errore.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di avviare il flusso (#link(<UC17>)[*UC[17]*]) , (#link(<UC19>)[*UC[19]*]),  ma si verifica un errore.
 - *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
 - *Scenario principale* :
   1. L'utente sta avviando il flusso.
