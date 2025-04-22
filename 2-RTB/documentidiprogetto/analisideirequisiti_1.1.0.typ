@@ -45,7 +45,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 == Riferimenti
 === Riferimenti normativi
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le #glossario("routine")  digitali tramite l'intelligenza generativa]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico]
 
@@ -188,12 +188,12 @@ L'applicativo ha due tipi di attori:
   2. Il sistema individua che le due _password_ non corrispondono o non adempiono ai requisiti minimi di sicurezza.
   3. Il sistema invia un codice di errore all'utente.
 #figure(image("../../assets/usecasediagrams/UC_5_6_7_8_9_10.png"), caption:[Diagramma casi d'uso UC[5], UC[6], UC[7], UC[8], UC[9], UC[10]],) 
-=== UC[11] : Creazione nuova _routine_ <UC11>
+=== UC[11] : Creazione nuova #glossario("routine")  <UC11>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : viene creata una nuova _routine_ nella _dashboard_.
+- *Post-condizioni* : viene creata una nuova #glossario("routine")  nella _dashboard_.
 - *Scenario principale* :
-  1. L'utente scrive in linguaggio naturale la _routine_ che vuole creare nel campo di testo dedicato.
+  1. L'utente scrive in linguaggio naturale la #glossario("routine")  che vuole creare nel campo di testo dedicato.
   2. La richiesta viene elaborata da un #glossario("LLM").
   3. Il sistema genera un flusso di lavoro in base alla richiesta dell'utente.
   4. Il sistema mostra il flusso di lavoro accanto a quelli precedentemente creati.
@@ -201,14 +201,14 @@ L'applicativo ha due tipi di attori:
   - Modifica delle funzionalità di generazione avanzata (#link(<UC13>)[*UC[13]*])
   - Creazione di una #glossario("routine")  vuota (#link(<UC12>)[*UC[12]*]).
 
-=== UC[12] : Creazione nuova _routine_ vuota <UC12>
+=== UC[12] : Creazione nuova #glossario("routine")  vuota <UC12>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : viene creata una nuova _routine_ vuota nella _dashboard_.
+- *Post-condizioni* : viene creata una nuova #glossario("routine")  vuota nella _dashboard_.
 - *Scenario principale* :
-  1. L'utente seleziona l'opzione di creazione di una nuova _routine_ vuota nella _dashboard_.
-  2. Il sistema crea una nuova _routine_ vuota e la mostra nella _dashboard_.
-//- *Estensioni* : modifica della _routine_ (#link(<UC14>)[*UC[14]*]).
+  1. L'utente seleziona l'opzione di creazione di una nuova #glossario("routine")  vuota nella _dashboard_.
+  2. Il sistema crea una nuova #glossario("routine")  vuota e la mostra nella _dashboard_.
+//- *Estensioni* : modifica della #glossario("routine")  (#link(<UC14>)[*UC[14]*]).
 
 
 === UC[13] : Accedere a funzionalità di generazione avanzate <UC13>
@@ -216,53 +216,53 @@ L'applicativo ha due tipi di attori:
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
 - *Post-condizioni* : le impostazioni di generazione vengono modificate secondo le preferenze dell'utente.
 - *Scenario principale* :
-  1. L'utente seleziona l'icona delle impostazioni di generazione accanto al campo di testo per la creazione di una nuova _routine_.
+  1. L'utente seleziona l'icona delle impostazioni di generazione accanto al campo di testo per la creazione di una nuova #glossario("routine") .
   2. Il sistema mostra una finestra con le impostazioni di generazione.
   3. L'utente modifica le impostazioni desiderate, legate a scelta modello, contesto o temperatura dell'#glossario("LLM") .
   4. Il sistema salva le modifiche per la generazione corrente.
 
 #figure(image("../../assets/usecasediagrams/UC_11_12_13.png"), caption:[Diagramma casi d'uso UC[11], UC[12], UC[13],],) 
 
-=== UC[14] : Visualizzare i dettagli di una _routine_ esistente <UC14>
+=== UC[14] : Visualizzare i dettagli di una #glossario("routine")  esistente <UC14>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : viene visualizzata una pagina con i dettagli di una _routine_ già esistente.
+- *Post-condizioni* : viene visualizzata una pagina con i dettagli di una #glossario("routine")  già esistente.
 - *Scenario principale* :
-  1. L'utente seleziona una _routine_ esistente dalla lista dei flussi nella _dashboard_.
-  2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
+  1. L'utente seleziona una #glossario("routine")  esistente dalla lista dei flussi nella _dashboard_.
+  2. Il sistema mostra una pagina con i dettagli della #glossario("routine")  selezionata.
 - *Estensioni* : 
-  - Modifica della _routine_ (#link(<UC15>)[*UC[15]*]).
+  - Modifica della #glossario("routine")  (#link(<UC15>)[*UC[15]*]).
   - Eliminazione di una #glossario("routine")  esistente (#link(<UC16>)[*UC[16]*]).
-  - Avviare una _routine_ esistente tramite _dettagli flusso_ (#link(<UC17>)[*UC[17]*]).
+  - Avviare una #glossario("routine")  esistente tramite _dettagli flusso_ (#link(<UC17>)[*UC[17]*]).
   - Modificare le impostazioni di un singolo blocco (#link(<UC18>)[*UC[18]*]).
 
-=== UC[15] : Modifica di una _routine_ esistente tramite drag & drop <UC15> // singolo use case per la modifica o uno use case per ogni opzione di modifica?
+=== UC[15] : Modifica di una #glossario("routine")  esistente tramite drag & drop <UC15> // singolo use case per la modifica o uno use case per ogni opzione di modifica?
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : viene modificato il comportamento della _routine_ selezionata.
+- *Post-condizioni* : viene modificato il comportamento della #glossario("routine")  selezionata.
 - *Scenario principale* :
-  1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
+  1. L'utente accede alla pagina di dettagli di una #glossario("routine")  (#link(<UC14>)[*UC[14]*]).
   2. L'utente trascina un blocco dalla barra laterale e lo rilascia nella posizione desiderata.
-  3. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_.
+  3. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della #glossario("routine") .
 
-=== UC[16] : Eliminare una _routine_ esistente <UC16>
+=== UC[16] : Eliminare una #glossario("routine")  esistente <UC16>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : la _dashboard_ viene aggiornata e la _routine_ selezionata viene eliminata.
+- *Post-condizioni* : la _dashboard_ viene aggiornata e la #glossario("routine")  selezionata viene eliminata.
 - *Scenario principale* :
-  1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
-  2. L'utente seleziona l'opzione di eliminazione della _routine_.
+  1. L'utente accede alla pagina di dettagli di una #glossario("routine")  (#link(<UC14>)[*UC[14]*]).
+  2. L'utente seleziona l'opzione di eliminazione della #glossario("routine") .
   3. Il sistema mostra un messaggio di conferma dell'eliminazione.
   4. L'utente conferma l'eliminazione.
-  5. Il sistema elimina la _routine_ e aggiorna la _dashboard_.
+  5. Il sistema elimina la #glossario("routine")  e aggiorna la _dashboard_.
 
-=== UC[17] : Avviare una _routine_ esistente tramite _dettagli flusso_ <UC17>
+=== UC[17] : Avviare una #glossario("routine")  esistente tramite _dettagli flusso_ <UC17>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli del flusso.
-- *Post-condizioni* : la _routine_ selezionata viene avviata.
+- *Post-condizioni* : la #glossario("routine")  selezionata viene avviata.
 - *Scenario principale* :
-  1. L'utente seleziona l'opzione di avvio della _routine_.
-  2. Il sistema avvia la _routine_.
+  1. L'utente seleziona l'opzione di avvio della #glossario("routine") .
+  2. Il sistema avvia la #glossario("routine") .
   3. Il sistema registra un #glossario("log") dell'esecuzione.
 
   === UC[18] : Modificare le impostazioni di un singolo blocco <UC18>
@@ -278,24 +278,24 @@ L'applicativo ha due tipi di attori:
 
   #figure(image("../../assets/usecasediagrams/UC_14_15_16_17_18.png"), caption:[Diagramma casi d'uso UC[14], UC[15], UC[16], UC[17], UC[18],],)
 
-=== UC[19] : Avviare una _routine_ esistente tramite _dashboard_ <UC19>
+=== UC[19] : Avviare una #glossario("routine")  esistente tramite _dashboard_ <UC19>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni* : la _routine_ selezionata viene avviata.
+- *Post-condizioni* : la #glossario("routine")  selezionata viene avviata.
 - *Scenario principale* :
-  1. L'utente seleziona l'opzione di avvio della _routine_.
-  2. Il sistema avvia la _routine_
+  1. L'utente seleziona l'opzione di avvio della #glossario("routine") .
+  2. Il sistema avvia la #glossario("routine") 
   3. Il sistema registra un #glossario("log") dell'esecuzione.
 
 #figure(image("../../assets/usecasediagrams/UC_19.png"), caption:[Diagramma casi d'uso UC[19],],)
 
-=== UC[20] : Interrompere una _routine_ avviata
+=== UC[20] : Interrompere una #glossario("routine")  avviata
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e ha avviato una _routine_.
-- *Post-condizioni* : l'esecuzione della _routine_ in corso viene interrotta.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e ha avviato una #glossario("routine") .
+- *Post-condizioni* : l'esecuzione della #glossario("routine")  in corso viene interrotta.
 - *Scenario principale* :
-  1. L'utente seleziona l'opzione di interruzione della _routine_.
-  2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
+  1. L'utente seleziona l'opzione di interruzione della #glossario("routine") .
+  2. Il sistema interrompe l'esecuzione della #glossario("routine")  all'operazione corrente.
   3. Il sistema registra nel #glossario("log") il motivo dell'interruzione.
 
 #figure(image("../../assets/usecasediagrams/UC_20.png"), caption:[Diagramma casi d'uso UC[20],],)
