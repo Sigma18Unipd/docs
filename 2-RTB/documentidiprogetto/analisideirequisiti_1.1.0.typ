@@ -10,11 +10,16 @@
   versioneAttuale: "1.1.0",
   content: content,
   versioni: (
+    "1.2.0",
+    "2025/04/22",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Aggiunti casi d'uso",
     "1.1.0",
     "2025/04/18",
     "Matteo Marangon",
     "Pietro Crotti, Aleena Mathew",
-    "Aggiunta casi d'uso",
+    "Aggiunti casi d'uso",
     "1.0.0",
     "2025/04/16",
     "Pietro Crotti",
@@ -161,7 +166,7 @@ L'applicativo ha due tipi di attori:
   2. Il sistema individua che le due _password_ non corrispondono o non adempiono ai requisiti minimi di sicurezza.
   3. Il sistema invia un codice di errore all'utente.
 
-=== UC[9] : Creazione nuova _routine_
+=== UC[9] : Creazione nuova _routine_ <UC9>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
 - *Post-condizioni* : viene creata una nuova _routine_ nella _dashboard_.
@@ -209,7 +214,7 @@ L'applicativo ha due tipi di attori:
   4. L'utente conferma l'eliminazione.
   5. Il sistema elimina la _routine_ e aggiorna la _dashboard_.
 
-=== UC[14] : Avviare una _routine_ esistente tramite _dashboard_
+=== UC[14] : Avviare una _routine_ esistente tramite _dashboard_ <UC14>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
 - *Post-condizioni* : la _routine_ selezionata viene avviata.
@@ -267,7 +272,31 @@ L'applicativo ha due tipi di attori:
   4. L'utente modifica le impostazioni desiderate.
   5. Il sistema salva le modifiche per il relativo blocco.
 
-// aggiungere use case errori
+// metto UC[X] perche gli errori credo vadano alla fine e quindi ricordarsi di aggiornare i numeri
+=== UC[X] : Visualizzazione dell'errore "Il server non risponde"
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso.
+- *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
+- *Scenario principale* :
+  1. Il sistema rileva che la connessione al server non è più disponibile.
+  2. Il sistema mostra un messaggio di errore all'utente.
+
+=== UC[X] : Visualizzazione dell'errore "Impossibile generare il flusso"
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di generare il flusso tramite linguaggio naturale (#link(<UC9>)[*UC[9]*]) , ma si verifica un errore.
+- *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
+- *Scenario principale* :
+  1. L'utente sta generando il flusso tramite linguaggio naturale.
+  2. L' _LLM_ non riesce a generare il flusso e il sistema mostra un messaggio di errore.
+
+=== UC[X] : Visualizzazione dell'errore "Impossibile avviare il flusso"
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di avviare il flusso (#link(<UC14>)[*UC[14]*]) , ma si verifica un errore.
+- *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
+- *Scenario principale* :
+  1. L'utente sta avviando il flusso.
+  2. Il sistema non riesce ad avviare il flusso e mostra un messaggio di errore.
+
 
 = Requisiti
 
