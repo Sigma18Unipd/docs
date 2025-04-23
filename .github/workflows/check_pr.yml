@@ -1,0 +1,39 @@
+name: PR check
+on: pull_request
+
+jobs:
+  check_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Check if typst files are valid
+        run: |
+          # Fetch base and head commits
+          git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
+          base=${{ github.event.pull_request.base.sha }}
+          head=${{ github.event.pull_request.head.sha }}
+
+          if git diff -z --name-only $base $head -- '*.typ' | grep -zq '^templates/'; then
+            echo "Template files changed. Rebuilding all files..."
+            find . -name "*.typ" -not -path "./templates/*" -print0 | parallel -0 typst compile --root . {} {.}.pdf
+          else
+            echo "Compiling changed files..."
+            git diff -z --name-only $base $head -- '*.typ' | grep -zv '^templates/' | parallel -0 typst compile --root . {} {.}.pdf
+          fi
+      - name: Check if glossary contains all references
+        run: |
+          # run check-glossario.py on all changed files
+          git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
+          base=${{ github.event.pull_request.base.sha }}
+          head=${{ github.event.pull_request.head.sha }}
+          git diff -z --name-only $base $head -- '*.typ' | xargs -0 -n1 "$GITHUB_WORKSPACE"/.github/check-glossario.py -vv
