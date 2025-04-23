@@ -3,7 +3,7 @@
   content: [],
 ) = {
   //Proprietà generali documento
-  set text(lang: "it", size: 20pt)
+  set text(lang: "it", size: 22pt)
   set page(paper: "a4", flipped: true)
   set par(justify: true)
   set document(title: titoloDocumento)
@@ -74,6 +74,9 @@
     #it.body \
     #v(0.1em)
   ]
+
+  set list(spacing: 1em)
+
   //Contenuto
   content
 }
