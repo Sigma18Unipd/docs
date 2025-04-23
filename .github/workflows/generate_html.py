@@ -42,13 +42,17 @@ def generate_project_section(project_folder):
     
     # Special case for diaries (0-diaridibordo)
     is_diary = project_folder.startswith('0-diaridibordo')
+    in_rtb_section = False
     
     # Non-verbali documents
     non_verbali = []
     for doc in glob.glob(f"{project_path}/**/*.pdf", recursive=True):
         rel_path = os.path.relpath(doc, project_path)
-        if "verbali" not in rel_path.split(os.sep):
-            if is_diary and "rtb" in rel_path.split(os.sep):
+        path_parts = rel_path.split(os.sep)
+        is_rtb = is_diary and "rtb" in path_parts
+        
+        if "verbali" not in path_parts:
+            if is_rtb:
                 # Special case for RTB documents
                 filename = os.path.basename(doc)
                 # Extract date from filename format like ddb_20250428.pdf
@@ -56,25 +60,40 @@ def generate_project_section(project_folder):
                 if date_match:
                     date_str = date_match.group(1)
                     try:
-                        formatted_date = f"{date_str[:4]}/{date_str[4:6]}/{date_str[6:8]}"
-                        non_verbali.append(f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{formatted_date}</a></li>')
+                        # Format as dd/mm/yyyy
+                        formatted_date = f"{date_str[6:8]}/{date_str[4:6]}/{date_str[:4]}"
+                        non_verbali.append((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{formatted_date}</a></li>'))
+                        in_rtb_section = True
                     except ValueError:
                         # Fallback if date parsing fails
-                        non_verbali.append(f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{filename}</a></li>')
+                        non_verbali.append((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{filename}</a></li>'))
                 else:
-                    non_verbali.append(f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{filename}</a></li>')
+                    non_verbali.append((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{filename}</a></li>'))
             else:
                 doc_name = os.path.basename(doc).replace(".pdf", "").replace('_', ' ').title()
-                non_verbali.append(f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{doc_name}</a></li>')
+                non_verbali.append((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{doc_name}</a></li>'))
     
-    if non_verbali:
-        # Special case for RTB section title
-        section_title = "RTB" if is_diary else "Documenti"
-        html += f"""
-                <h2>{section_title}</h2>
+    # Group documents by type (RTB or not)
+    rtb_docs = [item[1] for item in non_verbali if item[0]]
+    normal_docs = [item[1] for item in non_verbali if not item[0]]
+    
+    # Add RTB documents without header if present
+    if rtb_docs:
+        html += """
                 <ul class="document-list">
         """
-        html += '\n'.join(non_verbali)
+        html += '\n'.join(rtb_docs)
+        html += """
+                </ul>
+        """
+    
+    # Add normal documents with header if present
+    if normal_docs:
+        html += """
+                <h2>Documenti</h2>
+                <ul class="document-list">
+        """
+        html += '\n'.join(normal_docs)
         html += """
                 </ul>
         """
