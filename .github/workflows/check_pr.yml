@@ -36,4 +36,4 @@ jobs:
           git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
           base=${{ github.event.pull_request.base.sha }}
           head=${{ github.event.pull_request.head.sha }}
-          git diff -z --name-only $base $head -- '*.typ' | xargs -0 -n1 "$GITHUB_WORKSPACE"/.github/check-glossario.py
+          git diff -z --name-only $base $head -- '*.typ' | xargs -0 -r -n1 "$GITHUB_WORKSPACE"/.github/check-glossario.py
