@@ -15,6 +15,7 @@ import sys
 import threading
 
 SEARCH_PATTERNS = ("2-RTB", "3-PB")
+GLOSSARY_NAME="glossario.typ"
 
 logger = logging.getLogger(__name__)
 LOG_LEVELS = {0: logging.ERROR, 1: logging.WARNING, 2: logging.INFO, 3: logging.DEBUG}
@@ -122,7 +123,7 @@ def find_glossary_for_pattern(subdir_root: str, pattern: str) -> str | None:
             logger.debug(f"Using cached glossary '{glossary_pattern_mapping[pattern]}' for pattern '{pattern}'")
             return glossary_pattern_mapping[pattern]
         logger.debug(f"Searching for glossary for pattern '{pattern}' in '{subdir_root}'")
-        matches = glob.glob(os.path.join(subdir_root, "**", "glossario.typ"), recursive=True)
+        matches = glob.glob(os.path.join(subdir_root, "**", GLOSSARY_NAME), recursive=True)
         logger.debug(f"Glossary matches for pattern '{pattern}': {matches}")
         if matches:
             glossary_path = matches[0]
