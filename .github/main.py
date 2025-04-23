@@ -14,7 +14,7 @@ from concurrent.futures import ThreadPoolExecutor, Future
 import sys
 import threading
 
-search_patterns = ("2-RTB", "3-PB")
+SEARCH_PATTERNS = ("2-RTB", "3-PB")
 
 logger = logging.getLogger(__name__)
 LOG_LEVELS = {0: logging.ERROR, 1: logging.WARNING, 2: logging.INFO, 3: logging.DEBUG}
@@ -82,7 +82,7 @@ def extract_glossary_terms(filepath: str) -> dict[str, bool]:
     return glossary_terms
 
 
-def extract_path_to_pattern(filepath: str, patterns: tuple[str, ...] = search_patterns) -> str | None:
+def extract_path_to_pattern(filepath: str, patterns: tuple[str, ...] = SEARCH_PATTERNS) -> tuple[str | None, str | None]:
     """
     Extracts the path up to and including the specified pattern folder if present.
     Args:
@@ -92,15 +92,19 @@ def extract_path_to_pattern(filepath: str, patterns: tuple[str, ...] = search_pa
         str: The path up to the pattern
     """
     parts = os.path.normpath(filepath).split(os.sep)
+    is_abs = os.path.isabs(filepath)
 
     for i, part in enumerate(parts):
         for pattern in patterns:
-            if pattern in part: # Using 'in' to allow for variations like "2-RTB-docs"
-                extracted=os.path.join(*parts[:i+1])
+            if pattern in part:
+                extracted = os.path.join(*parts[:i+1])
+                if is_abs:
+                    # needed as this was breaking absolute paths
+                    extracted = os.sep + extracted
                 logger.debug(f"Extracted pattern '{pattern}' from '{filepath}': {extracted}")
-                return extracted
+                return extracted, pattern
 
-    return None
+    return None, None
 
 
 def find_glossary_for_pattern(subdir_root: str, pattern: str) -> str | None:
@@ -111,10 +115,11 @@ def find_glossary_for_pattern(subdir_root: str, pattern: str) -> str | None:
     # GIL does not help with concurrent writes, this avoids spaciughi
     with glossary_dict_lock:
         if pattern in glossary_pattern_mapping:
+            logger.debug(f"Using cached glossary '{glossary_pattern_mapping[pattern]}' for pattern '{pattern}'")
             return glossary_pattern_mapping[pattern]
-
+        logger.debug(f"Searching for glossary for pattern '{pattern}' in '{subdir_root}'")
         matches = glob.glob(os.path.join(subdir_root, "**", "glossario.typ"), recursive=True)
-
+        logger.debug(f"Glossary matches for pattern '{pattern}': {matches}")
         if matches:
             glossary_path = matches[0]
             glossary_pattern_mapping[pattern] = glossary_path
@@ -138,11 +143,12 @@ def get_glossary_terms(filepath: str) -> tuple[Future| None, str]:
         pattern (str): Directory type (RTB/PB)
         concurrent.futures.Future | None: Future object for the extraction task, or None.
     """
-    pattern = extract_path_to_pattern(filepath) 
+    filepath = os.path.abspath(filepath)
+    search_path, pattern = extract_path_to_pattern(filepath) 
     if pattern is None:
-        logger.warning(f"Pattern not found for file '{filepath}'.")
+        logger.warning(f"RTB/PB pattern not found for file '{filepath}'.")
         return None, None
-    glossary_filepath = find_glossary_for_pattern(filepath, pattern)
+    glossary_filepath = find_glossary_for_pattern(search_path, pattern)
 
     # if said glossary has not been parsed yet, start extrraction in a new thread
     with glossary_dict_lock:
@@ -154,12 +160,12 @@ def get_glossary_terms(filepath: str) -> tuple[Future| None, str]:
             future = glossary_pattern_terms[pattern]
 
     try:
-        return future
+        return future, pattern
     except Exception as e:
         logger.error(f"Error extracting glossary terms for pattern '{pattern}' from '{glossary_filepath}': {e}")
         with glossary_dict_lock:
              glossary_pattern_terms[pattern] = None # Mark as failed
-        return None
+        return None, pattern
 
 
 def process_file(filepath: str) -> set[str]:
@@ -281,7 +287,7 @@ if __name__ == "__main__":
             future.result()
 
     undefined = {}
-    for pattern in search_patterns:
+    for pattern in SEARCH_PATTERNS:
         glossary_future = glossary_pattern_terms.get(pattern)
         glossary_path = glossary_pattern_mapping.get(pattern)
 
