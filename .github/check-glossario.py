@@ -384,7 +384,7 @@ if __name__ == "__main__":
         if future and not future.done():
             future.result()
 
-    undefined = {}
+    undefined: dict[str, set[str]] = {}
     for pattern in SEARCH_PATTERNS:
         glossary_future = glossary_pattern_terms.get(pattern)
         glossary_path = glossary_pattern_mapping.get(pattern)
