@@ -356,10 +356,10 @@ if __name__ == "__main__":
             try:
                 glossary_data = glossary_future.result()
                 if glossary_data:
-                    if glossary_path not in undefined:
-                        undefined[glossary_path] = set()
                     for term, defined in glossary_data.items():
                         if not defined:
+                            if glossary_path not in undefined:
+                                undefined[glossary_path] = set()
                             undefined[glossary_path].add(term)
             except Exception:
                 pass
