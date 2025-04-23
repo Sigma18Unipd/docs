@@ -270,7 +270,8 @@ def process_file(filepath: str) -> set[str]:
     for term in used_terms:
         if term not in glossary_terms and term not in ignore_set:
              terms_not_found.add(term)
-    logger.debug(f"Terms not found in glossary for '{filepath}': {list(terms_not_found)}")
+    if terms_not_found:
+        logger.info(f"Terms not found in glossary for '{filepath}': {list(terms_not_found)}")
     return terms_not_found
 
 
