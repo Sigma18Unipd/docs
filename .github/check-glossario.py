@@ -271,6 +271,9 @@ def process_file(filepath: str) -> set[str]:
         filepath (str): The path to the .typ file.
 
     Returns:
+        filepath (str): The same path passed in. This is really handy when combining back the results
+                        keeping track of the filepath relative to each input is not trivial when using multiprocessing
+                        and would involve adding a lot more lines
         set[str]: A set of terms found in the file but not in the glossary.
     """
     terms_not_found: set[str] = set()
@@ -279,7 +282,7 @@ def process_file(filepath: str) -> set[str]:
     glossary_terms_future, pattern = get_glossary_terms(filepath)
     if glossary_terms_future is None:
         logger.warning(f"Skipping file '{filepath}' due to missing glossary.")
-        return terms_not_found
+        return filepath, terms_not_found
 
     use_term_pattern = re.compile(r'#glossario\(\s*["\']([^"\']+)["\']\s*\)')
     try:
@@ -289,7 +292,7 @@ def process_file(filepath: str) -> set[str]:
                     used_terms.add(match.group(1).casefold())
     except FileNotFoundError:
         logger.error(f"Error: file '{filepath}' not found during term extraction.")
-        return terms_not_found
+        return filepath, terms_not_found
     except IOError as e:
         logger.error(f"Error reading file '{filepath}' for term extraction: {e}")
         return terms_not_found
@@ -297,7 +300,7 @@ def process_file(filepath: str) -> set[str]:
         logger.exception(
             f"An unexpected error occurred while extracting terms from '{filepath}': {e}"
         )
-        return terms_not_found
+        return filepath, terms_not_found
     logger.debug(f"Extracted terms from '{filepath}': {list(used_terms)}")
 
     # wait until future completion
@@ -306,11 +309,7 @@ def process_file(filepath: str) -> set[str]:
     for term in used_terms:
         if term not in glossary_terms and term not in ignore_set:
             terms_not_found.add(term)
-    if terms_not_found:
-        logger.info(
-            f"Terms not found in glossary for '{filepath}': {list(terms_not_found)}"
-        )
-    return terms_not_found
+    return filepath, terms_not_found
 
 
 if __name__ == "__main__":
@@ -350,29 +349,31 @@ if __name__ == "__main__":
             log_level = logging.DEBUG
         logger.setLevel(log_level)
 
-    results: list[set[str]] = []
+    results: dict[str, set[str]] = {}
     for path in args.paths:
         if os.path.isdir(path):
             file_pool = ThreadPoolExecutor(max_workers=os.cpu_count() - 1)  # IO bound
             files = []
             files.extend(glob.glob(os.path.join(path, "**", "*.typ"), recursive=True))
             with file_pool as executor:
-                results = list(executor.map(process_file, files))
+                results.update(dict(executor.map(process_file, files)))
         elif os.path.isfile(path) and path.endswith(".typ"):
-            results = [process_file(path)]
+            _, terms_set = process_file(path)
+            results[path] = terms_set
         else:
             logger.error(f"'{path}' is not a valid file or directory.")
             sys.exit(0)
 
-    total_not_found: set[str] = set()
-    for terms_set in results:
-        total_not_found.update(terms_set)
-
-    if total_not_found:
-        logger.error("Some terms were not found in the glossary:")
-        for term in sorted(total_not_found):
-            logger.error(f"  - {term}")
-    else:
+    found_missing = False
+    for filepath, terms in results.items():
+        if terms:
+            if found_missing is False:
+                logger.error("Some terms were not found in the glossary:")
+            found_missing = True
+            logger.error(f"  In '{filepath}':")
+            for term in sorted(terms):
+                logger.error(f"    - {term}")
+    if not found_missing:
         logger.info("All glossary citations have a backing glossary entry")
 
     # lookup missing glossary definitions, requires awaiting all futures
@@ -407,7 +408,7 @@ if __name__ == "__main__":
             for term in terms:
                 logger.error(f"    - {term}")
 
-    if undefined or total_not_found:
+    if undefined or found_missing:
         sys.exit(1)
     else:
         sys.exit(0)
