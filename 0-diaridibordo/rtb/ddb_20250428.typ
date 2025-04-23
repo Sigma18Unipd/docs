@@ -36,3 +36,4 @@ Attivita future non programmate:
 Attivita in attesa causa problematiche sopra specificate:
 - Validazione dei _wireframe_ richiesti in fase di _design thinking_ da inserire nel verbale esterno;
 - Validazione e firma del verbale esterno dell'incontro di _design thinking_ avvenuto in data 2025/04/14.
+
