@@ -19,9 +19,9 @@ import yaml
 # each file's filepath will be trimmed to whatever matches a search pattern
 # from there the script will look for a file matching GLOSSARY_NAME to parse
 SEARCH_PATTERNS = ("2-RTB", "3-PB")
-GLOSSARY_NAME="glossario.typ"
+GLOSSARY_NAME = "glossario.typ"
 # specifies a list of glossary terms not to report missing
-# path is relative to the project root 
+# path is relative to the project root
 IGNORE_SET = ".github/glossario-ignorelist.yml"
 
 logger = logging.getLogger(__name__)
@@ -34,6 +34,7 @@ ignore_set_lock = threading.Lock()
 manual_glossary_path = None
 file_pool: ThreadPoolExecutor | None = None
 glossary_pool = ThreadPoolExecutor(max_workers=1)
+
 
 def extract_glossary_terms(filepath: str) -> dict[str, bool]:
     """
@@ -86,14 +87,20 @@ def extract_glossary_terms(filepath: str) -> dict[str, bool]:
         logger.error(f"Error reading glossary file '{filepath}': {e}")
         return {}
     except Exception as e:
-        logger.exception(f"An unexpected error occurred while parsing glossary '{filepath}': {e}")
+        logger.exception(
+            f"An unexpected error occurred while parsing glossary '{filepath}': {e}"
+        )
         return {}
 
-    logger.debug(f"Extracted glossary terms from '{filepath}': {list(glossary_terms.keys())}")
+    logger.debug(
+        f"Extracted glossary terms from '{filepath}': {list(glossary_terms.keys())}"
+    )
     return glossary_terms
 
 
-def extract_path_to_pattern(filepath: str, patterns: tuple[str, ...] = SEARCH_PATTERNS) -> tuple[str | None, str | None]:
+def extract_path_to_pattern(
+    filepath: str, patterns: tuple[str, ...] = SEARCH_PATTERNS
+) -> tuple[str | None, str | None]:
     """
     Extracts the path up to and including the specified pattern folder if present.
     Args:
@@ -108,11 +115,13 @@ def extract_path_to_pattern(filepath: str, patterns: tuple[str, ...] = SEARCH_PA
     for i, part in enumerate(parts):
         for pattern in patterns:
             if pattern in part:
-                extracted = os.path.join(*parts[:i+1])
+                extracted = os.path.join(*parts[: i + 1])
                 if is_abs:
                     # needed as this was breaking absolute paths
                     extracted = os.sep + extracted
-                logger.debug(f"Extracted pattern '{pattern}' from '{filepath}': {extracted}")
+                logger.debug(
+                    f"Extracted pattern '{pattern}' from '{filepath}': {extracted}"
+                )
                 return extracted, pattern
 
     return None, None
@@ -125,14 +134,22 @@ def find_glossary_for_pattern(subdir_root: str, pattern: str) -> str | None:
     """
     # GIL does not help with concurrent writes, this avoids spaciughi
     if manual_glossary_path:
-        logger.debug(f"Using manual glossary path '{manual_glossary_path}' for pattern '{pattern}'")
+        logger.debug(
+            f"Using manual glossary path '{manual_glossary_path}' for pattern '{pattern}'"
+        )
         return manual_glossary_path
     with glossary_dict_lock:
         if pattern in glossary_pattern_mapping:
-            logger.debug(f"Using cached glossary '{glossary_pattern_mapping[pattern]}' for pattern '{pattern}'")
+            logger.debug(
+                f"Using cached glossary '{glossary_pattern_mapping[pattern]}' for pattern '{pattern}'"
+            )
             return glossary_pattern_mapping[pattern]
-        logger.debug(f"Searching for glossary for pattern '{pattern}' in '{subdir_root}'")
-        matches = glob.glob(os.path.join(subdir_root, "**", GLOSSARY_NAME), recursive=True)
+        logger.debug(
+            f"Searching for glossary for pattern '{pattern}' in '{subdir_root}'"
+        )
+        matches = glob.glob(
+            os.path.join(subdir_root, "**", GLOSSARY_NAME), recursive=True
+        )
         logger.debug(f"Glossary matches for pattern '{pattern}': {matches}")
         if matches:
             glossary_path = matches[0]
@@ -140,16 +157,19 @@ def find_glossary_for_pattern(subdir_root: str, pattern: str) -> str | None:
             logger.debug(f"Found glossary '{glossary_path}' for pattern '{pattern}'")
             return glossary_path
         else:
-            logger.warning(f"No glossary found for pattern '{pattern}' in '{subdir_root}'")
+            logger.warning(
+                f"No glossary found for pattern '{pattern}' in '{subdir_root}'"
+            )
             glossary_pattern_mapping[pattern] = None
             return None
 
-def get_glossary_terms(filepath: str) -> tuple[Future| None, str]:
+
+def get_glossary_terms(filepath: str) -> tuple[Future | None, str]:
     """
-    Gets glossary terms for a given file. If haven't already been extracted, starts 
+    Gets glossary terms for a given file. If haven't already been extracted, starts
     extraction in a new thread and returns a Future object.
-    There can be different matching glossaries for given files, due to PB and RTB 
-    folders each having their own. 
+    There can be different matching glossaries for given files, due to PB and RTB
+    folders each having their own.
     Args:
         glossary_filepath (str | None): Path to the glossary file.
 
@@ -158,7 +178,7 @@ def get_glossary_terms(filepath: str) -> tuple[Future| None, str]:
         concurrent.futures.Future | None: Future object for the extraction task, or None.
     """
     filepath = os.path.abspath(filepath)
-    search_path, pattern = extract_path_to_pattern(filepath) 
+    search_path, pattern = extract_path_to_pattern(filepath)
     if pattern is None:
         logger.warning(f"RTB/PB pattern not found for file '{filepath}'.")
         return None, None
@@ -166,8 +186,13 @@ def get_glossary_terms(filepath: str) -> tuple[Future| None, str]:
 
     # if said glossary has not been parsed yet, start extrraction in a new thread
     with glossary_dict_lock:
-        if pattern not in glossary_pattern_terms or glossary_pattern_terms[pattern] is None:
-            logger.debug(f"Starting extraction for '{glossary_filepath}' (pattern: {pattern})")
+        if (
+            pattern not in glossary_pattern_terms
+            or glossary_pattern_terms[pattern] is None
+        ):
+            logger.debug(
+                f"Starting extraction for '{glossary_filepath}' (pattern: {pattern})"
+            )
             future = glossary_pool.submit(extract_glossary_terms, glossary_filepath)
             glossary_pattern_terms[pattern] = future
         else:
@@ -176,11 +201,14 @@ def get_glossary_terms(filepath: str) -> tuple[Future| None, str]:
     try:
         return future, pattern
     except Exception as e:
-        logger.error(f"Error extracting glossary terms for pattern '{pattern}' from '{glossary_filepath}': {e}")
+        logger.error(
+            f"Error extracting glossary terms for pattern '{pattern}' from '{glossary_filepath}': {e}"
+        )
         with glossary_dict_lock:
-             glossary_pattern_terms[pattern] = None # Mark as failed
+            glossary_pattern_terms[pattern] = None  # Mark as failed
         return None, pattern
-    
+
+
 def find_project_root(starting_filepath, max_depth=6) -> str:
     """
     Walks up the directory tree and finds the root by looking for the .git directory.
@@ -197,6 +225,7 @@ def find_project_root(starting_filepath, max_depth=6) -> str:
         current_dir = parent_dir
     return ""
 
+
 def load_ignore_set() -> set[str]:
     """
     Loads the ignore list from a YAML file.
@@ -212,13 +241,17 @@ def load_ignore_set() -> set[str]:
             logger.debug(f"Project root for ignore set: {project_root}")
             ignore_path = os.path.join(project_root, IGNORE_SET)
             if os.path.exists(ignore_path):
-                with open(ignore_path, 'r', encoding='utf-8') as f:
+                with open(ignore_path, "r", encoding="utf-8") as f:
                     parsed = yaml.safe_load(f)
                     if parsed and "ignore_list" in parsed:
                         ignore_set = set(parsed["ignore_list"])
-                        logger.debug(f"Loaded ignore list from '{ignore_path}': {list(ignore_set)}")
+                        logger.debug(
+                            f"Loaded ignore list from '{ignore_path}': {list(ignore_set)}"
+                        )
                     else:
-                        logger.warning(f"No 'ignore_list' key found in '{ignore_path}'.")
+                        logger.warning(
+                            f"No 'ignore_list' key found in '{ignore_path}'."
+                        )
                         ignore_set = {}
             else:
                 logger.warning(f"Ignore list file '{ignore_path}' not found.")
@@ -227,6 +260,7 @@ def load_ignore_set() -> set[str]:
             logger.warning("Project root not found, cannot load ignore set.")
             ignore_set = {}
     return ignore_set
+
 
 def process_file(filepath: str) -> set[str]:
     """
@@ -249,7 +283,7 @@ def process_file(filepath: str) -> set[str]:
 
     use_term_pattern = re.compile(r'#glossario\(\s*["\']([^"\']+)["\']\s*\)')
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
+        with open(filepath, "r", encoding="utf-8") as f:
             for line in f:
                 for match in use_term_pattern.finditer(line):
                     used_terms.add(match.group(1).casefold())
@@ -260,8 +294,10 @@ def process_file(filepath: str) -> set[str]:
         logger.error(f"Error reading file '{filepath}' for term extraction: {e}")
         return terms_not_found
     except Exception as e:
-         logger.exception(f"An unexpected error occurred while extracting terms from '{filepath}': {e}")
-         return terms_not_found
+        logger.exception(
+            f"An unexpected error occurred while extracting terms from '{filepath}': {e}"
+        )
+        return terms_not_found
     logger.debug(f"Extracted terms from '{filepath}': {list(used_terms)}")
 
     # wait until future completion
@@ -269,11 +305,12 @@ def process_file(filepath: str) -> set[str]:
     glossary_terms = glossary_terms_future.result()
     for term in used_terms:
         if term not in glossary_terms and term not in ignore_set:
-             terms_not_found.add(term)
+            terms_not_found.add(term)
     if terms_not_found:
-        logger.info(f"Terms not found in glossary for '{filepath}': {list(terms_not_found)}")
+        logger.info(
+            f"Terms not found in glossary for '{filepath}': {list(terms_not_found)}"
+        )
     return terms_not_found
-
 
 
 if __name__ == "__main__":
@@ -301,8 +338,8 @@ if __name__ == "__main__":
         help="Manually provide the glossary file path. Will override automatic glossary detection.",
     )
     args = parser.parse_args()
-    formatter='%(levelname)s: %(message)s'
-    ch=logging.StreamHandler()
+    formatter = "%(levelname)s: %(message)s"
+    ch = logging.StreamHandler()
     ch.setFormatter(logging.Formatter(formatter))
     logger.addHandler(ch)
     if args.quiet:
@@ -316,17 +353,16 @@ if __name__ == "__main__":
     results: list[set[str]] = []
     for path in args.paths:
         if os.path.isdir(path):
-            file_pool = ThreadPoolExecutor(max_workers=os.cpu_count()-1) # IO bound
+            file_pool = ThreadPoolExecutor(max_workers=os.cpu_count() - 1)  # IO bound
             files = []
             files.extend(glob.glob(os.path.join(path, "**", "*.typ"), recursive=True))
             with file_pool as executor:
                 results = list(executor.map(process_file, files))
         elif os.path.isfile(path) and path.endswith(".typ"):
-            results=[process_file(path)]
+            results = [process_file(path)]
         else:
             logger.error(f"'{path}' is not a valid file or directory.")
             sys.exit(0)
-
 
     total_not_found: set[str] = set()
     for terms_set in results:
