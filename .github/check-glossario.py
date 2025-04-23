@@ -402,7 +402,9 @@ if __name__ == "__main__":
                 pass
 
     if undefined:
-        logger.error("The following terms are defined but not used:")
+        logger.error(
+            "The following terms are present in the glossary lack a definition:"
+        )
         for glossary_path, terms in undefined.items():
             logger.error(f"  In {glossary_path}:")
             for term in terms:
