@@ -184,7 +184,7 @@ def process_file(filepath: str) -> set[str]:
         set[str]: A set of terms found in the file but not in the glossary.
     """
     terms_not_found: set[str] = set()
-    used_terms: list[str] = []
+    used_terms: set[str] = set()
 
     glossary_terms_future, pattern = get_glossary_terms(filepath)
     if glossary_terms_future is None:
@@ -196,7 +196,7 @@ def process_file(filepath: str) -> set[str]:
         with open(filepath, 'r', encoding='utf-8') as f:
             for line in f:
                 for match in use_term_pattern.finditer(line):
-                    used_terms.append(match.group(1))
+                    used_terms.add(match.group(1).casefold())
     except FileNotFoundError:
         logger.error(f"Error: file '{filepath}' not found during term extraction.")
         return terms_not_found
@@ -206,13 +206,12 @@ def process_file(filepath: str) -> set[str]:
     except Exception as e:
          logger.exception(f"An unexpected error occurred while extracting terms from '{filepath}': {e}")
          return terms_not_found
-    logger.debug(f"Extracted terms from '{filepath}': {used_terms}")
+    logger.debug(f"Extracted terms from '{filepath}': {list(used_terms)}")
 
     # wait until future completion
     glossary_terms = glossary_terms_future.result()
-
     for term in used_terms:
-        if term.casefold() not in glossary_terms:
+        if term not in glossary_terms:
              terms_not_found.add(term)
              logger.debug(f"Term '{term}' not found in glossary for pattern '{pattern}'")
     return terms_not_found
