@@ -96,7 +96,9 @@ def extract_path_to_pattern(filepath: str, patterns: tuple[str, ...] = search_pa
     for i, part in enumerate(parts):
         for pattern in patterns:
             if pattern in part: # Using 'in' to allow for variations like "2-RTB-docs"
-                return os.path.join(*parts[:i+1])
+                extracted=os.path.join(*parts[:i+1])
+                logger.debug(f"Extracted pattern '{pattern}' from '{filepath}': {extracted}")
+                return extracted
 
     return None
 
@@ -232,12 +234,17 @@ if __name__ == "__main__":
         help="Manually provide the glossary file path",
     )
     args = parser.parse_args()
-
+    formatter='%(levelname)s: %(message)s'
+    ch=logging.StreamHandler()
+    ch.setFormatter(logging.Formatter(formatter))
+    logger.addHandler(ch)
     if args.quiet:
-        logging.basicConfig(level=logging.ERROR, format='%(levelname)s: %(message)s')
+        logger.setLevel(logging.ERROR)
     else:
         log_level = LOG_LEVELS.get(args.verbose, logging.WARNING)
-        logging.basicConfig(level=log_level, format='%(levelname)s: %(message)s')
+        if args.verbose > 2:
+            log_level = logging.DEBUG
+        logger.setLevel(log_level)
 
     results: list[set[str]] = []
     for path in args.paths:
