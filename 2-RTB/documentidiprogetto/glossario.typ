@@ -7,15 +7,20 @@
   verificatori: ("Marco Egidi", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "0.3.0",
   versioni: (
-    "1.1.0",
-    "2025-04-16",
+    "0.3.0",
+    "2025/04/29",
+    "Mirco Borella",
+    "Pietro Crotti",
+    "Aggiunta termini",
+    "0.2.0",
+    "2025/04/16",
     "Mirco Borella",
     "Pietro Crotti",
     "Modifica alla nomenclatura e aggiunta termini",
-    "1.0.0",
-    "2025-04-09",
+    "0.1.0",
+    "2025/04/09",
     "Mirco Borella",
     "Marco Egidi",
     "Prima stesura del documento",
@@ -93,6 +98,9 @@ Sequenza di istruzioni che consentono di eseguire un'operazione di frequente ese
 #pagebreak()
 = S
 
+== Script
+File di testo che contiene una sequenza di istruzioni o comandi da eseguire.
+
 == Server
 Macchina o programma che fornisce un qualsiasi tipo di servizio ad altre componenti connesse.
 
@@ -104,3 +112,9 @@ Intervallo di tempo fisso, definito nella metologia di sviluppo software Agile, 
 
 == Sprint Planning
 Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (#glossario("sprint"))
+
+#pagebreak()
+= W
+
+== Wireframe
+Rappresentazione grafica semplificata di una pagina web o di una schermata di un'app, che evidenzia la struttura e la disposizione degli elementi dell'interfaccia.
