@@ -44,7 +44,7 @@ Nonostante il capitolato permettesse di avere libertà nella scelta delle tecnol
 == Descrizione
 Il capitolato *C3*, proposto dall'azienda *Var Group S.p.A.*, richiede lo sviluppo di un'applicazione che permetta di automatizzare le routine digitali tramite l'intelligenza generativa in cloud.
 
-Si vuole create un client per ambiente Windows e/o Mac per disegnare dei _workflow_ usando blocchi funzionali che accedono alle _API_ esposte dalle varie applicazioni sul sistema.\
+Si vuole creare un client per ambiente Windows e/o Mac per disegnare dei _workflow_ usando blocchi funzionali che accedono alle _API_ esposte dalle varie applicazioni sul sistema.\
 Il client deve avere un'interfaccia _drag & drop_ per il posizionamento dei vari blocchi.\
 L'utente deve essere in grado di esprimere in linguaggio naturale la logica funzionale desiderata per ogni passaggio del _workflow_, che verrà poi interpretata con l'uso dell'intelligenza artificiale.
 == Tecnologie utilizzate
