@@ -86,6 +86,9 @@ Il prodotto minimo funzionante (in inglese _Minimum Viable Product_) è la versi
 #pagebreak()
 = P
 
+== PB (_Product Baseline_)
+Fase del processo di sviluppo software in cui viene definita la versione finale del prodotto, pronta per il rilascio. Durante questa fase vengono completate le attività di sviluppo, test e validazione del prodotto, garantendo il soddisfacimento dei requisiti e delle specifiche concordate.
+
 == PoC (_Proof of Concept_)
 Prototipo o modello iniziale che dimostra la fattibilità o conferma la validità di un principio o concetto, senza dover sviluppare un prodotto completo.
 
@@ -94,6 +97,10 @@ Prototipo o modello iniziale che dimostra la fattibilità o conferma la validit�
 
 == Routine
 Sequenza di istruzioni che consentono di eseguire un'operazione di frequente esecuzione.
+
+== RTB (Requirements and Technology Baseline)
+Fase del processo di sviluppo software in cui vengono definiti i requisiti del sistema e le tecnologie da utilizzare per la sua realizzazione. In questa fase vengono identificati i requisiti funzionali e non funzionali del sistema, le interfacce utente, le tecnologie di sviluppo e le risorse necessarie per il progetto.
+
 
 #pagebreak()
 = S
@@ -108,7 +115,7 @@ Macchina o programma che fornisce un qualsiasi tipo di servizio ad altre compone
 Slack è uno strumento di collaborazione aziendale utilizzato per scambiarsi messaggi istantanei tra vari membri all'interno di un team.
 
 == Sprint
-Intervallo di tempo fisso, definito nella metologia di sviluppo software Agile, durante il quale un team di sviluppo lavora per completare un insieme specifico di attività e/o funzionalità definite nello #glossario("Sprint Planning").
+Intervallo di tempo fisso, definito nella metodologia di sviluppo software Agile, durante il quale un team di sviluppo lavora per completare un insieme specifico di attività e/o funzionalità definite nello #glossario("Sprint Planning").
 
 == Sprint Planning
 Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (#glossario("sprint"))
