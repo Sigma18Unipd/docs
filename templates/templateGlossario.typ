@@ -133,4 +133,4 @@
 }
 
 //Glossario
-#let glossario(term) = text[*_ #term#sub()[GL] _*]
+#let glossario(term) = text[*_#term#sub()[GL]_*]
