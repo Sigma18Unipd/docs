@@ -3,19 +3,24 @@
 #show: content => verbale(
   titoloDocumento: "Piano di progetto",
   abstract: "Documento riepilogativo delle attività concluse e in corso di svolgimento dal gruppo Sigma18.",
-  responsabili: ("Matteo Marangon", "Pietro Crotti"),
+  responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew"),
   redattori: ("Carmelo Russello", "Mirco Borella"),
-  verificatori: ("Mirco Borella", "Marco Egidi"),
+  verificatori: ("Mirco Borella", "Marco Egidi", "Matteo Marangon"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "0.3.0",
   versioni: (
-    "1.1.0",
+    "0.3.0",
+    "2025/04/29",
+    "Mirco Borella",
+    "Matteo Marangon",
+    "Aggiornamento retrospettiva secondo sprint e inizio terzo sprint",
+    "0.2.0",
     "2025/04/16",
     "Mirco Borella",
     "Marco Egidi",
     "Aggiornamento retrospettiva primo sprint e inizio secondo sprint",
-    "1.0.0",
+    "0.1.0",
     "2025/04/07",
     "Carmelo Russello",
     "Mirco Borella",
@@ -254,6 +259,9 @@ Il progetto verrà suddiviso nelle seguenti fasi:
 
 
 
+
+
+#pagebreak()
 == RTB
 
 === Sprint 1
@@ -308,7 +316,7 @@ Il gruppo s'impegna a:
   [*Totali*], [*6*], [*13*], [*0*], [*1.5*], [*6*], [*10*], [*36.5*],
 )
 
-==== *Consuntivo del costo*:
+==== *Consuntivo costo*:
 #table(
   columns: (1fr, 1fr, 1fr, 1fr),
   rows: auto,
@@ -331,6 +339,21 @@ Il gruppo ha organizzato e partecipato all'incontro di #glossario("Design Thinki
 
 Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggeti temporanemente non reperibili ha rallentato il progesso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilitá di tempo di un solo soggetto.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
 === Sprint 2
 
 ==== Dettagli
@@ -338,16 +361,17 @@ Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di so
 *Data di inizio*: 16/04/2025 \
 *Data di fine*: 29/04/2025 \
 
-*Rischi attesi*: RT1, RO1
+*Rischi attesi*: RT1, RO1, RO3
 
 *Attività da svolgere*: \
 Il gruppo si impegna a:
 - Redigere il documento di analisi dei requisiti
 - Stilare le norme di progetto
+- Stilare il piano di qualifica
 - Verbalizzare l'incontro avvenuto con l'azienda proponente in data 14 Aprile 2025
 - Verbalizzare l'incontro interno avvenuto in data 16 Aprile 2025
 - Integrare il glossario con i nuovi termini
-- Creazione di uno _script_ Python per la verifica dei termini del glossario
+- Creazione di uno #glossario("script") Python per la verifica dei termini del glossario
 - Studio delle tecnologie proposte
 
 ==== *Preventivo orario*:
@@ -367,6 +391,47 @@ Il gruppo si impegna a:
   [*Totali*], [*8*], [*13*], [*3*], [*6*], [*7*], [*18*], [*55*],
 )
 
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0 (-2)], [1], [5 (+3)], [0], [2 (-1)], [*8*],
+  [Mirco Borella], [0], [3], [1], [0 (-2)], [3 (+1)], [0], [*7*],
+  [Pietro Crotti], [0], [0], [0], [0], [5], [3], [*8*],
+  [Marco Egidi], [2], [2], [1], [0], [0], [3], [*8*],
+  [Matteo Marangon], [2], [3], [0], [0], [0], [2 (-1)], [*7*],
+  [Aleena Mathew], [2], [3], [0], [0], [0], [2 (-1)], [*7*],
+  [Carmelo Russello], [2], [1 (+1)], [0], [2], [0], [3], [*8*],
+  [*Totali*], [*8*], [*12*], [*3*], [*7*], [*8*], [*15*], [*53*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [8], [€20], [€160.00],
+  [Analista], [12], [€25], [€300.00],
+  [Progettista], [3], [€25], [€75.00],
+  [Programmatore], [7], [€15], [€105.00],
+  [Responsabile], [8], [€30], [€240.00],
+  [Verificatore], [15], [€15], [€225.00],
+  [*Totali*], [*53*], [], [*€1105.00*],
+)
+
+==== *Analisi retrospettiva*: \
+_Sigma18_ dichiara che il secondo sprint è stato proficuo all'avanzamento del capitolato.
+Nello specifico è stato completato lo _script_ di verifica dei termini del glossario e il verbale interno relativo all'incontro interno in data 16 Aprile 2025.
+
+La redazione e la verifica dei documenti di analisi dei requisiti, norme di progetto e piano di qualifica è ancora in corso.
+
+Il gruppo ha organizzato con l'azienda proponente due incontri di formazione sulle tecnologie richieste, il primo in data 06 Maggio 2025 e il secondo in data 08 Maggio 2025.
+
+Continua la difficoltà emersa durante il primo sprint, ossia le difficoltà di comunicazione con l'azienda. In questo caso, il verbale esterno relativo all'incontro di _Design Thinking_ in data 14 Aprile 2025 non è stato ancora firmato da parte dell'azienda proponente a causa della mancata approvazione dei #glossario("wireframe") redatti durante lo sprint.
 
 
 
@@ -383,15 +448,26 @@ Il gruppo si impegna a:
 
 
 
+#pagebreak()
+=== Sprint 3
 
+==== Dettagli
 
+*Data di inizio*: 30/04/2025 \
+*Data di fine*: 13/05/2025 \
 
+*Rischi attesi*: RT1, RO1, RO3
 
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Redigere il documento di analisi dei requisiti
+- Stilare le norme di progetto
+- Stilare il piano di qualifica
+- Verbalizzare l'incontro avvenuto con l'azienda proponente in data 14 Aprile 2025
+- Verbalizzare l'incontro interno avvenuto in data 29 Aprile 2025
+- Integrare il glossario con i nuovi termini
+- Studio delle tecnologie proposte
 
-
-
-
-/*
 ==== *Preventivo orario*:
 #table(
   columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
@@ -399,14 +475,12 @@ Il gruppo si impegna a:
   rows: auto,
   inset: 6pt,
   table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
-  [Alessandro Bernardello], [0], [0], [0], [0], [0], [0], [*0*],
-  [Mirco Borella], [0], [0], [0], [0], [0], [0], [*0*],
-  [Pietro Crotti], [0], [0], [0], [0], [0], [0], [*0*],
-  [Marco Egidi], [0], [0], [0], [0], [0], [0], [*0*],
-  [Matteo Marangon], [0], [0], [0], [0], [0], [0], [*0*],
-  [Aleena Mathew], [0], [0], [0], [0], [0], [0], [*0*],
-  [Carmelo Russello], [0], [0], [0], [0], [0], [0], [*0*],
-  [*Totali*], [*0*], [*0*], [*0*], [*0*], [*0*], [*0*], [*0*],
+  [Alessandro Bernardello], [3], [3], [0], [0], [0], [2], [*8*],
+  [Mirco Borella], [3], [3], [0], [0], [0], [2], [*8*],
+  [Pietro Crotti], [0], [3], [0], [0], [0], [5], [*8*],
+  [Marco Egidi], [0], [3], [0], [0], [0], [5], [*8*],
+  [Matteo Marangon], [0], [3], [0], [0], [0], [5], [*8*],
+  [Aleena Mathew], [0], [1], [0], [0], [5], [2], [*8*],
+  [Carmelo Russello], [0], [3], [0], [0], [0], [5], [*8*],
+  [*Totali*], [*6*], [*19*], [*0*], [*0*], [*5*], [*26*], [*56*],
 )
-*/
-
