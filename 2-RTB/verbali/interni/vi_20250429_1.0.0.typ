@@ -39,7 +39,7 @@ Il gruppo ha analizzato in retrospettiva lo #glossario("sprint") appena concluso
 Il problema principale riscontrato è la difficoltà di comunicazione con l'azienda, che ha portato a un ritardo nella redazione del verbale esterno relativo all'incontro del 14 Aprile 2025, a causa della temporanea indisponibilità dei referenti dovuta alle festività.
 Per ovviare a questo problema, il gruppo ha deciso di completare il verbale, includendo i #glossario("wireframe"), richiedendo così un'unica approvazione da parte dell'azienda.
 
-È possibile trovare un resoconto più dettagliato nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.1.0.pdf")[Piano di Progetto].
+È possibile trovare un resoconto più dettagliato nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_0.3.0.pdf")[Piano di Progetto].
 
 == Pianificazione terzo sprint
 Il terzo sprint avrà una durata di 2 settimane, dal 30/04/2025 al 13/05/2025.
