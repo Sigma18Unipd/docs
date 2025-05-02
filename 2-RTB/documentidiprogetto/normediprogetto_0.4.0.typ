@@ -132,7 +132,7 @@ La fornitura viene supportata da strumenti di comunicazione, di gestione dei req
 Gli strumenti scelti per la comunicaizone con il proponente sono:
 - *Gmail*: per la comunicazione formale asincrona con il proponente, successivamente rimpiazata da:
 - *Slack*: per la comunicazione con il proponente, l'invio di documenti e per il supporto allo sviluppo del prodotto.
-
+//TODO: vedere come fare le riunioni online con il proponente
 
 
 
