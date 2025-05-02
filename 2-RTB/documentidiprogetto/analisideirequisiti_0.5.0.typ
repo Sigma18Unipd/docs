@@ -7,25 +7,30 @@
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
   tipo: "Documento d'uso Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "0.5.0",
   content: content,
   versioni: (
-    "1.3.0",
+    "0.5.0",
+    "2025/05/2",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Aggiunti diagrammi casi d'uso",
+    "0.4.0",
     "2025/04/24",
     "Carmelo Russello",
     "Matteo Marangon",
     "Aggiunti diagrammi casi d'uso",
-    "1.2.0",
+    "0.3.0",
     "2025/04/22",
     "Pietro Crotti",
     "Matteo Marangon",
     "Aggiunti casi d'uso",
-    "1.1.0",
+    "0.2.0",
     "2025/04/18",
     "Matteo Marangon",
     "Pietro Crotti, Aleena Mathew",
     "Aggiunti casi d'uso",
-    "1.0.0",
+    "0.1.0",
     "2025/04/16",
     "Pietro Crotti",
     "Matteo Marangon",
@@ -243,6 +248,7 @@ L'applicativo ha due tipi di attori:
   - Eliminazione di una routine esistente (#link(<UC16>)[*UC[16]*]).
   - Avviare una routine esistente tramite _dettagli flusso_ (#link(<UC17>)[*UC[17]*]).
   - Modificare le impostazioni di un singolo blocco (#link(<UC18>)[*UC[18]*]).
+  - Autenticazione al servizio del blocco tramite dettagli del flusso(#link(<UC23>)[*UC[23]*]).
 
 === UC[15] : Modifica di una routine esistente tramite drag & drop <UC15> // singolo use case per la modifica o uno use case per ogni opzione di modifica?
 - *Attore principale* : utente autenticato.
@@ -272,6 +278,9 @@ L'applicativo ha due tipi di attori:
   1. L'utente seleziona l'opzione di avvio della routine .
   2. Il sistema avvia la routine .
   3. Il sistema registra un #glossario("log") dell'esecuzione.
+- *Estensioni* :
+  - Visualizzare il _log_ di esecuzione (#link(<UC24>)[*UC[24]*]).
+  - Fornire un _feedback_ della routine generata (#link(<UC25>)[*UC[25]*]).
 
   === UC[18] : Modificare le impostazioni di un singolo blocco <UC18>
 - *Attore principale* : utente autenticato.
@@ -283,6 +292,8 @@ L'applicativo ha due tipi di attori:
   3. Il sistema mostra una finestra con le impostazioni del blocco.
   4. L'utente modifica le impostazioni desiderate.
   5. Il sistema salva le modifiche per il relativo blocco.
+- *Estensioni* :
+  - Autenticazione al servizio del blocco (#link(<UC22>)[*UC[22]*]).
 
   #figure(
     image("../../assets/usecasediagrams/UC_14_15_16_17_18.png"),
@@ -297,6 +308,9 @@ L'applicativo ha due tipi di attori:
   1. L'utente seleziona l'opzione di avvio della routine .
   2. Il sistema avvia la routine
   3. Il sistema registra un log dell'esecuzione.
+- *Estensioni* :
+  - Visualizzare il _log_ di esecuzione (#link(<UC24>)[*UC[24]*]).
+  - Fornire un _feedback_ della routine generata (#link(<UC25>)[*UC[25]*]).
 
 #figure(image("../../assets/usecasediagrams/UC_19.png"), caption: [Diagramma casi d'uso UC[19],])
 
@@ -322,6 +336,52 @@ L'applicativo ha due tipi di attori:
   4. Il sistema salva le modifiche.
 
 #figure(image("../../assets/usecasediagrams/UC_21.png"), caption: [Diagramma casi d'uso UC[21],])
+
+=== UC[22] : Autenticazione al servizio del blocco tramite impostazioni del blocco <UC22>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nelle impostazione del blocco(#link(<UC18>)[*UC[18]*]).
+- *Post-condizioni* : l'utente ha eseguito l'accesso al servizio del blocco selezionato.
+- *Scenario principale* :
+  1. L'utente preme il tasto di accesso al servizio del blocco selezionato.
+  2. Il sistema mostra la pagina di accesso al servizio del blocco selezionato.
+  3. L'utente inserisce le credenziali del servizio del blocco selezionato.
+  4. Il sistema attende il server di autenticazione del servizio del blocco selezionato.
+  5. L'utente ha eseguito l'accesso al servizio del blocco selezionato.
+
+=== UC[23] : Autenticazione al servizio del blocco tramite dettagli del flusso <UC23>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli del flusso(#link(<UC14>)[*UC[14]*]).
+- *Post-condizioni* : l'utente ha eseguito l'accesso al servizio del blocco selezionato.
+- *Scenario principale* :
+  1. L'utente preme il tasto di accesso al servizio del blocco selezionato.
+  2. Il sistema mostra la pagina di accesso al servizio del blocco selezionato.
+  3. L'utente inserisce le credenziali del servizio del blocco selezionato.
+  4. Il sistema attende il server di autenticazione del servizio del blocco selezionato.
+  5. L'utente ha eseguito l'accesso al servizio del blocco selezionato.
+
+=== UC[24] : Visualizzare il log di esecuzione <UC24>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e ha avviato una routine (#link(<UC17>)[*UC[17]*]), (#link(<UC19>)[*UC[19]*]).
+- *Post-condizioni* : l'utente visualizza il log di esecuzione della routine selezionata.
+- *Scenario principale* :
+  1. L'utente seleziona l'opzione di visualizzazione del log di esecuzione della routine avviata.
+  2. Il sistema mostra il log di esecuzione della routine avviata.
+
+=== UC[25] : Fornire un _feedback_ della routine generata <UC25>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha generato una routine e l'ha avviata (#link(<UC17>)[*UC[17]*]), (#link(<UC19>)[*UC[19]*]).
+- *Post-condizioni* : l'utente ha lasciato un feedback sulla routine.
+- *Scenario principale* :
+  1. l'utente seleziona l'opzione di feedback della routine generata (positiva o negativa) tramite i due appositi pulsanti.
+  2. Il sistema salva il feedback dell'utente.
+
+=== UC[26] : Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC26>
+- *Attore principale* : utente autenticato o non autenticato.
+- *Pre-condizioni* : l'utente ha attiva o la _dark mode_ o la _light mode_.
+- *Post-condizioni* : l'utente ha cambiato il tema del _client_.
+- *Scenario principale* :
+  1. l'utente seleziona l'icona del tema del _client_ tramite il pulsante dedicato.
+  2. Il sistema mostra il _client_ con il tema selezionato.
 
 // metto UC[X] perche gli errori credo vadano alla fine e quindi ricordarsi di aggiornare i numeri
 === UC[X] : Visualizzazione dell'errore "Il #glossario("server") non risponde"
