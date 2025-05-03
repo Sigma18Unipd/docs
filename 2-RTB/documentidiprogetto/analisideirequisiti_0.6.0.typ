@@ -3,15 +3,20 @@
   titoloDocumento: "Analisi dei Requisiti",
   abstract: "",
   responsabili: "Pietro Crotti",
-  redattori: ("Pietro Crotti", "Matteo Marangon"),
-  verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
+  redattori: ("Pietro Crotti", "Matteo Marangon", "Carmelo Russello"),
+  verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
   tipo: "Documento d'uso Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.5.0",
+  versioneAttuale: "0.6.0",
   content: content,
   versioni: (
+    "0.6.0",
+    "2025/05/03",
+    "Matteo Marangon",
+    "Carmelo Russello",
+    "Aggiunta sezione requisiti",
     "0.5.0",
-    "2025/05/2",
+    "2025/05/02",
     "Pietro Crotti",
     "Matteo Marangon",
     "Aggiunti diagrammi casi d'uso",
@@ -100,7 +105,7 @@ L'applicativo ha due tipi di attori:
 - *utente non autenticato* : colui che non ha effettuato il login e quindi non ha accesso al servizio.
 - *utente autenticato* : colui che ha effettuato il login e ha accesso al servizio.
 == Elenco dei casi d'uso
-=== UC[1] : Login
+=== UC[1] : Login <UC1>
 - *Attore principale* : utente non autenticato.
 - *Pre-condizioni* : l'utente non è autenticato e possiede un _account_.
 - *Post-condizioni* : l'utente è autenticato.
@@ -138,7 +143,7 @@ L'applicativo ha due tipi di attori:
   3. L'utente può ripetere l'inserimento delle credenziali (#link(<UC2>)[*UC[2]*], #link(<UC3>)[*UC[3]*]).
 #figure(image("../../assets/usecasediagrams/UC_1_2_3_4.png"), caption: [Diagramma casi d'uso UC[1], UC[2], UC[3], UC[4]])
 
-=== UC[5] : Registrazione
+=== UC[5] : Registrazione <UC5>
 - *Attore principale* : utente non autenticato.
 - *Pre-condizioni* : l'utente non ha un _account_.
 - *Post-condizioni* : l'utente ha un _account_.
@@ -314,7 +319,7 @@ L'applicativo ha due tipi di attori:
 
 #figure(image("../../assets/usecasediagrams/UC_19.png"), caption: [Diagramma casi d'uso UC[19],])
 
-=== UC[20] : Interrompere una routine avviata
+=== UC[20] : Interrompere una routine avviata <UC20>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e ha avviato una routine .
 - *Post-condizioni* : l'esecuzione della routine in corso viene interrotta.
@@ -325,7 +330,7 @@ L'applicativo ha due tipi di attori:
 
 #figure(image("../../assets/usecasediagrams/UC_20.png"), caption: [Diagramma casi d'uso UC[20],])
 
-=== UC[21] : Modificare le impostazioni generali
+=== UC[21] : Modificare le impostazioni generali <UC21>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso.
 - *Post-condizioni* : le impostazioni vengono aggiornate secondo le preferenze dell'utente.
@@ -410,4 +415,73 @@ L'applicativo ha due tipi di attori:
 
 
 = Requisiti
+Questa sezione del documento descrive i requisiti del progetto proposto da _Var Group S.p.A._, individuati tramite un'attenta analisi del capitolato, colloqui interni tra i membri del gruppo e riunioni esterne con l'azienda proponente.\
 
+Ciascun requisito è identificato da un codice univoco composto come segue:
+#align(center)[*R[Rilevanza][Tipologia]-[ID]*]
+dove:
+- *R* : indica che si tratta di un requisito.
+- *Rilevanza* : indica la rilevanza del requisito, che può essere:
+  - *O* : requisito obbligatorio, pertanto indispensabile per lo sviluppo del progetto;
+  - *D* : requisito desiderabile, pertanto non necessario ma fornisce un valore aggiunto al progetto;
+  - *F* : requisito facoltativo, pertanto non necessario ma può essere implementato in accordo con l'azienda se vi sono le condizioni appropriate.
+- *Tipologia* : indica la tipologia del requisito, che può essere:
+  - *F* : requisito funzionale, che descrive una funzionalità del sistema;
+  - *Q* : requisito qualitativo, che descrive un aspetto di qualità del prodotto per soddisfare esigenze specifiche;
+  - *V* : requisito di vincolo, che descrive un vincolo imposto dal proponente nel capitolato e non può essere trascurato.
+- *ID* : numero progressivo del requisito, univoco all'interno della rispettiva categoria.
+
+Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato stabilito ciascun requisito, tra cui:
+- *UC[numero_caso_uso]*, se il requisito è stato stabilito durante la stesura dei casi d'uso;
+- *Riunione esterna*, se il requisito è stato stabilito durante una riunione con l'azienda proponente;
+- *Riunione interna*, se il requisito è stato stabilito durante una riunione interna tra i membri del gruppo;
+- *Capitolato*, se il requisito è stato esplicitato nel capitolato.
+
+== Requisiti funzionali
+#table(
+  columns: (1fr, 5fr, 2.5fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Codice*], [*Descrizione*], [*Fonti*]),
+  [ROF-1], [L'utente deve poter effettuare login con il proprio account per autenticarsi nel client], [#link(<UC1>)[*UC[1]*], #link(<UC2>)[*UC[2]*], #link(<UC3>)[*UC[3]*], Riunione esterna],
+  [ROF-2], [Il sistema restituisce un errore per credenziali non valide inserite dall'utente], [#link(<UC4>)[*UC[4]*]],
+  [ROF-3], [L'utente deve potersi registrare con la creazione di un nuovo account], [#link(<UC5>)[*UC[5]*], #link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*], #link(<UC8>)[*UC[8]*]],
+  [ROF-4], [Il sistema deve restituire un errore se l'email è già in uso in fase di registrazione], [#link(<UC9>)[*UC[9]*]],
+  [ROF-5], [Il sistema deve restituire un errore se la password non adempie ai requisiti di sicurezza o le password non coincidono tra loro in fase di registrazione], [#link(<UC10>)[*UC[10]*]],
+  [ROF-6], [L'utente deve poter creare una nuova routine tramite linguaggio naturale], [#link(<UC11>)[*UC[11]*], Capitolato],
+  [RDF-7], [L'utente deve poter creare una nuova routine vuota per poterla personalizzare più radicalmente a proprio piacimento], [#link(<UC12>)[*UC[12]*], Riunione esterna],
+  [RDF-8], [L'utente deve poter modificare le funzionalità di generazione avanzate riguardanti modello, contesto e temperatura dell'LLM], [#link(<UC13>)[*UC[13]*], Riunione esterna],
+  [ROF-9], [L'utente deve poter visualizzare i dettagli di una routine esistente], [#link(<UC14>)[*UC[14]*]],
+  [ROF-10], [L'utente deve poter modificare una routine esistente tramite drag & drop], [#link(<UC15>)[*UC[15]*], Capitolato],
+  [ROF-11], [L'utente deve poter eliminare una routine esistente], [#link(<UC16>)[*UC[16]*]],
+  [ROF-12], [L'utente deve poter avviare una routine esistente per eseguire il flusso di automazioni desiderato], [#link(<UC17>)[*UC[17]*], #link(<UC19>)[*UC[19]*], Riunione esterna],
+  [RDF-13], [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")], [#link(<UC18>)[*UC[18]*], Riunione esterna, Riunione interna],
+  [ROF-14], [L'utente interrompe una routine avviata in qualsiasi momento della sua esecuzione], [#link(<UC20>)[*UC[20]*]],
+  [RDF-15], [L'utente deve poter modificare le impostazioni generali del client], [#link(<UC21>)[*UC[21]*], Riunione esterna, Riunione interna],
+  [ROF-16], [L'utente si deve autenticare al servizio di un blocco specifico che richiede un'integrazione con un servizio esterno o un account di terze parti], [#link(<UC22>)[*UC[22]*], #link(<UC23>)[*UC[23]*], Riunione esterna],
+  [RDF-17], [L'utente deve poter visualizzare il log di esecuzione della routine avviata], [#link(<UC24>)[*UC[24]*], Riunione esterna, Riunione interna],
+  [RFF-18], [L'utente fornisce un feedback sulla qualità o sul gradimento della routine generata], [#link(<UC25>)[*UC[25]*], Riunione esterna, Riunione interna],
+)
+
+
+== Requisiti qualitativi
+#table(
+  columns: (1fr, 5fr, 2.5fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Codice*], [*Descrizione*], [*Fonti*]),
+  [RFQ-1], [L'utente può impostare la modalità del client in _dark mode_ o _light mode_], [#link(<UC26>)[*UC[26]*], Riunione esterna],
+)
+
+
+== Requisiti di vincolo
+#table(
+  columns: (1fr, 5fr, 2.5fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Codice*], [*Descrizione*], [*Fonti*]),
+  [ROV-1], [Creazione di un sistema di #glossario("Gen AI") in #glossario("cloud") in grado di ricevere dati software locali e produrre delle automazioni da eseguire localmente o direttamente tramite API ai servizi finali, a partire da una descrizione in linguaggio naturale da parte dell'utente], [Capitolato],
+  [ROV-2], [Utilizzo di linguaggi di programmazione proposti, come: NodeJS, Python e Typescript per lo sviluppo API cloud; Python e C\# per lo sviluppo dell'agent], [Capitolato, Riunione esterna],
+  [ROV-3], [Condivisione del codice prodotto in formato sorgente utilizzando sistemi di versionamento del codice come #glossario("Git") o repository online con _Var Group S.p.A._], [Capitolato],
+  [ROV-4], [Creazione dell'applicativo in ottica modulare per estendere le funzioni della piattaforma], [Capitolato],
+)
