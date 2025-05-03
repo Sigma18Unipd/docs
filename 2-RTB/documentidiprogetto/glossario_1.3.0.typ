@@ -7,8 +7,13 @@
   verificatori: ("Marco Egidi", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "1.3.0",
   versioni: (
+    "1.3.0",
+    "2025-04-18",
+    "Matteo Marangon",
+    "Pietro Crotti",
+    "Aggiunta cloud, Gen AI, task",
     "1.2.0",
     "2025-04-18",
     "Matteo Marangon",
@@ -55,6 +60,9 @@ Insieme di regole o protocolli atti a consentire la comunicazione tra diversi pr
 #pagebreak()
 = C
 
+== Cloud
+Insieme di risorse accessibili tramite internet, che consentono di utilizzare servizi e applicazioni senza doverli installare o gestire localmente.
+
 == Client
 Componente o programma che accede ad un servizio reso disponibile da un #glossario("server").
 
@@ -73,6 +81,9 @@ intuizione e facilità d'uso.
 
 #pagebreak()
 = G
+
+== Gen AI (_Generative AI_)
+Tecnologia di intelligenza artificiale in grado di generare contenuti originali, come testo, immagini o musica, a partire da modelli preesistenti e dati di addestramento.
 
 == Git
 Sistema di controllo di versione distribuito che consente a più utenti di lavorare contemporaneamente su un progetto tenendo traccia delle modifiche apportate al codice sorgente.
@@ -121,3 +132,10 @@ Intervallo di tempo fisso, definito nella metologia di sviluppo software Agile, 
 
 == Sprint Planning
 Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (#glossario("sprint"))
+
+
+#pagebreak()
+= T
+
+== Task
+Una singola attività, compito o procedura facente parte di un'automazione composta da molte attività. Ogni task rappresenta un'unità di lavoro individuale all'interno di un processo automatizzato più ampio.
