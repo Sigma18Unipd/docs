@@ -53,6 +53,13 @@ Metodologia di sviluppo che si basa su un approccio iterativo e adattivo, favore
 Insieme di regole o protocolli atti a consentire la comunicazione tra diversi prodotti o servizi e per far scambiare loro dati, caratteristiche e funzionalità.
 
 #pagebreak()
+= B
+
+== Bug
+Errore di funzionamento di un sistema o di un programma che causa un comportamento indesiderato o imprevisto.
+
+
+#pagebreak()
 = C
 
 == Client
