@@ -30,8 +30,11 @@ Attivita future non programmate:
 #pagebreak()
 #spacerS
 = Analisi delle criticità e decisioni pendenti
-- Tempi di attesa iniziali lunghi da parte dell'azienda proponente per l'organizzazione dell'incontro di _design thinking_;
-- Tempi di attesa lunghi nei canali di comunicazioni asincroni scelti tra gruppo e azienda proponente.
+
+- Tempi di attesa lunghi nei canali di comunicazioni asincroni scelti tra gruppo e azienda proponente a causa delle festività.
+
+- Difficoltà nell'individuazione di alcuni _use case_ per l'analisi dei requisiti.
+
 #spacerM
 Attivita in attesa causa problematiche sopra specificate:
 - Validazione dei _wireframe_ richiesti in fase di _design thinking_ da inserire nel verbale esterno;
