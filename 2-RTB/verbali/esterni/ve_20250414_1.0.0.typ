@@ -33,8 +33,9 @@ Nell'incontro sono stati trattati i punti descritti nella sezione _ordine del gi
 
 = Ordine del giorno
 
-Durante l'incontro è stata svolta l'attività di #glossario("design thinking"), volta a definire lo scopo del progetto e l'utenza a cui è destinato.\
-Si è giunti all'accordo di realizzare un applicativo sotto forma di #glossario("webApp"), utilizzando _React_ e _TypeScript_.\
+Durante l'incontro è stata svolta l'attività di design thinking //glossario
+, volta a definire lo scopo del progetto e l'utenza a cui è destinato.\
+Si è giunti all'accordo di realizzare un applicativo sotto forma di webApp (G), utilizzando _React_ e _TypeScript_.\
 
 In particolare sono stati approfonditi i seguenti punti:
 
@@ -60,19 +61,19 @@ Segue la tabella che contiene i flussi individuati e la categoria di utenti a cu
     [Voglio poter accedere a funzionalità avanzate (scelta modello/ contesto/ temperatura) per ricevere un risultato migliore (o personalizzato)],
     [2],
 
-    [2], [Voglio poter impostare dei settings generali per non doverli ripetere in ogni #glossario("prompt")], [1, 2],
+    [2], [Voglio poter impostare dei settings generali per non doverli ripetere in ogni prompt (G)], [1, 2],
     [3], [Voglio poter definire routine quotidiane a parole per automatizzarle e risparmiare tempo], [1, 2],
     [4], [Voglio poter impostare i flussi di automazione solo tramite linguaggio naturale per non dover imparare nuovi linguaggi/tool], [1],
-    [5], [Voglio poter modificare una #glossario("routine") esistente per non doverla ricreare], [1, 2],
+    [5], [Voglio poter modificare una routine (G) esistente per non doverla ricreare], [1, 2],
     [6], [Voglio poter cancellare una routine esistente], [1, 2],
     [7], [Voglio poter visualizzare le funzionalità di ogni blocco per sapere cosa posso o non posso fare], [2],
     [8], [Voglio poter vedere la lista delle routine presenti], [1, 2],
-    [9], [Voglio poter vedere i #glossario("log") delle azioni completate per assicurarmi del risultato], [2],
+    [9], [Voglio poter vedere i log (G) delle azioni completate per assicurarmi del risultato], [2],
     [10], [Voglio poter vedere degli esempi di flusso per capire come funziona la piattaforma], [1],
     [11], [Voglio poter avere più proposte di flusso per poter scegliere il migliore], [2],
     [12], [Voglio poter fissare alcuni blocchi e far rigenerare gli altri mantenendo quelli fissati per migliorare il flusso], [2],
-    [13], [Voglio poter modificare il flusso tramite #glossario("drag and drop")], [2],
-    [14], [Voglio poter dare dei #glossario("feedback") ai flussi per migliorarne le prestazioni future], [1, 2],
+    [13], [Voglio poter modificare il flusso tramite drag and drop(G)], [2],
+    [14], [Voglio poter dare dei feedback (G) ai flussi per migliorarne le prestazioni future], [1, 2],
     [15], [Voglio poter accedere a tutte le funzionalità della piattaforma], [1],
     [16], [Voglio poter usare la dark mode], [1, 2],
     [17], [Voglio poter interrompere un’automazione avviata], [1, 2],
@@ -110,16 +111,21 @@ Segue la tabella che riporta per ciascuna pagina i flussi ad essa associati.
   ),
 )
 //lista delle funzionalità
-
+#pagebreak()
 == _Wireframe_
 // O modello grafico
-È stata prodotta una bozza della struttura grafica delle pagine dell'applicativo, rappresentata di seguito
+Il gruppo ha prodotto una bozza della struttura grafica delle pagine dell'applicativo, rappresentate di seguito:
 // inserire wireframe
 
+#figure(image("../../../assets/wireframe/Login.png", width: 80%), caption: [Modello grafico della pagina _login_])
+
+#figure(image("../../../assets/wireframe/MAINUI.png", width: 80%), caption: [Modello grafico della pagina _lista flussi_])
+
+#figure(image("../../../assets/wireframe/List.png", width: 80%), caption: [Modello grafico della pagina _dettagli flussi_])
+
 == Organizzazione / Comunicazione
-Per favorire una comunicazione più rapida e diretta, l'azienda ha proposto di utilizzare la piattaforma #glossario("_Slack_"), in modo da poter comunicare in tempo reale con i membri del gruppo.\
+Per favorire una comunicazione più rapida e diretta, l'azienda ha proposto di utilizzare la piattaforma Slack (G), in modo da poter comunicare in tempo reale con i membri del gruppo.\
 
 = Conclusioni
 Tutto il gruppo _Sigma18_ ringrazia l'azienda per il tempo fornito e per la loro disponibilità.\
 L'azienda ha espresso la propria disponibilità nel fornire incontri di formazione su tecnologie o metodologie, sotto forma di quattro corsi con una durata compresa tra le due e le quattro ore.
-
