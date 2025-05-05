@@ -7,7 +7,7 @@
   verificatori: "Alessandro Bernardello",
   tipo: "Verbale Esterno",
   destinatari: ("Var Group S.p.A.", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.2",
+  versioneAttuale: "1.1.3",
   content: content,
   firmaEsterna: true,
 )
@@ -68,7 +68,7 @@ Queste funzionalità, denominate _flussi_, sono riportate nella tabella seguente
     [10], [Voglio poter vedere degli esempi di flusso per capire come funziona la piattaforma], [1],
     [11], [Voglio poter avere più proposte di flusso per poter scegliere il migliore], [2],
     [12], [Voglio poter fissare alcuni blocchi e far rigenerare gli altri mantenendo quelli fissati per migliorare il flusso], [2],
-    [13], [Voglio poter modificare il flusso tramite #glossario("drag and drop")], [2],
+    [13], [Voglio poter modificare il flusso tramite #glossario("drag & drop")], [2],
     [14], [Voglio poter dare dei #glossario("feedback") ai flussi per migliorarne le prestazioni future], [1, 2],
     [15], [Voglio poter accedere a tutte le funzionalità della piattaforma], [1],
     [16], [Voglio poter usare la dark mode], [1, 2],

@@ -9,6 +9,11 @@
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
   versioneAttuale: "0.3.0",
   versioni: (
+    "0.4.0",
+    "2025/05/05",
+    "Aleena Mathew",
+    "Alessandro Bernardello",
+    "Aggiunta termini",
     "0.3.0",
     "2025/04/29",
     "Mirco Borella",
@@ -73,8 +78,7 @@ intuizione e facilità d'uso.
 = F
 
 == Feedback
-Commento/osservazione fornita dall'utente riguardo al prodotto o al servizio, utile per migliorare l'esperienza utente e il funzionamento del sistema.
-
+Rappresenta l'insieme di informazioni o valutazioni che gli utenti possono fornire per contribuire al miglioramento dei servizi o delle funzionalità.
 
 #pagebreak()
 = G
@@ -108,7 +112,7 @@ Fase del processo di sviluppo software in cui viene definita la versione finale 
 Prototipo o modello iniziale che dimostra la fattibilità o conferma la validità di un principio o concetto, senza dover sviluppare un prodotto completo.
 
 == Prompt
-Testo o comando fornito a un programma per ricevere una risposta o un'azione specifica.
+Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale per ottenere un'elaborazione specifica.
 
 #pagebreak()
 = R
@@ -142,7 +146,7 @@ Processo nel quale si definiscono le attività da svolgere e i prodotti attesi d
 = W
 
 == WebApp
-Applicazioni accessibili e fruibili attraverso dall'utente tramite un browser web con una connessione attiva.
+Un software che viene eseguito in un browser Web, accessibile attraverso una connessione ad Internet.
 
 == Wireframe
 Rappresentazione grafica semplificata di una pagina web o di una schermata di un'app, che evidenzia la struttura e la disposizione degli elementi dell'interfaccia.
