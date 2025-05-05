@@ -117,9 +117,9 @@ Segue la tabella che riporta per ciascuna pagina i flussi ad essa associati.
 // inserire wireframe
 
 == Organizzazione / Comunicazione
-Per favorire una comunicazione più rapida e diretta, l'azienda ha proposto di utilizzare la piattaforma #glossario("_Slack_"), in modo da poter comunicare in tempo reale con i membri del gruppo.\
+Per favorire una comunicazione più rapida e diretta, l'azienda ha proposto di utilizzare la piattaforma #glossario("Slack"), in modo da poter comunicare in tempo reale con i membri del gruppo.\
 
 = Conclusioni
 Tutto il gruppo _Sigma18_ ringrazia l'azienda per il tempo fornito e per la loro disponibilità.\
-L'azienda ha espresso la propria disponibilità nel fornire incontri di formazione su tecnologie o metodologie, sotto forma di quattro corsi con una durata compresa tra le due e le quattro ore.
+L'azienda ha espresso la propria disponibilità nel fornire incontri di formazione su tecnologie o metodologie, sotto forma di quattro corsi con una durata compresa tra le due e le quattro ore.z
 
