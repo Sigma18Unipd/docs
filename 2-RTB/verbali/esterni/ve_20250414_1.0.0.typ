@@ -109,12 +109,14 @@ Segue la tabella che riporta per ciascuna pagina i flussi ad essa associati.
     [impostazioni], [2], //aggiungo altri??
   ),
 )
-//lista delle funzionalità
-
+#pagebreak()
 == _Wireframe_
-// O modello grafico
-È stata prodotta una bozza della struttura grafica delle pagine dell'applicativo, rappresentata di seguito
-// inserire wireframe
+Il gruppo ha prodotto una bozza della struttura grafica delle pagine dell'applicativo, rappresentate di seguito:
+#figure(image("../../../assets/img/wireframe/Login.png", width: 80%), caption: [Modello grafico della pagina _login_])
+
+#figure(image("../../../assets/img/wireframe/MAINUI.png", width: 80%), caption: [Modello grafico della pagina _lista flussi_])
+
+#figure(image("../../../assets/img/wireframe/List.png", width: 80%), caption: [Modello grafico della pagina _dettagli flussi_])
 
 == Organizzazione / Comunicazione
 Per favorire una comunicazione più rapida e diretta, l'azienda ha proposto di utilizzare la piattaforma #glossario("Slack"), in modo da poter comunicare in tempo reale con i membri del gruppo.\
