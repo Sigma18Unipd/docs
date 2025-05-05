@@ -9,6 +9,11 @@
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
   versioneAttuale: "0.3.0",
   versioni: (
+    "0.4.0",
+    "2025/05/05",
+    "Aleena Mathew",
+    "Alessandro Bernardello",
+    "Aggiunta termini",
     "0.3.0",
     "2025/04/29",
     "Mirco Borella",
@@ -69,6 +74,13 @@ Tecnica di interazione grafica che si basa sul trascinamento di elementi a scher
 intuizione e facilità d'uso.
 
 #pagebreak()
+
+= F
+
+== Feedback
+Rappresenta l'insieme di informazioni o valutazioni che gli utenti possono fornire per contribuire al miglioramento dei servizi o delle funzionalità.
+
+#pagebreak()
 = G
 
 == Git
@@ -76,6 +88,13 @@ Sistema di controllo di versione distribuito che consente a più utenti di lavor
 
 == GitHub
 Piattaforma web basata su #glossario("git") che fornisce strumenti per l'hosting di repository, il versionamento del codice e la collaborazione tra sviluppatori.
+
+#pagebreak()
+
+= L
+
+== Log
+Elenco cronologico delle attività svolte all'interno di un sistema, utile per il monitoraggio e la risoluzione dei problemi.
 
 #pagebreak()
 = M
@@ -91,6 +110,9 @@ Fase del processo di sviluppo software in cui viene definita la versione finale 
 
 == PoC (_Proof of Concept_)
 Prototipo o modello iniziale che dimostra la fattibilità o conferma la validità di un principio o concetto, senza dover sviluppare un prodotto completo.
+
+== Prompt
+Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale per ottenere un'elaborazione specifica.
 
 #pagebreak()
 = R
@@ -122,6 +144,9 @@ Processo nel quale si definiscono le attività da svolgere e i prodotti attesi d
 
 #pagebreak()
 = W
+
+== WebApp
+Un software che viene eseguito in un browser Web, accessibile attraverso una connessione ad Internet.
 
 == Wireframe
 Rappresentazione grafica semplificata di una pagina web o di una schermata di un'app, che evidenzia la struttura e la disposizione degli elementi dell'interfaccia.
