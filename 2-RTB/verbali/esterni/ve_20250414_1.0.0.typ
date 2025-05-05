@@ -7,7 +7,7 @@
   verificatori: " ",
   tipo: "Verbale Esterno",
   destinatari: ("Var Group S.p.A.", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "1.1.1",
   content: content,
   firmaEsterna: true,
 )
@@ -32,10 +32,10 @@ Nell'incontro sono stati trattati i punti descritti nella sezione _ordine del gi
 - Francesco Battistella (_Var Group S.p.A._)
 
 = Ordine del giorno
+Durante l'incontro è stata svolta l'attività di #glossario("design thinking"), volta a definire lo scopo del progetto e l'utenza a cui è destinato.
+Il gruppo ha inizialmente discusso e selezionato le tecnologie per lo sviluppo dell'interfaccia grafica, decidendo di realizzare una #glossario("webApp") basata su _React_ e _TypeScript_.
 
-Durante l'incontro è stata svolta l'attività di #glossario("design thinking"), volta a definire lo scopo del progetto e l'utenza a cui è destinato. Si è giunti all'accordo di realizzare un applicativo sotto forma di #glossario("webApp"), utilizzando _React_ e _TypeScript_.
-
-In particolare sono stati approfonditi i seguenti punti:
+Si sono poi andati ad approfondire i seguenti punti:
 
 == Target
 Il gruppo ha concordato di suddividere l'utenza a cui il software è destinato in due categorie principali: *utente base* e *utente avanzato*, di seguito indicate rispettivamente come 1 e 2. \
@@ -83,8 +83,8 @@ Queste funzionalità, denominate _flussi_, sono riportate nella tabella seguente
 Il gruppo ha delineato le possibili pagine da costruire nell'applicativo web, indicando le funzionalità che verranno fornite da ciascuna pagina.
 Le pagine individuate sono le seguenti:
 - *login / registrazione*: pagina di registrazione e login
-- *lista flussi*: pagina principale dell'applicazione (home)
-- *dettagli flusso*: pagina che mostra i dettaglio del flusso
+- *lista automazioni*: pagina principale dell'applicazione (home)
+- *dettagli automazione*: pagina che mostra i dettagli di un'automazione
 - *impostazioni*: pagina di impostazioni generali ed avanzate dell'applicazione
 
 Segue la tabella che riporta per ciascuna pagina i flussi ad essa associati.
@@ -108,9 +108,9 @@ Segue la tabella che riporta per ciascuna pagina i flussi ad essa associati.
 Il gruppo ha prodotto una bozza della struttura grafica delle pagine dell'applicativo, rappresentate di seguito:
 #figure(image("../../../assets/img/wireframe/Login.png", width: 80%), caption: [Modello grafico della pagina _login_])
 
-#figure(image("../../../assets/img/wireframe/List.png", width: 80%), caption: [Modello grafico della pagina "lista flussi"])
+#figure(image("../../../assets/img/wireframe/List.png", width: 80%), caption: [Modello grafico della pagina _lista automazioni_])
 
-#figure(image("../../../assets/img/wireframe/MAINUI.png", width: 80%), caption: [Modello grafico della pagina "dettagli flusso"])
+#figure(image("../../../assets/img/wireframe/MAINUI.png", width: 80%), caption: [Modello grafico della pagina _dettagli automazione_])
 
 
 
