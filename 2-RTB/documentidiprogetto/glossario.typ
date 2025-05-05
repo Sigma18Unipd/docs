@@ -69,6 +69,14 @@ Tecnica di interazione grafica che si basa sul trascinamento di elementi a scher
 intuizione e facilità d'uso.
 
 #pagebreak()
+
+= F
+
+== Feedback
+Commento/osservazione fornita dall'utente riguardo al prodotto o al servizio, utile per migliorare l'esperienza utente e il funzionamento del sistema.
+
+
+#pagebreak()
 = G
 
 == Git
@@ -76,6 +84,13 @@ Sistema di controllo di versione distribuito che consente a più utenti di lavor
 
 == GitHub
 Piattaforma web basata su #glossario("git") che fornisce strumenti per l'hosting di repository, il versionamento del codice e la collaborazione tra sviluppatori.
+
+#pagebreak()
+
+= L
+
+== Log
+Elenco cronologico delle attività svolte all'interno di un sistema, utile per il monitoraggio e la risoluzione dei problemi.
 
 #pagebreak()
 = M
@@ -91,6 +106,9 @@ Fase del processo di sviluppo software in cui viene definita la versione finale 
 
 == PoC (_Proof of Concept_)
 Prototipo o modello iniziale che dimostra la fattibilità o conferma la validità di un principio o concetto, senza dover sviluppare un prodotto completo.
+
+== Prompt
+Testo o comando fornito a un programma per ricevere una risposta o un'azione specifica.
 
 #pagebreak()
 = R
@@ -122,6 +140,9 @@ Processo nel quale si definiscono le attività da svolgere e i prodotti attesi d
 
 #pagebreak()
 = W
+
+== WebApp
+Applicazioni accessibili e fruibili attraverso dall'utente tramite un browser web con una connessione attiva.
 
 == Wireframe
 Rappresentazione grafica semplificata di una pagina web o di una schermata di un'app, che evidenzia la struttura e la disposizione degli elementi dell'interfaccia.

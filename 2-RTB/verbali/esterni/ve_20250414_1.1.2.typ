@@ -2,12 +2,12 @@
 #show: content => verbale(
   titoloDocumento: "Seconda riunione con Var Group S.p.A.",
   abstract: "Incontro con l'azienda Var Group S.p.A. tenutasi in data 14 aprile 2025, per un iniziale design thinking.",
-  responsabili: " ",
-  redattori: " ",
-  verificatori: " ",
+  responsabili: "Matteo Marangon",
+  redattori: "Aleena Mathew",
+  verificatori: "Alessandro Bernardello",
   tipo: "Verbale Esterno",
   destinatari: ("Var Group S.p.A.", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.1",
+  versioneAttuale: "1.1.2",
   content: content,
   firmaEsterna: true,
 )
@@ -39,7 +39,7 @@ Si sono poi andati ad approfondire i seguenti punti:
 
 == Target
 Il gruppo ha concordato di suddividere l'utenza a cui il software è destinato in due categorie principali: *utente base* e *utente avanzato*, di seguito indicate rispettivamente come 1 e 2. \
-Queste due categorie si distinguono in base alle competenze tecniche possedute dai rispettivi utenti
+Queste due categorie si distinguono in base alle competenze tecniche possedute dai rispettivi utenti.
 == Flussi
 Il gruppo ha individuato bisogni differenti a seconda della tipologia di utente. Sulla base di questi, è stata definita una lista di funzionalità previste nell'applicazione, assegnandole alle categorie di utenza che ne trarrebbero beneficio.
 
@@ -98,14 +98,17 @@ Segue la tabella che riporta per ciascuna pagina i flussi ad essa associati.
     inset: 9pt,
     table.header([*Pagina*], [*Flussi*]),
     [login / registrazione], [2],
-    [lista flussi], [1, 3, 6, 8, 10, 16, 18, 19],
-    [dettagli flusso], [1, 5, 6, 7, 9, 11, 12, 13, 14, 17, 19, 20],
+    [lista automazioni], [1, 3, 6, 8, 10, 16, 18, 19],
+    [dettagli automazione], [1, 5, 6, 7, 9, 11, 12, 13, 14, 17, 19, 20],
     [impostazioni], [2],
   ),
 )
 #pagebreak()
 == _Wireframe_
-Il gruppo ha prodotto una bozza della struttura grafica delle pagine dell'applicativo, rappresentate di seguito:
+Il gruppo ha prodotto bozze della struttura grafica delle pagine dell'applicativo, denominate #glossario("wireframe").\
+Questi modelli grafici sono stati realizzati per avere uno schema generale dell'interfaccia utente e delle funzionalità previste ma non sono da considerarsi definitivi.\
+
+I wireframe realizzati sono riportati di seguito:
 #figure(image("../../../assets/img/wireframe/Login.png", width: 80%), caption: [Modello grafico della pagina _login_])
 
 #figure(image("../../../assets/img/wireframe/List.png", width: 80%), caption: [Modello grafico della pagina _lista automazioni_])
