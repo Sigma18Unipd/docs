@@ -118,7 +118,7 @@ Nello specifico, ai fini del capitolato, tratteremo i seguenti processi primari:
 Lo standard ISO/IEC 12207:1995 definisce il processo di fornitura come l'insieme delle attività necessarie per garantire che il prodotto software soddisfi i requisiti specificati e le aspettative del committente.
 
 Questo processo è iniziato con uno studio di fattibilità e lo sviluppo di alcuni flussi applicativi insieme al committente, raccolti nella sessione di #glossario("design thinking") di cui è stato redatto il relativo #link("verbale esterno")[verbale esterno]. L'incontro è stato fondamentale per la definizione e la contrattazione dei requisiti del progetto.
-//TODO: aggiungere il verbale esterno quando approvato
+//TODO: aggiungere il link al verbale esterno quando approvato
 
 Il processo terminerà con la consegna del prodotto al committente e la successiva verifica della sua conformità ai requisiti specificati.
 
@@ -134,7 +134,25 @@ Gli strumenti scelti per la comunicaizone con il proponente sono:
 - *Slack*: per la comunicazione con il proponente, l'invio di documenti e per il supporto allo sviluppo del prodotto.
 //TODO: vedere come fare le riunioni online con il proponente
 
+== Attività di fornitura
+La fornitura è composta da un insieme di attività successivamente descritte:
 
+- *Iniziazione*: In questa fase iniziale, il fornitore analizza le richieste avanzate dal proponente, considerando attentamente eventuali vincoli. È il momento cruciale in cui viene valutata la fattibilità tecnica ed economica del progetto, determinando quali requisiti potrebbero necessitare di ulteriore negoziazione.
+
+- *Preparazione della risposta*: Sulla base dell'analisi effettuata, il fornitore elabora una contro-proposta per il proponente incorporando le valutazioni emerse durante la fase di iniziazione e presentando modifiche ai requisiti originali quando necessario.
+
+- *Contratto*: Questa fase prevede un incontro con il proponente durante il quale vengono discusse le risposte precedentemente elaborate. L'obiettivo è raggiungere un accordo che soddisfi entrambe le parti.
+
+- *Pianificazione*: Definiti i requisiti contrattuali, il fornitore procede a stabilire l'organizzazione e la metodologia di lavoro più adatte. In questa fase viene selezionato il modello di ciclo di vita del software, vengono identificate le risorse necessarie e le tecnologie da impiegare, e viene posta particolare attenzione all'analisi dei potenziali rischi.
+
+- *Esecuzione e controllo*: Una volta documentata la pianificazione, il fornitore avvia l'implementazione di quanto stabilito. Durante questa fase, viene costantemente monitorata sia la qualità del prodotto in sviluppo sia l'avanzamento generale del progetto rispetto alla pianificazione iniziale.
+
+- *Revisione e valutazione*: Parallelamente allo sviluppo, il fornitore mantiene un dialogo costante con il proponente per condividere lo stato di avanzamento e raccogliere feedback. Questo processo di revisione continua permette di valutare la conformità del lavoro svolto rispetto alle aspettative e di apportare eventuali correzioni in corso d'opera.
+
+- *Consegna e completamento*: Al termine del progetto, il fornitore consegna il prodotto finale al proponente, garantendo il supporto post-consegna e risolvendo eventuali problematiche che potrebbero emergere nelle fasi iniziali di utilizzo. (Supporto post-consegna non previsto dal capitolato).
+
+=== Elenco della documentazione fornita
+Segue un elenco dei documenti che il gruppo _Sigma18_ fornità all'azienda proponente _Var Group S.p.A._ e ai committenti del capitolato _Prof. Tullio Vardanega_ e _Prof. Riccardo Cardin_.
 
 
 #pagebreak()
