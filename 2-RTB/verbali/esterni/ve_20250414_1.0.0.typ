@@ -7,7 +7,7 @@
   verificatori: " ",
   tipo: "Verbale Esterno",
   destinatari: ("Var Group S.p.A.", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.1.0",
   content: content,
   firmaEsterna: true,
 )
@@ -33,20 +33,17 @@ Nell'incontro sono stati trattati i punti descritti nella sezione _ordine del gi
 
 = Ordine del giorno
 
-Durante l'incontro è stata svolta l'attività di #glossario("design thinking"), volta a definire lo scopo del progetto e l'utenza a cui è destinato.\
-Si è giunti all'accordo di realizzare un applicativo sotto forma di #glossario("webApp"), utilizzando _React_ e _TypeScript_.\
+Durante l'incontro è stata svolta l'attività di #glossario("design thinking"), volta a definire lo scopo del progetto e l'utenza a cui è destinato. Si è giunti all'accordo di realizzare un applicativo sotto forma di #glossario("webApp"), utilizzando _React_ e _TypeScript_.
 
 In particolare sono stati approfonditi i seguenti punti:
 
 == Target
-Il gruppo ha concordato di suddividere l'utenza a cui il software è destinato in due categorie principali: *utente base* (successivamente indicato come 1) ed *utente avanzato* (successivamente indicato come 2), le due tipologie si distinguono per le conoscenze tecniche da loro possedute
-
-
+Il gruppo ha concordato di suddividere l'utenza a cui il software è destinato in due categorie principali: *utente base* e *utente avanzato*, di seguito indicate rispettivamente come 1 e 2. \
+Queste due categorie si distinguono in base alle competenze tecniche possedute dai rispettivi utenti
 == Flussi
-Per ciascuna categoria di utenza sono state individuate necessità differenti.\
-Il gruppo ha individuato bisogni differenti in base alla tipologia di utente.\ Basandosi su quest'ultime, si è andati a definire una lista di funzionalità previste nell'applicazione, attribuendole alle tipologie di utenza che ne trarrebbe beneficio.\
-Segue la tabella che contiene i flussi individuati e la categoria di utenti a cui sono destinati.\
+Il gruppo ha individuato bisogni differenti a seconda della tipologia di utente. Sulla base di questi, è stata definita una lista di funzionalità previste nell'applicazione, assegnandole alle categorie di utenza che ne trarrebbero beneficio.
 
+Queste funzionalità, denominate _flussi_, sono riportate nella tabella seguente, ciascuna associata alle relative categoria di utenza.
 
 #align(
   center,
@@ -82,9 +79,6 @@ Segue la tabella che contiene i flussi individuati e la categoria di utenti a cu
   ),
 )
 
-Come si può notare dalla tabella, i flussi sono caratterizzati da una dicitura iniziale, _"voglio"_, che rappresenta il bisogno dell'utente, la quale ci è stato richiesta di utilizzare dall'azienda.\
-Inoltre, i flussi sono stati numerati per facilitare la lettura e la comprensione della tabella che viene a seguire.\
-
 == Pagine
 Il gruppo ha delineato le possibili pagine da costruire nell'applicativo web, indicando le funzionalità che verranno fornite da ciascuna pagina.
 Le pagine individuate sono le seguenti:
@@ -103,10 +97,10 @@ Segue la tabella che riporta per ciascuna pagina i flussi ad essa associati.
     rows: auto,
     inset: 9pt,
     table.header([*Pagina*], [*Flussi*]),
-    [login / registrazione], [2], //molto incerta
+    [login / registrazione], [2],
     [lista flussi], [1, 3, 6, 8, 10, 16, 18, 19],
     [dettagli flusso], [1, 5, 6, 7, 9, 11, 12, 13, 14, 17, 19, 20],
-    [impostazioni], [2], //aggiungo altri??
+    [impostazioni], [2],
   ),
 )
 #pagebreak()
@@ -114,14 +108,16 @@ Segue la tabella che riporta per ciascuna pagina i flussi ad essa associati.
 Il gruppo ha prodotto una bozza della struttura grafica delle pagine dell'applicativo, rappresentate di seguito:
 #figure(image("../../../assets/img/wireframe/Login.png", width: 80%), caption: [Modello grafico della pagina _login_])
 
-#figure(image("../../../assets/img/wireframe/MAINUI.png", width: 80%), caption: [Modello grafico della pagina _lista flussi_])
+#figure(image("../../../assets/img/wireframe/List.png", width: 80%), caption: [Modello grafico della pagina "lista flussi"])
 
-#figure(image("../../../assets/img/wireframe/List.png", width: 80%), caption: [Modello grafico della pagina _dettagli flussi_])
+#figure(image("../../../assets/img/wireframe/MAINUI.png", width: 80%), caption: [Modello grafico della pagina "dettagli flusso"])
+
+
 
 == Organizzazione / Comunicazione
 Per favorire una comunicazione più rapida e diretta, l'azienda ha proposto di utilizzare la piattaforma #glossario("Slack"), in modo da poter comunicare in tempo reale con i membri del gruppo.\
 
 = Conclusioni
 Tutto il gruppo _Sigma18_ ringrazia l'azienda per il tempo fornito e per la loro disponibilità.\
-L'azienda ha espresso la propria disponibilità nel fornire incontri di formazione su tecnologie o metodologie, sotto forma di quattro corsi con una durata compresa tra le due e le quattro ore.z
+L'azienda ha espresso la propria disponibilità nel fornire incontri di formazione su tecnologie o metodologie, sotto forma di quattro corsi con una durata compresa tra le due e le quattro ore.
 
