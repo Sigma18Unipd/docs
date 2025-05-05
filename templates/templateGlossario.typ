@@ -36,7 +36,6 @@
     ]
   ]
   align(center + horizon)[
-    #set text(size: 16pt)
     #text(size: 30pt, weight: "bold", titoloDocumento)
   ]
   align(bottom + center)[
@@ -98,7 +97,7 @@
       #grid(
         align: horizon,
         columns: (1fr, 1fr),
-        align(left)[#image("../assets/img/LogoSlim.svg", height: 30%)], align(right)[#text(size: 12pt, titoloDocumento)],
+        align(left)[#image("../assets/img/LogoSlim.svg", height: 30%)], align(right + horizon)[#text(size: 12pt, titoloDocumento)],
       )
       #line(length: 100%, stroke: 0.5pt)
     ],
@@ -131,3 +130,6 @@
   //Contenuto
   content
 }
+
+//Glossario
+#let glossario(term) = text[*_#term#sub()[GL]_*]
