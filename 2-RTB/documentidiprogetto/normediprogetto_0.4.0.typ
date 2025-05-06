@@ -11,20 +11,20 @@
   versioneAttuale: "0.4.0",
   versioni: (
     "0.4.0",
-    "2025/04/29",
+    "2025/05/29",
     "Mirco Borella",
     "",
     "TESTTEST",
     "0.3.0",
-    "2025/04/29",
+    "2025/04/27",
     "Mirco Borella",
     "",
     "TESTTEST",
     "0.2.0",
-    "2025/04/25",
+    "2025/04/24",
     "Mirco Borella",
     "",
-    "TESTTEST",
+    "Stesura sezione 2.1 (Fornitura) e 2.2 Attività di fornitura",
     "0.1.0",
     "2025/04/22",
     "Mirco Borella",
@@ -152,11 +152,79 @@ La fornitura è composta da un insieme di attività successivamente descritte:
 - *Consegna e completamento*: Al termine del progetto, il fornitore consegna il prodotto finale al proponente, garantendo il supporto post-consegna e risolvendo eventuali problematiche che potrebbero emergere nelle fasi iniziali di utilizzo. (Supporto post-consegna non previsto dal capitolato).
 
 === Elenco della documentazione fornita
-Segue un elenco dei documenti che il gruppo _Sigma18_ fornità all'azienda proponente _Var Group S.p.A._ e ai committenti del capitolato _Prof. Tullio Vardanega_ e _Prof. Riccardo Cardin_.
+Segue un elenco dei documenti che il gruppo _Sigma18_ fornità all'azienda proponente _Var Group S.p.A._ e ai committenti del capitolato _Prof. Tullio Vardanega_ e _Prof. Riccardo Cardin_ (in ordine alfabetico).
 
+==== Analisi dei requisiti
+//TODO: Aggiungere il link
+Documento che ha lo scopo di fornire una descrizione dettagliata dei casi d'uso e dei requisiti del progetto che l'azienda proponente _Var Group S.p.A._ ha presentato.
+Questo documento è pertanto di elevata importanza in quanto costituisce una solida base per lo sviluppo del prodotto finale, permettendo di avere una chiara visione delle funzionalità e dei requisiti richiesti dall'azienda proponente.
 
-#pagebreak()
+Tipo di documento: *Documento Esterno* \
+Destinatari documento: *_Sigma18_, _Var Group S.p.A_, _Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
+
+==== Glossario
+#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Documento] che contiene la definizione dei termini ritenuti ambigui o non chiari utilizzati nel capitolato e nei documenti del gruppo _Sigma18_.
+
+Tipo di documento: *Documento Interno* \
+Destinatari documento: *_Sigma18_, _Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
+
+==== Lettera di presentazione candidatura
+#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/letteradipresentazione_1.0.1.pdf")[Lettera] con la quale il gruppo _Sigma18_ comunica formalmente la propria intenzione a candidarsi per la realizzazione del capitolato.
+
+Tipo di documento: *Documento Esterno* \
+Destinatari documento: *_Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
+
+==== Norme di progetto
+Documento che stabilisce le modalità di lavoro, il #glossario("Way of Working") del gruppo _Sigma18_ e le norme da seguire durante lo svolgimento del progetto. Questo documento è in continuo aggiornamento e verrà modificato in base all'evoluzione del progetto e delle esigenze del gruppo di lavoro.
+
+Tipo di documento: *Documento Interno* \
+Destinatari documento: *_Sigma18_*
+
+==== Piano di progetto
+#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_0.3.0.pdf")[Documento] che ha l'obiettivo di definire e tenere traccia di tutte le attività eseguite e pianificate dal team durante lo sviluppo del progetto.
+In particolare, il piano di progetto si concentra su: analisi dei rischi, modello di sviluppo e pianificazione delle attività.
+
+Tipo di documento: *Documento Esterno* \
+Destinatari documento: *_Sigma18_, _Var Group S.p.A_, _Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
+
+==== Piano di qualifica
+Documento che ha lo scopo di definire le modalità di verifica e di validazione adottate dal gruppo _Sigma18_ al fine di garantire la qualità del prodotto finale.
+Il documento sarà soggetto ad aggiornamenti durante il ciclo di vita del progetto per riflettere le modifiche apportate per raggiungere una migliore efficacia ed efficienza.
+
+Tipo di documento: *Documento Esterno* \
+Destinatari documento: *_Sigma18_, _Var Group S.p.A_, _Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
+
+==== Preventivo dei costi e dichiarazione impegni
+#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[Documento] che ha lo scopo di definire i ruoli, i costi preventivati e fornire una stima della data per la realizzazione del capitolato. Il documento contiene anche un'analisi dei rischi approssimativa che il gruppo _Sigma18_ ha tenuto in considerazione durante la stesura del preventivo.
+
+Tipo di documento: *Documento Esterno* \
+Destinatari documento: *_Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
+
+==== Valutazione dei capitolati
+#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/valutazionecapitolati_1.1.0.pdf")[Documento] che presenta le motivazioni che hanno portato il gruppo _Sigma18_ a scegliere il capitolato _C3 - Automatizzare le routine digitali tramite l'intelligenza generativa_ proposto dall'azienda _Var Group S.p.A._ e i relativi pro e contro di ogni capitolato proposto.
+
+Tipo di documento: *Documento Esterno* \
+Destinatari documento: *_Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
+
+==== Verbale Esterno
+Documento che contiene i resoconti, le decisioni e le azioni intraprese all'ordine del giorno durante gli incontri con il proponente. Il verbale esterno è redatto dal gruppo _Sigma18_ e viene condiviso con il proponente e i committenti del capitolato.
+
+Tipo di documento: *Documento Esterno* \
+Destinatari documento: *_Var Group S.p.A_, _Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
+
+==== Verbale Interno
+Documento che contiene i resoconti, le decisioni e le azioni intraprese all'ordine del giorno durante gli incontri e le riunioni tra i componenti del gruppo _Sigma18_. Il verbale interno è redatto dal gruppo e viene condiviso con il gruppo stesso.
+
+Tipo di documento: *Documento Interno* \
+Destinatari documento: *_Sigma18_*
+
 == Sviluppo <sviluppo>
+
+
+
+
+
+== Attività di sviluppo
 
 = Processi di supporto <supporto>
 
