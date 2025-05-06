@@ -5,7 +5,7 @@
   responsabili: "Pietro Crotti",
   redattori: ("Pietro Crotti", "Matteo Marangon", "Carmelo Russello"),
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
-  tipo: "Documento d'uso Esterno",
+  tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
   versioneAttuale: "0.6.0",
   content: content,
