@@ -7,7 +7,7 @@
   verificatori: "Alessandro Bernardello",
   tipo: "Verbale Esterno",
   destinatari: ("Var Group S.p.A.", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.3",
+  versioneAttuale: "1.1.4",
   content: content,
   firmaEsterna: true,
 )
@@ -113,7 +113,7 @@ I wireframe realizzati sono riportati di seguito:
 
 #figure(image("../../../assets/img/wireframe/List.png", width: 80%), caption: [Modello grafico della pagina _lista automazioni_])
 
-#figure(image("../../../assets/img/wireframe/MAINUI.png", width: 80%), caption: [Modello grafico della pagina _dettagli automazione_])
+#figure(image("../../../assets/img/wireframe/MAINUI.jpeg", width: 80%), caption: [Modello grafico della pagina _dettagli automazione_])
 
 
 
