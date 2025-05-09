@@ -8,33 +8,42 @@
   verificatori: ("Carmelo Russello", "Matteo Marangon"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "0.4.0",
   versioni: (
-    "0.1.0",
-    "2025/04/17",
-    "Aleena Mathew ",
-    "Carmelo Russello",
-    "Prima stesura del documento",
-    "0.2.0",
-    "2025/04/30",
+    "0.4.0",
+    "2025/05/09",
     "Aleena Mathew ",
     "Matteo Marangon",
-    "Prima stesura del documento",
+    "Correzione di errori e elenco tabelle",
     "0.3.0",
     "2025/04/30",
     "Aleena Mathew ",
     "Matteo Marangon",
     "Aggiunta di nuove metriche",
+    "0.2.0",
+    "2025/04/30",
+    "Aleena Mathew ",
+    "Matteo Marangon",
+    "Prima stesura del documento",
+    "0.1.0",
+    "2025/04/17",
+    "Aleena Mathew ",
+    "Carmelo Russello",
+    "Prima stesura del documento",
   ),
   content: content,
 )
+#outline(title: "Elenco tabelle", target: figure.where(kind: table, outlined: true))
+
+
+#pagebreak()
 = Introduzione
 == Scopo del documento
 Il presente documento ha lo scopo di definire le modalità di verifica e di validazione adottate dal gruppo al fine di garantire la qualità del prodotto finale.
 Il documento sarà soggetto ad aggiornamenti durante il ciclo di vita del progetto per riflettere le modifiche apportate per raggiungere una migliore efficacia ed efficienza.
 
 == Glossario
-Data la presenza di termini tecnici e acronimi, è stato creato un glossario per facilitare la comprensione del documento.
+Data la presenza di termini tecnici e acronimi, è stato redatto un glossario per facilitare la comprensione del documento.\
 Tali termini saranno opportunamente segnalato tramite la seguente notazione: #glossario("parola"), e sarà fornita un'accurata definizione nel Glossario.
 
 == Riferimenti
@@ -61,9 +70,8 @@ link
 #pagebreak()
 
 = Qualità di processo
-La qualità di processo è un aspetto fondamentale per garantire il successo del progetto software poiché assicura che i processi utilizzati siano efficaci, efficienti e conformi agli standard di qualità prefissati.
-
-Di seguito sono riportati gli obiettivi di qualità che il gruppo si propone di raggiungere, suddivisi in tre categorie di processi: _primari_, _di supporto_ e _organizzativi_, come individuato dallo standard ISO/IEC 12207:1995.
+La qualità di processo è un aspetto fondamentale per garantire il successo del progetto software poiché assicura che i processi utilizzati siano efficaci, efficienti e conformi agli standard di qualità prefissati.\
+Di seguito sono riportati gli obiettivi di qualità che il gruppo si impegna a raggiungere, suddivisi in tre categorie:_ processi primari_, _processi di supporto_ e _processi organizzativi_, come individuato dallo standard ISO/IEC 12207:1995.
 
 == Processi primari
 I processi primari comprendono attività di acquisizione, gestione operativa, manutenzione del software, fornitura e sviluppo. Verranno esaminati solo gli ultimi due, in quanto si tratta di un progetto didattico.
@@ -96,9 +104,9 @@ Misura la differenza tra il valore guadagnato (EV) e il valore pianificato (PV) 
 
 ==== Cost performance index (MPC-CPI)
 Misura l’efficienza del costo per il lavoro svolto fino a un determinato momento, in base al valore ottenuto per ogni unità monetaria spesa.
-
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi del processo di fornitura],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -115,8 +123,6 @@ Misura l’efficienza del costo per il lavoro svolto fino a un determinato momen
     [MPC-CPI], [Cost performance index], [≥0], [1],
   ),
 )
-#align(center, text("Tabella 1: Metriche di qualità del processo di fornitura."))
-
 
 === Sviluppo
 Attività che hanno lo scopo di descrivere le attività e i compiti necessari per creare e mantenere un sistema software, necessari per un prodotto finale che soddisfi i requisiti specificati nel contratto.
@@ -129,9 +135,12 @@ Un valore alto indica che i requisiti sono stabili e non soggetti a modifiche fr
 ==== Technical Debt Ratio (MPC-TD )
 È il rapporto tra il tempo necessario per risolvere problemi tecnici e il tempo necessario per sviluppare nuove funzionalità.\
 Un valore basso indica che il codice è ben strutturato e non presenta problemi tecnici.
+\
+\
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi del processo di sviluppo],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -142,25 +151,25 @@ Un valore basso indica che il codice è ben strutturato e non presenta problemi 
     [MPC-TD], [Technical Debt Ratio], [≤15%], [≤5%],
   ),
 )
-#align(center, text("Tabella 2: Valori accettabili e ottimi del processo di sviluppo."))
 
-
+#pagebreak()
 == Processi di supporto
 I processi di supporto forniscono servizi e attività che assistono i processi primari.
 Si tratta di documentazione, controllo qualità e verifica.
 
 === Documentazione
-Permette di avere un tracciamento delle attività svolte.
+La documentazione permette di avere un tracciamento delle attività svolte.
 
 ==== Indice di Gulpease (MPC-IG)
-Valuta la leggibilità di un testo basandosi su variabili quali il numero e la lunghezza delle parole e delle frasi.\
+L'indice di Gulpease valuta la leggibilità di un testo basandosi su variabili quali il numero e la lunghezza delle parole e delle frasi.\
 Fornisce un punteggio da 0 a 100, dove punteggi più alti indicano una maggiore leggibilità.
 
 ==== Correttezza ortografica (MPC-CO)
-Indica il numero di errori grammaticali e ortografici presenti in un documento.\
+La correttezza ortografica indica il numero di errori grammaticali e ortografici presenti in un documento.\
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi del processo di documentazione],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -171,7 +180,6 @@ Indica il numero di errori grammaticali e ortografici presenti in un documento.\
     [MPC-CO], [Correttezza ortografica], [0], [0],
   ),
 )
-#align(center, text("Tabella 3: Valori accettabili e ottimi del processo di documentazione."))
 
 
 === Verifica
@@ -186,8 +194,9 @@ Indica il numero di errori grammaticali e ortografici presenti in un documento.\
 Indica la percentuale di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti.
 Una percentuale alta indica che il sistema è stabile e che la maggior parte delle funzionalità funzionano come previsto.
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi del processo di verifica],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -198,7 +207,6 @@ Una percentuale alta indica che il sistema è stabile e che la maggior parte del
     [MPC-TSP], [Test superati in percentuale], [100%], [100%],
   ),
 )
-#align(center, text("Tabella 4: Valori accettabili e ottimi del processo di verifica."))
 
 === Gestione della qualità
 
@@ -206,8 +214,9 @@ Una percentuale alta indica che il sistema è stabile e che la maggior parte del
 Indica la percentuale di metriche che soddisfano gli obiettivi minimi di qualità.\
 Il valore è ottenuto dalla somma delle metriche di qualità soddisfatte in rapporto al numero totale di metriche di qualità.
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi del processo di gestione della qualità],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -217,16 +226,16 @@ Il valore è ottenuto dalla somma delle metriche di qualità soddisfatte in rapp
     [MPC-SQM], [Satisfaction of Quality Metrics], [≥80%], [100%],
   ),
 )
-#align(center, text("Tabella 5: Valori accettabili e ottimi del processo di gestione della qualità."))
 
 == Processi organizzativi
-I processi organizzativi riguardano la gestione e l’organizzazione del progetto come gestione dei processi, miglioramento, e formazione.
+I processi organizzativi riguardano la gestione e l’organizzazione del progetto come la gestione dei processi, il miglioramento e la formazione.
 
 === Efficienza temporale (MPC-ET)
 Valuta l'efficienza con cui il tempo disponibile viene impiegato in attività produttive, ovvero quelle contribuiscono al raggiungimento degli obiettivi del progetto.
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi dei processi organizzativi],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -236,8 +245,6 @@ Valuta l'efficienza con cui il tempo disponibile viene impiegato in attività pr
     [MPC-ET], [Efficienza temporale ], [≤3], [≤1],
   ),
 )
-#align(center, text("Tabella 6: Valori accettabili e ottimi dei processi organizzativi."))
-
 #pagebreak()
 
 = Qualità del prodotto
@@ -259,8 +266,9 @@ Indica la percentuale di requisiti opzionali soddisfatti dal prodotto. Un valore
 === Requisiti desiderabili soddisfatti (MPD-RD)
 Indica la percentuale di requisiti desiderabili soddisfatti dal prodotto. Un valore alto indica una maggiore soddisfazione del cliente.
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi della funzionalità del prodotto],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -272,7 +280,6 @@ Indica la percentuale di requisiti desiderabili soddisfatti dal prodotto. Un val
     [MPD-RD], [Requisiti desiderabili soddisfatti], [≥0%], [100%],
   ),
 )
-#align(center, text("Tabella 7: Valori accettabili e ottimi della funzionalità del prodotto."))
 
 == Affidabilità
 L'affidabilità misura la capacità del software di funzionare correttamente sotto specifiche condizioni.
@@ -301,23 +308,23 @@ Un valore alto suggerisce che il software è capace di gestire i guasti senza co
 Indica la frequenza con cui si verificano guasti o malfunzionamenti nel prodotto.\
 Un valore basso suggerisce che il prodotto è affidabile.
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi dell'affidabilità del prodotto],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
     rows: auto,
     inset: 7pt,
     table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPD-CC], [Code coverage], [≥80%], [100%],
+    [MPD-CC], [Code coverage], [≥70%], [100%],
     [MPD-BC], [Branch coverage], [≥60%], [≥85%],
     [MPD-SC], [Statement coverage], [≥60%], [≥85%],
-    [MPD-PTCP], [Passed test cases percentage], [≥80%], [100%],
+    [MPD-PTCP], [Passed test cases percentage], [≥70%], [100%],
     [MPD-FT], [Failure Tolerance ], [100%], [100%],
     [MPD-FF], [Failure Frequency ], [0], [0],
   ),
 )
-#align(center, text("Tabella 8: Valori accettabili e ottimi dell'affidabilità del prodotto."))
 
 == Usabilità
 L'usabilità indica la facilità con cui gli utenti possono utilizzare il software.
@@ -330,8 +337,9 @@ Un valore basso indica che il prodotto è facile da usare e richiede poco tempo 
 Indica il numero di errori commessi dagli utenti durante l'interazione con il software.\
 Un valore basso indica che il prodotto è facile da usare e che gli utenti riescono a completare le azioni richieste senza errori.
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi dell'usabilità del prodotto],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -342,7 +350,6 @@ Un valore basso indica che il prodotto è facile da usare e che gli utenti riesc
     [MPD-ER], [Error Rate ], [≤4 errori], [0 errori],
   ),
 )
-#align(center, text("Tabella 9: Valori accettabili e ottimi dell'usabilità del prodotto."))
 
 == Efficienza
 
@@ -355,8 +362,9 @@ risorse di sistema.\
 Indica il tempo medio di risposta delle API del sistema.\
 Un valore basso indica che il sistema è in grado di rispondere rapidamente alle richieste degli utenti.
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi dell'efficienza del prodotto],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -367,7 +375,6 @@ Un valore basso indica che il sistema è in grado di rispondere rapidamente alle
     [MPD-TRA], [Tempo di risposta API ], [≤600 ms], [≤200 ms],
   ),
 )
-#align(center, text("Tabella 10: Valori accettabili e ottimi dell'efficienza del prodotto."))
 
 
 == Manutenibilità
@@ -388,8 +395,9 @@ Un valore alto implica che i moduli sono strettamente interconnessi, rendendo di
 Indica il tempo medio necessario per risolvere un bug.\
 Un valore basso indica che si è in grado di risolverli in maniera rapida ed efficiente.
 
-#align(
-  center,
+#figure(
+  kind: table,
+  caption: [Valori accettabili e ottimi della manutenibilità del prodotto],
   table(
     columns: (auto, 1fr, auto, auto),
     align: center,
@@ -402,7 +410,6 @@ Un valore basso indica che si è in grado di risolverli in maniera rapida ed eff
     [MPD-TRB], [Tempo per risolvere i bug ], [≤4 ore], [≤2 ore],
   ),
 )
-#align(center, text("Tabella 11: Valori accettabili e ottimi della manutenibilità del prodotto."))
 
 #pagebreak()
 
@@ -430,3 +437,4 @@ I test di accettazione sono condotti per verificare che il sistema soddisfi i re
 Il loro successo è fondamentale per garantire il rilascio definitivo del prodotto.
 
 = Cruscotto Valutazione
+
