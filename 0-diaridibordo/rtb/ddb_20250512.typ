@@ -21,7 +21,8 @@
 - Incontri di formazione con azienda proponente per un totale di 16 ore;
 - Completamento e validazione delle norme di progetto;
 - Completamento e validazione dell'analisi dei requisiti;
-- Completamento e validazione del piano di qualifica.
+- Completamento e validazione del piano di qualifica;
+- Pianificazione del quarto sprint.
 #spacerM
 Attivita future non programmate:
 - Inizio analisi dell'architettura del PoC (_Proof of Concept_).
