@@ -18,7 +18,7 @@
 
 #spacerS
 = Obiettivi e attività programmate (_backlog_)
-- Incontri di formazione con azienda proponente per un totale di 16 ore;
+- Incontri di formazione con azienda proponente per un totale di 8 ore;
 - Completamento e validazione delle norme di progetto;
 - Completamento e validazione dell'analisi dei requisiti;
 - Completamento e validazione del piano di qualifica;
