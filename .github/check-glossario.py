@@ -357,12 +357,16 @@ if __name__ == "__main__":
             files.extend(glob.glob(os.path.join(path, "**", "*.typ"), recursive=True))
             with file_pool as executor:
                 results.update(dict(executor.map(process_file, files)))
-        elif os.path.isfile(path) and path.endswith(".typ"):
-            _, terms_set = process_file(path)
-            results[path] = terms_set
+        elif os.path.isfile(path):
+            if path.endswith(".typ"):
+                _, terms_set = process_file(path)
+                results[path] = terms_set
+            else:
+                logger.warning(f"'{path}' is not a .typ file, skipping")
+                sys.exit(0)
         else:
             logger.error(f"'{path}' is not a valid file or directory.")
-            sys.exit(0)
+            sys.exit(0)  # we still return 0 in order for the gha not to fail
 
     found_missing = False
     for filepath, terms in results.items():
