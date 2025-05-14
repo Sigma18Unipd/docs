@@ -7,7 +7,7 @@
   verificatori: ("Marco Egidi", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "0.3.0",
+  versioneAttuale: "0.4.0",
   versioni: (
     "0.4.0",
     "2025/05/05",
@@ -57,6 +57,15 @@ Metodologia di sviluppo che si basa su un approccio iterativo e adattivo, favore
 == API (_Application Programming Interface_)
 Insieme di regole o protocolli atti a consentire la comunicazione tra diversi prodotti o servizi e per far scambiare loro dati, caratteristiche e funzionalità.
 
+== AWS
+Amazon Web Services (AWS) è una piattaforma di servizi _cloud_ offerta da Amazon. Si suddivide in base al servizio offerto come ad esempio: calcolo, archiviazione, database, _machine learning_ e altro.
+
+#pagebreak()
+= B
+
+== Backend
+Il backend denota la parte di un programma che gestisce la logica e l'interazione con il database, fornendo dati e servizi al frontend.
+
 #pagebreak()
 = C
 
@@ -80,8 +89,14 @@ intuizione e facilità d'uso.
 == Feedback
 Rappresenta l'insieme di informazioni o valutazioni che gli utenti possono fornire per contribuire al miglioramento dei servizi o delle funzionalità.
 
+== Frontend
+Con Frontend si denota la parte visibile di un programma con cui l'utente interagisce direttamente.
+
 #pagebreak()
 = G
+
+== Gen AI
+L'intelligenza artificiale generativa (o Gen AI) è un tipo di intelligenza artificiale che è in grado di generare testo, immagini, video o altro in risposta a richieste dette _prompt_.
 
 == Git
 Sistema di controllo di versione distribuito che consente a più utenti di lavorare contemporaneamente su un progetto tenendo traccia delle modifiche apportate al codice sorgente.
@@ -103,6 +118,12 @@ Elenco cronologico delle attività svolte all'interno di un sistema, utile per i
 Il prodotto minimo funzionante (in inglese _Minimum Viable Product_) è la versione di un prodotto con caratteristiche appena sufficienti per essere funzionante e utilizzabile dai primi clienti, i quali possono fornire _feedback_ per migliorare il prodotto stesso.
 
 #pagebreak()
+= N
+
+== Nest.JS
+Un insieme di librerie in _Node.JS_ basato su _Typescript_ dedicate alla costruzione di applicazioni lato _server_ (_backend_) scalabili ed efficienti.
+
+#pagebreak()
 = P
 
 == PB (_Product Baseline_)
@@ -116,6 +137,9 @@ Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale
 
 #pagebreak()
 = R
+
+== React
+React è una libreria _JavaScript_ sviluppata da _Facebook_ utilizzata per creare interfacce utente interattive e dinamiche.
 
 == Routine
 Sequenza di istruzioni che consentono di eseguire un'operazione di frequente esecuzione.
@@ -132,6 +156,9 @@ File di testo che contiene una sequenza di istruzioni o comandi da eseguire.
 
 == Server
 Macchina o programma che fornisce un qualsiasi tipo di servizio ad altre componenti connesse.
+
+== Shadcn
+È una collezione di componenti visivi da utilizzare per la creazione di interfaccie grafiche pratiche ed efficaci.
 
 == Slack
 Slack è uno strumento di collaborazione aziendale utilizzato per scambiarsi messaggi istantanei tra vari membri all'interno di un team.
