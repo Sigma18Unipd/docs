@@ -8,13 +8,18 @@
   verificatori: ("Carmelo Russello", "Matteo Marangon"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "0.4.0",
+  versioneAttuale: "0.4.1",
   versioni: (
+    "0.4.1",
+    "2025/05/14",
+    "Aleena Mathew ",
+    "Matteo Marangon",
+    "Correzione di errori minori",
     "0.4.0",
     "2025/05/09",
     "Aleena Mathew ",
     "Matteo Marangon",
-    "Correzione di errori e elenco tabelle",
+    "Correzione di errori ed elenco tabelle",
     "0.3.0",
     "2025/04/30",
     "Aleena Mathew ",
@@ -24,7 +29,7 @@
     "2025/04/30",
     "Aleena Mathew ",
     "Matteo Marangon",
-    "Prima stesura del documento",
+    "Stesura qualità del prodotto",
     "0.1.0",
     "2025/04/17",
     "Aleena Mathew ",
@@ -44,7 +49,7 @@ Il documento sarà soggetto ad aggiornamenti durante il ciclo di vita del proget
 
 == Glossario
 Data la presenza di termini tecnici e acronimi, è stato redatto un glossario per facilitare la comprensione del documento.\
-Tali termini saranno opportunamente segnalato tramite la seguente notazione: #glossario("parola"), e sarà fornita un'accurata definizione nel Glossario.
+Tali termini saranno opportunamente segnalato tramite la seguente notazione: #glossario("parola"), e sarà fornita un'accurata definizione nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario].
 
 == Riferimenti
 === Riferimenti normativi
@@ -54,12 +59,11 @@ link
 - * ISO/IEC 12207:1995: *
 #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf]
 
-- Capitolato *C3 - Automatizzare le routine digitali tramite l'intelligenza generativa*
+- *Capitolato C3 - Automatizzare le routine digitali tramite l'intelligenza generativa*
 #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf]
 
 === Riferimenti informativi
-- *Glossario:*
-#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario]
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[*Glossario*]
 
 - *Slide T07 - Qualità del prodotto*:
 #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf]
@@ -81,7 +85,7 @@ Si intendono le attività e i compiti svolti dal fornitore, in accordo con il pr
 Con l'acronimo _MPC_ (Minimum Predictive Capability) si indica il valore minimo da raggiungere.
 
 ==== Earned Value (MPC-EV)
-È il valore del lavoro completato fino a un dato momento rispetto al budget pianificato, è il risultato del prodotto tra _BAC_ (Budget At Completion) e la percentuale di lavoro completato.
+È il valore del lavoro completato fino a un dato momento rispetto al budget pianificato e si ottiene dal prodotto tra _BAC_ (Budget At Completion) e la percentuale di lavoro completato.
 
 ==== Planned Value (MPC-PV)
 È il valore del lavoro pianificato da completare entro una determinata data.
@@ -125,7 +129,7 @@ Misura l’efficienza del costo per il lavoro svolto fino a un determinato momen
 )
 
 === Sviluppo
-Attività che hanno lo scopo di descrivere le attività e i compiti necessari per creare e mantenere un sistema software, necessari per un prodotto finale che soddisfi i requisiti specificati nel contratto.
+Attività che ha lo scopo di descrivere le attività e i compiti necessari per creare e mantenere un sistema software, necessari per un prodotto finale che soddisfi i requisiti specificati nel contratto.
 
 Di seguito sono riportate le relative metriche.
 
@@ -192,7 +196,7 @@ La correttezza ortografica indica il numero di errori grammaticali e ortografici
 
 ==== Test superati in percentuale (MPC-TSP)
 Indica la percentuale di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti.
-Una percentuale alta indica che il sistema è stabile e che la maggior parte delle funzionalità funzionano come previsto.
+Una percentuale alta indica che il sistema è stabile e che la maggior parte delle funzionalità funziona come previsto.
 
 #figure(
   kind: table,
@@ -290,11 +294,11 @@ Indica la percentuale di codice eseguita durante i test.\ Un valore alto indica 
 === Branch coverage (MPD-BC)
 Indica la percentuale di rami decisionali del codice eseguiti durante i test.\
 Utile per identificare scenari non testati.\
-Un valore alto suggerisce che il codice è stato testato approfonditamente e abbia una bassa probabilità di contenere errori.
+Un valore alto suggerisce che il codice è stato testato approfonditamente e che ha una bassa probabilità di contenere errori.
 
 === Statement coverage (MPD-SC)
 Indica la percentuale di istruzioni eseguite durante i test.\ Un valore alto alto suggerisce un'analisi pù approfondita del codice e una bassa probabilità di contenere errori.
-Il valore è il risultato il rapporto tra il numero di istruzioni eseguite e il numero totale di istruzioni nel codice, moltiplicato per 100.
+Il valore è il risultato del rapporto tra il numero di istruzioni eseguite e il numero totale di istruzioni nel codice, moltiplicato per 100.
 
 === Passed test cases percentage (MPD-PTCP)
 Indica la percentuale di casi di test superati rispetto al totale dei test eseguiti.\
@@ -416,13 +420,6 @@ Un valore basso indica che si è in grado di risolverli in maniera rapida ed eff
 = Metodi di testing
 La seguente sezione descrive le attività di testing effettuate per garantire la qualità del prodotto.
 
-/*In linea con quanto specificato nel documento Norme di Progetto, il
-piano di test adotta un approccio strutturato e si articola nelle seguenti categorie.
-Serve descrivere ogni test????
-*/
-
-/*Per identificare ogni test è stato attribuito un codice univoco strutturato nel seguente modo: *[TIPO]-X*, dove X incrementa progressivamente.*/
-
 == Test di unità
 I test di unità verificano il funzionamento corretto di componenti software più piccoli e indipendenti, sviluppati soprattutto nella fase di progettazione.
 
@@ -430,7 +427,7 @@ I test di unità verificano il funzionamento corretto di componenti software pi�
 I test di integrazione vengono eseguiti successivamente ai test di unità e verificano l'interazione tra più unità software per garantire una corretta integrazione e funzionamento del sistema.
 
 == Test di sistema
-I test di sistema verificano il funzionamento del sistema software nel suo complesso per garantire il soddisfacimento delle specifiche funzionali, prestazionali e di qualità concordate.
+I test di sistema verificano il funzionamento del sistema software nel suo complesso per garantire il soddisfacimento delle specifiche funzionali, prestazionali e di qualità concordate, presenti nel documento dell'analisi dei requisiti. //link
 
 == Test di accettazione
 I test di accettazione sono condotti per verificare che il sistema soddisfi i requisiti e le aspettative del contrattuali, motivo per cui sono condotti insieme al committente.\
