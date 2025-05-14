@@ -7,7 +7,7 @@
   verificatori: ("Marco Egidi", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "0.3.0",
+  versioneAttuale: "0.4.0",
   versioni: (
     "0.4.0",
     "2025/05/05",
