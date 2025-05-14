@@ -200,7 +200,7 @@ Il seguente è l'approccio scelto per l'identificazione dei rischi:
 
 Il modello di sviluppo scelto dal team è il modello #glossario("Agile"), per la sua flessibilità rispetto ai modelli tradizionali. L'approccio è focalizzato sulla consegna al cliente, in tempi brevi e con frequenza regolare, e prevede il coinvolgimento diretto e continuo del cliente durante tutto il processo di sviluppo.
 
-Una pratica essenziale da seguire con l'uso del modello #glossario("Agile") è la suddivisione del progetto in intervalli temporali precisi e concisi, chiamati #glossario("Sprint"), entro i quali dovranno essere completate le attività stabilite durante lo #glossario("Sprint Planning")
+Una pratica essenziale da seguire con l'uso del modello _Agile_ è la suddivisione del progetto in intervalli temporali precisi e concisi, chiamati #glossario("Sprint"), entro i quali dovranno essere completate le attività stabilite durante lo #glossario("Sprint Planning")
 
 == Vantaggi del modello
 
@@ -212,12 +212,12 @@ Una pratica essenziale da seguire con l'uso del modello #glossario("Agile") è l
 
 = Pianificazione
 
-Avendo scelto il modello #glossario("Agile") le attività di lavoro verranno tramite la suddivisione in #glossario("Sprint"), un breve periodo di tempo nel quale il team lavora per completare una predeterminata quantità di lavoro per raggiungere gli obiettivi prefissati.
+Avendo scelto il modello _Agile_ le attività di lavoro verranno tramite la suddivisione in _sprint_, un breve periodo di tempo nel quale il team lavora per completare una predeterminata quantità di lavoro per raggiungere gli obiettivi prefissati.
 
-Il gruppo, in accordo con l'azienda proponente, ha stabilito la durata di ogni #glossario("Sprint") pari a *2 settimane*.
+Il gruppo, in accordo con l'azienda proponente, ha stabilito la durata di ogni _sprint_ pari a *2 settimane*.
 
 == Ruolo del Team
-- *Pianificazione condivisa*: all'inizio di ogni #glossario("Sprint"), il gruppo stabilisce congiuntamente gli obiettivi.
+- *Pianificazione condivisa*: all'inizio di ogni _sprint_, il gruppo stabilisce congiuntamente gli obiettivi.
 
 - *Rotazione dei ruoli*: per garantire equità e crescita trasversale tra i membri.
 
@@ -230,21 +230,21 @@ Per approfondimenti sull'impegno dei membri e la stima dei costi, si fa riferime
 
 == Struttura Operativa degli Sprint
 
-Gli #glossario("sprint") verranno strutturati nel seguente modo:
+Gli _sprint_ verranno strutturati nel seguente modo:
 
-- *Data di inizio*: Data di inizio dello #glossario("sprint").
+- *Data di inizio*: Data di inizio dello _sprint_.
 
-- *Data di fine*: Data di fine dello #glossario("sprint").
+- *Data di fine*: Data di fine dello _sprint_.
 
-- *Rischi attesi*: I rischi che potrebbero verificarsi nel corso dello #glossario("sprint").
+- *Rischi attesi*: I rischi che potrebbero verificarsi nel corso dello _sprint_.
 
-- *Attività da svolgere*: Le attività previste per ogni #glossario("sprint"), allineate agli obiettivi definiti durante la riunione iniziale.
+- *Attività da svolgere*: Le attività previste per ogni _sprint_, allineate agli obiettivi definiti durante la riunione iniziale.
 
 - *Preventivo*: Una tabella che riporta il preventivo delle ore da svolgere da ciascun membro, suddiviso per ruolo.
 
 - *Consuntivo*: Una tabella che mostra il consuntivo delle ore svolte da ciascun membro, suddiviso per ruolo, insieme ad una tabella dei costi e delle ore assegnate a ciascun ruolo. Necessario per una visione più ampia sul rendimento del gruppo durante l'analisi conclusiva.
 
-- *Analisi retrospettiva*: Un resoconto di cosa è stato portato a termine durante lo #glossario("sprint"), delle cose da migliorare e dei problemi riscontrati.
+- *Analisi retrospettiva*: Un resoconto di cosa è stato portato a termine durante lo _sprint_, delle cose da migliorare e dei problemi riscontrati.
 
 == Fasi Principali del Progetto
 
@@ -340,7 +340,7 @@ Il gruppo s'impegna a:
 _Sigma18_ dichiara di aver portato a termine tutte le attività prestabilite e che il primo sprint è stato proficuo all'avanzamento del capitolato.
 Nello specifico è stato steso il glossario e iniziata la stesura dei piani di progetto e qualifica.
 
-Il gruppo ha organizzato e partecipato all'incontro di #glossario("Design Thinking") con l'azienda proponente lunedì 14 Aprile che ha steso le basi per organizzare i lavori successivi.
+Il gruppo ha organizzato e partecipato all'incontro di _Design Thinking_ con l'azienda proponente lunedì 14 Aprile che ha steso le basi per organizzare i lavori successivi.
 
 Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggeti temporanemente non reperibili ha rallentato il progesso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilitá di tempo di un solo soggetto.
 
@@ -564,7 +564,7 @@ Il gruppo si impegna a:
 - Completare e verificare il piano di qualifica
 - Integrare il glossario con i nuovi termini
 - Studio delle tecnologie proposte
-- Inizio del #glossario("PoC") (Proof of Concept)
+- Inizio del _Poc(Proof of Concept)_
 
 ==== *Preventivo orario*:
 #table(
