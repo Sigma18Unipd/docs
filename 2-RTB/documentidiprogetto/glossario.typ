@@ -52,6 +52,9 @@ Metodologia di sviluppo che si basa su un approccio iterativo e adattivo, favore
 == API (_Application Programming Interface_)
 Insieme di regole o protocolli atti a consentire la comunicazione tra diversi prodotti o servizi e per far scambiare loro dati, caratteristiche e funzionalità.
 
+== Audit
+Il processo di "Audit" ha lo scopo di determinare in maniera indipendente la conformità di prodotti e processi selezionati ai requisiti, piani e accordi. L'attività di auditing è svolta da personale che non ha partecipato direttamente allo sviluppo dei prodotti, sei servizi o dei sistemi oggetto delle revisioni.
+
 #pagebreak()
 = C
 
