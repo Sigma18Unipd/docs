@@ -11,17 +11,17 @@
   versioneAttuale: "0.4.0",
   versioni: (
     "0.4.0",
-    "2025/05/05",
+    "2025/05/03",
     "Mirco Borella",
     "",
     "TESTTEST",
     "0.3.0",
-    "2025/04/27",
+    "2025/04/29",
     "Mirco Borella",
     "",
     "Stesura sezioni da 2.3 (Sviluppo) a 3.2 (Gestione della configurazione)",
     "0.2.0",
-    "2025/04/24",
+    "2025/04/25",
     "Mirco Borella",
     "",
     "Stesura sezione 2.1 (Fornitura) e 2.2 Attività di fornitura",
@@ -502,7 +502,9 @@ Tutti i documenti pubblicati nella _branch_ "main" scateneranno l'avvio di una _
 
 ==== Denominazione dei documenti
 Come deciso nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno] in data 2025/03/07 i documenti seguiranno una nomenclatura ben definita, in modo tale da poter far effettuare delle azioni alle _GitHub Action_ basandosi sul nome del file.
+Tutti i sorgenti della documentazione termineranno con l'estensione _Typst_ _".typ"_.
 
+===== Verbali
 I verbali seguiranno una nomenclatura così definita:
 #set align(center)
 *TIPO*\_*DATA*\_*VERSIONE*
@@ -512,16 +514,52 @@ dove "TIPO" è una sigla e varia per "vi" in caso di un verbale interno e "ve" p
 "DATA" rappresenta la data del verbale in formato _AAAAMMGG_. \
 "VERSIONE" rappresenta l'ultima versione del file con la nomenclatura descritta nella #link(<versionamentodeidocumenti>)[sezione 3.1.8.2].
 
+===== Diari di bordo
+I diari di bordo seguiranno una nomenclatura così definita:
+#set align(center)
+*ddb*\_*DATA*
+#set align(left)
+
+dove "DATA" rappresenta la data del verbale in formato _AAAAMMGG_.
+
+===== Glossario
+Il glossario sarà definito come "glossario"
+
+===== Altri documenti
+Gli altri documenti seguiranno una nomenclatura così definita:
+#set align(center)
+*TITOLOBREVE*\_*VERSIONE*
+#set align(left)
+
+dove "TITOLOBREVE" è il titolo abbreviato del documento in minuscolo e senza spazi.
+"VERSIONE" rappresenta l'ultima versione del file con la nomenclatura descritta nella #link(<versionamentodeidocumenti>)[sezione 3.1.8.2].
+
 ==== Versionamento dei documenti <versionamentodeidocumenti>
+Il gruppo ha optato per l'utilizzo di un sistema di versionamento così definito:
+
+
+#set align(center)
+*X*.*Y*.*Z*
+#set align(left)
+
+dove:
+- *X*: Modifiche sostanziali e ristrutturazioni importanti
+- *Y*: Aggiunta di nuovi paragrafi e correzioni concettuali
+- *Z*: Correzioni sintattiche e grammaticali, modifiche minori e cambiamenti al template
 
 ==== Riferimenti e formati
+===== Date
+Ogni data nei documenti verrà scritta utilizzando il formato "*AAAA/MM/GG*" dove *AAAA* indica l'anno in numero a 4 cifre, *MM* indica il mese in numero a 2 cifre e *GG* indica il giorno in numero a 2 cifre.
+
+Nel caso di date scritte per intero, si utizzerà il formato *GG MESEINLETTERE AAAA*, dove *GG* indica il giorno in numero a 2 cifre, *MESEINLETTERE* indica il mese in lette (ad esempio "Aprile") e *AAAA* indica l'anno in numero a 4 cifre.
+
+Esempio di data: *2025/05/01* oppure *01 Maggio 2025*.
 
 === Manutenzione dei documenti <manutenzionedocumenti>
+Con manutenzione dei documenti s'intende l'attività di modifica di un documento già pubblicato in precedenza. Questa attività differisce di poco e riprende i passaggi già descritti nella #link(<produzionedeidocumenti>)[sezione 3.1.8] con al posto della creazione di un nuovo documento, la modifica di un sorgente già esistente. I restanti passi rimangono invariati.
 
-
-#pagebreak()
 == Gestione della configurazione
-== Qualità
+== Accertamento della Qualità
 == Verifica
 == Validazione
 
