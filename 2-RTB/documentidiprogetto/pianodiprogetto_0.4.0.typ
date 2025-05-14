@@ -564,7 +564,7 @@ Il gruppo si impegna a:
 - Completare e verificare il piano di qualifica
 - Integrare il glossario con i nuovi termini
 - Studio delle tecnologie proposte
-- Inizio del #glossario("PoC (Proof of Concept)")
+- Inizio del #glossario("PoC") (Proof of Concept)
 
 ==== *Preventivo orario*:
 #table(
