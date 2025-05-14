@@ -5,11 +5,16 @@
   abstract: "Documento riepilogativo delle attività concluse e in corso di svolgimento dal gruppo Sigma18.",
   responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew"),
   redattori: ("Carmelo Russello", "Mirco Borella"),
-  verificatori: ("Mirco Borella", "Marco Egidi", "Matteo Marangon"),
+  verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "0.3.0",
+  versioneAttuale: "0.4.0",
   versioni: (
+    "0.4.0",
+    "2025/05/14",
+    "Mirco Borella",
+    "Carmelo Russello",
+    "Aggiornamento retrospettiva terzo sprint e inizio quarto sprint",
     "0.3.0",
     "2025/04/29",
     "Mirco Borella",
@@ -483,4 +488,97 @@ Il gruppo si impegna a:
   [Aleena Mathew], [0], [1], [0], [0], [5], [2], [*8*],
   [Carmelo Russello], [0], [3], [0], [0], [0], [5], [*8*],
   [*Totali*], [*6*], [*19*], [*0*], [*0*], [*5*], [*26*], [*56*],
+)
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [3], [1 (-2)], [0], [2 (+2)], [0], [2], [*8*],
+  [Mirco Borella], [3], [3], [0], [0], [0], [2], [*8*],
+  [Pietro Crotti], [0], [3], [0], [0], [0], [5], [*8*],
+  [Marco Egidi], [0], [3], [0], [0], [0], [5], [*8*],
+  [Matteo Marangon], [0], [3], [0], [0], [0], [5], [*8*],
+  [Aleena Mathew], [0], [1], [0], [0], [5], [2], [*8*],
+  [Carmelo Russello], [0], [3], [0], [0], [0], [5], [*8*],
+  [*Totali*], [*6*], [*17*], [*0*], [*2*], [*5*], [*26*], [*56*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [6], [€20], [€120.00],
+  [Analista], [17], [€25], [€425.00],
+  [Progettista], [0], [€25], [€0.00],
+  [Programmatore], [2], [€15], [€30.00],
+  [Responsabile], [5], [€30], [€150.00],
+  [Verificatore], [26], [€15], [€390.00],
+  [*Totali*], [*56*], [], [*€1115.00*],
+)
+
+==== *Analisi retrospettiva*: \
+_Sigma18_ dichiara che il terzo sprint è stato proficuo all'avanzamento del capitolato.
+Nello specifico è stato completato il documento di *Analisi dei requisiti*, è stato fatto validare il verbale esterno relativo all'incontro di _Design Thinking_ avvenuto in data 14 Aprile 2025 dall'azienda proponente con il conseguente aggiornamento dei wireframe come richiesto. Sono state effettuate delle correzioni sulle automazioni del repository a fini migliorativi.
+
+La verifica dei documenti di analisi dei requisiti, norme di progetto e piano di qualifica è ancora in corso.
+
+Il gruppo ha partecipato a 3 incontri per un totale di 12 ore con l'azienda proponente riguardanti i seguenti argomenti:
+- #glossario("AWS") e i suoi prodotti;
+- #glossario("Backend") con #glossario("Nest.JS");
+- #glossario("Frontend") con #glossario("React") e #glossario("Shadcn").
+
+Sono stati organizzati altri 2 incontri di formazione sulle tecnologie di #glossario("Gen AI") tecnologie richieste, il primo in data 19 Maggio 2025 e il secondo in data 20 Maggio 2025 per un totale di 6 ore.
+
+Non sono emerse difficoltà ai fini dell'avanzamento del lavoro durante lo svolgimento di questo sprint.
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 4
+
+==== Dettagli
+
+*Data di inizio*: 13/04/2025 \
+*Data di fine*: 26/05/2025 \
+
+*Rischi attesi*: RT1, RT2, RO1
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Verificare il documento di analisi dei requisiti
+- Completare e verificare le norme di progetto
+- Completare e verificare il piano di qualifica
+- Integrare il glossario con i nuovi termini
+- Studio delle tecnologie proposte
+- Inizio del #glossario("PoC (Proof of Concept)")
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [4], [3], [0], [1], [*8*],
+  [Mirco Borella], [0], [3], [0], [2], [0], [3], [*8*],
+  [Pietro Crotti], [2], [0], [0], [0], [5], [1], [*8*],
+  [Marco Egidi], [0], [0], [3], [4], [0], [1], [*8*],
+  [Matteo Marangon], [0], [0], [3], [4], [0], [1], [*8*],
+  [Aleena Mathew], [1], [3], [2], [1], [0], [1], [*8*],
+  [Carmelo Russello], [2], [0], [2], [1], [0], [3], [*8*],
+  [*Totali*], [*5*], [*6*], [*14*], [*15*], [*5*], [*11*], [*56*],
 )
