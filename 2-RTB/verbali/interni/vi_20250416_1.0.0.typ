@@ -22,7 +22,7 @@
 = Riferimenti generali
 Il seguente documento contiene il resoconto della riunione interna del gruppo _Sigma18_ tenutasi in modalità *virtuale* tramite la piattaforma _Discord_, avvenuta in data *16 Aprile 2025* e dalla durata di *un'ora e mezza*.
 
-Nella riunione sono stati trattati i punti all'ordine del giorno. 
+Nella riunione sono stati trattati i punti all'ordine del giorno.
 
 == Partecipanti
 - Alessandro Bernardello
@@ -39,7 +39,7 @@ In seguito alla sessione di #glossario("design thinking") svolta in sede dell'az
 Il gruppo ha avuto modo di confrontarsi con alcuni referenti dell'azienda Var Group S.p.A. e ha potuto chiarire alcuni dubbi riguardo le tecnologie da utilizzare e le modalità di lavoro. Sono stati infine concordati degli incontri per la formazione sulle tecnologie scelte, che verranno programmati in seguito.
 
 == Pianificazione secondo sprint
-Il gruppo ha analizzato in retrospettiva lo #glossario("sprint") appena concluso per pianificare il successivo di conseguenza. Il primo #glossario("sprint") ha avuto inizio il 28/03/2025 e si è concluso il 15/04/2025 in seguito ad alcune complicazioni organizzative, specificate più dettagliatamente nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.1.0.pdf")[Piano di Progetto]. Il secondo #glossario("sprint") invece avrà una durata standard che è stata stabilita pari a 2 settimane, dal 16/04/2025 al 29/04/2025. Questo intervallo di tempo regolare permetterà un'organizzazione completa sia fra i membri interni del gruppo Sigma18 che con il personale di riferimento dell'azienda Var Group. Durante questo periodo il gruppo si concentrerà principalmente sulla stesura della documentazione di *Analisi dei Requisiti* e *Norme di Progetto*.
+Il gruppo ha analizzato in retrospettiva lo #glossario("sprint") appena concluso per pianificare il successivo di conseguenza. Il primo _sprint_ ha avuto inizio il 28/03/2025 e si è concluso il 15/04/2025 in seguito ad alcune complicazioni organizzative, specificate più dettagliatamente nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.1.0.pdf")[Piano di Progetto]. Il secondo _sprint_ invece avrà una durata standard che è stata stabilita pari a 2 settimane, dal 16/04/2025 al 29/04/2025. Questo intervallo di tempo regolare permetterà un'organizzazione completa sia fra i membri interni del gruppo Sigma18 che con il personale di riferimento dell'azienda Var Group. Durante questo periodo il gruppo si concentrerà principalmente sulla stesura della documentazione di *Analisi dei Requisiti* e *Norme di Progetto*.
 
 == Programmazione incontri di formazione
 Previa comunicazione con l'azienda tramite la piattaforma #glossario("Slack") da loro proposta, è stato stabilito di comune accordo tra i membri del gruppo la programmazione di 3 *incontri di formazione* in presenza e 1 in remoto. Questi verranno distribuiti in 4 mattinate ancora da definire nelle settimane tra il 5 e il 16 maggio 2025.
@@ -52,7 +52,7 @@ Gli argomenti che verranno trattati sono i seguenti, ciascuno in una sessione di
 
 
 = Conclusioni e decisioni prese
-Il gruppo ha stabilito di redigere i documenti di *Analisi dei Requisiti* e *Norme di Progetto* in parallelo, in modo da velocizzare il processo di stesura e permettere una revisione incrociata tra i membri del gruppo. È stato redatto un glossario contenente terminologie ambigue o specifiche che verrà aggiornato nel corso del tempo. Sigma18 si impegna inoltre a studiare le tecnologie proposte avvalendosi del supporto offerto dall'azienda Var Group S.p.A. 
+Il gruppo ha stabilito di redigere i documenti di *Analisi dei Requisiti* e *Norme di Progetto* in parallelo, in modo da velocizzare il processo di stesura e permettere una revisione incrociata tra i membri del gruppo. È stato redatto un glossario contenente terminologie ambigue o specifiche che verrà aggiornato nel corso del tempo. Sigma18 si impegna inoltre a studiare le tecnologie proposte avvalendosi del supporto offerto dall'azienda Var Group S.p.A.
 
 
 = Attività programmate
