@@ -7,9 +7,14 @@
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.7.0",
+  versioneAttuale: "0.8.0",
   content: content,
   versioni: (
+    "0.8.0",
+    "2025/05/14",
+    "Carmelo Russello",
+    "Marco Egidi",
+    "Modifica e aggiunta casi d'uso e diagrammi",
     "0.7.0",
     "2025/05/03",
     "Pietro Crotti",
@@ -223,7 +228,7 @@ L'applicativo ha due tipi di attori:
   5. Il sistema genera un flusso di lavoro in base alla richiesta dell'utente.
 - *Estensioni* :
   - Modifica delle funzionalità di generazione avanzata (#link(<UC13>)[*UC[13]*])
-  - Creazione di una _routine_ vuota (#link(<UC12>)[*UC[12]*]).
+  - Errore "Impossibile generare il flusso" (#link(<UC28>)[*UC[28]*])
 
 === UC[12] : Creazione nuova _routine_ vuota <UC12>
 - *Attore principale* : utente autenticato.
@@ -232,7 +237,6 @@ L'applicativo ha due tipi di attori:
 - *Scenario principale* :
   1. L'utente seleziona l'opzione di creazione di una nuova _routine_ nella _dashboard_.
   2. Il sistema crea una nuova _routine_ vuota.
-- *Estensioni* : Modifica di una _routine_ esistente tramite _drag & drop_ (#link(<UC15>)[*UC[15]*]).
 
 
 === UC[13] : Accedere a funzionalità di generazione avanzate <UC13>
@@ -245,21 +249,17 @@ L'applicativo ha due tipi di attori:
   3. L'utente modifica le impostazioni desiderate, legate a scelta modello, contesto o temperatura dell'LLM .
   4. Il sistema salva le modifiche per la generazione corrente.
 
-#figure(image("../../assets/usecasediagrams/UC_11_12_13.png"), caption: [Diagramma casi d'uso UC[11], UC[12], UC[13],])
+#figure(image("../../assets/usecasediagrams/UC_11_12_13_28.png"), caption: [Diagramma casi d'uso UC[11], UC[12], UC[13], UC[28]])
 
 === UC[14] : Visualizzare i dettagli di una _routine_ esistente <UC14>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella _dashboard_.
 - *Post-condizioni* : viene visualizzata una pagina con i dettagli di una _routine_ già esistente.
 - *Scenario principale* :
-  1. L'utente seleziona una _routine_ esistente dalla lista dei flussi nella _dashboard_.
+  1. L'utente seleziona una _routine_ esistente dalla lista delle automazioni nella _dashboard_.
   2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
-- *Estensioni* :
-  - Modifica della _routine_ (#link(<UC15>)[*UC[15]*]).
-  - Eliminazione di una _routine_ esistente (#link(<UC16>)[*UC[16]*]).
-  - Avviare una _routine_ esistente tramite _dettagli flusso_ (#link(<UC17>)[*UC[17]*]).
-  - Modificare le impostazioni di un singolo blocco (#link(<UC18>)[*UC[18]*]).
-  - Autenticazione al servizio del blocco tramite dettagli del flusso(#link(<UC23>)[*UC[23]*]).
+
+  #figure(image("../../assets/usecasediagrams/UC_14_23.png"), caption: [Diagramma casi d'uso UC[14], UC[23]])
 
 === UC[15] : Modifica di una _routine_ esistente tramite _drag & drop_ <UC15> // singolo use case per la modifica o uno use case per ogni opzione di modifica?
 - *Attore principale* : utente autenticato.
@@ -269,6 +269,9 @@ L'applicativo ha due tipi di attori:
   1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
   2. L'utente trascina un blocco dalla barra laterale e lo rilascia nella posizione desiderata.
   3. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_ .
+
+  #figure(image("../../assets/usecasediagrams/UC_15.png"), caption: [Diagramma casi d'uso UC[15]])
+
 
 === UC[16] : Eliminare una _routine_ esistente <UC16>
 - *Attore principale* : utente autenticato.
@@ -281,21 +284,22 @@ L'applicativo ha due tipi di attori:
   4. L'utente conferma l'eliminazione.
   5. Il sistema elimina la _routine_ e aggiorna la _dashboard_.
 
-=== UC[17] : Avviare una _routine_ esistente tramite _dettagli flusso_ <UC17>
+  #figure(image("../../assets/usecasediagrams/UC_16.png"), caption: [Diagramma casi d'uso UC[16]])
+
+
+=== UC[17] : Avviare una _routine_ esistente tramite la pagina di _dettagli automazione_ <UC17>
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli del flusso.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli automazione.
 - *Post-condizioni* : la _routine_ selezionata viene avviata.
 - *Scenario principale* :
   1. L'utente seleziona l'opzione di avvio della _routine_ .
   2. Il sistema avvia la _routine_ .
   3. Il sistema registra un #glossario("log") dell'esecuzione.
-- *Estensioni* :
-  - Visualizzare il _log_ di esecuzione (#link(<UC24>)[*UC[24]*]).
-  - Fornire un _feedback_ della _routine_ generata (#link(<UC25>)[*UC[25]*]).
+
 
   === UC[18] : Modificare le impostazioni di un singolo blocco <UC18>
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli del flusso.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli automazione.
 - *Post-condizioni* : le impostazioni del singolo blocco vengono modificate.
 - *Scenario principale* :
   1. L'utente seleziona un blocco all'interno del flusso.
@@ -303,13 +307,9 @@ L'applicativo ha due tipi di attori:
   3. Il sistema mostra una finestra con le impostazioni del blocco.
   4. L'utente modifica le impostazioni desiderate.
   5. Il sistema salva le modifiche per il relativo blocco.
-- *Estensioni* :
-  - Autenticazione al servizio del blocco (#link(<UC22>)[*UC[22]*]).
 
-  #figure(
-    image("../../assets/usecasediagrams/UC_14_15_16_17_18.png"),
-    caption: [Diagramma casi d'uso UC[14], UC[15], UC[16], UC[17], UC[18],],
-  )
+  #figure(image("../../assets/usecasediagrams/UC_18_22.png"), caption: [Diagramma casi d'uso UC[18], UC[22]])
+
 
 === UC[19] : Avviare una _routine_ esistente tramite _dashboard_ <UC19>
 - *Attore principale* : utente autenticato.
@@ -319,11 +319,6 @@ L'applicativo ha due tipi di attori:
   1. L'utente seleziona l'opzione di avvio della _routine_ .
   2. Il sistema avvia la _routine_
   3. Il sistema registra un _log_ dell'esecuzione.
-- *Estensioni* :
-  - Visualizzare il _log_ di esecuzione (#link(<UC24>)[*UC[24]*]).
-  - Fornire un _feedback_ della _routine_ generata (#link(<UC25>)[*UC[25]*]).
-
-#figure(image("../../assets/usecasediagrams/UC_19.png"), caption: [Diagramma casi d'uso UC[19],])
 
 === UC[20] : Interrompere una _routine_ avviata <UC20>
 - *Attore principale* : utente autenticato.
@@ -359,9 +354,9 @@ L'applicativo ha due tipi di attori:
   4. Il sistema attende il server di autenticazione del servizio del blocco selezionato.
   5. L'utente ha eseguito l'accesso al servizio del blocco selezionato.
 
-=== UC[23] : Autenticazione al servizio del blocco tramite dettagli del flusso <UC23>
+=== UC[23] : Autenticazione al servizio del blocco tramite la pagina di dettagli automazione <UC23>
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli del flusso(#link(<UC14>)[*UC[14]*]).
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e si trova nella pagina di dettagli automazione(#link(<UC14>)[*UC[14]*]).
 - *Post-condizioni* : l'utente ha eseguito l'accesso al servizio del blocco selezionato.
 - *Scenario principale* :
   1. L'utente preme il tasto di accesso al servizio del blocco selezionato.
@@ -372,7 +367,7 @@ L'applicativo ha due tipi di attori:
 
 === UC[24] : Visualizzare il _log_ di esecuzione <UC24>
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e ha avviato una _routine_ (#link(<UC17>)[*UC[17]*]), (#link(<UC19>)[*UC[19]*]).
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e ha avviato una _routine_ (#link(<UC30>)[*UC[30]*]).
 - *Post-condizioni* : l'utente visualizza il _log_ di esecuzione della _routine_ selezionata.
 - *Scenario principale* :
   1. L'utente seleziona l'opzione di visualizzazione del _log_ di esecuzione della _routine_ avviata.
@@ -380,7 +375,7 @@ L'applicativo ha due tipi di attori:
 
 === UC[25] : Fornire un _feedback_ della _routine_ generata <UC25>
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha generato una _routine_ e l'ha avviata (#link(<UC17>)[*UC[17]*]), (#link(<UC19>)[*UC[19]*]).
+- *Pre-condizioni* : l'utente ha generato una _routine_ e l'ha avviata (#link(<UC30>)[*UC[30]*]).
 - *Post-condizioni* : l'utente ha lasciato un _feedback_ sulla _routine_.
 - *Scenario principale* :
   1. l'utente seleziona l'opzione di _feedback_ della _routine_ generata (positiva o negativa) tramite i due appositi pulsanti.
@@ -394,7 +389,9 @@ L'applicativo ha due tipi di attori:
   1. l'utente seleziona l'icona del tema del _client_ tramite il pulsante dedicato.
   2. Il sistema mostra il _client_ con il tema selezionato.
 
-=== UC[27] : Visualizzazione dell'errore "Il #glossario("server") non risponde"
+#figure(image("../../assets/usecasediagrams/UC_26.png"), caption: [Diagramma casi d'uso UC[26],])
+
+=== UC[27] : Visualizzazione dell'errore "Il #glossario("server") non risponde" <UC27>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso.
 - *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
@@ -402,7 +399,9 @@ L'applicativo ha due tipi di attori:
   1. Il sistema rileva che la connessione al server non è più disponibile.
   2. Il sistema mostra un messaggio di errore all'utente.
 
-=== UC[28] : Visualizzazione dell'errore "Impossibile generare il flusso"
+#figure(image("../../assets/usecasediagrams/UC_27.png"), caption: [Diagramma casi d'uso UC[27],])
+
+=== UC[28] : Visualizzazione dell'errore "Impossibile generare il flusso" <UC28>
 - *Attore principale* : utente autenticato.
 - *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di generare il flusso tramite linguaggio naturale (#link(<UC11>)[*UC[11]*]) , ma si verifica un errore.
 - *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
@@ -410,13 +409,29 @@ L'applicativo ha due tipi di attori:
   1. L'utente sta generando il flusso tramite linguaggio naturale.
   2. L' LLM non riesce a generare il flusso e il sistema mostra un messaggio di errore.
 
-=== UC[29] : Visualizzazione dell'errore "Impossibile avviare il flusso"
+=== UC[29] : Visualizzazione dell'errore "Impossibile avviare il flusso" <UC29>
 - *Attore principale* : utente autenticato.
-- *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di avviare il flusso (#link(<UC17>)[*UC[17]*]) , (#link(<UC19>)[*UC[19]*]), ma si verifica un errore.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso e sta tentando di avviare il flusso (#link(<UC30>)[*UC[30]*]), ma si verifica un errore.
 - *Post-condizioni* : il sistema mostra il messaggio di errore all'utente.
 - *Scenario principale* :
   1. L'utente sta avviando il flusso.
   2. Il sistema non riesce ad avviare il flusso e mostra un messaggio di errore.
+
+=== UC[30] : Avviare una routine esistente <UC30>
+- *Attore principale* : utente autenticato.
+- *Pre-condizioni* : l'utente ha effettuato l'accesso.
+- *Post-condizioni* : la _routine_ selezionata viene avviata.
+- *Scenario principale* :
+  1. L'utente avvia una _routine_ .
+- *Estensioni* :
+  - Visualizzare il _log_ di esecuzione (#link(<UC24>)[*UC[24]*]).
+  - Fornire un _feedback_ della _routine_ generata (#link(<UC25>)[*UC[25]*]).
+  - Visualizzazione dell'errore "Impossibile avviare il flusso" (#link(<UC29>)[*UC[29]*]).
+
+  #figure(
+    image("../../assets/usecasediagrams/UC_17_19_24_25_29_30.png"),
+    caption: [Diagramma casi d'uso UC[17], UC[19], UC[24], UC[25], UC[29], UC[30]],
+  )
 
 
 = Requisiti
@@ -476,7 +491,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [ROF-11], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
   [ROF-12],
   [L'utente deve poter avviare una _routine_ esistente per eseguire il flusso di automazioni desiderato],
-  [#link(<UC17>)[*UC[17]*], #link(<UC19>)[*UC[19]*], Riunione esterna],
+  [#link(<UC17>)[*UC[17]*], #link(<UC19>)[*UC[19]*], #link(<UC30>)[*UC[30]*], Riunione esterna],
 
   [RDF-13],
   [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")],
@@ -498,6 +513,15 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [RFF-18],
   [L'utente fornisce un _feedback_ sulla qualità o sul gradimento della _routine_ generata],
   [#link(<UC25>)[*UC[25]*], Riunione esterna, Riunione interna],
+
+  [ROF-17], [L'utente visualizza un errore se il _server_ non risponde], [#link(<UC27>)[*UC[27]*], Riunione esterna, Riunione interna],
+  [ROF-18],
+  [L'utente visualizza un errore se é impossibile generare il flusso],
+  [#link(<UC28>)[*UC[28]*], Riunione esterna, Riunione interna],
+
+  [ROF-19],
+  [L'utente visualizza un errore se é impossibile avviare il flusso],
+  [#link(<UC29>)[*UC[29]*], Riunione esterna, Riunione interna],
 )
 
 
