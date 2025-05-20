@@ -10,6 +10,11 @@
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
   versioneAttuale: "0.4.1",
   versioni: (
+    "0.5.0",
+    "2025/05/20",
+    "Aleena Mathew ",
+    "Matteo Marangon",
+    "Aggiunta scheletro per il cruscotto di valutazione",
     "0.4.1",
     "2025/05/14",
     "Aleena Mathew ",
@@ -433,5 +438,54 @@ I test di sistema verificano il funzionamento del sistema software nel suo compl
 I test di accettazione sono condotti per verificare che il sistema soddisfi i requisiti e le aspettative del contrattuali, motivo per cui sono condotti insieme al committente.\
 Il loro successo è fondamentale per garantire il rilascio definitivo del prodotto.
 
-= Cruscotto Valutazione
+= Cruscotto di Valutazione
+La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
 
+== Estimated at Completion (MPC-EAC)
+// grafico con BAC e EAC
+=== RTB
+#pagebreak()
+== Planned Value (MPC-PV) & Earned Value (MPC-EV)
+//grafico con PV e EV
+=== RTB
+#pagebreak()
+== Actual Cost (MPC-AC), Estimated To Completion (MPC-ETC) & Estimated At Completion (MPC-EAC)
+
+//grafico con AC, ETC e EAC
+=== RTB
+#pagebreak()
+
+== Cost Variance (MPC-CV) & Schedule Variance (MPC-SV)
+//grafico con CV e SV
+=== RTB
+#pagebreak()
+
+== Cost Performance Index (MPC-CPI) // posso unirlo a sopra
+//grafico con CPI
+=== RTB
+#pagebreak()
+
+== Requirements Stability Index (MPC-RSI)
+//grafico con RSI
+=== RTB
+#pagebreak()
+
+== Indice di Gulpease (MPC-IG)
+//grafico con IG
+=== RTB
+#pagebreak()
+
+== Correttezza ortografica (MPC-CO)
+//grafico con CO
+=== RTB
+#pagebreak()
+
+== Satisfaction of Quality Metrics (MPC-SQM)
+//grafico con SQM
+=== RTB
+#pagebreak()
+
+== Efficienza temporale (MPC-ET)
+//grafico con ET
+=== RTB
+#pagebreak()
