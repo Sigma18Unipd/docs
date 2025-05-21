@@ -14,6 +14,7 @@ import logging
 from concurrent.futures import ThreadPoolExecutor, Future
 import sys
 import threading
+from pathlib import Path
 import yaml
 
 # each file's filepath will be trimmed to whatever matches a search pattern
@@ -179,7 +180,7 @@ def get_glossary_terms(filepath: str) -> tuple[Future | None, str]:
 
     search_path, pattern = extract_path_to_pattern(filepath)
     if pattern is None:
-        logger.warning(f"RTB/PB pattern not found for file '{filepath}'.")
+        logger.info(f"RTB/PB pattern not found for file '{filepath}'.")
         return None, None
     glossary_filepath = find_glossary_for_pattern(search_path, pattern)
 
@@ -280,7 +281,7 @@ def process_file(filepath: str) -> set[str]:
 
     glossary_terms_future, pattern = get_glossary_terms(filepath)
     if glossary_terms_future is None:
-        logger.warning(f"Skipping file '{filepath}' due to missing glossary.")
+        logger.info(f"Skipping file '{filepath}' due to missing glossary.")
         return filepath, terms_not_found
 
     use_term_pattern = re.compile(r'#glossario\(\s*["\']([^"\']+)["\']\s*\)')
@@ -356,16 +357,12 @@ if __name__ == "__main__":
             files.extend(glob.glob(os.path.join(path, "**", "*.typ"), recursive=True))
             with file_pool as executor:
                 results.update(dict(executor.map(process_file, files)))
-        elif os.path.isfile(path):
-            if path.endswith(".typ"):
-                _, terms_set = process_file(path)
-                results[path] = terms_set
-            else:
-                logger.warning(f"'{path}' is not a .typ file, skipping")
-                sys.exit(0)
+        elif os.path.isfile(path) and path.endswith(".typ"):
+            _, terms_set = process_file(path)
+            results[path] = terms_set
         else:
             logger.error(f"'{path}' is not a valid file or directory.")
-            sys.exit(0)  # we still return 0 in order for the gha not to fail
+            sys.exit(0)
 
     found_missing = False
     for filepath, terms in results.items():
@@ -376,8 +373,9 @@ if __name__ == "__main__":
             logger.error(f"  In '{filepath}':")
             for term in sorted(terms):
                 logger.error(f"    - {term}")
-    if not found_missing:
-        logger.info("All glossary citations have a backing glossary entry")
+    if not found_missing and not args.quiet:
+        # the manual print statement here is to override the default WARN level
+        print("INFO: All glossary citations have a backing glossary entry")
 
     # lookup missing glossary definitions, requires awaiting all futures
     with glossary_dict_lock:
