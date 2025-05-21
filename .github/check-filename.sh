@@ -132,8 +132,7 @@ assign_positional_args 1 "${_positionals[@]}"
 # ------- Utility functions: -----
 
 # Prints according to verbosity level
-# Levels: 1 - info (argbash makes it start from 1)
-#         2 - debug
+# Note that the default level is err, set at the top of the script
 # Arguments:
 #   $1: Text to print
 #   $2: Min verbosity level
@@ -184,6 +183,12 @@ function contained_version() {
   echo "$version"
 }
 
+# Process a single file to check if the version in filename matches the contained version.
+# Arguments:
+#   $1: Path to the file to process
+# Returns:
+#   0: If versions match or if the file can't be processed
+#   1: If there's a version mismatch between filename and content
 function process_file() {
   local file="$1"
   log "Processing file $file" 3
@@ -219,6 +224,14 @@ function process_file() {
   return 0
 }
 
+# Recursively traverses a directory structure to check for version mismatches
+# in Typst files. Processes each file found using the process_file function
+# and accumulates any detected version mismatches.
+# Arguments:
+#   $1: Path to the directory to traverse
+# Returns:
+#   0: If no version mismatches were found in any file
+#   1: If one or more version mismatches were detected
 function traverse_dir() {
   local dir="$1"
   local version_diff=0
