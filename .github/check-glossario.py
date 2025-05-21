@@ -109,20 +109,17 @@ def extract_path_to_pattern(
     Returns:
         str: The path up to the pattern
     """
-    parts = os.path.normpath(filepath).split(os.sep)
-    is_abs = os.path.isabs(filepath)
+    path = Path(filepath).resolve()
+    parts = path.parts
 
     for i, part in enumerate(parts):
         for pattern in patterns:
             if pattern in part:
-                extracted = os.path.join(*parts[: i + 1])
-                if is_abs:
-                    # needed as this was breaking absolute paths
-                    extracted = os.sep + extracted
+                extracted = Path(*parts[: i + 1])
                 logger.debug(
                     f"Extracted pattern '{pattern}' from '{filepath}': {extracted}"
                 )
-                return extracted, pattern
+                return str(extracted), pattern
 
     return None, None
 
@@ -160,7 +157,6 @@ def find_glossary_for_pattern(subdir_root: str, pattern: str) -> str | None:
             logger.warning(
                 f"No glossary found for pattern '{pattern}' in '{subdir_root}'"
             )
-            glossary_pattern_mapping[pattern] = None
             return None
 
 
@@ -177,7 +173,10 @@ def get_glossary_terms(filepath: str) -> tuple[Future | None, str]:
         pattern (str): Directory type (RTB/PB)
         concurrent.futures.Future | None: Future object for the extraction task, or None.
     """
-    filepath = os.path.abspath(filepath)
+    logger.debug(f"Processing file: '{filepath}'")
+    filepath = Path(filepath).expanduser().resolve()
+    logger.debug(f"normalized filepath: '{filepath}'")
+
     search_path, pattern = extract_path_to_pattern(filepath)
     if pattern is None:
         logger.warning(f"RTB/PB pattern not found for file '{filepath}'.")
