@@ -335,7 +335,7 @@ La seconda sezione riguarda i punti all'"ordine del giorno", che contiene i punt
 La sezione delle "Conclusioni e decisioni prese" contiene le decisioni prese durante la riunione e le azioni da intraprendere. Le attività definite "pendenti" e programmate sono disponibili nella successiva sezione "Attività programmate".
 Questa sezione contiene una tabella con due colonne: la prima colonna contiene l'identificativo dell'attività (successivamente definito) e la seconda colonna contiene il titolo.
 
-Con identificativo dell'attività si intende un numero a 5 cifre che identifica in modo univoco l'attività. Il numero dell'attività è assegnando seguendo la numerazione interna delle _issues_ e delle _pull request_ di _GitHub_. Per tanto, ad un'attività con numerazione _N_ in un verbale corrisponderà sempre la relativa _issue_ o _pull request_ su _GitHub_.
+Con identificativo dell'attività si intende un numero a 5 cifre che identifica in modo univoco l'attività. Il numero dell'attività è assegnando seguendo la numerazione interna delle #glossario("issue") e delle #glossario("pull request") di _GitHub_. Per tanto, ad un'attività con numerazione _N_ in un verbale corrisponderà sempre la relativa _issue_ o _pull request_ su _GitHub_.
 
 I verbali definiti come "esterni" includeranno una sezione per l'aggiunta della firma di verifica da parte dell'azienda proponente.
 
@@ -474,7 +474,7 @@ La produzione dei documenti segue una serie di passi ben definiti e successivame
 
 *Creazione della _issue_ su _GitHub_*: Come primo passo viene aperta una _issue_ che conterrà come titolo una breve descrizione del documento che si intende produrre.
 
-*Assegnazione della _issue_*: La _issue_ viene assegnata al redattore del documento, che dovrà occuparsi della sua stesura. Sarà compito del redattore creare la relativa _branch_ sul quale andare a lavorare. La branch segue la seguente nomenclatura:
+*Assegnazione della _issue_*: La _issue_ viene assegnata al redattore del documento, che dovrà occuparsi della sua stesura. Sarà compito del redattore creare la relativa #glossario("branch") sul quale andare a lavorare. La _branch_ segue la seguente nomenclatura:
 
 #set align(center)
 *Numero*-*Titolo*
@@ -482,10 +482,10 @@ La produzione dei documenti segue una serie di passi ben definiti e successivame
 
 Dove con "Numero" si intende il numero della _issue_ e con "Titolo" si intende il titolo della _issue_ stessa, tutto in minuscolo e con gli spazi sostituiti da "\-".
 
-Ad esempio la issue con numero 1234 e titolo "Analisi dei requisiti" avrà come branch "1234-analisi-dei-requisiti".
+Ad esempio la _issue_ con numero 1234 e titolo "Analisi dei requisiti" avrà come branch "1234-analisi-dei-requisiti".
 
 *Creazione del documento*: Il redattore crea il documento utilizzando il template fornito dal gruppo _Sigma18_ e lo salva con la seguente nomenclatura descritta nella #link(<versionamentodeidocumenti>)[sezione 3.1.8.2].
-Il redattore segnerà il termine della stesura segnando come messaggio nel #glossario("Commit") "closes N" dove con "N" si intende il numero della _issue_ aperta con \# come suffisso. In questo modo, il sistema di gestione delle _issue_ di _GitHub_ andrà a chiudere automaticamente la _issue_ una volta che la _pull request_ sarà stata accettata e il merge effettuato.
+Il redattore segnerà il termine della stesura segnando come messaggio nel #glossario("Commit") "closes N" dove con "N" si intende il numero della _issue_ aperta con \# come suffisso. In questo modo, il sistema di gestione delle _issue_ di _GitHub_ andrà a chiudere automaticamente la _issue_ una volta che la _pull request_ sarà stata accettata e il #glossario("merge") effettuato.
 
 *Verifica del documento*: Terminata la stesura, il redattore andrà ad aprire una
 _pull request_ andando ad assegnare i verificatori.
@@ -537,7 +537,6 @@ dove "TITOLOBREVE" è il titolo abbreviato del documento in minuscolo e senza sp
 ==== Versionamento dei documenti <versionamentodeidocumenti>
 Il gruppo ha optato per l'utilizzo di un sistema di versionamento così definito:
 
-
 #set align(center)
 *X*.*Y*.*Z*
 #set align(left)
@@ -559,8 +558,167 @@ Esempio di data: *2025/05/01* oppure *01 Maggio 2025*.
 Con manutenzione dei documenti s'intende l'attività di modifica di un documento già pubblicato in precedenza. Questa attività differisce di poco e riprende i passaggi già descritti nella #link(<produzionedeidocumenti>)[sezione 3.1.8] con al posto della creazione di un nuovo documento, la modifica di un sorgente già esistente. I restanti passi rimangono invariati.
 
 == Gestione della configurazione
-== Accertamento della Qualità
+Per lo standard ISO/IEC 12207:1995, la gestione della configurazione è l'insieme delle attività che hanno lo scopo di identificare e controllare le modifiche apportate al prodotto _software_ e alla documentazione associata.
+
+=== Strumenti a supporto della gestione della configurazione
+Il gruppo _Sigma18_ ha deciso di utilizzare i seguenti strumenti per la gestione della configurazione:
+- *GitHub*: per la gestione del versionamento, del ticketing e per avere una panoramica del lavoro svolto e da svolgere;
+- *GitHub Actions*: per l'automazione di alcune attività di gestione della configurazione, come la compilazione automatica della documentazione.
+
+=== Attività previste
+Il processo di gestione della configurazione è composto da un insieme di attività così descritte:
+- *Identificazione della configurazione*: attività che ha lo scopo di identificare e definire gli elementi di configurazione del prodotto _software_ e della documentazione associata.
+- *Controllo della configurazione*: attività che ha lo scopo di controllare le modifiche apportate agli elementi di configurazione e garantire la tracciabilità delle modifiche.
+- *Registrazione della configurazione*: attività che ha lo scopo di registrare e documentare le modifiche apportate.
+- *Valutazione della configurazione*: attività che ha lo scopo di valutare la conformità degli elementi di configurazione agli standard e alle specifiche richieste dal proponente.
+
+=== Identificazione della configurazione
+Data la natura del capitolato, il gruppo _Sigma18_ ha deciso di identificare la documentazione prodotta in 4 categorie, definite da:
+#set align(center)
+*N-NOMEFASE*
+#set align(left)
+dove la coppia *N-NOMEFASE* rappresenta una delle 4 fasi del capitolato:
+- _0-diaridibordo_
+- _1-candidatura_
+- _2-RTB_
+- _3-PB_
+
+Anche se non parte integrante per il proponente, è presente una cartella "*0-diaridibordo*" che contiene le presentazioni per i diari di bordo prodotti dal gruppo.
+
+Ogni fase viene rappresentata da una cartella nella #glossario("root directory") del repository della documentazione. All'interno di ogni cartella, sono presenti le sottocartelle i relativi documenti prodotti dal gruppo.
+
+Esempio di struttura del repository della documentazione come definita nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno del 2025/03/07]:
+
+#align(center)[
+  ```
+  docs
+    ├── assets
+    │   └── img
+    │       ├── LogoSlim.svg
+    │       └── Logo.svg
+    ├── readme.md
+    ├── templates
+    │   └── template.typ
+    ├── 0-diaridibordo
+    │   └── ...
+    ├── 1-candidatura
+    │   ├── ...
+    │   └── verbali
+    │       ├── interni
+    │       │     └── vi_20250305_1.0.0.typ
+    │       └── ...
+    ├── 2-RTB
+    │   └── ...
+    └── ...
+  ```
+]
+
+=== Controllo della configurazione
+Il controllo della configurazione è l'attività che ha lo scopo di controllare le modifiche apportate agli elementi di configurazione e garantire la tracciabilità delle modifiche.
+Il gruppo _Sigma18_ ha deciso di utilizzare il sistema di gestione delle _branch_, delle _issue_ e delle _pull request_ di _GitHub_ per garantire la tracciabilità delle modifiche apportate alla documentazione e al codice sorgente del prodotto _software_.
+
+Come descritto nella #link(<produzionedeidocumenti>)[sezione 3.1.8], ogni modifica o aggiunta di file inizia con la creazione di una _issue_ dedicata.
+
+Ogni issue contiene:
+- *Titolo*: che descrive brevemente il contenuto della _issue_;
+- *Descrizione*: che descrive il contenuto e le motivazioni della _issue_;
+- *Assegnatari*: che sono i membri del gruppo che si occuperanno della _issue_;
+- *Labels (dall'inglese: etichette)*: che permettono di categorizzare le _issue_ in base al tipo di attività da svolgere;
+- *Tipo*: _non utilizzato_;
+- *Progetto*: _non utilizzato_;
+- *_Milestone_*: che permette di raggruppare le _issue_ in base alla fase del capitolato a cui appartengono;
+
+Inoltre, per ogni _issue_ o _pull request_ creata, _GitHub_ crea automaticamente un numero identificativo univoco (*ID*) all'interno del repository.
+
+Successivamente alla creazione di una _issue_, l'assegnatario dovà creare la relativa _branch_ di sviluppo. La nomenclatura delle _branch_ è definita nella #link(<produzionedeidocumenti>)[sezione 3.1.8].
+
+Ogni modifica apportata ai file presenti nella _branch_ dovrà essere documentata tramite un #glossario("commit") che descrive brevemente la modifica apportata. In caso di risoluzione di una _issue_, il messaggio di _commit_ dovrà contenere la dicitura "closes \#N" dove con "N" si intende il numero della _issue_ aperta. In questo modo, il sistema di gestione delle _issue_ di _GitHub_ andrà a chiudere automaticamente la _issue_ una volta che la _pull request_ sarà stata accettata e il _merge_ effettuato.
+
+Al termine del lavoro sulla _branch_, l'assegnatario dovrà creare una _pull request_ per richiedere l'integrazione delle modifiche nella _branch_ principale "main".
+La _pull request_ dovrà contenere:
+- *Titolo*: che descrive brevemente il contenuto della _pull request_;
+- *Descrizione*: che descrive il contenuto e le motivazioni della _pull request_;
+- *Verificatori* : che sono i membri del gruppo che si occuperanno della verifica della _pull request_;
+- *Assegnatari*: che sono i membri del gruppo che hanno lavorato sulla _branch_;
+- *Etichette*: che permettono di categorizzare le _pull request_ in base al tipo di attività svolta;
+
+I verificatori designati dovranno esaminare le modifiche apportate e fornire feedback. In caso di esito negativo, i verificatori andranno a rifiutare la _pull request_ lasciando un commento specifico sulle problematiche riscontrate. L'assegnatario dovrà quindi apportare le modifiche richieste. In caso di esito positivo, i verificatori approveranno la _pull request_ e il contenuto sarà pronto per l'integrazione.
+
+Grazie al sistema di _GitHub Actions_, alla creazione di una _pull request_ vengono attivati automaticamente dei controlli sulla validità della documentazione, tra cui la verifica della presenza dei termini del glossario.
+
+Il gruppo _Sigma18_ ha anche configurato un sistema di protezione del _branch "main"_ che impedisce il _merge_ di una _pull request_ se non sono stati soddisfatti i requisiti di verifica e approvazione, e il _commit_ diretto di modifiche di file senza passare per una _pull request_.
+
+=== Registrazione della configurazione
+Per soddisfare la necessità di registrare e tracciare i cambiamenti apportati alla documentazione, il gruppo _Sigma18_ ha deciso di utilizzare un sistema di nomenclatura dei file e di versionamento dei documenti definito nella #link(<versionamentodeidocumenti>)[sezione 3.1.8.2 (Versionamento dei documenti)].
+
+=== Valutazione della configurazione
+La valutazione della configurazione è l'attività che ha lo scopo di valutare la conformità degli elementi di configurazione agli standard e alle specifiche richieste dal proponente.
+
+Il gruppo _Sigma18_ s'impegna a raggiungere in modo efficace ed efficiente gli obiettivi di qualità definiti nel capitolato e a garantire la conformità del prodotto _software_ agli standard e alle specifiche richieste dal proponente.
+
+== Accertamento della qualità
+Il processo di accertamento della qualità è l'insieme delle attività che hanno lo scopo di garantire la qualità del prodotto _software_ e della documentazione associata seguendo gli obiettivi fissati dal proponente.
+
+=== Strumenti a supporto della qualità
+Il gruppo _Sigma18_ ha deciso di utilizzare delle metriche oggettive per la valutazione della qualità del prodotto _software_ e della documentazione associata. Le metriche utilizzate sono descritte in dettaglio nel #link("TODO")[piano di qualifica].
+
+=== Attività previste
+Secondo lo standard ISO/IEC 12207:1995, il processo di accertamento della qualità è composto da un insieme di attività così descritte:
+- *Implementazione del processo*: attività che ha lo scopo di implementare il processo di raccoglimento dei dati da valutare e l'individuazione degli standard di qualità insieme al proponente;
+- *Accertamento della qualità del prodotto*: attività che ha lo scopo di valutare il prodotto _software_ e la documentazione associata;
+- *Accertamento della qualità del processo*: attività che ha lo scopo di valutare i processo del gruppo _Sigma18_ e la loro conformità agli standard e alle specifiche richieste dal proponente.
+
 == Verifica
+Il processo di verifica è l'insieme delle attività che hanno lo scopo di garantire la conformità e la correttezza del prodotto _software_ e della documentazione associata agli standard e alle specifiche richieste dal proponente.
+A partire dai primi verbali prodotti in fase di candidatura, il gruppo _Sigma18_ si è avvalso del meccanismo di verifica delle _pull request_ di _GitHub_ dove attraverso il controllo dei verificatori, viene garantita la correttezza grammaticale, sintattica e del contenuto della documentazione prodotta.
+
+In caso di modifiche corpose ai documenti, vengono assegnati verificatori aggiuntivi di supporto.
+
+Tutte le attività di verifica riguardanti il prodotto _software_ sono registrate nel #link("TODO")[piano di qualifica] e riguarderanno principalmente lo sviluppo nella terza fase del capitolato (_3-PB, Product Baseline_).
+
+In generale, il processo di verifica è composto da un insieme di due attività successivamente descritte.
+
+=== Analisi statica
+L'analisi statica è l'attività che ha lo scopo di analizzare il prodotto _software_ senza eseguirne il codice sorgente. Questa attività viene svolta in modo automatico tramite strumenti di analisi del codice.
+In altre parole l'analisi statica si concentra nella verifica della correttezza sintattica e semantica del codice sorgente.
+Per realizzare ciò, l'analisi statica si può effettuare in due tipologie:
+- *Metodi formali*: metodi matematici che permettono di dimostrare la correttezza del codice sorgente. Questi metodi sono molto complessi e richiedono una conoscenza approfondita della teoria dei linguaggi.
+- *Metodi di lettura*, a loro volta suddivisi in:
+  - *_Walkthrough_*: metodi di lettura del codice sorgente che prevede l'esistenza di un problema, e attraverso un analisi rigorosa di tutto il prodotto si va alla ricerca di errori. Non sapendo a priori di che cosa e dove si tratta l'errore, il _walkthrough_ diventa un metodo molto costoso, poco efficace e non applicabile al nostro caso d'uso.
+  - *_Inspection_*: metodi di lettura del codice sorgente basata in una _checklist_ (lista di controllo) dove, in base alla conoscenza pregressa degli errori più probabili, va ad analizzarli in modo lineare. In caso di errori non presenti e previsti nella _checklist_, essa verrà aggiornata e il codice sorgente verrà analizzato nuovamente. Questo metodo è molto efficace e soprattutto automatizzabile basandosi nella lista di controllo.
+
+Il gruppo _Sigma18_ ha deciso di utilizzare il metodo di analisi statica basato su _inspection_ in quanto stimiamo di riuscire con buona probabilità a creare una lista di controllo efficace e completa per il nostro prodotto.
+
+=== Analisi dinamica
+L'analisi dinamica è l'attività che ha lo scopo di analizzare il prodotto _software_ eseguendo il codice sorgente e analizzando il comportamento in esecuzione. Lo scopo dell'analisi dinamica è quello di verificare il comportamento del prodotto _software_ in fase di esecuzione e di individuare evenutali errori o anomalie di funzionamento non previste.
+
+Per fare ciò, l'analisi dinamica fa uso dei #glossario("Test") che devono essere ripetibili, in quanto devono essere eseguiti più volte (ad esempio una volta per riscontrare un errore, e una seconda volta per verificare che l'errore sia stato corretto) e automatizzabili, in quanto verranno eseguiti in modo automatico per garantire la ripetibilità e la correttezza dei risultati.
+Per riuscire a testare il prodotto nelle sue parti, vengono utilizzati degli elementi a supporto definiti come:
+- *Stub*: oggetti che sostituiscono il comportamento di una componente reale per permettere il testing dell'oggetto chiamante;
+- *Driver*: oggetti che richiamano parti di codice non direttamente eseguibili;
+- *Logger*: oggetti che registrano gli esiti dei test eseguiti del prodotto _software_ per permettere l'analisi dei risultati e la loro valutazione.
+
+Tutti i test previsti dal gruppo _Sigma18_ sono sviluppati per essere eseguiti in modo indipendente dall'ambiente di esecuzione e in modo deterministico, ovvero che il risultato del test non deve dipendere da fattori esterni al prodotto _software_ (in altre parole, a partire da uno stesso input, il test deve sempre restituire lo stesso output).
+
+Le tipologie di test previste dal gruppo _Sigma18_ sono:
+- *Test di unità*: test che verificano il corretto funzionamento di una singola unità del prodotto _software_ (ad esempio una singola funzione);
+- *Test di integrazione*: test che verificano il corretto funzionamento di più unità del prodotto _software_ e l'integrazione tra loro (ad esempio due oggetti che comunicano tra loro);
+- *Test di sistema*: test che verificano il funzionamento completo dell'applicazione in un ambiente che simula quello reale di utilizzo;
+- *Test di regressione*: test che verificano il corretto funzionamento del prodotto _software_ dopo una modifica al codice sorgente.
+- *Test di accettazione*: test che verificano il corretto funzionamento del prodotto _software_ in base alle specifiche richieste dal proponente.
+
+//TODO NOMENCLATURA TEST
+
+
+
+
+
+
+
+
+
+
+
 == Validazione
 
 
