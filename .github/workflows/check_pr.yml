@@ -22,18 +22,58 @@ jobs:
           git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
           base=${{ github.event.pull_request.base.sha }}
           head=${{ github.event.pull_request.head.sha }}
+          changed_files=$(git diff -z --name-only $base $head -- '*.typ')
 
-          if git diff -z --name-only $base $head -- '*.typ' | grep -zq '^templates/'; then
+          if echo "${changed_files}" | grep -zq '^templates/'; then
             echo "Template files changed. Rebuilding all files..."
-            find . -name "*.typ" -not -path "./templates/*" -print0 | parallel -0 typst compile --root . {} {.}.pdf
+            find . -name "*.typ" -not -path "./templates/*" -print0 | parallel -0 typst compile --root . '{}' '{.}.pdf'
           else
             echo "Compiling changed files..."
-            git diff -z --name-only $base $head -- '*.typ' | grep -zv '^templates/' | parallel -0 typst compile --root . {} {.}.pdf
+            echo "${changed_files}" | grep -zv '^templates/' | parallel -0 typst compile --root . '{}' '{.}.pdf'
           fi
+          # move compiled files (only those matching the changed files) to the upload directory
+          echo "${changed_files}" | grep -zv '^templates/' | sed 's|^|./|' | sed 's|\.typ$|.pdf|' | xargs -I {} mv {} ./upload/
       - name: Check if glossary contains all references
+        id: glossary_check
         run: |
           # run check-glossario.py on all changed files
           git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
           base=${{ github.event.pull_request.base.sha }}
           head=${{ github.event.pull_request.head.sha }}
-          git diff -z --name-only $base $head -- '*.typ' | xargs -0 -r -n1 "$GITHUB_WORKSPACE"/.github/check-glossario.py -q
+          git diff -z --name-only $base $head -- '*.typ' | xargs -0 -r -n1 "$GITHUB_WORKSPACE"/.github/check-glossario.py -q | tee -a glossary_check.log
+      - name: Check filenames
+        id: filename_check
+        run: |
+          # run check-filenames.py on all changed files
+          git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
+          base=${{ github.event.pull_request.base.sha }}
+          head=${{ github.event.pull_request.head.sha }}
+          git diff -z --name-only $base $head -- '*.typ' | xargs -0 -r -n1 "$GITHUB_WORKSPACE"/.github/check-filenames.sh | tee -a filename_check.log
+      - name: Upload artifact
+        id: upload-artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: commit_${{github.event.pull_request.head.sha}}
+          overwrite: true
+          path: upload/
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Comment on PR
+        if: ${{steps.upload-artifact.outputs.artifact-url}}
+        run: |
+          local first second third
+          first=$(echo "Typst files compiled successfully. You can download them [here](${{ steps.upload-artifact.outputs.artifact-url }}).")
+
+          if [[ -s glossary_check.log ]]; then
+            second=$(printf "Some entries may be missing from the glossary (This is prone to false positives):\n\n\`\`\`\n$(cat glossary_check.log)\n\`\`\`")
+          fi
+
+          if [[ -s filename_check.log ]]; then
+            third=$(printf "Some files may have incorrect filenames (This is prone to false positives):\n\n\`\`\`\n$(cat filename_check.log)\n\`\`\`")
+          fi
+          final_message=$(printf "%s\n\n%s\n\n%s" "$first" "$second" "$third")
+          gh pr comment $PR_NUM --body "$final_message"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+          URL: ${{ steps.upload-artifact.outputs.artifact-url }}
