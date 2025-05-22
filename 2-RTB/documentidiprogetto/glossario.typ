@@ -74,11 +74,20 @@ Amazon Web Services (AWS) è una piattaforma di servizi _cloud_ offerta da Amazo
 == Backend
 Il backend denota la parte di un programma che gestisce la logica e l'interazione con il database, fornendo dati e servizi al frontend.
 
+== Backlog
+Elenco di attività, funzionalità o requisiti da completare in un progetto. Il backlog viene utilizzato per pianificare e gestire il lavoro all'interno di un team di sviluppo.
+
+== Branch
+Ramo di un repository Git che consente di lavorare su una copia separata del codice sorgente. I branch vengono utilizzati per sviluppare nuove funzionalità o correggere bug senza influenzare il codice principale.
+
 #pagebreak()
 = C
 
 == Client
-Componente o programma che accede ad un servizio reso disponibile da un #glossario("server").
+Componente o programma che accede ad un servizio reso disponibile da un _server_.
+
+== Commit
+Operazione di salvataggio delle modifiche apportate al codice sorgente in un repository Git. Ogni commit rappresenta uno stato specifico del codice.
 
 #pagebreak()
 = D
@@ -86,12 +95,14 @@ Componente o programma che accede ad un servizio reso disponibile da un #glossar
 == Design Thinking
 Approccio di progettazione di un software centrato sull'esperienza utente che prende in considerazione il target di riferimento per costruire un'esperienza solida e mirata, particolarmente funzionale in un ambiente agile.
 
+== Diagrammi UML
+Un diagramma UML è uno schema che permette di analizzare, descrivere e documentare un sistema software mediante l'utilizzo di modelli visuali.
+
 == Drag & Drop
 Tecnica di interazione grafica che si basa sul trascinamento di elementi a schermo. Si tratta di una rappresentazione intuitiva anche per utenti inesperti poiché si basa su
 intuizione e facilità d'uso.
 
 #pagebreak()
-
 = F
 
 == Feedback
@@ -110,17 +121,31 @@ L'intelligenza artificiale generativa (o Gen AI) è un tipo di intelligenza arti
 Sistema di controllo di versione distribuito che consente a più utenti di lavorare contemporaneamente su un progetto tenendo traccia delle modifiche apportate al codice sorgente.
 
 == GitHub
-Piattaforma web basata su #glossario("git") che fornisce strumenti per l'hosting di repository, il versionamento del codice e la collaborazione tra sviluppatori.
+Piattaforma web basata su Git che fornisce strumenti per l'hosting di repository, il versionamento del codice e la collaborazione tra sviluppatori.
 
 #pagebreak()
+= I
 
+== ISO/IEC 12207:1995
+Standard internazionale che definisce i processi di ciclo di vita del software, fornendo un framework per la pianificazione, lo sviluppo, il collaudo e la manutenzione del software.
+
+== Issue
+Un problema o un difetto identificato in un progetto software e registrato in una piattaforma di gestione dei problemi. Le issue possono riguardare bug, funzionalità mancanti o miglioramenti richiesti.
+
+#pagebreak()
 = L
+
+== LaTeX
+Linguaggio di marcatura per produrre documenti di alta qualità. È ampiamente utilizzato per la scrittura di articoli scientifici, tesi e libri.
 
 == Log
 Elenco cronologico delle attività svolte all'interno di un sistema, utile per il monitoraggio e la risoluzione dei problemi.
 
 #pagebreak()
 = M
+
+== Merge
+Operazione di unione di due o più branch in un repository Git. Il merge consente di combinare le modifiche apportate in diversi rami del codice sorgente.
 
 == MVP (_Minimum Viable Product_)
 Il prodotto minimo funzionante (in inglese _Minimum Viable Product_) è la versione di un prodotto con caratteristiche appena sufficienti per essere funzionante e utilizzabile dai primi clienti, i quali possono fornire _feedback_ per migliorare il prodotto stesso.
@@ -143,18 +168,23 @@ Prototipo o modello iniziale che dimostra la fattibilità o conferma la validit�
 == Prompt
 Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale per ottenere un'elaborazione specifica.
 
+== Pull request
+Richiesta di integrazione delle modifiche apportate in un branch di un repository Git nel branch principale. Le pull request vengono utilizzate per revisionare e discutere le modifiche prima di unirle al codice sorgente principale.
+
 #pagebreak()
 = R
 
 == React
 React è una libreria _JavaScript_ sviluppata da _Facebook_ utilizzata per creare interfacce utente interattive e dinamiche.
 
+== Root directory
+Cartella principale di un progetto o di un sistema, che contiene tutti i file e le sottocartelle necessarie per il funzionamento del software.
+
 == Routine
 Sequenza di istruzioni che consentono di eseguire un'operazione di frequente esecuzione.
 
 == RTB (Requirements and Technology Baseline)
 Fase del processo di sviluppo software in cui vengono definiti i requisiti del sistema e le tecnologie da utilizzare per la sua realizzazione. In questa fase vengono identificati i requisiti funzionali e non funzionali del sistema, le interfacce utente, le tecnologie di sviluppo e le risorse necessarie per il progetto.
-
 
 #pagebreak()
 = S
@@ -168,17 +198,32 @@ Macchina o programma che fornisce un qualsiasi tipo di servizio ad altre compone
 == Shadcn
 È una collezione di componenti visivi da utilizzare per la creazione di interfaccie grafiche pratiche ed efficaci.
 
+== Sistema di ticketing
+Sistema di gestione delle richieste e dei problemi degli utenti, che consente di registrare, monitorare e risolvere le segnalazioni in modo organizzato.
+
 == Slack
 Slack è uno strumento di collaborazione aziendale utilizzato per scambiarsi messaggi istantanei tra vari membri all'interno di un team.
 
 == Sprint
-Intervallo di tempo fisso, definito nella metodologia di sviluppo software Agile, durante il quale un team di sviluppo lavora per completare un insieme specifico di attività e/o funzionalità definite nello #glossario("Sprint Planning").
+Intervallo di tempo fisso, definito nella metodologia di sviluppo software Agile, durante il quale un team di sviluppo lavora per completare un insieme specifico di attività e/o funzionalità definite nello _sprint planning_.
 
 == Sprint Planning
-Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (#glossario("sprint"))
+Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (sprint).
+
+#pagebreak()
+= T
+
+== Test
+Processo di valutazione e verifica di un sistema software per garantire che soddisfi i requisiti e funzioni correttamente. I test possono includere test unitari, test di integrazione, test di sistema e test di accettazione.
+
+== top-down
+Tecnica di progettazione e sviluppo software che inizia con una visione generale del sistema e poi si suddivide in componenti più piccoli e dettagliati.
 
 #pagebreak()
 = W
+
+== Way of Working
+Modalità di lavoro adottata da un team o un'organizzazione per gestire progetti e attività. Include pratiche, processi e strumenti utilizzati per ottimizzare la collaborazione e l'efficienza.
 
 == WebApp
 Un software che viene eseguito in un browser Web, accessibile attraverso una connessione ad Internet.
