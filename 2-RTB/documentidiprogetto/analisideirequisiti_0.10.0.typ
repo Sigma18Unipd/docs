@@ -12,7 +12,8 @@
   versioni: (
     "0.10.0",
     "2025/05/22",
-    "Mirco Borella",
+    "Mirco Borella
+Alessandro Bernardello",
     "Matteo Marangon",
     "Aggiunta termini al glossario, fix",
     "0.9.0",
