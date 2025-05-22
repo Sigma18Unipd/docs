@@ -29,7 +29,7 @@
       it
     },
   )
-
+  [#metadata(versioneAttuale) <versione>]
   //Prima pagina
   align(top + center)[
     #image("../assets/img/Logo.svg", width: 30%)

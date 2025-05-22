@@ -552,7 +552,7 @@ Non sono emerse difficoltà ai fini dell'avanzamento del lavoro durante lo svolg
 
 ==== Dettagli
 
-*Data di inizio*: 13/04/2025 \
+*Data di inizio*: 13/05/2025 \
 *Data di fine*: 26/05/2025 \
 
 *Rischi attesi*: RT1, RT2, RO1

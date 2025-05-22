@@ -14,6 +14,7 @@ import logging
 from concurrent.futures import ThreadPoolExecutor, Future
 import sys
 import threading
+from pathlib import Path
 import yaml
 
 # each file's filepath will be trimmed to whatever matches a search pattern
@@ -109,20 +110,17 @@ def extract_path_to_pattern(
     Returns:
         str: The path up to the pattern
     """
-    parts = os.path.normpath(filepath).split(os.sep)
-    is_abs = os.path.isabs(filepath)
+    path = Path(filepath).resolve()
+    parts = path.parts
 
     for i, part in enumerate(parts):
         for pattern in patterns:
             if pattern in part:
-                extracted = os.path.join(*parts[: i + 1])
-                if is_abs:
-                    # needed as this was breaking absolute paths
-                    extracted = os.sep + extracted
+                extracted = Path(*parts[: i + 1])
                 logger.debug(
                     f"Extracted pattern '{pattern}' from '{filepath}': {extracted}"
                 )
-                return extracted, pattern
+                return str(extracted), pattern
 
     return None, None
 
@@ -160,7 +158,6 @@ def find_glossary_for_pattern(subdir_root: str, pattern: str) -> str | None:
             logger.warning(
                 f"No glossary found for pattern '{pattern}' in '{subdir_root}'"
             )
-            glossary_pattern_mapping[pattern] = None
             return None
 
 
@@ -177,10 +174,13 @@ def get_glossary_terms(filepath: str) -> tuple[Future | None, str]:
         pattern (str): Directory type (RTB/PB)
         concurrent.futures.Future | None: Future object for the extraction task, or None.
     """
-    filepath = os.path.abspath(filepath)
+    logger.debug(f"Processing file: '{filepath}'")
+    filepath = Path(filepath).expanduser().resolve()
+    logger.debug(f"normalized filepath: '{filepath}'")
+
     search_path, pattern = extract_path_to_pattern(filepath)
     if pattern is None:
-        logger.warning(f"RTB/PB pattern not found for file '{filepath}'.")
+        logger.info(f"RTB/PB pattern not found for file '{filepath}'.")
         return None, None
     glossary_filepath = find_glossary_for_pattern(search_path, pattern)
 
@@ -281,7 +281,7 @@ def process_file(filepath: str) -> set[str]:
 
     glossary_terms_future, pattern = get_glossary_terms(filepath)
     if glossary_terms_future is None:
-        logger.warning(f"Skipping file '{filepath}' due to missing glossary.")
+        logger.info(f"Skipping file '{filepath}' due to missing glossary.")
         return filepath, terms_not_found
 
     use_term_pattern = re.compile(r'#glossario\(\s*["\']([^"\']+)["\']\s*\)')
@@ -373,8 +373,9 @@ if __name__ == "__main__":
             logger.error(f"  In '{filepath}':")
             for term in sorted(terms):
                 logger.error(f"    - {term}")
-    if not found_missing:
-        logger.info("All glossary citations have a backing glossary entry")
+    if not found_missing and not args.quiet:
+        # the manual print statement here is to override the default WARN level
+        print("INFO: All glossary citations have a backing glossary entry")
 
     # lookup missing glossary definitions, requires awaiting all futures
     with glossary_dict_lock:
