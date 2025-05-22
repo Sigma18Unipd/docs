@@ -3,7 +3,7 @@
   titoloDocumento: "Analisi dei Requisiti",
   abstract: "",
   responsabili: "Pietro Crotti",
-  redattori: ("Pietro Crotti", "Matteo Marangon", "Carmelo Russello", "Mirco Borella"),
+  redattori: ("Pietro Crotti", "Matteo Marangon", "Carmelo Russello", "Mirco Borella", "Alessandro Bernardello"),
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
@@ -327,15 +327,6 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-
-
-
-
-
-
-
-
 //Rigenerare il diagramma UML da nuovi usecase
 === UC[9]: Creazione nuova _routine_ <UC9>
 - *Attore principale*: utente autenticato.
@@ -416,6 +407,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 === UC[13]: Modificare parametri di generazione <UC13>
+
 - *Attore principale*: utente esperto autenticato.
 
 - *Pre-condizioni*: l'utente clicca sul dialogo per la modifica dei parametri di generazione, nella pagina di un flusso
@@ -434,196 +426,289 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-// vedere routine
-// eliminare routine
-// modificare routine da dashboard
-// modifica nome routine
-//
-
-// avviare routine esistente
-// modificare impostazione blocco singolo
-
-
-
-
-
 
 
 
 === UC[14]: Visualizzare i dettagli di una _routine_ esistente <UC14>
 - *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni*: viene visualizzata una pagina con i dettagli di una _routine_ già esistente.
-- *Scenario principale*:
+
+- *Pre-condizioni*: l'utente si trova nella _dashboard_.
+
+- *Post-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
+
+- *Scenario principale*
   1. L'utente seleziona una _routine_ esistente dalla lista delle automazioni nella _dashboard_.
   2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
 
-  #figure(image("../../assets/usecasediagrams/UC_14_23.png"), caption: [Diagramma casi d'uso UC[14], UC[23]])
+#figure(image("../../assets/usecasediagrams/UC_14_23.png"), caption: [Diagramma casi d'uso UC[14], UC[23]])
 
-=== UC[15]: Modifica di una _routine_ esistente tramite _drag & drop_ <UC15> // singolo use case per la modifica o uno use case per ogni opzione di modifica?
+
+
+
+
+
+
+=== UC[15]: Eliminare una _routine_ esistente <UC15>
 - *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni*: viene modificato il comportamento della _routine_ selezionata.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di un flusso.
+
+- *Post-condizioni*: utente viene ritornato alla _dashboard_ la _routine_ viene eliminata.
+
 - *Scenario principale*:
   1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
+  2. L'utente seleziona l'opzione di eliminazione della _routine_.
+  3. Il sistema mostra un messaggio di conferma dell'eliminazione.
+  4. L'utente conferma l'eliminazione.
+  5. Il sistema elimina la _routine_ e ritorna l'utente alla _dashboard_.
+
+#figure(image("../../assets/usecasediagrams/UC_16.png"), caption: [Diagramma casi d'uso UC[16]])
+
+
+
+
+
+
+
+
+=== UC[16]: Modifica del nome di una _routine_ <UC16>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella pagine del flusso dell'automazione.
+
+- *Post-condizioni*: viene modificato il nome della _routine_ aperta.
+
+- *Scenario principale*:
+  1. L'utente preme nel tasto dedicato alla modifica del nome della routine.
+  2. Il sistema mostra un campo di testo per la modifica del nome della _routine_.
+  3. L'utente inserisce il nuovo nome della _routine_.
+  4. Il sistema salva il nuovo nome della _routine_.
+
+- *Estensioni*:
+  - Nome _routine_ già in uso (#link(<UC10>)[*UC[10]*]).
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
+
+=== UC[17]: Avviare una _routine_ esistente dalla _dashboard_ <UC17>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella _dashboard_.
+
+- *Post-condizioni*: una _routine_ viene avviata.
+
+- *Scenario principale*:
+  1. L'utente preme l'icona di avvio della _routine_ interessata.
+  2. Il sistema avvia la _routine_.
+
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
+=== UC[18]: Avviare una _routine_ esistente tramite la pagina di modifica del flusso <UC18>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica del flusso.
+
+- *Post-condizioni*: la relativa _routine_ viene avviata.
+
+- *Scenario principale*:
+  1. L'utente preme l'icona di avvio della _routine_ interessata.
+  2. Il sistema avvia la _routine_.
+
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
+=== UC[19]: Interrompere una _routine_ avviata <UC19>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente ha una _routine_ attiva o in esecuzione.
+
+- *Post-condizioni*: l'esecuzione della _routine_ viene interrotta.
+
+- *Scenario principale*:
+  1. L'utente preme l'icona di _stop_ della routine.
+  2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
+
+- *Estensioni*:
+  - Visualizzazione errore "Impossibile bloccare la _routine_)" (#link(<UC20>)[*UC[20]*]).
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
+
+=== UC[20]: Visualizzazione errore "Impossibile bloccare la _routine_" <UC20>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente ha provato a bloccare una _routine_ in esecuzione.
+
+- *Post-condizioni*: il sistema mostra un errore.
+
+- *Scenario principale*:
+  1. L'utente prova a bloccare una routine in _esecuzione_.
+  2. Se l'azione della routine non è bloccabile, il sistema mostra un messaggio di errore all'utente.
+  3. Se la routine non è più in esecuzione, il sistema mostra un messaggio di errore all'utente.
+
+
+
+
+
+
+
+
+=== UC[21]: Aggiunta di un blocco ad una _routine_ esistente <UC21>
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene modificato il comportamento della _routine_ selezionata.
+
+- *Scenario principale*:
+  1. L'utente seleziona dalla lista dei blocchi un elemento.
   2. L'utente trascina un blocco dalla barra laterale e lo rilascia nella posizione desiderata.
-  3. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_ .
+  3. L'utente collega il blocco a quelli giá esistenti.
+  4. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_.
+
+
+  - *Estensioni*:
+    - Errore generico (#link(<UC4>)[*UC[4]*]).
 
   #figure(image("../../assets/usecasediagrams/UC_15.png"), caption: [Diagramma casi d'uso UC[15]])
 
 
-=== UC[16]: Eliminare una _routine_ esistente <UC16>
+
+
+
+
+
+
+
+  === UC[22]: Modificare le impostazioni di un singolo blocco <UC22>
+
 - *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni*: la _dashboard_ viene aggiornata e la _routine_ selezionata viene eliminata.
-- *Scenario principale*:
-  1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
-  2. L'utente seleziona l'opzione di eliminazione della _routine_ .
-  3. Il sistema mostra un messaggio di conferma dell'eliminazione.
-  4. L'utente conferma l'eliminazione.
-  5. Il sistema elimina la _routine_ e aggiorna la _dashboard_.
 
-  #figure(image("../../assets/usecasediagrams/UC_16.png"), caption: [Diagramma casi d'uso UC[16]])
+- *Pre-condizioni*: Si trova nella pagina di modifica di un flusso con blocchi che hanno opzioni modificabili.
 
-
-=== UC[17]: Avviare una _routine_ esistente tramite la pagina di _dettagli automazione_ <UC17>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella pagina di dettagli automazione.
-- *Post-condizioni*: la _routine_ selezionata viene avviata.
-- *Scenario principale*:
-  1. L'utente seleziona l'opzione di avvio della _routine_ .
-  2. Il sistema avvia la _routine_ .
-  3. Il sistema registra un #glossario("log") dell'esecuzione.
-
-
-  === UC[18]: Modificare le impostazioni di un singolo blocco <UC18>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella pagina di dettagli automazione.
 - *Post-condizioni*: le impostazioni del singolo blocco vengono modificate.
+
 - *Scenario principale*:
-  1. L'utente seleziona un blocco all'interno del flusso.
-  2. L'utente seleziona l'icona delle impostazioni del blocco scelto.
-  3. Il sistema mostra una finestra con le impostazioni del blocco.
+  1. L'utente preme sull'icona delle impostazioni di un blocco all'interno del flusso.
+  2. Il sistema mostra una finestra con le impostazioni del blocco.
   4. L'utente modifica le impostazioni desiderate.
   5. Il sistema salva le modifiche per il relativo blocco.
 
   #figure(image("../../assets/usecasediagrams/UC_18_22.png"), caption: [Diagramma casi d'uso UC[18], UC[22]])
 
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Visualizzazione errore "Impostazioni non valide" (#link(<UC23>)[*UC[23]*]).
 
-=== UC[19]: Avviare una _routine_ esistente tramite _dashboard_ <UC19>
+
+
+
+
+
+
+=== UC[23]: Visualizzazione errore "Impostazioni non valide" <UC23>
+
 - *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella _dashboard_.
-- *Post-condizioni*: la _routine_ selezionata viene avviata.
+
+- *Pre-condizioni*: l'utente ha inserito nuove impostazioni all'interno di un blocco.
+
+- *Post-condizioni*: le impostazioni inserite non sono valide.
+
 - *Scenario principale*:
-  1. L'utente seleziona l'opzione di avvio della _routine_ .
-  2. Il sistema avvia la _routine_
-  3. Il sistema registra un _log_ dell'esecuzione.
+  1. L'utente modifica le impostazioni di un blocco.
+  2. Il sistema mostra un errore se le impostazioni non sono considerate valide.
 
-=== UC[20]: Interrompere una _routine_ avviata <UC20>
+
+
+
+
+
+=== UC[24]: Autenticazione ad un servizio tramite impostazioni del blocco <UC24>
+
 - *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e ha avviato una _routine_ .
-- *Post-condizioni*: l'esecuzione della _routine_ in corso viene interrotta.
-- *Scenario principale*:
-  1. L'utente seleziona l'opzione di interruzione della _routine_ .
-  2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
-  3. Il sistema registra nel _log_ il motivo dell'interruzione.
 
-#figure(image("../../assets/usecasediagrams/UC_20.png"), caption: [Diagramma casi d'uso UC[20],])
+- *Pre-condizioni*: l'utente si trova nelle impostazione del blocco(#link(<UC22>)[*UC[22]*]).
 
-=== UC[21]: Modificare le impostazioni generali <UC21>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso.
-- *Post-condizioni*: le impostazioni vengono aggiornate secondo le preferenze dell'utente.
-- *Scenario principale*:
-  1. L'utente seleziona l'icona delle impostazioni all'interno del _client_.
-  2. Il sistema mostra una pagina con le impostazioni generali.
-  3. L'utente modifica le impostazioni desiderate.
-  4. Il sistema salva le modifiche.
+- *Post-condizioni*: l'utente ha eseguito l'accesso al servizio del blocco.
 
-#figure(image("../../assets/usecasediagrams/UC_21.png"), caption: [Diagramma casi d'uso UC[21],])
-
-=== UC[22]: Autenticazione al servizio del blocco tramite impostazioni del blocco <UC22>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nelle impostazione del blocco(#link(<UC18>)[*UC[18]*]).
-- *Post-condizioni*: l'utente ha eseguito l'accesso al servizio del blocco selezionato.
 - *Scenario principale*:
   1. L'utente preme il tasto di accesso al servizio del blocco selezionato.
   2. Il sistema mostra la pagina di accesso al servizio del blocco selezionato.
   3. L'utente inserisce le credenziali del servizio del blocco selezionato.
   4. Il sistema attende il server di autenticazione del servizio del blocco selezionato.
-  5. L'utente ha eseguito l'accesso al servizio del blocco selezionato.
 
-=== UC[23]: Autenticazione al servizio del blocco tramite la pagina di dettagli automazione <UC23>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella pagina di dettagli automazione(#link(<UC14>)[*UC[14]*]).
-- *Post-condizioni*: l'utente ha eseguito l'accesso al servizio del blocco selezionato.
-- *Scenario principale*:
-  1. L'utente preme il tasto di accesso al servizio del blocco selezionato.
-  2. Il sistema mostra la pagina di accesso al servizio del blocco selezionato.
-  3. L'utente inserisce le credenziali del servizio del blocco selezionato.
-  4. Il sistema attende il server di autenticazione del servizio del blocco selezionato.
-  5. L'utente ha eseguito l'accesso al servizio del blocco selezionato.
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Visualizzazione errore "Impostazioni non valide" (#link(<UC23>)[*UC[23]*]).
 
-=== UC[24]: Visualizzare il _log_ di esecuzione <UC24>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e ha avviato una _routine_ (#link(<UC30>)[*UC[30]*]).
-- *Post-condizioni*: l'utente visualizza il _log_ di esecuzione della _routine_ selezionata.
-- *Scenario principale*:
-  1. L'utente seleziona l'opzione di visualizzazione del _log_ di esecuzione della _routine_ avviata.
-  2. Il sistema mostra il _log_ di esecuzione della _routine_ avviata.
 
-=== UC[25]: Fornire un _feedback_ della _routine_ generata <UC25>
+
+
+
+
+
+
+
+=== UC[25]: Modifica della _password_ dell'account <UC25>
 - *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha generato una _routine_ e l'ha avviata (#link(<UC30>)[*UC[30]*]).
-- *Post-condizioni*: l'utente ha lasciato un _feedback_ sulla _routine_.
+
+- *Pre-condizioni*: l'utente si trova nella _dashboard_.
+
+- *Post-condizioni*: la _password_ dell'utente viene aggiornata.
+
 - *Scenario principale*:
-  1. l'utente seleziona l'opzione di _feedback_ della _routine_ generata (positiva o negativa) tramite i due appositi pulsanti.
-  2. Il sistema salva il _feedback_ dell'utente.
+  1. L'utente preme il tasto dedicato alla modifica della _password_ dell'account.
+  2. Il sistema mostra una pagina con le impostazioni.
+  3. L'utente inserisce la nuova _password_ (#link(<UC6>)[*UC[6]*]).
+  4. L'utente reinserisce la _password_ creata (#link(<UC7>)[*UC[7]*]).
+  5. Il sistema salva le credenziali nel database.
+
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
 
 === UC[26]: Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC26>
 - *Attore principale*: utente autenticato o non autenticato.
-- *Pre-condizioni*: l'utente ha attiva o la _dark mode_ o la _light mode_.
+
+- *Pre-condizioni*: l'utente ha attiva una preferenza di tema.
+
 - *Post-condizioni*: l'utente ha cambiato il tema del _client_.
+
 - *Scenario principale*:
-  1. l'utente seleziona l'icona del tema del _client_ tramite il pulsante dedicato.
-  2. Il sistema mostra il _client_ con il tema selezionato.
+  1. l'utente preme l'icona del cambio tema del _client_.
+  2. Il sistema cambia il tema selezionato del il _client_.
 
 #figure(image("../../assets/usecasediagrams/UC_26.png"), caption: [Diagramma casi d'uso UC[26],])
 
-=== UC[27]: Visualizzazione dell'errore "Il #glossario("server") non risponde" <UC27>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso.
-- *Post-condizioni*: il sistema mostra il messaggio di errore all'utente.
-- *Scenario principale*:
-  1. Il sistema rileva che la connessione al server non è più disponibile.
-  2. Il sistema mostra un messaggio di errore all'utente.
-
-#figure(image("../../assets/usecasediagrams/UC_27.png"), caption: [Diagramma casi d'uso UC[27],])
-
-
-=== UC[29]: Visualizzazione dell'errore "Impossibile avviare il flusso" <UC29>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e sta tentando di avviare il flusso (#link(<UC30>)[*UC[30]*]), ma si verifica un errore.
-- *Post-condizioni*: il sistema mostra il messaggio di errore all'utente.
-- *Scenario principale*:
-  1. L'utente sta avviando il flusso.
-  2. Il sistema non riesce ad avviare il flusso e mostra un messaggio di errore.
-
-=== UC[30]: Avviare una routine esistente <UC30>
-- *Attore principale*: utente autenticato.
-- *Pre-condizioni*: l'utente ha effettuato l'accesso.
-- *Post-condizioni*: la _routine_ selezionata viene avviata.
-- *Scenario principale*:
-  1. L'utente avvia una _routine_ .
-- *Estensioni*:
-  - Visualizzare il _log_ di esecuzione (#link(<UC24>)[*UC[24]*]).
-  - Fornire un _feedback_ della _routine_ generata (#link(<UC25>)[*UC[25]*]).
-  - Visualizzazione dell'errore "Impossibile avviare il flusso" (#link(<UC29>)[*UC[29]*]).
-
-  #figure(
-    image("../../assets/usecasediagrams/UC_17_19_24_25_29_30.png"),
-    caption: [Diagramma casi d'uso UC[17], UC[19], UC[24], UC[25], UC[29], UC[30]],
-  )
 
 
 
@@ -634,7 +719,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
+//TUTTI DA RIFARE SECONDO I NUOVI USE CASE
 #pagebreak()
 = Requisiti
 Questa sezione del documento descrive i requisiti del progetto proposto da _Var Group S.p.A._, individuati tramite un'attenta analisi del capitolato, colloqui interni tra i membri del gruppo e riunioni esterne con l'azienda proponente.\
@@ -706,7 +791,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [ROF-11], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
   [ROF-12],
   [L'utente deve poter avviare una _routine_ esistente per eseguire il flusso di automazioni desiderato],
-  [#link(<UC17>)[*UC[17]*], #link(<UC19>)[*UC[19]*], #link(<UC30>)[*UC[30]*], Riunione esterna],
+  [#link(<UC17>)[*UC[17]*], #link(<UC19>)[*UC[19]*], #link(<UC3>)[*UC[30]*], Riunione esterna],
 
   [RDF-13],
   [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")],
@@ -729,14 +814,14 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [L'utente fornisce un _feedback_ sulla qualità o sul gradimento della _routine_ generata],
   [#link(<UC25>)[*UC[25]*], Riunione esterna, Riunione interna],
 
-  [ROF-17], [L'utente visualizza un errore se il _server_ non risponde], [#link(<UC27>)[*UC[27]*], Riunione esterna, Riunione interna],
+  [ROF-17], [L'utente visualizza un errore se il _server_ non risponde], [#link(<UC2>)[*UC[27]*], Riunione esterna, Riunione interna],
   [ROF-18],
   [L'utente visualizza un errore se é impossibile generare il flusso],
   [#link(<UC2>)[*UC[28]*], Riunione esterna, Riunione interna],
 
   [ROF-19],
   [L'utente visualizza un errore se é impossibile avviare il flusso],
-  [#link(<UC29>)[*UC[29]*], Riunione esterna, Riunione interna],
+  [#link(<UC2>)[*UC[29]*], Riunione esterna, Riunione interna],
 )
 
 
