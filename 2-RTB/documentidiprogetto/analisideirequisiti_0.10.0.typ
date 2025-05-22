@@ -14,7 +14,7 @@
     "2025/05/22",
     "Mirco Borella
 Alessandro Bernardello",
-    "Matteo Marangon",
+    "Carmelo Russello",
     "Aggiunta termini al glossario, fix",
     "0.9.0",
     "2025/05/16",
@@ -669,11 +669,47 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+== UC[25]: Salvare una _routine_ <UC25>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente ha modificato qualcosa nella pagina di modifica di un flusso.
+
+- *Post-condizioni*: il sistema ha salvato le modifiche.
+
+- *Scenario principale*:
+  1. L'utente preme il tasto per salvare le modifiche.
+  2. Il sistema verifica che le informazioni inserite siano valide.
+  3. Il sistema salva le modifiche.
+
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Visualizzazione errore "Flusso incompleto" (#link(<UC26>)[*UC[26]*]).
 
 
 
 
-=== UC[25]: Modifica della _password_ dell'account <UC25>
+=== UC[26]: Visualizzazione errore "Flusso incompleto" <UC26>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente ha premuto il tasto per salvare le modifiche.
+
+- *Post-condizioni*: il sistema ritorna un messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente preme il testo per salvare.
+  2. Il sistema verifica che il flusso sia completo e che nessun blocco sia staccato.
+  3. Se il flusso non è completo, il sistema mostra un messaggio di errore all'utente.
+
+
+
+
+
+
+
+
+=== UC[27]: Modifica della _password_ dell'account <UC27>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella _dashboard_.
@@ -696,7 +732,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[26]: Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC26>
+=== UC[28]: Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC28>
 - *Attore principale*: utente autenticato o non autenticato.
 
 - *Pre-condizioni*: l'utente ha attiva una preferenza di tema.
@@ -711,6 +747,22 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
+
+=== UC[29]: Logout <UC29>
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente è autenticato.
+
+- *Post-condizioni*: l'utente non è autenticato.
+
+- *Scenario principale*:
+  1. l'utente preme l'icona per effettuare il logout.
+  2. Il sistema disconnette l'utente e lo riporta alla pagina di _login_.
+
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
 
 
 
@@ -755,6 +807,8 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 - *Riunione interna*, se il requisito è stato stabilito durante una riunione interna tra i membri del gruppo;
 
 - *Capitolato*, se il requisito è stato esplicitato nel capitolato.
+
+
 
 
 == Requisiti funzionali
