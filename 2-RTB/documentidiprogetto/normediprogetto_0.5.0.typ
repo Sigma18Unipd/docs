@@ -8,20 +8,25 @@
   verificatori: "",
   tipo: "Documento Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "0.4.0",
+  versioneAttuale: "0.5.0",
   versioni: (
-    "0.4.0",
-    "2025/05/03",
+    "0.5.0",
+    "2025/05/08",
     "Mirco Borella",
     "",
-    "TESTTEST",
+    "Norme analisi dei requisiti e continuazione stesura documento",
+    "0.4.0",
+    "2025/05/04",
+    "Mirco Borella",
+    "",
+    "Aggiunta sezione 3.1.9 (Manutenzione documenti)",
     "0.3.0",
-    "2025/04/29",
+    "2025/04/30",
     "Mirco Borella",
     "",
     "Stesura sezioni da 2.3 (Sviluppo) a 3.2 (Gestione della configurazione)",
     "0.2.0",
-    "2025/04/25",
+    "2025/04/26",
     "Mirco Borella",
     "",
     "Stesura sezione 2.1 (Fornitura) e 2.2 Attività di fornitura",
@@ -480,10 +485,25 @@ Alcuni documenti, come l'analisi dei requisiti, contentono sezioni o componenti 
 ==== Analisi dei Requisiti: Casi d'uso
 Per la definizione dei casi d'uso è stata utilizzata la seguente nomenclatura:
 #set align(center)
-*UC[NUMERO]*
+*UC[NUMERO]:TITOLO*
 #set align(left)
 
-dove con "*NUMERO*" s'intende il numero identificativo del caso d'uso.
+dove con "*NUMERO*" s'intende il numero identificativo del caso d'uso, e con "*TITOLO*" s'intende un breve titolo che descrive il caso d'uso.
+
+Ogni caso d'uso è composto da una serie di sezioni che ne descrivono il funzionamento e i scenari principali. Generalmente le sezioni sono le seguenti:
+
+- *Attore principale*: descrive l'attore protagonista del caso d'uso.
+
+- *Pre-condizioni*: rappresentano le condizioni che devono essere vere prima che il caso d'uso possa iniziare ad essere eseguito.
+
+- *Post-condizioni*: specificano le proprietà che devono essere garantite al termine dell'esecuzione del caso d'uso.
+
+- *Scenario principale*: descrive il percorso più comune e desiderato per un utente (attore) nel completare un obiettivo specifico interagendo con il sistema.
+
+Nel caso in cui il caso d'uso preveda più scenari, questi vengono descritti in modo analogo allo scenario principale.
+
+Nel caso in cui il caso d'uso preveda delle estensioni, queste verranno elencate in una sezione "*Estensioni*" indicando i relativi casi d'uso collegati.
+
 
 ==== Analisi dei Requisiti: Requisiti
 Ciascun requisito è identificato da un codice univoco composto come segue:
