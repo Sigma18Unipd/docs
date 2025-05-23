@@ -140,7 +140,7 @@ La fornitura viene supportata da strumenti di comunicazione, di gestione dei req
 - *Microsoft Excel*: per la gestione e la tracciabilità delle ore di lavoro svolte da ciascun membro del gruppo.
 
 Gli strumenti scelti per la comunicazione con il proponente sono:
-- *Gmail*: per la comunicazione formale asincrona con il proponente, successivamente rimpiazata da:
+- *Gmail*: per la comunicazione formale asincrona con il proponente, successivamente rimpiazzata da:
 
 - *Slack*: per la comunicazione con il proponente, l'invio di documenti e per il supporto allo sviluppo del prodotto.
 //TODO: vedere come fare le riunioni online con il proponente
@@ -630,7 +630,7 @@ dove:
 ===== Date
 Ogni data nei documenti verrà scritta utilizzando il formato "*AAAA/MM/GG*" derivante dallo standard _ISO 8601_ dove *AAAA* indica l'anno in numero a 4 cifre, *MM* indica il mese in numero a 2 cifre e *GG* indica il giorno in numero a 2 cifre, come stabilito nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno del 2025/03/07].
 
-Nel caso di date scritte per intero, si utizzerà il formato *GG MESEINLETTERE AAAA*, dove *GG* indica il giorno in numero a 2 cifre, *MESEINLETTERE* indica il mese in lette (ad esempio "Aprile") e *AAAA* indica l'anno in numero a 4 cifre.
+Nel caso di date scritte per intero, si utizzerà il formato *GG MESEINLETTERE AAAA*, dove *GG* indica il giorno in numero a 2 cifre, *MESEINLETTERE* indica il mese in lettere (ad esempio "Aprile") e *AAAA* indica l'anno in numero a 4 cifre.
 
 Esempio di data: *2025/05/01* oppure *01 Maggio 2025*.
 
@@ -859,17 +859,69 @@ I processi organizzativi sono l'insieme delle attività volte ad abilitare, cont
 
 La normativa ISO/IEC 12207:1995 indirizza i seguenti sotto processi:
 
-- *Management*: il processo di "Gestione della documentazione" garantisce lo sviluppo e la manutenzione delle informazioni prodotte e registrate relativamente al prodotto software.
+- *Management*: il processo garantisce lo sviluppo e la manutenzione delle informazioni prodotte e registrate relativamente al prodotto software.
 
-- *Infrastructure*: Il processo di "Gestione della configurazione" ha lo scopo di definire e mantenere l'integrità di tutti i componenti della configurazione (Configuration Items) e di renderli accessibili a chi ne ha diritto.
+- *Infrastructure*: Il processo ha lo scopo di definire e mantenere l'integrità di tutti i componenti della configurazione (Configuration Items) e di renderli accessibili a chi ne ha diritto.
 
 - *Improvement*: Il processo ha lo scopo di stabilire, valutare, misurare, controllare e migliorare il ciclo di vita del software.
 
 - *Human Resources*: Il processo ha lo scopo di fornire all'organizzazione risorse umane adeguate e di mantenere le loro competenze consistenti con le necessità del business.
 
 == Management (Gestione dei processi)
+Secondo la normativa ISO/IEC 12207:1995, il processo di gestione dei processi ha lo scopo di individuare i processi e attribuirli ai relativi ruoli nella gestione del ciclo di vita del software. L'obiettivo è quello di garantire che i processi siano definiti, implementati e mantenuti in modo da soddisfare le esigenze del proponente e garantire la massima efficenza de gruppo di lavoro.
 
+I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("/TODO")[piano di progetto].
 
+=== Strumenti a supporto della gestione dei processi
+Il gruppo _Sigma18_ ha deciso di utilizzare i seguenti strumenti per la gestione dei processi:
+
+- *GitHub*: per la gestione delle attività in corso, l'assegnazione di attività ai singoli membri del gruppo di lavoro e pianificazione delle #glossario("milestone");
+
+- *Whatsapp*: per la comunicazione tra i membri del gruppo di lavoro e l'organizzazione delle riunioni;
+
+- *Discord*: per le riunioni tra i membri del gruppo di lavoro.
+
+=== Attività previste
+Il processo di gestione dei processi è composto da un insieme di attività così descritte:
+
+- *Definizione dei processi*: attività che ha lo scopo di definire i processi e le attività da svolgere;
+
+- *Pianificazione dei processi*: attività che ha lo scopo di pianificare le attività da svolgere e le risorse necessarie;
+
+- *Esecuzione dei processi*: attività che ha lo scopo di eseguire le attività pianificate;
+
+- *Controllo e monitoraggio dei processi*: attività che ha lo scopo di controllare l'andamento delle attività e garantire il rispetto delle scadenze e delle risorse assegnate;
+
+- *Chiusura dei processi*: attività che ha lo scopo di chiudere le attività e verificare che quello che è stato prodotto sia coerente con l'obiettivo iniziale.
+
+=== Ruoli dei membri
+Il gruppo _Sigma18_ ha deciso di utilizzare dei ruoli per la gestione dei processi descritti nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[preventivo dei costi e della dichiarazione degli impegni].
+
+==== Amministratore
+L'ammministratore si occupa della gestione degli strumenti IT necessari all'avanzamento dello
+sviluppo. La figura, che conosce e comprende approfonditamente il _way of working_ offre supporto agli altri ruoli. Si ritiene che la figura abbia maggior importanza nelle fasi iniziali dello sviluppo, con alcuni picchi nei momenti di rilascio del prodotto.
+
+==== Analista
+L'analista è la figura che svolge l'attività di analisi dei requisiti del _software_, i quali potranno essere funzionalità in accordo con il proponente o specifiche minime di funzionamento.
+
+La figura produrrà il documento di analisi dei requisiti.
+
+==== Progettista
+Il progettista è responsabile della definizione dell'architettura del sistema e della progettazione delle componenti _software_.
+Deve essere in grado di comunicare efficacemente con gli altri membri del team, tra cui programmatori, analisti e verificatori, per assicurarsi che la visione progettuale sia compresa e implementata correttamente e che i requisiti siano tradotti in una soluzione tecnica adatta.
+
+==== Programmatore
+È la figura incaricata a trasformare le direttive di _design_ fornite dal progettista in codice. Il ruolo richiede che la persona abbia familiarità e padronanza delle tecnologie che andranno ad essere implementate.
+
+==== Responsabile
+Il responsabile è la figura che si occupa di coordinare e supervisionare l'intero progetto, assicurandosi che tutte le attività siano svolte nei tempi e nei modi previsti.
+Il ruolo si occupa anche del dialogo tra l'interno e l'esterno del gruppo garantendo una comunicazione chiara e tempestiva.
+
+==== Verificatore
+È la figura che garantisce che la documentazione prodotta ed il _software_ sviluppato mantengano alti standard di qualità.
+Il verificatore esegue test approfonditi per identificare _bug_ e problemi, assicurandosi che il prodotto finale sia conforme ai requisiti specificati.
+
+Ai fini di rispettare la richiesta di condividere il _bug reporting_ avvenuto durante la fase di sviluppo, il verificatore dovrà gestire la piattaforma ITS (_Issue Tracking System_) utilizzata (_GitHub_).
 
 
 
