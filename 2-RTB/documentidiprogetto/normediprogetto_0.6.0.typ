@@ -4,12 +4,17 @@
   titoloDocumento: "Norme di progetto",
   abstract: "Documento contenente le Norme di progetto che definiscono le modalità di lavoro del gruppo.",
   responsabili: "Pietro Crotti",
-  redattori: "Mirco Borella",
-  verificatori: "",
+  redattori: ("Mirco Borella", "Alessandro Bernardello"),
+  verificatori: ("Mirco Borella", "Marco Egidi", "Matteo Marangon"),
   tipo: "Documento Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "0.5.0",
+  versioneAttuale: "0.6.0",
   versioni: (
+    "0.6.0",
+    "2025/05/13",
+    "Alessandro Bernardello",
+    "Mirco Borella",
+    "TestTest",
     "0.5.0",
     "2025/05/08",
     "Mirco Borella",
@@ -27,8 +32,8 @@
     "Stesura sezioni da 2.3 (Sviluppo) a 3.2 (Gestione della configurazione)",
     "0.2.0",
     "2025/04/26",
-    "Mirco Borella",
-    "",
+    "Marco Egidi",
+    "Matteo Marangon",
     "Stesura sezione 2.1 (Fornitura) e 2.2 Attività di fornitura",
     "0.1.0",
     "2025/04/22",
@@ -243,7 +248,7 @@ Tutte le attività racchiuse nel processo di sviluppo sono supportate dai seguen
 == Attività di sviluppo
 In base allo standard ISO/IEC 12207:1995, il processo di sviluppo è composto da un insieme di attività successivamente descritte:
 
-=== Implementazione del processo
+=== Implementazione del processo <implementazione>
 Il processo di sviluppo inizia con la definizione del modello di ciclo di vita del _software_ da adottare. Il gruppo _Sigma18_ ha deciso di adottare il modello #glossario("Agile") in quanto permette una maggiore flessibilità e adattabilità alle esigenze del progetto.
 Il modello Agile prevede un approccio iterativo e incrementale, in cui il prodotto viene sviluppato in piccole parti (o _sprint_) e viene costantemente testato e migliorato.
 
@@ -305,7 +310,7 @@ I processi di supporto definiti dalla norma ISO/IEC 12207:1995 indirizzano le se
 
 Ai fini della natura del capitolato, il gruppo _Sigma18_ ha deciso di trattare i processi di supporto relativi alla *Documentazione*, *Gestione della configurazione*, *Qualità*, *Verifica* e *Validazione*.
 
-== Documentazione
+== Documentazione <documentazione>
 Il processo di "Gestione della documentazione" è una delle parti fondamentali di tutti i processi primari: garantisce lo sviluppo, la manutenzione e la registrazione delle informazioni prodotte relativamente al prodotto software.
 
 L'obiettivo principale di questo processo è quello di garantire che la documentazione prodotta sia completa, accurata e facilmente accessibile in maniera asincrona a tutti i membri del gruppo di lavoro. Tutto il gruppo di lavoro è tenuto a rispettare le norme e le modalità di lavoro per la stesura dei documenti definite in questa sezione.
@@ -865,21 +870,23 @@ La normativa ISO/IEC 12207:1995 indirizza i seguenti sotto processi:
 
 - *Improvement*: Il processo ha lo scopo di stabilire, valutare, misurare, controllare e migliorare il ciclo di vita del software.
 
-- *Human Resources*: Il processo ha lo scopo di fornire all'organizzazione risorse umane adeguate e di mantenere le loro competenze consistenti con le necessità del business.
+- *Training*: Il processo ha lo scopo di fornire all'organizzazione risorse umane adeguate e di mantenere le loro competenze consistenti con le necessità del business.
 
 == Management (Gestione dei processi)
 Secondo la normativa ISO/IEC 12207:1995, il processo di gestione dei processi ha lo scopo di individuare i processi e attribuirli ai relativi ruoli nella gestione del ciclo di vita del software. L'obiettivo è quello di garantire che i processi siano definiti, implementati e mantenuti in modo da soddisfare le esigenze del proponente e garantire la massima efficenza de gruppo di lavoro.
 
 I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("/TODO")[piano di progetto].
 
-=== Strumenti a supporto della gestione dei processi
+=== Strumenti a supporto della gestione dei processi <sezione4.1.1>
 Il gruppo _Sigma18_ ha deciso di utilizzare i seguenti strumenti per la gestione dei processi:
 
 - *GitHub*: per la gestione delle attività in corso, l'assegnazione di attività ai singoli membri del gruppo di lavoro e pianificazione delle #glossario("milestone");
 
 - *Whatsapp*: per la comunicazione tra i membri del gruppo di lavoro e l'organizzazione delle riunioni;
 
-- *Discord*: per le riunioni tra i membri del gruppo di lavoro.
+- *Discord*: per le riunioni tra i membri del gruppo di lavoro;
+
+- *Slack*: per la comunicazione con l'azienda proponente.;
 
 === Attività previste
 Il processo di gestione dei processi è composto da un insieme di attività così descritte:
@@ -923,27 +930,175 @@ Il verificatore esegue test approfonditi per identificare _bug_ e problemi, assi
 
 Ai fini di rispettare la richiesta di condividere il _bug reporting_ avvenuto durante la fase di sviluppo, il verificatore dovrà gestire la piattaforma ITS (_Issue Tracking System_) utilizzata (_GitHub_).
 
+=== Comunicazioni
+Il gruppo ha scelto di utilizzare le piattaforme citate nella #link(<sezione4.1.1>)[sezione 4.1.1] per le comunicazioni interne.
+Non sono stati previsti incontri di allineamento con l'azienda proponente.
+In particolare, il gruppo ha deciso di utilizzare _WhatsApp_ per la comunicazione rapida asincrona e _Discord_ per le riunioni interne.
 
+L'azienda proponente è disponibile, in caso di necessità, per chiarimenti o consigli tramite la piattaforma di messaggistica asincrona _Slack_.
 
+Per quanto riguarda invece le comunicazioni non sopra citate, l'indirizzo email ufficiale del gruppo _Sigma18_ è:
+#set align(center)
+*sigma18unipd\@gmail.com*
+#set align(left)
 
+=== Coordinamento delle attività
+Il gruppo riesce, in modo efficace, a coordinare le attività e a riportare in modo efficente gli esiti e l'avanzamento del lavoro svolto nella riunione dedicata alla retrospettiva degli _sprint_ e di pianificazione delle attività future svolta ogni due settimane.
 
+Durante questa riunone, il piano di progetto viene aggiornato per riflettere l'avanzamento delle attività, le modifiche ai processi e le nuove esigenze emerse durante lo sviluppo.
+Ogni cambiamento significativo viene riportato, garantendo così una documentazione sempre allineata allo stato attuale del lavoro del gruppo _Sigma18_.
 
+Ciò nonostante, in caso di necessità, il gruppo è disponibile a organizzare riunioni straordinarie per discutere di problematiche o chiarimenti.
 
+== Infrastructure (Infrastruttura)
+Il processo di infrastruttura è l'insieme delle attività che hanno lo scopo di garantire la disponibilità e l'integrità degli elementi necessari per lo sviluppo del prodotto _software_ e della documentazione associata.
 
+=== Attività previste
+Il processo di infrastruttura è composto da un insieme di attività così descritte:
+- *Definizione*
 
+- *Implementazione*
 
+- *Manutenzione*
 
+=== Definizione
+Il gruppo _Sigma18_ ha scelto durante lo svolgimento del progetto di utilizzare strumenti che consentano ai suoi vari membri di lavorare in modalità efficace ed efficente.
 
+Di seguito sono elencati tutti gli strumenti individuati dal gruppo:
 
+- *Git*: Utilizzato per il versionamento del codice sorgente e della documentazione associata;
 
+- *GitHub*: Utilizzato per la sincronizzazione degli sviluppi e come _Issue Tracking System_ (_ITS_) per tenere traccia del _backlog_ tramite l'utilizzo delle _issue_;
 
+- *Typst*: Utilizzato per la scrittura della documentazione e per la generazione dei documenti in formato PDF;
 
+- *Whatsapp*: Utilizzato per la comunicazione tra i membri del gruppo di lavoro e l'organizzazione delle riunioni;
 
+- *Discord*: Utilizzato per le riunioni tra i membri del gruppo di lavoro;
+
+- *Slack*: Utilizzato per la comunicazione con l'azienda proponente;
+
+- *Microsoft Teams*: Utilizzato per la comunicazione con l'azienda proponente;
+
+- *Google Calendar*: Utilizzato per la pianificazione delle riunioni con l'azienda proponente;
+
+- *Script in Python e Bash*: Utilizzati per l'aggiornamento automatico del sito web, le automazioni di verifica della versione nel nome di un file e di presenza dei termini del glossario.
+
+=== Implementazione
+==== Git
+Il gruppo _Sigma18_ ha deciso di utilizzare _Git_ come sistema di versionamento del codice sorgente e della documentazione. Il sistema di versionamento è stato scelto in quanto permette di tenere traccia delle modifiche, garantendo la possibilità di tornare indietro nel tempo in caso di necessità.
+
+Uno dei maggiori vantaggi di _Git_ sono le sue funzionalità di creazione di _branch_. A differenza dei sistemi di controllo delle versioni centralizzati, i branch _Git_ sono facili da sottoporre a _merge_ e questo agevola il flusso di lavoro parallelo scelto dal gruppo.
+
+==== GitHub
+Il gruppo _Sigma18_ ha deciso di utilizzare _GitHub_ come piattaforma di hosting per il codice sorgente e la documentazione. _GitHub_ è stato scelto in quanto offre funzionalità avanzate per la gestione delle _issue_, delle _pull request_ e delle _branch_ (già descritte nella #link(<produzionedeidocumenti>)[sezione 3.1.8]).
+
+==== Typst
+Già descritto nella #link(<documentazione>)[sezione 3.1 - Documentazione].
+
+==== Whatsapp
+Il gruppo _Sigma18_ ha deciso di utilizzare _WhatsApp_ come piattaforma di messaggistica per la comunicazione tra i membri del gruppo di lavoro. _WhatsApp_ è stato scelto per la sua semplicità d'uso e ampia diffusione tra i membri del gruppo.
+
+==== Discord
+Il gruppo _Sigma18_ ha deciso di utilizzare _Discord_ come piattaforma di videoconferenza per le riunioni tra i membri del gruppo di lavoro. _Discord_ è stato scelto per la sua semplicità d'uso e ampia diffusione tra i membri del gruppo.
+
+Sono stati creati dei canali dedicati permettere il lavoro simultaneo di più membri del gruppo in parallelo, senza che le comunicazioni si sovrappongano, e dei canali testuali dedicati allo scambio di _link_ e riferimenti o credenziali.
+
+==== Slack
+L'azienda proponente ha deciso di utilizzare _Slack_ come piattaforma di messaggistica per la comunicazione tra il gruppo _Sigma18_ e il proponente. _Slack_ è stato scelto per la sua ampia diffusione tra i membri dell'azienda proponente, in modo da poter fornire supporto in caso di necessità al gruppo di lavoro da varie figure aziendali.
+
+==== Microsoft Teams
+L'azienda proponente ha organizzato un _workshop_ di presentazione delle tecnologie di _Gen AI_ in modalità virtuale. Per fare ciò, l'azienda ha scelto di utilizzare _Microsoft Teams_ come piattaforma di videoconferenza tra il gruppo _Sigma18_ e la figura esperta associata.
+
+_Microsoft Teams_ è stato utilizzato anche nei workshop precedenti per consentire ai membri del gruppo di seguire le presentazioni in modalità virtuale, qualora non avessero la possibilità di partecipare in presenza.
+
+==== Google Calendar
+Il gruppo _Sigma18_ ha deciso di utilizzare _Google Calendar_ come piattaforma di pianificazione delle riunioni con l'azienda proponente.
+
+==== Script in Python e Bash
+Il gruppo _Sigma18_ ha deciso di sviluppare degli script in _Python_ e _Bash_ per automatizzare alcune attività di gestione della configurazione, come la compilazione automatica della documentazione e l'aggiornamento del sito web.
+In particolare, sono stati creati degli script per:
+
+- Aggiornare automaticamente il sito web con la documentazione prodotta;
+
+- Verificare automaticamente la presenza dei termini del glossario nei documenti prodotti;
+
+- Verificare automaticamente la versione del documento in base al nome del file;
+
+=== Manutenzione
+Il gruppo _Sigma18_ ha deciso di assegnare alla figura dell'amministratore la responsabilità della manutenzione degli strumenti utilizzati e dell'infrastruttura.
+
+== Improvement (Miglioramento)
+Il processo di miglioramento secondo lo standard ISO/IEC 12207:1995 consiste nella consilidazione, controllo e miglioramento continuo dei processi utilizzati durante il ciclo di sviluppo del prodotto _software_ e della documentazione associata.
+
+Come specificato in precedenza nella #link(<implementazione>)[sezione 2.4.1], il gruppo _Sigma18_ ha deciso di utilizzare il modello di lavoro _Agile_ che prevede un miglioramento continuo del prodotto e dei processi utilizzati.
+
+=== Attività previste
+Il processo di miglioramento è composto da un insieme di attività così descritte:
+
+- *Implementazione del processo*
+
+- *Individuazione criticità*
+
+- *Azioni correttive*
+
+=== Implementazione del processo
+Un processo viene stabilito, documentandolo in questo stesso documento.
+
+=== Individuazione criticità
+Una volta stabilito un processo, è fondamentale controllarne l'andamento e l'efficacia.
+È quindi essenziale individuare delle misurazioni appropriate ed effettuare controlli periodici su di esse.
+
+=== Azioni correttive
+Una volta revisionate le misurazioni è necessario individuare i processi problematici e stabilire soluzioni che possano portare a miglioramenti.
+Sarà poi necessario aggiornare la documentazione per riflettere le modifiche apportate.
+
+== Training (Formazione)
+Il processo di formazione secondo lo standard ISO/IEC 12207:1995 ha lo scopo di fornire e mantenere personale formato e competente per le attività di sviluppo del prodotto _software_ e della documentazione associata.
+
+Il gruppo _Sigma18_ si impegna a garantire che i membri del gruppo siano formati e competenti per le attività di sviluppo del prodotto _software_ e in particolar modo sulle tecnologie proposte per lo sviluppo.
+
+In caso di difficoltà, i vari membri del gruppo sono disponibili a fornire supporto e formazione ai componenti che lo richiedano. Questo meccanismo di collaborazione reciproca rafforza il lavoro di squadra e la condivisione delle conoscenze, oltre che rappresentare un'opportunità di conoscenza e coesione tra le persone.
 #pagebreak()
+
+
+
+
+
+
+
+
+
+
+#set text(size: 30pt)
+#text(
+  red,
+  [ANDARE AVANTI QUI, NON TOCCARE NULLA SOPRA.
+
+    SI NULLA, PIETRO
+
+    COMANDO IO],
+)
+//Cancellare questo obv
+
+
+
 = Standard per la qualità
+
+
+
+
+
+
 
 #pagebreak()
 = Metriche per la qualità di processo
+
+
+
+
+
+
 
 #pagebreak()
 = Metriche per la qualitá di prodotto
