@@ -1,0 +1,79 @@
+name: PR check
+on: pull_request
+
+jobs:
+  check_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Check if typst files are valid
+        run: |
+          # Fetch base and head commits
+          git fetch origin ${{ github.base_ref }}:${{ github.base_ref }}
+          base=${{ github.event.pull_request.base.sha }}
+          head=${{ github.event.pull_request.head.sha }}
+
+          if git diff --diff-filter=AMRTC -z --name-only $base $head -- '*.typ' | grep -zq '^templates/'; then
+            echo "Template files changed. Rebuilding all files..."
+            find . -name "*.typ" -not -path "./templates/*" -print0 | parallel -0 typst compile --root . '{}' '{.}.pdf'
+          else
+            echo "Compiling changed files..."
+            git diff --diff-filter=AMRTC -z --name-only $base $head -- '*.typ' | grep -zv '^templates/' | parallel -0 typst compile --root . '{}' '{.}.pdf'
+          fi
+          # move compiled files (only those matching the changed files) to the upload directory
+          mkdir -p ./upload/
+          git diff --diff-filter=AMRTC -z --name-only $base $head -- '*.typ' | grep -zv '^templates/' | while IFS= read -rd $'\0' file; do
+            pdf_file="${file%.typ}.pdf"
+            if [ -f "$pdf_file" ]; then
+              mv "$pdf_file" ./upload/
+            fi
+          done
+      - name: Check if glossary contains all references
+        id: glossary_check
+        run: |
+          base=${{ github.event.pull_request.base.sha }}
+          head=${{ github.event.pull_request.head.sha }}
+          git diff --diff-filter=AMRTC -z --name-only $base $head -- '*.typ' | xargs -0 -r -n1 "$GITHUB_WORKSPACE"/.github/check-glossario.py -q 2>&1 | tee -a glossary_check.log
+      - name: Check filenames
+        id: filename_check
+        run: |
+          base=${{ github.event.pull_request.base.sha }}
+          head=${{ github.event.pull_request.head.sha }}
+          git diff --diff-filter=AMRTC -z --name-only $base $head -- '*.typ' | xargs -0 -r -n1 "$GITHUB_WORKSPACE"/.github/check-filenames.sh -q | tee -a filename_check.log
+      - name: Upload artifact
+        id: upload-artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: commit_${{github.event.pull_request.head.sha}}
+          overwrite: true
+          path: upload/
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Comment on PR
+        if: ${{steps.upload-artifact.outputs.artifact-url}}
+        run: |
+          first=$(printf "Typst files compiled successfully. You can download them [here](${{ steps.upload-artifact.outputs.artifact-url }}).\n The download link will expire in 7 days.")
+
+          if [[ -s glossary_check.log ]]; then
+          second=$(printf "Some entries may be missing from the glossary (This is prone to false positives):\n\n\`\`\`\n%s\n\`\`\`" "$(cat glossary_check.log)")
+          fi
+
+          if [[ -s filename_check.log ]]; then
+            third=$(printf "Some files may have incorrect filenames (This is prone to false positives):\n\n\`\`\`\n%s\n\`\`\`" "$(cat filename_check.log)")
+          fi
+          final_message=$(printf "%s\n\n%s\n\n%s" "$first" "$second" "$third")
+          gh pr comment $PR_NUM --body "$final_message"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+          URL: ${{ steps.upload-artifact.outputs.artifact-url }}
