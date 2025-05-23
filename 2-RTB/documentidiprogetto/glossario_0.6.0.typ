@@ -3,7 +3,7 @@
 #show: content => verbale(
   titoloDocumento: "Glossario",
   responsabili: "Matteo Marangon",
-  redattori: (("Mirco Borella", "Matteo Marangon", "Aleena Mathew"),
+  redattori: ("Mirco Borella", "Matteo Marangon", "Aleena Mathew"),
   verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
@@ -124,7 +124,7 @@ Piattaforma web basata su #glossario("git") che fornisce strumenti per l'hosting
 = L
 
 == LLM (_Large Language Model_)
-I modelli linguistici di grandi dimensioni (LLM) sono una categoria di modelli di intelligenza artificiale addestrati su immense quantità di dati che li rendono in grado di comprendere e generare linguaggio naturale in modo coerente con un _input_ fornito da un utente. 
+I modelli linguistici di grandi dimensioni (LLM) sono una categoria di modelli di intelligenza artificiale addestrati su immense quantità di dati che li rendono in grado di comprendere e generare linguaggio naturale in modo coerente con un _input_ fornito da un utente.
 
 == Log
 Elenco cronologico delle attività svolte all'interno di un sistema, utile per il monitoraggio e la risoluzione dei problemi.
