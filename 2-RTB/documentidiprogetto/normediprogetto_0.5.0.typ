@@ -628,7 +628,7 @@ dove:
 
 ==== Riferimenti e formati
 ===== Date
-Ogni data nei documenti verrà scritta utilizzando il formato "*AAAA/MM/GG*" dove *AAAA* indica l'anno in numero a 4 cifre, *MM* indica il mese in numero a 2 cifre e *GG* indica il giorno in numero a 2 cifre.
+Ogni data nei documenti verrà scritta utilizzando il formato "*AAAA/MM/GG*" derivante dallo standard _ISO 8601_ dove *AAAA* indica l'anno in numero a 4 cifre, *MM* indica il mese in numero a 2 cifre e *GG* indica il giorno in numero a 2 cifre, come stabilito nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno del 2025/03/07].
 
 Nel caso di date scritte per intero, si utizzerà il formato *GG MESEINLETTERE AAAA*, dove *GG* indica il giorno in numero a 2 cifre, *MESEINLETTERE* indica il mese in lette (ad esempio "Aprile") e *AAAA* indica l'anno in numero a 4 cifre.
 
