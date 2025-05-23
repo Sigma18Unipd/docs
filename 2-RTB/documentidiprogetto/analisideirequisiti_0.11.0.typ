@@ -80,7 +80,7 @@ Il presente documento ha lo scopo di fornire una descrizione dettagliata dei *ca
 Questo documento è pertanto di elevata importanza in quanto costituisce una solida base per lo sviluppo del prodotto finale, permettendo di avere una chiara visione delle *funzionalità* e dei *requisiti* richiesti dall'azienda proponente.
 
 == Scopo del prodotto
-Il prodotto fornisce un servizio che permette agli utenti di generare automazioni e #glossario("routine") avvalendosi dell'intelligenza artificiale generativa.
+Il prodotto fornisce un servizio che permette agli utenti di generare automazioni e #glossario("_routine_") avvalendosi dell'intelligenza artificiale generativa.
 In particolare, grazie all'ausilio delle #glossario("API") esposte dagli #glossario("agenti"), l'applicativo interpreta la descrizione dell'automazione fornita dall'utente in linguaggio naturale e genera il flusso di lavoro desiderato.
 
 Il flusso di lavoro verrà quindi visualizzato attraverso un #glossario("client") che permette all'utente di modificare l'automazione creata grazie ad un'interfaccia #glossario("drag & drop").\
@@ -181,7 +181,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Il sistema verifica le credenziali e permette di accedere alla #glossario("dashboard").
 - *Estensioni*:
   - Credenziali non valide (#link(<UC3>)[*UC[3]*]).
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
@@ -222,7 +222,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[4]: Errore Generico <UC4>
+=== UC[4]: Errore _database_ <UC4>
 
 - *Attore principale*: utente.
 
@@ -260,10 +260,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente inserisce la propria _e-mail_ (#link(<UC2>)[*UC[2]*]).
   4. L'utente inserisce la _password_ (#link(<UC6>)[*UC[6]*]).
   5. L'utente reinserisce la _password_ creata (#link(<UC7>)[*UC[7]*]).
-  6. Il sistema crea l'_account_ e salva le credenziali nel database.
+  6. Il sistema crea l'_account_ e salva le credenziali nel _database_.
 - *Estensioni*:
   - _E-mail_ già in uso (#link(<UC8>)[*UC[8]*]).
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
@@ -347,7 +347,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Nome _routine_ già in uso (#link(<UC10>)[*UC[10]*])
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
@@ -358,7 +358,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Pre-condizioni*: il sistema riceve il nome della _routine_ da creare.
 
-- *Post-condizioni*: il sistema verifica se il nome della routine è univoco.
+- *Post-condizioni*: il sistema verifica se il nome della _routine_ è univoco.
 
 - *Scenario principale*:
   1. L'utente inserisce il nome della _routine_.
@@ -391,7 +391,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore "Impossibile generare il flusso" (#link(<UC12>)[*UC[12]*]).
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
@@ -433,14 +433,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Il sistema salva le modifiche per il flusso corrente.
 
 - *Estensioni*:
-- Errore generico (#link(<UC4>)[*UC[4]*]).
+- Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
 
 #figure(
-  image("../../assets/usecasediagrams/UC_4_13_25_26.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[13], UC[25], UC[26]],
+  image("../../assets/usecasediagrams/UC_4_13.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[13],],
 )
 
 
@@ -495,18 +495,18 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: viene modificato il nome della _routine_ aperta.
 
 - *Scenario principale*:
-  1. L'utente preme nel tasto dedicato alla modifica del nome della routine.
+  1. L'utente preme nel tasto dedicato alla modifica del nome della _routine_.
   2. Il sistema mostra un campo di testo per la modifica del nome della _routine_.
   3. L'utente inserisce il nuovo nome della _routine_.
   4. Il sistema salva il nuovo nome della _routine_.
 
 - *Estensioni*:
   - Nome _routine_ già in uso (#link(<UC10>)[*UC[10]*]).
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 #figure(
-  image("../../assets/usecasediagrams/UC_4_10_16_25_26.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[10], UC[16], UC[25], UC[26]],
+  image("../../assets/usecasediagrams/UC_4_10_16.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[10], UC[16],],
 )
 
 
@@ -526,7 +526,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema avvia la _routine_.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 #figure(
@@ -549,7 +549,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema avvia la _routine_.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
@@ -570,12 +570,12 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: l'esecuzione della _routine_ viene interrotta.
 
 - *Scenario principale*:
-  1. L'utente preme l'icona di _stop_ della routine.
+  1. L'utente preme l'icona di _stop_ della _routine_.
   2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
 
 - *Estensioni*:
   - Visualizzazione errore "Impossibile bloccare la _routine_)" (#link(<UC20>)[*UC[20]*]).
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
@@ -591,9 +591,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: il sistema mostra un errore.
 
 - *Scenario principale*:
-  1. L'utente prova a bloccare una routine in _esecuzione_.
-  2. Se l'azione della routine non è bloccabile, il sistema mostra un messaggio di errore all'utente.
-  3. Se la routine non è più in esecuzione, il sistema mostra un messaggio di errore all'utente.
+  1. L'utente prova a bloccare una _routine_ in _esecuzione_.
+  2. Se l'azione della _routine_ non è bloccabile, il sistema mostra un messaggio di errore all'utente.
+  3. Se la _routine_ non è più in esecuzione, il sistema mostra un messaggio di errore all'utente.
 
 
 
@@ -621,9 +621,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
   - *Estensioni*:
-    - Errore generico (#link(<UC4>)[*UC[4]*]).
+    - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
-  #figure(image("../../assets/usecasediagrams/UC_4_21_25_26.png"), caption: [Diagramma casi d'uso UC[4], UC[21], UC[25], UC[26]])
+  #figure(image("../../assets/usecasediagrams/UC_4_21.png"), caption: [Diagramma casi d'uso UC[4], UC[21],])
 
 
 
@@ -649,7 +649,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 - *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
   - Visualizzazione errore "Impostazioni non valide" (#link(<UC23>)[*UC[23]*]).
 
 
@@ -690,11 +690,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Il sistema attende il server di autenticazione del servizio del blocco selezionato.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
   - Visualizzazione errore "Impostazioni non valide" (#link(<UC23>)[*UC[23]*]).
 
 
-
+  #figure(
+    image("../../assets/usecasediagrams/UC_4_22_23_24.png"),
+    caption: [Diagramma casi d'uso UC[4], UC[22], UC[23], UC[24],],
+  )
 
 
 === UC[25]: Salvare una _routine_ <UC25>
@@ -711,7 +714,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema salva le modifiche.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
   - Visualizzazione errore "Flusso incompleto" (#link(<UC26>)[*UC[26]*]).
 
 
@@ -731,11 +734,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Se il flusso non è completo, il sistema mostra un messaggio di errore all'utente.
 
 
-
   #figure(
-    image("../../assets/usecasediagrams/UC_4_22_23_24_25_26.png"),
-    caption: [Diagramma casi d'uso UC[4], UC[22], UC[23], UC[24], UC[25], UC[26]],
+    image("../../assets/usecasediagrams/UC_4_25_26.png"),
+    caption: [Diagramma casi d'uso UC[4], UC[25], UC[26],],
   )
+
 
 
 
@@ -752,10 +755,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra una pagina con le impostazioni.
   3. L'utente inserisce la nuova _password_ (#link(<UC6>)[*UC[6]*]).
   4. L'utente reinserisce la _password_ creata (#link(<UC7>)[*UC[7]*]).
-  5. Il sistema salva le credenziali nel database.
+  5. Il sistema salva le credenziali nel _database_.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 #figure(image("../../assets/usecasediagrams/UC_4_6_7_27.png"), caption: [Diagramma casi d'uso UC[4], UC[6], UC[7], UC[27]])
@@ -781,7 +784,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[29]: Logout <UC29>
+=== UC[29]: _Logout_ <UC29>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente è autenticato.
@@ -789,11 +792,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: l'utente non è autenticato.
 
 - *Scenario principale*:
-  1. l'utente preme l'icona per effettuare il logout.
+  1. l'utente preme l'icona per effettuare il _logout_.
   2. Il sistema disconnette l'utente e lo riporta alla pagina di _login_.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
@@ -853,7 +856,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC1>)[*UC[1]*], #link(<UC2>)[*UC[2]*], Riunione esterna],
 
   [ROF-2], [Il sistema restituisce un errore per credenziali non valide inserite dall'utente], [#link(<UC3>)[*UC[3]*]],
-  [ROF-3], [Il sistema restituisce un errore generico in base al tipo di problema riscontrato], [#link(<UC4>)[*UC[4]*]],
+  [ROF-3], [Il sistema restituisce un errore nel caso si riscontrino problemi con il _database_], [#link(<UC4>)[*UC[4]*]],
   [ROF-4],
   [L'utente deve potersi registrare con la creazione di un nuovo account],
   [#link(<UC2>)[*UC[2]*], #link(<UC5>)[*UC[5]*], #link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]],
@@ -867,9 +870,9 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [ROF-8], [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso], [#link(<UC10>)[*UC[10]*]],
   [ROF-9], [L'utente deve poter generare una _routine_ tramite linguaggio naturale], [#link(<UC11>)[*UC[11]*], Capitolato],
   [ROF-10], [Il sistema deve restituire un errore se non é possibile generare il flusso], [#link(<UC12>)[*UC[12]*]],
-  [RDF-11], [L'utente deve poter modificare i parametri di generazione di una routine], [#link(<UC13>)[*UC[13]*], Capitolato],
-  [ROF-12], [L'utente deve poter visualizzare i dettagli di una routine esistente], [#link(<UC14>)[*UC[14]*]],
-  [ROF-13], [L'utente deve poter eliminare una routine esistente], [#link(<UC15>)[UC[15]]],
+  [RDF-11], [L'utente deve poter modificare i parametri di generazione di una _routine_], [#link(<UC13>)[*UC[13]*], Capitolato],
+  [ROF-12], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC14>)[*UC[14]*]],
+  [ROF-13], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC15>)[*UC[15]*]],
   [RDF-14], [L'utente deve poter modificare il nome di una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
   [ROF-15],
   [L'utente deve poter avviare una _routine_ esistente per eseguire il flusso di automazioni desiderato],
@@ -877,10 +880,10 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 
   [ROF-16], [L'utente deve poter interrompe una _routine_ avviata in qualsiasi momento della sua esecuzione], [#link(<UC19>)[*UC[19]*]],
   [ROF-17],
-  [Il sistema deve restituire un errore nel caso non sia possibile interrompere una routine in esecuzione],
+  [Il sistema deve restituire un errore nel caso non sia possibile interrompere una _routine_ in esecuzione],
   [#link(<UC20>)[*UC[20]*]],
 
-  [ROF-18], [L'utente deve poter aggiungere un blocco ad una routine esistente], [#link(<UC21>)[*UC[21]*] ],
+  [ROF-18], [L'utente deve poter aggiungere un blocco ad una _routine_ esistente], [#link(<UC21>)[*UC[21]*] ],
   [RDF-19],
   [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")],
   [#link(<UC22>)[*UC[22]*], Riunione interna],
@@ -890,7 +893,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC23>)[*UC[23]*], Riunione interna],
 
   [ROF-21],
-  [L'utente si deve autenticare al servizio di un blocco specifico che richiede un'integrazione con un servizio esterno o un account di terze parti],
+  [L'utente deve potersi autenticare al servizio di un blocco specifico che richiede un'integrazione con un servizio esterno o un account di terze parti],
   [#link(<UC24>)[*UC[24]*], Riunione esterna],
 
   [ROF-22],
@@ -901,8 +904,8 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [Il sistema deve restituire un errore se il flusso è incompleto e non può essere salvato],
   [#link(<UC26>)[*UC[26]*], Riunione interna],
 
-  [ROF-24], [L'utente deve poter modificare la propria password], [#link(<UC27>)[*UC[27]*], Riunione esterna, Riunione interna],
-  [ROF-25], [L'utente deve poter effettuare il logout dall'applicativo], [#link(<UC29>)[*UC[29]*], Riunione esterna, Riunione interna],
+  [ROF-24], [L'utente deve poter modificare la propria _password_], [#link(<UC27>)[*UC[27]*], Riunione interna],
+  [ROF-25], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC29>)[*UC[29]*], Riunione interna],
 )
 
 
