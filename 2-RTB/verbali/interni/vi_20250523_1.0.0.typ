@@ -4,7 +4,7 @@
   titoloDocumento: "Sesta Riunione",
   abstract: "Retrospettiva quarto sprint e pianificazione attività.",
   responsabili: "Pietro Crotti",
-  redattori: "Piero Crotti",
+  redattori: "Pietro Crotti",
   verificatori: "Marco Egidi",
   tipo: "Verbale Interno",
   destinatari: "Sigma18",
@@ -42,17 +42,22 @@ Ciascuno dei membri del gruppo ha presentato i progressi effettuati sui document
 - Piano di Qualifica
 - Norme di Progetto
 
-== Studio delle qualifiche di React Flow
-Il gruppo ha deciso di esaminare più nel dettaglio #glossario("React Flow") per valutarne l'impiego nella realizzazione del #glossario("PoC (Proof of Concept)"), ipotizzandone l'utilizzo come strumento di supporto allo sviluppo.\
+== Analisi e scelta della libreria per la gestione dei blocchi di un flusso
+Il gruppo ha analizzato le librerie disponibili per la gestione dei blocchi di un flusso e ha deciso di utilizzare #glossario("React Flow") per la sua semplicità d'uso.
+
+Il gruppo _Sigma18_ si impegna a studiare la tecnologia e ad analizzarne in dettaglio le funzionalità al fine di integrarla nel #glossario("PoC (Proof of Concept)").
 
 == Programmazione attività future
-Il gruppo ha deciso di continuare a stilare i documenti di Piano di Qualifica e Norme di Progetto in parallelo, in modo da velocizzare il processo di stesura e consentire una revisione incrociata tra i membri.\
-Inoltre è stata assegnata la stesura del Diario di Bordo che si terra il giorno *26 Maggio 2025* alle ore *12:30*.
-Il gruppo continuerà a approfondire le tecnologie apprese nelle sessioni di formazione svolte nelle settimane precedenti, nello specifico #glossario("NestJS") e _React Flow_.
+Il gruppo ha deciso di completare la stesura dei documenti di piano di qualifica e norme di progetto in parallelo, in modo da velocizzarne il processo di stesura e consentire di arrivare ad una revisione incrociata tra i membri in un tempo breve.
+
+È stata pianificata la stesura del diario di bordo che si terrà il giorno *26 Maggio 2025* alle ore *12:30*.
+
+I membri del gruppo continueranno in autonomia ad approfondire le tecnologie apprese nelle sessioni di formazione svolte nelle settimane precedenti, nello specifico #glossario("NestJS"), #glossario("React") e #glossario("Shadcn").
 
 = Conclusioni e decisioni prese
-Il gruppo ha deciso di procedere con la redazione in parallelo dei documenti rimasti per rendere piú rapido il processo di stesura e permettere una revisione incrociata tra i membri.\
-Il gruppo Sigma18 si impegna a procedere con lo sviluppo del PoC e ad ultimare la documentazione necessaria.\
+Il gruppo ha deciso di procedere con la redazione in parallelo dei documenti rimasti per rendere piú rapido il processo di stesura e permettere una revisione incrociata tra i membri.
+
+Il gruppo Sigma18 si impegna a procedere con lo sviluppo del PoC e ad ultimare la documentazione necessaria.
 
 
 
