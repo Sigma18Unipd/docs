@@ -3,19 +3,29 @@
 #show: content => verbale(
   titoloDocumento: "Piano di progetto",
   abstract: "Documento riepilogativo delle attività concluse e in corso di svolgimento dal gruppo Sigma18.",
-  responsabili: ("Matteo Marangon", "Pietro Crotti"),
+  responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew"),
   redattori: ("Carmelo Russello", "Mirco Borella"),
-  verificatori: ("Mirco Borella", "Marco Egidi"),
+  verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "0.4.0",
   versioni: (
-    "1.1.0",
+    "0.4.0",
+    "2025/05/14",
+    "Mirco Borella",
+    "Carmelo Russello",
+    "Aggiornamento retrospettiva terzo sprint e inizio quarto sprint",
+    "0.3.0",
+    "2025/04/29",
+    "Mirco Borella",
+    "Matteo Marangon",
+    "Aggiornamento retrospettiva secondo sprint e inizio terzo sprint",
+    "0.2.0",
     "2025/04/16",
     "Mirco Borella",
     "Marco Egidi",
     "Aggiornamento retrospettiva primo sprint e inizio secondo sprint",
-    "1.0.0",
+    "0.1.0",
     "2025/04/07",
     "Carmelo Russello",
     "Mirco Borella",
@@ -190,7 +200,7 @@ Il seguente è l'approccio scelto per l'identificazione dei rischi:
 
 Il modello di sviluppo scelto dal team è il modello #glossario("Agile"), per la sua flessibilità rispetto ai modelli tradizionali. L'approccio è focalizzato sulla consegna al cliente, in tempi brevi e con frequenza regolare, e prevede il coinvolgimento diretto e continuo del cliente durante tutto il processo di sviluppo.
 
-Una pratica essenziale da seguire con l'uso del modello #glossario("Agile") è la suddivisione del progetto in intervalli temporali precisi e concisi, chiamati #glossario("Sprint"), entro i quali dovranno essere completate le attività stabilite durante lo #glossario("Sprint Planning")
+Una pratica essenziale da seguire con l'uso del modello _Agile_ è la suddivisione del progetto in intervalli temporali precisi e concisi, chiamati #glossario("Sprint"), entro i quali dovranno essere completate le attività stabilite durante lo #glossario("Sprint Planning")
 
 == Vantaggi del modello
 
@@ -202,12 +212,12 @@ Una pratica essenziale da seguire con l'uso del modello #glossario("Agile") è l
 
 = Pianificazione
 
-Avendo scelto il modello #glossario("Agile") le attività di lavoro verranno tramite la suddivisione in #glossario("Sprint"), un breve periodo di tempo nel quale il team lavora per completare una predeterminata quantità di lavoro per raggiungere gli obiettivi prefissati.
+Avendo scelto il modello _Agile_ le attività di lavoro verranno tramite la suddivisione in _sprint_, un breve periodo di tempo nel quale il team lavora per completare una predeterminata quantità di lavoro per raggiungere gli obiettivi prefissati.
 
-Il gruppo, in accordo con l'azienda proponente, ha stabilito la durata di ogni #glossario("Sprint") pari a *2 settimane*.
+Il gruppo, in accordo con l'azienda proponente, ha stabilito la durata di ogni _sprint_ pari a *2 settimane*.
 
 == Ruolo del Team
-- *Pianificazione condivisa*: all'inizio di ogni #glossario("Sprint"), il gruppo stabilisce congiuntamente gli obiettivi.
+- *Pianificazione condivisa*: all'inizio di ogni _sprint_, il gruppo stabilisce congiuntamente gli obiettivi.
 
 - *Rotazione dei ruoli*: per garantire equità e crescita trasversale tra i membri.
 
@@ -220,21 +230,21 @@ Per approfondimenti sull'impegno dei membri e la stima dei costi, si fa riferime
 
 == Struttura Operativa degli Sprint
 
-Gli #glossario("sprint") verranno strutturati nel seguente modo:
+Gli _sprint_ verranno strutturati nel seguente modo:
 
-- *Data di inizio*: Data di inizio dello #glossario("sprint").
+- *Data di inizio*: Data di inizio dello _sprint_.
 
-- *Data di fine*: Data di fine dello #glossario("sprint").
+- *Data di fine*: Data di fine dello _sprint_.
 
-- *Rischi attesi*: I rischi che potrebbero verificarsi nel corso dello #glossario("sprint").
+- *Rischi attesi*: I rischi che potrebbero verificarsi nel corso dello _sprint_.
 
-- *Attività da svolgere*: Le attività previste per ogni #glossario("sprint"), allineate agli obiettivi definiti durante la riunione iniziale.
+- *Attività da svolgere*: Le attività previste per ogni _sprint_, allineate agli obiettivi definiti durante la riunione iniziale.
 
 - *Preventivo*: Una tabella che riporta il preventivo delle ore da svolgere da ciascun membro, suddiviso per ruolo.
 
 - *Consuntivo*: Una tabella che mostra il consuntivo delle ore svolte da ciascun membro, suddiviso per ruolo, insieme ad una tabella dei costi e delle ore assegnate a ciascun ruolo. Necessario per una visione più ampia sul rendimento del gruppo durante l'analisi conclusiva.
 
-- *Analisi retrospettiva*: Un resoconto di cosa è stato portato a termine durante lo #glossario("sprint"), delle cose da migliorare e dei problemi riscontrati.
+- *Analisi retrospettiva*: Un resoconto di cosa è stato portato a termine durante lo _sprint_, delle cose da migliorare e dei problemi riscontrati.
 
 == Fasi Principali del Progetto
 
@@ -254,6 +264,9 @@ Il progetto verrà suddiviso nelle seguenti fasi:
 
 
 
+
+
+#pagebreak()
 == RTB
 
 === Sprint 1
@@ -308,7 +321,7 @@ Il gruppo s'impegna a:
   [*Totali*], [*6*], [*13*], [*0*], [*1.5*], [*6*], [*10*], [*36.5*],
 )
 
-==== *Consuntivo del costo*:
+==== *Consuntivo costo*:
 #table(
   columns: (1fr, 1fr, 1fr, 1fr),
   rows: auto,
@@ -327,10 +340,25 @@ Il gruppo s'impegna a:
 _Sigma18_ dichiara di aver portato a termine tutte le attività prestabilite e che il primo sprint è stato proficuo all'avanzamento del capitolato.
 Nello specifico è stato steso il glossario e iniziata la stesura dei piani di progetto e qualifica.
 
-Il gruppo ha organizzato e partecipato all'incontro di #glossario("Design Thinking") con l'azienda proponente lunedì 14 Aprile che ha steso le basi per organizzare i lavori successivi.
+Il gruppo ha organizzato e partecipato all'incontro di _Design Thinking_ con l'azienda proponente lunedì 14 Aprile che ha steso le basi per organizzare i lavori successivi.
 
 Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggeti temporanemente non reperibili ha rallentato il progesso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilitá di tempo di un solo soggetto.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
 === Sprint 2
 
 ==== Dettagli
@@ -338,16 +366,17 @@ Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di so
 *Data di inizio*: 16/04/2025 \
 *Data di fine*: 29/04/2025 \
 
-*Rischi attesi*: RT1, RO1
+*Rischi attesi*: RT1, RO1, RO3
 
 *Attività da svolgere*: \
 Il gruppo si impegna a:
 - Redigere il documento di analisi dei requisiti
 - Stilare le norme di progetto
+- Stilare il piano di qualifica
 - Verbalizzare l'incontro avvenuto con l'azienda proponente in data 14 Aprile 2025
 - Verbalizzare l'incontro interno avvenuto in data 16 Aprile 2025
 - Integrare il glossario con i nuovi termini
-- Creazione di uno _script_ Python per la verifica dei termini del glossario
+- Creazione di uno #glossario("script") Python per la verifica dei termini del glossario
 - Studio delle tecnologie proposte
 
 ==== *Preventivo orario*:
@@ -367,6 +396,47 @@ Il gruppo si impegna a:
   [*Totali*], [*8*], [*13*], [*3*], [*6*], [*7*], [*18*], [*55*],
 )
 
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0 (-2)], [1], [5 (+3)], [0], [2 (-1)], [*8*],
+  [Mirco Borella], [0], [3], [1], [0 (-2)], [3 (+1)], [0], [*7*],
+  [Pietro Crotti], [0], [0], [0], [0], [5], [3], [*8*],
+  [Marco Egidi], [2], [2], [1], [0], [0], [3], [*8*],
+  [Matteo Marangon], [2], [3], [0], [0], [0], [2 (-1)], [*7*],
+  [Aleena Mathew], [2], [3], [0], [0], [0], [2 (-1)], [*7*],
+  [Carmelo Russello], [2], [1 (+1)], [0], [2], [0], [3], [*8*],
+  [*Totali*], [*8*], [*12*], [*3*], [*7*], [*8*], [*15*], [*53*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [8], [€20], [€160.00],
+  [Analista], [12], [€25], [€300.00],
+  [Progettista], [3], [€25], [€75.00],
+  [Programmatore], [7], [€15], [€105.00],
+  [Responsabile], [8], [€30], [€240.00],
+  [Verificatore], [15], [€15], [€225.00],
+  [*Totali*], [*53*], [], [*€1105.00*],
+)
+
+==== *Analisi retrospettiva*: \
+_Sigma18_ dichiara che il secondo sprint è stato proficuo all'avanzamento del capitolato.
+Nello specifico è stato completato lo _script_ di verifica dei termini del glossario e il verbale interno relativo all'incontro interno in data 16 Aprile 2025.
+
+La redazione e la verifica dei documenti di analisi dei requisiti, norme di progetto e piano di qualifica è ancora in corso.
+
+Il gruppo ha organizzato con l'azienda proponente due incontri di formazione sulle tecnologie richieste, il primo in data 06 Maggio 2025 e il secondo in data 08 Maggio 2025.
+
+Continua la difficoltà emersa durante il primo sprint, ossia le difficoltà di comunicazione con l'azienda. In questo caso, il verbale esterno relativo all'incontro di _Design Thinking_ in data 14 Aprile 2025 non è stato ancora firmato da parte dell'azienda proponente a causa della mancata approvazione dei #glossario("wireframe") redatti durante lo sprint.
 
 
 
@@ -383,15 +453,26 @@ Il gruppo si impegna a:
 
 
 
+#pagebreak()
+=== Sprint 3
 
+==== Dettagli
 
+*Data di inizio*: 30/04/2025 \
+*Data di fine*: 13/05/2025 \
 
+*Rischi attesi*: RT1, RO1, RO3
 
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Redigere il documento di analisi dei requisiti
+- Stilare le norme di progetto
+- Stilare il piano di qualifica
+- Verbalizzare l'incontro avvenuto con l'azienda proponente in data 14 Aprile 2025
+- Verbalizzare l'incontro interno avvenuto in data 29 Aprile 2025
+- Integrare il glossario con i nuovi termini
+- Studio delle tecnologie proposte
 
-
-
-
-/*
 ==== *Preventivo orario*:
 #table(
   columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
@@ -399,14 +480,105 @@ Il gruppo si impegna a:
   rows: auto,
   inset: 6pt,
   table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
-  [Alessandro Bernardello], [0], [0], [0], [0], [0], [0], [*0*],
-  [Mirco Borella], [0], [0], [0], [0], [0], [0], [*0*],
-  [Pietro Crotti], [0], [0], [0], [0], [0], [0], [*0*],
-  [Marco Egidi], [0], [0], [0], [0], [0], [0], [*0*],
-  [Matteo Marangon], [0], [0], [0], [0], [0], [0], [*0*],
-  [Aleena Mathew], [0], [0], [0], [0], [0], [0], [*0*],
-  [Carmelo Russello], [0], [0], [0], [0], [0], [0], [*0*],
-  [*Totali*], [*0*], [*0*], [*0*], [*0*], [*0*], [*0*], [*0*],
+  [Alessandro Bernardello], [3], [3], [0], [0], [0], [2], [*8*],
+  [Mirco Borella], [3], [3], [0], [0], [0], [2], [*8*],
+  [Pietro Crotti], [0], [3], [0], [0], [0], [5], [*8*],
+  [Marco Egidi], [0], [3], [0], [0], [0], [5], [*8*],
+  [Matteo Marangon], [0], [3], [0], [0], [0], [5], [*8*],
+  [Aleena Mathew], [0], [1], [0], [0], [5], [2], [*8*],
+  [Carmelo Russello], [0], [3], [0], [0], [0], [5], [*8*],
+  [*Totali*], [*6*], [*19*], [*0*], [*0*], [*5*], [*26*], [*56*],
 )
-*/
 
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [3], [1 (-2)], [0], [2 (+2)], [0], [2], [*8*],
+  [Mirco Borella], [3], [3], [0], [0], [0], [2], [*8*],
+  [Pietro Crotti], [0], [3], [0], [0], [0], [5], [*8*],
+  [Marco Egidi], [0], [3], [0], [0], [0], [5], [*8*],
+  [Matteo Marangon], [0], [3], [0], [0], [0], [5], [*8*],
+  [Aleena Mathew], [0], [1], [0], [0], [5], [2], [*8*],
+  [Carmelo Russello], [0], [3], [0], [0], [0], [5], [*8*],
+  [*Totali*], [*6*], [*17*], [*0*], [*2*], [*5*], [*26*], [*56*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [6], [€20], [€120.00],
+  [Analista], [17], [€25], [€425.00],
+  [Progettista], [0], [€25], [€0.00],
+  [Programmatore], [2], [€15], [€30.00],
+  [Responsabile], [5], [€30], [€150.00],
+  [Verificatore], [26], [€15], [€390.00],
+  [*Totali*], [*56*], [], [*€1115.00*],
+)
+
+==== *Analisi retrospettiva*: \
+_Sigma18_ dichiara che il terzo sprint è stato proficuo all'avanzamento del capitolato.
+Nello specifico è stato completato il documento di *Analisi dei requisiti*, è stato fatto validare il verbale esterno relativo all'incontro di _Design Thinking_ avvenuto in data 14 Aprile 2025 dall'azienda proponente con il conseguente aggiornamento dei wireframe come richiesto. Sono state effettuate delle correzioni sulle automazioni del repository a fini migliorativi.
+
+La verifica dei documenti di analisi dei requisiti, norme di progetto e piano di qualifica è ancora in corso.
+
+Il gruppo ha partecipato a 3 incontri per un totale di 12 ore con l'azienda proponente riguardanti i seguenti argomenti:
+- #glossario("AWS") e i suoi prodotti;
+- #glossario("Backend") con #glossario("Nest.JS");
+- #glossario("Frontend") con #glossario("React") e #glossario("Shadcn").
+
+Sono stati organizzati altri 2 incontri di formazione sulle tecnologie di #glossario("Gen AI") tecnologie richieste, il primo in data 19 Maggio 2025 e il secondo in data 20 Maggio 2025 per un totale di 6 ore.
+
+Non sono emerse difficoltà ai fini dell'avanzamento del lavoro durante lo svolgimento di questo sprint.
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 4
+
+==== Dettagli
+
+*Data di inizio*: 13/05/2025 \
+*Data di fine*: 26/05/2025 \
+
+*Rischi attesi*: RT1, RT2, RO1
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Verificare il documento di analisi dei requisiti
+- Completare e verificare le norme di progetto
+- Completare e verificare il piano di qualifica
+- Integrare il glossario con i nuovi termini
+- Studio delle tecnologie proposte
+- Inizio del _Poc(Proof of Concept)_
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [4], [3], [0], [1], [*8*],
+  [Mirco Borella], [0], [3], [0], [2], [0], [3], [*8*],
+  [Pietro Crotti], [2], [0], [0], [0], [5], [1], [*8*],
+  [Marco Egidi], [0], [0], [3], [4], [0], [1], [*8*],
+  [Matteo Marangon], [0], [0], [3], [4], [0], [1], [*8*],
+  [Aleena Mathew], [1], [3], [2], [1], [0], [1], [*8*],
+  [Carmelo Russello], [2], [0], [2], [1], [0], [3], [*8*],
+  [*Totali*], [*5*], [*6*], [*14*], [*15*], [*5*], [*11*], [*56*],
+)
