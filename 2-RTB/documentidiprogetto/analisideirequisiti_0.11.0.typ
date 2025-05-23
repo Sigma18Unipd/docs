@@ -7,9 +7,14 @@
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.10.0",
+  versioneAttuale: "0.11.0",
   content: content,
   versioni: (
+    "0.11.0",
+    "2025/05/23",
+    "Carmelo Russello",
+    "Matteo Marangon",
+    "Allineamento requisiti e modifica diagrammi dei casi d'uso",
     "0.10.0",
     "2025/05/22",
     "Mirco Borella
@@ -312,8 +317,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 #figure(
-  image("../../assets/usecasediagrams/UC_5_6_7_8_9_10.png"),
-  caption: [Diagramma casi d'uso UC[5], UC[6], UC[7], UC[8]],
+  image("../../assets/usecasediagrams/UC_2_4_5_6_7_8.png"),
+  caption: [Diagramma casi d'uso UC[2], UC[4], UC[5], UC[6], UC[7], UC[8]],
 )
 
 
@@ -364,6 +369,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+#figure(
+  image("../../assets/usecasediagrams/UC_4_9_10.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[9], UC[10]],
+)
 
 
 === UC[11]: Generare una _routine_ mediante linguaggio naturale <UC11>
@@ -403,7 +412,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema mostra un messaggio di errore.
 
 
-
+#figure(
+  image("../../assets/usecasediagrams/UC_4_11_12.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[11], UC[12]],
+)
 
 
 === UC[13]: Modificare parametri di generazione <UC13>
@@ -426,7 +438,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
+#figure(
+  image("../../assets/usecasediagrams/UC_4_13_25_26.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[13], UC[25], UC[26]],
+)
 
 
 === UC[14]: Visualizzare i dettagli di una _routine_ esistente <UC14>
@@ -440,7 +455,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente seleziona una _routine_ esistente dalla lista delle automazioni nella _dashboard_.
   2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
 
-#figure(image("../../assets/usecasediagrams/UC_14_23.png"), caption: [Diagramma casi d'uso UC[14], UC[23]])
+#figure(image("../../assets/usecasediagrams/UC_14.png"), caption: [Diagramma casi d'uso UC[14]])
 
 
 
@@ -462,7 +477,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. L'utente conferma l'eliminazione.
   5. Il sistema elimina la _routine_ e ritorna l'utente alla _dashboard_.
 
-#figure(image("../../assets/usecasediagrams/UC_16.png"), caption: [Diagramma casi d'uso UC[16]])
+#figure(image("../../assets/usecasediagrams/UC_15.png"), caption: [Diagramma casi d'uso UC[15]])
 
 
 
@@ -489,7 +504,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Nome _routine_ già in uso (#link(<UC10>)[*UC[10]*]).
   - Errore generico (#link(<UC4>)[*UC[4]*]).
 
-
+#figure(
+  image("../../assets/usecasediagrams/UC_4_10_16_25_26.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[10], UC[16], UC[25], UC[26]],
+)
 
 
 
@@ -511,7 +529,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Errore generico (#link(<UC4>)[*UC[4]*]).
 
 
-
+#figure(
+  image("../../assets/usecasediagrams/UC_4_17.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[17]],
+)
 
 
 
@@ -531,6 +552,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Errore generico (#link(<UC4>)[*UC[4]*]).
 
 
+
+#figure(
+  image("../../assets/usecasediagrams/UC_4_18.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[18]],
+)
 
 
 
@@ -556,7 +582,6 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
 === UC[20]: Visualizzazione errore "Impossibile bloccare la _routine_" <UC20>
 
 - *Attore principale*: utente autenticato.
@@ -573,6 +598,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+#figure(
+  image("../../assets/usecasediagrams/UC_4_19_20.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[19], UC[20]],
+)
 
 
 
@@ -594,7 +623,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - *Estensioni*:
     - Errore generico (#link(<UC4>)[*UC[4]*]).
 
-  #figure(image("../../assets/usecasediagrams/UC_15.png"), caption: [Diagramma casi d'uso UC[15]])
+  #figure(image("../../assets/usecasediagrams/UC_4_21_25_26.png"), caption: [Diagramma casi d'uso UC[4], UC[21], UC[25], UC[26]])
 
 
 
@@ -618,7 +647,6 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. L'utente modifica le impostazioni desiderate.
   5. Il sistema salva le modifiche per il relativo blocco.
 
-  #figure(image("../../assets/usecasediagrams/UC_18_22.png"), caption: [Diagramma casi d'uso UC[18], UC[22]])
 
 - *Estensioni*:
   - Errore generico (#link(<UC4>)[*UC[4]*]).
@@ -669,7 +697,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-== UC[25]: Salvare una _routine_ <UC25>
+=== UC[25]: Salvare una _routine_ <UC25>
 
 - *Attore principale*: utente autenticato.
 
@@ -704,7 +732,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
+  #figure(
+    image("../../assets/usecasediagrams/UC_4_22_23_24_25_26.png"),
+    caption: [Diagramma casi d'uso UC[4], UC[22], UC[23], UC[24], UC[25], UC[26]],
+  )
 
 
 
@@ -727,7 +758,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Errore generico (#link(<UC4>)[*UC[4]*]).
 
 
-
+#figure(image("../../assets/usecasediagrams/UC_4_6_7_27.png"), caption: [Diagramma casi d'uso UC[4], UC[6], UC[7], UC[27]])
 
 
 
@@ -743,7 +774,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. l'utente preme l'icona del cambio tema del _client_.
   2. Il sistema cambia il tema selezionato del il _client_.
 
-#figure(image("../../assets/usecasediagrams/UC_26.png"), caption: [Diagramma casi d'uso UC[26],])
+#figure(image("../../assets/usecasediagrams/UC_28.png"), caption: [Diagramma casi d'uso UC[28],])
 
 
 
@@ -766,7 +797,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
+  #figure(image("../../assets/usecasediagrams/UC_29.png"), caption: [Diagramma casi d'uso UC[29],])
 
 
 
@@ -819,63 +850,59 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
   [ROF-1],
   [L'utente deve poter effettuare _login_ con il proprio account per autenticarsi nel _client_],
-  [#link(<UC1>)[*UC[1]*], #link(<UC2>)[*UC[2]*], #link(<UC3>)[*UC[3]*], Riunione esterna],
+  [#link(<UC1>)[*UC[1]*], #link(<UC2>)[*UC[2]*], Riunione esterna],
 
-  [ROF-2], [Il sistema restituisce un errore per credenziali non valide inserite dall'utente], [#link(<UC4>)[*UC[4]*]],
-  [ROF-3],
+  [ROF-2], [Il sistema restituisce un errore per credenziali non valide inserite dall'utente], [#link(<UC3>)[*UC[3]*]],
+  [ROF-3], [Il sistema restituisce un errore generico in base al tipo di problema riscontrato], [#link(<UC4>)[*UC[4]*]],
+  [ROF-4],
   [L'utente deve potersi registrare con la creazione di un nuovo account],
-  [#link(<UC5>)[*UC[5]*], #link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*], #link(<UC8>)[*UC[8]*]],
+  [#link(<UC2>)[*UC[2]*], #link(<UC5>)[*UC[5]*], #link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]],
 
-  [ROF-4], [Il sistema deve restituire un errore se l'_e-mail_ è già in uso in fase di registrazione], [#link(<UC9>)[*UC[9]*]],
-  [ROF-5],
+  [ROF-5], [Il sistema deve restituire un errore se l'_e-mail_ è già in uso in fase di registrazione], [#link(<UC8>)[*UC[8]*]],
+  [ROF-6],
   [Il sistema deve restituire un errore se la _password_ non adempie ai requisiti di sicurezza o le _password_ non coincidono tra loro in fase di registrazione],
-  [#link("das")[*das*]],
+  [#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]],
 
-  [ROF-6], [L'utente deve poter creare una nuova _routine_ tramite linguaggio naturale], [#link(<UC8>)[*UC[11]*], Capitolato],
-  [RDF-7],
-  [L'utente deve poter creare una nuova _routine_ vuota per poterla personalizzare più radicalmente a proprio piacimento],
-  [#link(<UC1>)[*UC[12]*], Riunione esterna],
-
-  [RDF-8],
-  [L'utente deve poter modificare le funzionalità di generazione avanzate riguardanti modello, contesto e temperatura dell'LLM],
-  [#link(<UC1>)[*UC[13]*], Riunione esterna],
-
-  [ROF-9], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC14>)[*UC[14]*]],
-  [ROF-10], [L'utente deve poter modificare una _routine_ esistente tramite _drag & drop_], [#link(<UC15>)[*UC[15]*], Capitolato],
-  [ROF-11], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
-  [ROF-12],
+  [ROF-7], [L'utente deve poter creare una nuova _routine_ ], [#link(<UC9>)[*UC[9]*], Capitolato],
+  [ROF-8], [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso], [#link(<UC10>)[*UC[10]*]],
+  [ROF-9], [L'utente deve poter generare una _routine_ tramite linguaggio naturale], [#link(<UC11>)[*UC[11]*], Capitolato],
+  [ROF-10], [Il sistema deve restituire un errore se non é possibile generare il flusso], [#link(<UC12>)[*UC[12]*]],
+  [RDF-11], [L'utente deve poter modificare i parametri di generazione di una routine], [#link(<UC13>)[*UC[13]*], Capitolato],
+  [ROF-12], [L'utente deve poter visualizzare i dettagli di una routine esistente], [#link(<UC14>)[*UC[14]*]],
+  [ROF-13], [L'utente deve poter eliminare una routine esistente], [#link(<UC15>)[UC[15]]],
+  [RDF-14], [L'utente deve poter modificare il nome di una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
+  [ROF-15],
   [L'utente deve poter avviare una _routine_ esistente per eseguire il flusso di automazioni desiderato],
-  [#link(<UC17>)[*UC[17]*], #link(<UC19>)[*UC[19]*], #link(<UC3>)[*UC[30]*], Riunione esterna],
+  [#link(<UC17>)[*UC[17]*], #link(<UC18>)[*UC[18]*], Riunione esterna],
 
-  [RDF-13],
+  [ROF-16], [L'utente deve poter interrompe una _routine_ avviata in qualsiasi momento della sua esecuzione], [#link(<UC19>)[*UC[19]*]],
+  [ROF-17],
+  [Il sistema deve restituire un errore nel caso non sia possibile interrompere una routine in esecuzione],
+  [#link(<UC20>)[*UC[20]*]],
+
+  [ROF-18], [L'utente deve poter aggiungere un blocco ad una routine esistente], [#link(<UC21>)[*UC[21]*] ],
+  [RDF-19],
   [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")],
-  [#link(<UC18>)[*UC[18]*], Riunione esterna, Riunione interna],
+  [#link(<UC22>)[*UC[22]*], Riunione interna],
 
-  [ROF-14], [L'utente interrompe una _routine_ avviata in qualsiasi momento della sua esecuzione], [#link(<UC20>)[*UC[20]*]],
-  [RDF-15],
-  [L'utente deve poter modificare le impostazioni generali del _client_],
-  [#link(<UC21>)[*UC[21]*], Riunione esterna, Riunione interna],
+  [ROF-20],
+  [Il sistema deve restituire un errore se le impostazioni del blocco non sono considerate valide],
+  [#link(<UC23>)[*UC[23]*], Riunione interna],
 
-  [ROF-16],
+  [ROF-21],
   [L'utente si deve autenticare al servizio di un blocco specifico che richiede un'integrazione con un servizio esterno o un account di terze parti],
-  [#link(<UC22>)[*UC[22]*], #link(<UC23>)[*UC[23]*], Riunione esterna],
+  [#link(<UC24>)[*UC[24]*], Riunione esterna],
 
-  [RDF-17],
-  [L'utente deve poter visualizzare il _log_ di esecuzione della _routine_ avviata],
-  [#link(<UC24>)[*UC[24]*], Riunione esterna, Riunione interna],
+  [ROF-22],
+  [Il sistema deve salvare le modifiche apportate dall'utente alla _routine_ appena viene premuto il tasto di salvataggio],
+  [#link(<UC25>)[*UC[25]*], Riunione interna],
 
-  [RFF-18],
-  [L'utente fornisce un _feedback_ sulla qualità o sul gradimento della _routine_ generata],
-  [#link(<UC25>)[*UC[25]*], Riunione esterna, Riunione interna],
+  [ROF-23],
+  [Il sistema deve restituire un errore se il flusso è incompleto e non può essere salvato],
+  [#link(<UC26>)[*UC[26]*], Riunione interna],
 
-  [ROF-17], [L'utente visualizza un errore se il _server_ non risponde], [#link(<UC2>)[*UC[27]*], Riunione esterna, Riunione interna],
-  [ROF-18],
-  [L'utente visualizza un errore se é impossibile generare il flusso],
-  [#link(<UC2>)[*UC[28]*], Riunione esterna, Riunione interna],
-
-  [ROF-19],
-  [L'utente visualizza un errore se é impossibile avviare il flusso],
-  [#link(<UC2>)[*UC[29]*], Riunione esterna, Riunione interna],
+  [ROF-24], [L'utente deve poter modificare la propria password], [#link(<UC27>)[*UC[27]*], Riunione esterna, Riunione interna],
+  [ROF-25], [L'utente deve poter effettuare il logout dall'applicativo], [#link(<UC29>)[*UC[29]*], Riunione esterna, Riunione interna],
 )
 
 
@@ -885,7 +912,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   rows: auto,
   inset: 6pt,
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
-  [RFQ-1], [L'utente può impostare la modalità del _client_ in _dark mode_ o _light mode_], [#link(<UC26>)[*UC[26]*], Riunione esterna],
+  [RFQ-1], [L'utente può impostare la modalità del _client_ in _dark mode_ o _light mode_], [#link(<UC28>)[*UC[28]*], Riunione esterna],
 )
 
 
