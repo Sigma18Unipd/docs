@@ -125,7 +125,7 @@ Il prodotto minimo funzionante (in inglese _Minimum Viable Product_) è la versi
 #pagebreak()
 = N
 
-== Nest.JS
+== NestJS
 Un insieme di librerie in _Node.JS_ basato su _Typescript_ dedicate alla costruzione di applicazioni lato _server_ (_backend_) scalabili ed efficienti.
 
 #pagebreak()
@@ -145,6 +145,9 @@ Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale
 
 == React
 React è una libreria _JavaScript_ sviluppata da _Facebook_ utilizzata per creare interfacce utente interattive e dinamiche.
+
+== React Flow
+React Flow è una libreria basata su React progettata per la realizzazione di diagrammi e flussi di lavoro interattivi.
 
 == Routine
 Sequenza di istruzioni che consentono di eseguire un'operazione di frequente esecuzione.
