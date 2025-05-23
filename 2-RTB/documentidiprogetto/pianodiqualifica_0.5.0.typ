@@ -49,12 +49,19 @@
 #pagebreak()
 = Introduzione
 == Scopo del documento
-Il presente documento ha lo scopo di definire le modalità di verifica e di validazione adottate dal gruppo al fine di garantire la qualità del prodotto finale.
-Il documento sarà soggetto ad aggiornamenti durante il ciclo di vita del progetto per riflettere le modifiche apportate per raggiungere una migliore efficacia ed efficienza.
+Il presente documento ha lo scopo di definire le modalità di verifica e di validazione adottate dal gruppo al fine di garantire la qualità del prodotto finale.\
+Il documento sarà soggetto ad aggiornamenti durante il ciclo di vita del progetto per riflettere le modifiche apportate per raggiungere una migliore efficacia ed efficienza.\
+Sarà presente una sezione dedicata al #link(<cruscotto>)[cruscotto di valutazione], che fornirà un'analisi dell'andamento delle metriche di qualità scelte dal gruppo durante lo svolgimento del progetto.
+
+== Scopo del progetto
+Il progetto ha lo scopo di creare un prodotto che permetta di automatizzare #glossario("routine") digitali sfruttando l'intelligenza artificiale generativa in cloud.\
+L'utente potrà descrivere in linguaggio naturale l'automazione desiderata e il sistema genererà un flusso di lavoro che l'utente potrà modificare tramite un'interfaccia #glossario("drag & drop").\
+Sarà possibile salvare le automazioni generate e avviarle in un secondo momento.
+
 
 == Glossario
 Data la presenza di termini tecnici e acronimi, è stato redatto un glossario per facilitare la comprensione del documento.\
-Tali termini saranno opportunamente segnalato tramite la seguente notazione: #glossario("parola"), e sarà fornita un'accurata definizione nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario].
+Alla prima occorrenza, tali termini saranno opportunamente segnalati tramite la seguente notazione: #glossario("parola"), e sarà fornita un'accurata definizione nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario].
 
 == Riferimenti
 === Riferimenti normativi
@@ -83,10 +90,10 @@ La qualità di processo è un aspetto fondamentale per garantire il successo del
 Di seguito sono riportati gli obiettivi di qualità che il gruppo si impegna a raggiungere, suddivisi in tre categorie:_ processi primari_, _processi di supporto_ e _processi organizzativi_, come individuato dallo standard ISO/IEC 12207:1995.
 
 == Processi primari
-I processi primari comprendono attività di acquisizione, gestione operativa, manutenzione del software, fornitura e sviluppo. Verranno esaminati solo gli ultimi due, in quanto si tratta di un progetto didattico.
+I processi primari comprendono attività di acquisizione, gestione operativa, manutenzione del software, fornitura e sviluppo. Verranno esaminati solo gli ultimi due, data la natura didattica del progetto.
 
 === Fornitura
-Si intendono le attività e i compiti svolti dal fornitore, in accordo con il proponente nel stabilire i vincoli e requisiti del prodotto.
+Si intendono le attività e i compiti svolti dal fornitore, in accordo con l'azienda proponente nel stabilire i vincoli e requisiti del prodotto.
 Con l'acronimo _MPC_ (Minimum Predictive Capability) si indica il valore minimo da raggiungere.
 
 ==== Earned Value (MPC-EV)
@@ -134,7 +141,7 @@ Misura l’efficienza del costo per il lavoro svolto fino a un determinato momen
 )
 
 === Sviluppo
-Attività che ha lo scopo di descrivere le attività e i compiti necessari per creare e mantenere un sistema software, necessari per un prodotto finale che soddisfi i requisiti specificati nel contratto.
+Attività che ha lo scopo di descrivere le attività e i compiti necessari per creare e mantenere un sistema software, fondamentale per un prodotto finale che soddisfi i requisiti specificati nel contratto.
 
 Di seguito sono riportate le relative metriche.
 
@@ -435,10 +442,13 @@ I test di integrazione vengono eseguiti successivamente ai test di unità e veri
 I test di sistema verificano il funzionamento del sistema software nel suo complesso per garantire il soddisfacimento delle specifiche funzionali, prestazionali e di qualità concordate, presenti nel documento dell'analisi dei requisiti. //link
 
 == Test di accettazione
-I test di accettazione sono condotti per verificare che il sistema soddisfi i requisiti e le aspettative del contrattuali, motivo per cui sono condotti insieme al committente.\
+I test di accettazione sono condotti per verificare che il sistema soddisfi i requisiti e le aspettative del contrattuali, motivo per cui sono condotti insieme al proponente.\
 Il loro successo è fondamentale per garantire il rilascio definitivo del prodotto.
 
+#pagebreak()
+
 = Cruscotto di Valutazione
+<cruscotto>
 La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
 
 == Estimated at Completion (MPC-EAC)
