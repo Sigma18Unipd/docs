@@ -85,4 +85,3 @@
 #let spacerM = v(1em)
 #let spacerL = v(2em)
 #let spacerXL = v(3em)
-#let glossario(term) = text[*_#term#sub()[GL]_*]
