@@ -906,7 +906,7 @@ Il gruppo _Sigma18_ ha deciso di utilizzare dei ruoli per la gestione dei proces
 
 ==== Amministratore
 L'ammministratore si occupa della gestione degli strumenti IT necessari all'avanzamento dello
-sviluppo. La figura, che conosce e comprende approfonditamente il _way of working_ offre supporto agli altri ruoli. Si ritiene che la figura abbia maggior importanza nelle fasi iniziali dello sviluppo, con alcuni picchi nei momenti di rilascio del prodotto.
+sviluppo. La figura, che conosce e comprende approfonditamente il _way of working_, offre supporto agli altri ruoli. Si ritiene che la figura abbia maggior importanza nelle fasi iniziali dello sviluppo, con alcuni picchi nei momenti di rilascio del prodotto.
 
 ==== Analista
 L'analista è la figura che svolge l'attività di analisi dei requisiti del _software_, i quali potranno essere funzionalità in accordo con il proponente o specifiche minime di funzionamento.
@@ -1063,28 +1063,46 @@ In caso di difficoltà, i vari membri del gruppo sono disponibili a fornire supp
 
 
 
-
-
-
-
-
-
-
-#set text(size: 30pt)
-#text(
-  red,
-  [ANDARE AVANTI QUI, NON TOCCARE NULLA SOPRA.
-
-    SI NULLA, PIETRO
-
-    COMANDO IO],
-)
-//Cancellare questo obv
-
-
-
 = Standard per la qualità
+Il gruppo ha deciso di definire le metriche e i criteri che determinano la qualità del software sviluppato adottando le linee guida dello standard ISO/IEC 9126.
+Questo standard definisce un modello di qualità del software in termini di sei caratteristiche generali e venticinque sotto-caratteristiche, successivamente descritte.
 
+== Funzionalità
+La funzionalità misura la capacità di un prodotto software di fornire servizi e strumenti che soddisfano le esigenze esplicite ed implicite del proponente.
+Questa caratteristica è composta dalle seguenti sotto-caratteristiche:
+- *Adeguatezza*: capacità di offrire funzioni appropriate per svolgere i compiti specifici previsti;
+- *Accuratezza*: capacità di fornire risultati o effetti attesi in accordo con i requisiti;
+- *Interoperabilità*: capacità di interagire con altri sistemi specificati;
+- *Sicurezza*: capacità di proteggere le funzioni e i dati da accessi non autorizzati e potenziali minacce;
+- *Conformità*: capacità di aderire agli standard e alle normative stabilite.
+
+
+
+== Affidabilità
+L'affidabilità misura la capacità di un prodotto software di mantenere un determinato livello di prestazioni richieste in condizioni specifiche per un periodo di tempo definito.
+In particolare è composta dalle seguenti sotto-caratteristiche:
+- *Maturità*: capacità del prodotto di evitare errori, malfunzionamenti o arresti inaspettati;
+- *Tolleranza agli errori*: capacità del prodotto di mantenere un livello prestabilito di prestazioni anche in presenza di errori;
+- *Recuperabilità*: capacità del prodotto di ripristinare i livelli di prestazione determinati e di recuperare i dati a seguito di malfunzionamenti o guasti;
+- *Aderenza*: capacità del prodotto di aderire a standard riguardanti l'affidabilità;
+
+
+== Efficienza
+L'efficienza misura la capacità di un prodotto software di fornire prestazioni adeguate in relazione alle risorse utilizzate.
+Nel dettaglio, è composta dalle seguenti sotto-caratteristiche:
+- *Comportamento rispetto al tempo*: misura i tempi di risposta e di elaborazione richiesti per eseguire le funzioni richieste in condizioni specifiche;
+- *Utilizzo delle risorse*: misura la quantità e la tipologia di risorse utilizzate per eseguire le funzioni richieste come memoria, CPU e spazio su disco;
+- *Conformità*: capacità del prodotto di aderire a standard riguardanti l'efficienza.
+
+
+
+== Usabilità
+
+
+
+== Manutenibilità
+
+== Portabilità
 
 
 
@@ -1101,7 +1119,7 @@ In caso di difficoltà, i vari membri del gruppo sono disponibili a fornire supp
 
 
 #pagebreak()
-= Metriche per la qualitá di prodotto
+= Metriche per la qualità di prodotto
 
 
 
