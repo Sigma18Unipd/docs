@@ -17,13 +17,13 @@
 #spacerS
 = Obiettivi e attività programmate (_backlog_)
 - Completamento e verifica delle norme di progetto;
-- Completamento e verifica del piano di qualifica.
+- Completamento e verifica del piano di qualifica;
 - Avanzamento del _Poc(Proof of Concept)_;
 
 #pagebreak()
 #spacerS
 = Analisi delle criticità e decisioni pendenti
 - Le criticità comunicative riscontrate con l'azienda committente sono state risolte;
-- Non sono state riscontrate nuove criticità né con l'azienda committente né tra i membri del gruppo.
+- Non sono state riscontrate nuove criticità né con l'azienda committente né tra i membri del gruppo;
 
 
