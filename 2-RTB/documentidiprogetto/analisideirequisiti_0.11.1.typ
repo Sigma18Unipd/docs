@@ -7,9 +7,15 @@
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.11.0",
+  versioneAttuale: "0.11.1",
   content: content,
   versioni: (
+    "0.11.1",
+    "2025/05/24",
+    "Mirco Borella
+Alessandro Bernardello",
+    "Marco Egidi",
+    "Correzione errori di battitura",
     "0.11.0",
     "2025/05/23",
     "Carmelo Russello",
@@ -80,14 +86,13 @@ Il presente documento ha lo scopo di fornire una descrizione dettagliata dei *ca
 Questo documento è pertanto di elevata importanza in quanto costituisce una solida base per lo sviluppo del prodotto finale, permettendo di avere una chiara visione delle *funzionalità* e dei *requisiti* richiesti dall'azienda proponente.
 
 == Scopo del prodotto
-Il prodotto fornisce un servizio che permette agli utenti di generare automazioni e #glossario("_routine_") avvalendosi dell'intelligenza artificiale generativa.
-In particolare, grazie all'ausilio delle #glossario("API") esposte dagli #glossario("agenti"), l'applicativo interpreta la descrizione dell'automazione fornita dall'utente in linguaggio naturale e genera il flusso di lavoro desiderato.
-
+Il prodotto fornisce un servizio che permette agli utenti di generare automazioni e #glossario("routine").
+In particolare, grazie all'ausilio dell'intelligenza artificiale, l'applicativo può interpretare descrizioni di automazioni fornite in linguaggio naturale e generare flussi di lavoro a partire da esse.
 Il flusso di lavoro verrà quindi visualizzato attraverso un #glossario("client") che permette all'utente di modificare l'automazione creata grazie ad un'interfaccia #glossario("drag & drop").\
 Nell'interfaccia, i *blocchi* rappresentano le azioni effettuabili, mentre gli *archi* che li collegano tra loro corrispondono a relazioni tra i singoli componenti dell'automazione.
 
 == Glossario
-Per assicurare la massima chiarezza e prevenire possibili malintesi legati all'interpretazione dei termini utilizzati nei documenti, è stato redatto un glossario dedicato. #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Questo] strumento raccoglie e definisce in maniera precisa tutti i termini che potrebbero risultare ambigui, tecnici o comunque soggetti a interpretazioni diverse.
+Per assicurare la massima chiarezza e prevenire possibili malintesi legati all'interpretazione dei termini utilizzati nei documenti, è stato redatto un glossario. #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Questo] strumento raccoglie e definisce in maniera precisa tutti i termini che potrebbero risultare ambigui, tecnici o comunque soggetti a interpretazioni diverse.
 
 All'interno dei documenti, ogni termine presente nel Glossario sarà opportunamente segnalato tramite la seguente notazione: #glossario("parola"), in modo da permettere al lettore di identificarne facilmente il significato esatto facendo riferimento al glossario stesso.
 
@@ -114,7 +119,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 
 = Descrizione del prodotto
 == Obiettivi del prodotto
-L'obiettivo del prodotto è garantire l'ottimizzazione del tempo per i nostri utenti, automatizzando le _routine_ digitali che altrimenti richiederebbero interventi manuali, attraverso l'utilizzo delle #glossario("API") fornite dagli agenti.
+L'obiettivo del nostro prodotto è automatizzare _routine_ digitali che richiederebbero interventi manuali impegnativi oppure onerosi in termini di tempo, sfruttando anche l'ausilio dell'intelligenza artificiale per permettere la creazione di queste automazioni anche ad utenti inesperti.
 
 == Utenti
 Il prodotto è destinato a due tipologie di utenti: utente base e utente avanzato.
@@ -127,7 +132,7 @@ L'utente avanzato, è colui che dispone di una conoscenza più approfindita sul 
 L'utente avanzato può anche aver necessità di modificare i vari parametri dell'#glossario("LLM") come ad esempio la temperatura.
 
 == Funzionalità e vincoli
-Il prodotto dovrà consentire all'utente di creare flussi di lavoro sia in modo automatico che manuale per automatizzare le operazioni digitali ricorrenti di determinate applicazioni supportate.
+Il prodotto dovrà consentire all'utente di creare flussi di lavoro sia in modo automatico che manuale.
 In particolare, un utente potrà:
 
 - Fornire una descrizione in linguaggio naturale dell'automazione desiderata, visualizzarla e modificarla, se necessario, tramite un'interfaccia grafica che utilizza un sistema di _drag & drop_.
@@ -136,8 +141,6 @@ In particolare, un utente potrà:
 
 - Avviare l'automazione selezionata tramite l'apposito pulsante.
 
-- Visualizzare lo stato dell'automazione in esecuzione e ricevere eventuali messaggi di errore.
-
 - Interrompere l'automazione in esecuzione in qualsiasi momento.
 #pagebreak()
 
@@ -145,10 +148,12 @@ In particolare, un utente potrà:
 == Introduzione
 Questa sezione del documento descrive ogni caso d'uso del progetto proposto da _Var Group S.p.A._ , i seguenti casi d'uso sono stati individuati grazie ad un attento studio del capitolato e ad una sessione di #glossario("design thinking") svolta in presenza con l'azienda proponente.
 
-È stata adottata una nomenclatura standard per definire i casi d'uso nel seguente formato:
+È stata adottata una nomenclatura per definire i casi d'uso nel seguente formato:
 #set align(center)
 *UC[numero_caso_uso]: titolo*
 #set align(left)
+
+dove *numero_caso_uso* è un numero progressivo che identifica univocamente il caso d'uso e *titolo* è una breve descrizione del caso d'uso stesso.
 
 == Attori
 Dal punto di vista dell'applicativo, gli utenti si suddividono in due tipi di attori:
@@ -166,7 +171,6 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-//RIGERENERARE IL DIAGRAMMA UML DA NUOVI USECASE
 === UC[1]: _Login_ <UC1>
 - *Attore principale*: utente non autenticato.
 
@@ -216,7 +220,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente inserisce le proprie credenziali.
   2. Il sistema individua le credenziali errate e invia un messaggio di errore all'utente.
-  3. L'utente può ripetere l'inserimento delle credenziali (#link(<UC2>)[*UC[2]*]).
+  3. L'utente può ripetere l'inserimento delle credenziali precedentemente errate.
 
 
 
@@ -252,14 +256,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Pre-condizioni*: l'utente non ha un _account_.
 
-- *Post-condizioni*: l'utente ha un _account_.
+- *Post-condizioni*: l'account utente viene creato.
 
 - *Scenario principale*:
   1. L'utente accede all'applicativo.
   2. L'utente accede alla pagina di registrazione.
   3. L'utente inserisce la propria _e-mail_ (#link(<UC2>)[*UC[2]*]).
-  4. L'utente inserisce la _password_ (#link(<UC6>)[*UC[6]*]).
-  5. L'utente reinserisce la _password_ creata (#link(<UC7>)[*UC[7]*]).
+  4. L'utente inserisce la _password_ (#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  5. L'utente reinserisce la _password_ creata (#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
   6. Il sistema crea l'_account_ e salva le credenziali nel _database_.
 - *Estensioni*:
   - _E-mail_ già in uso (#link(<UC8>)[*UC[8]*]).
@@ -328,11 +332,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-
-
-
-//Rigenerare il diagramma UML da nuovi usecase
+\
 === UC[9]: Creazione nuova _routine_ <UC9>
 - *Attore principale*: utente autenticato.
 
@@ -373,7 +373,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   image("../../assets/usecasediagrams/UC_4_9_10.png"),
   caption: [Diagramma casi d'uso UC[4], UC[9], UC[10]],
 )
-
+\
 
 === UC[11]: Generare una _routine_ mediante linguaggio naturale <UC11>
 
@@ -417,6 +417,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   caption: [Diagramma casi d'uso UC[4], UC[11], UC[12]],
 )
 
+\
 
 === UC[13]: Modificare parametri di generazione <UC13>
 
@@ -442,6 +443,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   image("../../assets/usecasediagrams/UC_4_13.png"),
   caption: [Diagramma casi d'uso UC[4], UC[13],],
 )
+\
+
+
 
 
 === UC[14]: Visualizzare i dettagli di una _routine_ esistente <UC14>
@@ -456,6 +460,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
 
 #figure(image("../../assets/usecasediagrams/UC_14.png"), caption: [Diagramma casi d'uso UC[14]])
+\
 
 
 
@@ -468,17 +473,15 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Pre-condizioni*: l'utente si trova nella pagina di un flusso.
 
-- *Post-condizioni*: utente viene ritornato alla _dashboard_ la _routine_ viene eliminata.
+- *Post-condizioni*: utente viene ritornato alla _dashboard_ e la _routine_ viene eliminata.
 
 - *Scenario principale*:
   1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
   2. L'utente seleziona l'opzione di eliminazione della _routine_.
   3. Il sistema mostra un messaggio di conferma dell'eliminazione.
-  4. L'utente conferma l'eliminazione.
-  5. Il sistema elimina la _routine_ e ritorna l'utente alla _dashboard_.
+  4. Se l'utente conferma l'eliminazione, il sistema elimina la _routine_ e ritorna l'utente alla _dashboard_.
 
 #figure(image("../../assets/usecasediagrams/UC_15.png"), caption: [Diagramma casi d'uso UC[15]])
-
 
 
 
@@ -490,15 +493,16 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Attore principale*: utente autenticato.
 
-- *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella pagine del flusso dell'automazione.
+- *Pre-condizioni*: l'utente si trova nella pagina del flusso dell'automazione.
 
 - *Post-condizioni*: viene modificato il nome della _routine_ aperta.
 
 - *Scenario principale*:
   1. L'utente preme nel tasto dedicato alla modifica del nome della _routine_.
   2. Il sistema mostra un campo di testo per la modifica del nome della _routine_.
-  3. L'utente inserisce il nuovo nome della _routine_.
-  4. Il sistema salva il nuovo nome della _routine_.
+  3. L'utente inserisce e conferma il nuovo nome della _routine_.
+  4. Il sistema verifica che il nome della _routine_ sia univoco.
+  5. Il sistema salva il nuovo nome della _routine_.
 
 - *Estensioni*:
   - Nome _routine_ già in uso (#link(<UC10>)[*UC[10]*]).
@@ -508,6 +512,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   image("../../assets/usecasediagrams/UC_4_10_16.png"),
   caption: [Diagramma casi d'uso UC[4], UC[10], UC[16],],
 )
+\
 
 
 
@@ -533,7 +538,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   image("../../assets/usecasediagrams/UC_4_17.png"),
   caption: [Diagramma casi d'uso UC[4], UC[17]],
 )
-
+\
 
 
 === UC[18]: Avviare una _routine_ esistente tramite la pagina di modifica del flusso <UC18>
@@ -557,6 +562,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   image("../../assets/usecasediagrams/UC_4_18.png"),
   caption: [Diagramma casi d'uso UC[4], UC[18]],
 )
+\
+
 
 
 
@@ -574,7 +581,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
 
 - *Estensioni*:
-  - Visualizzazione errore "Impossibile bloccare la _routine_)" (#link(<UC20>)[*UC[20]*]).
+  - Visualizzazione errore "Impossibile bloccare la _routine_" (#link(<UC20>)[*UC[20]*]).
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
@@ -602,7 +609,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   image("../../assets/usecasediagrams/UC_4_19_20.png"),
   caption: [Diagramma casi d'uso UC[4], UC[19], UC[20]],
 )
-
+\
 
 
 
@@ -611,21 +618,19 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
 
-- *Post-condizioni*: viene modificato il comportamento della _routine_ selezionata.
+- *Post-condizioni*: viene modificato il comportamento della _routine_.
 
 - *Scenario principale*:
   1. L'utente seleziona dalla lista dei blocchi un elemento.
   2. L'utente trascina un blocco dalla barra laterale e lo rilascia nella posizione desiderata.
-  3. L'utente collega il blocco a quelli giá esistenti.
+  3. L'utente collega il blocco a quelli già esistenti.
   4. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_.
 
 
-  - *Estensioni*:
-    - Errore _database_ (#link(<UC4>)[*UC[4]*]).
-
-  #figure(image("../../assets/usecasediagrams/UC_4_21.png"), caption: [Diagramma casi d'uso UC[4], UC[21],])
-
-
+- *Estensioni*:
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+#figure(image("../../assets/usecasediagrams/UC_4_21.png"), caption: [Diagramma casi d'uso UC[4], UC[21]])
+\
 
 
 
@@ -633,19 +638,20 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-  === UC[22]: Modificare le impostazioni di un singolo blocco <UC22>
+
+=== UC[22]: Modificare le impostazioni di un singolo blocco <UC22>
 
 - *Attore principale*: utente autenticato.
 
-- *Pre-condizioni*: Si trova nella pagina di modifica di un flusso con blocchi che hanno opzioni modificabili.
+- *Pre-condizioni*: Si trova nella pagina di modifica di un flusso contenente almeno un blocco provvisto di impostazioni.
 
 - *Post-condizioni*: le impostazioni del singolo blocco vengono modificate.
 
 - *Scenario principale*:
   1. L'utente preme sull'icona delle impostazioni di un blocco all'interno del flusso.
   2. Il sistema mostra una finestra con le impostazioni del blocco.
-  4. L'utente modifica le impostazioni desiderate.
-  5. Il sistema salva le modifiche per il relativo blocco.
+  3. L'utente modifica le impostazioni desiderate.
+  4. Il sistema salva le modifiche per il relativo blocco.
 
 
 - *Estensioni*:
@@ -679,7 +685,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Attore principale*: utente autenticato.
 
-- *Pre-condizioni*: l'utente si trova nelle impostazione del blocco(#link(<UC22>)[*UC[22]*]).
+- *Pre-condizioni*: l'utente si trova nelle impostazione del blocco (#link(<UC22>)[*UC[22]*]).
 
 - *Post-condizioni*: l'utente ha eseguito l'accesso al servizio del blocco.
 
@@ -698,6 +704,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
     image("../../assets/usecasediagrams/UC_4_22_23_24.png"),
     caption: [Diagramma casi d'uso UC[4], UC[22], UC[23], UC[24],],
   )
+  \
+
+
+
 
 
 === UC[25]: Salvare una _routine_ <UC25>
@@ -720,6 +730,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
 === UC[26]: Visualizzazione errore "Flusso incompleto" <UC26>
 
 - *Attore principale*: utente autenticato.
@@ -734,11 +745,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Se il flusso non è completo, il sistema mostra un messaggio di errore all'utente.
 
 
-  #figure(
-    image("../../assets/usecasediagrams/UC_4_25_26.png"),
-    caption: [Diagramma casi d'uso UC[4], UC[25], UC[26],],
-  )
-
+#figure(
+  image("../../assets/usecasediagrams/UC_4_25_26.png"),
+  caption: [Diagramma casi d'uso UC[4], UC[25], UC[26],],
+)
+\
 
 
 
@@ -752,17 +763,18 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente preme il tasto dedicato alla modifica della _password_ dell'account.
-  2. Il sistema mostra una pagina con le impostazioni.
-  3. L'utente inserisce la nuova _password_ (#link(<UC6>)[*UC[6]*]).
-  4. L'utente reinserisce la _password_ creata (#link(<UC7>)[*UC[7]*]).
-  5. Il sistema salva le credenziali nel _database_.
+  2. Il sistema mostra una pagina con le impostazioni dell'account.
+  3. L'utente inserisce la nuova _password_ (#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  4. L'utente reinserisce la _password_ creata (#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  5. L'utente conferma la modifica della _password_.
+  6. Il sistema salva le credenziali nel _database_.
 
 - *Estensioni*:
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 #figure(image("../../assets/usecasediagrams/UC_4_6_7_27.png"), caption: [Diagramma casi d'uso UC[4], UC[6], UC[7], UC[27]])
-
+\
 
 
 
@@ -775,10 +787,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. l'utente preme l'icona del cambio tema del _client_.
-  2. Il sistema cambia il tema selezionato del il _client_.
+  2. Il sistema cambia il tema selezionato del _client_.
 
 #figure(image("../../assets/usecasediagrams/UC_28.png"), caption: [Diagramma casi d'uso UC[28],])
-
+\
 
 
 
@@ -795,17 +807,17 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. l'utente preme l'icona per effettuare il _logout_.
   2. Il sistema disconnette l'utente e lo riporta alla pagina di _login_.
 
-- *Estensioni*:
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
-
 
 
   #figure(image("../../assets/usecasediagrams/UC_29.png"), caption: [Diagramma casi d'uso UC[29],])
+\
 
 
 
 
-//TUTTI DA RIFARE SECONDO I NUOVI USE CASE
+
+
+
 #pagebreak()
 = Requisiti
 Questa sezione del documento descrive i requisiti del progetto proposto da _Var Group S.p.A._, individuati tramite un'attenta analisi del capitolato, colloqui interni tra i membri del gruppo e riunioni esterne con l'azienda proponente.\
@@ -820,6 +832,7 @@ dove:
   - *O*: requisito obbligatorio, pertanto indispensabile per lo sviluppo del progetto;
 
   - *D*: requisito desiderabile, pertanto non necessario ma fornisce un valore aggiunto al progetto;
+
   - *F*: requisito facoltativo, pertanto non necessario ma può essere implementato in accordo con l'azienda se vi sono le condizioni appropriate.
 
 - *Tipologia*: indica la tipologia del requisito, che può essere:
@@ -930,7 +943,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [Capitolato],
 
   [ROV-2],
-  [Utilizzo di linguaggi di programmazione proposti, come: NodeJS, Python e Typescript per lo sviluppo API cloud; Python e C\# per lo sviluppo dell'agent],
+  [Utilizzo di linguaggi di programmazione proposti, come: NodeJS, Python e Typescript per lo sviluppo API cloud; Python o C\# per lo sviluppo dell'agent],
   [Capitolato, Riunione esterna],
 
   [ROV-3],
