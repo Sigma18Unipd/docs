@@ -1062,7 +1062,7 @@ In caso di difficoltà, i vari membri del gruppo sono disponibili a fornire supp
 #pagebreak()
 
 
-
+//da rileggere da qui
 = Standard per la qualità
 Il gruppo ha deciso di definire le metriche e i criteri che determinano la qualità del software sviluppato adottando le linee guida dello standard ISO/IEC 9126.
 Questo standard definisce un modello di qualità del software in termini di sei caratteristiche generali e venticinque sotto-caratteristiche, successivamente descritte.
@@ -1097,23 +1097,42 @@ Nel dettaglio, è composta dalle seguenti sotto-caratteristiche:
 
 
 == Usabilità
-
+L'usabilità misura la facilità con cui un prodotto software può essere compreso, appreso e utilizzato dagli utenti finali.
+In particolare è composta dalle seguenti sotto-caratteristiche:
+- *Comprensibilità*: misura l'impegno richiesto agli utenti per comprendere il funzionamento del prodotto e le sue applicabilità;
+- *Apprendibilità*: misura l'impegno richiesto agli utenti per imparare ad usare il software;
+- *Operabilità*: misura la capacità del prodotto ad essere utilizzato con semplicità dagli utenti per i propri scopi;
+- *Attrattività*: capacità del prodotto di essere piacevole da utilizzare per l'utente;
+- *Conformità*: capacità del prodotto di aderire a standard riguardanti l'usabilità.
 
 
 == Manutenibilità
+La manutenibilità misura la facilità con cui un prodotto software può essere modificato, corretto e migliorato nel tempo.
+È composta dalle seguenti sotto-caratteristiche:
+- *Analizzabilità*: misura l'impegno richiesto per analizzare il prodotto per identificare carenze, cause di fallimento o per apportare miglioramenti;
+- *Modificabilità*: misura l'impegno richiesto per apportare modifiche al prodotto, come correzioni di errori o modifiche di componenti;
+- *Stabilità*: misura la capacità del prodotto di ridurre il rischio di comportamenti indesiderati a seguito di modifiche;
+- *Testabilità*: misura la facilità con cui il prodotto può essere testato per validare le modifiche apportate;
+
 
 == Portabilità
-
-
-
-
+La portabilità misura la capacità del software di essere trasferito e utilizzato in ambienti di esecuzione diversi senza problemi.
+È composta dalle seguenti sotto-caratteristiche:
+- *Adattabilità*: misura la facilità con cui il software può essere adattato a nuovi ambienti di esecuzione;
+- *Installabilità*: misura la facilità con cui il software può essere installato in un particolare ambiente;
+- *Coesistenza*: misura la capacità del software di coesistere con altri prodotti software nello stesso ambiente, condividendo risorse come CPU e memoria;
+- *Sostituibilità*: valuta la capacità con cui il software può svolgere gli stessi compiti di un altro software nello stesso ambiente.
 
 
 #pagebreak()
 = Metriche per la qualità di processo
 
-
-
+== Nomenclatura delle metriche
+Il gruppo _Sigma18_ ha deciso di utilizzare la seguente sigla per identificare le metriche relative alla qualità di processo:
+#set align(center)
+*MPC* (_Minimum Predictive Capability_)
+#set align(left)
+Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ seguita da un acronimo che identifica la metrica specifica: *MPC-AcronimoMetrica*.
 
 
 
