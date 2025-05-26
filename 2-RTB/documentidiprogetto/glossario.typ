@@ -3,12 +3,17 @@
 #show: content => verbale(
   titoloDocumento: "Glossario",
   responsabili: "Matteo Marangon",
-  redattori: ("Mirco Borella", "Aleena Mathew"),
+  redattori: ("Mirco Borella", "Matteo Marangon", "Aleena Mathew"),
   verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
   versioneAttuale: "0.5.0",
   versioni: (
+    "0.6.0",
+    "2025/05/23",
+    "Matteo Marangon",
+    "Pietro Crotti",
+    "Merge per rilascio Analisi dei Requisiti",
     "0.5.0",
     "2025/05/14",
     "Mirco Borella",
@@ -74,11 +79,17 @@ Il backend denota la parte di un programma che gestisce la logica e l'interazion
 #pagebreak()
 = C
 
+== Cloud
+Insieme di risorse accessibili tramite internet, che consentono di utilizzare servizi e applicazioni senza doverli installare o gestire localmente.
+
 == Client
 Componente o programma che accede ad un servizio reso disponibile da un #glossario("server").
 
 #pagebreak()
 = D
+
+== Dashboard
+Pagina principale del #glossario("client") contenente le #glossario("routine") create dall'utente e la possibilità di crearne di nuove.
 
 == Design Thinking
 Approccio di progettazione di un software centrato sull'esperienza utente che prende in considerazione il target di riferimento per costruire un'esperienza solida e mirata, particolarmente funzionale in un ambiente agile.
@@ -110,8 +121,10 @@ Sistema di controllo di versione distribuito che consente a più utenti di lavor
 Piattaforma web basata su #glossario("git") che fornisce strumenti per l'hosting di repository, il versionamento del codice e la collaborazione tra sviluppatori.
 
 #pagebreak()
-
 = L
+
+== LLM (_Large Language Model_)
+I modelli linguistici di grandi dimensioni (LLM) sono una categoria di modelli di intelligenza artificiale addestrati su immense quantità di dati che li rendono in grado di comprendere e generare linguaggio naturale in modo coerente con un _input_ fornito da un utente.
 
 == Log
 Elenco cronologico delle attività svolte all'interno di un sistema, utile per il monitoraggio e la risoluzione dei problemi.
@@ -185,3 +198,10 @@ Un software che viene eseguito in un browser Web, accessibile attraverso una con
 
 == Wireframe
 Rappresentazione grafica semplificata di una pagina web o di una schermata di un'app, che evidenzia la struttura e la disposizione degli elementi dell'interfaccia.
+
+
+#pagebreak()
+= T
+
+== Task
+Una singola attività, compito o procedura facente parte di un'automazione composta da molte attività. Ogni task rappresenta un'unità di lavoro individuale all'interno di un processo automatizzato più ampio.
