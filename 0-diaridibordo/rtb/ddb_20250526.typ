@@ -10,7 +10,7 @@
 - Svolti altri 3 incontri di formazione , riguardanti _frontend_ e _Gen AI_, con l'azienda proponente per un totale di altre 10 ore;
 - Aggiornamento del #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[glossario;]
 - Completamento e verifica del documento di Analisi dei requisiti;
-- Inizio del _PoC(Proof of Concept_;
+- Inizio del _PoC(Proof of Concept)_;
 
 #pagebreak()
 
