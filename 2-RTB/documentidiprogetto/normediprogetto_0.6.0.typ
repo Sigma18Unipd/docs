@@ -1064,63 +1064,96 @@ In caso di difficoltà, i vari membri del gruppo sono disponibili a fornire supp
 
 //da rileggere da qui
 = Standard per la qualità
+
+
 Il gruppo ha deciso di definire le metriche e i criteri che determinano la qualità del software sviluppato adottando le linee guida dello standard ISO/IEC 9126.
 Questo standard definisce un modello di qualità del software in termini di sei caratteristiche generali e venticinque sotto-caratteristiche, successivamente descritte.
 
+
 == Funzionalità
+
 La funzionalità misura la capacità di un prodotto software di fornire servizi e strumenti che soddisfano le esigenze esplicite ed implicite del proponente.
 Questa caratteristica è composta dalle seguenti sotto-caratteristiche:
+
 - *Adeguatezza*: capacità di offrire funzioni appropriate per svolgere i compiti specifici previsti;
+
 - *Accuratezza*: capacità di fornire risultati o effetti attesi in accordo con i requisiti;
+
 - *Interoperabilità*: capacità di interagire con altri sistemi specificati;
+
 - *Sicurezza*: capacità di proteggere le funzioni e i dati da accessi non autorizzati e potenziali minacce;
+
 - *Conformità*: capacità di aderire agli standard e alle normative stabilite.
 
 
 
 == Affidabilità
+
 L'affidabilità misura la capacità di un prodotto software di mantenere un determinato livello di prestazioni richieste in condizioni specifiche per un periodo di tempo definito.
 In particolare è composta dalle seguenti sotto-caratteristiche:
+
 - *Maturità*: capacità del prodotto di evitare errori, malfunzionamenti o arresti inaspettati;
+
 - *Tolleranza agli errori*: capacità del prodotto di mantenere un livello prestabilito di prestazioni anche in presenza di errori;
+
 - *Recuperabilità*: capacità del prodotto di ripristinare i livelli di prestazione determinati e di recuperare i dati a seguito di malfunzionamenti o guasti;
+
 - *Aderenza*: capacità del prodotto di aderire a standard riguardanti l'affidabilità;
 
 
 == Efficienza
+
 L'efficienza misura la capacità di un prodotto software di fornire prestazioni adeguate in relazione alle risorse utilizzate.
 Nel dettaglio, è composta dalle seguenti sotto-caratteristiche:
+
 - *Comportamento rispetto al tempo*: misura i tempi di risposta e di elaborazione richiesti per eseguire le funzioni richieste in condizioni specifiche;
+
 - *Utilizzo delle risorse*: misura la quantità e la tipologia di risorse utilizzate per eseguire le funzioni richieste come memoria, CPU e spazio su disco;
+
 - *Conformità*: capacità del prodotto di aderire a standard riguardanti l'efficienza.
 
 
 
 == Usabilità
+
 L'usabilità misura la facilità con cui un prodotto software può essere compreso, appreso e utilizzato dagli utenti finali.
 In particolare è composta dalle seguenti sotto-caratteristiche:
+
 - *Comprensibilità*: misura l'impegno richiesto agli utenti per comprendere il funzionamento del prodotto e le sue applicabilità;
+
 - *Apprendibilità*: misura l'impegno richiesto agli utenti per imparare ad usare il software;
 - *Operabilità*: misura la capacità del prodotto ad essere utilizzato con semplicità dagli utenti per i propri scopi;
+
 - *Attrattività*: capacità del prodotto di essere piacevole da utilizzare per l'utente;
+
 - *Conformità*: capacità del prodotto di aderire a standard riguardanti l'usabilità.
 
 
 == Manutenibilità
+
 La manutenibilità misura la facilità con cui un prodotto software può essere modificato, corretto e migliorato nel tempo.
 È composta dalle seguenti sotto-caratteristiche:
+
 - *Analizzabilità*: misura l'impegno richiesto per analizzare il prodotto per identificare carenze, cause di fallimento o per apportare miglioramenti;
+
 - *Modificabilità*: misura l'impegno richiesto per apportare modifiche al prodotto, come correzioni di errori o modifiche di componenti;
+
 - *Stabilità*: misura la capacità del prodotto di ridurre il rischio di comportamenti indesiderati a seguito di modifiche;
+
 - *Testabilità*: misura la facilità con cui il prodotto può essere testato per validare le modifiche apportate;
 
 
 == Portabilità
+
 La portabilità misura la capacità del software di essere trasferito e utilizzato in ambienti di esecuzione diversi senza problemi.
 È composta dalle seguenti sotto-caratteristiche:
+
 - *Adattabilità*: misura la facilità con cui il software può essere adattato a nuovi ambienti di esecuzione;
+
 - *Installabilità*: misura la facilità con cui il software può essere installato in un particolare ambiente;
+
 - *Coesistenza*: misura la capacità del software di coesistere con altri prodotti software nello stesso ambiente, condividendo risorse come CPU e memoria;
+
 - *Sostituibilità*: valuta la capacità con cui il software può svolgere gli stessi compiti di un altro software nello stesso ambiente.
 
 
@@ -1133,6 +1166,164 @@ Il gruppo _Sigma18_ ha deciso di utilizzare la seguente sigla per identificare l
 *MPC* (_Minimum Predictive Capability_)
 #set align(left)
 Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ seguita da un acronimo che identifica la metrica specifica: *MPC-AcronimoMetrica*.
+
+== Processi primari
+
+=== Fornitura
+
+==== Earned Value
+
+- *Codice*: MPC-EV;
+
+- *Formula*: EV= Budget at Completion (BAC) \* Percentuale di lavoro completato;
+
+- *Descrizione*: misura il valore del lavoro completato in un progetto fino a quel momento rispetto al budget pianificato.
+
+
+==== Planned Value
+- *Codice*: MPC-PV;
+
+- *Formula*: PV= Budget at Completion (BAC) \* Percentuale di lavoro pianificato;
+
+- *Descrizione*: misura il valore del lavoro pianificato in un progetto in un determinato momento secondo il piano di progetto rispetto al budget pianificato.
+
+==== Actual Cost
+
+- *Codice*: MPC-AC;
+
+- *Formula*: AC= Costo effettivo del lavoro svolto;
+
+- *Descrizione*: misura il costo effettivo del lavoro svolto in un progetto fino a quel momento.
+
+==== Estimated At Completion
+
+- *Codice*: MPC-EAC;
+
+- *Formula*: $"EAC"=("Budget at Completion (BAC)") / ("Cost Performance Index (CPI)")$;
+
+- *Descrizione*: stima del costo totale del progetto al suo completamento basata sui costi sostenuti fino a quel momento e una stima aggiornata dei costi rimanenti.
+
+==== Estimated To Complete //modifica nel piano di qualifica
+
+- *Codice*: MPC-ETC;
+
+- *Formula*: ETC= Budget at Completion (BAC) - Actual Cost (AC);
+
+- *Descrizione*: stima il costo del lavoro rimanente per completare il progetto.
+
+==== Cost Variance
+
+- *Codice*: MPC-CV;
+
+- *Formula*: CV= Earned Value (EV) - Actual Cost (AC);
+
+- *Descrizione*: misura la differenza tra il budget disponibile e quello usato effettivamente. Rappresenta la differenza tra il valore del lavoro completato e il costo sostenuto.
+
+
+==== Schedule Variance
+
+- *Codice*: MPC-SV;
+
+- *Formula*: SV= Earned Value (EV) - Planned Value (PV);
+
+- *Descrizione*: misura la differenza tra il valore del lavoro completato e il valore del lavoro pianificato. Identifica eventuali ritardi o anticipi rispetto al piano di progetto.
+
+
+==== Cost Performance Index
+
+- *Codice*: MPC-CPI;
+
+- *Formula*: $"CPI"= ("Earned Value (EV)") / ("Actual Cost (AC)")$;
+
+- *Descrizione*: misura l'efficienza del costo del lavoro svolto fino a quel momento. Un valore inferiore a 1 indica che il progetto sta spendendo più del previsto.
+
+
+=== Sviluppo
+
+==== Requirements Stability Index
+
+- *Codice*: MPC-RSI;
+
+- *Formula*: $"RSI" = (("OR" +"CR" + "AD" + "DR") / ("OR"))*"100"$;
+dove:
+- *OR*: Numero di requisiti originali;
+- *CR*: Numero di requisiti cambiati;
+- *AD*: Numero di requisiti aggiunti;
+- *DR*: Numero di requisiti rimossi.
+
+- *Descrizione*: misura la stabilità dei requisiti del progetto. Un valore alto indica che i requisiti sono stabili e non soggetti a modifiche frequenti.
+
+
+==== Technical Debt Ratio
+
+- *Codice*: MPC-TD;
+
+- *Formula*: $"TD" = (("Tempo per risolvere problemi tecnici") / ("Tempo per sviluppare nuove funzionalità")) * "100"$;
+
+- *Descrizione*: rapporto tra il tempo necessario per risolvere problemi tecnici e il tempo necessario per
+sviluppare nuove funzionalità. Un valore basso indica che il codice è ben strutturato.
+
+
+== Processi di supporto
+
+=== Documentazione
+
+==== Indice di Gulpease
+
+- *Codice*: MPC-IG;
+
+- *Formula*: $"IG" = "89" + (("300" * "Numero di frasi") - ("10"*"numero di lettere")) / ("Numero di parole"))$;
+
+- *Descrizione*: misura la leggibilità di un testo, in particolare è considerato accettabile un valore superiore a 40.
+
+==== Correttezza ortografica
+
+- *Codice*: MPC-CO;
+
+- *Descrizione*: indica la presenza di errori ortografici e grammaticali nel documento, in particolare è considerato accettabile un valore pari a 0. //alziamo un po'?
+
+
+=== Verifica
+
+==== Code Coverage
+
+- *Codice*: MPC-CCO;
+
+- *Formula*: $"CCO" = (("Numero di linee di codice testate") / ("Numero totale di linee di codice")) * "100"$;
+
+- *Descrizione*: misura la percentuale di codice sorgente coperto dai test. Un valore alto indica che il codice è ben testato e che le funzionalità sono verificate in modo adeguato.
+
+==== Test superati in percentuale //ridurre un pochino???
+
+- *Codice*: MPC-TSP;
+
+- *Formula*: $"TSP" = (("Numero di test superati") / ("Numero totale di test")) * "100"$;
+
+- *Descrizione*: misura la percentuale di test superati rispetto al numero totale di test previsti.
+
+=== Gestione della qualità
+
+==== SatSatisfaction of Quality Metrics
+
+- *Codice*: MPC-SQM;
+
+- *Formula*: $"SQM" = (("Numero di metriche soddisfatte") / ("Numero totale di metriche")) * "100"$;
+
+- *Descrizione*: misura la percentuale di metriche che soddisfano gli obiettivi minimi di qualità stabiliti.
+
+== Processi organizzativi
+
+=== Gestione dei processi
+==== Efficienza temporale
+
+- *Codice*: MPC-ET;
+
+- *Formula*: $"ET" = (("Ore produttive") / ("Ore totali")) * "100"$;
+
+- *Descrizione*: misura la percentuale di tempo effettivamente dedicato alle attività produttive rispetto al tempo totale disponibile.
+
+
+
 
 
 
