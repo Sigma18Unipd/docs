@@ -4,12 +4,17 @@
   titoloDocumento: "Piano di progetto",
   abstract: "Documento riepilogativo delle attività concluse e in corso di svolgimento dal gruppo Sigma18.",
   responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew"),
-  redattori: ("Carmelo Russello", "Mirco Borella"),
-  verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon"),
+  redattori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi"),
+  verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "0.4.0",
+  versioneAttuale: "0.5.0",
   versioni: (
+    "0.5.0",
+    "2025/05/27",
+    "Marco Egidi",
+    "Pietro Crotti",
+    "Aggiornamento retrospettiva quarto sprint e inizio quinto sprint",
     "0.4.0",
     "2025/05/14",
     "Mirco Borella",
@@ -33,6 +38,8 @@
   ),
   content: content,
 )
+
+
 = Introduzione
 == Scopo del documento
 Il presente documento ha l'obiettivo di definire e tenere traccia di tutte le attività eseguite e pianificate dal team durante lo sviluppo del progetto.
@@ -564,7 +571,7 @@ Il gruppo si impegna a:
 - Completare e verificare il piano di qualifica
 - Integrare il glossario con i nuovi termini
 - Studio delle tecnologie proposte
-- Inizio del _Poc(Proof of Concept)_
+- Inizio del _Poc (Proof of Concept)_
 
 ==== *Preventivo orario*:
 #table(
@@ -581,4 +588,112 @@ Il gruppo si impegna a:
   [Aleena Mathew], [1], [3], [2], [1], [0], [1], [*8*],
   [Carmelo Russello], [2], [0], [2], [1], [0], [3], [*8*],
   [*Totali*], [*5*], [*6*], [*14*], [*15*], [*5*], [*11*], [*56*],
+)
+
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [4], [3], [0], [1], [*8*],
+  [Mirco Borella], [0], [3], [0], [4 (+2)], [0], [1 (-2)], [*8*],
+  [Pietro Crotti], [2], [0], [0], [0], [5], [1], [*8*],
+  [Marco Egidi], [0], [0], [3], [4], [0], [1], [*8*],
+  [Matteo Marangon], [0], [0], [3], [4], [0], [1], [*8*],
+  [Aleena Mathew], [1], [3], [2], [1], [0], [1], [*8*],
+  [Carmelo Russello], [2], [0], [2], [1], [0], [3], [*8*],
+  [*Totali*], [*5*], [*6*], [*14*], [*17*], [*5*], [*9*], [*56*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [5], [€20], [€100.00],
+  [Analista], [6], [€25], [€150.00],
+  [Progettista], [14], [€25], [€350.00],
+  [Programmatore], [17], [€15], [€255.00],
+  [Responsabile], [5], [€30], [€150.00],
+  [Verificatore], [9], [€15], [€135.00],
+  [*Totali*], [*56*], [], [*€1140.00*],
+)
+
+==== *Analisi retrospettiva*: \
+_Sigma18_ dichiara che il quarto sprint è stato proficuo all'avanzamento del capitolato.
+
+Nello specifico è stato validato il documento di *Analisi dei Requisiti*.
+La validazione dei documenti "norme di progetto" e "piano di qualifica" è ancora in corso.
+
+Il gruppo ha organizzato ed effettuato una riunione interna in data 23 Maggio 2025 a fini di sincronizzazione delle attività tra i membri stessi, per discutere l'andamento del capitolato e per confermare la validazione del documento di analisi dei requisiti.
+
+Il gruppo ha inoltre iniziato lo sviluppo del _PoC_, nello specifico sono state create il repository in modalità _monorepo_ (ovvero sorgenti _frontend_ e _backend_ unificati in uno stesso _repository_).
+
+Sono state codificate le seguenti funzionalità lato _frontend_:
+
+- Sviluppo e inizializzazione del codice _boilerplate_ per permettere il funzionamento delle tecnologie scelte;
+
+- Creazione della pagina di _login_;
+
+- Stesura della pagina di registrazione;
+
+- Inizio dello sviluppo della pagina di modifica di un flusso.
+
+Lato _backend_ sono state sviluppate le seguenti funzionalità:
+
+- Sviluppo e inizializzazione del codice _boilerplate_ per permettere il funzionamento delle tecnologie scelte;
+
+- Creazione del _compose_ Docker e del _Dockerfile_ per facilitare lo sviluppo.
+
+Sono state riscontrate difficoltà catalogabili nei rischi RT1 e RT2.
+Ai fini di mitigare quanto riscontrato, il gruppo ha deciso di continuare a studiare le tecnologie scelte e di contattare l'azienda proponente in caso di necessità.
+
+#pagebreak()
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 5
+
+==== Dettagli
+
+*Data di inizio*: 27/05/2025 \
+*Data di fine*: 10/06/2025 \
+
+*Rischi attesi*: RT1, RT2, RO1, RO2
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Verificare i documenti "norme di progetto" e "piano di qualifica"
+- Integrare il glossario con i nuovi termini
+- Studio delle tecnologie proposte
+- Sviluppo del _frontend_ del _Poc (Proof of Concept)_
+- Sviluppo del _backend_ del _Poc (Proof of Concept)_
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [3], [0], [2], [2], [0], [2], [*9*],
+  [Mirco Borella], [0], [0], [2], [5], [0], [2], [*9*],
+  [Pietro Crotti], [0], [0], [2], [5], [0], [2], [*9*],
+  [Marco Egidi], [3], [0], [4], [3], [0], [0], [*10*],
+  [Matteo Marangon], [0], [1], [3], [0], [4], [2], [*10*],
+  [Aleena Mathew], [0], [2], [3], [3], [0], [2], [*10*],
+  [Carmelo Russello], [0], [2], [3], [0], [2], [3], [*10*],
+  [*Totali*], [*6*], [*5*], [*19*], [*18*], [*6*], [*13*], [*67*],
 )
