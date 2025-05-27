@@ -10,6 +10,11 @@
   destinatari: "Sigma18",
   versioneAttuale: "0.6.0",
   versioni: (
+    "0.7.0",
+    "2025/05/27",
+    "Aleena Mathew",
+    "",
+    "Aggiunte metriche di qualità",
     "0.6.0",
     "2025/05/13",
     "Alessandro Bernardello",
@@ -1002,7 +1007,7 @@ Il gruppo _Sigma18_ ha deciso di utilizzare _WhatsApp_ come piattaforma di messa
 ==== Discord
 Il gruppo _Sigma18_ ha deciso di utilizzare _Discord_ come piattaforma di videoconferenza per le riunioni tra i membri del gruppo di lavoro. _Discord_ è stato scelto per la sua semplicità d'uso e ampia diffusione tra i membri del gruppo.
 
-Sono stati creati dei canali dedicati permettere il lavoro simultaneo di più membri del gruppo in parallelo, senza che le comunicazioni si sovrappongano, e dei canali testuali dedicati allo scambio di _link_ e riferimenti o credenziali.
+Sono stati creati dei canali dedicati per permettere il lavoro simultaneo di più membri del gruppo in parallelo, senza che le comunicazioni si sovrappongano, e dei canali testuali dedicati allo scambio di _link_ e riferimenti o credenziali.
 
 ==== Slack
 L'azienda proponente ha deciso di utilizzare _Slack_ come piattaforma di messaggistica per la comunicazione tra il gruppo _Sigma18_ e il proponente. _Slack_ è stato scelto per la sua ampia diffusione tra i membri dell'azienda proponente, in modo da poter fornire supporto in caso di necessità al gruppo di lavoro da varie figure aziendali.
@@ -1029,7 +1034,7 @@ In particolare, sono stati creati degli script per:
 Il gruppo _Sigma18_ ha deciso di assegnare alla figura dell'amministratore la responsabilità della manutenzione degli strumenti utilizzati e dell'infrastruttura.
 
 == Improvement (Miglioramento)
-Il processo di miglioramento secondo lo standard ISO/IEC 12207:1995 consiste nella consilidazione, controllo e miglioramento continuo dei processi utilizzati durante il ciclo di sviluppo del prodotto _software_ e della documentazione associata.
+Il processo di miglioramento secondo lo standard ISO/IEC 12207:1995 consiste nella consolidazione, controllo e miglioramento continuo dei processi utilizzati durante il ciclo di sviluppo del prodotto _software_ e della documentazione associata.
 
 Come specificato in precedenza nella #link(<implementazione>)[sezione 2.4.1], il gruppo _Sigma18_ ha deciso di utilizzare il modello di lavoro _Agile_ che prevede un miglioramento continuo del prodotto e dei processi utilizzati.
 
@@ -1062,7 +1067,6 @@ In caso di difficoltà, i vari membri del gruppo sono disponibili a fornire supp
 #pagebreak()
 
 
-//da rileggere da qui
 = Standard per la qualità
 
 
@@ -1089,7 +1093,7 @@ Questa caratteristica è composta dalle seguenti sotto-caratteristiche:
 
 == Affidabilità
 
-L'affidabilità misura la capacità di un prodotto software di mantenere un determinato livello di prestazioni richieste in condizioni specifiche per un periodo di tempo definito.
+L'affidabilità misura la capacità di un prodotto software di mantenere un determinato livello di prestazioni richieste in condizioni specifiche per un periodo di tempo definito.\
 In particolare è composta dalle seguenti sotto-caratteristiche:
 
 - *Maturità*: capacità del prodotto di evitare errori, malfunzionamenti o arresti inaspettati;
@@ -1103,7 +1107,7 @@ In particolare è composta dalle seguenti sotto-caratteristiche:
 
 == Efficienza
 
-L'efficienza misura la capacità di un prodotto software di fornire prestazioni adeguate in relazione alle risorse utilizzate.
+L'efficienza misura la capacità di un prodotto software di fornire prestazioni adeguate in relazione alle risorse utilizzate.\
 Nel dettaglio, è composta dalle seguenti sotto-caratteristiche:
 
 - *Comportamento rispetto al tempo*: misura i tempi di risposta e di elaborazione richiesti per eseguire le funzioni richieste in condizioni specifiche;
@@ -1116,7 +1120,7 @@ Nel dettaglio, è composta dalle seguenti sotto-caratteristiche:
 
 == Usabilità
 
-L'usabilità misura la facilità con cui un prodotto software può essere compreso, appreso e utilizzato dagli utenti finali.
+L'usabilità misura la facilità con cui un prodotto software può essere compreso, appreso e utilizzato dagli utenti finali.\
 In particolare è composta dalle seguenti sotto-caratteristiche:
 
 - *Comprensibilità*: misura l'impegno richiesto agli utenti per comprendere il funzionamento del prodotto e le sue applicabilità;
@@ -1131,7 +1135,7 @@ In particolare è composta dalle seguenti sotto-caratteristiche:
 
 == Manutenibilità
 
-La manutenibilità misura la facilità con cui un prodotto software può essere modificato, corretto e migliorato nel tempo.
+La manutenibilità misura la facilità con cui un prodotto software può essere modificato, corretto e migliorato nel tempo.\
 È composta dalle seguenti sotto-caratteristiche:
 
 - *Analizzabilità*: misura l'impegno richiesto per analizzare il prodotto per identificare carenze, cause di fallimento o per apportare miglioramenti;
@@ -1145,8 +1149,8 @@ La manutenibilità misura la facilità con cui un prodotto software può essere 
 
 == Portabilità
 
-La portabilità misura la capacità del software di essere trasferito e utilizzato in ambienti di esecuzione diversi senza problemi.
-È composta dalle seguenti sotto-caratteristiche:
+La portabilità misura la capacità del software di essere trasferito e utilizzato in ambienti di esecuzione diversi senza problemi. \
+In particolare, è composta dalle seguenti sotto-caratteristiche:
 
 - *Adattabilità*: misura la facilità con cui il software può essere adattato a nuovi ambienti di esecuzione;
 
@@ -1183,7 +1187,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 ==== Planned Value
 - *Codice*: MPC-PV;
 
-- *Formula*: PV= Budget at Completion (BAC) \* Percentuale di lavoro pianificato;
+- *Formula*: $"PV"= "Budget at Completion (BAC)" \*" Percentuale di lavoro pianificato"$;
 
 - *Descrizione*: misura il valore del lavoro pianificato in un progetto in un determinato momento secondo il piano di progetto rispetto al budget pianificato.
 
@@ -1191,7 +1195,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Codice*: MPC-AC;
 
-- *Formula*: AC= Costo effettivo del lavoro svolto;
+- *Formula*: $"AC"= "Costo effettivo del lavoro svolto"$;
 
 - *Descrizione*: misura il costo effettivo del lavoro svolto in un progetto fino a quel momento.
 
@@ -1203,11 +1207,11 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Descrizione*: stima del costo totale del progetto al suo completamento basata sui costi sostenuti fino a quel momento e una stima aggiornata dei costi rimanenti.
 
-==== Estimated To Complete //modifica nel piano di qualifica
+==== Estimated To Complete
 
 - *Codice*: MPC-ETC;
 
-- *Formula*: ETC= Budget at Completion (BAC) - Actual Cost (AC);
+- *Formula*: $"ETC"= "Budget at Completion (BAC)" - "Actual Cost (AC)"$;
 
 - *Descrizione*: stima il costo del lavoro rimanente per completare il progetto.
 
@@ -1215,7 +1219,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Codice*: MPC-CV;
 
-- *Formula*: CV= Earned Value (EV) - Actual Cost (AC);
+- *Formula*: $"CV"= "Earned Value (EV)" - "Actual Cost (AC)"$;
 
 - *Descrizione*: misura la differenza tra il budget disponibile e quello usato effettivamente. Rappresenta la differenza tra il valore del lavoro completato e il costo sostenuto.
 
@@ -1224,7 +1228,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Codice*: MPC-SV;
 
-- *Formula*: SV= Earned Value (EV) - Planned Value (PV);
+- *Formula*: $"SV"= "Earned Value (EV)" - "Planned Value (PV)"$;
 
 - *Descrizione*: misura la differenza tra il valore del lavoro completato e il valore del lavoro pianificato. Identifica eventuali ritardi o anticipi rispetto al piano di progetto.
 
@@ -1235,7 +1239,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Formula*: $"CPI"= ("Earned Value (EV)") / ("Actual Cost (AC)")$;
 
-- *Descrizione*: misura l'efficienza del costo del lavoro svolto fino a quel momento. Un valore inferiore a 1 indica che il progetto sta spendendo più del previsto.
+- *Descrizione*: misura l'efficienza del costo del lavoro svolto fino a quel momento. Un valore inferiore a 1 indica che si sta spendendo più del previsto.
 
 
 === Sviluppo
@@ -1245,11 +1249,16 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 - *Codice*: MPC-RSI;
 
 - *Formula*: $"RSI" = (("OR" +"CR" + "AD" + "DR") / ("OR"))*"100"$;
-dove:
-- *OR*: Numero di requisiti originali;
-- *CR*: Numero di requisiti cambiati;
-- *AD*: Numero di requisiti aggiunti;
-- *DR*: Numero di requisiti rimossi.
+
+  dove:
+
+  - *OR*: Numero di requisiti originali;
+
+  - *CR*: Numero di requisiti cambiati;
+
+  - *AD*: Numero di requisiti aggiunti;
+
+  - *DR*: Numero di requisiti rimossi.
 
 - *Descrizione*: misura la stabilità dei requisiti del progetto. Un valore alto indica che i requisiti sono stabili e non soggetti a modifiche frequenti.
 
@@ -1260,8 +1269,7 @@ dove:
 
 - *Formula*: $"TD" = (("Tempo per risolvere problemi tecnici") / ("Tempo per sviluppare nuove funzionalità")) * "100"$;
 
-- *Descrizione*: rapporto tra il tempo necessario per risolvere problemi tecnici e il tempo necessario per
-sviluppare nuove funzionalità. Un valore basso indica che il codice è ben strutturato.
+- *Descrizione*: rapporto tra il tempo necessario per risolvere problemi tecnici e il tempo necessario per sviluppare nuove funzionalità. Un valore basso indica che il codice è ben strutturato.
 
 
 == Processi di supporto
@@ -1280,7 +1288,7 @@ sviluppare nuove funzionalità. Un valore basso indica che il codice è ben stru
 
 - *Codice*: MPC-CO;
 
-- *Descrizione*: indica la presenza di errori ortografici e grammaticali nel documento, in particolare è considerato accettabile un valore pari a 0. //alziamo un po'?
+- *Descrizione*: indica la presenza di errori ortografici e grammaticali nel documento, in particolare è considerato accettabile un valore pari a 2.
 
 
 === Verifica
@@ -1293,7 +1301,7 @@ sviluppare nuove funzionalità. Un valore basso indica che il codice è ben stru
 
 - *Descrizione*: misura la percentuale di codice sorgente coperto dai test. Un valore alto indica che il codice è ben testato e che le funzionalità sono verificate in modo adeguato.
 
-==== Test superati in percentuale //ridurre un pochino???
+==== Test superati in percentuale
 
 - *Codice*: MPC-TSP;
 
@@ -1303,7 +1311,7 @@ sviluppare nuove funzionalità. Un valore basso indica che il codice è ben stru
 
 === Gestione della qualità
 
-==== SatSatisfaction of Quality Metrics
+==== Satisfaction of Quality Metrics
 
 - *Codice*: MPC-SQM;
 
@@ -1331,6 +1339,150 @@ sviluppare nuove funzionalità. Un valore basso indica che il codice è ben stru
 #pagebreak()
 = Metriche per la qualità di prodotto
 
+== Nomenclatura delle metriche
+Il gruppo _Sigma18_ ha deciso di utilizzare la seguente sigla per identificare le metriche relative alla qualità di processo:
+#set align(center)
+*MPD*
+#set align(left)
+Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPD_ seguita da un acronimo che identifica la metrica specifica: *MPD-AcronimoMetrica*.
+
+== Funzionalità
+
+=== Requisiti obbligatori soddisfatti
+
+- *Codice*: MPD-RO;
+
+- *Formula*: $"RO" = (("Numero di requisiti obbligatori soddisfatti") / ("Numero totale di requisiti obbligatori")) * "100"$;
+
+- *Descrizione*: misura la percentuale di requisiti obbligatori soddisfatti rispetto al numero totale di requisiti obbligatori definiti nel documento di analisi dei requisiti.
 
 
+=== Requisiti desiderabili soddisfatti
 
+- *Codice*: MPD-RD;
+
+- *Formula*: $"RD" = (("Numero di requisiti desiderabili soddisfatti") / ("Numero totale di requisiti desiderabili")) * "100"$;
+
+- *Descrizione*: misura la percentuale di requisiti desiderabili soddisfatti rispetto al numero totale di requisiti desiderabili definiti nel documento di analisi dei requisiti.
+
+
+=== Requisiti facoltativi soddisfatti
+
+- *Codice*: MPD-RF;
+
+- *Formula*: $"RF" = (("Numero di requisiti facoltativi soddisfatti") / ("Numero totale di requisiti facoltativi")) * "100"$;
+
+- *Descrizione*: misura la percentuale di requisiti facoltativi soddisfatti rispetto al numero totale di requisiti facoltativi definiti nel documento di analisi dei requisiti.
+
+== Affidabilità
+
+=== Code Coverage
+
+- *Codice*: MPD-CCO;
+
+- *Formula*: $"CCO" = (("Numero di righe di codice testate") / ("Numero totale di righe di codice")) * "100"$;
+
+- *Descrizione*: misura la percentuale di codice sorgente coperto dai test.
+
+
+=== Branch Coverage
+
+- *Codice*: MPD-BC;
+
+- *Formula*: $"BC" = (("Numero di rami decisionali di codice testati") / ("Numero totale di rami decisionali di codice")) * "100"$;
+
+- *Descrizione*: misura la percentuale di rami decisionali del codice coperti dai test.
+
+=== Statement Coverage
+
+- *Codice*: MPD-SC;
+
+- *Formula*: $"SC" = (("Numero di istruzioni di codice testate") / ("Numero totale di istruzioni di codice")) * "100"$;
+
+- *Descrizione*: misura la percentuale di istruzioni del codice sorgente coperte dai test.
+
+=== Passed Test Cases Percentage
+
+- *Codice*: MPD-PTCP;
+
+- *Formula*: $"PTCP" = (("Numero di test superati") / ("Numero totale di test")) * "100"$;
+
+- *Descrizione*: misura la percentuale di test superati rispetto al numero totale di test previsti.
+
+=== Failure Tolerance
+
+- *Codice*: MPD-FT;
+- *Descrizione*: capacità del software di mantenere un livello di prestazioni accettabile anche in caso di guasti o malfunzionamenti.
+
+=== Failure Frequency
+
+- *Codice*: MPD-FF;
+
+- *Descrizione*: indica la frequenza con cui si verificano guasti o malfunzionamenti nel prodotto.;
+
+== Usabilità
+
+=== Tempo di apprendimento
+
+- *Codice*: MPD-TA;
+
+- *Descrizione*: misura il tempo necessario per un utente per imparare ad utilizzare il software.
+
+=== Error Rate
+
+- *Codice*: MPD-ER;
+
+- *Formula*: $"ER" = (("Numero di errori commessi dagli utenti") / ("Numero totale di azioni degli utenti")) * "100"$;
+
+- *Descrizione*: misura il numero di errori commessi dagli utenti durante l'utilizzo del software.
+
+== Efficienza
+
+=== Utilizzo risorse
+
+- *Codice*: MPD-UR;
+
+- *Descrizione*: misura l'utilizzo delle risorse del sistema, come CPU, memoria e spazio su disco, durante l'esecuzione del software.
+
+=== Tempi di risposta delle API
+
+- *Codice*: MPD-TRA;
+
+- *Descrizione*: misura il tempo medio di risposta delle API del sistema.
+
+== Manutenibilità
+
+=== Complessità ciclomatica
+
+- *Codice*: MPD-CC;
+
+- *Formula*: $"CC" = "E" - "N" + "P"$
+
+  dove:
+
+  - *E*: Numero di archi del grafo di controllo;
+
+  - *N*: Numero di nodi del grafo di controllo;
+
+  - *P*: Numero di componenti connessi ad ogni arco.
+
+
+=== Code Smell
+
+- *Codice*: MPD-CS;
+
+- *Descrizione*: indica la presenza di potenziali problemi di progettazione o codice che potrebbero richiedere manutenzione.
+
+=== Coefficient of Coupling
+
+- *Codice*: MPD-COC;
+
+- *Formula*: $"COC" = ("Numero di dipendenze tra moduli") / ("Numero totale di moduli")$;
+
+- *Descrizione*: indica il grado di dipendenza tra i moduli o le componenti di un sistema.
+
+=== Tempo per risolvere i bug //modifica in piano di qualifica
+
+- *Codice*: MPD-TRB;
+
+- *Descrizione*: misura il tempo medio necessario per risolvere i bug identificati nel software.
