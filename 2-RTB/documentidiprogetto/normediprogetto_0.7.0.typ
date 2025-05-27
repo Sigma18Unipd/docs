@@ -1276,14 +1276,6 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 === Documentazione
 
-==== Indice di Gulpease
-
-- *Codice*: MPC-IG;
-
-- *Formula*: $"IG" = "89" + (("300" * "Numero di frasi") - ("10"*"numero di lettere")) / ("Numero di parole"))$;
-
-- *Descrizione*: misura la leggibilità di un testo, in particolare è considerato accettabile un valore superiore a 40.
-
 ==== Correttezza ortografica
 
 - *Codice*: MPC-CO;
