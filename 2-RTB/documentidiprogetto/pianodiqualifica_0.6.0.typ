@@ -181,9 +181,6 @@ Si tratta di documentazione, controllo qualità e verifica.
 === Documentazione
 La documentazione permette di avere un tracciamento delle attività svolte.
 
-==== Indice di Gulpease (MPC-IG)
-L'indice di Gulpease valuta la leggibilità di un testo basandosi su variabili quali il numero e la lunghezza delle parole e delle frasi.\
-Fornisce un punteggio da 0 a 100, dove punteggi più alti indicano una maggiore leggibilità.
 
 ==== Correttezza ortografica (MPC-CO)
 La correttezza ortografica indica il numero di errori grammaticali e ortografici presenti in un documento.\
@@ -197,7 +194,6 @@ La correttezza ortografica indica il numero di errori grammaticali e ortografici
     rows: auto,
     inset: 7pt,
     table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPC-IG], [Indice di Gulpease], [≥40], [≥70],
     [MPC-CO], [Correttezza ortografica], [2], [0],
   ),
 )
@@ -487,10 +483,7 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
 === RTB
 #pagebreak()
 
-== Indice di Gulpease (MPC-IG)
-//grafico con IG
-=== RTB
-#pagebreak()
+
 
 == Correttezza ortografica (MPC-CO)
 //grafico con CO
