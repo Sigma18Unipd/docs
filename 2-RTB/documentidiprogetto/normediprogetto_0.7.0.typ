@@ -4,11 +4,11 @@
   titoloDocumento: "Norme di progetto",
   abstract: "Documento contenente le Norme di progetto che definiscono le modalità di lavoro del gruppo.",
   responsabili: "Pietro Crotti",
-  redattori: ("Mirco Borella", "Alessandro Bernardello"),
+  redattori: ("Mirco Borella", "Alessandro Bernardello", "Aleena Mathew"),
   verificatori: ("Mirco Borella", "Marco Egidi", "Matteo Marangon"),
   tipo: "Documento Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "0.6.0",
+  versioneAttuale: "0.7.0",
   versioni: (
     "0.7.0",
     "2025/05/27",
