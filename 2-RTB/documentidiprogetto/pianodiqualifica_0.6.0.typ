@@ -8,8 +8,13 @@
   verificatori: ("Carmelo Russello", "Matteo Marangon"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "0.4.1",
+  versioneAttuale: "0.6.0",
   versioni: (
+    "0.6.0",
+    "2025/05/20",
+    "Aleena Mathew ",
+    "",
+    "Aggiornamento di alcune metriche in accordo con le norme",
     "0.5.0",
     "2025/05/20",
     "Aleena Mathew ",
@@ -109,7 +114,7 @@ Indica l'effettivo costo sostenuto fino ad un determinato momento per il lavoro 
 ==== Estimated At Completion (MPC-EAC)
 La stima del costo totale del progetto, basata sulle condizioni attuali, è un valore ottenuto dal rapporto tra _BAC_ e _CPI_ (Cost Performance Index).
 
-==== Estimated To Completion (MPC-ETC)
+==== Estimated To Complete (MPC-ETC)
 Stima i costi aggiuntivi necessari per completare il progetto.
 
 ==== Cost Variance (MPC-CV)
@@ -133,7 +138,7 @@ Misura l’efficienza del costo per il lavoro svolto fino a un determinato momen
     [MPC-PV], [Planned Value], [≥0], [≤BAC],
     [MPC-AC], [Actual Cost], [≥0], [≤EAC],
     [MPC-EAC], [Estimated At Completion], [±5% BAC], [=BAC],
-    [MPC-ETC], [Estimated To Completion], [≥0], [≤EAC],
+    [MPC-ETC], [Estimated To Complete], [≥0], [≤EAC],
     [MPC-CV], [Cost Variance ], [≥-5%], [≥0],
     [MPC-SV], [Schedule variance], [±5% BAC], [≥0],
     [MPC-CPI], [Cost performance index], [≥0], [1],
@@ -193,7 +198,7 @@ La correttezza ortografica indica il numero di errori grammaticali e ortografici
     inset: 7pt,
     table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
     [MPC-IG], [Indice di Gulpease], [≥40], [≥70],
-    [MPC-CO], [Correttezza ortografica], [0], [0],
+    [MPC-CO], [Correttezza ortografica], [2], [0],
   ),
 )
 
@@ -276,11 +281,13 @@ opzionali.
 === Requisiti obbligatori soddisfatti (MPD-RO)
 Indica la percentuale di requisiti obbligatori soddisfatti dal prodotto. Deve sempre avere un valore pari al 100% per garantire la conformità alle specifiche.
 
-=== Requisiti opzionali soddisfatti (MPD-ROP)
-Indica la percentuale di requisiti opzionali soddisfatti dal prodotto. Un valore alto aggiunge valore al prodotto.
-
 === Requisiti desiderabili soddisfatti (MPD-RD)
 Indica la percentuale di requisiti desiderabili soddisfatti dal prodotto. Un valore alto indica una maggiore soddisfazione del cliente.
+
+=== Requisiti facoltativi soddisfatti (MPD-RF)
+Indica la percentuale di requisiti facoltativi soddisfatti dal prodotto. Un valore alto aggiunge valore al prodotto.
+
+
 
 #figure(
   kind: table,
@@ -292,15 +299,15 @@ Indica la percentuale di requisiti desiderabili soddisfatti dal prodotto. Un val
     inset: 7pt,
     table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
     [MPD-RO], [Requisiti obbligatori soddisfatti], [100%], [100%],
-    [MPD-ROP], [Requisiti opzionali soddisfatti], [≥0%], [100%],
     [MPD-RD], [Requisiti desiderabili soddisfatti], [≥0%], [100%],
+    [MPD-ROP], [Requisiti facoltativi soddisfatti], [≥0%], [100%],
   ),
 )
 
 == Affidabilità
 L'affidabilità misura la capacità del software di funzionare correttamente sotto specifiche condizioni.
 
-=== Code coverage (MPD-CC)
+=== Code coverage (MPD-CCO)
 Indica la percentuale di codice eseguita durante i test.\ Un valore alto indica una migliore copertura del codice, suggerendo che il codice è stato testato approfonditamente e abbia una bassa probabilità di contenere errori.
 
 === Branch coverage (MPD-BC)
@@ -333,7 +340,7 @@ Un valore basso suggerisce che il prodotto è affidabile.
     rows: auto,
     inset: 7pt,
     table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPD-CC], [Code coverage], [≥70%], [100%],
+    [MPD-CCO], [Code coverage], [≥70%], [100%],
     [MPD-BC], [Branch coverage], [≥60%], [≥85%],
     [MPD-SC], [Statement coverage], [≥60%], [≥85%],
     [MPD-PTCP], [Passed test cases percentage], [≥70%], [100%],
@@ -398,7 +405,7 @@ Un valore basso indica che il sistema è in grado di rispondere rapidamente alle
 === Complessità ciclomatica (MPD-CC)
 Indica la complessità del codice sorgente, si misura contando il numero di cammini indipendenti nel grafo di controllo del flusso.\ Un valore basso indica che il codice è semplice e facile da mantenere.
 
-=== Code Smells (MPD-CS)
+=== Code Smell (MPD-CS)
 Indica la presenza di potenziali problemi di progettazione o codice che potrebbero richiedere manutenzione.\
 Segnala parti di codice che potrebbero non essere ottimali e che potrebbero causare difficoltà in futuro, come un'architettura poco chiara o sezioni di codice ripetitive.\
 Un valore basso indica che il codice è ben strutturato e non presenta problemi tecnici.
@@ -421,7 +428,7 @@ Un valore basso indica che si è in grado di risolverli in maniera rapida ed eff
     inset: 7pt,
     table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
     [MPD-CC], [Complessità ciclomatica], [≤15], [≤7],
-    [MPD-CS], [Code Smells ], [≤10], [0],
+    [MPD-CS], [Code Smell ], [≤10], [0],
     [MPD-COC], [Coefficient of Coupling ], [≤35%], [≤10%],
     [MPD-TRB], [Tempo per risolvere i bug ], [≤4 ore], [≤2 ore],
   ),
@@ -459,7 +466,7 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
 //grafico con PV e EV
 === RTB
 #pagebreak()
-== Actual Cost (MPC-AC), Estimated To Completion (MPC-ETC) & Estimated At Completion (MPC-EAC)
+== Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
 
 //grafico con AC, ETC e EAC
 === RTB
