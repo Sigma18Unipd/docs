@@ -2,7 +2,7 @@
 
 #show: content => verbale(
   titoloDocumento: "Settima Riunione",
-  abstract: "Retrospettiva quarto sprint, pianificazione quinto sprint, monitoraggio dello sviluppo del PoC .",
+  abstract: "Retrospettiva quarto sprint, pianificazione quinto sprint, monitoraggio dello sviluppo del PoC.",
   responsabili: "Matteo Marangon",
   redattori: "Carmelo Russello",
   verificatori: "Marco Egidi",
@@ -10,6 +10,11 @@
   destinatari: "Sigma18",
   versioneAttuale: "1.0.0",
   versioni: (
+    "1.0.1",
+    "2025/05/27",
+    "Carmelo Russello",
+    "Marco Egidi",
+    "Fix minori",
     "1.0.0",
     "2025/05/27",
     "Carmelo Russello",
@@ -20,7 +25,7 @@
 )
 
 = Riferimenti generali
-Il seguente documento contiene il resoconto della riunione interna del gruppo _Sigma18_ tenutasi in modalità *virtuale* tramite la piattaforma _Discord_, avvenuta in data *27 Maggio 2025* e dalla durata di *un'ora*.
+Il seguente documento riporta il resoconto della riunione interna del gruppo _Sigma18_, tenutasi in modalità *virtuale* tramite la piattaforma _Discord_ il *27 Maggio 2025* per la durata di *un'ora*.
 
 == Partecipanti
 - Alessandro Bernardello
@@ -35,7 +40,8 @@ Il seguente documento contiene il resoconto della riunione interna del gruppo _S
 == Retrospettiva del quarto sprint
 Il gruppo ha analizzato in retrospettiva lo #glossario("sprint") appena concluso per discutere eventuali problemi riscontrati.
 
-Nel corso dello svolgimento di questo _sprint_ sono state riscontrate difficoltà correlate alla documentazione delle tecnologie utilizzate per lo sviluppo del #glossario("PoC (_Proof of Concept_)"), a causa di ciò il gruppo ha preso la decisione di approfondire lo studio delle tecnologie scelte e di contattare l'azienda proponente in caso di ulteriori dubbi.
+Durante lo svolgimento di questo _sprint_ sono emerse difficoltà relative alla documentazione delle tecnologie utilizzate per lo sviluppo del #glossario("PoC (Proof of Concept)").
+Il gruppo ha quindi concordato di approfondire lo studio delle tecnologie scelte e di contattare l'azienda proponente in caso di ulteriori dubbi.
 
 È possibile trovare un resoconto più dettagliato nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_0.5.0.pdf")[Piano di Progetto].
 
@@ -48,15 +54,12 @@ Inoltre, al fine di garantire la leggibilità e la coerenza della documentazione
 
 
 == Monitoraggio dello sviluppo del _PoC_
-I membri del gruppo ai quali è stato assegnato il ruolo di programmatori nel corso del quarto _sprint_ hanno mostrato i progressi compiuti nello sviluppo del _frontend_ e _backend_ del _PoC_ al fine di aggiornare gli altri componenti del gruppo.\
-Sono state inoltre illustrate le problematiche emerse durante lo sviluppo e le soluzioni adottate per risolverle.
+I membri del gruppo con il ruolo di programmatori nel corso del quarto _sprint_ hanno presentato i progressi compiuti nello sviluppo del _frontend_ e _backend_ del _PoC_, aggiornando così gli altri componenti del gruppo.
+Sono state inoltre illustrate le problematiche emerse durante lo sviluppo assieme alle relative soluzioni adottate per la loro risoluzione.
 
 
 = Conclusioni e decisioni prese
-Il gruppo Sigma18 si impegna a portare a termine la verifica dei documenti rimanenti, al fine di concentrare in maniera efficace le proprie risorse sullo sviluppo del _PoC_ e rispettare le scadenze stabilite, garantendo il regolare avanzamento del progetto didattico\
-
-
-
+Il gruppo Sigma18 si impegna a portare a termine la verifica dei documenti rimanenti, al fine di concentrare in maniera efficace le proprie risorse sullo sviluppo del _PoC_ e rispettare le scadenze stabilite, garantendo il regolare avanzamento del progetto didattico.
 
 = Attività programmate
 #tabellaAttivitaProgrammate(
