@@ -50,6 +50,9 @@
 )
 #outline(title: "Elenco tabelle", target: figure.where(kind: table, outlined: true))
 
+#pagebreak()
+
+#outline(title: "Elenco immagini", target: figure.where(kind: image, outlined: true))
 
 #pagebreak()
 = Introduzione
@@ -455,7 +458,12 @@ Il loro successo è fondamentale per garantire il rilascio definitivo del prodot
 La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
 
 == Estimated at Completion (MPC-EAC)
-// grafico con BAC e EAC
+#figure(
+  image("../../assets/chart/EAC_chart.svg", width: 80%),
+  caption: [
+    Stima del costo totale nel tempo
+  ],
+)
 === RTB
 #pagebreak()
 == Planned Value (MPC-PV) & Earned Value (MPC-EV)
