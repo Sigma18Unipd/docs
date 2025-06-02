@@ -4,12 +4,17 @@
   titoloDocumento: "Norme di progetto",
   abstract: "Documento contenente le Norme di progetto che definiscono le modalità di lavoro del gruppo.",
   responsabili: "Pietro Crotti",
-  redattori: ("Mirco Borella", "Alessandro Bernardello", "Aleena Mathew"),
+  redattori: ("Mirco Borella", "Alessandro Bernardello", "Aleena Mathew", "Matteo Marangon"),
   verificatori: ("Mirco Borella", "Marco Egidi", "Matteo Marangon"),
   tipo: "Documento Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "0.7.0",
+  versioneAttuale: "0.7.1",
   versioni: (
+    "0.7.1",
+    "2025/06/02",
+    "Matteo Marangon",
+    "",
+    "Correzioni lessicali e grammaticali, integrazione link",
     "0.7.0",
     "2025/05/27",
     "Aleena Mathew",
@@ -19,7 +24,7 @@
     "2025/05/13",
     "Alessandro Bernardello",
     "Mirco Borella",
-    "TestTest",
+    "Stesura sezioni da 4.2 (Infrastructure) a 4.4 (Training)",
     "0.5.0",
     "2025/05/08",
     "Mirco Borella",
@@ -133,8 +138,7 @@ Nello specifico, ai fini del capitolato, tratteremo i seguenti processi primari:
 == Fornitura <fornitura>
 Lo standard ISO/IEC 12207:1995 definisce il processo di fornitura come l'insieme delle attività necessarie per garantire che il prodotto _software_ soddisfi i requisiti specificati e le aspettative del proponente.
 
-Questo processo è iniziato con uno studio di fattibilità e lo sviluppo di alcuni flussi applicativi insieme al proponente, raccolti nella sessione di #glossario("design thinking") di cui è stato redatto il relativo #link("verbale esterno")[verbale esterno]. L'incontro è stato fondamentale per la definizione e la contrattazione dei requisiti del progetto.
-//TODO: aggiungere il link al verbale esterno quando approvato
+Questo processo è iniziato con uno studio di fattibilità e lo sviluppo di alcuni flussi applicativi insieme al proponente, raccolti nella sessione di #glossario("design thinking") di cui è stato redatto il relativo #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/verbali/esterni/ve_20250414_1.1.4.pdf")[verbale esterno]. L'incontro è stato fondamentale per la definizione e la contrattazione dei requisiti del progetto.
 
 Il processo terminerà con la consegna del prodotto al proponente e la successiva verifica della sua conformità ai requisiti specificati.
 
@@ -173,11 +177,10 @@ La fornitura è composta da un insieme di attività successivamente descritte:
 - *Consegna e completamento*: Al termine del progetto, il fornitore consegna il prodotto finale al proponente, garantendo il supporto post-consegna e risolvendo eventuali problematiche che potrebbero emergere nelle fasi iniziali di utilizzo. (Supporto post-consegna non previsto dal capitolato).
 
 === Elenco della documentazione fornita
-Segue un elenco dei documenti che il gruppo _Sigma18_ fornità all'azienda proponente _Var Group S.p.A._ e ai committenti del capitolato _Prof. Tullio Vardanega_ e _Prof. Riccardo Cardin_ (in ordine alfabetico).
+Segue un elenco dei documenti che il gruppo _Sigma18_ fornirà all'azienda proponente _Var Group S.p.A._ e ai committenti del capitolato _Prof. Tullio Vardanega_ e _Prof. Riccardo Cardin_ (in ordine alfabetico).
 
 ==== Analisi dei requisiti
-//TODO: Aggiungere il link
-Documento che ha lo scopo di fornire una descrizione dettagliata dei casi d'uso e dei requisiti del progetto che l'azienda proponente _Var Group S.p.A._ ha presentato.
+#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_0.11.1.pdf")[Documento] che ha lo scopo di fornire una descrizione dettagliata dei casi d'uso e dei requisiti del progetto che l'azienda proponente _Var Group S.p.A._ ha presentato.
 Questo documento è pertanto di elevata importanza in quanto costituisce una solida base per lo sviluppo del prodotto finale, permettendo di avere una chiara visione delle funzionalità e dei requisiti richiesti dall'azienda proponente.
 
 Tipo di documento: *Documento Esterno* \
@@ -248,7 +251,7 @@ Tutte le attività racchiuse nel processo di sviluppo sono supportate dai seguen
 
 - *Visual Studio Code*: per la codifica del _software_ e per la scrittura della documentazione;
 
-- *Draw.io*: per la creazione dei #glossario("diagrammi UML");
+- *StarUML* e *Draw.io*: per la creazione dei #glossario("diagrammi UML");
 
 == Attività di sviluppo
 In base allo standard ISO/IEC 12207:1995, il processo di sviluppo è composto da un insieme di attività successivamente descritte:
@@ -329,7 +332,7 @@ Il gruppo _Sigma18_ ha deciso di utilizzare i seguenti strumenti per la gestione
 
 - *Microsoft Excel*: per la gestione e la tracciabilità delle ore di lavoro svolte da ciascun membro del gruppo.
 
-=== Attivitá previste
+=== Attività previste
 Il processo di documentazione è composto da un insieme di attività successivamente descritte:
 - *Produzione*: attività che ha lo scopo di definire le modalità con la quale redigere i documenti. Ulteriori informazioni nella #link(<produzionedeidocumenti>)[sezione 3.1.8].
 
@@ -486,7 +489,7 @@ Si continua con il corpo del documento, che contiene le informazioni e i contenu
 
 Ogni pagina di un documento, ad eccezione della copertina, contiene un'intestazione comprendente il logo del gruppo _Sigma18_ e il titolo del documento e un piè di pagina con il numero progressivo della pagina.
 
-Alcuni documenti, come l'analisi dei requisiti, contentono sezioni o componenti che necessitano di essere normati al fine di garantire la qualità e la coerenza del documento stesso. Seguono quindi le sezioni che necessitano di essere normate, definite come:
+Alcuni documenti, come l'analisi dei requisiti, contengono sezioni o componenti che necessitano di essere normati al fine di garantire la qualità e la coerenza del documento stesso. Seguono quindi le sezioni che necessitano di essere normate, definite come:
 
 #set align(center)
 *TitoloDelDocumento*: *Sezione*
@@ -578,13 +581,13 @@ Il redattore segnerà il termine della stesura segnando come messaggio nel #glos
 *Verifica del documento*: Terminata la stesura, il redattore andrà ad aprire una
 _pull request_ andando ad assegnare i verificatori.
 
-I verificatori sono i membri del gruppo che si occuperanno di verificare il documento e di fornire feedback al redattore. In caso di esito negativo, i verificatori andranno a riufiutare la _pull request_ lasciando un commento e il redattore dovrà apportare le modifiche richieste. In caso di esito positivo, i verificatori andranno ad approvare la _pull request_ e il documento potrà essere considerato pronto per la pubblicazione.
+I verificatori sono i membri del gruppo che si occuperanno di verificare il documento e di fornire feedback al redattore. In caso di esito negativo, i verificatori andranno a rifiutare la _pull request_ lasciando un commento e il redattore dovrà apportare le modifiche richieste. In caso di esito positivo, i verificatori andranno ad approvare la _pull request_ e il documento potrà essere considerato pronto per la pubblicazione.
 
 *Pubblicazione del documento*: Una volta approvato il documento da parte dei verificatori, il responsabile andrà a fare il merge della _pull request_ e il documento sarà considerato pubblicato.
 
 I documenti in fase di stesura non sono considerati pubblici e pertanto saranno accessibili solamente all'interno delle loro _branch_ di lavoro. I verbali che richiedono firme esterne, verranno pubblicati senza firma per permetterne la visione in fase di validità da parte dell'azienda proponente. A firma ottenuta, il documento verrà aggiornato e pubblicato direttamente nel #link("https://sigma18unipd.github.io/")[sito web dedicato alla documentazione].
 
-Tutti i documenti all'interno di una _pull request_ scateneranno l'avvio di una _GitHub Action_ che andrà a verificare la presenza effettiva dei termini contrasegnati come glossario nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[glossario stesso]. In caso di errore, la _pull request_ non potrà essere accettata e il redattore dovrà provvedere a integrare il glossario con i termini mancanti.
+Tutti i documenti all'interno di una _pull request_ scateneranno l'avvio di una _GitHub Action_ che andrà a verificare la presenza effettiva dei termini contrassegnati come glossario nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[glossario stesso]. In caso di errore, la _pull request_ non potrà essere accettata e il redattore dovrà provvedere a integrare il glossario con i termini mancanti.
 
 Tutti i documenti pubblicati nella _branch_ "main" scateneranno l'avvio di una _GitHub Action_ che andrà ad effettuare la compilazione e la successiva pubblicazione dei sorgenti nel #link("https://sigma18unipd.github.io/")[sito web dedicato alla documentazione].
 
@@ -640,7 +643,7 @@ dove:
 ===== Date
 Ogni data nei documenti verrà scritta utilizzando il formato "*AAAA/MM/GG*" derivante dallo standard _ISO 8601_ dove *AAAA* indica l'anno in numero a 4 cifre, *MM* indica il mese in numero a 2 cifre e *GG* indica il giorno in numero a 2 cifre, come stabilito nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno del 2025/03/07].
 
-Nel caso di date scritte per intero, si utizzerà il formato *GG MESEINLETTERE AAAA*, dove *GG* indica il giorno in numero a 2 cifre, *MESEINLETTERE* indica il mese in lettere (ad esempio "Aprile") e *AAAA* indica l'anno in numero a 4 cifre.
+Nel caso di date scritte per intero, si utilizzerà il formato *GG MESEINLETTERE AAAA*, dove *GG* indica il giorno in numero a 2 cifre, *MESEINLETTERE* indica il mese in lettere (ad esempio "Aprile") e *AAAA* indica l'anno in numero a 4 cifre.
 
 Esempio di data: *2025/05/01* oppure *01 Maggio 2025*.
 
@@ -735,7 +738,7 @@ Ogni issue contiene:
 
 Inoltre, per ogni _issue_ o _pull request_ creata, _GitHub_ crea automaticamente un numero identificativo univoco (*ID*) all'interno del repository.
 
-Successivamente alla creazione di una _issue_, l'assegnatario dovà creare la relativa _branch_ di sviluppo. La nomenclatura delle _branch_ è definita nella #link(<produzionedeidocumenti>)[sezione 3.1.8].
+Successivamente alla creazione di una _issue_, l'assegnatario dovrà creare la relativa _branch_ di sviluppo. La nomenclatura delle _branch_ è definita nella #link(<produzionedeidocumenti>)[sezione 3.1.8].
 
 Ogni modifica apportata ai file presenti nella _branch_ dovrà essere documentata tramite un #glossario("commit") che descrive brevemente la modifica apportata. In caso di risoluzione di una _issue_, il messaggio di _commit_ dovrà contenere la dicitura "closes \#N" dove con "N" si intende il numero della _issue_ aperta. In questo modo, il sistema di gestione delle _issue_ di _GitHub_ andrà a chiudere automaticamente la _issue_ una volta che la _pull request_ sarà stata accettata e il _merge_ effettuato.
 
@@ -808,7 +811,7 @@ Per realizzare ciò, l'analisi statica si può effettuare in due tipologie:
 Il gruppo _Sigma18_ ha deciso di utilizzare il metodo di analisi statica basato su _inspection_ in quanto stimiamo di riuscire con buona probabilità a creare una lista di controllo efficace e completa per il nostro prodotto.
 
 === Analisi dinamica
-L'analisi dinamica è l'attività che ha lo scopo di analizzare il prodotto _software_ eseguendo il codice sorgente e analizzando il comportamento in esecuzione. Lo scopo dell'analisi dinamica è quello di verificare il comportamento del prodotto _software_ in fase di esecuzione e di individuare evenutali errori o anomalie di funzionamento non previste.
+L'analisi dinamica è l'attività che ha lo scopo di analizzare il prodotto _software_ eseguendo il codice sorgente e analizzando il comportamento in esecuzione. Lo scopo dell'analisi dinamica è quello di verificare il comportamento del prodotto _software_ in fase di esecuzione e di individuare eventuali errori o anomalie di funzionamento non previste.
 
 Per fare ciò, l'analisi dinamica fa uso dei #glossario("Test") che devono essere ripetibili, in quanto devono essere eseguiti più volte (ad esempio una volta per riscontrare un errore, e una seconda volta per verificare che l'errore sia stato corretto) e automatizzabili, in quanto verranno eseguiti in modo automatico per garantire la ripetibilità e la correttezza dei risultati.
 Per riuscire a testare il prodotto nelle sue parti, vengono utilizzati degli elementi a supporto definiti come:
@@ -841,7 +844,7 @@ Le tipologie di test previste dal gruppo _Sigma18_ sono:
 
 
 == Validazione
-Secondo lo standard ISO/IEC 12207:1995, il processo di validazione è il processo che conferma che il prodotto soffisfi i requisiti specificati del sistema, attraverso dimostrazioin oggettive e misurabili. Valuta concretamente la qualitá raggiunta del prodotto.
+Secondo lo standard ISO/IEC 12207:1995, il processo di validazione è il processo che conferma che il prodotto soddisfi i requisiti specificati del sistema, attraverso dimostrazioni oggettive e misurabili. Valuta concretamente la qualità raggiunta del prodotto.
 
 In altre parole, la validazione ci fa rispondere alle domande "Il prodotto è quello che ci aspettavamo?", "Abbiamo realizzato il sistema giusto?".
 
@@ -878,7 +881,7 @@ La normativa ISO/IEC 12207:1995 indirizza i seguenti sotto processi:
 - *Training*: Il processo ha lo scopo di fornire all'organizzazione risorse umane adeguate e di mantenere le loro competenze consistenti con le necessità del business.
 
 == Management (Gestione dei processi)
-Secondo la normativa ISO/IEC 12207:1995, il processo di gestione dei processi ha lo scopo di individuare i processi e attribuirli ai relativi ruoli nella gestione del ciclo di vita del software. L'obiettivo è quello di garantire che i processi siano definiti, implementati e mantenuti in modo da soddisfare le esigenze del proponente e garantire la massima efficenza de gruppo di lavoro.
+Secondo la normativa ISO/IEC 12207:1995, il processo di gestione dei processi ha lo scopo di individuare i processi e attribuirli ai relativi ruoli nella gestione del ciclo di vita del software. L'obiettivo è quello di garantire che i processi siano definiti, implementati e mantenuti in modo da soddisfare le esigenze del proponente e garantire la massima efficienza de gruppo di lavoro.
 
 I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("/TODO")[piano di progetto].
 
@@ -910,7 +913,7 @@ Il processo di gestione dei processi è composto da un insieme di attività cos�
 Il gruppo _Sigma18_ ha deciso di utilizzare dei ruoli per la gestione dei processi descritti nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[preventivo dei costi e della dichiarazione degli impegni].
 
 ==== Amministratore
-L'ammministratore si occupa della gestione degli strumenti IT necessari all'avanzamento dello
+L'amministratore si occupa della gestione degli strumenti IT necessari all'avanzamento dello
 sviluppo. La figura, che conosce e comprende approfonditamente il _way of working_, offre supporto agli altri ruoli. Si ritiene che la figura abbia maggior importanza nelle fasi iniziali dello sviluppo, con alcuni picchi nei momenti di rilascio del prodotto.
 
 ==== Analista
@@ -948,9 +951,9 @@ Per quanto riguarda invece le comunicazioni non sopra citate, l'indirizzo email 
 #set align(left)
 
 === Coordinamento delle attività
-Il gruppo riesce, in modo efficace, a coordinare le attività e a riportare in modo efficente gli esiti e l'avanzamento del lavoro svolto nella riunione dedicata alla retrospettiva degli _sprint_ e di pianificazione delle attività future svolta ogni due settimane.
+Il gruppo riesce, in modo efficace, a coordinare le attività e a riportare in modo efficiente gli esiti e l'avanzamento del lavoro svolto nella riunione dedicata alla retrospettiva degli _sprint_ e di pianificazione delle attività future svolta ogni due settimane.
 
-Durante questa riunone, il piano di progetto viene aggiornato per riflettere l'avanzamento delle attività, le modifiche ai processi e le nuove esigenze emerse durante lo sviluppo.
+Durante questa riunione, il piano di progetto viene aggiornato per riflettere l'avanzamento delle attività, le modifiche ai processi e le nuove esigenze emerse durante lo sviluppo.
 Ogni cambiamento significativo viene riportato, garantendo così una documentazione sempre allineata allo stato attuale del lavoro del gruppo _Sigma18_.
 
 Ciò nonostante, in caso di necessità, il gruppo è disponibile a organizzare riunioni straordinarie per discutere di problematiche o chiarimenti.
@@ -967,7 +970,7 @@ Il processo di infrastruttura è composto da un insieme di attività così descr
 - *Manutenzione*
 
 === Definizione
-Il gruppo _Sigma18_ ha scelto durante lo svolgimento del progetto di utilizzare strumenti che consentano ai suoi vari membri di lavorare in modalità efficace ed efficente.
+Il gruppo _Sigma18_ ha scelto durante lo svolgimento del progetto di utilizzare strumenti che consentano ai suoi vari membri di lavorare in modalità efficace ed efficiente.
 
 Di seguito sono elencati tutti gli strumenti individuati dal gruppo:
 
@@ -1102,7 +1105,7 @@ In particolare è composta dalle seguenti sotto-caratteristiche:
 
 - *Recuperabilità*: capacità del prodotto di ripristinare i livelli di prestazione determinati e di recuperare i dati a seguito di malfunzionamenti o guasti;
 
-- *Aderenza*: capacità del prodotto di aderire a standard riguardanti l'affidabilità;
+- *Aderenza*: capacità del prodotto di aderire a standard riguardanti l'affidabilità.
 
 
 == Efficienza
@@ -1126,6 +1129,7 @@ In particolare è composta dalle seguenti sotto-caratteristiche:
 - *Comprensibilità*: misura l'impegno richiesto agli utenti per comprendere il funzionamento del prodotto e le sue applicabilità;
 
 - *Apprendibilità*: misura l'impegno richiesto agli utenti per imparare ad usare il software;
+
 - *Operabilità*: misura la capacità del prodotto ad essere utilizzato con semplicità dagli utenti per i propri scopi;
 
 - *Attrattività*: capacità del prodotto di essere piacevole da utilizzare per l'utente;
@@ -1144,7 +1148,7 @@ La manutenibilità misura la facilità con cui un prodotto software può essere 
 
 - *Stabilità*: misura la capacità del prodotto di ridurre il rischio di comportamenti indesiderati a seguito di modifiche;
 
-- *Testabilità*: misura la facilità con cui il prodotto può essere testato per validare le modifiche apportate;
+- *Testabilità*: misura la facilità con cui il prodotto può essere testato per validare le modifiche apportate.
 
 
 == Portabilità
