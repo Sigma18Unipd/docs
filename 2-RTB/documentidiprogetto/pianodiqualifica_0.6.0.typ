@@ -459,7 +459,7 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
 
 == Estimated at Completion (MPC-EAC)
 #figure(
-  image("../../assets/chart/EAC_chart.svg", width: 80%),
+  image("../../assets/chart/EAC_chart.svg", width: 90%),
   caption: [
     Stima del costo totale nel tempo
   ],
@@ -467,22 +467,41 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
 === RTB
 #pagebreak()
 == Planned Value (MPC-PV) & Earned Value (MPC-EV)
-//grafico con PV e EV
+#figure(
+  image("../../assets/chart/PV_EV_chart.svg", width: 90%),
+  caption: [
+    Stima dei valori EV e PV nel tempo
+  ],
+)
 === RTB
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
-
-//grafico con AC, ETC e EAC
+#figure(
+  image("../../assets/chart/AC_ETC_EAC_chart.svg", width: 90%),
+  caption: [
+    Stima dei valori AC, ETC e EAC nel tempo
+  ],
+)
 === RTB
 #pagebreak()
 
 == Cost Variance (MPC-CV) & Schedule Variance (MPC-SV)
-//grafico con CV e SV
+#figure(
+  image("../../assets/chart/CV_SV_chart.svg", width: 90%),
+  caption: [
+    Stima dei valori CV e SV nel tempo
+  ],
+)
 === RTB
 #pagebreak()
 
 == Cost Performance Index (MPC-CPI) // posso unirlo a sopra
-//grafico con CPI
+#figure(
+  image("../../assets/chart/CPI_chart.svg", width: 90%),
+  caption: [
+    Stima dei valori CPI nel tempo
+  ],
+)
 === RTB
 #pagebreak()
 
