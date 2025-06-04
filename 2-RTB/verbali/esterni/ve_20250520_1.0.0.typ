@@ -21,16 +21,13 @@ Le sessioni sono state svolte in modalità mista, con incontri in presenza e inc
   - *6 maggio 2025*
   - *8 maggio 2025*
   - *13 maggio 2025*
-della durata di* 12 ore * totali.\
+della durata di *12 ore* totali.\
 
 - In modalità remota sulle tecnologie di modalità nelle date:
 
   - *19 maggio 2025*
   - *20 maggio 2025*
-della durata di* 6 ore * totali.\
-
-
-
+della durata di *6 ore* totali.\
 
 Nell'incontro sono stati trattati i punti descritti nella sezione _ordine del giorno_.
 
@@ -52,9 +49,9 @@ Nell'incontro sono stati trattati i punti descritti nella sezione _ordine del gi
 
 #pagebreak()
 = Ordine del giorno
-Durante .
+Durante gli incontri di formazione i dipendenti di _Var Group S.p.A._ sopracitati hanno presentato le tecnologie che l'azienda utilizza per lo sviluppo software, con particolare attenzione a ciò che può trovare applicazione nel progetto del gruppo _Sigma18_. Le spiegazioni sono state corredate da slide presentative ed esempi pratici, mostrando l'interfaccia web di alcuni applicativi o esempi di codice.
 
-Nelle varie giornate sono state approfondite le seguenti tecnologie:
+Le sessioni di formazione sono state organizzate in modo da coprire le seguenti aree tematiche:
 
 == _AWS_
 La sessione di formazione su _AWS_, svoltasi il *6 maggio 2025* e tenuta dal referente aziendale Alessandro Dindinelli (Var Group S.p.A.), ha affrontato i seguenti argomenti:
@@ -62,7 +59,7 @@ La sessione di formazione su _AWS_, svoltasi il *6 maggio 2025* e tenuta dal ref
 === _Regions and Availability Zones_
 È stata presentata una panoramica delle *regioni* e delle *availability zones* di _AWS_.
 
-=== _Availability Zone Design"_
+=== _Availability Zone Design_
 È stato presentato il concetto di *_Availability Zone Design_*, un approccio che permette di progettare applicazioni distribuite su più _Availability Zones_ per garantire alta disponibilità e affidabilità.
 
 === _Virtual Private Cloud (VPC)_
@@ -72,19 +69,19 @@ La sessione di formazione su _AWS_, svoltasi il *6 maggio 2025* e tenuta dal ref
 È stato presentato il modello di *_Shared Responsibility Model_*, un approccio che definisce le responsabilità condivise tra _AWS_ e i clienti per la sicurezza e la conformità delle risorse nel cloud.
 
 === _Identity and Access Management (IAM)_
-È stato introdotto il concetto di *_Identity and Access Management (IAM)_*, un servizio base che consente di gestire gli accessi e le autorizzazioni degli utenti e dei servizi all'interno dell' ambiente _AWS_.
+È stato introdotto il concetto di *_Identity and Access Management (IAM)_*, un servizio base che consente di gestire gli accessi e le autorizzazioni degli utenti e dei servizi all'interno dell'ambiente _AWS_.
 
 === _IAM Users_
-Consente di creare e gestire gli utenti e i gruppi all'interno dell' ambiente _AWS_ per garantire un accesso sicuro e controllato alle risorse.
+Consente di creare e gestire gli utenti e i gruppi all'interno dell'ambiente _AWS_ per garantire un accesso sicuro e controllato alle risorse.
 
 === _User Groups_
-Consente di creare e gestire i gruppi di utenti all'interno dell' ambiente _AWS_ per semplificare la gestione degli accessi e delle autorizzazioni.
+Consente di creare e gestire i gruppi di utenti all'interno dell'ambiente _AWS_ per semplificare la gestione degli accessi e delle autorizzazioni.
 
 === _IAM Roles_
-Consente di creare e gestire i ruoli all'interno dell' ambiente _AWS_ per consentire l'accesso temporaneo alle risorse da parte di utenti o servizi esterni.
+Consente di creare e gestire i ruoli all'interno dell'ambiente _AWS_ per consentire l'accesso temporaneo alle risorse da parte di utenti o servizi esterni.
 
 === _IAM Policies_
-Consente di creare e gestire le politiche di accesso all'interno dell' ambiente _AWS_ per definire le autorizzazioni degli utenti e dei servizi.
+Consente di creare e gestire le politiche di accesso all'interno dell'ambiente _AWS_ per definire le autorizzazioni degli utenti e dei servizi.
 
 === _IAM Additional Features_
 È stato presentato un approfondimento sulle funzionalità aggiuntive di _IAM_, gestione delle credenziali temporanee, l'autenticazione a più fattori (MFA) e la gestione delle chiavi di accesso.
@@ -114,7 +111,7 @@ Un servizio che consente di eseguire codice in risposta a eventi senza dover ges
 È stato presentato un approfondimento sui modelli di architettura serverless, che consentono di progettare applicazioni scalabili e flessibili utilizzando servizi come _AWS Lambda_ e _API Gateway_.
 
 == _Backend_
-La sessione di formazione sul _Backend_, svoltasi l' *8 maggio 2025* e tenuta dal referente aziendale Alessandro Baldissera (Var Group S.p.A.), ha affrontato i seguenti argomenti:
+La sessione di formazione sul _Backend_, svoltasi l'*8 maggio 2025* e tenuta dal referente aziendale Alessandro Baldissera (Var Group S.p.A.), ha affrontato i seguenti argomenti:
 
 === _Container_ e _Docker_
 È stata presentata una panoramica dei *container*, un metodo per impacchettare un'applicazione e le sue dipendenze in un'unità standardizzata che può essere eseguita in qualsiasi ambiente.\
@@ -260,7 +257,7 @@ I *_prompts_* rappresentano le richieste effettuate in _input_ al modello.
 questo processo di progettazione é detto ingegneria del _prompt_ caratterizzato da un attento studio delle istruzioni e del contesto fornito al modello per ottenere risposte ottimali.\
 
 === _Endpoints_
-Gli _endpoints_ consentono di interagire con i modelli di _OpenAI_, pernettono di ricevere un prompt in input e di ottenere in output una risposta generata dal modello.\
+Gli _endpoints_ consentono di interagire con i modelli di _OpenAI_, permettendo di ricevere un prompt in input e di ottenere in output una risposta generata dal modello.\
 È stato mostrata l'esistenza di tre tipologie di _endpoints_:
 - *_Completions_*: utilizzati per generare testo in risposta a un prompt.
 - *_ChatCompletion_*: utilizzati per gestire conversazioni in linguaggio naturale, consentendo interazioni più complesse e contestualizzate.
