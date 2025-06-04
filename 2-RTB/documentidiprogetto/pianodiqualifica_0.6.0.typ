@@ -513,16 +513,26 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
 
 
 == Correttezza ortografica (MPC-CO)
-//grafico con CO
+#figure(
+  image("../../assets/chart/CO_chart.svg", width: 90%),
+  caption: [
+    Stima dei valori CO nel tempo
+  ],
+)
 === RTB
 #pagebreak()
 
 == Satisfaction of Quality Metrics (MPC-SQM)
-//grafico con SQM
+#figure(
+  image("../../assets/chart/SQM_chart.svg", width: 90%),
+  caption: [
+    Stima dei valori SQM nel tempo
+  ],
+)
 === RTB
 #pagebreak()
 
 == Efficienza temporale (MPC-ET)
-//grafico con ET
+
 === RTB
 #pagebreak()
