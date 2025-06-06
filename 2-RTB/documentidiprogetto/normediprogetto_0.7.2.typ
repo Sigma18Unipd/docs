@@ -8,8 +8,13 @@
   verificatori: ("Mirco Borella", "Marco Egidi", "Matteo Marangon"),
   tipo: "Documento Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "0.7.1",
+  versioneAttuale: "0.7.2",
   versioni: (
+    "0.7.2",
+    "2025/06/06",
+    "Aleeana Mathew",
+    "",
+    "Correzione di una metrica",
     "0.7.1",
     "2025/06/02",
     "Matteo Marangon",
@@ -1252,7 +1257,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Codice*: MPC-RSI;
 
-- *Formula*: $"RSI" = (("OR" +"CR" + "AD" + "DR") / ("OR"))*"100"$;
+- *Formula*: $"RSI" = ("1"-("CR" + "AD" + "DR") / ("OR"))*"100"$;
 
   dove:
 
