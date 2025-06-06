@@ -1257,7 +1257,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Codice*: MPC-RSI;
 
-- *Formula*: $"RSI" = ("1"-("CR" + "AD" + "DR") / ("OR"))*"100"$;
+- *Formula*: $"RSI" = ("1"-("CR" + "AR" + "DR") / ("OR"))*"100"$;
 
   dove:
 
@@ -1265,7 +1265,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
   - *CR*: Numero di requisiti cambiati;
 
-  - *AD*: Numero di requisiti aggiunti;
+  - *AR*: Numero di requisiti aggiunti;
 
   - *DR*: Numero di requisiti rimossi.
 
