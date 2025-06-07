@@ -1,13 +1,13 @@
 #import "../../../templates/template.typ": *
 #show: content => verbale(
   titoloDocumento: "Incontri di formazione con Var Group S.p.A.",
-  abstract: "Incontri di formazione con l'azienda Var Group S.p.A. svolti in data 06 maggio 2025, 08 maggio 2025, 13 maggio 2025, 19 maggio 2025 e 20 maggio 2025.",
+  abstract: "Resoconto degli incontri di formazione con l'azienda Var Group S.p.A. svolti in data 06 maggio 2025, 08 maggio 2025, 13 maggio 2025, 19 maggio 2025 e 20 maggio 2025.",
   responsabili: "Matteo Marangon",
   redattori: "Carmelo Russello",
   verificatori: "Marco Egidi",
   tipo: "Verbale Esterno",
   destinatari: ("Var Group S.p.A.", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.0.1",
   content: content,
   firmaEsterna: true,
 )
@@ -56,59 +56,34 @@ Le sessioni di formazione sono state organizzate in modo da coprire le seguenti 
 == _AWS_
 La sessione di formazione su _AWS_, svoltasi il *6 maggio 2025* e tenuta dal referente aziendale Alessandro Dindinelli (Var Group S.p.A.), ha affrontato i seguenti argomenti:
 
-=== _Regions and Availability Zones_
-È stata presentata una panoramica delle *regioni* e delle *availability zones* di _AWS_.
+=== Introduzione a _AWS_
+È stata presentata una panoramica di _AWS_ (Amazon Web Services), la piattaforma di servizi cloud di _Amazon_, che offre una vasta gamma di servizi per l'elaborazione, l'archiviazione, il networking e altro ancora.\
+Nello specifico si é discusso delle *_Regions and Availability Zones_*, aree geografiche isolate in cui sono distribuiti i data center di _AWS_ progettati per fornire alta disponibilità e ridurre la latenza in ogni parte del mondo e del concetto di *_Identity and Access Management (IAM)_*, servizio base che consente di gestire gli accessi e le autorizzazioni degli utenti e dei servizi all'interno dell'ambiente _AWS_.
 
-=== _Availability Zone Design_
-È stato presentato il concetto di *_Availability Zone Design_*, un approccio che permette di progettare applicazioni distribuite su più _Availability Zones_ per garantire alta disponibilità e affidabilità.
 
-=== _Virtual Private Cloud (VPC)_
-È stato approfondito il concetto di *_Virtual Private Cloud (VPC)_*, un servizio che consente di creare una rete virtuale isolata all'interno del proprio ambiente _AWS_ per eseguire le proprie risorse in modo sicuro e scalabile.
+=== Panoramica dei servizi di _AWS_
+È stata in seguito presentata una panoramica dei principali servizi di _AWS_, tra cui:
 
-=== _Shared Responsibility Model_
-È stato presentato il modello di *_Shared Responsibility Model_*, un approccio che definisce le responsabilità condivise tra _AWS_ e i clienti per la sicurezza e la conformità delle risorse nel cloud.
+==== _Amazon EC2 (Elastic Compute Cloud)_
+Un servizio di cloud computing che permette di avviare e gestire server virtuali, chiamati istanze, nel cloud.\
+Il servizio permette di affittare macchine virtuali sulle cui é possibile eseguire applicazioni, servizi web o altri carichi di lavoro.
+In base alle esigenze dell'utente è possibile scegliere le risorse di calcolo, memoria e _storage_ necessarie per le varie istanze.
 
-=== _Identity and Access Management (IAM)_
-È stato introdotto il concetto di *_Identity and Access Management (IAM)_*, un servizio base che consente di gestire gli accessi e le autorizzazioni degli utenti e dei servizi all'interno dell'ambiente _AWS_.
+==== _Amazon DynamoDB_
+Un servizio di database _NoSQL serverless_ che consente di sviluppare applicazioni moderne su qualsiasi scala.
+Le caratteristiche messe in evidenza dall'azienda proponente sono la sua natura _on demand_, che consente di pagare solo per le risorse effettivamente utilizzate, l'ampia gamma di controlli di sicurezza che offre e la sua integrazione con altri servizi di _AWS_.
 
-=== _IAM Users_
-Consente di creare e gestire gli utenti e i gruppi all'interno dell'ambiente _AWS_ per garantire un accesso sicuro e controllato alle risorse.
 
-=== _User Groups_
-Consente di creare e gestire i gruppi di utenti all'interno dell'ambiente _AWS_ per semplificare la gestione degli accessi e delle autorizzazioni.
+==== _Amazon S3_
+Servizio di archiviazione di oggetti che consente di archiviare e recuperare qualsiasi quantità di dati in modo semplice e scalabile.\
+Il servizio è stato presentato come una soluzione ideale per l'archiviazione dei dati in modo scalabile e per le sue opzioni di sicurezza come il _backup_ e la gestione dei disastri che garantiscono la protezione dei dati in caso di guasti o errori umani.\
+Per l'archiviazione dei dati (oggetti) nel cloud é necessaria la creazione di _bucket_ (contenitori), con nome univoco per ogni regione di _AWS_.
 
-=== _IAM Roles_
-Consente di creare e gestire i ruoli all'interno dell'ambiente _AWS_ per consentire l'accesso temporaneo alle risorse da parte di utenti o servizi esterni.
+==== _AWS Lambda_
+Un servizio di calcolo _serverless_ che consente agli sviluppatori di eseguire codice in risposta a eventi senza dover gestire l'infrastruttura sottostante.\
+La sua natura _on demand_, la sua semplicità di utilizzo e la sua integrazione con altri servizi di _AWS_ sono state evidenziate come caratteristiche principali.\
+Un inconveniente messo in evidenza dal referente è il suo tempo di esecuzione limitato (15 minuti), che può essere un problema per alcune applicazioni che richiedono un'elaborazione prolungata.
 
-=== _IAM Policies_
-Consente di creare e gestire le politiche di accesso all'interno dell'ambiente _AWS_ per definire le autorizzazioni degli utenti e dei servizi.
-
-=== _IAM Additional Features_
-È stato presentato un approfondimento sulle funzionalità aggiuntive di _IAM_, gestione delle credenziali temporanee, l'autenticazione a più fattori (MFA) e la gestione delle chiavi di accesso.
-
-=== _EC2 (Elastic Compute Cloud)_
-È stato introdotto il servizio *_EC2 (Elastic Compute Cloud)_*, un servizio cloud che consente di eseguire istanze di calcolo scalabili e flessibili.
-
-=== _Amazon Machine Image (AMI)_
-Un'immagine preconfigurata che consente di avviare istanze di calcolo con configurazioni specifiche.
-
-=== _Load Balancing_
-Servizio di network che consente di distribuire il traffico tra più istanze di calcolo per garantire alta disponibilità e scalabilità.
-
-=== _Storage Services_
-È stato presentato un approfondimento sui servizi di archiviazione di _AWS_, tra cui _S3_ (_Object Storage_).
-
-=== _Amazon S3_
-Il Servizio di archiviazione di oggetti che consente di archiviare e recuperare grandi quantità di dati in modo protetto e scalabile.
-
-=== _Serverless su AWS_
-Un approccio che consente di eseguire applicazioni senza dover gestire l'infrastruttura sottostante, utilizzando servizi come _AWS Lambda_ e _API Gateway_.
-
-=== _AWS Lambda_
-Un servizio che consente di eseguire codice in risposta a eventi senza dover gestire server o infrastruttura.
-
-=== _Serverless architecture patterns_
-È stato presentato un approfondimento sui modelli di architettura serverless, che consentono di progettare applicazioni scalabili e flessibili utilizzando servizi come _AWS Lambda_ e _API Gateway_.
 
 == _Backend_
 La sessione di formazione sul _Backend_, svoltasi l'*8 maggio 2025* e tenuta dal referente aziendale Alessandro Baldissera (Var Group S.p.A.), ha affrontato i seguenti argomenti:
@@ -147,10 +122,6 @@ Il referente ha reso il gruppo consapevole che, nell'utilizzo di _NestJS_, é ne
 
 _MongoDB_ è stato consigliato dalla azienda proponente per il suo ricco linguaggio di _query_, la sua scalabilità e per la sua flessibilità nella definizione della struttura dei documenti.\
 
-=== Lambda
-Sono state presentate le *funzioni Lambda*, un servizio di _AWS_ che consente di eseguire codice in risposta a eventi tramite chiamate specifiche (API Gateway, Amazon S3, ecc.) senza dover gestire l'infrastruttura sottostante.\
-Le funzioni Lambda sono state consigliate dalla azienda proponente per la loro scalabilità, flessibilità e per la loro integrazione con altri servizi di _AWS_.
-
 == _Frontend_
 La sessione di formazione sul _Frontend_, svoltasi il *13 maggio 2025* e tenuta dal referente aziendale Vittorio Corrizzato (Var Group S.p.A.), ha affrontato i seguenti argomenti:
 
@@ -161,12 +132,12 @@ Sono stati inoltre illustrati i prerequisiti utili per l'utilizzo di _React_, co
 
 === Concetti chiave di _React_
 
-È stata presentata una panoramica dei concetti chiave di _React_, tra cui:
+Sono stati presentati i concetti chiave di _React_, tra cui:
 
 ==== _DOM_
-È stato spiegato il concetto di *_DOM_ (_Document Object Model_)*, un'_API_ per i documenti _HTML_ e _XML_, definisce la struttura logica dei documenti e di come possono essere manipolati.\
+*_DOM_ (_Document Object Model_)*, un'_API_ per i documenti _HTML_ e _XML_, definisce la struttura logica dei documenti e di come possono essere manipolati.\
 
-È stato esposto il problema principale del _DOM_, ovvero il fatto che la maggior parte dei framework _JavaScript_ aggiorna il _DOM_ più del necessario causando un rallentamento delle prestazioni delle applicazioni web.\
+il principale problema relativo al _DOM_ consiste nel fatto che la maggior parte dei framework _JavaScript_ tendono ad aggiornarlo più del necessario, con conseguente rallentamento delle prestazioni delle applicazioni web.
 
 È stato introdotto il concetto di *_Virtual DOM_*, una rappresentazione in memoria del _DOM_ che _React_ utilizza ogni volta che viene renderizzato un elemento _JavaScript_ comparandolo con il _DOM_ reale per applicare solo le modifiche necessarie, migliorando così le prestazioni in modo significativo.
 
@@ -201,21 +172,14 @@ Gli _hooks_ hanno le seguenti caratteristiche:
 
   - Gli hooks possono essere richiamati solo da funzioni componente di React
 
-/*Durante la sessione di formazione sono stati definiti degli _hooks_ base:
-
-- `useState()`: permette di “agganciare” al componente funzione la gestione dello stato\ (ad esempio per la gestione di un contatore)
-
-- `useEffect()`: permette di eseguire effetti collaterali (_side-effects_) sui componenti funzionali, permette di eseguire il codice “effetto” dopo aver applicato i cambiamenti al _DOM_.
-
-- `useContext()`: permette ai componenti di accedere a dei dati globali e innescare un _re-render_ quando questi dati sono cambiati
-*/
 == _Gen AI_
-La sessione di formazione su _Gen AI_, svoltasi negli incontri del *19 maggio 2025* e *20 maggio 2025*, tenuta dal referente aziendale Stefano Sommariva (_Var Group S.p.A._), ha affrontato i seguenti argomenti:
+Le sessioni di formazione su _Gen AI_, svolte negli incontri del *19 maggio 2025* e *20 maggio 2025*, tenute dal referente aziendale Stefano Sommariva (_Var Group S.p.A._), hanno affrontato i seguenti argomenti:
 
 === Introduzione a _Gen AI_
 La sessione di formazione su _Gen AI_ é iniziata con una introduzione generale sull'intelligenza artificiale generativa, concentrandosi su due concetti chiave:
 ==== Reti neurali
-Sono modelli di intelligenza artificiale ispirati al funzionamento del cervello umano tramite dei nodi interconnessi fra di loro.\ Il referente ha spiegato come le reti neurali sono composte da tre strati:
+Sono modelli di intelligenza artificiale ispirati al funzionamento del cervello umano tramite dei nodi interconnessi fra di loro.\
+Il referente ha spiegato come le reti neurali sono composte da tre strati:
 
 - *Strato di _input_*: ogni nodo corrisponde a una e una sola caratteristica dell'input
 
