@@ -16,6 +16,7 @@
 #spacerS
 = Obiettivi e attività programmate (_backlog_)
 - Pianificazione del sesto sprint;
+- Organizzazione di un incontro con l'azienda proponente per verificare lo stato di avanzamento del progetto.
 - Conclusione dello sviluppo del _Poc (Proof of Concept)_;
 - Organizzazione di un incontro con il prof Cardin in vista della revisione RTB.
 
