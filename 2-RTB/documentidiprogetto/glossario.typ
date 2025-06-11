@@ -85,6 +85,13 @@ Axios è una libreria _JavaScript_ utilizzata per effettuare richieste #glossari
 Il backend denota la parte di un programma che gestisce la logica e l'interazione con il database, fornendo dati e servizi al frontend.
 
 #pagebreak()
+= B
+
+== Bug
+Errore di funzionamento di un sistema o di un programma che causa un comportamento indesiderato o imprevisto.
+
+
+#pagebreak()
 = C
 
 == Cloud
