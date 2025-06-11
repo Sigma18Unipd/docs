@@ -4,12 +4,17 @@
   titoloDocumento: "Piano di progetto",
   abstract: "Documento riepilogativo delle attività concluse e in corso di svolgimento dal gruppo Sigma18.",
   responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew"),
-  redattori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi"),
-  verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti"),
+  redattori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon"),
+  verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "0.5.0",
+  versioneAttuale: "0.6.0",
   versioni: (
+    "0.6.0",
+    "2025/06/11",
+    "Matteo Marangon",
+    "Alessandro Bernardello",
+    "Aggiornamento retrospettiva quinto sprint e inizio sesto sprint",
     "0.5.0",
     "2025/05/27",
     "Marco Egidi",
@@ -193,12 +198,28 @@ Il seguente è l'approccio scelto per l'identificazione dei rischi:
   inset: 9pt,
   [*Codice*], [*RO3*],
   [*Descrizione*],
-  [Una comunicazione esterna inefficace per impossibilità di risposta o mancanza di precisione di comuncazione può portare ad aumenti nei tempi complessivi dell'andamento del progetto],
+  [Una comunicazione esterna inefficace per impossibilità di risposta o mancanza di precisione di comunicazione può portare ad aumenti nei tempi complessivi dell'andamento del progetto],
 
   [*Probabilità*], [Media],
   [*Impatto*], [Alto],
   [*Strategie di attenuazione*],
   [Stabilire canali di comunicazione condivisi asincroni e con mezzi / strumenti più efficaci. Stabilire incontri periodici di confronto pianificati con anticipo.],
+)
+
+
+=== Rischio legato alla concomitanza alle sessioni d'esame <RO4>
+#table(
+  columns: (1fr, 2fr),
+  rows: auto,
+  inset: 9pt,
+  [*Codice*], [*RO4*],
+  [*Descrizione*],
+  [La concomitanza delle sessioni d'esame con le attività di progetto può causare ritardi nello sviluppo; i membri del gruppo potrebbero essere temporaneamente non disponibili in quanto impegnati con lo studio e la preparazione degli esami, rischiando di non raggiungere il monte ore ad essi assegnato.],
+
+  [*Probabilità*], [Media],
+  [*Impatto*], [Alto],
+  [*Strategie di attenuazione*],
+  [Pianificare con attenzione e cautela il periodo di sessione di esami, confidando nella collaborazione di ogni membro del gruppo, in modo da prevenire rallentamenti.],
 )
 
 #pagebreak()
@@ -652,7 +673,6 @@ Lato _backend_ sono state sviluppate le seguenti funzionalità:
 Sono state riscontrate difficoltà catalogabili nei rischi RT1 e RT2.
 Ai fini di mitigare quanto riscontrato, il gruppo ha deciso di continuare a studiare le tecnologie scelte e di contattare l'azienda proponente in caso di necessità.
 
-#pagebreak()
 
 
 
@@ -669,9 +689,9 @@ Ai fini di mitigare quanto riscontrato, il gruppo ha deciso di continuare a stud
 ==== Dettagli
 
 *Data di inizio*: 27/05/2025 \
-*Data di fine*: 10/06/2025 \
+*Data di fine*: 09/06/2025 \
 
-*Rischi attesi*: RT1, RT2, RO1, RO2
+*Rischi attesi*: RT1, RT2, RO1, RO2, RO4
 
 *Attività da svolgere*: \
 Il gruppo si impegna a:
@@ -696,4 +716,101 @@ Il gruppo si impegna a:
   [Aleena Mathew], [0], [2], [3], [3], [0], [2], [*10*],
   [Carmelo Russello], [0], [2], [3], [0], [2], [3], [*10*],
   [*Totali*], [*6*], [*5*], [*19*], [*18*], [*6*], [*13*], [*67*],
+)
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [1 (-2)], [0], [3 (+1)], [4 (+2)], [0], [1 (-1)], [*9*],
+  [Mirco Borella], [0], [0], [2], [5], [0], [2], [*9*],
+  [Pietro Crotti], [0], [0], [2], [5], [0], [2], [*9*],
+  [Marco Egidi], [3], [0], [4], [3], [0], [0], [*10*],
+  [Matteo Marangon], [0], [1], [3], [0], [4], [2], [*10*],
+  [Aleena Mathew], [0], [2], [3], [3], [0], [2], [*10*],
+  [Carmelo Russello], [2 (+2)], [2], [1 (-2)], [0], [2], [3], [*10*],
+  [*Totali*], [*6*], [*5*], [*18*], [*20*], [*6*], [*12*], [*67*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [6], [€20], [€120.00],
+  [Analista], [5], [€25], [€125.00],
+  [Progettista], [18], [€25], [€450.00],
+  [Programmatore], [20], [€15], [€300.00],
+  [Responsabile], [6], [€30], [€180.00],
+  [Verificatore], [12], [€15], [€180.00],
+  [*Totali*], [*67*], [], [*€1355.00*],
+)
+
+==== *Analisi retrospettiva*:
+_Sigma18_ dichiara che il quinto sprint è stato meno proficuo all'avanzamento del capitolato rispetto ai precedenti, per via della manifestazione del rischio RO4.
+
+Nello specifico sono stati validati i documenti *Piano di qualifica* e *Norme di Progetto*.
+
+Il gruppo ha proseguito lo sviluppo del _PoC_, codificando le seguenti funzionalità lato _frontend_:
+
+- Creazione della pagina di _dashboard_ per la visualizzazione dei flussi;
+
+- Miglioramento e modifica della pagina di creazione di un flusso;
+
+- Miglioramenti alla struttura del codice della gestione dei modali d'interazione;
+
+- Predisposizione del _frontend_ a comunicare con le API del _backend_ tramite la libreria #glossario("Axios").
+
+Lato _backend_ sono state sviluppate le seguenti funzionalità:
+
+- Sviluppo dell'autenticazione tramite libreria #glossario("Passport") con uso di #glossario("JWT");
+
+- Collegamento backend a database #glossario("MongoDB") tramite libreria #glossario("Mongoose").
+
+- Modifica del _compose_ Docker e dei _Dockerfile_ per migliorare la compatibilità su windows, introdurre MongoDB e distinguere tra ambiente di sviluppo e produzione.
+
+Sono state quindi riscontrate difficoltà catalogabili nei rischi RT1, RT2 e RO4. \
+Ai fini di mitigare quanto riscontrato, il gruppo ha deciso di adottare una suddivisione dei ruoli flessibile per permettere ai membri del gruppo di svolgere le mansioni di un ruolo diverso da quello assegnato, in modo tale da garantire continuità nello sviluppo se il membro originario con quel ruolo non fosse disponibile.
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 6
+
+==== Dettagli
+
+*Data di inizio*: 10/06/2025 \
+*Data di fine*: 23/06/2025 \
+
+*Rischi attesi*: RT1, RT2, RO1, RO2, RO4
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Sviluppo del _frontend_ del _Poc (Proof of Concept)_
+- Sviluppo del _backend_ del _Poc (Proof of Concept)_
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [4], [5], [0], [0], [*9*],
+  [Mirco Borella], [2], [0], [0], [5], [0], [2], [*9*],
+  [Pietro Crotti], [0], [0], [4], [2], [3], [0], [*9*],
+  [Marco Egidi], [0], [0], [4], [2], [3], [0], [*9*],
+  [Matteo Marangon], [0], [0], [0], [6], [0], [3], [*9*],
+  [Aleena Mathew], [4], [0], [4], [0], [0], [1], [*9*],
+  [Carmelo Russello], [0], [0], [4], [5], [0], [0], [*9*],
+  [*Totali*], [*6*], [*0*], [*20*], [*25*], [*6*], [*6*], [*63*],
 )
