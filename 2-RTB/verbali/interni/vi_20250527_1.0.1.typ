@@ -8,7 +8,7 @@
   verificatori: "Marco Egidi",
   tipo: "Verbale Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.0.1",
   versioni: (
     "1.0.1",
     "2025/05/27",
@@ -68,7 +68,7 @@ Il gruppo Sigma18 si impegna a portare a termine la verifica dei documenti riman
     "Sviluppo Frontend PoC",
     link("https://github.com/Sigma18Unipd/docs/issues/59")[00059],
     "Sviluppo Backend PoC",
-    link("https://github.com/Sigma18Unipd/docs/issues/51")[00066],
+    link("https://github.com/Sigma18Unipd/docs/issues/66")[00066],
     "Stesura verbale interno 2025-05-27",
   ),
 )
