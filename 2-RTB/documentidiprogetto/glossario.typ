@@ -7,8 +7,13 @@
   verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "0.5.0",
+  versioneAttuale: "0.7.0",
   versioni: (
+    "0.7.0",
+    "2025/06/11",
+    "Matteo Marangon",
+    "Alessandro Bernardello",
+    "Aggiunta termini per retrospettiva quinto sprint",
     "0.6.0",
     "2025/05/23",
     "Matteo Marangon",
@@ -70,6 +75,9 @@ Insieme di regole o protocolli atti a consentire la comunicazione tra diversi pr
 == AWS
 Amazon Web Services (AWS) è una piattaforma di servizi _cloud_ offerta da Amazon. Si suddivide in base al servizio offerto come ad esempio: calcolo, archiviazione, database, _machine learning_ e altro.
 
+== Axios
+Axios è una libreria _JavaScript_ utilizzata per effettuare richieste #glossario("HTTP") in modo semplice e intuitivo in applicazioni web per comunicare con le API.
+
 #pagebreak()
 = B
 
@@ -112,13 +120,26 @@ Con Frontend si denota la parte visibile di un programma con cui l'utente intera
 = G
 
 == Gen AI
-L'intelligenza artificiale generativa (o Gen AI) è un tipo di intelligenza artificiale che è in grado di generare testo, immagini, video o altro in risposta a richieste dette _prompt_.
+L'intelligenza artificiale generativa (o Gen AI) è un tipo di intelligenza artificiale che è in grado di generare testo, immagini, video o altro in risposta a richieste dette #glossario("prompt").
 
 == Git
 Sistema di controllo di versione distribuito che consente a più utenti di lavorare contemporaneamente su un progetto tenendo traccia delle modifiche apportate al codice sorgente.
 
 == GitHub
 Piattaforma web basata su #glossario("git") che fornisce strumenti per l'hosting di repository, il versionamento del codice e la collaborazione tra sviluppatori.
+
+#pagebreak()
+= H
+
+== HTTP
+Hypertext Transfer Protocol (HTTP) è il protocollo di comunicazione utilizzato per il trasferimento di dati su Internet, consentendo la trasmissione di pagine web e risorse tra client e server.
+
+#pagebreak()
+= J
+
+== JWT
+I _JSON Web Token_ (JWT) sono un formato di token utilizzato per l'autenticazione e l'autorizzazione in applicazioni web. I JWT consentono di trasmettere informazioni tra client e server in modo sicuro e compatto, garantendo l'integrità dei dati e l'autenticità dell'utente.
+
 
 #pagebreak()
 = L
@@ -132,6 +153,12 @@ Elenco cronologico delle attività svolte all'interno di un sistema, utile per i
 #pagebreak()
 = M
 
+== MongoDB
+MongoDB è un database _NoSQL_ orientato ai documenti, in grado di gestire grandi volumi di dati non strutturati e semi-strutturati.
+
+== Mongoose
+Mongoose è una libreria per #glossario("Node.JS") che semplifica l'interazione con i database MongoDB, fornendo un modello di dati e funzionalità per la validazione e la gestione delle query.
+
 == MVP (_Minimum Viable Product_)
 Il prodotto minimo funzionante (in inglese _Minimum Viable Product_) è la versione di un prodotto con caratteristiche appena sufficienti per essere funzionante e utilizzabile dai primi clienti, i quali possono fornire _feedback_ per migliorare il prodotto stesso.
 
@@ -139,10 +166,16 @@ Il prodotto minimo funzionante (in inglese _Minimum Viable Product_) è la versi
 = N
 
 == NestJS
-Un insieme di librerie in _Node.JS_ basato su _Typescript_ dedicate alla costruzione di applicazioni lato _server_ (_backend_) scalabili ed efficienti.
+Un insieme di librerie in #glossario("Node.JS") basato su _Typescript_ dedicate alla costruzione di applicazioni lato #glossario("server") (#glossario("backend")) scalabili ed efficienti.
+
+== Node.JS
+Node.js è un ambiente di esecuzione JavaScript che consente di eseguire codice JavaScript al di fuori di un browser. È ampiamente utilizzato per lo sviluppo di applicazioni _web_ e _server-side_.
 
 #pagebreak()
 = P
+
+== Passport
+Passport è una libreria per #glossario("Node.JS") utilizzata per semplificare l'implementazione dell'autenticazione e dell'autorizzazione.
 
 == PB (_Product Baseline_)
 Fase del processo di sviluppo software in cui viene definita la versione finale del prodotto, pronta per il rilascio. Durante questa fase vengono completate le attività di sviluppo, test e validazione del prodotto, garantendo il soddisfacimento dei requisiti e delle specifiche concordate.
@@ -160,7 +193,7 @@ Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale
 React è una libreria _JavaScript_ sviluppata da _Facebook_ utilizzata per creare interfacce utente interattive e dinamiche.
 
 == React Flow
-React Flow è una libreria basata su React progettata per la realizzazione di diagrammi e flussi di lavoro interattivi.
+React Flow è una libreria basata su #glossario("React") progettata per la realizzazione di diagrammi e flussi di lavoro interattivi.
 
 == Routine
 Sequenza di istruzioni che consentono di eseguire un'operazione di frequente esecuzione.
