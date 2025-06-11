@@ -267,7 +267,7 @@ Valuta l'efficienza con cui il tempo disponibile viene impiegato in attività pr
     rows: auto,
     inset: 7pt,
     table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPC-ET], [Efficienza temporale ], [≤3], [≤1],
+    [MPC-ET], [Efficienza temporale ], [≤50%], [≤100],
   ),
 )
 #pagebreak()
@@ -579,6 +579,13 @@ Dal grafico emerge che la percentuale di metriche soddisfatte cresce progressiva
 #pagebreak()
 
 == Efficienza temporale (MPC-ET)
+#figure(
+  image("../../assets/chart/ET_chart.svg", width: 90%),
+  caption: [
+    Stima dei valori ET nel tempo
+  ],
+)
 
 === RTB
-#pagebreak()
+Il grafico mostra l'andamento dell'efficienza temporale del gruppo, che cresce progressivamente con l'avanzare degli sprint.
+Nei primi sprint si ha un'efficienza temporale bassa, dovuta all'inesperienza del gruppo e alla mancanza di conoscenze sulle tecnologie utilizzate.
