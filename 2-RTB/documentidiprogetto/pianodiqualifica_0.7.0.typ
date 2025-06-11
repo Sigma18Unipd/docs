@@ -4,36 +4,41 @@
   titoloDocumento: "Piano di Qualifica",
   abstract: "Piano di qualifica per il capitolato C3 proposto da Var Group S.p.A.",
   responsabili: ("Mirco Borella", "Aleena Mathew"),
-  redattori: "Aleena Mathew",
-  verificatori: ("Carmelo Russello", "Matteo Marangon"),
+  redattori: ("Aleena Mathew", "Matteo Marangon", "Pietro Crotti"),
+  verificatori: ("Carmelo Russello", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "0.6.0",
+  versioneAttuale: "0.7.0",
   versioni: (
+    "0.7.0",
+    "2025/06/1",
+    "Aleena Mathew ",
+    "Matteo Marangon",
+    "Aggiornamento cruscotto di valutazione concluso il quinto sprint",
     "0.6.0",
     "2025/05/20",
-    "Aleena Mathew ",
-    "",
+    "Pietro Crotti",
+    "Matteo Marangon",
     "Aggiornamento di alcune metriche in accordo con le norme",
     "0.5.0",
     "2025/05/20",
     "Aleena Mathew ",
-    "Matteo Marangon",
-    "Aggiunta scheletro per il cruscotto di valutazione",
+    "Alessandro Bernardello",
+    "Scheletro per il cruscotto di valutazione",
     "0.4.1",
     "2025/05/14",
-    "Aleena Mathew ",
     "Matteo Marangon",
+    "Pietro Crotti",
     "Correzione di errori minori",
     "0.4.0",
     "2025/05/09",
     "Aleena Mathew ",
     "Matteo Marangon",
-    "Correzione di errori ed elenco tabelle",
+    "Correzione di errori e aggiunta elenco tabelle",
     "0.3.0",
     "2025/04/30",
-    "Aleena Mathew ",
     "Matteo Marangon",
+    "Aleena Mathew",
     "Aggiunta di nuove metriche",
     "0.2.0",
     "2025/04/30",
@@ -142,7 +147,7 @@ Misura l’efficienza del costo per il lavoro svolto fino a un determinato momen
     [MPC-AC], [Actual Cost], [≥0], [≤EAC],
     [MPC-EAC], [Estimated At Completion], [±5% BAC], [=BAC],
     [MPC-ETC], [Estimated To Complete], [≥0], [≤EAC],
-    [MPC-CV], [Cost Variance ], [≥-5%], [≥0],
+    [MPC-CV], [Cost Variance ], [≥-5% BAC], [≥0],
     [MPC-SV], [Schedule variance], [±5% BAC], [≥0],
     [MPC-CPI], [Cost performance index], [≥0], [1],
   ),
@@ -465,6 +470,11 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
   ],
 )
 === RTB
+Come si può notare dal grafico, il valore di *MPC-EAC* non è superiore al *5% del BAC*, indicato come _limite superiore_, quindi il progetto è in linea con le aspettative di budget.
+
+
+
+
 #pagebreak()
 == Planned Value (MPC-PV) & Earned Value (MPC-EV)
 #figure(
@@ -474,6 +484,11 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
   ],
 )
 === RTB
+Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *MPC-PV*, indicando che il progetto sta procedendo secondo la pianificazione.
+
+
+
+
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
 #figure(
@@ -483,6 +498,9 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
   ],
 )
 === RTB
+Il grafico mostra l'andamento dei valori di *MPC-AC*, *MPC-ETC* e *MPC-EAC* nel tempo.
+Come si può notare, il valore di *MPC-AC* cresce costantemente, mentre il valore di *MPC-ETC* diminuisce progressivamente con l'avanzare degli sprint, indicando che il progetto sta procedendo correttamente.
+
 #pagebreak()
 
 == Cost Variance (MPC-CV) & Schedule Variance (MPC-SV)
@@ -493,9 +511,16 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
   ],
 )
 === RTB
+Dal grafico si può notare che i valore di *MPC-CV* e *MPC-SV* sono sempre entro i limiti accettabili, indicati come _limite superiore_ e _limite inferiore_.
+
+
+
+
+
+
 #pagebreak()
 
-== Cost Performance Index (MPC-CPI) // posso unirlo a sopra
+== Cost Performance Index (MPC-CPI)
 #figure(
   image("../../assets/chart/CPI_chart.svg", width: 90%),
   caption: [
@@ -503,11 +528,25 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
   ],
 )
 === RTB
+Il grafico mostra l'andamento del *MPC-CPI* nel tempo, si può notare che è sempre superiore a 0, indicando che il progetto sta procedendo correttamente dal punto di vista dei costi.\
+
+
+
+
 #pagebreak()
 
 == Requirements Stability Index (MPC-RSI)
-//grafico con RSI
+#figure(
+  image("../../assets/chart/RSI_chart.svg", width: 90%),
+  caption: [
+    Stima dei valori RSI nel tempo
+  ],
+)
 === RTB
+Dal grafico si può notare che nei due sprint iniziali il valore di *MPC-RSI* è pari a 0, dato dal fatto che i requisiti sono stati definiti solo a partire dal terzo sprint.
+Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e valori accettabili, indicando che i requisiti sono stati stabiliti e non sono soggetti a modifiche frequenti.
+
+
 #pagebreak()
 
 
@@ -520,6 +559,10 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
   ],
 )
 === RTB
+Si può notare che se nei vari documenti redatti inizialmente fossero presenti errori ortografici, il gruppo si è mosso per correggerli, per raggiungere un valore pari a 0.
+
+
+
 #pagebreak()
 
 == Satisfaction of Quality Metrics (MPC-SQM)
@@ -530,6 +573,9 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
   ],
 )
 === RTB
+Dal grafico emerge che la percentuale di metriche soddisfatte cresce progressivamente con l'avanzare degli sprint.
+
+
 #pagebreak()
 
 == Efficienza temporale (MPC-ET)
