@@ -8,8 +8,13 @@
   verificatori: "Matteo Marangon",
   tipo: "Verbale Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.0.1",
   versioni: (
+    "1.0.1",
+    "2025/06/25",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Fix minori",
     "1.0.0",
     "2025/06/25",
     "Pietro Crotti",
@@ -50,7 +55,7 @@ Al fine di garantire la leggibilità e la coerenza della documentazione, tutti i
 Il gruppo ha discusso alcune problematiche riscontrate riguardanti lo sviluppo del #glossario("Backend"). Nello specifico, si è deciso di sviluppare quest'ultimo in #glossario("Python") in modo da velocizzare e semplificare la codifica del _PoC_. Il gruppo ha quindi deciso di approfondire l'argomento di #glossario("Gen AI"), in particolare per quanto riguarda l'applicazione concreta nel _PoC_ e la scelta del modello da utilizzare.
 
 = Conclusioni e decisioni prese
-È stato stabilito l'utilizzo del modello di _GenAI Amazon Nova Premier_ per il _PoC_.
+È stato stabilito l'utilizzo del modello di _GenAI Deepseek R1_ per il _PoC_.
 Il gruppo _Sigma18_ si impegna a continuare lo sviluppo del _backend_ e #glossario("Frontend") per raggiungerne il completamento entro la fine dello _sprint_, nel tentativo di recuperare i rallentamenti accumulati a causa della sessione estiva d'esami.
 
 
