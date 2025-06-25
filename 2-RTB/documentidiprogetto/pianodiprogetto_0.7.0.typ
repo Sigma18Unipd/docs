@@ -893,8 +893,8 @@ Inoltre, il gruppo prevede che i prossimi sprint non saranno affetti dal rischio
 *Attività da svolgere*: \
 Il gruppo si impegna a:
 - Terminare lo sviluppo del _Poc (Proof of Concept)_
-- Revisione RTB
-- Approvazione del _Poc (Proof of Concept)_ dall'azienda proponente
+- Effettuare la revisione RTB
+- Ottenere l'approvazione del _Poc (Proof of Concept)_ da parte dell'azienda proponente
 
 ==== *Preventivo orario*:
 #table(
