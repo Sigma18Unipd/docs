@@ -3,12 +3,17 @@
 #show: content => verbale(
   titoloDocumento: "Glossario",
   responsabili: "Matteo Marangon",
-  redattori: ("Mirco Borella", "Matteo Marangon", "Aleena Mathew"),
-  verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti"),
+  redattori: ("Mirco Borella", "Matteo Marangon", "Aleena Mathew", "Pietro Crotti"),
+  verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "0.7.0",
+  versioneAttuale: "0.8.0",
   versioni: (
+    "0.8.0",
+    "2025/06/26",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Aggiunta termini per retrospettiva sesto sprint",
     "0.7.0",
     "2025/06/11",
     "Matteo Marangon",
@@ -192,6 +197,9 @@ Prototipo o modello iniziale che dimostra la fattibilit√† o conferma la validit√
 
 == Prompt
 Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale per ottenere un'elaborazione specifica.
+
+== Python
+Linguaggio di programmazione ad alto livello, orientato a oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e _system testing_.
 
 #pagebreak()
 = R
