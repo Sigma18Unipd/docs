@@ -9,6 +9,10 @@
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
   versioneAttuale: "0.8.0",
   versioni: (
+    "0.9.0",
+    "2025/06/25",
+    "Aleena Mathew",
+    "Carmelo Russello",
     "0.8.0",
     "2025/06/26",
     "Pietro Crotti",
@@ -74,6 +78,14 @@ Un agente è un'entità software che esegue attività in maniera autonoma per co
 == Agile
 Metodologia di sviluppo che si basa su un approccio iterativo e adattivo, favorendo la collaborazione con il cliente e la consegna continua.
 
+== Amazon Bedrock
+Piattaforma cloud che permette di accedere via API a modelli fondamentali di AI generativa offerti da più provider e di integrarli direttamente in applicazioni personalizzate con il supporto di strumenti per l’orchestrazione, la sicurezza e il monitoraggio.
+
+
+== Amazon Nova
+Famiglia di modelli di base di Amazon AWS per l'intelligenza artificiale generativa, progettati per essere facilmente integrati con Amazon Bedrock.
+
+
 == API (_Application Programming Interface_)
 Insieme di regole o protocolli atti a consentire la comunicazione tra diversi prodotti o servizi e per far scambiare loro dati, caratteristiche e funzionalità.
 
@@ -111,12 +123,21 @@ Componente o programma che accede ad un servizio reso disponibile da un #glossar
 == Dashboard
 Pagina principale del #glossario("client") contenente le #glossario("routine") create dall'utente e la possibilità di crearne di nuove.
 
+== DeepSeek R1
+Modello di intelligenza artificiale open source.
+
 == Design Thinking
 Approccio di progettazione di un software centrato sull'esperienza utente che prende in considerazione il target di riferimento per costruire un'esperienza solida e mirata, particolarmente funzionale in un ambiente agile.
+
 
 == Drag & Drop
 Tecnica di interazione grafica che si basa sul trascinamento di elementi a schermo. Si tratta di una rappresentazione intuitiva anche per utenti inesperti poiché si basa su
 intuizione e facilità d'uso.
+
+
+
+
+
 
 #pagebreak()
 
