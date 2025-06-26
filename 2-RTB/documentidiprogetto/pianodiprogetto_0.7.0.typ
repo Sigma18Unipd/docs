@@ -11,9 +11,10 @@
   versioneAttuale: "0.7.0",
   versioni: (
     "0.7.0",
-    "2025/06/11",
+    "2025/06/26",
     "Aleena Mathew",
     "Carmelo Russello",
+    "Aggiornamento retrospettiva sesto sprint e inizio settimo sprint",
     "0.6.0",
     "2025/06/11",
     "Matteo Marangon",
@@ -376,7 +377,7 @@ Nello specifico è stato steso il glossario e iniziata la stesura dei piani di p
 
 Il gruppo ha organizzato e partecipato all'incontro di _Design Thinking_ con l'azienda proponente lunedì 14 Aprile che ha steso le basi per organizzare i lavori successivi.
 
-Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggeti temporanemente non reperibili ha rallentato il progesso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilitá di tempo di un solo soggetto.
+Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggetti temporaneamente non reperibili ha rallentato il progresso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilità di tempo di un solo soggetto.
 
 
 
@@ -858,8 +859,7 @@ Il gruppo si impegna a:
 
 
 ==== *Analisi retrospettiva*:
-_Sigma18_ dichiara che il sesto sprint, analogamente al quinto sprint, ha subito un rallentamento nell'avanzamento del capitolato, per via della manifestazione del rischio RO4.
-
+_Sigma18_ dichiara che il sesto sprint, ha subito un rallentamento più marcato rispetto ai precedenti, nell'avanzamento del capitolato, per via della manifestazione del rischio RO4.
 
 Il gruppo ha proseguito lo sviluppo del _PoC_, in particolare è stato studiato e testato il funzionamento di #glossario("Amazon Bedrock") per l'integrazione delle tecnologie di intelligenza artificiale generativa richieste dal capitolato. Nello specifico sono stati analizzati i seguenti modelli offerti dal servizio:
 - #glossario("Amazon Nova") Pro;
@@ -872,7 +872,6 @@ Il gruppo ha proseguito lo sviluppo del _PoC_, in particolare è stato studiato 
 
 Continuano ad essere riscontrate difficoltà catalogabili nei rischi RT1, RT2 e RO4. \
 Ai fini di mitigare quanto riscontrato, il gruppo continua ad adottare una suddivisione dei ruoli flessibile per permettere ai membri del gruppo di svolgere le mansioni di un ruolo diverso da quello assegnato, in modo tale da garantire continuità nello sviluppo.\
-Inoltre, il gruppo prevede che i prossimi sprint non saranno affetti dal rischio RO4, in quanto le sessioni d'esame termineranno a breve.
 
 
 
