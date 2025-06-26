@@ -7,12 +7,18 @@
   verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "0.8.0",
+  versioneAttuale: "0.10.0",
   versioni: (
+    "0.10.0",
+    "2025/06/26",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Rimozione termini non utilizzati, aggiunta termini e fix minori",
     "0.9.0",
     "2025/06/25",
     "Aleena Mathew",
     "Carmelo Russello",
+    "Aggiunta termini per retrospettiva sesto sprint",
     "0.8.0",
     "2025/06/26",
     "Pietro Crotti",
@@ -176,6 +182,9 @@ I _JSON Web Token_ (JWT) sono un formato di token utilizzato per l'autenticazion
 
 #pagebreak()
 = L
+
+== Llama 3.3
+Modello di intelligenza artificiale sviluppato da Meta AI.
 
 == LLM (_Large Language Model_)
 I modelli linguistici di grandi dimensioni (LLM) sono una categoria di modelli di intelligenza artificiale addestrati su immense quantità di dati che li rendono in grado di comprendere e generare linguaggio naturale in modo coerente con un _input_ fornito da un utente.
