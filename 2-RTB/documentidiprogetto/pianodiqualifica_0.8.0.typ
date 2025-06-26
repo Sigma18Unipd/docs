@@ -8,10 +8,15 @@
   verificatori: ("Carmelo Russello", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "0.7.0",
+  versioneAttuale: "0.8.0",
   versioni: (
+    "0.8.0",
+    "2025/06/26",
+    "Aleena Mathew ",
+    "Carmelo Russello",
+    "Aggiornamento cruscotto di valutazione concluso il sesto sprint",
     "0.7.0",
-    "2025/06/1",
+    "2025/06/11",
     "Aleena Mathew ",
     "Matteo Marangon",
     "Aggiornamento cruscotto di valutazione concluso il quinto sprint",
@@ -82,7 +87,9 @@ Alla prima occorrenza, tali termini saranno opportunamente segnalati tramite la 
 link
 
 - * ISO/IEC 12207:1995: *
-#link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf]
+#link(
+  "https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf",
+)[https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf]
 
 - *Capitolato C3 - Automatizzare le routine digitali tramite l'intelligenza generativa*
 #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf]
@@ -133,25 +140,21 @@ Misura la differenza tra il valore guadagnato (EV) e il valore pianificato (PV) 
 
 ==== Cost performance index (MPC-CPI)
 Misura l’efficienza del costo per il lavoro svolto fino a un determinato momento, in base al valore ottenuto per ogni unità monetaria spesa.
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi del processo di fornitura],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPC-EV], [Earned Value], [≥0], [≤EAC],
-    [MPC-PV], [Planned Value], [≥0], [≤BAC],
-    [MPC-AC], [Actual Cost], [≥0], [≤EAC],
-    [MPC-EAC], [Estimated At Completion], [±5% BAC], [=BAC],
-    [MPC-ETC], [Estimated To Complete], [≥0], [≤EAC],
-    [MPC-CV], [Cost Variance ], [≥-5% BAC], [≥0],
-    [MPC-SV], [Schedule variance], [±5% BAC], [≥0],
-    [MPC-CPI], [Cost performance index], [≥0], [1],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi del processo di fornitura], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPC-EV], [Earned Value], [≥0], [≤EAC],
+  [MPC-PV], [Planned Value], [≥0], [≤BAC],
+  [MPC-AC], [Actual Cost], [≥0], [≤EAC],
+  [MPC-EAC], [Estimated At Completion], [±5% BAC], [=BAC],
+  [MPC-ETC], [Estimated To Complete], [≥0], [≤EAC],
+  [MPC-CV], [Cost Variance ], [≥-5% BAC], [≥0],
+  [MPC-SV], [Schedule variance], [±5% BAC], [≥0],
+  [MPC-CPI], [Cost performance index], [≥0], [1],
+))
 
 === Sviluppo
 Attività che ha lo scopo di descrivere le attività e i compiti necessari per creare e mantenere un sistema software, fondamentale per un prodotto finale che soddisfi i requisiti specificati nel contratto.
@@ -167,19 +170,15 @@ Un valore basso indica che il codice è ben strutturato e non presenta problemi 
 \
 \
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi del processo di sviluppo],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPC-RSI], [Requirements Stability Index], [≥75%], [100%],
-    [MPC-TD], [Technical Debt Ratio], [≤15%], [≤5%],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi del processo di sviluppo], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPC-RSI], [Requirements Stability Index], [≥75%], [100%],
+  [MPC-TD], [Technical Debt Ratio], [≤15%], [≤5%],
+))
 
 #pagebreak()
 == Processi di supporto
@@ -193,18 +192,14 @@ La documentazione permette di avere un tracciamento delle attività svolte.
 ==== Correttezza ortografica (MPC-CO)
 La correttezza ortografica indica il numero di errori grammaticali e ortografici presenti in un documento.\
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi del processo di documentazione],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPC-CO], [Correttezza ortografica], [2], [0],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi del processo di documentazione], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPC-CO], [Correttezza ortografica], [2], [0],
+))
 
 
 === Verifica
@@ -219,19 +214,15 @@ La correttezza ortografica indica il numero di errori grammaticali e ortografici
 Indica la percentuale di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti.
 Una percentuale alta indica che il sistema è stabile e che la maggior parte delle funzionalità funziona come previsto.
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi del processo di verifica],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPC-CCO], [Code coverage], [≥85%], [100%],
-    [MPC-TSP], [Test superati in percentuale], [100%], [100%],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi del processo di verifica], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPC-CCO], [Code coverage], [≥85%], [100%],
+  [MPC-TSP], [Test superati in percentuale], [100%], [100%],
+))
 
 === Gestione della qualità
 
@@ -239,18 +230,14 @@ Una percentuale alta indica che il sistema è stabile e che la maggior parte del
 Indica la percentuale di metriche che soddisfano gli obiettivi minimi di qualità.\
 Il valore è ottenuto dalla somma delle metriche di qualità soddisfatte in rapporto al numero totale di metriche di qualità.
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi del processo di gestione della qualità],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPC-SQM], [Satisfaction of Quality Metrics], [≥80%], [100%],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi del processo di gestione della qualità], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPC-SQM], [Satisfaction of Quality Metrics], [≥80%], [100%],
+))
 
 == Processi organizzativi
 I processi organizzativi riguardano la gestione e l’organizzazione del progetto come la gestione dei processi, il miglioramento e la formazione.
@@ -258,18 +245,14 @@ I processi organizzativi riguardano la gestione e l’organizzazione del progett
 === Efficienza temporale (MPC-ET)
 Valuta l'efficienza con cui il tempo disponibile viene impiegato in attività produttive, ovvero quelle contribuiscono al raggiungimento degli obiettivi del progetto.
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi dei processi organizzativi],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPC-ET], [Efficienza temporale ], [≤50%], [≤100],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi dei processi organizzativi], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPC-ET], [Efficienza temporale ], [≤50%], [≤100],
+))
 #pagebreak()
 
 = Qualità del prodotto
@@ -293,20 +276,16 @@ Indica la percentuale di requisiti facoltativi soddisfatti dal prodotto. Un valo
 
 
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi della funzionalità del prodotto],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPD-RO], [Requisiti obbligatori soddisfatti], [100%], [100%],
-    [MPD-RD], [Requisiti desiderabili soddisfatti], [≥0%], [100%],
-    [MPD-ROP], [Requisiti facoltativi soddisfatti], [≥0%], [100%],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi della funzionalità del prodotto], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPD-RO], [Requisiti obbligatori soddisfatti], [100%], [100%],
+  [MPD-RD], [Requisiti desiderabili soddisfatti], [≥0%], [100%],
+  [MPD-ROP], [Requisiti facoltativi soddisfatti], [≥0%], [100%],
+))
 
 == Affidabilità
 L'affidabilità misura la capacità del software di funzionare correttamente sotto specifiche condizioni.
@@ -335,23 +314,19 @@ Un valore alto suggerisce che il software è capace di gestire i guasti senza co
 Indica la frequenza con cui si verificano guasti o malfunzionamenti nel prodotto.\
 Un valore basso suggerisce che il prodotto è affidabile.
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi dell'affidabilità del prodotto],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPD-CCO], [Code coverage], [≥70%], [100%],
-    [MPD-BC], [Branch coverage], [≥60%], [≥85%],
-    [MPD-SC], [Statement coverage], [≥60%], [≥85%],
-    [MPD-PTCP], [Passed test cases percentage], [≥70%], [100%],
-    [MPD-FT], [Failure Tolerance ], [100%], [100%],
-    [MPD-FF], [Failure Frequency ], [0], [0],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi dell'affidabilità del prodotto], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPD-CCO], [Code coverage], [≥70%], [100%],
+  [MPD-BC], [Branch coverage], [≥60%], [≥85%],
+  [MPD-SC], [Statement coverage], [≥60%], [≥85%],
+  [MPD-PTCP], [Passed test cases percentage], [≥70%], [100%],
+  [MPD-FT], [Failure Tolerance ], [100%], [100%],
+  [MPD-FF], [Failure Frequency ], [0], [0],
+))
 
 == Usabilità
 L'usabilità indica la facilità con cui gli utenti possono utilizzare il software.
@@ -364,19 +339,15 @@ Un valore basso indica che il prodotto è facile da usare e richiede poco tempo 
 Indica il numero di errori commessi dagli utenti durante l'interazione con il software.\
 Un valore basso indica che il prodotto è facile da usare e che gli utenti riescono a completare le azioni richieste senza errori.
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi dell'usabilità del prodotto],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPD-TA], [Tempo di apprendimento], [≤15 minuti], [≤5 minuti],
-    [MPD-ER], [Error Rate ], [≤4 errori], [0 errori],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi dell'usabilità del prodotto], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPD-TA], [Tempo di apprendimento], [≤15 minuti], [≤5 minuti],
+  [MPD-ER], [Error Rate ], [≤4 errori], [0 errori],
+))
 
 == Efficienza
 
@@ -389,19 +360,15 @@ risorse di sistema.\
 Indica il tempo medio di risposta delle API del sistema.\
 Un valore basso indica che il sistema è in grado di rispondere rapidamente alle richieste degli utenti.
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi dell'efficienza del prodotto],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPD-UR], [Utilizzo risorse], [≥70%], [100%],
-    [MPD-TRA], [Tempo di risposta API ], [≤600 ms], [≤200 ms],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi dell'efficienza del prodotto], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPD-UR], [Utilizzo risorse], [≥70%], [100%],
+  [MPD-TRA], [Tempo di risposta API ], [≤600 ms], [≤200 ms],
+))
 
 
 == Manutenibilità
@@ -422,21 +389,17 @@ Un valore alto implica che i moduli sono strettamente interconnessi, rendendo di
 Indica il tempo medio necessario per risolvere un bug.\
 Un valore basso indica che si è in grado di risolverli in maniera rapida ed efficiente.
 
-#figure(
-  kind: table,
-  caption: [Valori accettabili e ottimi della manutenibilità del prodotto],
-  table(
-    columns: (auto, 1fr, auto, auto),
-    align: center,
-    rows: auto,
-    inset: 7pt,
-    table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-    [MPD-CC], [Complessità ciclomatica], [≤15], [≤7],
-    [MPD-CS], [Code Smell ], [≤10], [0],
-    [MPD-COC], [Coefficient of Coupling ], [≤35%], [≤10%],
-    [MPD-TRB], [Tempo per risolvere i bug ], [≤4 ore], [≤2 ore],
-  ),
-)
+#figure(kind: table, caption: [Valori accettabili e ottimi della manutenibilità del prodotto], table(
+  columns: (auto, 1fr, auto, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
+  [MPD-CC], [Complessità ciclomatica], [≤15], [≤7],
+  [MPD-CS], [Code Smell ], [≤10], [0],
+  [MPD-COC], [Coefficient of Coupling ], [≤35%], [≤10%],
+  [MPD-TRB], [Tempo per risolvere i bug ], [≤4 ore], [≤2 ore],
+))
 
 #pagebreak()
 
@@ -463,26 +426,20 @@ Il loro successo è fondamentale per garantire il rilascio definitivo del prodot
 La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
 
 == Estimated at Completion (MPC-EAC)
-#figure(
-  image("../../assets/chart/EAC_chart.svg", width: 90%),
-  caption: [
-    Stima del costo totale nel tempo
-  ],
-)
+#figure(image("../../assets/chart/EAC_chart.svg", width: 90%), caption: [
+  Stima del costo totale nel tempo
+])
 === RTB
-Come si può notare dal grafico, il valore di *MPC-EAC* non è superiore al *5% del BAC*, indicato come _limite superiore_, quindi il progetto è in linea con le aspettative di budget.
+Come si può notare dal grafico, il valore di *MPC-EAC* non supera il *5% del BAC*, indicato come _limite superiore_, quindi il progetto è in linea con le aspettative di budget.
 
 
 
 
 #pagebreak()
 == Planned Value (MPC-PV) & Earned Value (MPC-EV)
-#figure(
-  image("../../assets/chart/PV_EV_chart.svg", width: 90%),
-  caption: [
-    Stima dei valori EV e PV nel tempo
-  ],
-)
+#figure(image("../../assets/chart/PV_EV_chart.svg", width: 90%), caption: [
+  Stima dei valori EV e PV nel tempo
+])
 === RTB
 Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *MPC-PV*, indicando che il progetto sta procedendo secondo la pianificazione.
 
@@ -491,12 +448,9 @@ Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *
 
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
-#figure(
-  image("../../assets/chart/AC_ETC_EAC_chart.svg", width: 90%),
-  caption: [
-    Stima dei valori AC, ETC e EAC nel tempo
-  ],
-)
+#figure(image("../../assets/chart/AC_ETC_EAC_chart.svg", width: 90%), caption: [
+  Stima dei valori AC, ETC e EAC nel tempo
+])
 === RTB
 Il grafico mostra l'andamento dei valori di *MPC-AC*, *MPC-ETC* e *MPC-EAC* nel tempo.
 Come si può notare, il valore di *MPC-AC* cresce costantemente, mentre il valore di *MPC-ETC* diminuisce progressivamente con l'avanzare degli sprint, indicando che il progetto sta procedendo correttamente.
@@ -504,12 +458,9 @@ Come si può notare, il valore di *MPC-AC* cresce costantemente, mentre il valor
 #pagebreak()
 
 == Cost Variance (MPC-CV) & Schedule Variance (MPC-SV)
-#figure(
-  image("../../assets/chart/CV_SV_chart.svg", width: 90%),
-  caption: [
-    Stima dei valori CV e SV nel tempo
-  ],
-)
+#figure(image("../../assets/chart/CV_SV_chart.svg", width: 90%), caption: [
+  Stima dei valori CV e SV nel tempo
+])
 === RTB
 Dal grafico si può notare che i valore di *MPC-CV* e *MPC-SV* sono sempre entro i limiti accettabili, indicati come _limite superiore_ e _limite inferiore_.
 
@@ -521,12 +472,9 @@ Dal grafico si può notare che i valore di *MPC-CV* e *MPC-SV* sono sempre entro
 #pagebreak()
 
 == Cost Performance Index (MPC-CPI)
-#figure(
-  image("../../assets/chart/CPI_chart.svg", width: 90%),
-  caption: [
-    Stima dei valori CPI nel tempo
-  ],
-)
+#figure(image("../../assets/chart/CPI_chart.svg", width: 90%), caption: [
+  Stima dei valori CPI nel tempo
+])
 === RTB
 Il grafico mostra l'andamento del *MPC-CPI* nel tempo, si può notare che è sempre superiore a 0, indicando che il progetto sta procedendo correttamente dal punto di vista dei costi.\
 
@@ -536,12 +484,9 @@ Il grafico mostra l'andamento del *MPC-CPI* nel tempo, si può notare che è sem
 #pagebreak()
 
 == Requirements Stability Index (MPC-RSI)
-#figure(
-  image("../../assets/chart/RSI_chart.svg", width: 90%),
-  caption: [
-    Stima dei valori RSI nel tempo
-  ],
-)
+#figure(image("../../assets/chart/RSI_chart.svg", width: 90%), caption: [
+  Stima dei valori RSI nel tempo
+])
 === RTB
 Dal grafico si può notare che nei due sprint iniziali il valore di *MPC-RSI* è pari a 0, dato dal fatto che i requisiti sono stati definiti solo a partire dal terzo sprint.
 Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e valori accettabili, indicando che i requisiti sono stati stabiliti e non sono soggetti a modifiche frequenti.
@@ -552,26 +497,20 @@ Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e va
 
 
 == Correttezza ortografica (MPC-CO)
-#figure(
-  image("../../assets/chart/CO_chart.svg", width: 90%),
-  caption: [
-    Stima dei valori CO nel tempo
-  ],
-)
+#figure(image("../../assets/chart/CO_chart.svg", width: 90%), caption: [
+  Stima dei valori CO nel tempo
+])
 === RTB
-Si può notare che se nei vari documenti redatti inizialmente fossero presenti errori ortografici, il gruppo si è mosso per correggerli, per raggiungere un valore pari a 0.
+Si può notare che il gruppo si è sempre impegnato a correggere gli eventuali errori ortografici presenti inizialmente nei documenti redatti, per raggiungere un valore pari a 0.
 
 
 
 #pagebreak()
 
 == Satisfaction of Quality Metrics (MPC-SQM)
-#figure(
-  image("../../assets/chart/SQM_chart.svg", width: 90%),
-  caption: [
-    Stima dei valori SQM nel tempo
-  ],
-)
+#figure(image("../../assets/chart/SQM_chart.svg", width: 90%), caption: [
+  Stima dei valori SQM nel tempo
+])
 === RTB
 Dal grafico emerge che la percentuale di metriche soddisfatte cresce progressivamente con l'avanzare degli sprint.
 
@@ -579,12 +518,9 @@ Dal grafico emerge che la percentuale di metriche soddisfatte cresce progressiva
 #pagebreak()
 
 == Efficienza temporale (MPC-ET)
-#figure(
-  image("../../assets/chart/ET_chart.svg", width: 90%),
-  caption: [
-    Stima dei valori ET nel tempo
-  ],
-)
+#figure(image("../../assets/chart/ET_chart.svg", width: 90%), caption: [
+  Stima dei valori ET nel tempo
+])
 
 === RTB
 Il grafico mostra l'andamento dell'efficienza temporale del gruppo, che cresce progressivamente con l'avanzare degli sprint.
