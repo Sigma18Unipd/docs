@@ -862,11 +862,12 @@ Il gruppo si impegna a:
 _Sigma18_ dichiara che il sesto sprint, ha subito un rallentamento più marcato rispetto ai precedenti, nell'avanzamento del capitolato, per via della manifestazione del rischio RO4.
 
 Il gruppo ha proseguito lo sviluppo del _PoC_, in particolare è stato studiato e testato il funzionamento di #glossario("Amazon Bedrock") per l'integrazione delle tecnologie di intelligenza artificiale generativa richieste dal capitolato. Nello specifico sono stati analizzati i seguenti modelli offerti dal servizio:
-- #glossario("Amazon Nova") Pro;
-- Amazon Nova Micro;
-- Amazon Nova Lite;
-- Amazon Nova Premier;
-- #glossario("DeepSeek R1").
+- #glossario("Amazon Nova") _Pro_;
+- _Amazon Nova Micro_;
+- _Amazon Nova Lite_;
+- _ Amazon Nova Premier_;
+- #glossario("DeepSeek R1");
+- #glossario("Llama 3.3 70B").
 
 
 
