@@ -228,9 +228,6 @@ Prototipo o modello iniziale che dimostra la fattibilit√† o conferma la validit√
 == Prompt
 Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale per ottenere un'elaborazione specifica.
 
-== Python
-Linguaggio di programmazione ad alto livello, orientato a oggetti, adatto, tra gli altri usi, a sviluppare applicazioni distribuite, scripting, computazione numerica e _system testing_.
-
 #pagebreak()
 = R
 
