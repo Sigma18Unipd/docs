@@ -4,11 +4,16 @@
   titoloDocumento: "Glossario",
   responsabili: "Matteo Marangon",
   redattori: ("Mirco Borella", "Matteo Marangon", "Aleena Mathew", "Pietro Crotti"),
-  verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon"),
+  verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "0.10.0",
+  versioneAttuale: "0.11.0",
   versioni: (
+    "0.11.0",
+    "2025/06/27",
+    "Matteo Marangon",
+    "Aleena Mathew",
+    "Aggiunta termine",
     "0.10.0",
     "2025/06/26",
     "Pietro Crotti",
@@ -220,6 +225,9 @@ Elenco cronologico delle attività svolte all'interno di un sistema, utile per i
 
 == Merge
 Operazione di unione di due o più branch in un repository Git. Il merge consente di combinare le modifiche apportate in diversi rami del codice sorgente.
+
+== Milestone
+Punto di riferimento o obiettivo significativo all'interno di un progetto, che segna il completamento di una fase importante o il raggiungimento di un traguardo specifico. Segnala l'avanzamento del progetto in rapporto al programma stabilito.
 
 == MongoDB
 MongoDB è un database _NoSQL_ orientato ai documenti, in grado di gestire grandi volumi di dati non strutturati e semi-strutturati.
