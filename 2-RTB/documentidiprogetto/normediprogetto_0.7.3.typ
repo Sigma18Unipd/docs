@@ -4,26 +4,31 @@
   titoloDocumento: "Norme di progetto",
   abstract: "Documento contenente le Norme di progetto che definiscono le modalità di lavoro del gruppo.",
   responsabili: "Pietro Crotti",
-  redattori: ("Mirco Borella", "Alessandro Bernardello", "Aleena Mathew", "Matteo Marangon"),
-  verificatori: ("Mirco Borella", "Marco Egidi", "Matteo Marangon"),
+  redattori: ("Mirco Borella", "Alessandro Bernardello", "Aleena Mathew", "Matteo Marangon", "Marco Egidi"),
+  verificatori: ("Mirco Borella", "Carmelo Russello", "Matteo Marangon", "Alessandro Bernardello", "Aleena Mathew", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "0.7.2",
+  versioneAttuale: "0.7.3",
   versioni: (
+    "0.7.3",
+    "2025/06/27",
+    "Aleena Mathew",
+    "Matteo Marangon",
+    "Correzioni lessicali e grammaticali",
     "0.7.2",
     "2025/06/06",
-    "Aleeana Mathew",
-    "",
+    "Aleena Mathew",
+    "Matteo Marangon",
     "Correzione di una metrica",
     "0.7.1",
     "2025/06/02",
     "Matteo Marangon",
-    "",
+    "Carmelo Russello",
     "Correzioni lessicali e grammaticali, integrazione link",
     "0.7.0",
     "2025/05/27",
     "Aleena Mathew",
-    "",
+    "Pietro Crotti",
     "Aggiunte metriche di qualità",
     "0.6.0",
     "2025/05/13",
@@ -33,17 +38,17 @@
     "0.5.0",
     "2025/05/08",
     "Mirco Borella",
-    "",
+    "Alessandro Bernardello",
     "Norme analisi dei requisiti e continuazione stesura documento",
     "0.4.0",
     "2025/05/04",
     "Mirco Borella",
-    "",
+    "Carmelo Russello",
     "Aggiunta sezione 3.1.9 (Manutenzione documenti)",
     "0.3.0",
     "2025/04/30",
     "Mirco Borella",
-    "",
+    "Aleena Mathew",
     "Stesura sezioni da 2.3 (Sviluppo) a 3.2 (Gestione della configurazione)",
     "0.2.0",
     "2025/04/26",
@@ -53,7 +58,7 @@
     "0.1.0",
     "2025/04/22",
     "Mirco Borella",
-    "",
+    "Alessandro Bernardello",
     "Stesura iniziale documento e Introduzione",
   ),
   content: content,
@@ -182,7 +187,7 @@ La fornitura è composta da un insieme di attività successivamente descritte:
 - *Consegna e completamento*: Al termine del progetto, il fornitore consegna il prodotto finale al proponente, garantendo il supporto post-consegna e risolvendo eventuali problematiche che potrebbero emergere nelle fasi iniziali di utilizzo. (Supporto post-consegna non previsto dal capitolato).
 
 === Elenco della documentazione fornita
-Segue un elenco dei documenti che il gruppo _Sigma18_ fornirà all'azienda proponente _Var Group S.p.A._ e ai committenti del capitolato _Prof. Tullio Vardanega_ e _Prof. Riccardo Cardin_ (in ordine alfabetico).
+Segue un elenco dei documenti che il gruppo _Sigma18_ fornirà all'azienda proponente _Var Group S.p.A._ e ai committenti del capitolato _Prof. Riccardo Cardin_ e _Prof. Tullio Vardanega_  (in ordine alfabetico).
 
 ==== Analisi dei requisiti
 #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_0.11.1.pdf")[Documento] che ha lo scopo di fornire una descrizione dettagliata dei casi d'uso e dei requisiti del progetto che l'azienda proponente _Var Group S.p.A._ ha presentato.
@@ -1214,8 +1219,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Formula*: $"EAC"=("Budget at Completion (BAC)") / ("Cost Performance Index (CPI)")$;
 
-- *Descrizione*: stima del costo totale del progetto al suo completamento basata sui costi sostenuti fino a quel momento e una stima aggiornata dei costi rimanenti.
-
+- *Descrizione*: stima del costo totale del progetto al suo completamento basata sui costi sostenuti fino a quel momento.
 ==== Estimated To Complete
 
 - *Codice*: MPC-ETC;
@@ -1289,7 +1293,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Codice*: MPC-CO;
 
-- *Descrizione*: indica la presenza di errori ortografici e grammaticali nel documento, in particolare è considerato accettabile un valore pari a 2.
+- *Descrizione*: indica la presenza di errori ortografici e grammaticali nel documento, in particolare è considerato accettabile un valore inferiore o pari a 2.
 
 
 === Verifica
@@ -1341,9 +1345,9 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 = Metriche per la qualità di prodotto
 
 == Nomenclatura delle metriche
-Il gruppo _Sigma18_ ha deciso di utilizzare la seguente sigla per identificare le metriche relative alla qualità di processo:
+Il gruppo _Sigma18_ ha deciso di utilizzare la seguente sigla per identificare le metriche relative alla qualità di prodotto:
 #set align(center)
-*MPD*
+*MPD* (_Minimum Product Delivery_)
 #set align(left)
 Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPD_ seguita da un acronimo che identifica la metrica specifica: *MPD-AcronimoMetrica*.
 
@@ -1419,7 +1423,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPD_ 
 
 - *Codice*: MPD-FF;
 
-- *Descrizione*: indica la frequenza con cui si verificano guasti o malfunzionamenti nel prodotto.;
+- *Descrizione*: indica la frequenza con cui si verificano guasti o malfunzionamenti nel prodotto.
 
 == Usabilità
 
