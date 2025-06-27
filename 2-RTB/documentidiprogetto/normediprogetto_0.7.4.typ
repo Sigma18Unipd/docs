@@ -8,8 +8,13 @@
   verificatori: ("Mirco Borella", "Carmelo Russello", "Matteo Marangon", "Alessandro Bernardello", "Aleena Mathew", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "0.7.3",
+  versioneAttuale: "0.7.4",
   versioni: (
+    "0.7.4",
+    "2025/06/27",
+    "Matteo Marangon",
+    "Aleena Mathew",
+    "Correzione errore di battitura",
     "0.7.3",
     "2025/06/27",
     "Aleena Mathew",
@@ -384,7 +389,7 @@ La seconda sezione riguarda i punti all'"ordine del giorno", che contiene i punt
 La sezione delle "Conclusioni e decisioni prese" contiene le decisioni prese durante la riunione e le azioni da intraprendere. Le attività definite "pendenti" e programmate sono disponibili nella successiva sezione "Attività programmate".
 Questa sezione contiene una tabella con due colonne: la prima colonna contiene l'identificativo dell'attività (successivamente definito) e la seconda colonna contiene il titolo.
 
-Con identificativo dell'attività si intende un numero a 5 cifre che identifica in modo univoco l'attività. Il numero dell'attività è assegnando seguendo la numerazione interna delle #glossario("issue") e delle #glossario("pull request") di _GitHub_. Per tanto, ad un'attività con numerazione _N_ in un verbale corrisponderà sempre la relativa _issue_ o _pull request_ su _GitHub_.
+Con identificativo dell'attività si intende un numero a 5 cifre che identifica in modo univoco l'attività. Il numero dell'attività è assegnando seguendo la numerazione interna delle #glossario("issue") e delle #glossario("pull request") di _GitHub_. Pertanto, ad un'attività con numerazione _N_ in un verbale corrisponderà sempre la relativa _issue_ o _pull request_ su _GitHub_.
 
 I verbali definiti come "esterni" includeranno una sezione per l'aggiunta della firma di verifica da parte dell'azienda proponente.
 
