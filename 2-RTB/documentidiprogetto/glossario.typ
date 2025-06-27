@@ -3,12 +3,37 @@
 #show: content => verbale(
   titoloDocumento: "Glossario",
   responsabili: "Matteo Marangon",
-  redattori: ("Mirco Borella", "Aleena Mathew"),
-  verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti"),
+  redattori: ("Mirco Borella", "Matteo Marangon", "Aleena Mathew", "Pietro Crotti"),
+  verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "0.5.0",
+  versioneAttuale: "0.10.0",
   versioni: (
+    "0.10.0",
+    "2025/06/26",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Rimozione termini non utilizzati, aggiunta termini e fix minori",
+    "0.9.0",
+    "2025/06/25",
+    "Aleena Mathew",
+    "Carmelo Russello",
+    "Aggiunta termini per retrospettiva sesto sprint",
+    "0.8.0",
+    "2025/06/26",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Aggiunta termini per retrospettiva sesto sprint",
+    "0.7.0",
+    "2025/06/11",
+    "Matteo Marangon",
+    "Alessandro Bernardello",
+    "Aggiunta termini per retrospettiva quinto sprint",
+    "0.6.0",
+    "2025/05/23",
+    "Matteo Marangon",
+    "Pietro Crotti",
+    "Merge per rilascio Analisi dei Requisiti",
     "0.5.0",
     "2025/05/14",
     "Mirco Borella",
@@ -59,6 +84,12 @@ Un agente è un'entità software che esegue attività in maniera autonoma per co
 == Agile
 Metodologia di sviluppo che si basa su un approccio iterativo e adattivo, favorendo la collaborazione con il cliente e la consegna continua.
 
+== Amazon Bedrock
+Piattaforma cloud che permette di accedere via API a modelli fondamentali di AI generativa offerti da più provider e di integrarli direttamente in applicazioni personalizzate con il supporto di strumenti per l’orchestrazione, la sicurezza e il monitoraggio.
+
+== Amazon Nova
+Famiglia di modelli di base di Amazon AWS per l'intelligenza artificiale generativa, progettati per essere facilmente integrati con Amazon Bedrock.
+
 == API (_Application Programming Interface_)
 Insieme di regole o protocolli atti a consentire la comunicazione tra diversi prodotti o servizi e per far scambiare loro dati, caratteristiche e funzionalità.
 
@@ -67,6 +98,10 @@ Il processo di "Audit" ha lo scopo di determinare in maniera indipendente la con
 
 == AWS
 Amazon Web Services (AWS) è una piattaforma di servizi _cloud_ offerta da Amazon. Si suddivide in base al servizio offerto come ad esempio: calcolo, archiviazione, database, _machine learning_ e altro.
+
+== Axios
+Axios è una libreria _JavaScript_ utilizzata per effettuare richieste #glossario("HTTP") in modo semplice e intuitivo in applicazioni web per comunicare con le API.
+
 
 #pagebreak()
 = B
@@ -80,17 +115,31 @@ Elenco di attività, funzionalità o requisiti da completare in un progetto. Il 
 == Branch
 Ramo di un repository Git che consente di lavorare su una copia separata del codice sorgente. I branch vengono utilizzati per sviluppare nuove funzionalità o correggere bug senza influenzare il codice principale.
 
+== Bug
+Errore di funzionamento di un sistema o di un programma che causa un comportamento indesiderato o imprevisto.
+
+
 #pagebreak()
 = C
 
 == Client
 Componente o programma che accede ad un servizio reso disponibile da un _server_.
 
+== Cloud
+Insieme di risorse accessibili tramite internet, che consentono di utilizzare servizi e applicazioni senza doverli installare o gestire localmente.
+
 == Commit
 Operazione di salvataggio delle modifiche apportate al codice sorgente in un repository Git. Ogni commit rappresenta uno stato specifico del codice.
 
+
 #pagebreak()
 = D
+
+== Dashboard
+Pagina principale del #glossario("client") contenente le #glossario("routine") create dall'utente e la possibilità di crearne di nuove.
+
+== DeepSeek R1
+Modello di intelligenza artificiale open source.
 
 == Design Thinking
 Approccio di progettazione di un software centrato sull'esperienza utente che prende in considerazione il target di riferimento per costruire un'esperienza solida e mirata, particolarmente funzionale in un ambiente agile.
@@ -102,6 +151,7 @@ Un diagramma UML è uno schema che permette di analizzare, descrivere e document
 Tecnica di interazione grafica che si basa sul trascinamento di elementi a schermo. Si tratta di una rappresentazione intuitiva anche per utenti inesperti poiché si basa su
 intuizione e facilità d'uso.
 
+
 #pagebreak()
 = F
 
@@ -111,17 +161,26 @@ Rappresenta l'insieme di informazioni o valutazioni che gli utenti possono forni
 == Frontend
 Con Frontend si denota la parte visibile di un programma con cui l'utente interagisce direttamente.
 
+
 #pagebreak()
 = G
 
 == Gen AI
-L'intelligenza artificiale generativa (o Gen AI) è un tipo di intelligenza artificiale che è in grado di generare testo, immagini, video o altro in risposta a richieste dette _prompt_.
+L'intelligenza artificiale generativa (o Gen AI) è un tipo di intelligenza artificiale che è in grado di generare testo, immagini, video o altro in risposta a richieste dette #glossario("prompt").
 
 == Git
 Sistema di controllo di versione distribuito che consente a più utenti di lavorare contemporaneamente su un progetto tenendo traccia delle modifiche apportate al codice sorgente.
 
 == GitHub
 Piattaforma web basata su Git che fornisce strumenti per l'hosting di repository, il versionamento del codice e la collaborazione tra sviluppatori.
+
+
+#pagebreak()
+= H
+
+== HTTP
+Hypertext Transfer Protocol (HTTP) è il protocollo di comunicazione utilizzato per il trasferimento di dati su Internet, consentendo la trasmissione di pagine web e risorse tra client e server.
+
 
 #pagebreak()
 = I
@@ -132,14 +191,29 @@ Standard internazionale che definisce i processi di ciclo di vita del software, 
 == Issue
 Un problema o un difetto identificato in un progetto software e registrato in una piattaforma di gestione dei problemi. Le issue possono riguardare bug, funzionalità mancanti o miglioramenti richiesti.
 
+
+#pagebreak()
+= J
+
+== JWT
+I _JSON Web Token_ (JWT) sono un formato di token utilizzato per l'autenticazione e l'autorizzazione in applicazioni web. I JWT consentono di trasmettere informazioni tra client e server in modo sicuro e compatto, garantendo l'integrità dei dati e l'autenticità dell'utente.
+
+
 #pagebreak()
 = L
 
 == LaTeX
 Linguaggio di marcatura per produrre documenti di alta qualità. È ampiamente utilizzato per la scrittura di articoli scientifici, tesi e libri.
 
+== Llama 3.3
+Modello di intelligenza artificiale sviluppato da Meta AI.
+
+== LLM (_Large Language Model_)
+I modelli linguistici di grandi dimensioni (LLM) sono una categoria di modelli di intelligenza artificiale addestrati su immense quantità di dati che li rendono in grado di comprendere e generare linguaggio naturale in modo coerente con un _input_ fornito da un utente.
+
 == Log
 Elenco cronologico delle attività svolte all'interno di un sistema, utile per il monitoraggio e la risoluzione dei problemi.
+
 
 #pagebreak()
 = M
@@ -147,17 +221,31 @@ Elenco cronologico delle attività svolte all'interno di un sistema, utile per i
 == Merge
 Operazione di unione di due o più branch in un repository Git. Il merge consente di combinare le modifiche apportate in diversi rami del codice sorgente.
 
+== MongoDB
+MongoDB è un database _NoSQL_ orientato ai documenti, in grado di gestire grandi volumi di dati non strutturati e semi-strutturati.
+
+== Mongoose
+Mongoose è una libreria per #glossario("Node.JS") che semplifica l'interazione con i database MongoDB, fornendo un modello di dati e funzionalità per la validazione e la gestione delle query.
+
 == MVP (_Minimum Viable Product_)
 Il prodotto minimo funzionante (in inglese _Minimum Viable Product_) è la versione di un prodotto con caratteristiche appena sufficienti per essere funzionante e utilizzabile dai primi clienti, i quali possono fornire _feedback_ per migliorare il prodotto stesso.
+
 
 #pagebreak()
 = N
 
-== Nest.JS
-Un insieme di librerie in _Node.JS_ basato su _Typescript_ dedicate alla costruzione di applicazioni lato _server_ (_backend_) scalabili ed efficienti.
+== NestJS
+Un insieme di librerie in #glossario("Node.JS") basato su _Typescript_ dedicate alla costruzione di applicazioni lato #glossario("server") (#glossario("backend")) scalabili ed efficienti.
+
+== Node.JS
+Node.js è un ambiente di esecuzione JavaScript che consente di eseguire codice JavaScript al di fuori di un browser. È ampiamente utilizzato per lo sviluppo di applicazioni _web_ e _server-side_.
+
 
 #pagebreak()
 = P
+
+== Passport
+Passport è una libreria per #glossario("Node.JS") utilizzata per semplificare l'implementazione dell'autenticazione e dell'autorizzazione.
 
 == PB (_Product Baseline_)
 Fase del processo di sviluppo software in cui viene definita la versione finale del prodotto, pronta per il rilascio. Durante questa fase vengono completate le attività di sviluppo, test e validazione del prodotto, garantendo il soddisfacimento dei requisiti e delle specifiche concordate.
@@ -171,11 +259,15 @@ Istruzione o richiesta testuale fornita a un modello di intelligenza artificiale
 == Pull request
 Richiesta di integrazione delle modifiche apportate in un branch di un repository Git nel branch principale. Le pull request vengono utilizzate per revisionare e discutere le modifiche prima di unirle al codice sorgente principale.
 
+
 #pagebreak()
 = R
 
 == React
 React è una libreria _JavaScript_ sviluppata da _Facebook_ utilizzata per creare interfacce utente interattive e dinamiche.
+
+== React Flow
+React Flow è una libreria basata su #glossario("React") progettata per la realizzazione di diagrammi e flussi di lavoro interattivi.
 
 == Root directory
 Cartella principale di un progetto o di un sistema, che contiene tutti i file e le sottocartelle necessarie per il funzionamento del software.
@@ -185,6 +277,7 @@ Sequenza di istruzioni che consentono di eseguire un'operazione di frequente ese
 
 == RTB (Requirements and Technology Baseline)
 Fase del processo di sviluppo software in cui vengono definiti i requisiti del sistema e le tecnologie da utilizzare per la sua realizzazione. In questa fase vengono identificati i requisiti funzionali e non funzionali del sistema, le interfacce utente, le tecnologie di sviluppo e le risorse necessarie per il progetto.
+
 
 #pagebreak()
 = S
@@ -210,14 +303,19 @@ Intervallo di tempo fisso, definito nella metodologia di sviluppo software Agile
 == Sprint Planning
 Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (sprint).
 
+
 #pagebreak()
 = T
+
+== Task
+Una singola attività, compito o procedura facente parte di un'automazione composta da molte attività. Ogni task rappresenta un'unità di lavoro individuale all'interno di un processo automatizzato più ampio.
 
 == Test
 Processo di valutazione e verifica di un sistema software per garantire che soddisfi i requisiti e funzioni correttamente. I test possono includere test unitari, test di integrazione, test di sistema e test di accettazione.
 
 == top-down
 Tecnica di progettazione e sviluppo software che inizia con una visione generale del sistema e poi si suddivide in componenti più piccoli e dettagliati.
+
 
 #pagebreak()
 = W
