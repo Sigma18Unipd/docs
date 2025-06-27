@@ -4,12 +4,27 @@
   titoloDocumento: "Piano di progetto",
   abstract: "Documento riepilogativo delle attività concluse e in corso di svolgimento dal gruppo Sigma18.",
   responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew"),
-  redattori: ("Carmelo Russello", "Mirco Borella"),
-  verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon"),
+  redattori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Aleena Mathew"),
+  verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "0.4.0",
+  versioneAttuale: "0.7.0",
   versioni: (
+    "0.7.0",
+    "2025/06/26",
+    "Aleena Mathew",
+    "Carmelo Russello",
+    "Aggiornamento retrospettiva sesto sprint e inizio settimo sprint",
+    "0.6.0",
+    "2025/06/11",
+    "Matteo Marangon",
+    "Alessandro Bernardello",
+    "Aggiornamento retrospettiva quinto sprint e inizio sesto sprint",
+    "0.5.0",
+    "2025/05/27",
+    "Marco Egidi",
+    "Pietro Crotti",
+    "Aggiornamento retrospettiva quarto sprint e inizio quinto sprint",
     "0.4.0",
     "2025/05/14",
     "Mirco Borella",
@@ -33,6 +48,8 @@
   ),
   content: content,
 )
+
+
 = Introduzione
 == Scopo del documento
 Il presente documento ha l'obiettivo di definire e tenere traccia di tutte le attività eseguite e pianificate dal team durante lo sviluppo del progetto.
@@ -61,7 +78,9 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 == Riferimenti
 === Riferimenti normativi
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le routine digitali tramite l'intelligenza generativa]
+- #link(
+    "https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf",
+  )[Capitolato C3: Automatizzare le routine digitali tramite l'intelligenza generativa]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico]
 
@@ -186,12 +205,28 @@ Il seguente è l'approccio scelto per l'identificazione dei rischi:
   inset: 9pt,
   [*Codice*], [*RO3*],
   [*Descrizione*],
-  [Una comunicazione esterna inefficace per impossibilità di risposta o mancanza di precisione di comuncazione può portare ad aumenti nei tempi complessivi dell'andamento del progetto],
+  [Una comunicazione esterna inefficace per impossibilità di risposta o mancanza di precisione di comunicazione può portare ad aumenti nei tempi complessivi dell'andamento del progetto],
 
   [*Probabilità*], [Media],
   [*Impatto*], [Alto],
   [*Strategie di attenuazione*],
   [Stabilire canali di comunicazione condivisi asincroni e con mezzi / strumenti più efficaci. Stabilire incontri periodici di confronto pianificati con anticipo.],
+)
+
+
+=== Rischio legato alla concomitanza alle sessioni d'esame <RO4>
+#table(
+  columns: (1fr, 2fr),
+  rows: auto,
+  inset: 9pt,
+  [*Codice*], [*RO4*],
+  [*Descrizione*],
+  [La concomitanza delle sessioni d'esame con le attività di progetto può causare ritardi nello sviluppo; i membri del gruppo potrebbero essere temporaneamente non disponibili in quanto impegnati con lo studio e la preparazione degli esami, rischiando di non raggiungere il monte ore ad essi assegnato.],
+
+  [*Probabilità*], [Media],
+  [*Impatto*], [Alto],
+  [*Strategie di attenuazione*],
+  [Pianificare con attenzione e cautela il periodo di sessione di esami, confidando nella collaborazione di ogni membro del gruppo, in modo da prevenire rallentamenti.],
 )
 
 #pagebreak()
@@ -342,7 +377,7 @@ Nello specifico è stato steso il glossario e iniziata la stesura dei piani di p
 
 Il gruppo ha organizzato e partecipato all'incontro di _Design Thinking_ con l'azienda proponente lunedì 14 Aprile che ha steso le basi per organizzare i lavori successivi.
 
-Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggeti temporanemente non reperibili ha rallentato il progesso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilitá di tempo di un solo soggetto.
+Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggetti temporaneamente non reperibili ha rallentato il progresso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilità di tempo di un solo soggetto.
 
 
 
@@ -564,7 +599,7 @@ Il gruppo si impegna a:
 - Completare e verificare il piano di qualifica
 - Integrare il glossario con i nuovi termini
 - Studio delle tecnologie proposte
-- Inizio del _Poc(Proof of Concept)_
+- Inizio del _Poc (Proof of Concept)_
 
 ==== *Preventivo orario*:
 #table(
@@ -582,3 +617,299 @@ Il gruppo si impegna a:
   [Carmelo Russello], [2], [0], [2], [1], [0], [3], [*8*],
   [*Totali*], [*5*], [*6*], [*14*], [*15*], [*5*], [*11*], [*56*],
 )
+
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [4], [3], [0], [1], [*8*],
+  [Mirco Borella], [0], [3], [0], [4 (+2)], [0], [1 (-2)], [*8*],
+  [Pietro Crotti], [2], [0], [0], [0], [5], [1], [*8*],
+  [Marco Egidi], [0], [0], [3], [4], [0], [1], [*8*],
+  [Matteo Marangon], [0], [0], [3], [4], [0], [1], [*8*],
+  [Aleena Mathew], [1], [3], [2], [1], [0], [1], [*8*],
+  [Carmelo Russello], [2], [0], [2], [1], [0], [3], [*8*],
+  [*Totali*], [*5*], [*6*], [*14*], [*17*], [*5*], [*9*], [*56*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [5], [€20], [€100.00],
+  [Analista], [6], [€25], [€150.00],
+  [Progettista], [14], [€25], [€350.00],
+  [Programmatore], [17], [€15], [€255.00],
+  [Responsabile], [5], [€30], [€150.00],
+  [Verificatore], [9], [€15], [€135.00],
+  [*Totali*], [*56*], [], [*€1140.00*],
+)
+
+==== *Analisi retrospettiva*: \
+_Sigma18_ dichiara che il quarto sprint è stato proficuo all'avanzamento del capitolato.
+
+Nello specifico è stato validato il documento di *Analisi dei Requisiti*.
+La validazione dei documenti "norme di progetto" e "piano di qualifica" è ancora in corso.
+
+Il gruppo ha organizzato ed effettuato una riunione interna in data 23 Maggio 2025 a fini di sincronizzazione delle attività tra i membri stessi, per discutere l'andamento del capitolato e per confermare la validazione del documento di analisi dei requisiti.
+
+Il gruppo ha inoltre iniziato lo sviluppo del _PoC_, nello specifico sono state create il repository in modalità _monorepo_ (ovvero sorgenti _frontend_ e _backend_ unificati in uno stesso _repository_).
+
+Sono state codificate le seguenti funzionalità lato _frontend_:
+
+- Sviluppo e inizializzazione del codice _boilerplate_ per permettere il funzionamento delle tecnologie scelte;
+
+- Creazione della pagina di _login_;
+
+- Stesura della pagina di registrazione;
+
+- Inizio dello sviluppo della pagina di modifica di un flusso.
+
+Lato _backend_ sono state sviluppate le seguenti funzionalità:
+
+- Sviluppo e inizializzazione del codice _boilerplate_ per permettere il funzionamento delle tecnologie scelte;
+
+- Creazione del _compose_ Docker e del _Dockerfile_ per facilitare lo sviluppo.
+
+Sono state riscontrate difficoltà catalogabili nei rischi RT1 e RT2.
+Ai fini di mitigare quanto riscontrato, il gruppo ha deciso di continuare a studiare le tecnologie scelte e di contattare l'azienda proponente in caso di necessità.
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 5
+
+==== Dettagli
+
+*Data di inizio*: 27/05/2025 \
+*Data di fine*: 09/06/2025 \
+
+*Rischi attesi*: RT1, RT2, RO1, RO2, RO4
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Verificare i documenti "norme di progetto" e "piano di qualifica"
+- Integrare il glossario con i nuovi termini
+- Studio delle tecnologie proposte
+- Sviluppo del _frontend_ del _Poc (Proof of Concept)_
+- Sviluppo del _backend_ del _Poc (Proof of Concept)_
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [3], [0], [2], [2], [0], [2], [*9*],
+  [Mirco Borella], [0], [0], [2], [5], [0], [2], [*9*],
+  [Pietro Crotti], [0], [0], [2], [5], [0], [2], [*9*],
+  [Marco Egidi], [3], [0], [4], [3], [0], [0], [*10*],
+  [Matteo Marangon], [0], [1], [3], [0], [4], [2], [*10*],
+  [Aleena Mathew], [0], [2], [3], [3], [0], [2], [*10*],
+  [Carmelo Russello], [0], [2], [3], [0], [2], [3], [*10*],
+  [*Totali*], [*6*], [*5*], [*19*], [*18*], [*6*], [*13*], [*67*],
+)
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [1 (-2)], [0], [3 (+1)], [4 (+2)], [0], [1 (-1)], [*9*],
+  [Mirco Borella], [0], [0], [2], [5], [0], [2], [*9*],
+  [Pietro Crotti], [0], [0], [2], [5], [0], [2], [*9*],
+  [Marco Egidi], [3], [0], [4], [3], [0], [0], [*10*],
+  [Matteo Marangon], [0], [1], [3], [0], [4], [2], [*10*],
+  [Aleena Mathew], [0], [2], [3], [3], [0], [2], [*10*],
+  [Carmelo Russello], [2 (+2)], [2], [1 (-2)], [0], [2], [3], [*10*],
+  [*Totali*], [*6*], [*5*], [*18*], [*20*], [*6*], [*12*], [*67*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [6], [€20], [€120.00],
+  [Analista], [5], [€25], [€125.00],
+  [Progettista], [18], [€25], [€450.00],
+  [Programmatore], [20], [€15], [€300.00],
+  [Responsabile], [6], [€30], [€180.00],
+  [Verificatore], [12], [€15], [€180.00],
+  [*Totali*], [*67*], [], [*€1355.00*],
+)
+
+==== *Analisi retrospettiva*:
+_Sigma18_ dichiara che il quinto sprint è stato meno proficuo all'avanzamento del capitolato rispetto ai precedenti, per via della manifestazione del rischio RO4.
+
+Nello specifico sono stati validati i documenti *Piano di qualifica* e *Norme di Progetto*.
+
+Il gruppo ha proseguito lo sviluppo del _PoC_, codificando le seguenti funzionalità lato _frontend_:
+
+- Creazione della pagina di _dashboard_ per la visualizzazione dei flussi;
+
+- Miglioramento e modifica della pagina di creazione di un flusso;
+
+- Miglioramenti alla struttura del codice della gestione dei modali d'interazione;
+
+- Predisposizione del _frontend_ a comunicare con le API del _backend_ tramite la libreria #glossario("Axios").
+
+Lato _backend_ sono state sviluppate le seguenti funzionalità:
+
+- Sviluppo dell'autenticazione tramite libreria #glossario("Passport") con uso di #glossario("JWT");
+
+- Collegamento backend a database #glossario("MongoDB") tramite libreria #glossario("Mongoose").
+
+- Modifica del _compose_ Docker e dei _Dockerfile_ per migliorare la compatibilità su windows, introdurre MongoDB e distinguere tra ambiente di sviluppo e produzione.
+
+Sono state quindi riscontrate difficoltà catalogabili nei rischi RT1, RT2 e RO4. \
+Ai fini di mitigare quanto riscontrato, il gruppo ha deciso di adottare una suddivisione dei ruoli flessibile per permettere ai membri del gruppo di svolgere le mansioni di un ruolo diverso da quello assegnato, in modo tale da garantire continuità nello sviluppo se il membro originario con quel ruolo non fosse disponibile.
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 6
+
+==== Dettagli
+
+*Data di inizio*: 10/06/2025 \
+*Data di fine*: 23/06/2025 \
+
+*Rischi attesi*: RT1, RT2, RO1, RO2, RO4
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Sviluppo del _frontend_ del _Poc (Proof of Concept)_
+- Sviluppo del _backend_ del _Poc (Proof of Concept)_
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [4], [5], [0], [0], [*9*],
+  [Mirco Borella], [2], [0], [0], [5], [0], [2], [*9*],
+  [Pietro Crotti], [0], [0], [4], [2], [3], [0], [*9*],
+  [Marco Egidi], [0], [0], [4], [2], [3], [0], [*9*],
+  [Matteo Marangon], [0], [0], [0], [6], [0], [3], [*9*],
+  [Aleena Mathew], [4], [0], [4], [0], [0], [1], [*9*],
+  [Carmelo Russello], [0], [0], [4], [5], [0], [0], [*9*],
+  [*Totali*], [*6*], [*0*], [*20*], [*25*], [*6*], [*6*], [*63*],
+)
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [2 (-2)], [4(-1)], [0], [0], [*6*],
+  [Mirco Borella], [2], [0], [0], [3(-2)], [0], [1(-1)], [*6*],
+  [Pietro Crotti], [0], [0], [2(-2)], [2], [2(-1)], [0], [*6*],
+  [Marco Egidi], [0], [0], [1(-3)], [1(-1)], [4(+1)], [0], [*6*],
+  [Matteo Marangon], [0], [0], [0], [4(-2)], [0], [2(-1)], [*6*],
+  [Aleena Mathew], [3(-1)], [0], [2(-2)], [0], [0], [1], [*6*],
+  [Carmelo Russello], [0], [0], [3(-1)], [3(-2)], [0], [0], [*6*],
+  [*Totali*], [*5*], [*0*], [*10*], [*17*], [*6*], [*4*], [*42*],
+)
+
+#pagebreak()
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [5], [€20], [€100.00],
+  [Analista], [0], [€25], [€0.00],
+  [Progettista], [10], [€25], [€250.00],
+  [Programmatore], [17], [€15], [€255.00],
+  [Responsabile], [6], [€30], [€180.00],
+  [Verificatore], [4], [€15], [€60.00],
+  [*Totali*], [*42*], [], [*€845.00*],
+)
+
+
+
+==== *Analisi retrospettiva*:
+_Sigma18_ dichiara che il sesto sprint, ha subito un rallentamento più marcato rispetto ai precedenti, nell'avanzamento del capitolato, per via della manifestazione del rischio RO4.
+
+Il gruppo ha proseguito lo sviluppo del _PoC_, in particolare è stato studiato e testato il funzionamento di #glossario("Amazon Bedrock") per l'integrazione delle tecnologie di intelligenza artificiale generativa richieste dal capitolato. Nello specifico sono stati analizzati i seguenti modelli offerti dal servizio:
+- #glossario("Amazon Nova") _Pro_;
+- _Amazon Nova Micro_;
+- _Amazon Nova Lite_;
+- _ Amazon Nova Premier_;
+- #glossario("DeepSeek R1");
+- #glossario("Llama 3.3 70B").
+
+
+
+Continuano ad essere riscontrate difficoltà catalogabili nei rischi RT1, RT2 e RO4. \
+Ai fini di mitigare quanto riscontrato, il gruppo continua ad adottare una suddivisione dei ruoli flessibile per permettere ai membri del gruppo di svolgere le mansioni di un ruolo diverso da quello assegnato, in modo tale da garantire continuità nello sviluppo.\
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 7
+
+==== Dettagli
+
+*Data di inizio*: 24/06/2025 \
+*Data di fine*: 07/07/2025 \
+
+*Rischi attesi*: RT1, RO1, RO2, RO4
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Terminare lo sviluppo del _Poc (Proof of Concept)_
+- Effettuare la revisione RTB
+- Ottenere l'approvazione del _Poc (Proof of Concept)_ da parte dell'azienda proponente
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [1], [4], [4], [0], [*9*],
+  [Mirco Borella], [0], [0], [4], [6], [0], [0], [*10*],
+  [Pietro Crotti], [0], [0], [4], [3], [0], [3], [*10*],
+  [Marco Egidi], [2], [0], [2], [2], [0], [3], [*9*],
+  [Matteo Marangon], [3], [0], [0], [3], [0], [0], [*9*],
+  [Aleena Mathew], [0], [0], [4], [2], [0], [3], [*9*],
+  [Carmelo Russello], [0], [0], [4], [3], [1], [1], [*9*],
+  [*Totali*], [*5*], [*0*], [*19*], [*23*], [*5*], [*13*], [*65*],
+)
+
