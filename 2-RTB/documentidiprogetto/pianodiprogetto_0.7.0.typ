@@ -4,12 +4,17 @@
   titoloDocumento: "Piano di progetto",
   abstract: "Documento riepilogativo delle attività concluse e in corso di svolgimento dal gruppo Sigma18.",
   responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew"),
-  redattori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon"),
+  redattori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Aleena Mathew"),
   verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "0.6.0",
+  versioneAttuale: "0.7.0",
   versioni: (
+    "0.7.0",
+    "2025/06/26",
+    "Aleena Mathew",
+    "Carmelo Russello",
+    "Aggiornamento retrospettiva sesto sprint e inizio settimo sprint",
     "0.6.0",
     "2025/06/11",
     "Matteo Marangon",
@@ -73,7 +78,9 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 == Riferimenti
 === Riferimenti normativi
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le routine digitali tramite l'intelligenza generativa]
+- #link(
+    "https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf",
+  )[Capitolato C3: Automatizzare le routine digitali tramite l'intelligenza generativa]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico]
 
@@ -370,7 +377,7 @@ Nello specifico è stato steso il glossario e iniziata la stesura dei piani di p
 
 Il gruppo ha organizzato e partecipato all'incontro di _Design Thinking_ con l'azienda proponente lunedì 14 Aprile che ha steso le basi per organizzare i lavori successivi.
 
-Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggeti temporanemente non reperibili ha rallentato il progesso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilitá di tempo di un solo soggetto.
+Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggetti temporaneamente non reperibili ha rallentato il progresso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilità di tempo di un solo soggetto.
 
 
 
@@ -814,3 +821,95 @@ Il gruppo si impegna a:
   [Carmelo Russello], [0], [0], [4], [5], [0], [0], [*9*],
   [*Totali*], [*6*], [*0*], [*20*], [*25*], [*6*], [*6*], [*63*],
 )
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [2 (-2)], [4(-1)], [0], [0], [*6*],
+  [Mirco Borella], [2], [0], [0], [3(-2)], [0], [1(-1)], [*6*],
+  [Pietro Crotti], [0], [0], [2(-2)], [2], [2(-1)], [0], [*6*],
+  [Marco Egidi], [0], [0], [1(-3)], [1(-1)], [4(+1)], [0], [*6*],
+  [Matteo Marangon], [0], [0], [0], [4(-2)], [0], [2(-1)], [*6*],
+  [Aleena Mathew], [3(-1)], [0], [2(-2)], [0], [0], [1], [*6*],
+  [Carmelo Russello], [0], [0], [3(-1)], [3(-2)], [0], [0], [*6*],
+  [*Totali*], [*5*], [*0*], [*10*], [*17*], [*6*], [*4*], [*42*],
+)
+
+#pagebreak()
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [5], [€20], [€100.00],
+  [Analista], [0], [€25], [€0.00],
+  [Progettista], [10], [€25], [€250.00],
+  [Programmatore], [17], [€15], [€255.00],
+  [Responsabile], [6], [€30], [€180.00],
+  [Verificatore], [4], [€15], [€60.00],
+  [*Totali*], [*42*], [], [*€845.00*],
+)
+
+
+
+==== *Analisi retrospettiva*:
+_Sigma18_ dichiara che il sesto sprint, ha subito un rallentamento più marcato rispetto ai precedenti, nell'avanzamento del capitolato, per via della manifestazione del rischio RO4.
+
+Il gruppo ha proseguito lo sviluppo del _PoC_, in particolare è stato studiato e testato il funzionamento di #glossario("Amazon Bedrock") per l'integrazione delle tecnologie di intelligenza artificiale generativa richieste dal capitolato. Nello specifico sono stati analizzati i seguenti modelli offerti dal servizio:
+- #glossario("Amazon Nova") _Pro_;
+- _Amazon Nova Micro_;
+- _Amazon Nova Lite_;
+- _ Amazon Nova Premier_;
+- #glossario("DeepSeek R1");
+- #glossario("Llama 3.3 70B").
+
+
+
+Continuano ad essere riscontrate difficoltà catalogabili nei rischi RT1, RT2 e RO4. \
+Ai fini di mitigare quanto riscontrato, il gruppo continua ad adottare una suddivisione dei ruoli flessibile per permettere ai membri del gruppo di svolgere le mansioni di un ruolo diverso da quello assegnato, in modo tale da garantire continuità nello sviluppo.\
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 7
+
+==== Dettagli
+
+*Data di inizio*: 24/06/2025 \
+*Data di fine*: 07/07/2025 \
+
+*Rischi attesi*: RT1, RO1, RO2, RO4
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Terminare lo sviluppo del _Poc (Proof of Concept)_
+- Effettuare la revisione RTB
+- Ottenere l'approvazione del _Poc (Proof of Concept)_ da parte dell'azienda proponente
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [1], [4], [4], [0], [*9*],
+  [Mirco Borella], [0], [0], [4], [6], [0], [0], [*10*],
+  [Pietro Crotti], [0], [0], [4], [3], [0], [3], [*10*],
+  [Marco Egidi], [2], [0], [2], [2], [0], [3], [*9*],
+  [Matteo Marangon], [3], [0], [0], [3], [0], [0], [*9*],
+  [Aleena Mathew], [0], [0], [4], [2], [0], [3], [*9*],
+  [Carmelo Russello], [0], [0], [4], [3], [1], [1], [*9*],
+  [*Totali*], [*5*], [*0*], [*19*], [*23*], [*5*], [*13*], [*65*],
+)
+
