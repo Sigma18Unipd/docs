@@ -31,11 +31,13 @@ jobs:
           git clone "https://oauth2:$GITHUB_TOKEN@github.com/Sigma18Unipd/sigma18unipd.github.io.git" RepoSito
           mkdir temp
           cd RepoSito
-          mv ./documentiCompilati/1-candidatura/verbali/esterni/* ../temp
+          mv ./documentiCompilati/1-candidatura/verbali/esterni/* ../temp/candidatura
+          mv ./documentiCompilati/2-RTB/verbali/esterni/* ../temp/rtb
           rm -rf ./documentiCompilati/*
           cp -r ../compiled/* ./documentiCompilati
           rm -rf ./documentiCompilati/templates
-          mv ../temp/* ./documentiCompilati/1-candidatura/verbali/esterni
+          mv ../temp/candidatura/* ./documentiCompilati/1-candidatura/verbali/esterni
+          mv ../temp/rtb/* ./documentiCompilati/2-RTB/verbali/esterni
           cd ..
           python3 .github/workflows/generate_html.py
           cd RepoSito
