@@ -198,13 +198,6 @@ Un problema o un difetto identificato in un progetto software e registrato in un
 
 
 #pagebreak()
-= J
-
-== JWT
-I _JSON Web Token_ (JWT) sono un formato di token utilizzato per l'autenticazione e l'autorizzazione in applicazioni web. I JWT consentono di trasmettere informazioni tra client e server in modo sicuro e compatto, garantendo l'integrità dei dati e l'autenticità dell'utente.
-
-
-#pagebreak()
 = L
 
 == LaTeX
@@ -232,9 +225,6 @@ Punto di riferimento o obiettivo significativo all'interno di un progetto, che s
 == MongoDB
 MongoDB è un database _NoSQL_ orientato ai documenti, in grado di gestire grandi volumi di dati non strutturati e semi-strutturati.
 
-== Mongoose
-Mongoose è una libreria per #glossario("Node.JS") che semplifica l'interazione con i database MongoDB, fornendo un modello di dati e funzionalità per la validazione e la gestione delle query.
-
 == MVP (_Minimum Viable Product_)
 Il prodotto minimo funzionante (in inglese _Minimum Viable Product_) è la versione di un prodotto con caratteristiche appena sufficienti per essere funzionante e utilizzabile dai primi clienti, i quali possono fornire _feedback_ per migliorare il prodotto stesso.
 
@@ -251,9 +241,6 @@ Node.js è un ambiente di esecuzione JavaScript che consente di eseguire codice 
 
 #pagebreak()
 = P
-
-== Passport
-Passport è una libreria per #glossario("Node.JS") utilizzata per semplificare l'implementazione dell'autenticazione e dell'autorizzazione.
 
 == PB (_Product Baseline_)
 Fase del processo di sviluppo software in cui viene definita la versione finale del prodotto, pronta per il rilascio. Durante questa fase vengono completate le attività di sviluppo, test e validazione del prodotto, garantendo il soddisfacimento dei requisiti e delle specifiche concordate.

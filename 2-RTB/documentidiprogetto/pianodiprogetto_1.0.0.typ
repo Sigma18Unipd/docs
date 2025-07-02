@@ -8,9 +8,9 @@
   verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "0.7.0",
+  versioneAttuale: "1.0.0",
   versioni: (
-    "0.7.0",
+    "1.0.0",
     "2025/06/26",
     "Aleena Mathew",
     "Carmelo Russello",
@@ -774,9 +774,9 @@ Il gruppo ha proseguito lo sviluppo del _PoC_, codificando le seguenti funzional
 
 Lato _backend_ sono state sviluppate le seguenti funzionalità:
 
-- Sviluppo dell'autenticazione tramite libreria #glossario("Passport") con uso di #glossario("JWT");
+- Sviluppo dell'autenticazione.
 
-- Collegamento backend a database #glossario("MongoDB") tramite libreria #glossario("Mongoose").
+- Collegamento backend a database #glossario("MongoDB").
 
 - Modifica del _compose_ Docker e dei _Dockerfile_ per migliorare la compatibilità su windows, introdurre MongoDB e distinguere tra ambiente di sviluppo e produzione.
 
