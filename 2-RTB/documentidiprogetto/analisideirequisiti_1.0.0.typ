@@ -7,9 +7,14 @@
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.11.1",
+  versioneAttuale: "1.0.0",
   content: content,
   versioni: (
+    "1.0.0",
+    "2025/07/01",
+    "Aleena Mathew",
+    "Alessandro Bernardello",
+    "Modifica UC[21] e allinemento a richieste proponente",
     "0.11.1",
     "2025/05/24",
     "Mirco Borella
@@ -99,7 +104,9 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 == Riferimenti
 === Riferimenti normativi
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa]
+- #link(
+    "https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf",
+  )[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico]
 
@@ -320,10 +327,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema ritorna un messaggio di errore all'utente.
 
 
-#figure(
-  image("../../assets/usecasediagrams/UC_2_4_5_6_7_8.png"),
-  caption: [Diagramma casi d'uso UC[2], UC[4], UC[5], UC[6], UC[7], UC[8]],
-)
+#figure(image("../../assets/usecasediagrams/UC_2_4_5_6_7_8.png"), caption: [Diagramma casi d'uso UC[2], UC[4], UC[5], UC[6], UC[7], UC[8]])
 
 
 
@@ -369,10 +373,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-#figure(
-  image("../../assets/usecasediagrams/UC_4_9_10.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[9], UC[10]],
-)
+#figure(image("../../assets/usecasediagrams/UC_4_9_10.png"), caption: [Diagramma casi d'uso UC[4], UC[9], UC[10]])
 \
 
 === UC[11]: Generare una _routine_ mediante linguaggio naturale <UC11>
@@ -412,10 +413,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema mostra un messaggio di errore.
 
 
-#figure(
-  image("../../assets/usecasediagrams/UC_4_11_12.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[11], UC[12]],
-)
+#figure(image("../../assets/usecasediagrams/UC_4_11_12.png"), caption: [Diagramma casi d'uso UC[4], UC[11], UC[12]])
 
 \
 
@@ -439,10 +437,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-#figure(
-  image("../../assets/usecasediagrams/UC_4_13.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[13],],
-)
+#figure(image("../../assets/usecasediagrams/UC_4_13.png"), caption: [Diagramma casi d'uso UC[4], UC[13],])
 \
 
 
@@ -508,10 +503,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Nome _routine_ già in uso (#link(<UC10>)[*UC[10]*]).
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
-#figure(
-  image("../../assets/usecasediagrams/UC_4_10_16.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[10], UC[16],],
-)
+#figure(image("../../assets/usecasediagrams/UC_4_10_16.png"), caption: [Diagramma casi d'uso UC[4], UC[10], UC[16],])
 \
 
 
@@ -534,10 +526,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
-#figure(
-  image("../../assets/usecasediagrams/UC_4_17.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[17]],
-)
+#figure(image("../../assets/usecasediagrams/UC_4_17.png"), caption: [Diagramma casi d'uso UC[4], UC[17]])
 \
 
 
@@ -558,10 +547,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-#figure(
-  image("../../assets/usecasediagrams/UC_4_18.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[18]],
-)
+#figure(image("../../assets/usecasediagrams/UC_4_18.png"), caption: [Diagramma casi d'uso UC[4], UC[18]])
 \
 
 
@@ -605,10 +591,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-#figure(
-  image("../../assets/usecasediagrams/UC_4_19_20.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[19], UC[20]],
-)
+#figure(image("../../assets/usecasediagrams/UC_4_19_20.png"), caption: [Diagramma casi d'uso UC[4], UC[19], UC[20]])
 \
 
 
@@ -622,7 +605,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente seleziona dalla lista dei blocchi un elemento.
-  2. L'utente trascina un blocco dalla barra laterale e lo rilascia nella posizione desiderata.
+  2. L'utente aggiunge un blocco dall'apposito menù.
   3. L'utente collega il blocco a quelli già esistenti.
   4. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_.
 
@@ -700,10 +683,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Visualizzazione errore "Impostazioni non valide" (#link(<UC23>)[*UC[23]*]).
 
 
-  #figure(
-    image("../../assets/usecasediagrams/UC_4_22_23_24.png"),
-    caption: [Diagramma casi d'uso UC[4], UC[22], UC[23], UC[24],],
-  )
+  #figure(image("../../assets/usecasediagrams/UC_4_22_23_24.png"), caption: [Diagramma casi d'uso UC[4], UC[22], UC[23], UC[24],])
   \
 
 
@@ -745,10 +725,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Se il flusso non è completo, il sistema mostra un messaggio di errore all'utente.
 
 
-#figure(
-  image("../../assets/usecasediagrams/UC_4_25_26.png"),
-  caption: [Diagramma casi d'uso UC[4], UC[25], UC[26],],
-)
+#figure(image("../../assets/usecasediagrams/UC_4_25_26.png"), caption: [Diagramma casi d'uso UC[4], UC[25], UC[26],])
 \
 
 
