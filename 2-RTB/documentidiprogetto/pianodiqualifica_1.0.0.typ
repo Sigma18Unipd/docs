@@ -3,13 +3,18 @@
 #show: content => verbale(
   titoloDocumento: "Piano di Qualifica",
   abstract: "Piano di qualifica per il capitolato C3 proposto da Var Group S.p.A.",
-  responsabili: ("Mirco Borella", "Aleena Mathew"),
-  redattori: ("Aleena Mathew", "Matteo Marangon", "Pietro Crotti"),
-  verificatori: ("Carmelo Russello", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
+  responsabili: ("Mirco Borella", "Aleena Mathew", "Matteo Marangon", "Pietro Crotti", "Marco Egidi"),
+  redattori: ("Aleena Mathew", "Matteo Marangon", "Pietro Crotti", "Carmelo Russello"),
+  verificatori: ("Carmelo Russello", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello", "Mirco Borella"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "0.8.0",
+  versioneAttuale: "1.0.0",
   versioni: (
+    "1.0.0",
+    "2025/07/02",
+    "Carmelo Russello",
+    "Mirco Borella",
+    "Migliorie impostazioni del documento",
     "0.8.0",
     "2025/06/26",
     "Aleena Mathew ",
@@ -84,7 +89,9 @@ Alla prima occorrenza, tali termini saranno opportunamente segnalati tramite la 
 == Riferimenti
 === Riferimenti normativi
 - *Norme di progetto:*
-link
+#link(
+  "https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf",
+)[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf]
 
 - * ISO/IEC 12207:1995: *
 #link(

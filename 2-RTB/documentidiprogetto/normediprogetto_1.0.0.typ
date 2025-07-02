@@ -3,14 +3,14 @@
 #show: content => verbale(
   titoloDocumento: "Norme di progetto",
   abstract: "Documento contenente le Norme di progetto che definiscono le modalità di lavoro del gruppo.",
-  responsabili: "Pietro Crotti",
+  responsabili: ("Pietro Crotti", "Marco Egidi", "Matteo Marangon"),
   redattori: ("Mirco Borella", "Alessandro Bernardello", "Aleena Mathew", "Matteo Marangon", "Marco Egidi"),
   verificatori: ("Mirco Borella", "Carmelo Russello", "Matteo Marangon", "Alessandro Bernardello", "Aleena Mathew", "Pietro Crotti"),
   tipo: "Documento Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "0.7.4",
+  versioneAttuale: "1.0.0",
   versioni: (
-    "0.7.4",
+    "1.0.0",
     "2025/06/27",
     "Matteo Marangon",
     "Aleena Mathew",
@@ -172,7 +172,8 @@ Gli strumenti scelti per la comunicazione con il proponente sono:
 - *Gmail*: per la comunicazione formale asincrona con il proponente, successivamente rimpiazzata da:
 
 - *Slack*: per la comunicazione con il proponente, l'invio di documenti e per il supporto allo sviluppo del prodotto.
-//TODO: vedere come fare le riunioni online con il proponente
+
+- *Microsoft Teams*: per le riunioni online con il proponente.
 
 == Attività di fornitura
 La fornitura è composta da un insieme di attività successivamente descritte:
@@ -788,7 +789,7 @@ Il gruppo _Sigma18_ s'impegna a raggiungere in modo efficace ed efficiente gli o
 Il processo di accertamento della qualità è l'insieme delle attività che hanno lo scopo di garantire la qualità del prodotto _software_ e della documentazione associata seguendo gli obiettivi fissati dal proponente.
 
 === Strumenti a supporto della qualità
-Il gruppo _Sigma18_ ha deciso di utilizzare delle metriche oggettive per la valutazione della qualità del prodotto _software_ e della documentazione associata. Le metriche utilizzate sono descritte in dettaglio nel #link("TODO")[piano di qualifica].
+Il gruppo _Sigma18_ ha deciso di utilizzare delle metriche oggettive per la valutazione della qualità del prodotto _software_ e della documentazione associata. Le metriche utilizzate sono descritte in dettaglio nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[piano di qualifica].
 
 === Attività previste
 Secondo lo standard ISO/IEC 12207:1995, il processo di accertamento della qualità è composto da un insieme di attività così descritte:
@@ -807,7 +808,7 @@ A partire dai primi verbali prodotti in fase di candidatura, il gruppo _Sigma18_
 
 In caso di modifiche corpose ai documenti, vengono assegnati verificatori aggiuntivi di supporto.
 
-Tutte le attività di verifica riguardanti il prodotto _software_ sono registrate nel #link("TODO")[piano di qualifica] e riguarderanno principalmente lo sviluppo nella terza fase del capitolato (_3-PB, Product Baseline_).
+Tutte le attività di verifica riguardanti il prodotto _software_ sono registrate nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[piano di qualifica] e riguarderanno principalmente lo sviluppo nella terza fase del capitolato (_3-PB, Product Baseline_).
 
 In generale, il processo di verifica è composto da un insieme di due attività successivamente descritte.
 
@@ -849,13 +850,6 @@ Le tipologie di test previste dal gruppo _Sigma18_ sono:
 
 - *Test di accettazione*: test che verificano il corretto funzionamento del prodotto _software_ in base alle specifiche richieste dal proponente.
 
-//TODO NOMENCLATURA TEST
-
-
-
-
-
-
 
 
 == Validazione
@@ -865,11 +859,11 @@ In altre parole, la validazione ci fa rispondere alle domande "Il prodotto è qu
 
 Il gruppo _Sigma18_ applica questo processo in parallelo al processo di verifica.
 
-Tutte le esigenze del proponente "Var Group S.p.A." sono state raccolte e analizzate in modo da definire i requisiti del prodotto _software_ e della documentazione associata nel documento #link("/TODO LINK ANALISI DEI REQUISITI")[analisi di requisiti].
+Tutte le esigenze del proponente "Var Group S.p.A." sono state raccolte e analizzate in modo da definire i requisiti del prodotto _software_ e della documentazione associata nel documento #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_1.0.0.pdf")[analisi di requisiti].
 
 Nel processo di validazione, vengono in aiuto anche le attività di tracciamento dei requisiti sopra descritte, che permetteranno di validare se il prodotto funziona nel modo in cui il proponente si aspetta e se è conforme a quanto stabilito.
 
-Un altro strumento a supporto sono i #link("/TODO LINK TEST DI ACCETTAZIONE")[test di accettazione] che rappresentano l'ultimo punto di controllo del sistema prima del rilascio del prodotto. Questi test vengono eseguiti in un ambiente che simula quello reale di utilizzo e verificano il corretto funzionamento del prodotto _software_ assieme al proponente.
+Un altro strumento a supporto sono i test di accettazione che rappresentano l'ultimo punto di controllo del sistema prima del rilascio del prodotto. Questi test vengono eseguiti in un ambiente che simula quello reale di utilizzo e verificano il corretto funzionamento del prodotto _software_ assieme al proponente.
 #pagebreak()
 
 
@@ -898,7 +892,7 @@ La normativa ISO/IEC 12207:1995 indirizza i seguenti sotto processi:
 == Management (Gestione dei processi)
 Secondo la normativa ISO/IEC 12207:1995, il processo di gestione dei processi ha lo scopo di individuare i processi e attribuirli ai relativi ruoli nella gestione del ciclo di vita del software. L'obiettivo è quello di garantire che i processi siano definiti, implementati e mantenuti in modo da soddisfare le esigenze del proponente e garantire la massima efficienza de gruppo di lavoro.
 
-I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("/TODO")[piano di progetto].
+I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.0.0.pdf")[piano di progetto].
 
 === Strumenti a supporto della gestione dei processi <sezione4.1.1>
 Il gruppo _Sigma18_ ha deciso di utilizzare i seguenti strumenti per la gestione dei processi:
