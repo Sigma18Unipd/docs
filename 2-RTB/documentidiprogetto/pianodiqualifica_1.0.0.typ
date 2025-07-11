@@ -11,10 +11,10 @@
   versioneAttuale: "1.0.0",
   versioni: (
     "1.0.0",
-    "2025/07/02",
+    "2025/07/11",
     "Carmelo Russello",
     "Mirco Borella",
-    "Migliorie impostazioni del documento",
+    "Migliorie impostazioni del documento e aggiornamento cruscotto di valutazione concluso il settimo sprint",
     "0.8.0",
     "2025/06/26",
     "Aleena Mathew ",
@@ -470,6 +470,8 @@ Come si può notare, il valore di *MPC-AC* cresce costantemente, mentre il valor
 ])
 === RTB
 Dal grafico si può notare che i valore di *MPC-CV* e *MPC-SV* sono sempre entro i limiti accettabili, indicati come _limite superiore_ e _limite inferiore_.
+Si può notare che il valore di *MPC-SV* ha subito un picco negativo durante il sesto sprint causato dalla sessione di esami estiva che ha causato un rallentamento soprattutto nello sprint in questione.
+Tuttavia, il valore è tornato in linea con le aspettative nel successivo sprint, indicando che il progetto sta procedendo secondo la pianificazione e che i costi sono sotto controllo.
 
 
 
