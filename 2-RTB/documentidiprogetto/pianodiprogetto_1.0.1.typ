@@ -8,8 +8,13 @@
   verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.0.1",
   versioni: (
+    "1.0.1",
+    "2025/07/09",
+    "Aleena Mathew",
+    "Mirco Borella",
+    "Correzione di una data ",
     "1.0.0",
     "2025/07/08",
     "Matteo Marangon",
@@ -957,7 +962,7 @@ _Sigma18_ dichiara che il settimo sprint è stato proficuo all'avanzamento del c
 
 Il rischio RO4 è stato mitigato grazie ad una migliore organizzazione oraria dei membri del gruppo, che ha permesso di svolgere le attività relative al capitolato in parallelo allo studio per la sessione d'esame di Luglio.
 
-Nello specifico è stato completato lo sviluppo del _PoC (Proof of Concept)_ ed è stato presentato all'azienda proponente per la revisione RTB in data 30 Giugno 2025. L'azienda ha approvato il _PoC (Proof of Concept)_ e ha richiesto di procedere con lo sviluppo.
+Nello specifico è stato completato lo sviluppo del _PoC (Proof of Concept)_ ed è stato presentato all'azienda proponente per la revisione RTB in data 01 Luglio 2025. L'azienda ha approvato il _PoC (Proof of Concept)_ e ha richiesto di procedere con lo sviluppo.
 
 Il gruppo ha programmato per il giorno 09 Luglio 2025 un incontro con il professor Cardin per la revisione delle tecnologie scelte (RTB).
 
