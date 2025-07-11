@@ -11,6 +11,11 @@
   versioneAttuale: "1.0.0",
   versioni: (
     "1.0.0",
+    "2025/07/08",
+    "Matteo Marangon",
+    "Mirco Borella",
+    "Aggiornamento retrospettiva settimo sprint e inizio ottavo sprint",
+    "0.7.0",
     "2025/06/26",
     "Aleena Mathew",
     "Carmelo Russello",
@@ -856,8 +861,6 @@ Il gruppo si impegna a:
   [*Totali*], [*42*], [], [*€845.00*],
 )
 
-
-
 ==== *Analisi retrospettiva*:
 _Sigma18_ dichiara che il sesto sprint, ha subito un rallentamento più marcato rispetto ai precedenti, nell'avanzamento del capitolato, per via della manifestazione del rischio RO4.
 
@@ -869,10 +872,11 @@ Il gruppo ha proseguito lo sviluppo del _PoC_, in particolare è stato studiato 
 - #glossario("DeepSeek R1");
 - #glossario("Llama 3.3 70B").
 
-
-
 Continuano ad essere riscontrate difficoltà catalogabili nei rischi RT1, RT2 e RO4. \
 Ai fini di mitigare quanto riscontrato, il gruppo continua ad adottare una suddivisione dei ruoli flessibile per permettere ai membri del gruppo di svolgere le mansioni di un ruolo diverso da quello assegnato, in modo tale da garantire continuità nello sviluppo.\
+
+
+
 
 
 
@@ -907,9 +911,93 @@ Il gruppo si impegna a:
   [Mirco Borella], [0], [0], [4], [6], [0], [0], [*10*],
   [Pietro Crotti], [0], [0], [4], [3], [0], [3], [*10*],
   [Marco Egidi], [2], [0], [2], [2], [0], [3], [*9*],
-  [Matteo Marangon], [3], [0], [0], [3], [0], [0], [*9*],
+  [Matteo Marangon], [3], [0], [0], [3], [0], [3], [*9*],
   [Aleena Mathew], [0], [0], [4], [2], [0], [3], [*9*],
   [Carmelo Russello], [0], [0], [4], [3], [1], [1], [*9*],
   [*Totali*], [*5*], [*0*], [*19*], [*23*], [*5*], [*13*], [*65*],
 )
 
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [1], [4], [4], [0], [*9*],
+  [Mirco Borella], [0], [0], [2 (-2)], [6], [0], [0], [*8*],
+  [Pietro Crotti], [0], [0], [3 (-1)], [3], [0], [2 (-1)], [*8*],
+  [Marco Egidi], [2], [0], [2], [2], [0], [2 (-1)], [*8*],
+  [Matteo Marangon], [3], [0], [0], [5 (+2)], [0], [2 (-1)], [*10*],
+  [Aleena Mathew], [0], [0], [4], [4 (+2)], [0], [1 (-2)], [*9*],
+  [Carmelo Russello], [0], [0], [4], [3], [1], [1], [*9*],
+  [*Totali*], [*5*], [*0*], [*16*], [*27*], [*5*], [*8*], [*61*],
+)
+
+#pagebreak()
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [5], [€20], [€100.00],
+  [Analista], [0], [€25], [€0.00],
+  [Progettista], [16], [€25], [€400.00],
+  [Programmatore], [27], [€15], [€405.00],
+  [Responsabile], [5], [€30], [€150.00],
+  [Verificatore], [8], [€15], [€120.00],
+  [*Totali*], [*61*], [], [*€1175.00*],
+)
+
+
+==== *Analisi retrospettiva*:
+_Sigma18_ dichiara che il settimo sprint è stato proficuo all'avanzamento del capitolato.
+
+Il rischio RO4 è stato mitigato grazie ad una migliore organizzazione oraria dei membri del gruppo, che ha permesso di svolgere le attività relative al capitolato in parallelo allo studio per la sessione d'esame di Luglio.
+
+Nello specifico è stato completato lo sviluppo del _PoC (Proof of Concept)_ ed è stato presentato all'azienda proponente per la revisione RTB in data 30 Giugno 2025. L'azienda ha approvato il _PoC (Proof of Concept)_ e ha richiesto di procedere con lo sviluppo.
+
+Il gruppo ha programmato per il giorno 09 Luglio 2025 un incontro con il professor Cardin per la revisione delle tecnologie scelte (RTB).
+
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 8
+
+==== Dettagli
+
+*Data di inizio*: 08/07/2025 \
+*Data di fine*: 21/07/2025 \
+
+*Rischi attesi*: RO1, RO2, RO3, RO4
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Effettuare la revisione RTB con il professor Cardin
+- Effettuare la revisione RTB con il professore Vardanega (in caso di semaforo verde dall'incontro con il professor Cardin)
+- Iniziare la fase del PB (Product Baseline) e dello sviluppo del'MVP (Minimum Viable Product)
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [1], [1], [0], [0], [*2*],
+  [Mirco Borella], [0], [0], [0], [0], [2], [0], [*2*],
+  [Pietro Crotti], [0], [2], [0], [0], [0], [0], [*2*],
+  [Marco Egidi], [0], [0], [0], [0], [2], [0], [*2*],
+  [Matteo Marangon], [0], [0], [0], [0], [0], [2], [*2*],
+  [Aleena Mathew], [2], [0], [0], [0], [0], [0], [*2*],
+  [Carmelo Russello], [1], [0], [0], [0], [0], [0], [*1*],
+  [*Totali*], [*3*], [*2*], [*1*], [*1*], [*4*], [*2*], [*13*],
+)
