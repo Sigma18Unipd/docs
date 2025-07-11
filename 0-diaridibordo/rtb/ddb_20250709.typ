@@ -8,7 +8,7 @@
 #spacerS
 = Progressi raggiunti e confronto (_retrospettiva_)
 - Concluso lo sviluppo del _PoC (Proof of Concept)_ lato _frontend_ e _backend_;
-- Effettuato un incontro con l'azienda proponente per verificare lo stato di avanzamento del progetto
+- Effettuato un incontro con l'azienda proponente per verificare lo stato di avanzamento del progetto;
 
 #pagebreak()
 #spacerS
