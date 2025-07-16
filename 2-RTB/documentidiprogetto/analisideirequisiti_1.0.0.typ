@@ -789,6 +789,163 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   #figure(image("../../assets/usecasediagrams/UC_29.png"), caption: [Diagramma casi d'uso UC[29],])
 \
 
+=== UC[X]: Aggiunta del blocco _Outlook_ ad una _routine_ esistente
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Outlook_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Outlook_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Outlook_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Outlook_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Aggiunta del blocco _Slack_ ad una _routine_ esistente
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Slack_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Slack_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Slack_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Slack_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Aggiunta del blocco _Telegram_ ad una _routine_ esistente
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Telegram_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Telegram_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Telegram_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Telegram_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Aggiunta del blocco _Pastebin_ ad una _routine_ esistente
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Pastebin_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Pastebin_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Pastebin_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Pastebin_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Aggiunta del blocco _Calendar_ ad una _routine_ esistente
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Calendar_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Calendar_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Calendar_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Calendar_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+
+=== UC[X]: Aggiunta del blocco _Timer_ ad una _routine_ esistente
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Timer_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Timer_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Timer_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Timer_ a quelli già esistenti.
+  4. L'utente imposta il tempo di attesa del blocco _Timer_.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+
+=== UC[X]: Aggiunta del blocco _Word_ ad una _routine_ esistente
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Word_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Word_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Word_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Word_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Visualizzazione informazioni del blocco _Word_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Word_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Word_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Word_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Word_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Modifica impostazioni del blocco _Word_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Word_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco _Word_ dalla lista dei blocchi.
+  2. L'utente aggiunge il blocco _Word_ dall'apposito pulsante.
+  3. L'utente collega il blocco _Word_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+
 
 
 
