@@ -119,7 +119,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa] (*Ultimo accesso il: 16/07/2025*)
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico] (*Ultimo accesso il: 16/07/2025*)
 
 - #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] (*Ultimo accesso il: 16/07/2025*)
 
@@ -146,8 +146,8 @@ Il prodotto è destinato a due tipologie di utenti: utente base e utente avanzat
 L'utente base è colui che non ha particolari conoscenze tecniche o tecnologiche, pertanto ha bisogno di essere aiutato tramite un'interfaccia semplice e intuitiva per poter utilizzare il prodotto senza difficoltà.
 
 === Utente avanzato
-L'utente avanzato, è colui che dispone di una conoscenza più approfindita sul funzionamento dei vari componenti che devono interagire tra loro per la creazione di un flusso di lavoro. Dunque può volere un livello di configurazione maggiore e talvolta anche creare intere automazioni manualmente.
-L'utente avanzato può anche aver necessità di modificare i vari parametri dell'#glossario("LLM") come ad esempio la temperatura.
+L'utente avanzato, è colui che dispone di una conoscenza più approfondita sul funzionamento dei vari componenti che devono interagire tra loro per la creazione di un flusso di lavoro. Dunque può volere un livello di configurazione maggiore e talvolta anche creare intere automazioni manualmente.
+L'utente avanzato può anche aver necessità di modificare il modello dell'#glossario("LLM").
 
 == Funzionalità e vincoli
 Il prodotto dovrà consentire all'utente di creare flussi di lavoro sia in modo automatico che manuale.
@@ -189,6 +189,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
+
+
+
 === UC[1]: _Login_ <UC1>
 - *Attore principale*: utente non autenticato.
 
@@ -198,31 +203,16 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente accede all'applicativo.
-  2. L'utente inserisce la propria _e-mail_ //(#link(<UC2>)[*UC[2]*]).
+  2. L'utente inserisce la propria _e-mail_).
   3. L'utente inserisce la propria _password_.
   4. Il sistema verifica le credenziali e permette di accedere alla #glossario("dashboard").
 - *Estensioni*:
   - Credenziali non valide (#link(<UC3>)[*UC[3]*]).
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
-<UC2>
 
-/*
-=== UC[2]: Verifica formato _e-mail_ <UC2>
 
-- *Attore principale*: utente non autenticato.
 
-- *Pre-condizioni*: l'utente ha inserito la propria _e-mail_.
-
-- *Post-condizioni*: il sistema verifica il formato dell'_e-mail_.
-
-- *Scenario principale*:
-  1. L'utente inserisce la propria _e-mail_.
-  2. Il sistema verifica il formato dell'_e-mail_.
-  3. Se il formato è valido, il sistema procede con l'autenticazione.
-  4. Se il formato non è valido, il sistema mostra un messaggio di errore.
-
-*/
 
 
 
@@ -265,10 +255,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-<UC6>
 
 
-//Rigenerare il diagramma UML da nuovi usecase
 === UC[5]: Registrazione <UC5>
 
 - *Attore principale*: utente non autenticato.
@@ -280,9 +268,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente accede all'applicativo.
   2. L'utente accede alla pagina di registrazione.
-  3. L'utente inserisce la propria _e-mail_ //(#link(<UC2>)[*UC[2]*]).
-  4. L'utente inserisce la _password_ //(#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
-  5. L'utente reinserisce la _password_ creata //(#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  3. L'utente inserisce la propria _e-mail_.
+  4. L'utente inserisce la _password_ .
+  5. L'utente reinserisce la _password_ creata.
   6. Il sistema crea l'_account_ e salva le credenziali nel _database_.
 - *Estensioni*:
   - _E-mail_ già in uso (#link(<UC8>)[*UC[8]*]).
@@ -290,39 +278,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-<UC7>
 
-/*
-=== UC[6]: Verifica formato _password_ <UC6>
-
-- *Attore principale*: utente non autenticato.
-
-- *Pre-condizioni*: l'utente ha inserito la propria _password_.
-
-- *Post-condizioni*: il sistema verifica il formato della _password_.
-
-- *Scenario principale*:
-  1. L'utente inserisce la propria _password_.
-  2. Il sistema verifica il formato della _password_.
-  3. Se il formato è valido, il sistema procede con l'autenticazione.
-  4. Se il formato non è valido, il sistema mostra un messaggio di errore.
-
-
-
-
-
-
-=== UC[7]: Verifica _password_ uguali <UC7>
-- *Attore principale*: utente non autenticato.
-
-- *Pre-condizioni*: l'utente non possiede un _account_, l'utente ha inserito le due _password_ nell'apposito campo nella pagina di registrazione.
-
-- *Post-condizioni*: il sistema verifica che le due _password_ inserite siano uguali.
-
-- *Scenario principale*:
-  1. L'utente inserisce le due _password_.
-
-*/
 
 
 
@@ -349,7 +305,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-\
+
 === UC[9]: Creazione nuova _routine_ <UC9>
 - *Attore principale*: utente autenticato.
 
@@ -370,6 +326,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
+
+
 === UC[10]: Errore "Nome _routine_ già in uso" <UC10>
 - *Attore principale*: utente autenticato.
 
@@ -383,11 +343,15 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Se il nome è univoco, il sistema crea la _routine_ e l'utente viene portato alla pagina di modifica del flusso.
   4. Se il nome non è univoco, il sistema mostra un messaggio di errore all'utente.
 
-
-
-
 #figure(image("../../assets/usecasediagrams/UC_4_9_10.png"), caption: [Diagramma casi d'uso UC[4], UC[9], UC[10]])
-\
+
+
+
+
+
+
+
+
 
 === UC[11]: Generare una _routine_ mediante linguaggio naturale <UC11>
 
@@ -412,6 +376,43 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+=== UC[XX]: Visualizza modello _GenAI_ per la generazione
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente sta generando una routine mediante linguaggio naturale.
+
+- *Post-condizioni*: il modello utilizzato per la generazione della _routine_ viene visualizzato.
+
+- *Scenario principale*:
+  1. Il sistema mostra il modello _GenAI_ selezionato per la generazione della _routine_ nel menù a tendina.
+
+
+
+
+
+
+
+=== UC[XX]: Modifica modello _GenAI_ per la generazione
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente sta generando una routine mediante linguaggio naturale.
+
+- *Post-condizioni*: il modello utilizzato per la generazione della _routine_ viene modificato.
+
+- *Scenario principale*:
+  1. Il sistema mostra il modello _GenAI_ selezionato per la generazione della _routine_ nel menù a tendina.
+
+  2. L'utente seleziona un nuovo modello _GenAI_ dal menù a tendina.
+
+
+
+
+
+
+
 === UC[12]: Visualizzazione dell'errore "Impossibile generare il flusso" <UC12>
 
 - *Attore principale*: utente autenticato.
@@ -428,30 +429,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 #figure(image("../../assets/usecasediagrams/UC_4_11_12.png"), caption: [Diagramma casi d'uso UC[4], UC[11], UC[12]])
 
-\
-
-=== UC[13]: Modificare parametri di generazione <UC13>
-
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente clicca sul dialogo per la modifica dei parametri di generazione, nella pagina di un flusso
-
-- *Post-condizioni*: le impostazioni di generazione vengono modificate secondo le preferenze dell'utente.
-
-- *Scenario principale*:
-  1. L'utente preme l'icona delle impostazioni del modello.
-  2. Il sistema mostra nell'interfaccia grafica le impostazioni di generazione e dei modelli.
-  3. L'utente modifica le impostazioni desiderate.
-  4. Il sistema salva le modifiche per il flusso corrente.
-
-- *Estensioni*:
-- Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
 
-#figure(image("../../assets/usecasediagrams/UC_4_13.png"), caption: [Diagramma casi d'uso UC[4], UC[13],])
-\
 
 
 
@@ -468,7 +449,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
 
 #figure(image("../../assets/usecasediagrams/UC_14.png"), caption: [Diagramma casi d'uso UC[14]])
-\
+
+
+
+
+
 
 === UC[XX]: Visualizzazione nome di una _routine_ esistente
 - *Attore principale*: utente autenticato.
@@ -484,7 +469,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
+
 === UC[XX]: Visualizzazione diagramma dei blocchi di una _routine_ esistente
+
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*:
@@ -495,6 +484,18 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*
   1. l'utente visualizza il diagramma dei blocchi della routine selezionata.
+
+
+
+
+
+
+
+
+
+
+
+
 
 === UC[15]: Eliminare una _routine_ esistente <UC15>
 - *Attore principale*: utente autenticato.
@@ -539,6 +540,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 #figure(image("../../assets/usecasediagrams/UC_4_10_16.png"), caption: [Diagramma casi d'uso UC[4], UC[10], UC[16],])
 \
 
+
+
+
+
+
+
+
+
 === UC[XX]: Avviare una _routine_ esistente
 
 - *Attore principale*: utente autenticato.
@@ -550,7 +559,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. Il sistema avvia la _routine_.
 
-- *Estensioni*:
+
+
+
+
 
 
 
@@ -571,7 +583,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 #figure(image("../../assets/usecasediagrams/UC_4_17.png"), caption: [Diagramma casi d'uso UC[4], UC[17]])
-\
+
+
+
+
+
 
 
 === UC[18]: Avviare una _routine_ esistente tramite la pagina di modifica del flusso <UC18>
@@ -589,30 +605,79 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Estensioni*:
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
-
-
 #figure(image("../../assets/usecasediagrams/UC_4_18.png"), caption: [Diagramma casi d'uso UC[4], UC[18]])
-\
 
 
 
 
 
-=== UC[19]: Interrompere una _routine_ avviata <UC19>
+
+
+
+
+
+
+=== UC[XX]: Interrompere una _routine_ avviata
 
 - *Attore principale*: utente autenticato.
 
-- *Pre-condizioni*: l'utente ha una _routine_ attiva o in esecuzione.
+- *Pre-condizioni*: l'utente ha una _routine_ in esecuzione.
 
 - *Post-condizioni*: l'esecuzione della _routine_ viene interrotta.
 
 - *Scenario principale*:
-  1. L'utente preme l'icona di _stop_ della _routine_.
+  1. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
+
+- *Estensioni*:
+  - Visualizzazione errore "Impossibile bloccare la _routine_" (#link(<UC20>)[*UC[20]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
+
+=== UC[17]: Interrompere una _routine_ dalla _dashboard_ <UC17>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella _dashboard_ e ha una _routine_ in esecuzione.
+
+- *Post-condizioni*: l'esecuzione della _routine_ viene interrotta.
+
+- *Scenario principale*:
+  1. L'utente preme l'icona di interruzione della _routine_.
   2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
 
 - *Estensioni*:
   - Visualizzazione errore "Impossibile bloccare la _routine_" (#link(<UC20>)[*UC[20]*]).
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
+
+=== UC[18]: Interrompere una _routine_ tramite la propria pagina di modifica <UC18>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso in esecuzione.
+
+- *Post-condizioni*: l'esecuzione della _routine_ viene interrotta.
+
+- *Scenario principale*:
+  1. L'utente preme l'icona di interruzione della _routine_.
+  2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
+
+- *Estensioni*:
+  - Visualizzazione errore "Impossibile bloccare la _routine_" (#link(<UC20>)[*UC[20]*]).
+  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+
+#figure(image("../../assets/usecasediagrams/UC_4_18.png"), caption: [Diagramma casi d'uso UC[4], UC[18]])
+
 
 
 
@@ -632,11 +697,12 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Se l'azione della _routine_ non è bloccabile, il sistema mostra un messaggio di errore all'utente.
   3. Se la _routine_ non è più in esecuzione, il sistema mostra un messaggio di errore all'utente.
 
-
-
-
 #figure(image("../../assets/usecasediagrams/UC_4_19_20.png"), caption: [Diagramma casi d'uso UC[4], UC[19], UC[20]])
-\
+
+
+
+
+
 
 
 
@@ -648,16 +714,32 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: viene modificato il comportamento della _routine_.
 
 - *Scenario principale*:
-  1. L'utente seleziona dalla lista dei blocchi un elemento.
-  2. L'utente aggiunge un blocco dall'apposito menù.
-  3. L'utente collega il blocco a quelli già esistenti.
-  4. Il sistema mostra il blocco rilasciato nella posizione desiderata, aggiornando il comportamento della _routine_.
+  1. L'utente aggiunge un blocco alla _routine_.
+  2. Il sistema mostra il blocco aggiunto.
 
 
 - *Estensioni*:
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 #figure(image("../../assets/usecasediagrams/UC_4_21.png"), caption: [Diagramma casi d'uso UC[4], UC[21]])
-\
+
+
+
+
+
+
+
+
+=== UC[22]: Visualizza le impostazioni di un singolo blocco <UC22>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: si trova nella pagina di modifica di un flusso contenente almeno un blocco provvisto di impostazioni.
+
+- *Post-condizioni*: vengono visualizzati i campi di impostazione di un blocco.
+
+- *Scenario principale*:
+  1. L'utente visualizza le impostazioni di un blocco.
+
 
 
 
@@ -670,20 +752,19 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Attore principale*: utente autenticato.
 
-- *Pre-condizioni*: Si trova nella pagina di modifica di un flusso contenente almeno un blocco provvisto di impostazioni.
+- *Pre-condizioni*: si trova nella pagina di modifica di un flusso contenente almeno un blocco provvisto di impostazioni.
 
 - *Post-condizioni*: le impostazioni del singolo blocco vengono modificate.
 
 - *Scenario principale*:
-  1. L'utente preme sull'icona delle impostazioni di un blocco all'interno del flusso.
-  2. Il sistema mostra una finestra con le impostazioni del blocco.
-  3. L'utente modifica le impostazioni desiderate.
-  4. Il sistema salva le modifiche per il relativo blocco.
+  1. L'utente modifica le impostazioni di un blocco.
+  2. Il sistema salva le modifiche del blocco.
 
 
 - *Estensioni*:
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
   - Visualizzazione errore "Impostazioni non valide" (#link(<UC23>)[*UC[23]*]).
+
 
 
 
@@ -708,27 +789,253 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[24]: Autenticazione ad un servizio tramite impostazioni del blocco <UC24>
+=== UC[X]: Aggiunta del blocco "_Telegram_ - Send Bot Message" ad una _routine_ esistente
 
-- *Attore principale*: utente autenticato.
+- *Attore principale*: utente esperto autenticato.
 
-- *Pre-condizioni*: l'utente si trova nelle impostazione del blocco (#link(<UC22>)[*UC[22]*]).
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
 
-- *Post-condizioni*: l'utente ha eseguito l'accesso al servizio del blocco.
+- *Post-condizioni*: viene aggiunto il blocco "_Telegram_ - Send Bot Message" nella _routine_.
 
 - *Scenario principale*:
-  1. L'utente preme il tasto di accesso al servizio del blocco selezionato.
-  2. Il sistema mostra la pagina di accesso al servizio del blocco selezionato.
-  3. L'utente inserisce le credenziali del servizio del blocco selezionato.
-  4. Il sistema attende il server di autenticazione del servizio del blocco selezionato.
+  1. L'utente apre il menù dei blocchi disponibili.
+  1. L'utente preme l'apposito pulsante per aggiungere il blocco "_Telegram_ - Send Bot Message" alla routine.
+  3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
+
+
+
+
+
+
+
+=== UC[X]: Visualizzazione impostazioni del blocco "_Telegram_ - Send Bot Message"
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono visualizzate le impostazioni del blocco "_Telegram_ - Send Bot Message".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. Il sistema mostra impostazioni del blocco, come il messaggio da inviare e le chiavi di accesso all'API.
+
+
+
+
+
+
+
+=== UC[X]: Modifica impostazioni del blocco "_Telegram_ - Send Bot Message"
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco.
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. L'utente modifica le impostazioni del blocco, come il messaggio da inviare.
+  3. Il sistema salva le modifiche apportate.
 
 - *Estensioni*:
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
-  - Visualizzazione errore "Impostazioni non valide" (#link(<UC23>)[*UC[23]*]).
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
 
 
-  #figure(image("../../assets/usecasediagrams/UC_4_22_23_24.png"), caption: [Diagramma casi d'uso UC[4], UC[22], UC[23], UC[24],])
-  \
+
+
+
+
+
+
+=== UC[X]: Aggiunta del blocco "_Pastebin_ - Create Paste" ad una _routine_ esistente
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco "_Pastebin_ - Create Paste" nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente apre il menù dei blocchi disponibili.
+  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
+
+
+
+
+
+
+
+=== UC[X]: Visualizzazione impostazioni del blocco "_Pastebin_ - Create Paste"
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono visualizzate le impostazioni del blocco "_Pastebin_ - Create Paste".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. Il sistema mostra impostazioni del blocco, come il nome del _paste_, se il _paste_ è privato, pubblico o non in elenco, il formato, il contenuto del _paste_ e le chiavi di accesso all'API.
+
+
+
+
+
+
+
+=== UC[X]: Modifica impostazioni del blocco "_Pastebin_ - Create Paste"
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco "_Pastebin_ - Create Paste".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. L'utente modifica le impostazioni del blocco, come il nome del _paste_, se il _paste_ è privato, pubblico o non in elenco, il formato, il contenuto del _paste_ e le chiavi di accesso all'API.
+
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
+=== UC[X]: Aggiunta del blocco "_AI_ - Summarize" ad una _routine_ esistente
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco "_AI_ - Summarize" nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente apre il menù dei blocchi disponibili.
+  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
+
+
+
+
+
+
+
+=== UC[X]: Aggiunta del blocco "_System_ - Wait Second(s)" ad una _routine_ esistente
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco "_System_ - Wait Second(s)" nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente apre il menù dei blocchi disponibili.
+  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
+
+
+
+
+
+
+
+=== UC[X]: Visualizzazione impostazioni del blocco "_System_ - Wait Second(s)"
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono visualizzate le impostazioni del blocco "_System_ - Wait Second(s)".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. Il sistema mostra impostazioni del blocco, come il numero di secondi da attendere prima di eseguire il blocco successivo.
+
+
+
+
+
+
+
+=== UC[X]: Modifica impostazioni del blocco "_System_ - Wait Second(s)"
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco "_System_ - Wait Second(s)".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. L'utente modifica le impostazioni del blocco, come il numero di secondi da attendere prima di eseguire il blocco successivo.
+
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+
+
+
+
+
+
+
+=== UC[X]: Aggiunta del blocco "_Notion_ - Get Page" ad una _routine_ esistente
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco "_Notion_ - Get Page" nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente apre il menù dei blocchi disponibili.
+  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
+
+
+
+
+
+
+
+=== UC[X]: Visualizzazione impostazioni del blocco "_Notion_ - Get Page"
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono visualizzate le impostazioni del blocco "_Notion_ - Get Page".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. Il sistema mostra impostazioni del blocco, come il token di accesso all'API Notion e il PAGE_ID della pagina da cui prendere i contenuti.
+
+
+
+
+
+
+=== UC[X]: Modifica impostazioni del blocco "_Notion_ - Get Page"
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco "_Notion_ - Get Page".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. L'utente modifica le impostazioni del blocco, come il token di accesso all'API Notion e il PAGE_ID della pagina da cui prendere i contenuti.
+
+- *Estensioni*:
+  - Errore generico (#link(<UC4>)[*UC[4]*]).
+
+
+
 
 
 
@@ -755,6 +1062,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
 === UC[26]: Visualizzazione errore "Flusso incompleto" <UC26>
 
 - *Attore principale*: utente autenticato.
@@ -770,12 +1079,104 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 #figure(image("../../assets/usecasediagrams/UC_4_25_26.png"), caption: [Diagramma casi d'uso UC[4], UC[25], UC[26],])
-\
+
+
+
+
+
+
+
+
+=== UC[26]: Eliminare un blocco da una _routine_ esistente <UC26>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di una _routine_.
+
+- *Post-condizioni*: il blocco selezionato viene rimosso dalla _routine_.
+
+- *Scenario principale*:
+  1. Il sistema rimuove il blocco dalla routine.
+
+
+
+
+=== UC[26]: Eliminare un blocco da una _routine_ esistente da tastiera <UC26>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di una _routine_.
+
+- *Post-condizioni*: il blocco selezionato viene rimosso dalla _routine_.
+
+- *Scenario principale*:
+  1. L'utente seleziona il blocco da rimuovere.
+  2. L'utente preme il tasto dedicato sulla tastiera (_backspace_) per rimuovere il blocco.
+  3. Il sistema rimuove il blocco dalla _routine_.
+
+
+
+
+=== UC[26]: Eliminare un blocco da una _routine_ esistente da interfaccia grafica <UC26>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica delle impostazioni del blocco da rimuovere.
+
+- *Post-condizioni*: il blocco selezionato viene rimosso dalla _routine_.
+
+- *Scenario principale*:
+  1. L'utente preme il tasto dedicato per rimuovere il blocco.
+  2. Il sistema chiude il menù di modifica delle impostazioni del blocco.
+  3. Il sistema rimuove il blocco dalla _routine_.
+
+
+
+
+
+
+=== UC[26]: Collegare due blocchi di una _routine_ esistente <UC26>
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono collegati tra loro due blocchi.
+
+- *Scenario principale*:
+  1. L'utente preme e trascina l'_handle_ destro di un blocco all'_handle_ sinistro di un altro blocco creando un collegamento.
+  2. Il sistema crea un collegamento tra i due blocchi.
+
+
+
+
+
+
+
+
+=== UC[26]: Scollegare due blocchi di una _routine_ esistente <UC26>
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono scollegati due blocchi di una automazione.
+
+- *Scenario principale*:
+  1. L'utente seleziona il collegamento tra due blocchi.
+  2. L'utente preme il tasto dedicato sulla tastiera (_backspace_) per scollegare i due blocchi.
+  3. Il sistema rimuove il collegamento tra i due blocchi.
+
+
+
+
+
 
 
 
 
 === UC[27]: Modifica della _password_ dell'account <UC27>
+
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella _dashboard_.
@@ -785,21 +1186,25 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente preme il tasto dedicato alla modifica della _password_ dell'account.
   2. Il sistema mostra una pagina con le impostazioni dell'account.
-  3. L'utente inserisce la nuova _password_ //(#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
-  4. L'utente reinserisce la _password_ creata //(#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  3. L'utente inserisce la nuova _password_.
+  4. L'utente reinserisce la _password_ creata.
   5. L'utente conferma la modifica della _password_.
   6. Il sistema salva le credenziali nel _database_.
 
 - *Estensioni*:
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
-
 #figure(image("../../assets/usecasediagrams/UC_4_6_7_27.png"), caption: [Diagramma casi d'uso UC[4], UC[6], UC[7], UC[27]])
-\
+
+
+
+
+
 
 
 
 === UC[28]: Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC28>
+
 - *Attore principale*: utente autenticato o non autenticato.
 
 - *Pre-condizioni*: l'utente ha attiva una preferenza di tema.
@@ -811,13 +1216,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema cambia il tema selezionato del _client_.
 
 #figure(image("../../assets/usecasediagrams/UC_28.png"), caption: [Diagramma casi d'uso UC[28],])
-\
+
 
 
 
 
 
 === UC[29]: _Logout_ <UC29>
+
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente è autenticato.
@@ -828,264 +1234,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. l'utente preme l'icona per effettuare il _logout_.
   2. Il sistema disconnette l'utente e lo riporta alla pagina di _login_.
 
-
-
   #figure(image("../../assets/usecasediagrams/UC_29.png"), caption: [Diagramma casi d'uso UC[29],])
-\
-
-
-
-=== UC[X]: Aggiunta del blocco _Outlook_ ad una _routine_ esistente
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Outlook_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente seleziona il blocco _Outlook_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Outlook_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Outlook_ a quelli già esistenti.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Visualizzazione informazioni del blocco _Outlook_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono visualizzate le informazioni del blocco _Outlook_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per visualizzare le informazioni del blocco _Outlook_.
-  2. Il sistema mostra i servizi del blocco _Outlook_ come creazione di una bozza o lettura di una o più mail.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Modifica impostazioni del blocco _Outlook_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono modificate le impostazioni del blocco _Outlook_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Outlook_.
-  2. L'utente modifica le impostazioni del blocco Outlook, come la descrizione della bozza dell'email, il destinatario, l'oggetto, il corpo del messaggio e le email da leggere.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-
-=== UC[X]: Aggiunta del blocco _Telegram_ ad una _routine_ esistente
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Telegram_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente seleziona il blocco _Telegram_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Telegram_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Telegram_ a quelli già esistenti.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Visualizzazione informazioni del blocco _Telegram_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono visualizzate le informazioni del blocco _Telegram_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per visualizzare le informazioni del blocco _Telegram_.
-  2. Il sistema mostra i servizi del blocco _Telegram_,  come il messaggio da inviare e il destinatario.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Modifica impostazioni del blocco _Telegram_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono modificate le impostazioni del blocco _Telegram_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Telegram_.
-  2. L'utente modifica le impostazioni del blocco _Telegram_, come che messaggio inviare e il destinatario.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Aggiunta del blocco _Pastebin_ ad una _routine_ esistente
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Pastebin_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente seleziona il blocco _Pastebin_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Pastebin_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Pastebin_ a quelli già esistenti.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Visualizzazione informazioni del blocco _Pastebin_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono modificate le impostazioni del blocco _Pastebin_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Pastebin_.
-  2. L'utente visualizza le informazioni del blocco _Pastebin_, come formato utilizzato e data di scadenza del _paste_.
-
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Modifica impostazioni del blocco _Pastebin_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono modificate le impostazioni del blocco _Pastebin_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Pastebin_.
-  2. L'utente modifica le impostazioni del blocco _Pastebin_, come formato utilizzato e data di scadenza del _paste_.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Aggiunta del blocco _Calendar_ ad una _routine_ esistente
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Calendar_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente seleziona il blocco _Calendar_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Calendar_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Calendar_ a quelli già esistenti.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Visualizzazione informazioni del blocco _Calendar_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Calendar_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Calendar_.
-  2. L'utente visualizza le informazioni del blocco _Calendar_, come le azioni che può svolgere (lettura eventi futuri e creazione eventi).
-
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Modifica impostazioni del blocco _Calendar_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Calendar_ nella _routine_.
-
-  *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Calendar_.
-  2. L'utente modifica le impostazioni del blocco _Calendar_.
-
-
-- *Estensioni*:
-  - TODO
-
-
-=== UC[X]: Aggiunta del blocco _Timer_ ad una _routine_ esistente
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Timer_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente seleziona il blocco _Timer_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Timer_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Timer_ a quelli già esistenti.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Visualizzazione informazioni del blocco _Timer_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Timer_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Timer_.
-  2. L'utente visualizza le informazioni del blocco _Timer_, come il tempo da aspettare prima del prossimo _step_.
-
-
-- *Estensioni*:
-  - TODO
-\
-
-=== UC[X]: Modifica impostazioni del blocco _Timer_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Timer_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Timer_.
-  2. L'utente modifica le impostazione del blocco _Timer_, come il tempo da aspettare prima del prossimo _step_.
-
-
-- *Estensioni*:
-  - TODO
-
-
-
-
-
 
 
 
