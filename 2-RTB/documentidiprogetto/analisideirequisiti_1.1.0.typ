@@ -7,14 +7,23 @@
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.1.0",
   content: content,
   versioni: (
+    "1.1.0",
+    "2025/07/16",
+    "Pietro Crotti
+Matteo Marangon
+Carmelo Russello",
+    "Pietro Crotti
+Matteo Marangon
+Carmelo Russello",
+    "Aggiunta Use Case e modifiche richieste dal committente",
     "1.0.0",
     "2025/07/01",
     "Aleena Mathew",
     "Alessandro Bernardello",
-    "Modifica UC[21] e allinemento a richieste proponente",
+    "Modifica UC[21] e allineamento a richieste proponente",
     "0.11.1",
     "2025/05/24",
     "Mirco Borella
@@ -105,6 +114,10 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 === Riferimenti normativi
 
 - #link(
+    "https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf",
+  )[Norme di progetto (1.0.0)]
+
+- #link(
     "https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf",
   )[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa]
 
@@ -114,7 +127,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 
 === Riferimenti informativi
 
-- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario]
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario (0.11.0)]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")[Dispensa T05: Analisi dei requisiti]
 
@@ -187,16 +200,16 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente accede all'applicativo.
-  2. L'utente inserisce la propria _e-mail_ (#link(<UC2>)[*UC[2]*]).
+  2. L'utente inserisce la propria _e-mail_ //(#link(<UC2>)[*UC[2]*]).
   3. L'utente inserisce la propria _password_.
   4. Il sistema verifica le credenziali e permette di accedere alla #glossario("dashboard").
 - *Estensioni*:
   - Credenziali non valide (#link(<UC3>)[*UC[3]*]).
   - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
+<UC2>
 
-
-
+/*
 === UC[2]: Verifica formato _e-mail_ <UC2>
 
 - *Attore principale*: utente non autenticato.
@@ -211,7 +224,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Se il formato è valido, il sistema procede con l'autenticazione.
   4. Se il formato non è valido, il sistema mostra un messaggio di errore.
 
-
+*/
 
 
 
@@ -233,7 +246,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[4]: Errore _database_ <UC4>
+=== UC[4]: Errore generico <UC4>
 
 - *Attore principale*: utente.
 
@@ -254,6 +267,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+<UC6>
 
 
 //Rigenerare il diagramma UML da nuovi usecase
@@ -268,9 +282,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente accede all'applicativo.
   2. L'utente accede alla pagina di registrazione.
-  3. L'utente inserisce la propria _e-mail_ (#link(<UC2>)[*UC[2]*]).
-  4. L'utente inserisce la _password_ (#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
-  5. L'utente reinserisce la _password_ creata (#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  3. L'utente inserisce la propria _e-mail_ //(#link(<UC2>)[*UC[2]*]).
+  4. L'utente inserisce la _password_ //(#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  5. L'utente reinserisce la _password_ creata //(#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
   6. Il sistema crea l'_account_ e salva le credenziali nel _database_.
 - *Estensioni*:
   - _E-mail_ già in uso (#link(<UC8>)[*UC[8]*]).
@@ -278,9 +292,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+<UC7>
 
-
-
+/*
 === UC[6]: Verifica formato _password_ <UC6>
 
 - *Attore principale*: utente non autenticato.
@@ -310,6 +324,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente inserisce le due _password_.
 
+*/
 
 
 
@@ -457,16 +472,36 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 #figure(image("../../assets/usecasediagrams/UC_14.png"), caption: [Diagramma casi d'uso UC[14]])
 \
 
+=== UC[XX]: Visualizzazione nome di una _routine_ esistente
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*:
+  - Il sistema memorizza il nome della routine.
+  - l'utente si trova nella pagina di modifica di un flusso.
+
+- *Post-condizioni*: il sistema mostra il nome della routine selezionata.
+
+- *Scenario principale*
+  1. L'utente visualizza il nome della routine selezionata.
 
 
 
+=== UC[XX]: Visualizzazione diagramma dei blocchi di una _routine_ esistente
+- *Attore principale*: utente autenticato.
 
+- *Pre-condizioni*:
+  - Il sistema memorizza il diagramma dei blocchi della routine.
+  - l'utente si trova nella pagina di modifica di un flusso.
 
+- *Post-condizioni*: Il sistema mostra il diagramma dei blocchi della _routine_ selezionata.
+
+- *Scenario principale*
+  1. l'utente visualizza il diagramma dei blocchi della routine selezionata.
 
 === UC[15]: Eliminare una _routine_ esistente <UC15>
 - *Attore principale*: utente autenticato.
 
-- *Pre-condizioni*: l'utente si trova nella pagina di un flusso.
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
 
 - *Post-condizioni*: utente viene ritornato alla _dashboard_ e la _routine_ viene eliminata.
 
@@ -506,7 +541,18 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 #figure(image("../../assets/usecasediagrams/UC_4_10_16.png"), caption: [Diagramma casi d'uso UC[4], UC[10], UC[16],])
 \
 
+=== UC[XX]: Avviare una _routine_ esistente
 
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente ha creato almeno una routine
+
+- *Post-condizioni*: una _routine_ viene avviata.
+
+- *Scenario principale*:
+  1. Il sistema avvia la _routine_.
+
+- *Estensioni*:
 
 
 
@@ -741,8 +787,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente preme il tasto dedicato alla modifica della _password_ dell'account.
   2. Il sistema mostra una pagina con le impostazioni dell'account.
-  3. L'utente inserisce la nuova _password_ (#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
-  4. L'utente reinserisce la _password_ creata (#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  3. L'utente inserisce la nuova _password_ //(#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
+  4. L'utente reinserisce la _password_ creata //(#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]).
   5. L'utente conferma la modifica della _password_.
   6. Il sistema salva le credenziali nel _database_.
 
@@ -789,6 +835,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   #figure(image("../../assets/usecasediagrams/UC_29.png"), caption: [Diagramma casi d'uso UC[29],])
 \
 
+
+
 === UC[X]: Aggiunta del blocco _Outlook_ ad una _routine_ esistente
 - *Attore principale*: utente esperto autenticato.
 
@@ -806,22 +854,38 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - TODO
 \
 
-=== UC[X]: Aggiunta del blocco _Slack_ ad una _routine_ esistente
+=== UC[X]: Visualizzazione informazioni del blocco _Outlook_
 - *Attore principale*: utente esperto autenticato.
 
 - *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
 
-- *Post-condizioni*: viene aggiunto il blocco _Slack_ nella _routine_.
+- *Post-condizioni*: vengono visualizzate le informazioni del blocco _Outlook_.
 
 - *Scenario principale*:
-  1. L'utente seleziona il blocco _Slack_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Slack_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Slack_ a quelli già esistenti.
+  1. L'utente preme il pulsante dedicato per visualizzare le informazioni del blocco _Outlook_.
+  2. Il sistema mostra i servizi del blocco _Outlook_ come creazione di una bozza o lettura di una o più mail.
 
 
 - *Estensioni*:
   - TODO
 \
+
+=== UC[X]: Modifica impostazioni del blocco _Outlook_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco _Outlook_.
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Outlook_.
+  2. L'utente modifica le impostazioni del blocco Outlook, come la descrizione della bozza dell'email, il destinatario, l'oggetto, il corpo del messaggio e le email da leggere.
+
+
+- *Estensioni*:
+  - TODO
+\
+
 
 === UC[X]: Aggiunta del blocco _Telegram_ ad una _routine_ esistente
 - *Attore principale*: utente esperto autenticato.
@@ -834,6 +898,38 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente seleziona il blocco _Telegram_ dalla lista dei blocchi.
   2. L'utente aggiunge il blocco _Telegram_ dall'apposito pulsante.
   3. L'utente collega il blocco _Telegram_ a quelli già esistenti.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Visualizzazione informazioni del blocco _Telegram_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono visualizzate le informazioni del blocco _Telegram_.
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le informazioni del blocco _Telegram_.
+  2. Il sistema mostra i servizi del blocco _Telegram_,  come il messaggio da inviare e il destinatario.
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Modifica impostazioni del blocco _Telegram_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco _Telegram_.
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Telegram_.
+  2. L'utente modifica le impostazioni del blocco _Telegram_, come che messaggio inviare e il destinatario.
 
 
 - *Estensioni*:
@@ -857,6 +953,39 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - TODO
 \
 
+=== UC[X]: Visualizzazione informazioni del blocco _Pastebin_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco _Pastebin_.
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Pastebin_.
+  2. L'utente visualizza le informazioni del blocco _Pastebin_, come formato utilizzato e data di scadenza del _paste_.
+
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Modifica impostazioni del blocco _Pastebin_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco _Pastebin_.
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Pastebin_.
+  2. L'utente modifica le impostazioni del blocco _Pastebin_, come formato utilizzato e data di scadenza del _paste_.
+
+
+- *Estensioni*:
+  - TODO
+\
+
 === UC[X]: Aggiunta del blocco _Calendar_ ad una _routine_ esistente
 - *Attore principale*: utente esperto autenticato.
 
@@ -874,6 +1003,38 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - TODO
 \
 
+=== UC[X]: Visualizzazione informazioni del blocco _Calendar_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Calendar_ nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Calendar_.
+  2. L'utente visualizza le informazioni del blocco _Calendar_, come le azioni che può svolgere (lettura eventi futuri e creazione eventi).
+
+
+
+- *Estensioni*:
+  - TODO
+\
+
+=== UC[X]: Modifica impostazioni del blocco _Calendar_
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco _Calendar_ nella _routine_.
+
+  *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Calendar_.
+  2. L'utente modifica le impostazioni del blocco _Calendar_.
+
+
+- *Estensioni*:
+  - TODO
+
 
 === UC[X]: Aggiunta del blocco _Timer_ ad una _routine_ esistente
 - *Attore principale*: utente esperto autenticato.
@@ -886,64 +1047,47 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente seleziona il blocco _Timer_ dalla lista dei blocchi.
   2. L'utente aggiunge il blocco _Timer_ dall'apposito pulsante.
   3. L'utente collega il blocco _Timer_ a quelli già esistenti.
-  4. L'utente imposta il tempo di attesa del blocco _Timer_.
 
 
 - *Estensioni*:
   - TODO
 \
 
-
-=== UC[X]: Aggiunta del blocco _Word_ ad una _routine_ esistente
+=== UC[X]: Visualizzazione informazioni del blocco _Timer_
 - *Attore principale*: utente esperto autenticato.
 
 - *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
 
-- *Post-condizioni*: viene aggiunto il blocco _Word_ nella _routine_.
+- *Post-condizioni*: viene aggiunto il blocco _Timer_ nella _routine_.
 
 - *Scenario principale*:
-  1. L'utente seleziona il blocco _Word_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Word_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Word_ a quelli già esistenti.
+  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Timer_.
+  2. L'utente visualizza le informazioni del blocco _Timer_, come il tempo da aspettare prima del prossimo _step_.
 
 
 - *Estensioni*:
   - TODO
 \
 
-=== UC[X]: Visualizzazione informazioni del blocco _Word_
+=== UC[X]: Modifica impostazioni del blocco _Timer_
 - *Attore principale*: utente esperto autenticato.
 
 - *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
 
-- *Post-condizioni*: viene aggiunto il blocco _Word_ nella _routine_.
+- *Post-condizioni*: viene aggiunto il blocco _Timer_ nella _routine_.
 
 - *Scenario principale*:
-  1. L'utente seleziona il blocco _Word_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Word_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Word_ a quelli già esistenti.
+  1. L'utente preme il pulsante dedicato per modificare le impostazioni del blocco _Timer_.
+  2. L'utente modifica le impostazione del blocco _Timer_, come il tempo da aspettare prima del prossimo _step_.
 
 
 - *Estensioni*:
   - TODO
-\
-
-=== UC[X]: Modifica impostazioni del blocco _Word_
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco _Word_ nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente seleziona il blocco _Word_ dalla lista dei blocchi.
-  2. L'utente aggiunge il blocco _Word_ dall'apposito pulsante.
-  3. L'utente collega il blocco _Word_ a quelli già esistenti.
 
 
-- *Estensioni*:
-  - TODO
-\
+
+
+
 
 
 
@@ -1003,7 +1147,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC1>)[*UC[1]*], #link(<UC2>)[*UC[2]*], Riunione esterna],
 
   [ROF-2], [Il sistema restituisce un errore per credenziali non valide inserite dall'utente], [#link(<UC3>)[*UC[3]*]],
-  [ROF-3], [Il sistema restituisce un errore nel caso si riscontrino problemi con il _database_], [#link(<UC4>)[*UC[4]*]],
+  [ROF-3], [Il sistema restituisce un errore nel caso si riscontrino problemi], [#link(<UC4>)[*UC[4]*]],
   [ROF-4],
   [L'utente deve potersi registrare con la creazione di un nuovo account],
   [#link(<UC2>)[*UC[2]*], #link(<UC5>)[*UC[5]*], #link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]],
@@ -1011,7 +1155,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [ROF-5], [Il sistema deve restituire un errore se l'_e-mail_ è già in uso in fase di registrazione], [#link(<UC8>)[*UC[8]*]],
   [ROF-6],
   [Il sistema deve restituire un errore se la _password_ non adempie ai requisiti di sicurezza o le _password_ non coincidono tra loro in fase di registrazione],
-  [#link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]],
+  [#link(<UC3>)[*UC[3]*],],
 
   [ROF-7], [L'utente deve poter creare una nuova _routine_ ], [#link(<UC9>)[*UC[9]*], Capitolato],
   [ROF-8], [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso], [#link(<UC10>)[*UC[10]*]],
@@ -1053,6 +1197,11 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 
   [ROF-24], [L'utente deve poter modificare la propria _password_], [#link(<UC27>)[*UC[27]*], Riunione interna],
   [ROF-25], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC29>)[*UC[29]*], Riunione interna],
+
+  [RDF-26],
+  [L’utente può impostare la modalità del client in dark
+    mode o light mode],
+  [#link(<UC28>)[*UC[28]*], Riunione esterna],
 )
 
 
@@ -1062,7 +1211,18 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   rows: auto,
   inset: 6pt,
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
-  [RFQ-1], [L'utente può impostare la modalità del _client_ in _dark mode_ o _light mode_], [#link(<UC28>)[*UC[28]*], Riunione esterna],
+
+  [RFQ-1],
+  [Condivisione del codice prodotto in formato sorgente utilizzando sistemi di versionamento del codice come #glossario("Git") o _repository online_ con _Var Group S.p.A._],
+  [Capitolato],
+
+  [RFQ-2], [Documentazione della copertura dei test di unità nel piano di qualifica], [Capitolato],
+
+  [RFQ-3], [Documentazione della copertura dei test di unità nel piano di qualifica], [Capitolato],
+
+  [RFQ-3], [Documentazione della copertura dei test di unità nel piano di qualifica], [Capitolato],
+
+  [RFQ-4], [], [Capitolato],
 )
 
 
@@ -1072,17 +1232,22 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   rows: auto,
   inset: 6pt,
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
-  [ROV-1],
-  [Creazione di un sistema di #glossario("Gen AI") in #glossario("cloud") in grado di ricevere dati _software_ locali e produrre delle automazioni da eseguire localmente o direttamente tramite API ai servizi finali, a partire da una descrizione in linguaggio naturale da parte dell'utente],
-  [Capitolato],
+  [ROV-1], [Utilizzo delle seguenti tecnologie: NodeJS, Python, Typescript, AWS, Docker, React e MongoDB.], [Capitolato, Riunione esterna],
 
-  [ROV-2],
-  [Utilizzo di linguaggi di programmazione proposti, come: NodeJS, Python e Typescript per lo sviluppo API cloud; Python o C\# per lo sviluppo dell'agent],
-  [Capitolato, Riunione esterna],
+  [ROV-2], [Il prodotto deve funzionare sulle versioni stabili di  _Chromium 138_ e _Firefox ESR 140_.], [Capitolato],
 
-  [ROV-3],
-  [Condivisione del codice prodotto in formato sorgente utilizzando sistemi di versionamento del codice come #glossario("Git") o _repository online_ con _Var Group S.p.A._],
-  [Capitolato],
+  [ROV-3], [Creazione dell'applicativo in ottica modulare per estendere le funzioni della piattaforma], [Capitolato],
 
-  [ROV-4], [Creazione dell'applicativo in ottica modulare per estendere le funzioni della piattaforma], [Capitolato],
+  [ROV-4], [Creazione di almeno 3 blocchi di automazione inerenti a servizi diversi], [Capitolato],
+
+  [],
+)
+
+== Tracciamento
+#table(
+  columns: (1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Fonte*], [*Requisito*]),
+  [UCX], [RX-1],
 )
