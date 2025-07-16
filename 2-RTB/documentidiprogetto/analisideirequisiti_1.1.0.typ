@@ -117,21 +117,19 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
     "https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf",
   )[Norme di progetto (1.0.0)]
 
-- #link(
-    "https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf",
-  )[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa] (*Ultimo accesso il: 16/07/2025*)
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico]
 
-- #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018]
+- #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] (*Ultimo accesso il: 16/07/2025*)
 
 === Riferimenti informativi
 
 - #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario (0.11.0)]
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")[Dispensa T05: Analisi dei requisiti]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")[Dispensa T05: Analisi dei requisiti] (*Ultimo accesso il: 16/07/2025*)
 
-- #link("https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf")[Diagrammi dei casi d'uso]
+- #link("https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf")[Diagrammi dei casi  d'uso] (*Ultimo accesso il: 16/07/2025*)
 #pagebreak()
 
 
@@ -1214,15 +1212,23 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 
   [RFQ-1],
   [Condivisione del codice prodotto in formato sorgente utilizzando sistemi di versionamento del codice come #glossario("Git") o _repository online_ con _Var Group S.p.A._],
-  [Capitolato],
+  [Capitolato, Riunione interna],
 
-  [RFQ-2], [Documentazione della copertura dei test di unità nel piano di qualifica], [Capitolato],
+  [RFQ-2], [Progettazione e implementazione di opportuni test di unità], [Capitolato],
 
-  [RFQ-3], [Documentazione della copertura dei test di unità nel piano di qualifica], [Capitolato],
+  [RFQ-3], [Progettazione e implementazione di opportuni test di integrazione], [Capitolato],
 
-  [RFQ-3], [Documentazione della copertura dei test di unità nel piano di qualifica], [Capitolato],
+  [RFQ-4], [Progettazione e implementazione di opportuni test di sistema], [Capitolato],
 
-  [RFQ-4], [], [Capitolato],
+  [RFQ-5], [Progettazione e implementazione di opportuni test di accettazione], [Capitolato],
+
+  [RFQ-6],
+  [Documentazione dei test effettuati nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[Piano di qualifica (1.0.0)]],
+  [Capitolato, Riunione interna],
+
+  [RFQ-7],
+  [Rispetto di tutte le norme presenti nel documento #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf")[Norme di progetto (1.0.0)]],
+  [Capitolato, Riunione interna],
 )
 
 
@@ -1239,8 +1245,6 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [ROV-3], [Creazione dell'applicativo in ottica modulare per estendere le funzioni della piattaforma], [Capitolato],
 
   [ROV-4], [Creazione di almeno 3 blocchi di automazione inerenti a servizi diversi], [Capitolato],
-
-  [],
 )
 
 == Tracciamento
