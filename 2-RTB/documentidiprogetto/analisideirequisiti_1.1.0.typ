@@ -1255,31 +1255,76 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [L'utente deve poter effettuare _login_ con il proprio account per autenticarsi nel _client_],
   [#link(<UC1>)[*UC[1]*], Riunione esterna],
 
-  [ROF-2], [Il sistema restituisce un errore per credenziali non valide inserite dall'utente], [#link(<UC3>)[*UC[3]*]],
-  [ROF-3], [Il sistema restituisce un errore nel caso si riscontrino problemi], [#link(<UC4>)[*UC[4]*]],
-  [ROF-4], [L'utente deve potersi registrare con la creazione di un nuovo account], [ #link(<UC5>)[*UC[5]*]],
+  [ROF-2],
+  [L'utente autenticato deve poter inserire la sua _e-mail_ per accedere all'applicativo],
+  [#link(<UC1>)[*UC[1]*], #link(<UC2>)[*UC[2]*], Riunione esterna],
 
-  [ROF-5], [Il sistema deve restituire un errore se l'_e-mail_ è già in uso in fase di registrazione], [#link(<UC8>)[*UC[8]*]],
+  [ROF-3],
+  [L'utente deve poter inserire la sua _password_ per accedere all'applicativo],
+  [#link(<UC1>)[*UC[1]*], #link(<UC3>)[*UC[3]*], Riunione esterna],
+
+  [ROF-4], [L'utente deve potersi registrare con la creazione di un nuovo account], [ #link(<UC6>)[*UC[6]*]],
+
+  [ROF-5],
+  [L'utente non autenticato deve poter inserire la sua _e-mail_ per registrarsi nell'applicativo],
+  [#link(<UC6>)[*UC[6]*], #link(<UC2>)[*UC[2]*], Riunione esterna],
+
   [ROF-6],
-  [Il sistema deve restituire un errore se la _password_ non adempie ai requisiti di sicurezza o le _password_ non coincidono tra loro in fase di registrazione],
-  [#link(<UC3>)[*UC[3]*],],
+  [L'utente deve poter inserire la sua _password_ per registrarsi nell'applicativo],
+  [#link(<UC6>)[*UC[6]*], #link(<UC3>)[*UC[3]*], Riunione esterna],
 
-  [ROF-7], [L'utente deve poter creare una nuova _routine_ ], [#link(<UC9>)[*UC[9]*], Capitolato],
-  [ROF-8], [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso], [#link(<UC10>)[*UC[10]*]],
-  [ROF-9], [L'utente deve poter generare una _routine_ tramite linguaggio naturale], [#link(<UC11>)[*UC[11]*], Capitolato],
-  [ROF-10], [Il sistema deve restituire un errore se non é possibile generare il flusso], [#link(<UC12>)[*UC[12]*]],
+  [ROF-7],
+  [L'utente deve poter reinserire la sua password per la registrazione nell'applicativo],
+  [#link(<UC6>)[*UC[6]*], #link(<UC8>)[*UC[8]*]],
+
+  [ROF-8],
+  [Il sistema restituisce un errore per credenziali non valide inserite dall'utente],
+  [#link(<UC1>)[*UC[1]*], #link(<UC4>)[*UC[4]*], #link(<UC6>)[*UC[6]*]],
+
+  [ROF-9], [Il sistema restituisce un errore nel caso si riscontrino problemi], [#link(<UC5>)[*UC[5]*]],
+
+  [ROF-10],
+  [Il sistema deve restituire un errore se l'_e-mail_ è già in uso in fase di registrazione],
+  [#link(<UC6>)[*UC[6]*], #link(<UC9>)[*UC[9]*]],
+
+  [ROF-11],
+  [Il sistema deve restituire un errore se la _password_ non adempie ai requisiti di sicurezza o le _password_ non coincidono tra loro in fase di registrazione],
+  [#link(<UC4>)[*UC[4]*], #link(<UC6>)[*UC[6]*]],
+
+  [ROF-12], [L'utente deve poter creare una nuova _routine_ ], [#link(<UC10>)[*UC[10]*], Capitolato],
+
+  [ROF-13],
+  [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso],
+  [#link(<UC11>)[*UC[11]*]],
+
+  [ROF-14],
+  [L'utente deve poter generare una _routine_ tramite linguaggio naturale],
+  [#link(<UC10>)[*UC[10]*], #link(<UC12>)[*UC[12]*], Capitolato],
+
+  [ROF-15], [L'utente deve poter visualizzare il modello di GenAI utilizzato per la generazione], [#link(<UC13>)[*UC[13]*]],
+
+  [ROF-16], [L'utente deve poter modificare il modello di GenAI utilizzato per la generazione], [#link(<UC14>)[*UC[14]*]],
+
+  [ROF-17], [Il sistema deve restituire un errore se non é possibile generare il flusso], [#link(<UC15>)[*UC[15]*]],
+
   [RDF-11], [L'utente deve poter modificare i parametri di generazione di una _routine_], [ Capitolato],
+
   [ROF-12], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC14>)[*UC[14]*]],
+
   [ROF-13], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC15>)[*UC[15]*]],
+
   [RDF-14], [L'utente deve poter modificare il nome di una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
+
   [ROF-15], [L'utente deve poter avviare una _routine_ esistente per eseguire il flusso di automazioni desiderato], [ Riunione esterna],
 
   [ROF-16], [L'utente deve poter interrompe una _routine_ avviata in qualsiasi momento della sua esecuzione], [],
+
   [ROF-17],
   [Il sistema deve restituire un errore nel caso non sia possibile interrompere una _routine_ in esecuzione],
   [#link(<UC20>)[*UC[20]*]],
 
   [ROF-18], [L'utente deve poter aggiungere un blocco ad una _routine_ esistente], [#link(<UC21>)[*UC[21]*] ],
+
   [RDF-19], [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")], [ Riunione interna],
 
   [ROF-20],
@@ -1297,6 +1342,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [ROF-23], [Il sistema deve restituire un errore se il flusso è incompleto e non può essere salvato], [ Riunione interna],
 
   [ROF-24], [L'utente deve poter modificare la propria _password_], [#link(<UC27>)[*UC[27]*], Riunione interna],
+
   [ROF-25], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC29>)[*UC[29]*], Riunione interna],
 
   [RDF-26],
