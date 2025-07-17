@@ -118,9 +118,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 == Riferimenti
 === Riferimenti normativi
 
-- #link(
-    "https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf",
-  )[Norme di progetto (1.0.0)]
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf")[Norme di progetto (1.0.0)]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa] (*Ultimo accesso il: 16/07/2025*)
 
@@ -208,7 +206,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente accede all'applicativo.
-  2. L'utente inserisce la propria _e-mail_).
+  2. L'utente inserisce la propria _e-mail_.
   3. L'utente inserisce la propria _password_.
   4. Il sistema verifica le credenziali e permette di accedere alla #glossario("dashboard").
 - *Estensioni*:
@@ -536,7 +534,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: utente viene ritornato alla _dashboard_ e la _routine_ viene eliminata.
 
 - *Scenario principale*:
-  1. L'utente accede alla pagina di dettagli di una _routine_ (#link(<UC14>)[*UC[14]*]).
+  1. L'utente accede alla pagina di dettagli di una _routine_.
   2. L'utente seleziona l'opzione di eliminazione della _routine_.
   3. Il sistema mostra un messaggio di conferma dell'eliminazione.
   4. Se l'utente conferma l'eliminazione, il sistema elimina la _routine_ e ritorna l'utente alla _dashboard_.
@@ -738,7 +736,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente apre il menù dei blocchi disponibili.
-  1. L'utente preme l'apposito pulsante per aggiungere il blocco "_Telegram_ - Send Bot Message" alla routine.
+  2. L'utente preme l'apposito pulsante per aggiungere il blocco "_Telegram_ - Send Bot Message" alla routine.
   3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
 
 
@@ -756,7 +754,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente apre il menù dei blocchi disponibili.
-  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  2. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
   3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
 
 
@@ -773,7 +771,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente apre il menù dei blocchi disponibili.
-  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  2. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
   3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
 
 
@@ -791,7 +789,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente apre il menù dei blocchi disponibili.
-  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  2. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
   3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
 
 
@@ -809,7 +807,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente apre il menù dei blocchi disponibili.
-  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  2. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
   3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
 
 
@@ -894,7 +892,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
-  2. Il sistema mostra impostazioni del blocco, come il token di accesso all'API Notion e il PAGE_ID della pagina da cui prendere i contenuti.
+  2. Il sistema mostra impostazioni del blocco, come il token di accesso all'API Notion ed il PAGE_ID della pagina da cui prendere i contenuti.
 
 
 #figure(image("../../assets/usecasediagrams/34,35,36,37,38.svg"), caption: [Diagramma casi d'uso UC[34], UC[35], UC[36], UC[37], UC[38]])
@@ -947,7 +945,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
   2. L'utente modifica le impostazioni del blocco, come il nome del _paste_, se il _paste_ è privato, pubblico o non in elenco, il formato, il contenuto del _paste_ e le chiavi di accesso all'API.
-
+  3. Il sistema salva le modifiche apportate.
 
 
 
@@ -964,7 +962,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
   2. L'utente modifica le impostazioni del blocco, come il numero di secondi da attendere prima di eseguire il blocco successivo.
-
+  3. Il sistema salva le modifiche apportate.
 
 
 
@@ -981,7 +979,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
   2. L'utente modifica le impostazioni del blocco, come il token di accesso all'API Notion e il PAGE_ID della pagina da cui prendere i contenuti.
-
+  3. Il sistema salva le modifiche apportate.
 
 
 
@@ -1178,7 +1176,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: l'utente ha cambiato il tema del _client_.
 
 - *Scenario principale*:
-  1. l'utente preme l'icona del cambio tema del _client_.
+  1. L'utente preme l'icona del cambio tema del _client_.
   2. Il sistema cambia il tema selezionato del _client_.
 
 #figure(image("../../assets/usecasediagrams/53.svg"), caption: [Diagramma casi d'uso UC[53]])
@@ -1197,7 +1195,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: l'utente non è autenticato.
 
 - *Scenario principale*:
-  1. l'utente preme l'icona per effettuare il _logout_.
+  1. L'utente preme l'icona per effettuare il _logout_.
   2. Il sistema disconnette l'utente e lo riporta alla pagina di _login_.
 
 
@@ -1229,10 +1227,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme il tasto dedicato per tornare alla _dashboard_.
   2. Il sistema riporta l'utente alla _dashboard_.
 
-
-
-
 #figure(image("../../assets/usecasediagrams/56.svg"), caption: [Diagramma casi d'uso UC[56]])
+
+
+
+
+
+
+
 
 
 
@@ -1282,7 +1284,6 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   rows: auto,
   inset: 6pt,
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
-
   [ROF-1],
   [L'utente deve poter effettuare _login_ con il proprio account per autenticarsi nel _client_],
   [#link(<UC1>)[*UC[1]*], Riunione esterna],
@@ -1296,7 +1297,6 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC1>)[*UC[1]*], #link(<UC3>)[*UC[3]*], Riunione esterna],
 
   [ROF-4], [L'utente deve potersi registrare con la creazione di un nuovo account], [ #link(<UC6>)[*UC[6]*]],
-
   [ROF-5],
   [L'utente non autenticato deve poter inserire la sua _e-mail_ per registrarsi nell'applicativo],
   [#link(<UC6>)[*UC[6]*], #link(<UC2>)[*UC[2]*], Riunione esterna],
@@ -1314,7 +1314,6 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC1>)[*UC[1]*], #link(<UC4>)[*UC[4]*], #link(<UC6>)[*UC[6]*]],
 
   [ROF-9], [Il sistema restituisce un errore nel caso si riscontrino problemi], [#link(<UC5>)[*UC[5]*]],
-
   [ROF-10],
   [Il sistema deve restituire un errore se l'_e-mail_ è già in uso in fase di registrazione],
   [#link(<UC6>)[*UC[6]*], #link(<UC9>)[*UC[9]*]],
@@ -1324,7 +1323,6 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC4>)[*UC[4]*], #link(<UC6>)[*UC[6]*]],
 
   [ROF-12], [L'utente deve poter creare una nuova _routine_ ], [#link(<UC10>)[*UC[10]*], Capitolato],
-
   [ROF-13],
   [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso],
   [#link(<UC11>)[*UC[11]*]],
@@ -1338,33 +1336,25 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC12>)[*UC[12]*] ,#link(<UC13>)[*UC[13]*]],
 
   [ROF-16], [L'utente deve poter modificare il modello di GenAI utilizzato per la generazione], [#link(<UC14>)[*UC[14]*]],
-
   [ROF-17],
   [Il sistema deve restituire un errore se non é possibile generare il flusso],
   [#link(<UC12>)[*UC[12]*], #link(<UC15>)[*UC[15]*]],
 
   [ROF-18], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
-
   [ROF-19], [L'utente deve poter visualizzare il nome di una _routine_ esistente], [#link(<UC16>)[*UC[16]*], #link(<UC17>)[*UC[17]*]],
-
   [ROF-20],
   [L'utente deve poter visualizzare il diagramma dei blocchi di una _routine_ esistente],
   [#link(<UC16>)[*UC[16]*], #link(<UC18>)[*UC[18]*]],
 
   [ROF-21], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC19>)[*UC[19]*], Riunione esterna],
-
   [ROF-22], [L'utente deve poter avviare una routine esistente], [#link(<UC21>)[*UC[21]*]],
-
   [ROF-23], [L'utente deve poter avviare una routine esistente dalla dashboard], [#link(<UC21>)[*UC[21]*], #link(<UC22>)[*UC[22]*]],
-
   [ROF-24],
   [L'utente deve poter avviare una routine esistente dalla pagina di modifica del flusso],
   [#link(<UC21>)[*UC[21]*], #link(<UC23>)[*UC[23]*]],
 
   [ROF-25], [L'utente deve poter interrompere una routine avviata], [#link(<UC24>)[*UC[24]*]],
-
   [ROF-26], [L'utente deve poter interrompere una routine avviata dalla dashboard], [#link(<UC24>)[*UC[24]*], #link(<UC25>)[*UC[25]*] ],
-
   [ROF-27],
   [L'utente deve poter interrompere una routine tramite la propria pagina di modifica],
   [#link(<UC24>)[*UC[24]*], #link(<UC26>)[*UC[26]*] ],
@@ -1374,14 +1364,13 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC24>)[*UC[24]*], #link(<UC27>)[*UC[27]*], #link(<UC5>)[*UC[5]*]],
 
   [ROF-29], [L'utente deve poter aggiungere un blocco ad una _routine_ esistente], [#link(<UC28>)[*UC[28]*] ],
-
   [ROF-30],
   [L'utente deve poter aggiungere un blocco del tipo "_Telegram_ - Send Bot Message" ad una _routine_ esistente],
   [#link(<UC28>)[*UC[28]*],#link(<UC29>)[*UC[29]*]],
 
   [ROF-31],
   [L'utente deve poter aggiungere un blocco del tipo "_Pastebin_ - Create Paste" ad una _routine_ esistente],
-  [#link(<UC28>)[*UC[28]*],#link(<UC30>)[*UC[30]*]  ],
+  [#link(<UC28>)[*UC[28]*],#link(<UC30>)[*UC[30]*] ],
 
   [ROF-32],
   [L'utente deve poter aggiungere un blocco del tipo "_AI_ - Summarize" ad una _routine_ esistente],
@@ -1396,7 +1385,6 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC28>)[*UC[28]*], #link(<UC33>)[*UC[33]*] ],
 
   [ROF-35], [L'utente deve poter visualizzare le impostazioni di un singolo blocco], [#link(<UC34>)[*UC[34]*]],
-
   [ROF-36],
   [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"],
   [#link(<UC34>)[*UC[34]*], #link(<UC35>)[*UC[35]*]],
@@ -1414,14 +1402,13 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC34>)[*UC[34]*], #link(<UC38>)[*UC[38]*]],
 
   [ROF-40], [L'utente deve poter modificare le impostazioni di un singolo blocco"], [#link(<UC39>)[*UC[39]*]],
-
   [ROF-41],
   [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"],
   [#link(<UC39>)[*UC[39]*],#link(<UC40>)[*UC[40]*]],
 
   [ROF-42],
   [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Pastebin_ - Create Paste"],
-  [#link(<UC39>)[*UC[39]*],#link(<UC41>)[*UC[41]*]  ],
+  [#link(<UC39>)[*UC[39]*],#link(<UC41>)[*UC[41]*] ],
 
   [ROF-43],
   [L'utente deve poter modificare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"],
@@ -1445,7 +1432,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 
   [ROF-48],
   [L'utente deve potere eliminare un blocco da una _routine_ esistente ],
-  [#link(<UC47>)[*UC[47]*], #link(<UC48>)[*UC[48]*], #link(<UC49>)[*UC[49]*]  ],
+  [#link(<UC47>)[*UC[47]*], #link(<UC48>)[*UC[48]*], #link(<UC49>)[*UC[49]*] ],
 
   [ROF-49],
   [L'utente deve potere eliminare un blocco da una _routine_ esistente da tastiera],
@@ -1456,21 +1443,15 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC47>)[*UC[47]*], #link(<UC48>)[*UC[49]*] ],
 
   [ROF-51], [L'utente deve potere collegare due blocchi di una _routine_ esistente], [#link(<UC50>)[*UC[50]*], Capitolato ],
-
   [ROF-52], [L'utente deve potere scollegare due blocchi di una _routine esistente_], [#link(<UC51>)[*UC[51]*], Capitolato ],
-
   [ROF-53], [L'utente deve poter modificare la propria _password_], [#link(<UC52>)[*UC[52]*], Riunione interna],
-
   [RDF-54], [L’utente può impostare la modalità del client in dark mode o light mode], [#link(<UC53>)[*UC[53]*], Riunione esterna],
-
   [ROF-55], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC54>)[*UC[54]*], Riunione interna],
-
   [ROF-56],
   [L'utente deve poter visualizzare la dashboard in seguito al login nell'applicativo],
   [#link(<UC55>)[*UC[55]*], Riunione interna],
 
   [ROF-57], [L'utente deve poter ritornare alla dashboard dalla pagina di modifica flusso], [#link(<UC56>)[*UC[56]*]],
-
   [ROF-58], [L'utente deve poter modificare il nome di una _routine_ esistente], [#link(<UC20>)[*UC[20]*], Riunione esterna],
 )
 
@@ -1481,24 +1462,19 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   rows: auto,
   inset: 6pt,
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
-
-  [RFQ-1],
+  [ROQ-1],
   [Condivisione del codice prodotto in formato sorgente utilizzando sistemi di versionamento del codice come #glossario("Git") o _repository online_ con _Var Group S.p.A._],
   [Capitolato, Riunione interna],
 
-  [RFQ-2], [Progettazione e implementazione di opportuni test di unità], [Capitolato],
-
-  [RFQ-3], [Progettazione e implementazione di opportuni test di integrazione], [Capitolato],
-
-  [RFQ-4], [Progettazione e implementazione di opportuni test di sistema], [Capitolato],
-
-  [RFQ-5], [Progettazione e implementazione di opportuni test di accettazione], [Capitolato],
-
-  [RFQ-6],
+  [ROQ-2], [Progettazione e implementazione di opportuni test di unità], [Capitolato],
+  [ROQ-3], [Progettazione e implementazione di opportuni test di integrazione], [Capitolato],
+  [ROQ-4], [Progettazione e implementazione di opportuni test di sistema], [Capitolato],
+  [ROQ-5], [Progettazione e implementazione di opportuni test di accettazione], [Capitolato],
+  [ROQ-6],
   [Documentazione dei test effettuati nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[Piano di qualifica (1.0.0)]],
   [Capitolato, Riunione interna],
 
-  [RFQ-7],
+  [ROQ-7],
   [Rispetto di tutte le norme presenti nel documento #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf")[Norme di progetto (1.0.0)]],
   [Capitolato, Riunione interna],
 )
@@ -1511,11 +1487,8 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   inset: 6pt,
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
   [ROV-1], [Utilizzo delle seguenti tecnologie: NodeJS, Python, Typescript, AWS, Docker, React e MongoDB.], [Capitolato, Riunione esterna],
-
-  [ROV-2], [Il prodotto deve funzionare sulle versioni stabili di  _Chromium 138_ e _Firefox ESR 140_.], [Capitolato],
-
+  [ROV-2], [Il prodotto deve funzionare sulle versioni stabili di _Chromium 138_ e _Firefox ESR 140_.], [Capitolato],
   [ROV-3], [Creazione dell'applicativo in ottica modulare per estendere le funzioni della piattaforma], [Capitolato],
-
   [ROV-4], [Creazione di almeno 3 blocchi di automazione inerenti a servizi diversi], [Capitolato],
 )
 
@@ -1581,7 +1554,20 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [UC54], [ROF-55],
   [UC55], [ROF-56],
   [UC56], [ROF-57],
-  [Capitolato], [ROF-12, ROF-14, ROF-51, ROF-52, RFQ-1, RFQ-2, RFQ-3, RFQ-4, RFQ-5, RFQ-6, RFQ-7, ROV-1, ROV-2, ROV-3, ROV-4],
-  [Riunioni interne], [ROF-45, ROF-46, ROF-47, ROF-53, ROF-55, ROF-56, RFQ-1, RFQ-6, RFQ-7],
-  [Riunioni esterne], [ROF-1, ROF-2, ROF-3, ROF-5, ROF-6, ROF-21, RDF-54, ROF-58, ROV-1 ],
+  [Capitolato], [ROF-12, ROF-14, ROF-51, ROF-52, ROQ-1, ROQ-2, ROQ-3, ROQ-4, ROQ-5, ROQ-6, ROQ-7, ROV-1, ROV-2, ROV-3, ROV-4],
+  [Riunioni interne], [ROF-45, ROF-46, ROF-47, ROF-53, ROF-55, ROF-56, ROQ-1, ROQ-6, ROQ-7],
+  [Riunioni esterne], [ROF-1, ROF-2, ROF-3, ROF-5, ROF-6, ROF-21, RDF-54, ROF-58, ROV-1],
+)
+#pagebreak()
+== Riepilogo
+
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Tipologia*], [*Obbligatori*], [*Desiderabili*], [*Facoltativi*], [*Totale*]),
+  [*Funzionali*], [57], [1], [0], [58],
+  [*Qualitativi*], [7], [0], [0], [7],
+  [*Vincolo*], [4], [0], [0], [4],
+  [*Totale*], [68], [1], [0], [69],
 )
