@@ -207,17 +207,32 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente inserisce la propria _password_.
   4. Il sistema verifica le credenziali e permette di accedere alla #glossario("dashboard").
 - *Estensioni*:
-  - Credenziali non valide (#link(<UC3>)[*UC[3]*]).
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+  - Credenziali non valide (#link(<UC4>)[*UC[4]*]).
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
+=== UC[2]: Inserimento _E-mail_ <UC2>
 
+- *Attore principale*: utente non autenticato.
 
+- *Pre-condizioni*: l'utente non è autenticato.
 
+- *Post-condizioni*: il sistema riceve una _e-mail_ inserita dall'utente.
 
+- *Scenario principale*:
+  1. L'utente inserisce la propria _e-mail_.
 
+=== UC[3]: Inserimento _Password_ <UC3>
 
+- *Attore principale*: utente non autenticato.
 
-=== UC[3]: Errore "Credenziali non valide" <UC3>
+- *Pre-condizioni*: l'utente non è autenticato.
+
+- *Post-condizioni*: il sistema riceve una _password_ inserita dall'utente.
+
+- *Scenario principale*:
+  1. L'utente inserisce la propria _password_.
+
+=== UC[4]: Errore "Credenziali non valide" <UC4>
 
 - *Attore principale*: utente non autenticato.
 
@@ -234,7 +249,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[4]: Errore generico <UC4>
+=== UC[5]: Errore generico <UC5>
 
 - *Attore principale*: utente.
 
@@ -246,18 +261,13 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. Il sistema riceve dei dati da processare.
   2. Il sistema non riesce a processare i dati e mostra un messaggio di errore all'utente.
 
-#figure(image("../../assets/usecasediagrams/UC_1_2_3_4.png"), caption: [Diagramma casi d'uso UC[1], UC[2], UC[3], UC[4]])
+#figure(image("../../assets/usecasediagrams/1,2,3,4,5.svg"), caption: [Diagramma casi d'uso UC[1], UC[2], UC[3], UC[4], UC[5]])
 
 
 
 
 
-
-
-
-
-
-=== UC[5]: Registrazione <UC5>
+=== UC[6]: Registrazione <UC6>
 
 - *Attore principale*: utente non autenticato.
 
@@ -271,19 +281,35 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente inserisce la propria _e-mail_.
   4. L'utente inserisce la _password_ .
   5. L'utente reinserisce la _password_ creata.
-  6. Il sistema crea l'_account_ e salva le credenziali nel _database_.
+  6. Il sistema crea l'_account_ e salva le credenziali nel generico.
 - *Estensioni*:
-  - _E-mail_ già in uso (#link(<UC8>)[*UC[8]*]).
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+  - _E-mail_ già in uso (#link(<UC9>)[*UC[9]*]).
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
 
+=== UC[7]: Creazione Password <UC7>
 
+- *Attore principale*: utente non autenticato.
 
+- *Pre-condizioni*: l'utente non è autenticato e non possiede un _account_.
 
+- *Post-condizioni*: Il sistema riceve la password creata dall'utente.
 
+- *Scenario principale*:
+  1. L'utente inserisce la propria _password_ per la creazione dell'_account_.
 
+=== UC[8]: Conferma Password <UC8>
 
-=== UC[8]: Errore "_E-mail_ già in uso" <UC8>
+- *Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente non è autenticato e non possiede un _account_.
+
+- *Post-condizioni*: l'utente reinserisce la sua _password_ e il sistema conferma che la password inserita è corretta.
+
+- *Scenario principale*:
+  1. L'utente inserisce la propria _password_ per la creazione dell'_account_.
+
+=== UC[9]: Errore "_E-mail_ già in uso" <UC9>
 - *Attore principale*: utente non autenticato.
 
 - *Pre-condizioni*: l'utente non possiede un _account_, l'utente ha confermato il _form_ di registrazione.
@@ -296,7 +322,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema ritorna un messaggio di errore all'utente.
 
 
-#figure(image("../../assets/usecasediagrams/UC_2_4_5_6_7_8.png"), caption: [Diagramma casi d'uso UC[2], UC[4], UC[5], UC[6], UC[7], UC[8]])
+#figure(image("../../assets/usecasediagrams/2,5,6,7,8,9.svg"), caption: [Diagramma casi d'uso UC[2], UC[5], UC[6], UC[7], UC[8], UC[9]])
 
 
 
@@ -306,7 +332,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[9]: Creazione nuova _routine_ <UC9>
+=== UC[10]: Creazione nuova _routine_ <UC10>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella _dashboard_.
@@ -319,8 +345,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema crea una nuova _routine_ e l'utente viene portato alla pagina di modifica del flusso.
 
 - *Estensioni*:
-  - Nome _routine_ già in uso (#link(<UC10>)[*UC[10]*])
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+  - Nome _routine_ già in uso (#link(<UC11>)[*UC[11]*])
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
 
 
@@ -330,7 +356,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[10]: Errore "Nome _routine_ già in uso" <UC10>
+=== UC[11]: Errore "Nome _routine_ già in uso" <UC11>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: il sistema riceve il nome della _routine_ da creare.
@@ -343,7 +369,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Se il nome è univoco, il sistema crea la _routine_ e l'utente viene portato alla pagina di modifica del flusso.
   4. Se il nome non è univoco, il sistema mostra un messaggio di errore all'utente.
 
-#figure(image("../../assets/usecasediagrams/UC_4_9_10.png"), caption: [Diagramma casi d'uso UC[4], UC[9], UC[10]])
+#figure(image("../../assets/usecasediagrams/5,10,11.svg"), caption: [Diagramma casi d'uso UC[5], UC[10], UC[11]])
 
 
 
@@ -353,7 +379,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[11]: Generare una _routine_ mediante linguaggio naturale <UC11>
+=== UC[12]: Generare una _routine_ mediante linguaggio naturale <UC12>
 
 - *Attore principale*: utente autenticato.
 
@@ -368,8 +394,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Il sistema mostra il flusso generato all'utente.
 
 - *Estensioni*:
-  - Errore "Impossibile generare il flusso" (#link(<UC12>)[*UC[12]*]).
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+  - Errore "Impossibile generare il flusso" (#link(<UC15>)[*UC[15]*]).
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Modifica del modello _GenAI_ per la generazione (#link(<UC14>)[*UC[14]*]).
 
 
 
@@ -377,7 +404,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[XX]: Visualizza modello _GenAI_ per la generazione
+=== UC[13]: Visualizza modello _GenAI_ per la generazione <UC13>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -394,7 +421,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[XX]: Modifica modello _GenAI_ per la generazione
+=== UC[14]: Modifica modello _GenAI_ per la generazione <UC14>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -412,8 +439,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-=== UC[12]: Visualizzazione dell'errore "Impossibile generare il flusso" <UC12>
+=== UC[15]: Visualizzazione dell'errore "Impossibile generare il flusso" <UC15>
 
 - *Attore principale*: utente autenticato.
 
@@ -427,7 +453,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema mostra un messaggio di errore.
 
 
-#figure(image("../../assets/usecasediagrams/UC_4_11_12.png"), caption: [Diagramma casi d'uso UC[4], UC[11], UC[12]])
+#figure(image("../../assets/usecasediagrams/5,12,13,14,15.svg"), caption: [Diagramma casi d'uso UC[5], UC[12], UC[13], UC[14], UC[15]])
 
 
 
@@ -437,7 +463,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[14]: Visualizzare i dettagli di una _routine_ esistente <UC14>
+=== UC[16]: Visualizzare i dettagli di una _routine_ esistente <UC16>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella _dashboard_.
@@ -448,14 +474,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente seleziona una _routine_ esistente dalla lista delle automazioni nella _dashboard_.
   2. Il sistema mostra una pagina con i dettagli della _routine_ selezionata.
 
-#figure(image("../../assets/usecasediagrams/UC_14.png"), caption: [Diagramma casi d'uso UC[14]])
 
 
 
 
 
 
-=== UC[XX]: Visualizzazione nome di una _routine_ esistente
+
+=== UC[17]: Visualizzazione nome di una _routine_ esistente <UC17>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*:
@@ -472,7 +498,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[XX]: Visualizzazione diagramma dei blocchi di una _routine_ esistente
+=== UC[18]: Visualizzazione diagramma dei blocchi di una _routine_ esistente <UC18>
 
 - *Attore principale*: utente autenticato.
 
@@ -487,6 +513,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+#figure(image("../../assets/usecasediagrams/16,17,18.svg"), caption: [Diagramma casi d'uso UC[16], UC[17], UC[18]])
 
 
 
@@ -496,8 +523,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-=== UC[15]: Eliminare una _routine_ esistente <UC15>
+=== UC[19]: Eliminare una _routine_ esistente <UC19>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
@@ -510,7 +536,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema mostra un messaggio di conferma dell'eliminazione.
   4. Se l'utente conferma l'eliminazione, il sistema elimina la _routine_ e ritorna l'utente alla _dashboard_.
 
-#figure(image("../../assets/usecasediagrams/UC_15.png"), caption: [Diagramma casi d'uso UC[15]])
+#figure(image("../../assets/usecasediagrams/19.svg"), caption: [Diagramma casi d'uso UC[19]])
 
 
 
@@ -518,7 +544,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[16]: Modifica del nome di una _routine_ <UC16>
+=== UC[20]: Modifica del nome di una _routine_ <UC20>
 
 - *Attore principale*: utente autenticato.
 
@@ -534,10 +560,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   5. Il sistema salva il nuovo nome della _routine_.
 
 - *Estensioni*:
-  - Nome _routine_ già in uso (#link(<UC10>)[*UC[10]*]).
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+  - Nome _routine_ già in uso (#link(<UC11>)[*UC[11]*]).
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
-#figure(image("../../assets/usecasediagrams/UC_4_10_16.png"), caption: [Diagramma casi d'uso UC[4], UC[10], UC[16],])
+#figure(image("../../assets/usecasediagrams/5,11,20.svg"), caption: [Diagramma casi d'uso UC[5], UC[11], UC[20]])
 \
 
 
@@ -548,7 +574,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[XX]: Avviare una _routine_ esistente
+=== UC[21]: Avviare una _routine_ esistente <UC21>
 
 - *Attore principale*: utente autenticato.
 
@@ -559,14 +585,13 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. Il sistema avvia la _routine_.
 
+- *Estensioni*:
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
 
 
 
-
-
-
-=== UC[17]: Avviare una _routine_ esistente dalla _dashboard_ <UC17>
+=== UC[22]: Avviare una _routine_ esistente dalla _dashboard_ <UC22>
 
 - *Attore principale*: utente autenticato.
 
@@ -578,19 +603,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona di avvio della _routine_ interessata.
   2. Il sistema avvia la _routine_.
 
-- *Estensioni*:
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
-#figure(image("../../assets/usecasediagrams/UC_4_17.png"), caption: [Diagramma casi d'uso UC[4], UC[17]])
-
-
-
-
-
-
-
-=== UC[18]: Avviare una _routine_ esistente tramite la pagina di modifica del flusso <UC18>
+=== UC[23]: Avviare una _routine_ esistente tramite la pagina di modifica del flusso <UC23>
 
 - *Attore principale*: utente autenticato.
 
@@ -602,11 +617,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona di avvio della _routine_ interessata.
   2. Il sistema avvia la _routine_.
 
-- *Estensioni*:
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
-#figure(image("../../assets/usecasediagrams/UC_4_18.png"), caption: [Diagramma casi d'uso UC[4], UC[18]])
 
+#figure(image("../../assets/usecasediagrams/5,21,22,23.svg"), caption: [Diagramma casi d'uso UC[5], UC[21], UC[22], UC[23]])
 
 
 
@@ -615,9 +628,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-
-=== UC[XX]: Interrompere una _routine_ avviata
+=== UC[24]: Interrompere una _routine_ avviata <UC24>
 
 - *Attore principale*: utente autenticato.
 
@@ -629,8 +640,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
 
 - *Estensioni*:
-  - Visualizzazione errore "Impossibile bloccare la _routine_" (#link(<UC20>)[*UC[20]*]).
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+  - Visualizzazione errore "Impossibile blocare la _routine_" (#link(<UC27>)[*UC[27]*]).
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
 
 
@@ -638,7 +649,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[17]: Interrompere una _routine_ dalla _dashboard_ <UC17>
+=== UC[25]: Interrompere una _routine_ dalla _dashboard_ <UC25>
 
 - *Attore principale*: utente autenticato.
 
@@ -650,17 +661,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona di interruzione della _routine_.
   2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
 
-- *Estensioni*:
-  - Visualizzazione errore "Impossibile bloccare la _routine_" (#link(<UC20>)[*UC[20]*]).
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
 
 
 
-
-
-
-
-=== UC[18]: Interrompere una _routine_ tramite la propria pagina di modifica <UC18>
+=== UC[26]: Interrompere una _routine_ tramite la propria pagina di modifica <UC26>
 
 - *Attore principale*: utente autenticato.
 
@@ -672,19 +676,12 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona di interruzione della _routine_.
   2. Il sistema interrompe l'esecuzione della _routine_ all'operazione corrente.
 
-- *Estensioni*:
-  - Visualizzazione errore "Impossibile bloccare la _routine_" (#link(<UC20>)[*UC[20]*]).
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
-
-#figure(image("../../assets/usecasediagrams/UC_4_18.png"), caption: [Diagramma casi d'uso UC[4], UC[18]])
 
 
 
 
 
-
-
-=== UC[20]: Visualizzazione errore "Impossibile bloccare la _routine_" <UC20>
+=== UC[27]: Visualizzazione errore "Impossibile bloccare la _routine_" <UC27>
 
 - *Attore principale*: utente autenticato.
 
@@ -697,7 +694,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Se l'azione della _routine_ non è bloccabile, il sistema mostra un messaggio di errore all'utente.
   3. Se la _routine_ non è più in esecuzione, il sistema mostra un messaggio di errore all'utente.
 
-#figure(image("../../assets/usecasediagrams/UC_4_19_20.png"), caption: [Diagramma casi d'uso UC[4], UC[19], UC[20]])
+#figure(image("../../assets/usecasediagrams/5,24,25,26,27.svg"), caption: [Diagramma casi d'uso UC[5], UC[24], UC[25], UC[26], UC[27]])
 
 
 
@@ -706,7 +703,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[21]: Aggiunta di un blocco ad una _routine_ esistente <UC21>
+=== UC[28]: Aggiunta di un blocco ad una _routine_ esistente <UC28>
 - *Attore principale*: utente esperto autenticato.
 
 - *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
@@ -719,77 +716,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 - *Estensioni*:
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
-#figure(image("../../assets/usecasediagrams/UC_4_21.png"), caption: [Diagramma casi d'uso UC[4], UC[21]])
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
 
 
 
 
 
-
-
-=== UC[22]: Visualizza le impostazioni di un singolo blocco <UC22>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: si trova nella pagina di modifica di un flusso contenente almeno un blocco provvisto di impostazioni.
-
-- *Post-condizioni*: vengono visualizzati i campi di impostazione di un blocco.
-
-- *Scenario principale*:
-  1. L'utente visualizza le impostazioni di un blocco.
-
-
-
-
-
-
-
-
-
-=== UC[22]: Modificare le impostazioni di un singolo blocco <UC22>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: si trova nella pagina di modifica di un flusso contenente almeno un blocco provvisto di impostazioni.
-
-- *Post-condizioni*: le impostazioni del singolo blocco vengono modificate.
-
-- *Scenario principale*:
-  1. L'utente modifica le impostazioni di un blocco.
-  2. Il sistema salva le modifiche del blocco.
-
-
-- *Estensioni*:
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
-  - Visualizzazione errore "Impostazioni non valide" (#link(<UC23>)[*UC[23]*]).
-
-
-
-
-
-
-
-
-=== UC[23]: Visualizzazione errore "Impostazioni non valide" <UC23>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: l'utente ha inserito nuove impostazioni all'interno di un blocco.
-
-- *Post-condizioni*: le impostazioni inserite non sono valide.
-
-- *Scenario principale*:
-  1. L'utente modifica le impostazioni di un blocco.
-  2. Il sistema mostra un errore se le impostazioni non sono considerate valide.
-
-
-
-
-
-
-=== UC[X]: Aggiunta del blocco "_Telegram_ - Send Bot Message" ad una _routine_ esistente
+=== UC[29]: Aggiunta del blocco "_Telegram_ - Send Bot Message" ad una _routine_ esistente <UC29>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -807,49 +741,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-=== UC[X]: Visualizzazione impostazioni del blocco "_Telegram_ - Send Bot Message"
-
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono visualizzate le impostazioni del blocco "_Telegram_ - Send Bot Message".
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
-  2. Il sistema mostra impostazioni del blocco, come il messaggio da inviare e le chiavi di accesso all'API.
-
-
-
-
-
-
-
-=== UC[X]: Modifica impostazioni del blocco "_Telegram_ - Send Bot Message"
-
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono modificate le impostazioni del blocco.
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
-  2. L'utente modifica le impostazioni del blocco, come il messaggio da inviare.
-  3. Il sistema salva le modifiche apportate.
-
-- *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
-
-
-
-
-
-
-
-
-=== UC[X]: Aggiunta del blocco "_Pastebin_ - Create Paste" ad una _routine_ esistente
+=== UC[30]: Aggiunta del blocco "_Pastebin_ - Create Paste" ad una _routine_ esistente <UC30>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -866,47 +758,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-
-=== UC[X]: Visualizzazione impostazioni del blocco "_Pastebin_ - Create Paste"
-
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono visualizzate le impostazioni del blocco "_Pastebin_ - Create Paste".
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
-  2. Il sistema mostra impostazioni del blocco, come il nome del _paste_, se il _paste_ è privato, pubblico o non in elenco, il formato, il contenuto del _paste_ e le chiavi di accesso all'API.
-
-
-
-
-
-
-
-=== UC[X]: Modifica impostazioni del blocco "_Pastebin_ - Create Paste"
-
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono modificate le impostazioni del blocco "_Pastebin_ - Create Paste".
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
-  2. L'utente modifica le impostazioni del blocco, come il nome del _paste_, se il _paste_ è privato, pubblico o non in elenco, il formato, il contenuto del _paste_ e le chiavi di accesso all'API.
-
-- *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
-
-
-
-
-
-
-=== UC[X]: Aggiunta del blocco "_AI_ - Summarize" ad una _routine_ esistente
+=== UC[31]: Aggiunta del blocco "_AI_ - Summarize" ad una _routine_ esistente <UC31>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -924,8 +776,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-=== UC[X]: Aggiunta del blocco "_System_ - Wait Second(s)" ad una _routine_ esistente
+=== UC[32]: Aggiunta del blocco "_System_ - Wait Second(s)" ad una _routine_ esistente <UC32>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -943,8 +794,75 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+=== UC[33]: Aggiunta del blocco "_Notion_ - Get Page" ad una _routine_ esistente <UC33>
 
-=== UC[X]: Visualizzazione impostazioni del blocco "_System_ - Wait Second(s)"
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: viene aggiunto il blocco "_Notion_ - Get Page" nella _routine_.
+
+- *Scenario principale*:
+  1. L'utente apre il menù dei blocchi disponibili.
+  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
+  3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
+
+
+#figure(
+  image("../../assets/usecasediagrams/5,28,29,30,31,32,33.svg"),
+  caption: [Diagramma casi d'uso UC[5], UC[28], UC[29], UC[30], UC[31], UC[32], UC[33]],
+)
+
+
+
+
+
+
+=== UC[34]: Visualizza le impostazioni di un singolo blocco <UC34>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: si trova nella pagina di modifica di un flusso contenente almeno un blocco provvisto di impostazioni.
+
+- *Post-condizioni*: vengono visualizzati i campi di impostazione di un blocco.
+
+- *Scenario principale*:
+  1. L'utente visualizza le impostazioni di un blocco.
+
+
+
+
+=== UC[35]: Visualizzazione impostazioni del blocco "_Telegram_ - Send Bot Message" <UC35>
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono visualizzate le impostazioni del blocco "_Telegram_ - Send Bot Message".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. Il sistema mostra impostazioni del blocco, come il messaggio da inviare e le chiavi di accesso all'API.
+
+
+
+
+
+=== UC[36]: Visualizzazione impostazioni del blocco "_Pastebin_ - Create Paste" <UC36>
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono visualizzate le impostazioni del blocco "_Pastebin_ - Create Paste".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. Il sistema mostra impostazioni del blocco, come il nome del _paste_, se il _paste_ è privato, pubblico o non in elenco, il formato, il contenuto del _paste_ e le chiavi di accesso all'API.
+
+
+
+=== UC[37]: Visualizzazione impostazioni del blocco "_System_ - Wait Second(s)" <UC37>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -961,48 +879,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-=== UC[X]: Modifica impostazioni del blocco "_System_ - Wait Second(s)"
-
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: vengono modificate le impostazioni del blocco "_System_ - Wait Second(s)".
-
-- *Scenario principale*:
-  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
-  2. L'utente modifica le impostazioni del blocco, come il numero di secondi da attendere prima di eseguire il blocco successivo.
-
-- *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
-
-
-
-
-
-
-
-=== UC[X]: Aggiunta del blocco "_Notion_ - Get Page" ad una _routine_ esistente
-
-- *Attore principale*: utente esperto autenticato.
-
-- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
-
-- *Post-condizioni*: viene aggiunto il blocco "_Notion_ - Get Page" nella _routine_.
-
-- *Scenario principale*:
-  1. L'utente apre il menù dei blocchi disponibili.
-  1. L'utente preme l'apposito pulsante per aggiungere il blocco alla routine.
-  3. L'utente collega il blocco appena aggiunto a quelli già esistenti.
-
-
-
-
-
-
-
-=== UC[X]: Visualizzazione impostazioni del blocco "_Notion_ - Get Page"
+=== UC[38]: Visualizzazione impostazioni del blocco "_Notion_ - Get Page" <UC38>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -1015,11 +892,80 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra impostazioni del blocco, come il token di accesso all'API Notion e il PAGE_ID della pagina da cui prendere i contenuti.
 
 
+#figure(image("../../assets/usecasediagrams/34,35,36,37,38.svg"), caption: [Diagramma casi d'uso UC[34], UC[35], UC[36], UC[37], UC[38]])
+
+
+=== UC[39]: Modificare le impostazioni di un singolo blocco <UC39>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: si trova nella pagina di modifica di un flusso contenente almeno un blocco provvisto di impostazioni.
+
+- *Post-condizioni*: le impostazioni del singolo blocco vengono modificate.
+
+- *Scenario principale*:
+  1. L'utente modifica le impostazioni di un blocco.
+  2. Il sistema salva le modifiche del blocco.
+
+
+- *Estensioni*:
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Visualizzazione errore "Impostazioni non valide" (#link(<UC44>)[*UC[44]*]).
 
 
 
 
-=== UC[X]: Modifica impostazioni del blocco "_Notion_ - Get Page"
+=== UC[40]: Modifica impostazioni del blocco "_Telegram_ - Send Bot Message" <UC40>
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco.
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. L'utente modifica le impostazioni del blocco, come il messaggio da inviare.
+  3. Il sistema salva le modifiche apportate.
+
+
+
+
+=== UC[41]: Modifica impostazioni del blocco "_Pastebin_ - Create Paste" <UC41>
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco "_Pastebin_ - Create Paste".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. L'utente modifica le impostazioni del blocco, come il nome del _paste_, se il _paste_ è privato, pubblico o non in elenco, il formato, il contenuto del _paste_ e le chiavi di accesso all'API.
+
+
+
+
+
+
+=== UC[42]: Modifica impostazioni del blocco "_System_ - Wait Second(s)" <UC42>
+
+- *Attore principale*: utente esperto autenticato.
+
+- *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
+
+- *Post-condizioni*: vengono modificate le impostazioni del blocco "_System_ - Wait Second(s)".
+
+- *Scenario principale*:
+  1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
+  2. L'utente modifica le impostazioni del blocco, come il numero di secondi da attendere prima di eseguire il blocco successivo.
+
+
+
+
+
+
+=== UC[43]: Modifica impostazioni del blocco "_Notion_ - Get Page" <UC43>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -1031,17 +977,29 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
   2. L'utente modifica le impostazioni del blocco, come il token di accesso all'API Notion e il PAGE_ID della pagina da cui prendere i contenuti.
 
-- *Estensioni*:
-  - Errore generico (#link(<UC4>)[*UC[4]*]).
 
 
 
+=== UC[44]: Visualizzazione errore "Impostazioni non valide" <UC44>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente ha inserito nuove impostazioni all'interno di un blocco.
+
+- *Post-condizioni*: le impostazioni inserite non sono valide.
+
+- *Scenario principale*:
+  1. L'utente modifica le impostazioni di un blocco.
+  2. Il sistema mostra un errore se le impostazioni non sono considerate valide.
 
 
 
+#figure(
+  image("../../assets/usecasediagrams/5,39,40,41,42,43,44.svg"),
+  caption: [Diagramma casi d'uso UC[5], UC[39], UC[40], UC[41], UC[42], UC[43], UC[44]],
+)
 
-
-=== UC[25]: Salvare una _routine_ <UC25>
+=== UC[45]: Salvare una _routine_ <UC45>
 
 - *Attore principale*: utente autenticato.
 
@@ -1055,8 +1013,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema salva le modifiche.
 
 - *Estensioni*:
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
-  - Visualizzazione errore "Flusso incompleto" (#link(<UC26>)[*UC[26]*]).
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Visualizzazione errore "Flusso incompleto" (#link(<UC46>)[*UC[46]*]).
 
 
 
@@ -1064,7 +1022,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[26]: Visualizzazione errore "Flusso incompleto" <UC26>
+=== UC[46]: Visualizzazione errore "Flusso incompleto" <UC46>
 
 - *Attore principale*: utente autenticato.
 
@@ -1078,7 +1036,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Se il flusso non è completo, il sistema mostra un messaggio di errore all'utente.
 
 
-#figure(image("../../assets/usecasediagrams/UC_4_25_26.png"), caption: [Diagramma casi d'uso UC[4], UC[25], UC[26],])
+#figure(image("../../assets/usecasediagrams/5,45,46.svg"), caption: [Diagramma casi d'uso UC[5], UC[45], UC[46]])
 
 
 
@@ -1087,7 +1045,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[26]: Eliminare un blocco da una _routine_ esistente <UC26>
+=== UC[47]: Eliminare un blocco da una _routine_ esistente <UC47>
 
 - *Attore principale*: utente autenticato.
 
@@ -1098,10 +1056,13 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. Il sistema rimuove il blocco dalla routine.
 
+- *Estensioni*:
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
 
 
-=== UC[26]: Eliminare un blocco da una _routine_ esistente da tastiera <UC26>
+
+=== UC[48]: Eliminare un blocco da una _routine_ esistente da tastiera <UC48>
 
 - *Attore principale*: utente autenticato.
 
@@ -1117,7 +1078,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[26]: Eliminare un blocco da una _routine_ esistente da interfaccia grafica <UC26>
+=== UC[49]: Eliminare un blocco da una _routine_ esistente da interfaccia grafica <UC49>
 
 - *Attore principale*: utente autenticato.
 
@@ -1131,11 +1092,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema rimuove il blocco dalla _routine_.
 
 
+#figure(image("../../assets/usecasediagrams/5,47,48,49.svg"), caption: [Diagramma casi d'uso UC[5], UC[47], UC[48], UC[49]])
 
 
 
-
-=== UC[26]: Collegare due blocchi di una _routine_ esistente <UC26>
+=== UC[50]: Collegare due blocchi di una _routine_ esistente <UC50>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -1148,13 +1109,13 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema crea un collegamento tra i due blocchi.
 
 
+#figure(image("../../assets/usecasediagrams/50.svg"), caption: [Diagramma casi d'uso UC[50]])
 
 
 
 
 
-
-=== UC[26]: Scollegare due blocchi di una _routine_ esistente <UC26>
+=== UC[51]: Scollegare due blocchi di una _routine_ esistente <UC51>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -1167,6 +1128,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. L'utente preme il tasto dedicato sulla tastiera (_backspace_) per scollegare i due blocchi.
   3. Il sistema rimuove il collegamento tra i due blocchi.
 
+#figure(image("../../assets/usecasediagrams/51.svg"), caption: [Diagramma casi d'uso UC[51]])
 
 
 
@@ -1174,8 +1136,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-=== UC[27]: Modifica della _password_ dell'account <UC27>
+=== UC[52]: Modifica della _password_ dell'account <UC52>
 
 - *Attore principale*: utente autenticato.
 
@@ -1189,21 +1150,21 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente inserisce la nuova _password_.
   4. L'utente reinserisce la _password_ creata.
   5. L'utente conferma la modifica della _password_.
-  6. Il sistema salva le credenziali nel _database_.
+  6. Il sistema salva le credenziali nel generico.
 
 - *Estensioni*:
-  - Errore _database_ (#link(<UC4>)[*UC[4]*]).
+  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
-#figure(image("../../assets/usecasediagrams/UC_4_6_7_27.png"), caption: [Diagramma casi d'uso UC[4], UC[6], UC[7], UC[27]])
-
-
+#figure(image("../../assets/usecasediagrams/5,7,8,52.svg"), caption: [Diagramma casi d'uso UC[5], UC[7], UC[8], UC[52]])
 
 
 
 
 
 
-=== UC[28]: Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC28>
+
+
+=== UC[53]: Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC53>
 
 - *Attore principale*: utente autenticato o non autenticato.
 
@@ -1215,14 +1176,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. l'utente preme l'icona del cambio tema del _client_.
   2. Il sistema cambia il tema selezionato del _client_.
 
-#figure(image("../../assets/usecasediagrams/UC_28.png"), caption: [Diagramma casi d'uso UC[28],])
+#figure(image("../../assets/usecasediagrams/53.svg"), caption: [Diagramma casi d'uso UC[53]])
 
 
 
 
 
 
-=== UC[29]: _Logout_ <UC29>
+=== UC[54]: _Logout_ <UC54>
 
 - *Attore principale*: utente autenticato.
 
@@ -1234,7 +1195,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. l'utente preme l'icona per effettuare il _logout_.
   2. Il sistema disconnette l'utente e lo riporta alla pagina di _login_.
 
-  #figure(image("../../assets/usecasediagrams/UC_29.png"), caption: [Diagramma casi d'uso UC[29],])
+
+#figure(image("../../assets/usecasediagrams/54.svg"), caption: [Diagramma casi d'uso UC[54]])
 
 
 
@@ -1291,13 +1253,11 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
   [ROF-1],
   [L'utente deve poter effettuare _login_ con il proprio account per autenticarsi nel _client_],
-  [#link(<UC1>)[*UC[1]*], #link(<UC2>)[*UC[2]*], Riunione esterna],
+  [#link(<UC1>)[*UC[1]*], Riunione esterna],
 
   [ROF-2], [Il sistema restituisce un errore per credenziali non valide inserite dall'utente], [#link(<UC3>)[*UC[3]*]],
   [ROF-3], [Il sistema restituisce un errore nel caso si riscontrino problemi], [#link(<UC4>)[*UC[4]*]],
-  [ROF-4],
-  [L'utente deve potersi registrare con la creazione di un nuovo account],
-  [#link(<UC2>)[*UC[2]*], #link(<UC5>)[*UC[5]*], #link(<UC6>)[*UC[6]*], #link(<UC7>)[*UC[7]*]],
+  [ROF-4], [L'utente deve potersi registrare con la creazione di un nuovo account], [ #link(<UC5>)[*UC[5]*]],
 
   [ROF-5], [Il sistema deve restituire un errore se l'_e-mail_ è già in uso in fase di registrazione], [#link(<UC8>)[*UC[8]*]],
   [ROF-6],
@@ -1308,23 +1268,19 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [ROF-8], [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso], [#link(<UC10>)[*UC[10]*]],
   [ROF-9], [L'utente deve poter generare una _routine_ tramite linguaggio naturale], [#link(<UC11>)[*UC[11]*], Capitolato],
   [ROF-10], [Il sistema deve restituire un errore se non é possibile generare il flusso], [#link(<UC12>)[*UC[12]*]],
-  [RDF-11], [L'utente deve poter modificare i parametri di generazione di una _routine_], [#link(<UC13>)[*UC[13]*], Capitolato],
+  [RDF-11], [L'utente deve poter modificare i parametri di generazione di una _routine_], [ Capitolato],
   [ROF-12], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC14>)[*UC[14]*]],
   [ROF-13], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC15>)[*UC[15]*]],
   [RDF-14], [L'utente deve poter modificare il nome di una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
-  [ROF-15],
-  [L'utente deve poter avviare una _routine_ esistente per eseguire il flusso di automazioni desiderato],
-  [#link(<UC17>)[*UC[17]*], #link(<UC18>)[*UC[18]*], Riunione esterna],
+  [ROF-15], [L'utente deve poter avviare una _routine_ esistente per eseguire il flusso di automazioni desiderato], [ Riunione esterna],
 
-  [ROF-16], [L'utente deve poter interrompe una _routine_ avviata in qualsiasi momento della sua esecuzione], [#link(<UC19>)[*UC[19]*]],
+  [ROF-16], [L'utente deve poter interrompe una _routine_ avviata in qualsiasi momento della sua esecuzione], [],
   [ROF-17],
   [Il sistema deve restituire un errore nel caso non sia possibile interrompere una _routine_ in esecuzione],
   [#link(<UC20>)[*UC[20]*]],
 
   [ROF-18], [L'utente deve poter aggiungere un blocco ad una _routine_ esistente], [#link(<UC21>)[*UC[21]*] ],
-  [RDF-19],
-  [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")],
-  [#link(<UC22>)[*UC[22]*], Riunione interna],
+  [RDF-19], [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")], [ Riunione interna],
 
   [ROF-20],
   [Il sistema deve restituire un errore se le impostazioni del blocco non sono considerate valide],
@@ -1332,15 +1288,13 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 
   [ROF-21],
   [L'utente deve potersi autenticare al servizio di un blocco specifico che richiede un'integrazione con un servizio esterno o un account di terze parti],
-  [#link(<UC24>)[*UC[24]*], Riunione esterna],
+  [ Riunione esterna],
 
   [ROF-22],
   [Il sistema deve salvare le modifiche apportate dall'utente alla _routine_ appena viene premuto il tasto di salvataggio],
   [#link(<UC25>)[*UC[25]*], Riunione interna],
 
-  [ROF-23],
-  [Il sistema deve restituire un errore se il flusso è incompleto e non può essere salvato],
-  [#link(<UC26>)[*UC[26]*], Riunione interna],
+  [ROF-23], [Il sistema deve restituire un errore se il flusso è incompleto e non può essere salvato], [ Riunione interna],
 
   [ROF-24], [L'utente deve poter modificare la propria _password_], [#link(<UC27>)[*UC[27]*], Riunione interna],
   [ROF-25], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC29>)[*UC[29]*], Riunione interna],
