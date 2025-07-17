@@ -4,12 +4,17 @@
   abstract: "",
   responsabili: "Pietro Crotti",
   redattori: ("Pietro Crotti", "Matteo Marangon", "Carmelo Russello", "Mirco Borella", "Alessandro Bernardello"),
-  verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello"),
+  verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello", "Marco Egidi"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "1.2.0",
   content: content,
   versioni: (
+    "1.2.0",
+    "2025/07/17",
+    "Carmelo Russello",
+    "Marco Egidi",
+    "Aggiunta tabella tracciamento Casi d'Uso - Requisiti, fix minori",
     "1.1.0",
     "2025/07/16",
     "Pietro Crotti
@@ -1187,7 +1192,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Attore principale*: utente autenticato.
 
-- *Pre-condizioni*: l'utente è autenticato.
+- *Pre-condizioni*: l'utente si trova nella pagina di visualizzazione di tutte le routine.
 
 - *Post-condizioni*: l'utente non è autenticato.
 
@@ -1200,7 +1205,34 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+=== UC[55]: Visualizzare la dashboard / lista automazioni in seguito al login <UC55>
+- *Attore principale*: utente autenticato.
 
+- *Pre-condizioni*: l'utente si trova nella pagina di login.
+
+- *Post-condizioni*: l'utente viene reindirizzato alla dashboard.
+
+- *Scenario principale*:
+  1. L'utente effettua l'accesso.
+  2. Il sistema rimanda l'utente alla _dashboard_.
+
+#figure(image("../../assets/usecasediagrams/55.svg"), caption: [Diagramma casi d'uso UC[55]])
+
+=== UC[56]: Ritornare alla dashboard dalla pagina di modifica di un flusso <UC56>
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
+
+- *Post-condizioni*: l'utente viene riportato alla _dashboard_.
+
+- *Scenario principale*:
+  1. L'utente preme il tasto dedicato per tornare alla _dashboard_.
+  2. Il sistema riporta l'utente alla _dashboard_.
+
+
+
+
+#figure(image("../../assets/usecasediagrams/56.svg"), caption: [Diagramma casi d'uso UC[56]])
 
 
 
@@ -1244,13 +1276,13 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 
 
 
-
 == Requisiti funzionali
 #table(
   columns: (1fr, 5fr, 2.5fr),
   rows: auto,
   inset: 6pt,
   table.header([*Codice*], [*Descrizione*], [*Fonti*]),
+
   [ROF-1],
   [L'utente deve poter effettuare _login_ con il proprio account per autenticarsi nel _client_],
   [#link(<UC1>)[*UC[1]*], Riunione esterna],
@@ -1270,8 +1302,8 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC6>)[*UC[6]*], #link(<UC2>)[*UC[2]*], Riunione esterna],
 
   [ROF-6],
-  [L'utente deve poter inserire la sua _password_ per registrarsi nell'applicativo],
-  [#link(<UC6>)[*UC[6]*], #link(<UC3>)[*UC[3]*], Riunione esterna],
+  [L'utente deve poter creare la sua _password_ per registrarsi nell'applicativo],
+  [#link(<UC6>)[*UC[7]*], #link(<UC3>)[*UC[3]*], Riunione esterna],
 
   [ROF-7],
   [L'utente deve poter reinserire la sua password per la registrazione nell'applicativo],
@@ -1301,54 +1333,145 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [L'utente deve poter generare una _routine_ tramite linguaggio naturale],
   [#link(<UC10>)[*UC[10]*], #link(<UC12>)[*UC[12]*], Capitolato],
 
-  [ROF-15], [L'utente deve poter visualizzare il modello di GenAI utilizzato per la generazione], [#link(<UC13>)[*UC[13]*]],
+  [ROF-15],
+  [L'utente deve poter visualizzare il modello di GenAI utilizzato per la generazione],
+  [#link(<UC12>)[*UC[12]*] ,#link(<UC13>)[*UC[13]*]],
 
   [ROF-16], [L'utente deve poter modificare il modello di GenAI utilizzato per la generazione], [#link(<UC14>)[*UC[14]*]],
 
-  [ROF-17], [Il sistema deve restituire un errore se non é possibile generare il flusso], [#link(<UC15>)[*UC[15]*]],
-
-  [RDF-11], [L'utente deve poter modificare i parametri di generazione di una _routine_], [ Capitolato],
-
-  [ROF-12], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC14>)[*UC[14]*]],
-
-  [ROF-13], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC15>)[*UC[15]*]],
-
-  [RDF-14], [L'utente deve poter modificare il nome di una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
-
-  [ROF-15], [L'utente deve poter avviare una _routine_ esistente per eseguire il flusso di automazioni desiderato], [ Riunione esterna],
-
-  [ROF-16], [L'utente deve poter interrompe una _routine_ avviata in qualsiasi momento della sua esecuzione], [],
-
   [ROF-17],
-  [Il sistema deve restituire un errore nel caso non sia possibile interrompere una _routine_ in esecuzione],
-  [#link(<UC20>)[*UC[20]*]],
+  [Il sistema deve restituire un errore se non é possibile generare il flusso],
+  [#link(<UC12>)[*UC[12]*], #link(<UC15>)[*UC[15]*]],
 
-  [ROF-18], [L'utente deve poter aggiungere un blocco ad una _routine_ esistente], [#link(<UC21>)[*UC[21]*] ],
+  [ROF-18], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
 
-  [RDF-19], [L'utente modifica le impostazioni di un singolo blocco di automazione relativo ad una #glossario("task")], [ Riunione interna],
+  [ROF-19], [L'utente deve poter visualizzare il nome di una _routine_ esistente], [#link(<UC16>)[*UC[16]*], #link(<UC17>)[*UC[17]*]],
 
   [ROF-20],
+  [L'utente deve poter visualizzare il diagramma dei blocchi di una _routine_ esistente],
+  [#link(<UC16>)[*UC[16]*], #link(<UC18>)[*UC[18]*]],
+
+  [ROF-21], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC19>)[*UC[19]*], Riunione esterna],
+
+  [ROF-22], [L'utente deve poter avviare una routine esistente], [#link(<UC21>)[*UC[21]*]],
+
+  [ROF-23], [L'utente deve poter avviare una routine esistente dalla dashboard], [#link(<UC21>)[*UC[21]*], #link(<UC22>)[*UC[22]*]],
+
+  [ROF-24],
+  [L'utente deve poter avviare una routine esistente dalla pagina di modifica del flusso],
+  [#link(<UC21>)[*UC[21]*], #link(<UC23>)[*UC[23]*]],
+
+  [ROF-25], [L'utente deve poter interrompere una routine avviata], [#link(<UC24>)[*UC[24]*]],
+
+  [ROF-26], [L'utente deve poter interrompere una routine avviata dalla dashboard], [#link(<UC24>)[*UC[24]*], #link(<UC25>)[*UC[25]*] ],
+
+  [ROF-27],
+  [L'utente deve poter interrompere una routine tramite la propria pagina di modifica],
+  [#link(<UC24>)[*UC[24]*], #link(<UC26>)[*UC[26]*] ],
+
+  [ROF-28],
+  [Il sistema deve restituire un errore nel caso non sia possibile interrompere una _routine_ in esecuzione],
+  [#link(<UC24>)[*UC[24]*], #link(<UC27>)[*UC[27]*], #link(<UC5>)[*UC[5]*]],
+
+  [ROF-29], [L'utente deve poter aggiungere un blocco ad una _routine_ esistente], [#link(<UC28>)[*UC[28]*] ],
+
+  [ROF-30],
+  [L'utente deve poter aggiungere un blocco del tipo "_Telegram_ - Send Bot Message" ad una _routine_ esistente],
+  [#link(<UC28>)[*UC[28]*],#link(<UC29>)[*UC[29]*]],
+
+  [ROF-31],
+  [L'utente deve poter aggiungere un blocco del tipo "_Pastebin_ - Create Paste" ad una _routine_ esistente],
+  [#link(<UC28>)[*UC[28]*],#link(<UC30>)[*UC[30]*]  ],
+
+  [ROF-32],
+  [L'utente deve poter aggiungere un blocco del tipo "_AI_ - Summarize" ad una _routine_ esistente],
+  [#link(<UC28>)[*UC[28]*], #link(<UC31>)[*UC[31]*] ],
+
+  [ROF-33],
+  [L'utente deve poter aggiungere un blocco del tipo "_System_ - Wait Second(s)" ad una _routine_ esistente],
+  [#link(<UC28>)[*UC[28]*], #link(<UC32>)[*UC[32]*] ],
+
+  [ROF-34],
+  [L'utente deve poter aggiungere un blocco del tipo "_Notion_ - Get Page" ad una _routine_ esistente],
+  [#link(<UC28>)[*UC[28]*], #link(<UC33>)[*UC[33]*] ],
+
+  [ROF-35], [L'utente deve poter visualizzare le impostazioni di un singolo blocco], [#link(<UC34>)[*UC[34]*]],
+
+  [ROF-36],
+  [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"],
+  [#link(<UC34>)[*UC[34]*], #link(<UC35>)[*UC[35]*]],
+
+  [ROF-37],
+  [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Pastebin_ - Create Paste"],
+  [#link(<UC34>)[*UC[34]*], #link(<UC36>)[*UC[36]*]],
+
+  [ROF-38],
+  [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"],
+  [#link(<UC34>)[*UC[34]*], #link(<UC37>)[*UC[37]*]],
+
+  [ROF-39],
+  [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Notion_ - Get Page"],
+  [#link(<UC34>)[*UC[34]*], #link(<UC38>)[*UC[38]*]],
+
+  [ROF-40], [L'utente deve poter modificare le impostazioni di un singolo blocco"], [#link(<UC39>)[*UC[39]*]],
+
+  [ROF-41],
+  [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"],
+  [#link(<UC39>)[*UC[39]*],#link(<UC40>)[*UC[40]*]],
+
+  [ROF-42],
+  [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Pastebin_ - Create Paste"],
+  [#link(<UC39>)[*UC[39]*],#link(<UC41>)[*UC[41]*]  ],
+
+  [ROF-43],
+  [L'utente deve poter modificare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"],
+  [#link(<UC39>)[*UC[39]*], #link(<UC42>)[*UC[42]*] ],
+
+  [ROF-44],
+  [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Notion_ - Get Page"],
+  [#link(<UC39>)[*UC[39]*], #link(<UC43>)[*UC[43]*] ],
+
+  [ROF-45],
   [Il sistema deve restituire un errore se le impostazioni del blocco non sono considerate valide],
-  [#link(<UC23>)[*UC[23]*], Riunione interna],
+  [#link(<UC44>)[*UC[44]*],#link(<UC5>)[*UC[5]*], Riunione interna],
 
-  [ROF-21],
-  [L'utente deve potersi autenticare al servizio di un blocco specifico che richiede un'integrazione con un servizio esterno o un account di terze parti],
-  [ Riunione esterna],
-
-  [ROF-22],
+  [ROF-46],
   [Il sistema deve salvare le modifiche apportate dall'utente alla _routine_ appena viene premuto il tasto di salvataggio],
-  [#link(<UC25>)[*UC[25]*], Riunione interna],
+  [#link(<UC45>)[*UC[45]*], Riunione interna],
 
-  [ROF-23], [Il sistema deve restituire un errore se il flusso è incompleto e non può essere salvato], [ Riunione interna],
+  [ROF-47],
+  [Il sistema deve restituire un errore se il flusso è incompleto e non può essere salvato],
+  [#link(<UC46>)[*UC[46]*], #link(<UC5>)[*UC[5]*], Riunione interna],
 
-  [ROF-24], [L'utente deve poter modificare la propria _password_], [#link(<UC27>)[*UC[27]*], Riunione interna],
+  [ROF-48],
+  [L'utente deve potere eliminare un blocco da una _routine_ esistente ],
+  [#link(<UC47>)[*UC[47]*], #link(<UC48>)[*UC[48]*], #link(<UC49>)[*UC[49]*]  ],
 
-  [ROF-25], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC29>)[*UC[29]*], Riunione interna],
+  [ROF-49],
+  [L'utente deve potere eliminare un blocco da una _routine_ esistente da tastiera],
+  [#link(<UC47>)[*UC[47]*], #link(<UC48>)[*UC[48]*] ],
 
-  [RDF-26],
-  [L’utente può impostare la modalità del client in dark
-    mode o light mode],
-  [#link(<UC28>)[*UC[28]*], Riunione esterna],
+  [ROF-50],
+  [L'utente deve potere eliminare un blocco da una _routine_ esistente da interfaccia grafica],
+  [#link(<UC47>)[*UC[47]*], #link(<UC48>)[*UC[49]*] ],
+
+  [ROF-51], [L'utente deve potere collegare due blocchi di una _routine_ esistente], [#link(<UC50>)[*UC[50]*], Capitolato ],
+
+  [ROF-52], [L'utente deve potere scollegare due blocchi di una _routine esistente_], [#link(<UC51>)[*UC[51]*], Capitolato ],
+
+  [ROF-53], [L'utente deve poter modificare la propria _password_], [#link(<UC52>)[*UC[52]*], Riunione interna],
+
+  [RDF-54], [L’utente può impostare la modalità del client in dark mode o light mode], [#link(<UC53>)[*UC[53]*], Riunione esterna],
+
+  [ROF-55], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC54>)[*UC[54]*], Riunione interna],
+
+  [ROF-56],
+  [L'utente deve poter visualizzare la dashboard in seguito al login nell'applicativo],
+  [#link(<UC55>)[*UC[55]*], Riunione interna],
+
+  [ROF-57], [L'utente deve poter ritornare alla dashboard dalla pagina di modifica flusso], [#link(<UC56>)[*UC[56]*]],
+
+  [ROF-58], [L'utente deve poter modificare il nome di una _routine_ esistente], [#link(<UC20>)[*UC[20]*], Riunione esterna],
 )
 
 
@@ -1402,5 +1525,63 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   rows: auto,
   inset: 6pt,
   table.header([*Fonte*], [*Requisito*]),
-  [UCX], [RX-1],
+  [UC1], [ROF-1, ROF-2, ROF-3, ROF-8 ],
+  [UC2], [ROF-2, ROF-5],
+  [UC3], [ROF-3, ROF-6],
+  [UC4], [ROF-8, ROF-11],
+  [UC5], [ROF-9],
+  [UC6], [ROF-4, ROF-5, ROF-6, ROF-7, ROF-8, ROF-10, ROF-11,],
+  [UC7], [ROF-6],
+  [UC8], [ROF-7],
+  [UC9], [ROF-10],
+  [UC10], [ROF-12, ROF-14],
+  [UC11], [ROF-13],
+  [UC12], [ROF-14, ROF-15, ROF-17],
+  [UC13], [ROF-15],
+  [UC14], [ROF-16],
+  [UC15], [ROF-17],
+  [UC16], [ROF-18, ROF-19],
+  [UC17], [ROF-19],
+  [UC18], [ROF-20],
+  [UC19], [ROF-21],
+  [UC20], [ROF-58],
+  [UC21], [ROF-22, ROF-23, ROF-24],
+  [UC22], [ROF-23],
+  [UC23], [ROF-24],
+  [UC24], [ROF-25, ROF-26, ROF-27, ROF-28],
+  [UC25], [ROF-26],
+  [UC26], [ROF-27],
+  [UC27], [ROF-28],
+  [UC28], [ROF-29, ROF-30, ROF-31, ROF-32, ROF-33, ROF-34],
+  [UC29], [ROF-30],
+  [UC30], [ROF-31],
+  [UC31], [ROF-32],
+  [UC32], [ROF-33],
+  [UC33], [ROF-34],
+  [UC34], [ROF-35, ROF-37, ROF-38, ROF-39],
+  [UC35], [ROF-36],
+  [UC36], [ROF-37],
+  [UC37], [ROF-38],
+  [UC38], [ROF-39],
+  [UC39], [ROF-41, ROF-42, ROF-43, ROF-44],
+  [UC40], [ROF-41],
+  [UC41], [ROF-42],
+  [UC42], [ROF-43],
+  [UC43], [ROF-44],
+  [UC44], [ROF-45],
+  [UC45], [ROF-46],
+  [UC46], [ROF-47],
+  [UC47], [ROF-48, ROF-49, ROF-50],
+  [UC48], [ROF-48, ROF-49],
+  [UC49], [ROF-48, ROF-50],
+  [UC50], [ROF-51],
+  [UC51], [ROF-52],
+  [UC52], [ROF-53],
+  [UC53], [RDF-54],
+  [UC54], [ROF-55],
+  [UC55], [ROF-56],
+  [UC56], [ROF-57],
+  [Capitolato], [ROF-12, ROF-14, ROF-51, ROF-52, RFQ-1, RFQ-2, RFQ-3, RFQ-4, RFQ-5, RFQ-6, RFQ-7, ROV-1, ROV-2, ROV-3, ROV-4],
+  [Riunioni interne], [ROF-45, ROF-46, ROF-47, ROF-53, ROF-55, ROF-56, RFQ-1, RFQ-6, RFQ-7],
+  [Riunioni esterne], [ROF-1, ROF-2, ROF-3, ROF-5, ROF-6, ROF-21, RDF-54, ROF-58, ROV-1 ],
 )
