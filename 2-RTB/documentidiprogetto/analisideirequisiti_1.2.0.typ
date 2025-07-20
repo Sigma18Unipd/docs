@@ -284,7 +284,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente inserisce la propria _e-mail_.
   4. L'utente inserisce la _password_ .
   5. L'utente reinserisce la _password_ creata.
-  6. Il sistema crea l'_account_ e salva le credenziali nel generico.
+  6. Il sistema crea l'_account_ e salva le credenziali nel _database_.
 - *Estensioni*:
   - _E-mail_ già in uso (#link(<UC9>)[*UC[9]*]).
   - Errore generico (#link(<UC5>)[*UC[5]*]).
@@ -989,7 +989,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Pre-condizioni*: l'utente ha inserito nuove impostazioni all'interno di un blocco.
 
-- *Post-condizioni*: le impostazioni inserite non sono valide.
+- *Post-condizioni*: il sistema mostra un messaggio di errore.
 
 - *Scenario principale*:
   1. L'utente modifica le impostazioni di un blocco.
@@ -1034,7 +1034,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Post-condizioni*: il sistema ritorna un messaggio di errore.
 
 - *Scenario principale*:
-  1. L'utente preme il testo per salvare.
+  1. L'utente preme il tasto per salvare.
   2. Il sistema verifica che il flusso sia completo e che nessun blocco sia staccato.
   3. Se il flusso non è completo, il sistema mostra un messaggio di errore all'utente.
 
@@ -1171,7 +1171,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Attore principale*: utente autenticato o non autenticato.
 
-- *Pre-condizioni*: l'utente ha attiva una preferenza di tema.
+- *Pre-condizioni*: l'utente si trova nell'interfaccia per la modifica del tema.
 
 - *Post-condizioni*: l'utente ha cambiato il tema del _client_.
 
