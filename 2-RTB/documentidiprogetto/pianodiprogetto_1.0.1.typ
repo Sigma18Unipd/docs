@@ -88,17 +88,15 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 == Riferimenti
 === Riferimenti normativi
 
-- #link(
-    "https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf",
-  )[Capitolato C3: Automatizzare le routine digitali tramite l'intelligenza generativa]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le routine digitali tramite l'intelligenza generativa] [ultimo accesso il: 09/07/2025]
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico] [ultimo accesso il: 09/07/2025]
 
-- #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018]
+- #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] [ultimo accesso il: 09/07/2025]
 
 === Riferimenti informativi
 
-- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario]
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario] [versione 0.11.0]
 
 #pagebreak()
 
@@ -271,7 +269,7 @@ Il gruppo, in accordo con l'azienda proponente, ha stabilito la durata di ogni _
 - *Interazione con l'azienda*: confronto regolare per mantenere l'allineamento tra team e committenza.
 
 Per approfondimenti sull'impegno dei membri e la stima dei costi, si fa riferimento al documento:
-#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[*Preventivo dei costi e dichiarazione impegni*].
+#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[*Preventivo dei costi e dichiarazione impegni*] [versione 1.0.1].
 
 == Struttura Operativa degli Sprint
 
