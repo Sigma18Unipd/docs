@@ -11,10 +11,10 @@
   versioneAttuale: "1.0.0",
   versioni: (
     "1.0.0",
-    "2025/06/27",
+    "2025/07/17",
     "Matteo Marangon",
     "Aleena Mathew",
-    "Correzione errore di battitura",
+    "Migliorie impostazione del documento e aggiornamento link",
     "0.7.3",
     "2025/06/27",
     "Aleena Mathew",
@@ -116,19 +116,19 @@ All'interno dei documenti, verrà utilizzata la nomenclatura *#glossario("parola
 == Riferimenti
 === Riferimenti normativi
 
-- *ISO/IEC 12207:1995 - Standard internazionale per i processi di ciclo di vita del _software_* \ #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf]
+- *ISO/IEC 12207:1995 - Standard internazionale per i processi di ciclo di vita del _software_* [ultimo accesso il: 17/07/2025]\ #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf]
 
-- *ISO/IEC 12207* \ #link("https://it.wikipedia.org/wiki/ISO/IEC_12207")[https://it.wikipedia.org/wiki/ISO/IEC_12207]
+- *ISO/IEC 12207* [ultimo accesso il: 17/07/2025] \ #link("https://it.wikipedia.org/wiki/ISO/IEC_12207")[https://it.wikipedia.org/wiki/ISO/IEC_12207]
 
-- *Capitolato C3 - Automatizzare le routine digitali tramite l'intelligenza generativa* \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf]
+- *Capitolato C3 - Automatizzare le routine digitali tramite l'intelligenza generativa* [ultimo accesso il:  17/07/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf]
 
-- *Regolamento del progetto didattico* \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf]
+- *Regolamento del progetto didattico* [ultimo accesso il: 17/07/2025]\ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf]
 
 === Riferimenti informativi
 
-- *Glossario* \ #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf]
+- *Glossario*[versione 0.11.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf]
 
-- *Processi di ciclo di vita* \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T02.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T02.pdf]
+- *Processi di ciclo di vita* [ultimo accesso il:  17/07/2025]\ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T02.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T02.pdf]
 
 #pagebreak()
 
@@ -153,7 +153,7 @@ Nello specifico, ai fini del capitolato, tratteremo i seguenti processi primari:
 == Fornitura <fornitura>
 Lo standard ISO/IEC 12207:1995 definisce il processo di fornitura come l'insieme delle attività necessarie per garantire che il prodotto _software_ soddisfi i requisiti specificati e le aspettative del proponente.
 
-Questo processo è iniziato con uno studio di fattibilità e lo sviluppo di alcuni flussi applicativi insieme al proponente, raccolti nella sessione di #glossario("design thinking") di cui è stato redatto il relativo #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/verbali/esterni/ve_20250414_1.1.4.pdf")[verbale esterno]. L'incontro è stato fondamentale per la definizione e la contrattazione dei requisiti del progetto.
+Questo processo è iniziato con uno studio di fattibilità e lo sviluppo di alcuni flussi applicativi insieme al proponente, raccolti nella sessione di #glossario("design thinking") di cui è stato redatto il relativo #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/verbali/esterni/ve_20250414_1.1.4.pdf")[verbale esterno] [versione 1.1.4]. L'incontro è stato fondamentale per la definizione e la contrattazione dei requisiti del progetto.
 
 Il processo terminerà con la consegna del prodotto al proponente e la successiva verifica della sua conformità ai requisiti specificati.
 
@@ -196,7 +196,7 @@ La fornitura è composta da un insieme di attività successivamente descritte:
 Segue un elenco dei documenti che il gruppo _Sigma18_ fornirà all'azienda proponente _Var Group S.p.A._ e ai committenti del capitolato _Prof. Riccardo Cardin_ e _Prof. Tullio Vardanega_  (in ordine alfabetico).
 
 ==== Analisi dei requisiti
-#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_0.11.1.pdf")[Documento] che ha lo scopo di fornire una descrizione dettagliata dei casi d'uso e dei requisiti del progetto che l'azienda proponente _Var Group S.p.A._ ha presentato.
+#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_1.2.0.pdf")[Documento] [versione 1.2.0] che ha lo scopo di fornire una descrizione dettagliata dei casi d'uso e dei requisiti del progetto che l'azienda proponente _Var Group S.p.A._ ha presentato.
 Questo documento è pertanto di elevata importanza in quanto costituisce una solida base per lo sviluppo del prodotto finale, permettendo di avere una chiara visione delle funzionalità e dei requisiti richiesti dall'azienda proponente.
 
 Tipo di documento: *Documento Esterno* \
@@ -221,7 +221,7 @@ Tipo di documento: *Documento Interno* \
 Destinatari documento: *_Sigma18_*
 
 ==== Piano di progetto
-#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_0.3.0.pdf")[Documento] che ha l'obiettivo di definire e tenere traccia di tutte le attività eseguite e pianificate dal team durante lo sviluppo del progetto.
+#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.0.1.pdf")[Documento] [versione 1.0.1] che ha l'obiettivo di definire e tenere traccia di tutte le attività eseguite e pianificate dal team durante lo sviluppo del progetto.
 In particolare, il piano di progetto si concentra su: analisi dei rischi, modello di sviluppo e pianificazione delle attività.
 
 Tipo di documento: *Documento Esterno* \
@@ -235,13 +235,13 @@ Tipo di documento: *Documento Esterno* \
 Destinatari documento: *_Sigma18_, _Var Group S.p.A_, _Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
 
 ==== Preventivo dei costi e dichiarazione impegni
-#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[Documento] che ha lo scopo di definire i ruoli, i costi preventivati e fornire una stima della data per la realizzazione del capitolato. Il documento contiene anche un'analisi dei rischi approssimativa che il gruppo _Sigma18_ ha tenuto in considerazione durante la stesura del preventivo.
+#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[Documento] [versione 1.0.1] che ha lo scopo di definire i ruoli, i costi preventivati e fornire una stima della data per la realizzazione del capitolato. Il documento contiene anche un'analisi dei rischi approssimativa che il gruppo _Sigma18_ ha tenuto in considerazione durante la stesura del preventivo.
 
 Tipo di documento: *Documento Esterno* \
 Destinatari documento: *_Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
 
 ==== Valutazione dei capitolati
-#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/valutazionecapitolati_1.1.0.pdf")[Documento] che presenta le motivazioni che hanno portato il gruppo _Sigma18_ a scegliere il capitolato _C3 - Automatizzare le routine digitali tramite l'intelligenza generativa_ proposto dall'azienda _Var Group S.p.A._ e i relativi pro e contro di ogni capitolato proposto.
+#link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/valutazionecapitolati_1.1.0.pdf")[Documento] [versione 1.1.0] che presenta le motivazioni che hanno portato il gruppo _Sigma18_ a scegliere il capitolato _C3 - Automatizzare le routine digitali tramite l'intelligenza generativa_ proposto dall'azienda _Var Group S.p.A._ e i relativi pro e contro di ogni capitolato proposto.
 
 Tipo di documento: *Documento Esterno* \
 Destinatari documento: *_Prof. Tullio Vardanega_, _Prof. Riccardo Cardin_*
@@ -608,7 +608,7 @@ Tutti i documenti all'interno di una _pull request_ scateneranno l'avvio di una 
 Tutti i documenti pubblicati nella _branch_ "main" scateneranno l'avvio di una _GitHub Action_ che andrà ad effettuare la compilazione e la successiva pubblicazione dei sorgenti nel #link("https://sigma18unipd.github.io/")[sito web dedicato alla documentazione].
 
 ==== Denominazione dei documenti
-Come deciso nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno] in data 2025/03/07 i documenti seguiranno una nomenclatura ben definita, in modo tale da poter far effettuare delle azioni alle _GitHub Action_ basandosi sul nome del file.
+Come deciso nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno] [versione 1.0.0] in data 2025/03/07 i documenti seguiranno una nomenclatura ben definita, in modo tale da poter far effettuare delle azioni alle _GitHub Action_ basandosi sul nome del file.
 Tutti i sorgenti della documentazione termineranno con l'estensione _Typst_ _".typ"_.
 
 ===== Verbali
@@ -657,7 +657,7 @@ dove:
 
 ==== Riferimenti e formati
 ===== Date
-Ogni data nei documenti verrà scritta utilizzando il formato "*AAAA/MM/GG*" derivante dallo standard _ISO 8601_ dove *AAAA* indica l'anno in numero a 4 cifre, *MM* indica il mese in numero a 2 cifre e *GG* indica il giorno in numero a 2 cifre, come stabilito nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno del 2025/03/07].
+Ogni data nei documenti verrà scritta utilizzando il formato "*AAAA/MM/GG*" derivante dallo standard _ISO 8601_ dove *AAAA* indica l'anno in numero a 4 cifre, *MM* indica il mese in numero a 2 cifre e *GG* indica il giorno in numero a 2 cifre, come stabilito nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno del 2025/03/07] [versione 1.0.0].
 
 Nel caso di date scritte per intero, si utilizzerà il formato *GG MESEINLETTERE AAAA*, dove *GG* indica il giorno in numero a 2 cifre, *MESEINLETTERE* indica il mese in lettere (ad esempio "Aprile") e *AAAA* indica l'anno in numero a 4 cifre.
 
@@ -705,7 +705,7 @@ Anche se non parte integrante per il proponente, è presente una cartella "*0-di
 
 Ogni fase viene rappresentata da una cartella nella #glossario("root directory") del repository della documentazione. All'interno di ogni cartella, sono presenti le sottocartelle i relativi documenti prodotti dal gruppo.
 
-Esempio di struttura del repository della documentazione come definita nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno del 2025/03/07]:
+Esempio di struttura del repository della documentazione come definita nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/verbali/interni/vi_20250307_1.0.0.pdf")[verbale interno del 2025/03/07] [versione 1.0.0]:
 
 #align(center)[
   ```
@@ -789,7 +789,7 @@ Il gruppo _Sigma18_ s'impegna a raggiungere in modo efficace ed efficiente gli o
 Il processo di accertamento della qualità è l'insieme delle attività che hanno lo scopo di garantire la qualità del prodotto _software_ e della documentazione associata seguendo gli obiettivi fissati dal proponente.
 
 === Strumenti a supporto della qualità
-Il gruppo _Sigma18_ ha deciso di utilizzare delle metriche oggettive per la valutazione della qualità del prodotto _software_ e della documentazione associata. Le metriche utilizzate sono descritte in dettaglio nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[piano di qualifica].
+Il gruppo _Sigma18_ ha deciso di utilizzare delle metriche oggettive per la valutazione della qualità del prodotto _software_ e della documentazione associata. Le metriche utilizzate sono descritte in dettaglio nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[piano di qualifica] [versione 1.0.0].
 
 === Attività previste
 Secondo lo standard ISO/IEC 12207:1995, il processo di accertamento della qualità è composto da un insieme di attività così descritte:
@@ -808,7 +808,7 @@ A partire dai primi verbali prodotti in fase di candidatura, il gruppo _Sigma18_
 
 In caso di modifiche corpose ai documenti, vengono assegnati verificatori aggiuntivi di supporto.
 
-Tutte le attività di verifica riguardanti il prodotto _software_ sono registrate nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[piano di qualifica] e riguarderanno principalmente lo sviluppo nella terza fase del capitolato (_3-PB, Product Baseline_).
+Tutte le attività di verifica riguardanti il prodotto _software_ sono registrate nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[piano di qualifica] [versione 1.0.0] e riguarderanno principalmente lo sviluppo nella terza fase del capitolato (_3-PB, Product Baseline_).
 
 In generale, il processo di verifica è composto da un insieme di due attività successivamente descritte.
 
@@ -859,7 +859,7 @@ In altre parole, la validazione ci fa rispondere alle domande "Il prodotto è qu
 
 Il gruppo _Sigma18_ applica questo processo in parallelo al processo di verifica.
 
-Tutte le esigenze del proponente "Var Group S.p.A." sono state raccolte e analizzate in modo da definire i requisiti del prodotto _software_ e della documentazione associata nel documento #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_1.0.0.pdf")[analisi di requisiti].
+Tutte le esigenze del proponente "Var Group S.p.A." sono state raccolte e analizzate in modo da definire i requisiti del prodotto _software_ e della documentazione associata nel documento #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_1.2.0.pdf")[analisi di requisiti] [versione 1.2.0].
 
 Nel processo di validazione, vengono in aiuto anche le attività di tracciamento dei requisiti sopra descritte, che permetteranno di validare se il prodotto funziona nel modo in cui il proponente si aspetta e se è conforme a quanto stabilito.
 
@@ -892,7 +892,7 @@ La normativa ISO/IEC 12207:1995 indirizza i seguenti sotto processi:
 == Management (Gestione dei processi)
 Secondo la normativa ISO/IEC 12207:1995, il processo di gestione dei processi ha lo scopo di individuare i processi e attribuirli ai relativi ruoli nella gestione del ciclo di vita del software. L'obiettivo è quello di garantire che i processi siano definiti, implementati e mantenuti in modo da soddisfare le esigenze del proponente e garantire la massima efficienza de gruppo di lavoro.
 
-I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.0.0.pdf")[piano di progetto].
+I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.0.1.pdf")[piano di progetto] [versione 1.0.1].
 
 === Strumenti a supporto della gestione dei processi <sezione4.1.1>
 Il gruppo _Sigma18_ ha deciso di utilizzare i seguenti strumenti per la gestione dei processi:
@@ -919,7 +919,7 @@ Il processo di gestione dei processi è composto da un insieme di attività cos�
 - *Chiusura dei processi*: attività che ha lo scopo di chiudere le attività e verificare che quello che è stato prodotto sia coerente con l'obiettivo iniziale.
 
 === Ruoli dei membri
-Il gruppo _Sigma18_ ha deciso di utilizzare dei ruoli per la gestione dei processi descritti nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[preventivo dei costi e della dichiarazione degli impegni].
+Il gruppo _Sigma18_ ha deciso di utilizzare dei ruoli per la gestione dei processi descritti nel #link("https://sigma18unipd.github.io/documentiCompilati/1-candidatura/impegnicosti_1.0.1.pdf")[preventivo dei costi e della dichiarazione degli impegni] [versione 1.0.1].
 
 ==== Amministratore
 L'amministratore si occupa della gestione degli strumenti IT necessari all'avanzamento dello
@@ -1223,7 +1223,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Codice*: MPC-ETC;
 
-- *Formula*: $"ETC"= "Budget at Completion (BAC)" - "Actual Cost (AC)"$;
+- *Formula*: $"ETC"= "Estimated At Completion (EAC)" - "Actual Cost (AC)"$;
 
 - *Descrizione*: stima il costo del lavoro rimanente per completare il progetto.
 
@@ -1251,7 +1251,7 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Formula*: $"CPI"= ("Earned Value (EV)") / ("Actual Cost (AC)")$;
 
-- *Descrizione*: misura l'efficienza del costo del lavoro svolto fino a quel momento. Un valore inferiore a 1 indica che si sta spendendo più del previsto.
+- *Descrizione*: misura l'efficienza del costo del lavoro svolto fino a quel momento.
 
 
 === Sviluppo
@@ -1274,14 +1274,6 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPC_ 
 
 - *Descrizione*: misura la stabilità dei requisiti del progetto. Un valore alto indica che i requisiti sono stabili e non soggetti a modifiche frequenti.
 
-
-==== Technical Debt Ratio
-
-- *Codice*: MPC-TD;
-
-- *Formula*: $"TD" = (("Tempo per risolvere problemi tecnici") / ("Tempo per sviluppare nuove funzionalità")) * "100"$;
-
-- *Descrizione*: rapporto tra il tempo necessario per risolvere problemi tecnici e il tempo necessario per sviluppare nuove funzionalità. Un valore basso indica che il codice è ben strutturato.
 
 
 == Processi di supporto
@@ -1405,13 +1397,6 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPD_ 
 
 - *Descrizione*: misura la percentuale di istruzioni del codice sorgente coperte dai test.
 
-=== Passed Test Cases Percentage
-
-- *Codice*: MPD-PTCP;
-
-- *Formula*: $"PTCP" = (("Numero di test superati") / ("Numero totale di test")) * "100"$;
-
-- *Descrizione*: misura la percentuale di test superati rispetto al numero totale di test previsti.
 
 === Failure Tolerance
 
@@ -1432,27 +1417,20 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPD_ 
 
 - *Descrizione*: misura il tempo necessario per un utente per imparare ad utilizzare il software.
 
-=== Error Rate
+=== Facilità d'uso
 
-- *Codice*: MPD-ER;
+- *Codice*: MPD-FU;
 
-- *Formula*: $"ER" = (("Numero di errori commessi dagli utenti") / ("Numero totale di azioni degli utenti")) * "100"$;
-
-- *Descrizione*: misura il numero di errori commessi dagli utenti durante l'utilizzo del software.
+- *Descrizione*: misura il numero di errori commessi dagli utenti durante l'interazione con il software.
 
 == Efficienza
 
-=== Utilizzo risorse
+=== Tempo medio di esecuzione
 
-- *Codice*: MPD-UR;
+- *Codice*: MPD-TE;
 
-- *Descrizione*: misura l'utilizzo delle risorse del sistema, come CPU, memoria e spazio su disco, durante l'esecuzione del software.
+- *Descrizione*: misura il tempo medio impiegato da una routine per completare la propria esecuzione.
 
-=== Tempi di risposta delle API
-
-- *Codice*: MPD-TRA;
-
-- *Descrizione*: misura il tempo medio di risposta delle API del sistema.
 
 == Manutenibilità
 
@@ -1485,8 +1463,3 @@ Ogni metrica sarà identificata da un codice univoco composto dalla sigla _MPD_ 
 
 - *Descrizione*: indica il grado di dipendenza tra i moduli o le componenti di un sistema.
 
-=== Tempo per risolvere i bug //modifica in piano di qualifica
-
-- *Codice*: MPD-TRB;
-
-- *Descrizione*: misura il tempo medio necessario per risolvere i bug identificati nel software.
