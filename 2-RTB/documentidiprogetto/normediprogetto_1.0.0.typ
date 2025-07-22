@@ -11,7 +11,7 @@
   versioneAttuale: "1.0.0",
   versioni: (
     "1.0.0",
-    "2025/07/17",
+    "2025/07/23",
     "Matteo Marangon",
     "Aleena Mathew",
     "Migliorie impostazione del documento e aggiornamento link",
@@ -221,7 +221,7 @@ Tipo di documento: *Documento Interno* \
 Destinatari documento: *_Sigma18_*
 
 ==== Piano di progetto
-#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.0.1.pdf")[Documento] [versione 1.0.1] che ha l'obiettivo di definire e tenere traccia di tutte le attività eseguite e pianificate dal team durante lo sviluppo del progetto.
+#link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.1.0.pdf")[Documento] [versione 1.1.0] che ha l'obiettivo di definire e tenere traccia di tutte le attività eseguite e pianificate dal team durante lo sviluppo del progetto.
 In particolare, il piano di progetto si concentra su: analisi dei rischi, modello di sviluppo e pianificazione delle attività.
 
 Tipo di documento: *Documento Esterno* \
@@ -789,7 +789,7 @@ Il gruppo _Sigma18_ s'impegna a raggiungere in modo efficace ed efficiente gli o
 Il processo di accertamento della qualità è l'insieme delle attività che hanno lo scopo di garantire la qualità del prodotto _software_ e della documentazione associata seguendo gli obiettivi fissati dal proponente.
 
 === Strumenti a supporto della qualità
-Il gruppo _Sigma18_ ha deciso di utilizzare delle metriche oggettive per la valutazione della qualità del prodotto _software_ e della documentazione associata. Le metriche utilizzate sono descritte in dettaglio nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[piano di qualifica] [versione 1.0.0].
+Il gruppo _Sigma18_ ha deciso di utilizzare delle metriche oggettive per la valutazione della qualità del prodotto _software_ e della documentazione associata. Le metriche utilizzate sono descritte in dettaglio nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.1.0.pdf")[piano di qualifica] [versione 1.1.0].
 
 === Attività previste
 Secondo lo standard ISO/IEC 12207:1995, il processo di accertamento della qualità è composto da un insieme di attività così descritte:
@@ -808,7 +808,7 @@ A partire dai primi verbali prodotti in fase di candidatura, il gruppo _Sigma18_
 
 In caso di modifiche corpose ai documenti, vengono assegnati verificatori aggiuntivi di supporto.
 
-Tutte le attività di verifica riguardanti il prodotto _software_ sono registrate nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[piano di qualifica] [versione 1.0.0] e riguarderanno principalmente lo sviluppo nella terza fase del capitolato (_3-PB, Product Baseline_).
+Tutte le attività di verifica riguardanti il prodotto _software_ sono registrate nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.1.0.pdf")[piano di qualifica] [versione 1.1.0] e riguarderanno principalmente lo sviluppo nella terza fase del capitolato (_3-PB, Product Baseline_).
 
 In generale, il processo di verifica è composto da un insieme di due attività successivamente descritte.
 
@@ -892,7 +892,7 @@ La normativa ISO/IEC 12207:1995 indirizza i seguenti sotto processi:
 == Management (Gestione dei processi)
 Secondo la normativa ISO/IEC 12207:1995, il processo di gestione dei processi ha lo scopo di individuare i processi e attribuirli ai relativi ruoli nella gestione del ciclo di vita del software. L'obiettivo è quello di garantire che i processi siano definiti, implementati e mantenuti in modo da soddisfare le esigenze del proponente e garantire la massima efficienza de gruppo di lavoro.
 
-I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.0.1.pdf")[piano di progetto] [versione 1.0.1].
+I risultati del processo dell'attività di gestione dei processi si concretizzano nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.1.0.pdf")[piano di progetto] [versione 1.1.0].
 
 === Strumenti a supporto della gestione dei processi <sezione4.1.1>
 Il gruppo _Sigma18_ ha deciso di utilizzare i seguenti strumenti per la gestione dei processi:
