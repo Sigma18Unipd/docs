@@ -3,18 +3,23 @@
 #show: content => verbale(
   titoloDocumento: "Piano di progetto",
   abstract: "Documento riepilogativo delle attività concluse e in corso di svolgimento dal gruppo Sigma18.",
-  responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew"),
-  redattori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Aleena Mathew"),
+  responsabili: ("Matteo Marangon", "Pietro Crotti", "Aleena Mathew", "Mirco Borella"),
+  redattori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Aleena Mathew", "Pietro Crotti"),
   verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "1.0.1",
+  versioneAttuale: "1.1.0",
   versioni: (
+    "1.1.0",
+    "2025/07/22",
+    "Pietro Crotti",
+    "Marco Egidi",
+    "Aggiornamento retrospettiva ottavo sprint e inizio nono sprint",
     "1.0.1",
     "2025/07/09",
     "Aleena Mathew",
     "Mirco Borella",
-    "Correzione di una data ",
+    "Correzione di una data",
     "1.0.0",
     "2025/07/08",
     "Matteo Marangon",
@@ -1003,4 +1008,92 @@ Il gruppo si impegna a:
   [Aleena Mathew], [2], [0], [0], [0], [0], [0], [*2*],
   [Carmelo Russello], [1], [0], [0], [0], [0], [0], [*1*],
   [*Totali*], [*3*], [*2*], [*1*], [*1*], [*4*], [*2*], [*13*],
+)
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [1 (+1)], [0 (-1)], [0 (-1)], [0], [2 (+2)], [*3*],
+  [Mirco Borella], [0], [2 (+2)], [0], [0], [1 (-1)], [0], [*3*],
+  [Pietro Crotti], [0], [1 (-1)], [0], [0], [1 (+1)], [1 (+1)], [*3*],
+  [Marco Egidi], [0], [0], [0], [0], [2], [1 (+1)], [*3*],
+  [Matteo Marangon], [0], [1 (+1)], [0], [0], [0], [2], [*3*],
+  [Aleena Mathew], [2], [0 (-1)], [0], [0], [0], [1 (+1)], [*3*],
+  [Carmelo Russello], [1], [1 (+1)], [0], [0], [0], [1 (+1)], [*3*],
+  [*Totali*], [*3*], [*6*], [*0*], [*0*], [*4*], [*8*], [*21*],
+)
+
+#pagebreak()
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [3], [€20], [€60.00],
+  [Analista], [6], [€25], [€150.00],
+  [Progettista], [0], [€25], [€0.00],
+  [Programmatore], [0], [€15], [€0.00],
+  [Responsabile], [4], [€30], [€120.00],
+  [Verificatore], [8], [€15], [€120.00],
+  [*Totali*], [*21*], [], [*€450.00*],
+)
+
+==== *Analisi retrospettiva*:
+_Sigma18_ dichiara che complessivamente l'ottavo sprint è stato proficuo al miglioramento ai documenti relativi al capitolato.
+
+Il giorno 9 luglio, il gruppo ha incontrato il professor Cardin per la revisione RTB. Il gruppo dichiara che l'incontro non è andato a buon fine a causa dell'assenza di un componente a causa di impegni universitari. L'incontro è stato quindi riprogrammato al giorno seguente (10 luglio 2025).
+
+Il giorno 10 luglio, il gruppo ha svolto con successo l'incontro con il professor Cardin, il quale ha approvato il PoC (Proof of Concept) ponendo alcuni quesiti sulle tecnologie scelte e segnalando una mancanza di precisione nell'esposizione.
+
+Il professor Cardin, in data 14 luglio 2025, ha richiesto delle modifiche al documento di analisi dei requisiti prima di procedere con il semaforo verde. Il feedback è stato grande fonte di riflessione e discussione per il gruppo, che dopo una riunione convocata al fine di mitigare i problemi riscontrati, ha proceduto con l'implementazione delle modifiche richieste.
+
+Non sono state quindi completate tutte le attività previste per questo sprint.
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 9
+
+==== Dettagli
+
+*Data di inizio*: 22/07/2025 \
+*Data di fine*: 04/08/2025 \
+
+*Rischi attesi*: RO1, RO2, RO3, RO4
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Effettuare la revisione RTB con il professore Vardanega
+- Iniziare la fase del PB (Product Baseline) e dello sviluppo del'MVP (Minimum Viable Product)
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [3], [2], [0], [0], [*5*],
+  [Mirco Borella], [2], [0], [0], [3], [0], [0], [*5*],
+  [Pietro Crotti], [3], [0], [0], [3], [0], [0], [*6*],
+  [Marco Egidi], [0], [0], [0], [3], [0], [2], [*5*],
+  [Matteo Marangon], [0], [0], [0], [3], [0], [2], [*5*],
+  [Aleena Mathew], [0], [0], [0], [3], [2], [0], [*5*],
+  [Carmelo Russello], [0], [0], [3], [3], [0], [0], [*6*],
+  [*Totali*], [*5*], [*0*], [*6*], [*20*], [*2*], [*4*], [*37*],
 )
