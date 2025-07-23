@@ -42,10 +42,10 @@ def generate_project_section(project_folder):
     
     # Special case for diaries (0-diaridibordo)
     is_diary = project_folder.startswith('0-diaridibordo')
-    in_rtb_section = False
     
     # Non-verbali documents
     non_verbali = []
+    ddb=[]
     for doc in glob.glob(f"{project_path}/**/*.pdf", recursive=True):
         rel_path = os.path.relpath(doc, project_path)
         path_parts = rel_path.split(os.sep)
@@ -62,21 +62,25 @@ def generate_project_section(project_folder):
                     try:
                         # Format as dd/mm/yyyy
                         formatted_date = f"{date_str[6:8]}/{date_str[4:6]}/{date_str[:4]}"
-                        non_verbali.append((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{formatted_date}</a></li>'))
-                        in_rtb_section = True
+                        html_str=((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{formatted_date}</a></li>'))
+                        ddb.append((date_str, html_str))
                     except ValueError:
                         # Fallback if date parsing fails
-                        non_verbali.append((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{filename}</a></li>'))
+                        html_str=((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{filename}</a></li>'))
+                        ddb.append(("00000000", html_str))
                 else:
                     non_verbali.append((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{filename}</a></li>'))
             else:
                 doc_name = os.path.basename(doc).replace(".pdf", "").replace('_', ' ').title()
                 non_verbali.append((is_rtb, f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{doc_name}</a></li>'))
     
+    if ddb:
+        ddb.sort(key=lambda x: x[0], reverse=True)
+        non_verbali.extend([item[1] for item in ddb])
+
     # Group documents by type (RTB or not)
     rtb_docs = [item[1] for item in non_verbali if item[0]]
     normal_docs = [item[1] for item in non_verbali if not item[0]]
-    
     # Add RTB documents without header if present
     if rtb_docs:
         html += """
