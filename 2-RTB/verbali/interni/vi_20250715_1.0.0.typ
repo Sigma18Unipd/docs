@@ -38,9 +38,9 @@ L'incontro di revisione #glossario("RTB (Requirements and Technology Baseline)")
 
 In seguito alla riprogrammazione dell'incontro, il gruppo si è presentato al completo il giorno seguente, presentando il #glossario("PoC (Proof of Concept)") e le tecnologie scelte per lo sviluppo del progetto.
 
-Sono emerse diverse criticità riguardanti la gestione del #glossario("Glossario"), l'assenza di #glossario("Norme di Progetto") dentro i riferimenti all'interno dell'#glossario("Analisi dei Requisiti"), mancanza delle versioni nei riferimenti dentro all'#glossario("Analisi dei Requisiti"), revisione dei casi d'uso e dei Requisiti di vincolo, aggiunta di una tabella per il tracciamento.
+Sono emerse diverse criticità riguardanti la gestione del glossario, l'assenza di Norme di Progetto dentro i riferimenti all'interno dell'Analisi dei Requisiti, mancanza delle versioni nei riferimenti dentro all'Analisi dei Requisiti, revisione dei casi d'uso e dei Requisiti di vincolo, aggiunta di una tabella per il tracciamento.
 
-In seguito alle problematiche segnalate dal Prof. Cardin, il gruppo si impegna a risolvere le criticità emerse e rivedere la documentazione in modo da rispettare le indicazioni ricevute, in particolare effettuando una sostanziale ristrutturazione del documento di #glossario("Analisi dei Requisiti").
+In seguito alle problematiche segnalate dal Prof. Cardin, il gruppo si impegna a risolvere le criticità emerse e rivedere la documentazione in modo da rispettare le indicazioni ricevute, in particolare effettuando una sostanziale ristrutturazione del documento di Analisi dei Requisiti.
 
 = Conclusioni e decisioni prese
 Il gruppo _Sigma18_ ha deciso di procedere con l'implementazione delle modifiche emerse durante l'incontro.
