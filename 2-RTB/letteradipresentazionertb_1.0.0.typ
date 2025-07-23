@@ -24,11 +24,11 @@ con la presente lettera il gruppo _Sigma18_ desidera comunicarVi la propria cand
 Tutta la documentazione, prodotta a partire dai sorgenti presenti nel #link("https://github.com/Sigma18Unipd/docs")[_repository_ dedicato]#footnote[https://github.com/Sigma18Unipd/docs], è visionabile nel #link("https://sigma18unipd.github.io")[sito ufficiale del gruppo]#footnote[https://sigma18unipd.github.io].
 
 Nella sezione *RTB* si possono consultare i seguenti documenti:
-- *Glossario*;
-- *Norme di progetto*;
-- *Piano di progetto*;
-- *Analisi dei requisiti*;
-- *Piano di qualifica*;
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[*Glossario*]#footnote[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf]\;
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf")[*Norme di Progetto*]#footnote[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf]\;
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.1.0.pdf")[*Piano di progetto*]#footnote[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiprogetto_1.1.0.pdf]\;
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf")[*Piano di qualifica*]#footnote[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/pianodiqualifica_1.0.0.pdf]\;
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_1.2.0.pdf")[*Analisi dei requisiti*]#footnote[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_1.2.0.pdf]\;
 - *Verbali interni ed esterni* svolti da inzio candidatura alla consegna RTB.
 
 Viene inoltre reso disponibile il codice sorgente del _Proof of Concept (Poc)_ nel #link("https://github.com/Sigma18Unipd/ProofOfConcept")[_repository_ dedicato]#footnote[https://github.com/Sigma18Unipd/ProofOfConcept].
