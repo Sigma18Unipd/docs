@@ -4,7 +4,7 @@
   titoloDocumento: "Undicesima Riunione",
   abstract: "Retrospettiva incontro con il Prof. Cardin",
   responsabili: "Mirco Borella",
-  redattori: "Pietro Crotti",
+  redattori: "Marco Egidi",
   verificatori: "Matteo Marangon",
   tipo: "Verbale Interno",
   destinatari: "Sigma18",
