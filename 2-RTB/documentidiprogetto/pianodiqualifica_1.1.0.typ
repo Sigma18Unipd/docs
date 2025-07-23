@@ -492,7 +492,7 @@ Il grafico mostra l'andamento del valore di *MPC-CPI* nel tempo, si può notare 
 === RTB
 Dal grafico si può notare che nei due sprint iniziali il valore di *MPC-RSI* è pari a 0, dato dal fatto che i requisiti sono stati definiti solo a partire dal terzo sprint.
 Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e valori accettabili, indicando che i requisiti sono stati stabiliti e non sono soggetti a modifiche frequenti.\
-Si può osservare un picco negativo nell'ottavo sprint, dovuto a una modifica significativa dei requisiti avvenuta dopo la revisione con il professor Cardin.
+Si può osservare una diminuzione del valore nell'ottavo sprint, a seguito della revisione con il professor Cardin, il quale ha richiesto un maggior dettaglio nella definizione dei requisiti.
 
 
 #pagebreak()
