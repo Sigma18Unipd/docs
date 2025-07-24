@@ -8,8 +8,13 @@
   verificatori: ("Carmelo Russello", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello", "Mirco Borella", "Marco Egidi"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.1.0",
   versioni: (
+    "1.0.0",
+    "2025/07/17",
+    "Matteo Marangon",
+    "Pietro Crotti",
+    "Aggiornamento cruscotto di valutazione concluso l'ottavo sprint",
     "1.0.0",
     "2025/07/17",
     "Aleena Mathew",
@@ -415,7 +420,6 @@ Il loro successo è fondamentale per garantire il rilascio definitivo del prodot
 #pagebreak()
 
 
-//sei arrivata qui
 = Cruscotto di Valutazione
 <cruscotto>
 La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
@@ -425,7 +429,7 @@ La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità
   Stima del costo totale nel tempo
 ])
 === RTB
-Come si può notare dal grafico, il valore di *MPC-EAC* non supera il *5% del BAC*, indicato come _limite superiore_, quindi il progetto è in linea con le aspettative di budget.
+Dal grafico si osserva che il valore di *MPC-EAC* rimane sempre entro una variazione massima del *5% rispetto al BAC*, indicato come _limite superiore_, quindi il progetto è in linea con le aspettative di budget.
 
 
 
@@ -448,7 +452,8 @@ Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *
 ])
 === RTB
 Il grafico mostra l'andamento dei valori di *MPC-AC*, *MPC-ETC* e *MPC-EAC* nel tempo.\
-Come si può notare, il valore di *MPC-AC* cresce costantemente, mentre il valore di *MPC-ETC* diminuisce progressivamente con l'avanzare degli sprint, entrambi i valori sono inferiori al valore di *MPC-EAC* si può dire quindi che il progetto è in linea con le aspettative di budget.
+Si può osservare che il valore di *MPC-AC* cresce in modo costante, mentre il valore di *MPC-ETC* decresce progressivamente con l'avanzare degli sprint, entrambi i valori sono inferiori al valore di *MPC-EAC*.\
+Si può affermare quindi che il progetto è in linea con le aspettative di budget.
 
 #pagebreak()
 
@@ -458,8 +463,8 @@ Come si può notare, il valore di *MPC-AC* cresce costantemente, mentre il valor
 ])
 === RTB
 Dal grafico si può notare che i valore di *MPC-CV* e *MPC-SV* sono sempre entro i limiti accettabili, indicati come _limite superiore_ e _limite inferiore_.
-Si può notare che il valore di *MPC-SV* ha subito un picco negativo durante il sesto sprint causato dalla sessione di esami estiva che ha causato un rallentamento soprattutto nello sprint in questione.
-Tuttavia, il valore è tornato in linea con le aspettative nel successivo sprint, indicando che il progetto sta procedendo secondo la pianificazione e che i costi sono sotto controllo.
+Si può notare che il valore di *MPC-SV* ha subito un picco negativo durante il sesto e settimo sprint causato dalla concomitanza con la sessione di esami estiva che ha causato un rallentamento soprattutto negli sprint in questione.
+Tuttavia, il valore è tornato a crescere, indicando una ripresa del progetto e un ritorno alla pianificazione iniziale.
 
 
 
@@ -486,7 +491,8 @@ Il grafico mostra l'andamento del valore di *MPC-CPI* nel tempo, si può notare 
 ])
 === RTB
 Dal grafico si può notare che nei due sprint iniziali il valore di *MPC-RSI* è pari a 0, dato dal fatto che i requisiti sono stati definiti solo a partire dal terzo sprint.
-Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e valori accettabili, indicando che i requisiti sono stati stabiliti e non sono soggetti a modifiche frequenti.
+Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e valori accettabili, indicando che i requisiti sono stati stabiliti e non sono soggetti a modifiche frequenti.\
+Si può osservare una diminuzione del valore nell'ottavo sprint, a seguito della revisione con il professor Cardin, il quale ha richiesto un maggior dettaglio nella definizione dei requisiti.
 
 
 #pagebreak()
