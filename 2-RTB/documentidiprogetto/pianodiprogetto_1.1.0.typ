@@ -386,7 +386,7 @@ Nello specifico è stato steso il glossario e iniziata la stesura dei piani di p
 
 Il gruppo ha organizzato e partecipato all'incontro di _Design Thinking_ con l'azienda proponente lunedì 14 Aprile che ha posto le basi per organizzare i lavori successivi.
 
-Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggetti temporaneamente non reperibili ha rallentato il progresso. Questo rischio identificabile nel codice #link(<RO3>)[RO3], che non era stato preventivato in anticipo, causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni più efficaci e con figure multiple così da non dipendere dalle disponibilità di tempo di un solo soggetto.
+Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggetti temporaneamente non reperibili ha rallentato il progresso. Questo rischio identificabile nel codice #link(<RO3>)[RO3], che non era stato preventivato in anticipo, ha causato rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni più efficaci e con figure multiple così da non dipendere dalle disponibilità di tempo di un solo soggetto.
 
 
 
