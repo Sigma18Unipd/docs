@@ -4,11 +4,11 @@
   titoloDocumento: "Undicesima Riunione",
   abstract: "Retrospettiva incontro con il Prof. Cardin",
   responsabili: "Mirco Borella",
-  redattori: "Marco Egidi",
+  redattori: "Marco Egidi, Carmelo Russello",
   verificatori: "Matteo Marangon",
   tipo: "Verbale Interno",
   destinatari: "Sigma18",
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.0.1",
   versioni: (
     "1.0.1",
     "2025/07/29",
