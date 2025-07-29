@@ -39,6 +39,13 @@ def generate_project_section(project_folder):
         <button class="accordionButton">{button_text}</button>
         <div class="accordionContent" id="{project_folder}">
     """
+    if project_folder == "2-RTB":
+        html += """
+            <h2>Release</h2>
+            <ul class="document-list">
+                <li><a href="https://github.com/Sigma18Unipd/ProofOfConcept/archive/refs/tags/1.0.0.zip">PoC</a></li>
+            </ul>
+        """
     
     # Special case for diaries (0-diaridibordo)
     is_diary = project_folder.startswith('0-diaridibordo')
