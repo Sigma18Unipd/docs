@@ -10,6 +10,11 @@
   destinatari: "Sigma18",
   versioneAttuale: "1.0.0",
   versioni: (
+    "1.0.1",
+    "2025/07/29",
+    "Carmelo Russello",
+    "Matteo Marangon",
+    "Correzione errori grammaticali",
     "1.0.0",
     "2025/07/15",
     "Marco Egidi",
@@ -34,16 +39,16 @@ Il seguente documento riporta il resoconto della riunione interna del gruppo _Si
 = Ordine del giorno
 == Retrospettiva dell'incontro con il Prof. Cardin
 
-L'incontro di revisione #glossario("RTB (Requirements and Technology Baseline)") con il Prof. Riccardo Cardin, inizialmente previsto per mercoledì *9 luglio 2025*, è stato posticipato a giovedì *10 luglio 2025* a causa dell'assenza di un membro del gruppo.
+Il gruppo ha discusso dell'incontro di revisione #glossario("RTB (Requirements and Technology Baseline)") con il Prof. Riccardo Cardin, inizialmente previsto per mercoledì *9 luglio 2025* ma posticipato a giovedì *10 luglio 2025* a causa dell'assenza di un membro del gruppo.
 
-In seguito alla riprogrammazione dell'incontro, il gruppo si è presentato al completo il giorno seguente, presentando il #glossario("PoC (Proof of Concept)") e le tecnologie scelte per lo sviluppo del progetto.
+In seguito alla riprogrammazione dell'incontro il gruppo si è presentato al completo, presentando il #glossario("PoC (Proof of Concept)") e le tecnologie scelte per lo sviluppo del progetto.
 
-Sono emerse diverse criticità riguardanti la gestione del glossario, l'assenza di Norme di Progetto dentro i riferimenti all'interno dell'Analisi dei Requisiti, mancanza delle versioni nei riferimenti dentro all'Analisi dei Requisiti, revisione dei casi d'uso e dei Requisiti di vincolo, aggiunta di una tabella per il tracciamento.
+Sono emerse diverse criticità, tra cui: l'assenza di un riferimento al documento Norme di Progetto all'interno dell'Analisi dei Requisiti; la mancata indicazione delle versioni nei riferimenti del documento di Analisi dei Requisiti; la necessità di revisionare i casi d'uso e i requisiti di vincolo; e l'assenza di una tabella di tracciamento tra casi d'uso e requisiti.
 
-In seguito alle problematiche segnalate dal Prof. Cardin, il gruppo si impegna a risolvere le criticità emerse e rivedere la documentazione in modo da rispettare le indicazioni ricevute, in particolare effettuando una sostanziale ristrutturazione del documento di Analisi dei Requisiti.
+A seguito delle osservazioni del Prof. Cardin, il gruppo si impegna a risolvere le criticità emerse e a rivedere la documentazione per adeguarla alle indicazioni ricevute, con particolare attenzione a una sostanziale ristrutturazione del documento di Analisi dei Requisiti.
 
 = Conclusioni e decisioni prese
-Il gruppo _Sigma18_ ha deciso di procedere con l'implementazione delle modifiche emerse durante l'incontro.
+Il gruppo _Sigma18_ ha deciso di procedere con l'implementazione delle modifiche richieste dal Prof. Cardin.
 
 = Attività programmate
 #tabellaAttivitaProgrammate(attivita: (
