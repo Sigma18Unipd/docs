@@ -82,7 +82,7 @@ Il prodotto consiste in un servizio che permette agli utenti di generare automaz
 
 Nello specifico, l'utente deve essere in grado di descrivere l'automazione da ottenere in linguaggio naturale. L'applicativo deve interpretare la descrizione fornita e generare un flusso di lavoro sfruttando le #glossario("API") esposte da #glossario("agenti")
 
-Il flusso di lavoro creato verrá quindi visualizzato attraverso un #glossario("client") che permetterà all'utente di modificare l'automazione creata, tramite un interfaccia #glossario("drag & drop").
+Il flusso di lavoro creato verrà quindi visualizzato attraverso un #glossario("client") che permetterà all'utente di modificare l'automazione creata, tramite un interfaccia #glossario("drag & drop").
 
 Nell'interfaccia, i *blocchi* rappresentano le azioni effettuabili, mentre gli *archi* che li collegano tra loro corrispondono a relazioni tra i singoli componenti dell'automazione.
 
@@ -101,7 +101,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 
 === Riferimenti informativi
 
-- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario] [versione 0.11.0]
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario] [versione 1.0.0]
 
 #pagebreak()
 
@@ -112,24 +112,19 @@ Una parte fondamentale per la stesura del piano di progetto è l'*analisi dei ri
 Il team ha deciso di seguire lo standard internazionale _*ISO/IEC 31000:2018*_ per la gestione del rischio.
 Tale processo si divide in cinque fasi:
 
-+ *Identificazione del rischio:*
-  La fase dove si identificano i possibili rischi impattanti rispetto a requisiti, fattori ed obiettivi.
++ *Identificazione del rischio:* fase in cui si identificano i possibili rischi impattanti rispetto a requisiti, fattori ed obiettivi.
 
-+ *Analisi del rischio:*
-  Questa fase prevede un'analisi approfondita di tutti i rischi e l'individuazione delle scelte più appropriate da intraprendere, al fine di mitigarne l'impatto fornendo una base per le decisioni successive.
++ *Analisi del rischio:* questa fase prevede un'analisi approfondita di tutti i rischi e l'individuazione delle scelte più appropriate da intraprendere, al fine di mitigarne l'impatto fornendo una base per le decisioni successive.
 
-+ *Valutazione del rischio:*
-  Fase in cui viene effettuata una prioritarizzazione dei rischi, decidendo quali sono i più critici da affrontare in base alla loro probabilità e impatto.
++ *Valutazione del rischio:* fase in cui si definiscono le priorità dei rischi, decidendo quali sono i più critici da affrontare in base alla loro probabilità e impatto.
 
-+ *Trattamento del rischio:*
-  In questa fase si definiscono le strategie e le azioni per prevenire, mitigare o affrontare i rischi valutati nella fase precedente, intervenendo in modo concreto per garantire il regolare andamento del progetto.
++ *Trattamento del rischio:* in questa fase si definiscono le strategie e le azioni per prevenire, mitigare o affrontare i rischi valutati nella fase precedente, intervenendo in modo concreto per garantire il regolare andamento del progetto.
 
-+ *Monitoraggio e Revisione del rischio:*
-  Durante questa fase si controlla regolarmente l'evoluzione dei rischi già individuati e si valutano i risultati delle strategie adottate, apportando eventuali cambiamenti in risposta a nuovi rischi.
++ *Monitoraggio e Revisione del rischio:* durante questa fase si controlla regolarmente l'evoluzione dei rischi già individuati e si valutano i risultati delle strategie adottate, apportando eventuali cambiamenti in risposta a nuovi rischi.
 
 Il seguente è l'approccio scelto per l'identificazione dei rischi:
 
-- *Codice*: Codice identificativo del rischio nel formato *R + [Tipo di Rischio] + [Indice]*
+- *Codice*: codice identificativo del rischio nel formato *R + [Tipo di Rischio] + [Indice]*
 
   Il *Tipo di Rischio* si divide in due categorie:
 
@@ -138,13 +133,13 @@ Il seguente è l'approccio scelto per l'identificazione dei rischi:
 
   Mentre l'*Indice* è un numero incrementale che serve ad identificare univocamente i vari rischi per ogni *Tipo di Rischio*.
 
-- *Descrizione*: Una breve descrizione del rischio.
+- *Descrizione*: una breve descrizione del rischio.
 
-- *Probabilità*: La probabilità che un rischio verificarsi rallentando lo sviluppo del progetto, può essere [*Bassa*] [*Media*] [*Alta*].
+- *Probabilità*: la probabilità che un rischio verificarsi rallentando lo sviluppo del progetto, può essere [*Bassa*] [*Media*] [*Alta*].
 
-- *Impatto*: Il peso dell'impatto che un rischio potrebbe avere sullo sviluppo del progetto, può essere [*Basso*] [*Medio*] [*Alto*].
+- *Impatto*: il peso dell'impatto che un rischio potrebbe avere sullo sviluppo del progetto, può essere [*Basso*] [*Medio*] [*Alto*].
 
-- *Strategie di attenuazione*: Le strategie da attuare per diminuire l'impatto del rischio nel caso esso si verifichi.
+- *Strategie di attenuazione*: le strategie da attuare per diminuire l'impatto del rischio nel caso esso si verifichi.
 
 == Rischi legati alla tecnologia utilizzata
 
@@ -188,7 +183,7 @@ Il seguente è l'approccio scelto per l'identificazione dei rischi:
   inset: 9pt,
   [*Codice*], [*RO1*],
   [*Descrizione*],
-  [Ogni membro del gruppo potrebbe incorrere in imprevisti personali che lo che lo rendano temporaneamente indisponibile, impedendogli di rispettare le ore di lavoro a lui assegnate. Questo potrebbe rallentare l'intero processo di sviluppo e aumentare il carico di lavoro sugli altri membri del gruppo.],
+  [Ogni membro del gruppo potrebbe incorrere in imprevisti personali che lo rendono temporaneamente indisponibile, impedendogli di rispettare le ore di lavoro a lui assegnate. Questo potrebbe rallentare l'intero processo di sviluppo e aumentare il carico di lavoro sugli altri membri del gruppo.],
 
   [*Probabilità*], [Media],
   [*Impatto*], [Medio],
@@ -252,15 +247,14 @@ Una pratica essenziale da seguire con l'uso del modello _Agile_ è la suddivisio
 
 == Vantaggi del modello
 
-- Facilita la comunicazione e la collaborazione del team poiche tutti lavorano a stretto contatto e comunicano quotidianamente sull'andamento dello sviluppo in modo trasparente.
+- Facilita la comunicazione e la collaborazione del team poiché tutti lavorano a stretto contatto e comunicano quotidianamente sull'andamento dello sviluppo in modo trasparente.
 
 - Permette una valutazione continua ed efficace dei rischi grazie alla natura iterativa del modello, che consente di adattarsi rapidamente ai cambiamenti e di affrontare i rischi in modo graduale.
 
 - Migliora il coinvolgimento e la soddisfazione del cliente, che può fornire feedback sullo stato del prodotto, il quale può essere poi modificato in corso d'opera grazie alla flessibilità del modello.
 
 = Pianificazione
-
-Avendo scelto il modello _Agile_ le attività di lavoro verranno tramite la suddivisione in _sprint_, un breve periodo di tempo nel quale il team lavora per completare una predeterminata quantità di lavoro per raggiungere gli obiettivi prefissati.
+Avendo scelto il modello _Agile_ le attività di lavoro verranno organizzate tramite la suddivisione in _sprint_, un breve periodo di tempo nel quale il team lavora per completare una predeterminata quantità di lavoro per raggiungere gli obiettivi prefissati.
 
 Il gruppo, in accordo con l'azienda proponente, ha stabilito la durata di ogni _sprint_ pari a *2 settimane*.
 
@@ -280,19 +274,19 @@ Per approfondimenti sull'impegno dei membri e la stima dei costi, si fa riferime
 
 Gli _sprint_ verranno strutturati nel seguente modo:
 
-- *Data di inizio*: Data di inizio dello _sprint_.
+- *Data di inizio*: data di inizio dello _sprint_.
 
-- *Data di fine*: Data di fine dello _sprint_.
+- *Data di fine*: data di fine dello _sprint_.
 
-- *Rischi attesi*: I rischi che potrebbero verificarsi nel corso dello _sprint_.
+- *Rischi attesi*: i rischi che potrebbero verificarsi nel corso dello _sprint_.
 
-- *Attività da svolgere*: Le attività previste per ogni _sprint_, allineate agli obiettivi definiti durante la riunione iniziale.
+- *Attività da svolgere*: le attività previste per ogni _sprint_, allineate agli obiettivi definiti durante la riunione iniziale.
 
-- *Preventivo*: Una tabella che riporta il preventivo delle ore da svolgere da ciascun membro, suddiviso per ruolo.
+- *Preventivo*: una tabella che riporta il preventivo delle ore da svolgere da ciascun membro, suddiviso per ruolo.
 
-- *Consuntivo*: Una tabella che mostra il consuntivo delle ore svolte da ciascun membro, suddiviso per ruolo, insieme ad una tabella dei costi e delle ore assegnate a ciascun ruolo. Necessario per una visione più ampia sul rendimento del gruppo durante l'analisi conclusiva.
+- *Consuntivo*: una tabella che mostra il consuntivo delle ore svolte da ciascun membro, suddiviso per ruolo, insieme ad una tabella dei costi e delle ore assegnate a ciascun ruolo. Necessario per una visione più ampia sul rendimento del gruppo durante l'analisi conclusiva.
 
-- *Analisi retrospettiva*: Un resoconto di cosa è stato portato a termine durante lo _sprint_, delle cose da migliorare e dei problemi riscontrati.
+- *Analisi retrospettiva*: un resoconto di cosa è stato portato a termine durante lo _sprint_, delle cose da migliorare e dei problemi riscontrati.
 
 == Fasi Principali del Progetto
 
@@ -326,12 +320,14 @@ Il progetto verrà suddiviso nelle seguenti fasi:
 
 *Rischi attesi*: RT2, RO1
 
+
+//check piano di qualifica usa come riferimento le norme che verrano stese nello sprint 2
 *Attività da svolgere*: \
 Il gruppo s'impegna a:
 - Contattare l'azienda proponente per organizzare l'incontro di #glossario("Design Thinking") come richiesto in fase di candidatura al capitolato.
 - Iniziare la stesura dei seguenti documenti:
-  - Glossario dei termini non noti:
-  - Piano di progetto (questo documento)
+  - Glossario dei termini non noti;
+  - Piano di progetto (questo documento);
   - Piano di qualifica.
 - Ricercare le tecnologie richieste del proponente al fine dell'incontro con l'azienda.
 
@@ -388,9 +384,9 @@ Il gruppo s'impegna a:
 _Sigma18_ dichiara di aver portato a termine tutte le attività prestabilite e che il primo sprint è stato proficuo all'avanzamento del capitolato.
 Nello specifico è stato steso il glossario e iniziata la stesura dei piani di progetto e qualifica.
 
-Il gruppo ha organizzato e partecipato all'incontro di _Design Thinking_ con l'azienda proponente lunedì 14 Aprile che ha steso le basi per organizzare i lavori successivi.
+Il gruppo ha organizzato e partecipato all'incontro di _Design Thinking_ con l'azienda proponente lunedì 14 Aprile che ha posto le basi per organizzare i lavori successivi.
 
-Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggetti temporaneamente non reperibili ha rallentato il progresso. Questo rischio identificabile nel codice #link(<RO3>)[RO3] non era stato preventivato in anticipo causando rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni piú efficaci e con figure multiple così da non dipendere dalle disponibilità di tempo di un solo soggetto.
+Una difficoltà emersa è stata la comunicazione con l'azienda che a causa di soggetti temporaneamente non reperibili ha rallentato il progresso. Questo rischio identificabile nel codice #link(<RO3>)[RO3], che non era stato preventivato in anticipo, ha causato rallentamenti non previsti. _Sigma18_ si è attrezzato con l'azienda proponente _Var Group S.p.a_ per l'uso asincrono della piattaforma di messaggistica #glossario("Slack") in modo tale da cercare di garantire comunicazioni più efficaci e con figure multiple così da non dipendere dalle disponibilità di tempo di un solo soggetto.
 
 
 
@@ -704,6 +700,7 @@ Ai fini di mitigare quanto riscontrato, il gruppo ha deciso di continuare a stud
 
 
 #pagebreak()
+//check meno proficuo ma abbiamo lavorato le stesse ore pianificate
 === Sprint 5
 
 ==== Dettagli
