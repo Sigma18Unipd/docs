@@ -126,7 +126,7 @@ All'interno dei documenti, verrà utilizzata la nomenclatura *#glossario("parola
 
 === Riferimenti informativi
 
-- *Glossario*[versione 0.11.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf]
+- *Glossario*[versione 1.0.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf]
 
 - *Processi di ciclo di vita* [ultimo accesso il:  17/07/2025]\ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T02.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T02.pdf]
 
