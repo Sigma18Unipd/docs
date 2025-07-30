@@ -1,8 +1,8 @@
-#import "../templates/templateLettera.typ": *
+#import "../templates/templateRelazione.typ": *
 
 #show: content => verbale(
-  titoloDocumento: "Riflessione sulla situazione attuale??????????????????????????????????",
-  mittenti: (
+  titoloDocumento: "Relazione avanzamento 2025/07/31",
+  componenti: (
     "Alessandro Bernardello",
     "Mirco Borella",
     "Pietro Crotti",
@@ -11,12 +11,12 @@
     "Aleena Mathew",
     "Carmelo Russello",
   ),
-  destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
+  gruppo: "Sigma18",
+  destinatari: "Prof. Tullio Vardanega",
   content: content,
 )
 
-Egregio Prof. Tullio Vardanega,\
-Egregio Prof. Riccardo Cardin, //Serve anche Cardin?
+Egregio Prof. Tullio Vardanega,
 
 il seguente documento riassume la riflessione sullo stato di avanzamento del capitolato del gruppo Sigma18 in merito alle criticità riscontrate.
 
@@ -36,9 +36,6 @@ Il gruppo si impegna a sfruttare al meglio le ore rimanenti, in modo da garantir
 == 3. Conclusioni
 Il gruppo Sigma18 è consapevole delle criticità riscontrate e si impegna a migliorare la pianificazione e la gestione del tempo per le attività future.\
 Il gruppo è determinato a rispettare le scadenze future ma è consapevole che ciò richiederà un impegno maggiore da parte di tutti i membri e che potrebbe necessitare più ore di lavoro rispetto a quelle inizialmente previste.
-
-//dobbiamo chiedere un incontro con tullio?
-
 
 Cordiali saluti,
 #v(15pt)
