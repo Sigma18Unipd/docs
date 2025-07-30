@@ -22,7 +22,7 @@ il seguente documento riassume la riflessione sullo stato di avanzamento del cap
 
 
 == 1. Situazione attuale e criticità riscontrate
-Il gruppo è consapevole del ritardo accumulato nella candidatura alla revisione RTB, al fine di concludere questa fase e nel conseguente avvio della fase di PB.\
+Il gruppo è consapevole del ritardo accumulato nella candidatura alla revisione RTB, che comporta una conclusione posticipata di questa fase e un conseguente avvio ritardato della fase di PB.\
 Il gruppo ha riscontrato difficoltà nel rispettare le scadenze inizialmente stabilite a causa dell'indisponbilità iniziale dell'azienda e della concomitanza con la sessione d'appelli estiva che ha limitato la disponibilità dei membri del gruppo.
 
 
