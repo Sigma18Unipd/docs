@@ -1,4 +1,4 @@
-#import "../templates/templateRelazione.typ": *
+#import "/templates/templateRelazione.typ": *
 
 #show: content => verbale(
   titoloDocumento: "Relazione avanzamento 2025/07/31",
