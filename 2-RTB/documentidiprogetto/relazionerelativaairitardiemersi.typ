@@ -1,7 +1,7 @@
-#import "/templates/templateRelazione.typ": *
+#import "../../templates/templateRelazione.typ": *
 
 #show: content => verbale(
-  titoloDocumento: "Relazione avanzamento 2025/07/31",
+  titoloDocumento: "Relazione relativa ai ritardi emersi nell'avanzamento del progetto del 2025/07/31",
   componenti: (
     "Alessandro Bernardello",
     "Mirco Borella",
