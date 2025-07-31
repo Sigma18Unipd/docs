@@ -46,6 +46,22 @@ def generate_project_section(project_folder):
                 <li><a href="https://github.com/Sigma18Unipd/ProofOfConcept/archive/refs/tags/1.0.0.zip">PoC</a></li>
             </ul>
         """
+        relazioni_dir = os.path.join(project_path, "relazioni")
+        if os.path.exists(relazioni_dir):
+            relazioni_pdfs = sorted(glob.glob(os.path.join(relazioni_dir, "*.pdf")), reverse=True)
+            if relazioni_pdfs:
+                html += """
+                <h2>Relazioni</h2>
+                <ul class="document-list">
+                """
+                for pdf in relazioni_pdfs:
+                    filename = os.path.basename(pdf)
+                    doc_name = filename.replace(".pdf", "").replace("_", " ").title()
+                    rel_path = os.path.relpath(pdf, project_path)
+                    html += f'<li><a href="documentiCompilati/{project_folder}/{rel_path}">{doc_name}</a></li>'
+                html += """
+                </ul>
+                """
     
     # Special case for diaries (0-diaridibordo)
     is_diary = project_folder.startswith('0-diaridibordo')
