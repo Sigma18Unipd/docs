@@ -73,8 +73,9 @@ def generate_project_section(project_folder):
         rel_path = os.path.relpath(doc, project_path)
         path_parts = rel_path.split(os.sep)
         is_rtb = is_diary and "rtb" in path_parts
+        is_relazione = "relazioni" in path_parts
         
-        if "verbali" not in path_parts:
+        if "verbali" not in path_parts and not is_relazione:
             if is_rtb:
                 # Special case for RTB documents
                 filename = os.path.basename(doc)
