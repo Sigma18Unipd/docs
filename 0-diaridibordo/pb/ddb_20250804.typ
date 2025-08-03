@@ -53,7 +53,7 @@ Il gruppo Sigma18 ha programmato le seguenti attività per il periodo successivo
 == 3. Analisi delle criticità e decisioni pendenti
 Il gruppo Sigma18 ha preso atto delle criticità e delle richieste poste dal prof. Vardanega a seguito dell'incontro e della consegna della relazione richiesta
 
-Il gruppo prevede di discuterne più approfonditamente durante la riunione di fine sprint, al fine di individuare e riflettere sulle cause profonde del ritardo e pianificare le attività future in modo più efficace.
+Il gruppo prevede di discuterne più approfonditamente durante la riunione di fine sprint, al fine di individuare e riflettere sulle cause profonde del ritardo e pianificare le attività future in modo più efficiente.
 
 
 
