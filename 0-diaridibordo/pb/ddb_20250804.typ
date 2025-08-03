@@ -47,7 +47,9 @@ A causa di un ritardo nell'avanzamento del progetto, è stato richiesto di rifle
 // - automazione dei test, che richiede individuazione delle tecnologie idonee e delle loro pratiche uso, e loro inserimento nel way of working.
 Il gruppo Sigma18 ha programmato le seguenti attività per il periodo successivo:
 - riunione di fine sprint per discutere come avanzare con il progetto a seguito del feedback ricevuto;
-- approfondire la natura delle attività da svolgere per eseguire una pianificazione migliore.
+- approfondire la natura delle attività da svolgere per eseguire una pianificazione migliore;
+- continuare a lavorare sulla progettazione software;
+
 
 
 == 3. Analisi delle criticità e decisioni pendenti
