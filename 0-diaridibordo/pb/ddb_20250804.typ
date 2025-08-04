@@ -18,7 +18,7 @@
 
 Egregio Prof. Tullio Vardanega,\
 
-la seguente relazione riassume lo stato di avanzamento dei capitolato del gruppo Sigma18 per il periodo fino al 4 Agosto 2025.
+la seguente relazione riassume lo stato di avanzamento del capitolato del gruppo Sigma18 per il periodo fino al 4 Agosto 2025.
 
 == 1. Progressi raggiunti
 Il gruppo Sigma18 dopo aver ricevuto un feedback positivo dal prof. Cardin in merito alle modifiche apportate al documento di analisi dei requisiti, ha richiesto un incontro con il prof. Vardanega per la revisione RTB.\
@@ -39,16 +39,10 @@ A causa di un ritardo nell'avanzamento del progetto, è stato richiesto di rifle
 == 2. Obiettivi e attività programmate
 
 
-
-// La vostra analisi del ritardo rimane sulla superficie per problema e quindi non coglie le ragioni più profonde della situazione.
-// Una di esse (ragioni) è l'insufficiente comprensione della natura delle attività da svolgere, da cui conseguono pianificazione e attuazione approssimative e scarsamente convergenti.
-// Abbiate chiaro che il tratto di progetto tra fine revisione RTB e ingresso in revisione PB è caratterizzato da due attività complesse, che richiedono "palestra", per comprenderle appieno, prima di attuarle:
-// - progettazione software (design), la cui qualità in uscita ha forte impatto sul colore del semaforo nella prima parte della revisione PB;
-// - automazione dei test, che richiede individuazione delle tecnologie idonee e delle loro pratiche uso, e loro inserimento nel way of working.
 Il gruppo Sigma18 ha programmato le seguenti attività per il periodo successivo:
 - riunione di fine sprint per discutere come avanzare con il progetto a seguito del feedback ricevuto;
 - approfondire la natura delle attività da svolgere per eseguire una pianificazione migliore;
-- continuare a lavorare sulla progettazione software;
+- continuare a lavorare sulla progettazione software.
 
 
 
