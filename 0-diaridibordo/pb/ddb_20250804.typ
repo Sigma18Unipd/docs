@@ -31,7 +31,7 @@ L'incontro è stato svolto il 30 Luglio 2025, durante il quale sono stati espost
 - l'esito dell'incontro con il prof. Cardin e le modifiche richieste;
 - il consuntivo di periodo e preventivo a finire.
 
-Il gruppo ha ottenuto un feedback positivo dal prof. Vardanega.
+Il gruppo ha ottenuto un feedback positivo.
 
 A causa di un ritardo nell'avanzamento del progetto, è stato richiesto di riflettere sulle criticità riscontrate e di redigere una relazione in merito, da presentare entro il 31 Luglio 2025.
 
