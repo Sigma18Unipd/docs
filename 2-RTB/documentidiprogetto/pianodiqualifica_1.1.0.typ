@@ -425,7 +425,7 @@ Il loro successo è fondamentale per garantire il rilascio definitivo del prodot
 La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
 
 == Estimated at Completion (MPC-EAC)
-#figure(image("../../assets/chart/EAC_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/EAC_chart.svg", width: 90%), caption: [
   Stima del costo totale nel tempo
 ])
 === RTB
@@ -436,7 +436,7 @@ Dal grafico si osserva che il valore di *MPC-EAC* rimane sempre entro una variaz
 
 #pagebreak()
 == Planned Value (MPC-PV) & Earned Value (MPC-EV)
-#figure(image("../../assets/chart/PV_EV_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/PV_EV_chart.svg", width: 90%), caption: [
   Stima dei valori EV e PV nel tempo
 ])
 === RTB
@@ -447,7 +447,7 @@ Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *
 
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
-#figure(image("../../assets/chart/AC_ETC_EAC_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/AC_ETC_EAC_chart.svg", width: 90%), caption: [
   Stima dei valori AC, ETC e EAC nel tempo
 ])
 === RTB
@@ -458,7 +458,7 @@ Si può affermare quindi che il progetto è in linea con le aspettative di budge
 #pagebreak()
 
 == Cost Variance (MPC-CV) & Schedule Variance (MPC-SV)
-#figure(image("../../assets/chart/CV_SV_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/CV_SV_chart.svg", width: 90%), caption: [
   Stima dei valori CV e SV nel tempo
 ])
 === RTB
@@ -474,7 +474,7 @@ Tuttavia, il valore è tornato a crescere, indicando una ripresa del progetto e 
 #pagebreak()
 
 == Cost Performance Index (MPC-CPI)
-#figure(image("../../assets/chart/CPI_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/CPI_chart.svg", width: 90%), caption: [
   Stima dei valori CPI nel tempo
 ])
 === RTB
@@ -486,7 +486,7 @@ Il grafico mostra l'andamento del valore di *MPC-CPI* nel tempo, si può notare 
 #pagebreak()
 
 == Requirements Stability Index (MPC-RSI)
-#figure(image("../../assets/chart/RSI_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/RSI_chart.svg", width: 90%), caption: [
   Stima dei valori RSI nel tempo
 ])
 === RTB
@@ -500,7 +500,7 @@ Si può osservare una diminuzione del valore nell'ottavo sprint, a seguito della
 
 
 == Correttezza ortografica (MPC-CO)
-#figure(image("../../assets/chart/CO_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/CO_chart.svg", width: 90%), caption: [
   Stima dei valori CO nel tempo
 ])
 === RTB
@@ -511,7 +511,7 @@ Si può notare che il gruppo si è sempre impegnato a correggere gli eventuali e
 #pagebreak()
 
 == Satisfaction of Quality Metrics (MPC-SQM)
-#figure(image("../../assets/chart/SQM_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/SQM_chart.svg", width: 90%), caption: [
   Stima dei valori SQM nel tempo
 ])
 === RTB
@@ -521,7 +521,7 @@ Dal grafico emerge che la percentuale di metriche soddisfatte nei primi due spri
 #pagebreak()
 
 == Efficienza temporale (MPC-ET)
-#figure(image("../../assets/chart/ET_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/RTB/ET_chart.svg", width: 90%), caption: [
   Stima dei valori ET nel tempo
 ])
 
