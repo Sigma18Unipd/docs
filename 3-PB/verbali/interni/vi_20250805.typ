@@ -58,7 +58,8 @@ Il gruppo ha compreso che sarà richiesto un costante impegno da parte di tutti 
 Il decimo _sprint_ avrà una durata di 2 settimane, dal 05/08/2025 al 18/08/2025.
 
 Durante questo periodo il gruppo si dedicherà alla comprensione e all'implementazione dell'architettura del #glossario("MVP (Minimum Viable Product)"), continuando lo sviluppo dello stesso.
-Parallelamente i membri si impegneranno a fare attività di «palestra» per comprendere come e cosa vuol dire stendere i documenti di «Manuale Utente» e «Specifica Tecnica», in vista della stesura degli stessi, prevista verso la fine dello sprint.
+Parallelamente i membri si impegneranno a fare attività di «palestra» per comprendere come e cosa vuol dire stendere i documenti di «Manuale Utente» e «Specifica Tecnica», in vista della stesura degli stessi, prevista verso la fine dello sprint.\
+Nel dettaglio, le "attività di palestra" includono anche la comprensione delle pratiche di progettazione software, lo sviluppo e l'automatizzazione dei test, fondamentali per la qualità del progetto.
 
 
 Al fine di garantire la leggibilità e la coerenza della documentazione, tutti i termini introdotti verranno integrati nel glossario del progetto.
