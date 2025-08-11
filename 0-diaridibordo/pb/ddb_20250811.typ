@@ -38,7 +38,10 @@ Il gruppo Sigma18 ha programmato le seguenti attività per il periodo successivo
 - organizzazione di un'altra riunione interna per mantenere l'efficienza nello sviluppo e la coesione nel gruppo.
 
 == 3. Analisi delle criticità e decisioni pendenti
-A causa del periodo estivo, tradizionalmente caratterizzato da chiusure e ferie, il gruppo avrà meno occasioni di confronto diretto e incontri con l'azienda proponente. Tuttavia, il gruppo Sigma18 procede con lo sviluppo in maniera autonoma e positiva, con l'obiettivo di raggiungere gli obiettivi prefissati.
+Sono state riscontrate alcune problematiche riguardanti lo sviluppo dell'MVP, in particolare:
+- l'integrazione di una nuova tecnologia (_AWS Cognito_) nell' MVP, che non era presente nel _PoC_, ha richiesto tempo aggiuntivo per lo studio e l'implementazione;
+- la verifica _OTP_ via _e-mail_ ha richiesto del tempo aggiuntivo in quanto è stata la prima implementazione di questo tipo per il gruppo.
+Il gruppo procede con lo sviluppo dell'MVP con l'obbiettivo di rispettare i tempi e preventivi stimati.
 
 #v(15pt)
 #align(right, text(weight: "bold", "Il gruppo Sigma18"))
