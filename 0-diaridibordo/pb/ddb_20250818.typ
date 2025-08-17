@@ -27,14 +27,14 @@ Durante la riunione, i membri hanno analizzato e discusso diversi _design patter
 Al termine, è stata concordata l'adozione dell'architettura ritenuta più idonea per garantire qualità e manutenibilità del software.
 Si può affermare che il gruppo ha continuato ed ultimato la progettazione architetturale dell'applicativo.
 
-È stata effettuata un'impostazione generale dei documenti di progetto, in particolare il _Manuale Utente_ e la _Specifica Tecnica_.
+Il gruppo ha predisposto una struttura generale per i documenti di progetto, in particolare il _Manuale Utente_ e la _Specifica Tecnica_. La stesura dettagliata di tali documenti sarà completata una volta concluso l’MVP, così da garantirne coerenza con i progressi effettivi del progetto.
 
 Il gruppo ha inoltre effettuato un importante refactoring del codice frontend e backend, al fine di migliorare la sua leggibilità e manutenibilità.
 
 == 2. Obiettivi e attività programmate
 Il gruppo Sigma18 ha programmato le seguenti attività per il periodo successivo:
-- aggiornamento del glossario;
-- continuazione dello sviluppo dell'_MVP_ con l'integrazione delle architetture individuate;
+- aggiornamento continuo del glossario;
+- conclusione dell'_MVP_ e inizio della fase di testing;
 - continuazione della stesura del _Manuale Utente_ e della _Specifica Tecnica_;
 - organizzazione della riunione interna di fine sprint;
 - organizzazione di una riunione esterna con l'azienda per presentare lo stato di avanzamento del progetto;
