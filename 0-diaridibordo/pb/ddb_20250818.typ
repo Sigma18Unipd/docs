@@ -27,7 +27,7 @@ Durante la riunione, i membri hanno analizzato e discusso diversi _design patter
 Al termine, è stata concordata l'adozione dell'architettura ritenuta più idonea per garantire qualità e manutenibilità del software.
 Si può affermare che il gruppo ha continuato ed ultimato la progettazione architetturale dell'applicativo.
 
-Effettuata un'impostazione generale per i documenti di progetto, in particolare il _Manuale Utente_ e la _Specifica Tecnica_.
+È stata effettuata un'impostazione generale dei documenti di progetto, in particolare il _Manuale Utente_ e la _Specifica Tecnica_.
 
 Il gruppo ha inoltre effettuato un importante refactoring del codice frontend e backend, al fine di migliorare la sua leggibilità e manutenibilità.
 
