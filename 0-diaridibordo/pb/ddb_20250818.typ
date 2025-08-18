@@ -18,7 +18,7 @@
 
 Egregio Prof. Tullio Vardanega,\
 
-la seguente relazione riassume lo stato di avanzamento dei capitolato del gruppo Sigma18 per il periodo fino all'18 agosto 2025.
+la seguente relazione riassume lo stato di avanzamento dei capitolato del gruppo Sigma18 per il periodo fino al 18 agosto 2025.
 
 == 1. Progressi raggiunti
 Il gruppo Sigma18 ha discusso in maniera asincrona l'individuazione e lo studio dei _design pattern_ più adatti per l'architettura, in modo da migliorare la qualità del codice e la manutenibilità del progetto.
