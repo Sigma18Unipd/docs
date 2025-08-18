@@ -21,11 +21,10 @@ Egregio Prof. Tullio Vardanega,\
 la seguente relazione riassume lo stato di avanzamento dei capitolato del gruppo Sigma18 per il periodo fino all'18 agosto 2025.
 
 == 1. Progressi raggiunti
-Il gruppo Sigma18 ha effettuato una riunione interna con lo scopo di individuare e studiare i _design pattern_ più adatti per l'architettura, in modo da migliorare la qualità del codice e la manutenibilità del progetto.
-Durante la riunione, i membri hanno analizzato e discusso diversi _design pattern_ tramite una sessione di _brainstorming_, valutandone vantaggi e svantaggi rispetto ai requisiti del progetto.
+Il gruppo Sigma18 ha discusso in maniera asincrona l'individuazione e lo studio dei _design pattern_ più adatti per l'architettura, in modo da migliorare la qualità del codice e la manutenibilità del progetto.
+I membri hanno analizzato e discusso diversi _design pattern_, valutandone vantaggi e svantaggi rispetto ai requisiti del progetto, e di conseguenza la concreta applicazione all'interno dello stesso.
 
-Al termine, è stata concordata l'adozione dell'architettura ritenuta più idonea per garantire qualità e manutenibilità del software.
-Si può affermare che il gruppo ha continuato ed ultimato la progettazione architetturale dell'applicativo.
+Si può affermare che il gruppo ha continuato e ultimato la progettazione architetturale dell'applicativo.
 
 Il gruppo ha predisposto una struttura generale per i documenti di progetto, in particolare il _Manuale Utente_ e la _Specifica Tecnica_. La stesura dettagliata di tali documenti sarà completata una volta concluso l’MVP, così da garantirne coerenza con i progressi effettivi del progetto.
 
@@ -37,7 +36,7 @@ Il gruppo Sigma18 ha programmato le seguenti attività per il periodo successivo
 - conclusione dell'_MVP_ e inizio della fase di testing;
 - continuazione della stesura del _Manuale Utente_ e della _Specifica Tecnica_;
 - organizzazione della riunione interna di fine sprint;
-- organizzazione di una riunione esterna con l'azienda per presentare lo stato di avanzamento del progetto;
+- organizzazione di una riunione esterna con l'azienda per presentare lo stato di avanzamento del progetto.
 
 
 == 3. Analisi delle criticità e decisioni pendenti
