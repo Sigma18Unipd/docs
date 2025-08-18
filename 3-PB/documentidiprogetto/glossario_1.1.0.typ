@@ -7,8 +7,13 @@
   verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.1.0",
   versioni: (
+    "1.1.0",
+    "2025/08/18",
+    "Aleena Mathew",
+    "Marco Egidi",
+    "Aggiunta termini",
     "1.0.0",
     "2025/07/23",
     "Matteo Marangon",
@@ -156,6 +161,10 @@ Approccio di progettazione di un software centrato sull'esperienza utente che pr
 
 == Diagrammi UML
 Un diagramma UML è uno schema che permette di analizzare, descrivere e documentare un sistema software mediante l'utilizzo di modelli visuali.
+
+
+== Docker
+Piattaforma open source che consente di creare, distribuire ed eseguire applicazioni all’interno di container, ambienti isolati che includono tutte le dipendenze necessarie per il funzionamento dell’applicazione. L’utilizzo dei container assicura coerenza, portabilità e semplicità di gestione tra diversi ambienti di sviluppo e produzione.
 
 == Drag & Drop
 Tecnica di interazione grafica che si basa sul trascinamento di elementi a schermo. Si tratta di una rappresentazione intuitiva anche per utenti inesperti poiché si basa su
