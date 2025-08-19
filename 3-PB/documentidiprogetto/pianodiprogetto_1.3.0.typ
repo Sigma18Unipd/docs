@@ -8,8 +8,13 @@
   verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "1.2.0",
+  versioneAttuale: "1.3.0",
   versioni: (
+    "1.3.0",
+    "2025/08/19",
+    "Marco Egidi",
+    "Matteo Marangon",
+    "Aggiornamento retrospettiva decimo sprint e inizio undicesimo sprint",
     "1.2.0",
     "2025/08/05",
     "Mirco Borella",
@@ -1183,4 +1188,96 @@ Il gruppo si impegna a:
   [Aleena Mathew], [0], [2], [5], [6], [0], [2], [*15*],
   [Carmelo Russello], [0], [1], [5], [0], [3], [6], [*15*],
   [*Totali*], [*7*], [*3*], [*32*], [*36*], [*6*], [*25*], [*109*],
+)
+
+==== *Consultivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [0], [5], [8], [0], [2], [*15*],
+  [Mirco Borella], [0], [0], [5], [10], [0], [2], [*17*],
+  [Pietro Crotti], [0], [0], [8], [2], [3], [4], [*17*],
+  [Marco Egidi], [3], [0], [2], [5], [0], [5], [*15*],
+  [Matteo Marangon], [4], [0], [2], [5], [0], [4], [*15*],
+  [Aleena Mathew], [0], [1 (-1)], [5], [7 (+1)], [0], [2], [*15*],
+  [Carmelo Russello], [0], [1], [5], [0], [3], [6], [*15*],
+  [*Totali*], [*7*], [*2*], [*32*], [*37*], [*6*], [*25*], [*109*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [7], [€20], [€140.00],
+  [Analista], [2], [€25], [€50.00],
+  [Progettista], [32], [€25], [€800.00],
+  [Programmatore], [37], [€15], [€555.00],
+  [Responsabile], [6], [€30], [€180.00],
+  [Verificatore], [25], [€15], [€375.00],
+  [*Totali*], [*109*], [], [*€2100.00*],
+)
+
+==== *Analisi retrospettiva*: \
+_Sigma18_ dichiara che il decimo sprint è stato molto proficuo all'avanzamento del capitolato.
+
+Nello specifico è stata concordata una programmazione oraria anticipata per lo sprint rimanente, in modo tale da migliorare l'efficienza tra ore produttive e ore di orologio per lo sviluppo e accelerare la codifica dell'MVP.
+
+Il gruppo ha predisposto una struttura generale per i nuovi documenti di progetto, ovvero la "Specifica Tecnica" e il "Manuale Utente".
+
+È stato avviato lo sviluppo del PB (Product Baseline) che è arrivato a buon punto, con la definizione dell'architettura del _MVP (Minimum Viable Product)_ e:
+- Configurazione del servizio AWS Cognito con user pools e policy di accesso;
+- Conversione del sistema di login da database locale a AWS Cognito;
+- Ristrutturazione e sviluppo di autenticazione con JWT (JSON Web Token);
+- Aggiunta la verifica OTP (One Time Password) via e-mail per la registrazione;
+- Completa ristrutturazione del codice per l'esecuzione dei workflow nel backend.
+
+L'eccellente pianificazione ha permesso di mantenere alta la qualità del lavoro svolto e di rispettare le scadenze previste, pur avendo riscontrato delle criticità riguardanti l'integrazione di AWS Cognito con il sistema di autenticazione, che sono state risolte grazie alla collaborazione tra i membri del gruppo.
+
+
+
+
+
+
+
+
+#pagebreak()
+=== Sprint 11
+
+==== Dettagli
+
+*Data di inizio*: 19/08/2025 \
+*Data di fine*: 01/09/2025 \
+
+*Rischi attesi*: RT1, RT2, RO1, RO2, RO3
+
+*Attività da svolgere*: \
+Il gruppo si impegna a:
+- Completare l'_MVP (Minimum Viable Product)_;
+- Completare i test automatici;
+- Stendere il "Manuale Utente";
+- Stendere la "Specifica Tecnica";
+- Organizzare l'incontro di revisione finale del _MVP_ con l'azienda proponente;
+- Revisione PB con il professore Cardin;
+- Revisione PB con il professore Vardanega.
+
+==== *Preventivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [2], [3], [6], [0], [2], [*13*],
+  [Mirco Borella], [0], [1], [2], [6], [0], [5], [*14*],
+  [Pietro Crotti], [0], [2], [2], [4], [0], [6], [*14*],
+  [Marco Egidi], [0], [2], [2], [3], [3], [4], [*14*],
+  [Matteo Marangon], [0], [2], [2], [4], [0], [4], [*12*],
+  [Aleena Mathew], [3], [1], [2], [2], [3], [3], [*14*],
+  [Carmelo Russello], [4], [2], [1], [2], [0], [4], [*13*],
+  [*Totali*], [*7*], [*12*], [*14*], [*27*], [*6*], [*28*], [*94*],
 )
