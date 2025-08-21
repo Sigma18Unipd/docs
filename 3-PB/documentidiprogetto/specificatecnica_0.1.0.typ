@@ -172,5 +172,24 @@ MongoDB è un database NoSQL orientato ai documenti che utilizza un modello di d
 
 - *Documentazione*: https://docs.mongodb.com/ (*Ultimo accesso il: XX/0X/2025*)
 
-= Architettura utilizzata
-TBA
+= Architettura deployment
+L'architettura di deployment del sistema è composta da tre componenti principali: il _frontend_, il _backend_ e il _database_.
+
+//TODO inserire immagine
+
+Il _frontend_ è l'interfaccia grafica sviluppata in React che consente agli utenti di visualizzare, creare e modificare i workflow.
+
+Tutte le interazioni dell'utente vengono gestite dal _backend_, realizzato in Python, che si occupa di elaborare le richieste, orchestrare la logica applicativa e comunicare con l’agente per l’esecuzione delle automazioni.
+
+Il _database_ MongoDB memorizza in modo sicuro i dati relativi ai workflow e agli utenti, garantendo persistenza e integrità.
+
+
+L’intera infrastruttura si appoggia a Docker, per garantire portabilità, isolamento e semplicità di gestione.
+
+L’architettura di deployment prevede tre container principali: frontend, backend e database. Per ciascun servizio è stato predisposto un Dockerfile che installa le dipendenze necessarie e copia il codice sorgente all’interno del container. Ogni servizio espone una porta specifica:
+- _frontend_: 5173;
+- _backend_: 5000;
+- _database_: 27017.
+
+La configurazione e l’orchestrazione dei container sono gestite tramite un file `compose.yaml`, che definisce le variabili d’ambiente necessarie per permettere la comunicazione tra i container.
+Per avviare l’intera infrastruttura è sufficiente eseguire il comando `docker compose up`, che provvede automaticamente alla creazione e all’avvio dei container secondo la configurazione stabilita.
