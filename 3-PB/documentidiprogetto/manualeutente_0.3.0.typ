@@ -280,19 +280,6 @@ Per creare un nuovo workflow è sufficiente selezionare l'apposito pulsante _*Cr
 A questo punto viene visualizzato un popup che permette all'utente di inserire il nome desiderato per il nuovo workflow.
 Dopo aver inserito il nome, è sufficiente premere il pulsante _*Create*_ per creare un workflow vuoto.
 
-=== Effettuare Logout
-
-#h(1em)
-#figure(
-  [
-    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
-    #image("../../assets/img/manualeutente/navbar_dashboard.png", width: 80%),
-  ],
-  caption: [Navbar dashboard],
-)
-
-Per effettuare il logout, l'utente deve selezionare il pulsante rosso _*Logout*_, situato nell'interfaccia in alto a destra, all'interno della _navbar_, visibile in figura.
-Il sistema terminerà la sessione in corso, l'utente verrà disconnesso e reindirizzato alla pagina di _login_.
 
 === Eseguire un workflow dalla pagina Dashboard
 Per avviare un workflow, l'utente deve selezionare l'icona _play_ situata accanto al nome del workflow che si desidera eseguire.
@@ -400,5 +387,16 @@ L'utente potrà ritornare alla dashboard selezionando il bottone evidenziato in 
 
 #figure(image("../../assets/img/manualeutente/workflow_menu_back.png", width: 50%), caption: [Ritorno alla dashboard])
 
+== Logout
 
+#h(1em)
+#figure(
+  [
+    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
+    #image("../../assets/img/manualeutente/navbar_dashboard.png", width: 80%),
+  ],
+  caption: [Navbar dashboard],
+)
 
+Per effettuare il logout, l'utente deve selezionare il pulsante rosso _*Logout*_, situato nell'interfaccia in alto a destra, all'interno della _navbar_, visibile in figura.
+Il sistema terminerà la sessione in corso, l'utente verrà disconnesso e reindirizzato alla pagina di _login_.
