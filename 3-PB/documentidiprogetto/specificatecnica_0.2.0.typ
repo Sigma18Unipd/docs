@@ -3,15 +3,20 @@
   titoloDocumento: "Specifica Tecnica",
   abstract: "",
   responsabili: "Pietro Crotti",
-  redattori: "Carmelo Russello",
-  verificatori: ("Pietro Crotti",),
+  redattori: ("Carmelo Russello", "Aleena Mathew"),
+  verificatori: ("Pietro Crotti", "Carmelo Russello"),
   tipo: "Documento Esterno",
-  destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.1.0",
+  destinatari: ("Sigma\8", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
+  versioneAttuale: "0.2.0",
   content: content,
   versioni: (
+    "0.2.0",
+    "2025/08/22",
+    "Aleena Mathew",
+    "Carmelo Russello",
+    "Stesura iniziale del paragrafo 3",
     "0.1.0",
-    "2025/04/16",
+    "2025/08/13",
     "Carmelo Russello",
     "Pietro Crotti",
     "Stesura iniziale documento",
@@ -172,10 +177,12 @@ MongoDB è un database NoSQL orientato ai documenti che utilizza un modello di d
 
 - *Documentazione*: https://docs.mongodb.com/ (*Ultimo accesso il: XX/0X/2025*)
 
-= Architettura deployment
+= Architettura
+
+== Architettura di deployment
 L'architettura di deployment del sistema è composta da tre componenti principali: il _frontend_, il _backend_ e il _database_.
 
-//TODO inserire immagine
+//TODO inserire immagine struttura
 
 Il _frontend_ è l'interfaccia grafica sviluppata in React che consente agli utenti di visualizzare, creare e modificare i workflow.
 
@@ -193,3 +200,78 @@ L’architettura di deployment prevede tre container principali: frontend, backe
 
 La configurazione e l’orchestrazione dei container sono gestite tramite un file `compose.yaml`, che definisce le variabili d’ambiente necessarie per permettere la comunicazione tra i container.
 Per avviare l’intera infrastruttura è sufficiente eseguire il comando `docker compose up`, che provvede automaticamente alla creazione e all’avvio dei container secondo la configurazione stabilita.
+
+== Architettura logica
+//TO DO maybe da mettere sopra
+
+== Design pattern
+
+=== Singleton
+
+Si tratta di un design pattern creazionale che assicura che una classe abbia una sola istanza e fornisce un punto di accesso globale a tale istanza.\
+Alcune componenti del sistema devono mantenere la propria integrità per tutta la durata dell’esecuzione del prodotto, evitando la creazione di istanze multiple. Questo pattern garantisce che, ovunque venga richiesto il componente, venga sempre restituita la stessa istanza.
+
+
+//TODO finish
+Nel contesto del nostro progetto, il pattern è stato adottato per  GetDB, FlaskAPP: Singleton
+
+=== Decorator
+Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto, senza modificarne la struttura interna.\
+Ciò è possibile grazie al _decoratore_, ovvero un oggetto che implementa la stessa interfaccia dell’oggetto originale aggiungendo nuovi comportamenti in modo trasparente e modulare.
+In questo modo, è possibile comporre più decoratori per arricchire progressivamente le funzionalità, favorendo la flessibilità e la riusabilità del codice.
+
+
+
+//TODO finish
+Nel contesto del nostro progetto, il pattern è stato adottato per
+
+ProtectedRoute: Decorator
+
+=== Facade
+
+Si tratta di un design pattern strutturale che fornisce un'interfaccia semplificata per un insieme di interfacce in un sottosistema, facilitando l'interazione con esso.
+Questo pattern è particolarmente utile quando si desidera nascondere la complessità di un sistema e offrire un punto di accesso unico e intuitivo per l'utente.
+
+
+//TODO finish
+
+Nel contesto del nostro progetto, il pattern è stato adottato per
+
+CognitoAuth, LLMQuery: Facade
+
+=== Template
+
+Si tratta di un design pattern comportamentale che definisce la struttura di un algoritmo in una classe base, delegando l’implementazione di alcuni passi alle sottoclassi.
+\ Questo fa sì che la logica generale dell’algoritmo rimanga invariata, mentre le sottoclassi possono implementare specifici passaggi secondo le proprie esigenze.\
+Viene favorita la riusabilità e la flessibilità del codice, consentendo di estendere il comportamento senza modificarne la struttura complessiva.
+
+//TODO finish
+Nel contesto del nostro progetto, il pattern è stato adottato per
+
+Data Saving -> DTO: Template
+
+
+=== Iterator / Visitor
+Running Blocks: Iterator or Visitor
+
+
+=== Object Adapter //cambia se si tratta di class
+
+Si tratta di un design pattern strutturale che permette la collaborazione tra oggetti con interfacce incompatibili tra loro.
+
+In particolare, il client interagisce con l’interfaccia _target_, implementata dall’_adapter_. Quest’ultimo, tramite composizione, contiene l’oggetto _adaptee_ e si occupa di tradurre le richieste provenienti dal client in operazioni compatibili con l’interfaccia dell’_adaptee_. In questo modo, l’adapter funge da ponte tra le due interfacce, garantendo l’integrazione senza modificare il codice originale degli oggetti coinvolti.
+
+Di seguito sono elencati i componenti principali dell’Object Adapter:
+
+- _Target_: interfaccia che il client si aspetta di utilizzare;
+- _Adaptee_: oggetto con l’interfaccia incompatibile;
+- _Adapter_: implementa l’interfaccia _target_ e mantiene un riferimento all’_adaptee_.
+
+//TODO: inserire info corrette
+
+Nel contesto del nostro progetto, l'Object Adapter è stato impiegato per la gestione dei blocchi all'interno del sistema di automazione. Ogni blocco rappresenta una classe che può essere estesa con tipologie specifiche, consentendo una maggiore flessibilità e riusabilità del codice.
+
+
+// Blocks -> A block is a class that gets extended with specific types. Converting response to blocks: Adapter
+
+
