@@ -186,20 +186,20 @@ L'architettura di deployment del sistema è composta da tre componenti principal
 
 Il _frontend_ è l'interfaccia grafica sviluppata in React che consente agli utenti di visualizzare, creare e modificare i workflow.
 
-Tutte le interazioni dell'utente vengono gestite dal _backend_, realizzato in Python, che si occupa di elaborare le richieste, orchestrare la logica applicativa e comunicare con l’agente per l’esecuzione delle automazioni.
+Tutte le interazioni dell'utente vengono gestite dal _backend_, realizzato in Python, che si occupa di elaborare le richieste, orchestrare la logica applicativa e comunicare con l'agente per l'esecuzione delle automazioni.
 
 Il _database_ MongoDB memorizza in modo sicuro i dati relativi ai workflow e agli utenti, garantendo persistenza e integrità.
 
 
-L’intera infrastruttura si appoggia a Docker, per garantire portabilità, isolamento e semplicità di gestione.
+L'intera infrastruttura si appoggia a Docker, per garantire portabilità, isolamento e semplicità di gestione.
 
-L’architettura di deployment prevede tre container principali: frontend, backend e database. Per ciascun servizio è stato predisposto un Dockerfile che installa le dipendenze necessarie e copia il codice sorgente all’interno del container. Ogni servizio espone una porta specifica:
+L'architettura di deployment prevede tre container principali: frontend, backend e database. Per ciascun servizio è stato predisposto un Dockerfile che installa le dipendenze necessarie e copia il codice sorgente all'interno del container. Ogni servizio espone una porta specifica:
 - _frontend_: 5173;
 - _backend_: 5000;
 - _database_: 27017.
 
-La configurazione e l’orchestrazione dei container sono gestite tramite un file `compose.yaml`, che definisce le variabili d’ambiente necessarie per permettere la comunicazione tra i container.
-Per avviare l’intera infrastruttura è sufficiente eseguire il comando `docker compose up`, che provvede automaticamente alla creazione e all’avvio dei container secondo la configurazione stabilita.
+La configurazione e l'orchestrazione dei container sono gestite tramite un file `compose.yaml`, che definisce le variabili d'ambiente necessarie per permettere la comunicazione tra i container.
+Per avviare l'intera infrastruttura è sufficiente eseguire il comando `docker compose up`, che provvede automaticamente alla creazione e all'avvio dei container secondo la configurazione stabilita.
 
 == Architettura logica
 //TO DO maybe da mettere sopra
@@ -209,7 +209,7 @@ Per avviare l’intera infrastruttura è sufficiente eseguire il comando `docker
 === Singleton
 
 Si tratta di un design pattern creazionale che assicura che una classe abbia una sola istanza e fornisce un punto di accesso globale a tale istanza.\
-Alcune componenti del sistema devono mantenere la propria integrità per tutta la durata dell’esecuzione del prodotto, evitando la creazione di istanze multiple. Questo pattern garantisce che, ovunque venga richiesto il componente, venga sempre restituita la stessa istanza.
+Alcune componenti del sistema devono mantenere la propria integrità per tutta la durata dell'esecuzione del prodotto, evitando la creazione di istanze multiple. Questo pattern garantisce che, ovunque venga richiesto il componente, venga sempre restituita la stessa istanza.
 
 
 //TODO finish
@@ -217,7 +217,7 @@ Nel contesto del nostro progetto, il pattern è stato adottato per  GetDB, Flask
 
 === Decorator
 Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto, senza modificarne la struttura interna.\
-Ciò è possibile grazie al _decoratore_, ovvero un oggetto che implementa la stessa interfaccia dell’oggetto originale aggiungendo nuovi comportamenti in modo trasparente e modulare.
+Ciò è possibile grazie al _decoratore_, ovvero un oggetto che implementa la stessa interfaccia dell'oggetto originale aggiungendo nuovi comportamenti in modo trasparente e modulare.
 In questo modo, è possibile comporre più decoratori per arricchire progressivamente le funzionalità, favorendo la flessibilità e la riusabilità del codice.
 
 
@@ -241,8 +241,8 @@ CognitoAuth, LLMQuery: Facade
 
 === Template
 
-Si tratta di un design pattern comportamentale che definisce la struttura di un algoritmo in una classe base, delegando l’implementazione di alcuni passi alle sottoclassi.
-\ Questo fa sì che la logica generale dell’algoritmo rimanga invariata, mentre le sottoclassi possono implementare specifici passaggi secondo le proprie esigenze.\
+Si tratta di un design pattern comportamentale che definisce la struttura di un algoritmo in una classe base, delegando l'implementazione di alcuni passi alle sottoclassi.
+\ Questo fa sì che la logica generale dell'algoritmo rimanga invariata, mentre le sottoclassi possono implementare specifici passaggi secondo le proprie esigenze.\
 Viene favorita la riusabilità e la flessibilità del codice, consentendo di estendere il comportamento senza modificarne la struttura complessiva.
 
 //TODO finish
@@ -259,13 +259,13 @@ Running Blocks: Iterator or Visitor
 
 Si tratta di un design pattern strutturale che permette la collaborazione tra oggetti con interfacce incompatibili tra loro.
 
-In particolare, il client interagisce con l’interfaccia _target_, implementata dall’_adapter_. Quest’ultimo, tramite composizione, contiene l’oggetto _adaptee_ e si occupa di tradurre le richieste provenienti dal client in operazioni compatibili con l’interfaccia dell’_adaptee_. In questo modo, l’adapter funge da ponte tra le due interfacce, garantendo l’integrazione senza modificare il codice originale degli oggetti coinvolti.
+In particolare, il client interagisce con l'interfaccia _target_, implementata dall'_adapter_. Quest'ultimo, tramite composizione, contiene l'oggetto _adaptee_ e si occupa di tradurre le richieste provenienti dal client in operazioni compatibili con l'interfaccia dell'_adaptee_. In questo modo, l'adapter funge da ponte tra le due interfacce, garantendo l'integrazione senza modificare il codice originale degli oggetti coinvolti.
 
-Di seguito sono elencati i componenti principali dell’Object Adapter:
+Di seguito sono elencati i componenti principali dell'Object Adapter:
 
 - _Target_: interfaccia che il client si aspetta di utilizzare;
-- _Adaptee_: oggetto con l’interfaccia incompatibile;
-- _Adapter_: implementa l’interfaccia _target_ e mantiene un riferimento all’_adaptee_.
+- _Adaptee_: oggetto con l'interfaccia incompatibile;
+- _Adapter_: implementa l'interfaccia _target_ e mantiene un riferimento all'_adaptee_.
 
 //TODO: inserire info corrette
 
