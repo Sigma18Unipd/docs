@@ -7,8 +7,12 @@
   verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.1.0",
   versioni: (
+    "1.1.0",
+    "2025/08/19",
+    "Aleena Mathew",
+    "Matteo Marangon",
     "1.0.0",
     "2025/07/23",
     "Matteo Marangon",
@@ -109,6 +113,10 @@ Il processo di "Audit" ha lo scopo di determinare in maniera indipendente la con
 == AWS
 Amazon Web Services (AWS) è una piattaforma di servizi _cloud_ offerta da Amazon. Si suddivide in base al servizio offerto come ad esempio: calcolo, archiviazione, database, _machine learning_ e altro.
 
+== AWS Cognito
+Piattaforma di identità per app web e per dispositivi mobili. È una directory utente, un server di autenticazione e un servizio di autorizzazione per token e AWS credenziali di accesso OAuth 2.0.
+Permette di autenticare e autorizzare gli utenti dalla directory utente integrata, dalla directory aziendale e dai provider di identità utente come Google e Facebook.
+
 == Axios
 Axios è una libreria _JavaScript_ utilizzata per effettuare richieste #glossario("HTTP") in modo semplice e intuitivo in applicazioni web per comunicare con le API.
 
@@ -200,6 +208,12 @@ Standard internazionale che definisce i processi di ciclo di vita del software, 
 
 == Issue
 Un problema o un difetto identificato in un progetto software e registrato in una piattaforma di gestione dei problemi. Le issue possono riguardare bug, funzionalità mancanti o miglioramenti richiesti.
+
+#pagebreak()
+= J
+
+== JWT (JSON Web Token)
+Standard che definisce un modo compatto e sicuro per trasmettere informazioni tra le parti sotto forma di oggetto JSON. I JWT possono essere utilizzati per l'autenticazione e l'autorizzazione degli utenti.
 
 
 #pagebreak()
