@@ -259,7 +259,17 @@ Nella sez. /*da inserire */ è possibile trovare le istruzioni da eseguire per s
 == Dashboard
 <dashboard>
 Dopo aver effettuato l'accesso attraverso la pagina di _login_, l'utente viene indirizzato alla pagina della _dashboard_ dell'applicativo.
-#figure(image("../../assets/img/manualeutente/dashboard.png"), caption: [Dashboard])
+
+
+#figure(
+  [
+    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
+    #image("../../assets/img/manualeutente/dashboard.png", width: 80%)
+  ],
+  caption: [Dashboard],
+)
+
+
 Da questa pagina è possibile effettuare le azione base dell'applicativo come creare nuovi workflow, eseguire un workflow, visualizzare i dettagli del workflow oppure effettuare il logout tramite i comandi disponibili nell'interfaccia.
 
 === Creazione nuovo workflow
@@ -361,6 +371,9 @@ Il workflow verrà così memorizzato e sarà disponibile nella dashboard dell'ut
 
 === Esecuzione di un flusso
 #figure(image("../../assets/img/manualeutente/workflow_menu_run.png", width: 50%), caption: [Esecuzione di un workflow])
+
+//TODO aggiungere workflow successfully eseguito
+
 
 === Eliminazione di un workflow
 #figure(image("../../assets/img/manualeutente/workflow_menu_delete.png", width: 50%), caption: [Eliminazione di un workflow])
