@@ -48,7 +48,8 @@ Nell'interfaccia, i *blocchi* rappresentano le azioni effettuabili, mentre gli *
 
 
 == Glossario
-Per assicurare la massima chiarezza e prevenire possibili malintesi legati all'interpretazione dei termini utilizzati nei documenti, è stato redatto un glossario. #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Questo] strumento raccoglie e definisce in maniera precisa tutti i termini che potrebbero risultare ambigui, tecnici o comunque soggetti a interpretazioni diverse.
+//TODO fix link
+Per assicurare la massima chiarezza e prevenire possibili malintesi legati all'interpretazione dei termini utilizzati nei documenti, è stato redatto un glossario. #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario.pdf")[Questo] strumento raccoglie e definisce in maniera precisa tutti i termini che potrebbero risultare ambigui, tecnici o comunque soggetti a interpretazioni diverse.
 
 All'interno dei documenti, ogni termine presente nel Glossario sarà opportunamente segnalato tramite la seguente notazione: #glossario("parola"), in modo da permettere al lettore di identificarne facilmente il significato esatto facendo riferimento al glossario stesso.
 
@@ -78,13 +79,25 @@ Per poter utilizzare il prodotto, è necessario soddisfare i requisiti elencati 
 
 == Requisiti hardware
 
-Data la natura web dell'applicazione, non sono richiesti requisiti hardware particolari per l'utilizzo del prodotto. Si consiglia comunque di utilizzare un computer con potenza di calcolo e memoria sufficienti per il normale utilizzo di un browser, per garantire un'esperienza utente fluida.
+Data la natura web dell'applicazione, non sono richiesti requisiti hardware particolari per l'utilizzo del prodotto.
+Si raccomanda tuttavia di utilizzare dispositivi con risoluzione schermo minima di 1280 x 720 pixel (HD), per garantire un'esperienza utente fluida. Una risoluzione inferiore potrebbe compromettere la visualizzazione completa dell'interfaccia utente e rendere alcuni elementi del menu difficilmente accessibili.
+
+
 
 == Requisiti software
 
 I requisiti software indicano le dipendenze e i programmi che devono essere installati sul sistema dell'utente per consentire l'avvio e il corretto funzionamento del prodotto.
 
-Il sistema si appoggia a #glossario("Docker") per garantire la corretta esecuzione dell'applicativo. Pertanto, è necessario che Docker sia installato sulla propria macchina prima di procedere con l'utilizzo del prodotto.
+
+Data la natura dell'applicativo che è ospitato su #glossario("AWS"), per il suo utilizzo sono sufficienti un browser moderno e una connessione internet stabile.
+Gli utenti possono accedere all'applicazione direttamente tramite link fornito di seguito.
+//TODO aggiungi link
+
+
+
+
+Tuttavia, è possibile effettuare un deployment locale dell'applicativo seguendo le istruzioni riportate di seguito, nella #link(<repo>)[sezione 3].
+Il sistema si appoggia a #glossario("Docker") per garantire la corretta esecuzione dell'applicativo. Pertanto, è necessario che Docker sia installato sulla propria macchina prima di procedere con l'utilizzo in locale del prodotto.
 
 Se non è presente, è possibile installarlo seguendo le istruzioni disponibili sul #link("https://docs.docker.com/get-docker/")[sito ufficiale] [ultimo accesso il: 18/08/2025].
 
@@ -102,15 +115,27 @@ I requisiti browser definiscono le specifiche tecniche minime necessarie per ass
 
 Come da requisito obbligatorio di vincolo (ROV-2), il funzionamento del prodotto è garantito sulle versioni stabili di _Chromium 138_ e _Firefox ESR 140_.
 
+#pagebreak()
 
 = Installazione
+<installazione>
 La seguente sezione fornisce le istruzioni dettagliate per l'installazione e l'avvio dell'applicativo.
 
 
 == Clonazione della repository
 <repo>
 Per iniziare, è necessario clonare la repository del progetto per ottenere una copia locale. \
-Per farlo, è sufficiente recarsi nella #link("https://github.com/Sigma18Unipd/ProductBaseline")[pagina Github del progetto] e utilizzare _l'url di clonazione_ fornito per clonare il progetto nella cartella desiderata.
+Per farlo, è sufficiente recarsi nella #link("https://github.com/Sigma18Unipd/ProductBaseline")[pagina Github del progetto] e scaricare il file `.zip`, come mostrato nella figura seguente.
+
+
+#figure(
+  image("../../assets/img/manualeutente/download_repo.png", width: 80%),
+  caption: [Download file `.zip`],
+)
+
+
+
+In alternativa, è possibile utilizzare _l'url di clonazione_ fornito per clonare il progetto nella cartella desiderata.
 
 Dopo aver scelto la cartella di destinazione, è possibile clonare la repository utilizzando uno dei seguenti comandi:
 
@@ -146,16 +171,7 @@ Si noti che all'interno della repository, è disponibile un file, `README.md`, c
 
 
 + Aprire il terminale e posizionarsi nella cartella della repository precedentemente scaricata.
-+ Avviare il sistema tramite Docker Compose eseguendo uno dei seguenti comandi:
-  #figure(
-    [
-      #show raw.where(block: true): set block(fill: rgb("#f6e2e2"), inset: 1em, radius: 0.3em, width: 100%)
-      ```bash
-      docker compose up --build
-      ```
-    ],
-    caption: [In caso di primo avvio],
-  )
++ Avviare il sistema tramite Docker Compose eseguendo il seguente comando:
   #figure(
     [
       #show raw.where(block: true): set block(fill: rgb("#f6e2e2"), inset: 1em, radius: 0.3em, width: 100%)
@@ -163,16 +179,12 @@ Si noti che all'interno della repository, è disponibile un file, `README.md`, c
       docker compose up
       ```
     ],
-    caption: [In caso avvii successivi],
+    caption: [Comando di avvio],
   )
-+ Attendere che il sistema venga avviato completamente, monitorando i log dei vari container per verificare che non ci siano errori.
-#figure(
-  image("../../assets/img/manualeutente/log_started.png"),
-  caption: [Terminale che mostra che i container sono stati avviati correttamente],
-)
 
 
-
+In assenza di problemi, il sistema sarà accessibile tramite browser all'indirizzo `http://localhost:5173`.\
+In caso di problemi, verificare che Docker sia in esecuzione e che le porte necessarie non siano già occupate da altri servizi.
 
 
 == Istruzioni per lo spegnimento
@@ -198,8 +210,8 @@ Si noti che all'interno della repository, è disponibile un file, `README.md`, c
   )
 
 
-
-
+#pagebreak()
+//TODO aggiornare screenshot e aggiungere i vari tipi di errori
 = Istruzioni all'uso
 
 Di seguito viene presentata una guida dettagliata all'utilizzo dell'applicativo, illustrando le principali funzionalità disponibili e come sfruttarle al meglio.
@@ -209,7 +221,7 @@ Di seguito viene presentata una guida dettagliata all'utilizzo dell'applicativo,
 #figure(image("../../assets/img/manualeutente/login.png", width: 35%), caption: [Schermata di login])
 All'avvio dell'applicativo viene presentata la schermata di _login_. L'utente che possiede già un account può accedere al servizio inserendo le proprie credenziali (email e password) negli appositi campi, come illustrato in figura.
 
-
+//TODO guarda codice per il resto degli errori
 #figure(image("../../assets/img/manualeutente/error_invalid.png", width: 35%), caption: [Error: Credenziali errate])
 Se le credenziali inserite non sono corrette, il sistema visualizzerà un messaggio di errore in basso a destra con la dicitura _"invalid mail or password"_, come mostrato in figura.
 
