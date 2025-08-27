@@ -720,7 +720,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
-  2. Il sistema mostra impostazioni del blocco, come il token di accesso all'API Notion ed il PAGE_ID della pagina da cui prendere i contenuti.
+  2. Il sistema mostra impostazioni del blocco, l'Internal Integration Token e il Page ID.
 
 
 #figure(image("../../assets/usecasediagrams/34,35,36,37,38.svg"), caption: [Diagramma casi d'uso UC[34], UC[35], UC[36], UC[37], UC[38]])
@@ -783,7 +783,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
-  2. L'utente modifica le impostazioni del blocco, come il token di accesso all'API Notion e il PAGE_ID della pagina da cui prendere i contenuti.
+  2. L'utente modifica le impostazioni del blocco, l'Internal Integration Token e il PAGE_ID della pagina da cui prendere i contenuti.
   3. Il sistema salva le modifiche apportate.
 
 
@@ -968,15 +968,66 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 #figure(image("../../assets/usecasediagrams/56.svg"), caption: [Diagramma casi d'uso UC[56]])
 
+=== UC[57] Visualizzazione dell'errore "È richiesta la password" <UC57>
+
+- *Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di registrarsi senza inserire una password.
+  2. Il sistema mostra un messaggio di errore "È richiesta la password".
 
 
+=== UC[58] Errore "Le password non corrispondono" <UC58>
 
+- *Attore principale*: utente non autenticato.
 
+- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
 
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
 
+- *Scenario principale*:
+  1. L'utente inserisce una password e una conferma password non corrispondente.
+  2. Il sistema mostra un messaggio di errore "_Passwords don't match_".
 
+=== UC[59] Errore "Password troppo corta" <UC59>
 
+- *Attore principale*: utente non autenticato.
 
+- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente inserisce una password con meno di 8 caratteri.
+  2. Il sistema mostra un messaggio di errore "_Your password must have at least 8 characters_".
+
+=== UC[60] Visualizzazione dell'errore "È richiesto un codice di verifica" <UC60>
+
+- *Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di login.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di autenticarsi senza inserire un codice di verifica.
+  2. Il sistema mostra un messaggio di errore "_Verification code is required_".
+
+=== UC[61] Visualizzazione dell'errore "Impossibile eseguire il flusso" <UC61>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella dashboard e tenta di eseguire un flusso.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di eseguire un flusso.
+  2. Il sistema mostra un messaggio di errore "_An error occurred while while running the workflow_".
 
 #pagebreak()
 = Requisiti
@@ -1214,7 +1265,6 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [UC11], [ROF-13],
   [UC12], [ROF-14, ROF-15, ROF-17],
   [UC13], [ROF-15],
-  [UC14], [ROF-16],
   [UC15], [ROF-17],
   [UC16], [ROF-18, ROF-19],
   [UC17], [ROF-19],
@@ -1224,13 +1274,8 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [UC21], [ROF-22, ROF-23, ROF-24],
   [UC22], [ROF-23],
   [UC23], [ROF-24],
-  [UC24], [ROF-25, ROF-26, ROF-27, ROF-28],
-  [UC25], [ROF-26],
-  [UC26], [ROF-27],
-  [UC27], [ROF-28],
   [UC28], [ROF-29, ROF-30, ROF-31, ROF-32, ROF-33, ROF-34],
   [UC29], [ROF-30],
-  [UC30], [ROF-31],
   [UC31], [ROF-32],
   [UC32], [ROF-33],
   [UC33], [ROF-34],
@@ -1241,18 +1286,14 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [UC38], [ROF-39],
   [UC39], [ROF-41, ROF-42, ROF-43, ROF-44],
   [UC40], [ROF-41],
-  [UC41], [ROF-42],
   [UC42], [ROF-43],
   [UC43], [ROF-44],
-  [UC44], [ROF-45],
   [UC45], [ROF-46],
-  [UC46], [ROF-47],
   [UC47], [ROF-48, ROF-49, ROF-50],
   [UC48], [ROF-48, ROF-49],
   [UC49], [ROF-48, ROF-50],
   [UC50], [ROF-51],
   [UC51], [ROF-52],
-  [UC52], [ROF-53],
   [UC53], [RDF-54],
   [UC54], [ROF-55],
   [UC55], [ROF-56],
