@@ -4,12 +4,17 @@
   abstract: "",
   responsabili: ("Pietro Crotti", "Carmelo Russello"),
   redattori: ("Aleena Mathew", "Matteo Marangon", "Pietro Crotti"),
-  verificatori: ("Pietro Crotti", "Marco Egidi"),
+  verificatori: ("Pietro Crotti", "Marco Egidi", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.3.0",
+  versioneAttuale: "0.4.0",
   content: content,
   versioni: (
+    "0.3.0",
+    "2025/08/27",
+    "Aleena Mathew",
+    "Alessandro Bernardello",
+    "Aggiunta errori e temi",
     "0.3.0",
     "2025/08/21",
     "Matteo Marangon
@@ -80,7 +85,7 @@ Per poter utilizzare il prodotto, è necessario soddisfare i requisiti elencati 
 == Requisiti hardware
 
 Data la natura web dell'applicazione, non sono richiesti requisiti hardware particolari per l'utilizzo del prodotto.
-Si raccomanda tuttavia di utilizzare dispositivi con risoluzione schermo minima di 1280 x 720 pixel (HD), per garantire un'esperienza utente fluida. Una risoluzione inferiore potrebbe compromettere la visualizzazione completa dell'interfaccia utente e rendere alcuni elementi del menu difficilmente accessibili.
+Si raccomanda tuttavia di utilizzare dispositivi con risoluzione schermo minima di 1280 x 720 pixel (HD), per garantire un'esperienza utente fluida. Una risoluzione inferiore potrebbe compromettere la visualizzazione completa dell'interfaccia utente e rendere alcuni elementi del menù difficilmente accessibili.
 
 
 
@@ -89,14 +94,14 @@ Si raccomanda tuttavia di utilizzare dispositivi con risoluzione schermo minima 
 I requisiti software indicano le dipendenze e i programmi che devono essere installati sul sistema dell'utente per consentire l'avvio e il corretto funzionamento del prodotto.
 
 
-Data la natura dell'applicativo che è ospitato su #glossario("AWS"), per il suo utilizzo sono sufficienti un browser moderno e una connessione internet stabile.
+Data la natura dell'applicativo che è ospitato su #glossario("AWS"), per il suo utilizzo sono sufficienti un browser moderno e una connessione internet stabile.\
 Gli utenti possono accedere all'applicazione direttamente tramite link fornito di seguito.
 //TODO aggiungi link
 
 
 
 
-Tuttavia, è possibile effettuare un deployment locale dell'applicativo seguendo le istruzioni riportate di seguito, nella #link(<repo>)[sezione 3].
+Tuttavia, è possibile effettuare un deployment locale dell'applicativo seguendo le istruzioni riportate nella #link(<repo>)[sezione 3].
 Il sistema si appoggia a #glossario("Docker") per garantire la corretta esecuzione dell'applicativo. Pertanto, è necessario che Docker sia installato sulla propria macchina prima di procedere con l'utilizzo in locale del prodotto.
 
 Se non è presente, è possibile installarlo seguendo le istruzioni disponibili sul #link("https://docs.docker.com/get-docker/")[sito ufficiale] [ultimo accesso il: 18/08/2025].
@@ -164,7 +169,7 @@ Prima di poter eseguire il comando di clonazione, è necessario verificare che G
 
 
 == Istruzioni per l'avvio
-Prima di procedere con l'avvio del sistema, bisogna assicurarsi di aver soddisfatto i #link(<requisiti>)[requisiti minimi] e di aver scaricato correttamente la repository seguendo le istruzioni riportate nella #link(<repo>)[sezione 3.1].
+Prima di procedere con l'avvio del sistema, bisogna assicurarsi di aver soddisfatto i #link(<requisiti>)[requisiti minimi] e di aver scaricato correttamente la repository,  come riportato nella #link(<repo>)[sez. 3.1].
 
 Di seguito vengono fornite le istruzioni da seguire per il corretto avvio del sistema.\
 Si noti che all'interno della repository, è disponibile un file, `README.md`, che riporta le stesse istruzioni per il corretto avvio.
@@ -183,7 +188,7 @@ Si noti che all'interno della repository, è disponibile un file, `README.md`, c
   )
 
 
-In assenza di problemi, il sistema sarà accessibile tramite browser all'indirizzo `http://localhost:5173`.\
+In assenza di problemi, il sistema sarà accessibile all'indirizzo `http://localhost:5173`. \
 In caso di problemi, verificare che Docker sia in esecuzione e che le porte necessarie non siano già occupate da altri servizi.
 
 
@@ -211,7 +216,6 @@ In caso di problemi, verificare che Docker sia in esecuzione e che le porte nece
 
 
 #pagebreak()
-//TODO aggiornare screenshot e aggiungere i vari tipi di errori
 = Istruzioni all'uso
 
 Di seguito viene presentata una guida dettagliata all'utilizzo dell'applicativo, illustrando le principali funzionalità disponibili e come sfruttarle al meglio.
@@ -221,11 +225,26 @@ Di seguito viene presentata una guida dettagliata all'utilizzo dell'applicativo,
 #figure(image("../../assets/img/manualeutente/login.png", width: 35%), caption: [Schermata di login])
 All'avvio dell'applicativo viene presentata la schermata di _login_. L'utente che possiede già un account può accedere al servizio inserendo le proprie credenziali (email e password) negli appositi campi, come illustrato in figura.
 
-//TODO guarda codice per il resto degli errori
-#figure(image("../../assets/img/manualeutente/error_invalid.png", width: 35%), caption: [Error: Credenziali errate])
-Se le credenziali inserite non sono corrette, il sistema visualizzerà un messaggio di errore in basso a destra con la dicitura _"invalid mail or password"_, come mostrato in figura.
 
 Se l'utente non dispone di un account, può procedere con la registrazione seguendo le istruzioni riportate nella #link(<registrazione>)[sezione 4.2].
+
+=== Errori
+==== Error 401
+L'errore 401 si verifica nei due casi elencati di seguito:
++ Le credenziali inserite non sono corrette e viene visualizzato un messaggio di errore, in basso a destra, con la dicitura _"invalid mail or password"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/error_invalid.png", width: 35%), caption: [Error: Credenziali errate])
+
++ L'utente non ha ancora completato la verifica dell'account e viene visualizzato un messaggio di errore, in basso a destra, con la dicitura _"user account not confirmed"_, come illustrato in figura. #figure(image("../../assets/img/manualeutente/error401-2.png", width: 35%), caption: [Error: User non verificato])
+
+==== Error 429
+
+L'errore 429 si verifica quando vengono effettuate troppe richieste di login in un breve intervallo di tempo. In questo caso, il sistema blocca temporaneamente ulteriori tentativi e mostra un messaggio di errore che invita l'utente ad attendere prima di riprovare.
+
+==== Error 500
+
+L'errore 500 si verifica quando si presenta un errore diverso da quelli precedentemente trattati. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
+#figure(image("../../assets/img/manualeutente/error500.png", width: 35%), caption: [Errore 500])
+
+
 
 == Registrazione
 <registrazione>
@@ -243,29 +262,55 @@ La password deve contenere almeno 8 caratteri. Se la password inserita non rispe
 #figure(image("../../assets/img/manualeutente/error_password_match.png", width: 35%), caption: [Error: le password non coincidono])
 Se la password e la conferma della password non coincidono, il sistema mostrerà un messaggio di errore, come mostrato in figura.
 
+
 Per verificare l'account, seguire le istruzioni definite nella #link(<confirm>)[sezione 4.3].
+
+=== Errori
+==== Error 409
+L'errore 409 si verifica quando l'utente tenta di registrarsi con un'email già in uso. In questo caso, viene visualizzato un messaggio di errore, in basso a destra, con la dicitura _"user already exists"_, come mostrato in figura.
+#figure(image("../../assets/img/manualeutente/error409.png", width: 35%), caption: [Error: Email già in uso])
+==== Error 500
+
+L'errore 500 si verifica quando si verifica un problema diverso da quelli precedenti. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
+
+#figure(image("../../assets/img/manualeutente/error500reg.png", width: 35%), caption: [Error 500])
 
 == Verifica account
 <confirm>
 L'utente riceverà un codice di verifica all'indirizzo email fornito nella fase di registrazione (vedi #link(<registrazione>)[sezione 4.2]).
 L'utente dovrà inserire email e codice di verifica negli appositi campi, come mostrato in figura.
-#figure(image("../../assets/img/manualeutente/confirm_account.png", width: 35%), caption: [Schermata di verifica account])
+#figure(image("../../assets/img/manualeutente/confirm_account.png", width: 40%), caption: [Schermata di verifica account])
 
-
-Se il codice di verifica inserito non è corretto, il sistema mostrerà un messaggio di errore in basso a destra, come illustrato in figura.
-#figure(image("../../assets/img/manualeutente/error_confirmationcode.png", width: 35%), caption: [Error: codice di verifica errato])
 
 Dopo la verifica dell'account, il sistema reindirizza automaticamente l'utente alla pagina _dashboard_ iniziale, che risulterà vuota in quanto non sono ancora presenti workflow associati all’account appena creato (vedi figura).
 
 #figure(
   [
     #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
-    #image("../../assets/img/manualeutente/dashboard_empty.png", width: 80%)
+    #image("../../assets/img/manualeutente/dashboard_empty.png", width: 60%)
   ],
   caption: [Dashboard vuota],
 )
 
-Nella sez. /*da inserire */ è possibile trovare le istruzioni da eseguire per sfruttare le varie funzionalità.
+Nella #link(<dashboard>)[sez. 4.4] è possibile trovare le istruzioni da eseguire per sfruttare le varie funzionalità.
+
+
+=== Errori
+=== Error 404
+L'errore 404 si verifica nei seguenti casi:
+
++ Il codice di verifica inserito non è corretto. In questo caso, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"code not valid"_, come illustrato in figura. #figure(image("../../assets/img/manualeutente/error_confirmationcode.png", width: 35%), caption: [Error: codice di verifica errato])
+
++ Il codice di verifica è scaduto. In questo caso, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"code expired"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/error404expired.png", width: 35%), caption: [Error: codice di verifica scaduto])
+
+
++ Il sistema non è riuscito a trovare l'utente associato all'email inserita. In questo caso, viene visualizzato un messaggio di errore in basso a destra,con la dicitura _"user not found"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/error404email.png", width: 35%), caption: [Error: email non trovata])
+
+==== Error 500
+
+L'errore 500 si verifica quando si verifica un problema diverso da quelli precedentemente trattati. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
+
+
 
 
 == Dashboard
@@ -302,6 +347,17 @@ Per creare un nuovo workflow è sufficiente selezionare l'apposito pulsante _*Cr
 A questo punto viene visualizzato un popup che permette all'utente di inserire il nome desiderato per il nuovo workflow.
 Dopo aver inserito il nome, è sufficiente premere il pulsante _*Create*_ per creare un workflow vuoto.
 
+==== Errori
+===== Error 400
+<errori-nome>
+L'errore 400 si verifica nei due casi elencati di seguito:
++ L'utente tenta di creare un workflow senza inserire un nome. In questo caso, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"workflow name is required"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/emptyname.png", width: 35%), caption: [Error: nome mancante])
++ L'utente tenta di creare un workflow con un nome che supera i 25 caratteri. In questo caso, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"workflow name must be less than 25 characters"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/nametoolong.png", width: 35%), caption: [Error: nome troppo lungo])
+
+===== Error 500
+
+L'errore 500 si verifica quando si verifica un problema diverso da quelli precedentemente trattati. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
+
 
 === Eseguire un workflow dalla pagina Dashboard
 Per avviare un workflow, l'utente deve selezionare l'icona _play_ situata accanto al nome del workflow che si desidera eseguire.
@@ -316,7 +372,7 @@ L'utente verrà quindi reindirizzato automaticamente alla pagina dedicata alla v
 
 == Modifica flusso
 
-Per modificare un _workflow_, l'utente deve selezionare dalla dashboard il flusso desiderato; verrà quindi reindirizzato alla pagina di dettaglio, come illustrato nella figura seguente.
+Per modificare un _workflow_, l'utente deve selezionare dalla _dashboard_ il flusso desiderato; verrà quindi reindirizzato alla pagina di dettaglio, come illustrato nella figura seguente.
 
 
 #figure(
@@ -344,6 +400,10 @@ Si aprirà quindi un modale dedicato, nel quale l'utente può descrivere in ling
 
 #figure(image("../../assets/img/manualeutente/ai_workflowbuilder.png", width: 50%), caption: [Modale _AI Builder_])
 
+==== Error 400
+
+//TODO inserire errore giusto
+Nel caso l'utente non inserisca nulla nel prompt, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"prompt is required"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/emptyname.png", width: 35%), caption: [Error: prompt mancante])
 
 === Aggiunta di blocchi tramite _Add a Block_
 
@@ -356,9 +416,12 @@ Per aggiungere manualmente un blocco al workflow, l'utente deve selezionare il p
 Successivamente verrà visualizzato un menù laterale che consente all'utente di cercare e scegliere il blocco desiderato, come mostrato in figura.
 #figure(image("../../assets/img/manualeutente/block_list.png", width: 50%), caption: [Menù laterale per aggiunta di blocchi])
 
-
-
 === Rimozione di un blocco
+
+Per rimuovere un blocco dal workflow, l'utente deve selezionare l'icona delle _impostazioni_ del blocco che desidera eliminare. Successivamente, nel menù che si apre, è sufficiente premere il bottone rosso _*Remove Block*_, come illustrato in figura.
+#figure(image("../../assets/img/manualeutente/remove_block.png", width: 45%), caption: [Button: Remove Block])
+
+Ad eccezione del blocco _AI: Summarize_, di cui i dettagli sono forniti nella #link("<ai-summarize>")[sez. 4.7.3].
 
 == Funzionalità di un flusso //cambia nome
 Dopo la creazione o la modifica di un flusso, l'utente può accedere a diverse funzionalità relative al workflow tramite il modale che si aprirà quando si ritorna alla dashboard, premendo il bottone indicato in figura.
@@ -371,7 +434,6 @@ Dopo la creazione o la modifica di un flusso, l'utente può accedere a diverse f
   caption: [Button: Workflow Menu],
 )
 
-//TODO aggiungi grid con navbar
 Di seguito vengono elencate le operazioni possibili.
 
 === Salvataggio di un flusso
@@ -384,7 +446,12 @@ Il workflow verrà così memorizzato e sarà disponibile nella dashboard dell'ut
 === Esecuzione di un flusso
 #figure(image("../../assets/img/manualeutente/workflow_menu_run.png", width: 50%), caption: [Esecuzione di un workflow])
 
-//TODO aggiungere workflow successfully eseguito
+Per eseguire un workflow, l'utente deve selezionare l'icona _Run_ come evidenziato in figura.
+
+In assenza di errori, il sistema avvierà l'esecuzione del workflow e mostrerà una notifica di avvio con successo in basso a destra, come mostrato in figura.
+
+#figure(image("../../assets/img/manualeutente/successful_workflow.png", width: 50%), caption: [Notifica di avvio con successo])
+
 
 
 === Eliminazione di un workflow
@@ -397,6 +464,7 @@ A questo punto, il sistema mostrerà un popup di conferma; per completare l'elim
 Dopo la conferma, il workflow verrà rimosso definitivamente dal sistema e l'utente sarà automaticamente reindirizzato alla dashboard, dove non sarà più visibile tra i flussi disponibili.
 
 
+
 === Rinominazione di un workflow
 
 Nel caso l'utente desideri cambiare il nome del flusso deve selezionare _Edit Workflow Name_, come evidenziato in figura.
@@ -406,11 +474,43 @@ Si aprirà un modale che consente all'utente di inserire il nuovo nome desiderat
 Il nome del workflow verrà aggiornato e sarà immediatamente visibile sia nella dashboard che nella relativa schermata di dettaglio.
 #figure(image("../../assets/img/manualeutente/workflow_rename.png", width: 50%), caption: [Rinominazione di un workflow])
 
+È possibile che si verifichino errori analoghi a quelli già descritti nella #link(<errori-nome>)[sez. 4.4.1.1.1], se l'utente tenta di rinominare il workflow con un nome non valido.
+
 === Back to Dashboard
 
 L'utente potrà ritornare alla dashboard selezionando il bottone evidenziato in figura.
 
 #figure(image("../../assets/img/manualeutente/workflow_menu_back.png", width: 50%), caption: [Ritorno alla dashboard])
+
+== Impostazioni dei singoli blocchi
+Di seguito verranno descritte le impostazioni disponibili dei vari blocchi, a cui è possibile accedere selezionando l'icona delle _impostazioni_ del blocco desiderato, come evidenziato nella figura seguente.
+#figure(image("../../assets/img/manualeutente/impostazioni.png", width: 40%), caption: [Icona impostazioni])
+
+=== System: Wait Seconds
+Il blocco _System: Wait Seconds_ consente di inserire una pausa nell'esecuzione del workflow per un numero specifico di secondi.
+L'utente può configurare il numero di secondi di attesa tramite il menù delle impostazioni del blocco, come mostrato in figura.
+#figure(image("../../assets/img/manualeutente/remove_block.png", width: 35%), caption: [Blocco _System: Wait Seconds_])
+
+
+=== Telegram: Send Bot Message
+Il blocco _Telegram: Send Bot Message_ permette di inviare un messaggio tramite un bot di Telegram.
+L'utente deve configurare il blocco inserendo negli appositi campi il token del bot, l'ID della chat a cui inviare il messaggio e il messaggio da inviare, come mostrato in figura.
+#figure(image("../../assets/img/manualeutente/telegram_block.png", width: 35%), caption: [Blocco _Telegram: Send Bot Message_])
+
+
+=== Notion: Get Page
+Il blocco _Notion: Get Page_ consente di recuperare i contenuti di una pagina di Notion.
+L'utente deve configurare il blocco compilando gli appositi campi.
+#figure(image("../../assets/img/manualeutente/notion_block.png", width: 35%), caption: [Blocco _Notion: Get Page_])
+
+=== AI: Summarize
+<ai-summarize>
+Il blocco _AI: Summarize_ consente di generare un riassunto del contenuto fornito.
+Dato che si tratta di un blocco che riassume le informazioni ottenute dal blocco precedente non ci sono campi che l'utente deve compilare, motivo per cui non sono presenti impostazioni aggiuntive.\
+Al posto dell'icona delle impostazioni, il blocco presenta un'icona di un cestino che, se selezionata, permette di rimuovere il blocco dal workflow, come mostrato in figura.
+#figure(image("../../assets/img/manualeutente/ai_summarize_block.png", width: 40%), caption: [Blocco _AI: Summarize_])
+
+
 
 == Logout
 
@@ -425,3 +525,26 @@ L'utente potrà ritornare alla dashboard selezionando il bottone evidenziato in 
 
 Per effettuare il logout, l'utente deve selezionare il pulsante rosso _*Logout*_, situato nell'interfaccia in alto a destra, all'interno della _navbar_, visibile in figura.
 Il sistema terminerà la sessione in corso, l'utente verrà disconnesso e reindirizzato alla pagina di _login_.
+
+== Tema chiaro e scuro
+
+L'utente può scegliere tra due temi per l'interfaccia dell'applicativo: il tema chiaro e il tema scuro.
+
+Nella navbar, l'utente può selezionare l'icona della _luna_ per attivare il tema scuro o l'icona del _sole_ per tornare al tema chiaro, come mostrato in figura.
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 5mm,
+  figure(
+    image("../../assets/img/manualeutente/temachiaro.png", width: 100%),
+    caption: [
+      Dashboard in modalità chiara.
+    ],
+  ),
+  figure(
+    image("../../assets/img/manualeutente/temascuro.png", width: 100%),
+    caption: [
+      Dashboard in modalità scura.
+    ],
+  ),
+)
