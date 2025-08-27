@@ -10,7 +10,7 @@
   versioneAttuale: "0.4.0",
   content: content,
   versioni: (
-    "0.3.0",
+    "0.4.0",
     "2025/08/27",
     "Aleena Mathew",
     "Alessandro Bernardello",
