@@ -6,7 +6,7 @@
   redattori: ("Carmelo Russello", "Aleena Mathew"),
   verificatori: ("Pietro Crotti", "Carmelo Russello"),
   tipo: "Documento Esterno",
-  destinatari: ("Sigma\8", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
+  destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
   versioneAttuale: "0.2.0",
   content: content,
   versioni: (
@@ -190,16 +190,8 @@ Tutte le interazioni dell'utente vengono gestite dal _backend_, realizzato in Py
 
 Il _database_ MongoDB memorizza in modo sicuro i dati relativi ai workflow e agli utenti, garantendo persistenza e integrità.
 
-
-L'intera infrastruttura si appoggia a Docker, per garantire portabilità, isolamento e semplicità di gestione.
-
-L'architettura di deployment prevede tre container principali: frontend, backend e database. Per ciascun servizio è stato predisposto un Dockerfile che installa le dipendenze necessarie e copia il codice sorgente all'interno del container. Ogni servizio espone una porta specifica:
-- _frontend_: 5173;
-- _backend_: 5000;
-- _database_: 27017.
-
-La configurazione e l'orchestrazione dei container sono gestite tramite un file `compose.yaml`, che definisce le variabili d'ambiente necessarie per permettere la comunicazione tra i container.
-Per avviare l'intera infrastruttura è sufficiente eseguire il comando `docker compose up`, che provvede automaticamente alla creazione e all'avvio dei container secondo la configurazione stabilita.
+//TO DO
+L'intera infrastruttura si appoggia a AWS, che fornisce i servizi di hosting, gestione del database e scalabilità necessari per garantire un funzionamento efficiente e affidabile del sistema.
 
 == Architettura logica
 //TO DO maybe da mettere sopra
@@ -212,8 +204,12 @@ Si tratta di un design pattern creazionale che assicura che una classe abbia una
 Alcune componenti del sistema devono mantenere la propria integrità per tutta la durata dell'esecuzione del prodotto, evitando la creazione di istanze multiple. Questo pattern garantisce che, ovunque venga richiesto il componente, venga sempre restituita la stessa istanza.
 
 
-//TODO finish
-Nel contesto del nostro progetto, il pattern è stato adottato per  GetDB, FlaskAPP: Singleton
+//TODO controlla FlaskApp
+Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
+- *_BlockFactorySingleton_*: si tratta di una classe che garantisce che esista una sola istanza globale della _factory_ di blocchi all'interno dell'applicazione.\
+
+- *_FlaskAppSingleton_*: si tratta di una classe che garantisce che esista una sola istanza globale dell'applicazione Flask all'interno del sistema. Questo assicura che tutti i componenti dell'architettura facciano riferimento alla stessa istanza dell'applicazione web, evitando conflitti di configurazione e garantendo coerenza nell'handling delle richieste HTTP.
+
 
 === Decorator
 Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto, senza modificarne la struttura interna.\
@@ -222,10 +218,9 @@ In questo modo, è possibile comporre più decoratori per arricchire progressiva
 
 
 
-//TODO finish
-Nel contesto del nostro progetto, il pattern è stato adottato per
-
-ProtectedRoute: Decorator
+//TODO check
+Nel contesto del nostro progetto, il pattern è stato adottato nella seguente classe:
+- *_ProtectedDecorator_*: si tratta di una classe che implementa l'interfaccia _ProtectedDecoratorInterface_ per fornire un sistema di autenticazione e autorizzazione basato su JWT (JSON Web Token).
 
 === Facade
 
