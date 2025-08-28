@@ -190,13 +190,47 @@ Tutte le interazioni dell'utente vengono gestite dal _backend_, realizzato in Py
 
 Il _database_ MongoDB memorizza in modo sicuro i dati relativi ai workflow e agli utenti, garantendo persistenza e integrità.
 
-//TO DO
+//TO DO check
 L'intera infrastruttura si appoggia a AWS, che fornisce i servizi di hosting, gestione del database e scalabilità necessari per garantire un funzionamento efficiente e affidabile del sistema.
-
+Si può accedere al servizio dal link http://54.78.223.77:5173/
 == Architettura logica
 //TO DO maybe da mettere sopra
 
 == Design pattern
+
+=== Decorator
+Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto, senza modificarne la struttura interna.\
+Ciò è possibile grazie al _decoratore_, ovvero un oggetto che implementa la stessa interfaccia dell'oggetto originale aggiungendo nuovi comportamenti in modo modulare.
+In questo modo, è possibile comporre più decoratori per arricchire progressivamente le funzionalità, favorendo la flessibilità e la riusabilità del codice.
+
+
+
+//TODO check
+Nel contesto del nostro progetto, il pattern è stato adottato nella seguente classe:
+- *_ProtectedDecorator_*: si tratta di una classe che implementa l'interfaccia _ProtectedDecoratorInterface_ per fornire un sistema di autenticazione e autorizzazione basato su JWT (JSON Web Token).
+
+
+
+
+=== Facade
+
+Si tratta di un design pattern strutturale che fornisce un'interfaccia unica e semplice per un sottosistema complesso, nascondendo la complessità sottostante e facilitando l'interazione con esso fornendo un punto di accesso unico e intuitivo per l'utente.
+
+
+//TODO finish
+
+Nel contesto del nostro progetto, il pattern è stato adottato nel seguente caso:
+- *_LLMFacade_*: fornisce un'interfaccia semplificata per l'interazione con i servizi di LLM. La classe offre metodi come _generate_workflow(_) e _summarize()_.
+
+
+
+
+=== Iterator
+Si tratta di un design pattern comportamentale che consente di accedere agli elementi di una collezione in modo sequenziale senza esporre la struttura interna della collezione stessa.\
+
+Nel contesto del nostro progetto, il pattern è stato adottato nel seguente caso:
+- *_FlowIterator_*: fornisce un'implementazione dell'interfaccia _FlowIteratorInterface_ per consentire l'accesso sequenziale ai blocchi di un workflow.
+
 
 === Singleton
 
@@ -210,63 +244,10 @@ Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi
 
 - *_FlaskAppSingleton_*: si tratta di una classe che garantisce che esista una sola istanza globale dell'applicazione Flask all'interno del sistema. Questo assicura che tutti i componenti dell'architettura facciano riferimento alla stessa istanza dell'applicazione web, evitando conflitti di configurazione e garantendo coerenza nell'handling delle richieste HTTP.
 
+=== Strategy
 
-=== Decorator
-Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto, senza modificarne la struttura interna.\
-Ciò è possibile grazie al _decoratore_, ovvero un oggetto che implementa la stessa interfaccia dell'oggetto originale aggiungendo nuovi comportamenti in modo trasparente e modulare.
-In questo modo, è possibile comporre più decoratori per arricchire progressivamente le funzionalità, favorendo la flessibilità e la riusabilità del codice.
+Si tratta di un design pattern comportamentale che consente di definire una famiglia di algoritmi, rendendoli intercambiabili.
 
-
-
-//TODO check
-Nel contesto del nostro progetto, il pattern è stato adottato nella seguente classe:
-- *_ProtectedDecorator_*: si tratta di una classe che implementa l'interfaccia _ProtectedDecoratorInterface_ per fornire un sistema di autenticazione e autorizzazione basato su JWT (JSON Web Token).
-
-=== Facade
-
-Si tratta di un design pattern strutturale che fornisce un'interfaccia semplificata per un insieme di interfacce in un sottosistema, facilitando l'interazione con esso.
-Questo pattern è particolarmente utile quando si desidera nascondere la complessità di un sistema e offrire un punto di accesso unico e intuitivo per l'utente.
-
-
-//TODO finish
-
-Nel contesto del nostro progetto, il pattern è stato adottato per
-
-CognitoAuth, LLMQuery: Facade
-
-=== Template
-
-Si tratta di un design pattern comportamentale che definisce la struttura di un algoritmo in una classe base, delegando l'implementazione di alcuni passi alle sottoclassi.
-\ Questo fa sì che la logica generale dell'algoritmo rimanga invariata, mentre le sottoclassi possono implementare specifici passaggi secondo le proprie esigenze.\
-Viene favorita la riusabilità e la flessibilità del codice, consentendo di estendere il comportamento senza modificarne la struttura complessiva.
-
-//TODO finish
-Nel contesto del nostro progetto, il pattern è stato adottato per
-
-Data Saving -> DTO: Template
-
-
-=== Iterator / Visitor
-Running Blocks: Iterator or Visitor
-
-
-=== Object Adapter //cambia se si tratta di class
-
-Si tratta di un design pattern strutturale che permette la collaborazione tra oggetti con interfacce incompatibili tra loro.
-
-In particolare, il client interagisce con l'interfaccia _target_, implementata dall'_adapter_. Quest'ultimo, tramite composizione, contiene l'oggetto _adaptee_ e si occupa di tradurre le richieste provenienti dal client in operazioni compatibili con l'interfaccia dell'_adaptee_. In questo modo, l'adapter funge da ponte tra le due interfacce, garantendo l'integrazione senza modificare il codice originale degli oggetti coinvolti.
-
-Di seguito sono elencati i componenti principali dell'Object Adapter:
-
-- _Target_: interfaccia che il client si aspetta di utilizzare;
-- _Adaptee_: oggetto con l'interfaccia incompatibile;
-- _Adapter_: implementa l'interfaccia _target_ e mantiene un riferimento all'_adaptee_.
-
-//TODO: inserire info corrette
-
-Nel contesto del nostro progetto, l'Object Adapter è stato impiegato per la gestione dei blocchi all'interno del sistema di automazione. Ogni blocco rappresenta una classe che può essere estesa con tipologie specifiche, consentendo una maggiore flessibilità e riusabilità del codice.
-
-
-// Blocks -> A block is a class that gets extended with specific types. Converting response to blocks: Adapter
-
-
+Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
+- *_JsonParserStrategy_*: fornisce un'interfaccia per la definizione di diverse strategie di parsing dei documenti JSON, consentendo di selezionare l'algoritmo più appropriato in base al contesto.
+- *_SanitizationStrategy_*: fornisce un'interfaccia per la definizione di diverse strategie di sanitizzazione dei dati, consentendo di selezionare l'algoritmo più appropriato in base al contesto.
