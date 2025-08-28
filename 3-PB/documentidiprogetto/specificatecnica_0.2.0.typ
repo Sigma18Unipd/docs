@@ -3,13 +3,18 @@
   titoloDocumento: "Specifica Tecnica",
   abstract: "",
   responsabili: "Pietro Crotti",
-  redattori: ("Carmelo Russello", "Aleena Mathew"),
-  verificatori: ("Pietro Crotti", "Carmelo Russello"),
+  redattori: ("Carmelo Russello", "Aleena Mathew", "Pietro Crotti"),
+  verificatori: ("Pietro Crotti", "Carmelo Russello", "Matteo Marangon"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.2.0",
+  versioneAttuale: "0.3.0",
   content: content,
   versioni: (
+    "0.3.0",
+    "2025/08/28",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Aggiunti dettagli su sezione Tecnologie",
     "0.2.0",
     "2025/08/22",
     "Aleena Mathew",
@@ -65,11 +70,11 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 = Tecnologie
 == Linguaggi utilizzati
 === TypeScript
-TypeScript è un superset di JavaScript che aggiunge tipizzazione statica e altre funzionalità avanzate scelto per la sua capacità di migliorare la manutenibilità del codice e ridurre gli errori durante lo sviluppo.
+_TypeScript_ è un superset di _JavaScript_ che aggiunge tipizzazione statica e altre funzionalità avanzate scelto per la sua capacità di migliorare la manutenibilità del codice e ridurre gli errori durante lo sviluppo.
 
 - *Versione*: 5.8.3
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*: La parte frontend è sviluppata in _TypeScript_, ad esempio nel file di bootstrap _main.tsx_, dove vengono importati moduli tipizzati e avviata l'app _React_.
 
 - *Documentazione*: https://www.typescriptlang.org/docs/ (*Ultimo accesso il: XX/0X/2025*)
 
@@ -79,27 +84,29 @@ Linguaggio di markup utilizzato per la creazione di pagine web fornendo la strut
 
 - *Versione*: 5
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*: Il punto d'ingresso dell'applicazione web è il file `index.html`, che espone un `<div id="root">` in cui React monta l'interfaccia.
+
+
 
 - *Documentazione*: https://developer.mozilla.org/en-US/docs/Web/HTML (*Ultimo accesso il: XX/0X/2025*)
 
 === CSS
 
-Un linguaggio di stile utilizzato per descrivere l'aspetto e la formattazione di un documento scritto in HTML.
+Un linguaggio di stile utilizzato per descrivere l'aspetto e la formattazione di un documento scritto in _HTML_.
 
 - *Versione*: 3
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*:  Gli stili globali sono gestiti in `index.css`, che importa Tailwind e dichiara varianti personalizzate e variabili di tema per l'interfaccia.
 
 - *Documentazione*: https://developer.mozilla.org/en-US/docs/Web/CSS (*Ultimo accesso il: XX/0X/2025*)
 
 === Python
-Python è un linguaggio di programmazione interpretato ad alto livello che
+_Python_ è un linguaggio di programmazione interpretato ad alto livello che
 supporta diversi paradigmi di programmazione, come quello orientato agli oggetti (con supporto all'ereditarietà multipla), quello imperativo e quello funzionale.
 
 - *Versione*: X.X.X
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*:  Il _backend_ è implementato in _Python_; `backend.py` contiene l'inizializzazione dei servizi e le rotte _HTTP_ del _server_.
 
 - *Documentazione*: https://docs.python.org/3/ (*Ultimo accesso il: XX/0X/2025*)
 
@@ -107,73 +114,73 @@ supporta diversi paradigmi di programmazione, come quello orientato agli oggetti
 
 === React
 
-React è una libreria JavaScript per la creazione di interfacce utente. Semplifica lo sviluppo di applicazioni web complesse attraverso un approccio basato sui componenti.
+_React_ è una libreria _JavaScript_ per la creazione di interfacce utente. Semplifica lo sviluppo di applicazioni web complesse attraverso un approccio basato sui componenti.
 
 - *Versione*: 19.1.2
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*: L'interfaccia _client_ è realizzata con _React_: `main.tsx` importa i componenti principali e renderizza il router tramite _createRoot_.
 
 - *Documentazione*: https://react.dev/learn (*Ultimo accesso il: XX/0X/2025*)
 
 === React Router
 
-React Router è una libreria per la gestione della navigazione in applicazioni React.
+_React_ Router è una libreria per la gestione della navigazione in applicazioni _React_.
 
 - *Versione*: 7.6.0
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*:  La navigazione _client-side_ è configurata con _createBrowserRouter_, che mappa le varie pagine (_login_, _dashboard_, _edit_, ecc.) e gestisce i _redirect_.
 
 - *Documentazione*: https://reactrouter.com/7.6.0/home (*Ultimo accesso il: XX/0X/2025*)
 
 === React Flow
 
-React Flow è una libreria per la creazione di diagrammi e flussi di lavoro interattivi in React. Fornisce una serie di componenti e strumenti per costruire interfacce utente complesse in modo semplice e intuitivo.
+_React Flow_ è una libreria per la creazione di diagrammi e flussi di lavoro interattivi in _React_. Fornisce una serie di componenti e strumenti per costruire interfacce utente complesse in modo semplice e intuitivo.
 
 - *Versione*: 12.6.4
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*:  L'_editor_ visuale di _workflow_ utilizza la libreria `@xyflow/react`, importata e istanziata nel componente Edit con nodi ed _edge_ dinamici.
 
 - *Documentazione*: https://reactflow.dev/ (*Ultimo accesso il: XX/0X/2025*)
 
 === Shadcn
 
-Shadcn è una libreria per la creazione di interfacce utente in React.
+_Shadcn_ è una libreria per la creazione di interfacce utente in _React_.
 
 - *Versione*: 2.10.0
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*:  I componenti _UI_ sono generati secondo lo schema _shadcn_ (`components.json`) e implementati con _Radix_ e _class-variance-authority_, come nel pulsante riutilizzabile _Button_.
 
 - *Documentazione*: https://ui.shadcn.com/docs (*Ultimo accesso il: XX/0X/2025*)
 
 === Flask
 
-Flask è un framework per Python progettato per facilitare lo sviluppo di applicazioni web.
+_Flask_ è un _framework_ per _Python_ progettato per facilitare lo sviluppo di applicazioni web.
 
 - *Versione*: X.X.X
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*: Il _server web_ è basato su _Flask_; l'applicazione viene creata tramite _FlaskAppSingleton_, con _CORS_ abilitato e definizione di route per _login_ e gestione dei _workflow_.
 
 
 - *Documentazione*: https://flask.palletsprojects.com/en/stable/# \ (*Ultimo accesso il: XX/0X/2025*)
 
 === Boto3
 
-Boto3 è la libreria Amazon Web Services (AWS) SDK per Python, che consente di interagire con i servizi AWS.
+_Boto3_ è la libreria _Amazon Web Services (AWS) SDK_ per _Python_, che consente di interagire con i servizi _AWS_.
 
 - *Versione*: X.X.X
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*:  L'autenticazione sfrutta _AWS Cognito_ tramite il _client boto3 cognito-idp_, configurato con le credenziali e la regione _AWS_ specificata.
 
 - *Documentazione*: https://boto3.amazonaws.com/v1/documentation/api/latest/index.html\ (*Ultimo accesso il: XX/0X/2025*)
 
 == _Database_
 
 === MongoDB
-MongoDB è un database NoSQL orientato ai documenti che utilizza un modello di dati flessibile e scalabile.
+_MongoDB_ è un database _NoSQL_ orientato ai documenti che utilizza un modello di dati flessibile e scalabile.
 
 - *Versione*: X.X.X
 
-- *Utilizzo nel codice*: lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- *Utilizzo nel codice*: La persistenza dei dati avviene in _MongoDB_, con connessione gestita da _MongoDBSingleton_ (basato su _flask_pymongo_) e utilizzo del _database_ nelle rotte dell'app.
 
 - *Documentazione*: https://docs.mongodb.com/ (*Ultimo accesso il: XX/0X/2025*)
 
