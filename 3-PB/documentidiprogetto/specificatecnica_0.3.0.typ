@@ -106,7 +106,7 @@ supporta diversi paradigmi di programmazione, come quello orientato agli oggetti
 
 - *Versione*: X.X.X
 
-- *Utilizzo nel codice*:  Il _backend_ è implementato in _Python_; `backend.py` contiene l'inizializzazione dei servizi e le rotte _HTTP_ del _server_.
+- *Utilizzo nel codice*:  Il _backend_ è implementato in _Python_; `backend.py` contiene l'inizializzazione dei servizi e le _route_ _HTTP_ del _server_.
 
 - *Documentazione*: https://docs.python.org/3/ (*Ultimo accesso il: XX/0X/2025*)
 
@@ -180,7 +180,7 @@ _MongoDB_ è un database _NoSQL_ orientato ai documenti che utilizza un modello 
 
 - *Versione*: X.X.X
 
-- *Utilizzo nel codice*: La persistenza dei dati avviene in _MongoDB_, con connessione gestita da _MongoDBSingleton_ (basato su _flask_pymongo_) e utilizzo del _database_ nelle rotte dell'app.
+- *Utilizzo nel codice*: La persistenza dei dati avviene in _MongoDB_, con connessione gestita da _MongoDBSingleton_ (basato su _flask_pymongo_) e utilizzo del _database_ nelle _route_ dell'app.
 
 - *Documentazione*: https://docs.mongodb.com/ (*Ultimo accesso il: XX/0X/2025*)
 
@@ -322,7 +322,7 @@ Di seguito vengono elencati i principali componenti presenti:
 - *button*: bottone personalizzato con varianti di stile e gestione degli stati.
 - *card*: contenitore visivo per raggruppare contenuti con struttura flessibile.
 - *input*, *textarea*, *input-otp*, *form*, *label*: gestiscono form e campi di input.
-- *menubar*, *navigation-menu*, *context-menu*: componenti per la navigazione e i menù di navigazione per organizzare le azioni disponibili all’utente.
+- *menubar*, *navigation-menu*, *context-menu*: componenti per la navigazione e i menù di navigazione per organizzare le azioni disponibili all'  utente.
 
 === Composizione
 Avendo adoperato un'architettura modulare, i componenti
@@ -364,3 +364,61 @@ Viene riportato un esempio di codice che mostra come viene composto un _dialog_ 
 ```
 
 == Architettura Backend
+
+Il backend è stato sviluppato in _Python_ ed eseguito in un contesto Flask avviato tramite lo _singleton_ _FlasjkAppSingleton_ e containerizzabile con un dockerfile che prepara un'immagine basata su python3.13 e definisce vari target.
+Le variabili d'ambiente vengono caricate e usate per configurare il client AWS Cognito e la connessione a MongoDB, quest'ultima gestita dal singleton _MongoDBSingleton_.
+
+=== Gestione dell'autenticazione delle _Route_
+
+Il file `backend.py` costituisce il nucleo applicativo del sistema, occupandosi sia della definizione delle principali _route_ _REST_ sia della gestione dei meccanismi di autenticazione basati su _JWT_ e _AWS Cognito_.
+
+Le _route_ pubbliche, come `/login`, `/register` e `/confirm`, consentono l'interazione con _Cognito_ per la registrazione e l'accesso degli utenti. In tale contesto, i _token JWT_ vengono generati e successivamente verificati mediante le funzioni disponibili in `jwtUtils.py`, che implementano la logica di creazione, decodifica e validazione.
+
+Un ruolo centrale è ricoperto dal decoratore di autenticazione `protected`, definito all'interno dello stesso `backend.py`. Esso utilizza la direttiva `@wraps` per mantenere i metadati della funzione decorata e incapsula la logica di verifica dei _token_. In particolare:
+
+- recupera dalla richiesta il _cookie_ `jwtToken`;
+
+- lo valida attraverso la funzione `verifyJwt`, che decodifica il _token_ utilizzando la chiave segreta configurata e restituisce None in caso di firma scaduta o non valida;
+
+- se il _token_ è assente o non valido, effettua un _redirect_ automatico alla pagina di login (`/login`, `HTTP 302`);
+
+- se la validazione ha successo, associa l'indirizzo e-mail dell'utente autenticato al contesto globale di _Flask_ (`g.email`), permettendo così di identificarlo nelle successive elaborazioni.
+
+Tutte le _API_ che richiedono autenticazione sono annotate con il decoratore `@protected`, posto immediatamente sotto la definizione della rotta (`@app.route`). Tra queste rientrano la _dashboard_ e le _route_ relative alla gestione dei _workflow_ - creazione (`/api/new`), recupero, salvataggio, cancellazione ed esecuzione (`/api/flows/<id>`) - nonché le _API_ per l'elaborazione dei prompt verso l'_LLM_ (`/api/prompt`) e le operazioni di _logout_.
+
+Grazie a questa architettura, la logica di validazione dei _JWT_ viene centralizzata e riutilizzata in maniera uniforme, semplificando lo sviluppo e garantendo al contempo un livello di sicurezza costante su tutte le _route_ protette.
+
+
+=== Processo di generazione dei workflow
+
+Il processo di generazione dei workflow avviene in diverse fasi:
+
+1. *Invocazione dell'agente LLM* - La generazione parte da `agent_facade`, che invia il _prompt_ a un agente _AWS Bedrock_ e concatena i _chunk_ di risposta in una stringa _JSON_.
+
+2. *Parsing e sanitizzazione preliminare* - `process_prompt` usa `agent_facade`, prova a deserializzare il _JSON_ e passa il risultato a `sanitize_response`, che prepara l'albero di nodi per l'uso interno.
+
+3. *Ordinamento topologico dei nodi* - `JsonParser` applica un _TopologicalSorter_ per ricostruire l'ordine di esecuzione basandosi sulle dipendenze tra nodi (edge → source/target), restituendo sia la sequenza ordinata sia i metadati dei nodi.
+
+4. *Istanziazione dei blocchi* - `FlowManager` scorre i nodi ordinati e, per ciascuno, chiede a `BlockFactory` di creare l'istanza corretta. La _factory_ importa dinamicamente tutte le implementazioni disponibili (`flow.blocks`) e registra ogni tipo di blocco. Se un tipo non è supportato, viene sollevato un errore esplicativo.
+
+5. *Esecuzione sequenziale e logging* - I blocchi vengono eseguiti da `FlowIterator`, che avvia un _thread_, passa l'output del blocco precedente come input al successivo e accumula gli `ExecutionLog`. Ogni blocco deriva da `Block`, che gestisce _status_, _timing_ e _log_ e solleva eccezioni in caso di validazione fallita.
+
+=== Processo di sanitizzazione dei workflow
+
+Il processo di sanitizzazione dei _workflow_ ha 3 principali fasi:
+
+1. *Strategia base e campi comuni* - `BasicFieldsStrategy` garantisce la presenza dei campi obbligatori (id, type, data, position). Gli ID vengono generati progressivamente e le posizioni sono assegnate in griglia 400x400 per facilitare il _rendering_ grafico.
+
+2. *Strategie specifiche per tipo di nodo* - Strategie dedicate completano i dati caratteristici dei vari blocchi: ad esempio, per `telegramSendBotMessage` si aggiungono _botToken_, _chatId_ e _message_; per `systemWaitSeconds` si imposta il campo _seconds_ con _default_ a 5.
+
+3. *Registry ed estensibilità* - `SanitizationStrategyRegistry` applica prima la strategia base, poi seleziona quella specifica in base al tipo di nodo; se assente, usa una `DefaultNodeStrategy`. Il _registry_ è estendibile tramite `register_node_strategy`, consentendo di supportare nuovi tipi senza toccare il _core_.
+
+=== Diagramma delle classi
+//TODO inserire immagine diagramma classi
+
+
+
+
+= Limiti e criticità
+
+= Stato requisiti funzionali
