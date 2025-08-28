@@ -421,7 +421,6 @@ Il processo di sanitizzazione dei _workflow_ ha 3 principali fasi:
 
 = Limiti e criticità
 
-= Stato requisiti funzionali
 
 
 
