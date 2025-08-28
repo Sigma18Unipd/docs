@@ -364,3 +364,126 @@ Viene riportato un esempio di codice che mostra come viene composto un _dialog_ 
 ```
 
 == Architettura Backend
+
+
+
+= Stato dei requisiti funzionali
+Nella seguente sezione permette di avere una panoramica sullo stato di avanzamento dei requisiti funzionali individuati durante la fase di analisi, è possibile trovare una spiegazione più approfondita sul documento #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_1.2.0.pdf")[Analisi dei Requisiti v2.0.0.].
+
+== Tracciamento dei requisiti funzionali
+
+Nella tabella sottostante vengono riportati il codice univoco di ciascun requisito, la sua descrizione, lo stato di avanzamento che può essere soddisfatto o meno.
+
+In particolare, il codice univoco è composto come segue:
+#align(center)[*R[Rilevanza][Tipologia]-[ID]*]
+dove:
+- *R*: indica che si tratta di un requisito.
+
+- *Rilevanza*: indica la rilevanza del requisito, che può essere:
+
+  - *O*: requisito obbligatorio;
+
+  - *D*: requisito desiderabile;
+
+  - *F*: requisito facoltativo.
+
+- *Tipologia*: indica la tipologia del requisito, che può essere:
+
+  - *F*: requisito funzionale;
+
+  - *Q*: requisito qualitativo;
+
+  - *V*: requisito di vincolo.
+
+- *ID*: numero progressivo del requisito, univoco all'interno della rispettiva categoria.
+
+
+#table(
+  columns: (1fr, 5fr, 2.5fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Codice*], [*Descrizione*], [*Stato*]),
+  [ROF-1], [L'utente deve poter effettuare _login_ con il proprio account per autenticarsi nel _client_], [Soddisfatto],
+
+  [ROF-2], [L'utente autenticato deve poter inserire la sua _e-mail_ per accedere all'applicativo], [Soddisfatto],
+
+  [ROF-3], [L'utente deve poter inserire la sua _password_ per accedere all'applicativo], [Soddisfatto],
+
+  [ROF-4], [L'utente deve potersi registrare con la creazione di un nuovo account], [Soddisfatto],
+
+  [ROF-5], [L'utente non autenticato deve poter inserire la sua _e-mail_ per registrarsi nell'applicativo], [Soddisfatto],
+
+  [ROF-6], [L'utente deve poter creare la sua _password_ per registrarsi nell'applicativo], [Soddisfatto],
+
+  [ROF-7], [L'utente deve poter reinserire la sua password per la registrazione nell'applicativo], [Soddisfatto],
+
+  [ROF-8], [Il sistema restituisce un errore per credenziali non valide inserite dall'utente], [Soddisfatto],
+
+  [ROF-9], [Il sistema restituisce un errore nel caso si riscontrino problemi], [Soddisfatto],
+
+  [ROF-10], [Il sistema deve restituire un errore se l'_e-mail_ è già in uso in fase di registrazione], [Soddisfatto],
+
+  [ROF-11],
+  [Il sistema deve restituire un errore se la _password_ non adempie ai requisiti di sicurezza o le _password_ non coincidono tra loro in fase di registrazione],
+  [Soddisfatto],
+
+  [ROF-12], [L'utente deve poter creare una nuova _routine_ ], [Soddisfatto],
+  [ROF-13], [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso], [Non soddisfatto],
+
+  [ROF-14], [L'utente deve poter generare una _routine_ tramite linguaggio naturale], [Soddisfatto],
+
+  [ROF-17], [Il sistema deve restituire un errore se non è possibile generare il flusso], [Soddisfatto],
+
+  [ROF-18], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [Soddisfatto],
+  [ROF-19], [L'utente deve poter visualizzare il nome di una _routine_ esistente], [Soddisfatto],
+  [ROF-20], [L'utente deve poter visualizzare il diagramma dei blocchi di una _routine_ esistente], [Soddisfatto],
+
+  [ROF-21], [L'utente deve poter eliminare una _routine_ esistente], [Soddisfatto],
+  [ROF-22], [L'utente deve poter avviare una routine esistente], [Soddisfatto],
+  [ROF-23], [L'utente deve poter avviare una routine esistente dalla dashboard], [Soddisfatto],
+  [ROF-24], [L'utente deve poter avviare una routine esistente dalla pagina di modifica del flusso], [Soddisfatto],
+
+  [ROF-29], [L'utente deve poter aggiungere un blocco ad una _routine_ esistente], [Soddisfatto ],
+  [ROF-30], [L'utente deve poter aggiungere un blocco del tipo "_Telegram_ - Send Bot Message" ad una _routine_ esistente], [Soddisfatto],
+
+  [ROF-32], [L'utente deve poter aggiungere un blocco del tipo "_AI_ - Summarize" ad una _routine_ esistente], [Soddisfatto],
+
+  [ROF-33], [L'utente deve poter aggiungere un blocco del tipo "_System_ - Wait Second(s)" ad una _routine_ esistente], [Soddisfatto],
+
+  [ROF-34], [L'utente deve poter aggiungere un blocco del tipo "_Notion_ - Get Page" ad una _routine_ esistente], [Soddisfatto],
+
+  [ROF-35], [L'utente deve poter visualizzare le impostazioni di un singolo blocco], [Soddisfatto],
+  [ROF-36], [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [Soddisfatto],
+
+  [ROF-38], [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [Soddisfatto],
+
+  [ROF-39], [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [Soddisfatto],
+
+  [ROF-40], [L'utente deve poter modificare le impostazioni di un singolo blocco], [Soddisfatto],
+  [ROF-41], [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [Soddisfatto],
+
+  [ROF-43], [L'utente deve poter modificare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [Soddisfatto],
+
+  [ROF-44], [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [Soddisfatto],
+
+  [ROF-46],
+  [Il sistema deve salvare le modifiche apportate dall'utente alla _routine_ appena viene premuto il tasto di salvataggio],
+  [Soddisfatto],
+
+  [ROF-48], [L'utente deve potere eliminare un blocco da una _routine_ esistente ], [Soddisfatto],
+
+  [ROF-49], [L'utente deve potere eliminare un blocco da una _routine_ esistente da tastiera], [Soddisfatto],
+
+  [ROF-50], [L'utente deve potere eliminare un blocco da una _routine_ esistente da interfaccia grafica], [Soddisfatto],
+
+  [ROF-51], [L'utente deve potere collegare due blocchi di una _routine_ esistente], [Soddisfatto],
+  [ROF-52], [L'utente deve potere scollegare due blocchi di una _routine esistente_], [Soddisfatto],
+  [RDF-54], [L’utente può impostare la modalità del client in dark mode o light mode], [Soddisfatto],
+  [ROF-55], [L'utente deve poter effettuare il _logout_ dall'applicativo], [Soddisfatto],
+  [ROF-56], [L'utente deve poter visualizzare la dashboard in seguito al login nell'applicativo], [Soddisfatto],
+
+  [ROF-57], [L'utente deve poter ritornare alla dashboard dalla pagina di modifica flusso], [Soddisfatto],
+  [ROF-58], [L'utente deve poter modificare il nome di una _routine_ esistente], [Soddisfatto],
+)
+
+== Grafici riassuntivi
