@@ -197,6 +197,7 @@ Si può accedere al servizio dal link http://54.78.223.77:5173/
 //TO DO maybe da mettere sopra
 
 == Design pattern
+In questa sezione vengono descritti i design pattern adottati e il loro utilizzo.
 
 === Decorator
 Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto, senza modificarne la struttura interna.\
@@ -251,3 +252,108 @@ Si tratta di un design pattern comportamentale che consente di definire una fami
 Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
 - *_JsonParserStrategy_*: fornisce un'interfaccia per la definizione di diverse strategie di parsing dei documenti JSON, consentendo di selezionare l'algoritmo più appropriato in base al contesto.
 - *_SanitizationStrategy_*: fornisce un'interfaccia per la definizione di diverse strategie di sanitizzazione dei dati, consentendo di selezionare l'algoritmo più appropriato in base al contesto.
+
+
+#pagebreak()
+
+== Architettura Frontend
+
+Per lo sviluppo del frontend, è stata adottata un'architettura modulare e scalabile basata su componenti riutilizzabili.
+Questa scelta permette di aggiungere facilimente nuove _feature_ o componenti senza compromettere il resto.
+Viene quindi facilitata la manutenzione e l'estendibilità.
+
+Per il suo sviluppo sono stati utlizzati React, Vite e TypeScript.
+
+=== Struttura del codice
+Viene riportata una panoramica della struttura delle cartelle e dei file principali riguardanti il frontend:
+
+#align(center)[
+  ```
+  frontend
+    ├── node_modules
+    │   └── ....
+    ├── src
+    │   └── components
+    │   │   └── ui
+    │   └── features
+    │   │   └── auth
+    │   │     └── ....
+    │   │   └── dashboard
+    │   │     └── ....
+    │   │   └── edit
+    │   │     └── nodes
+    │   └── lib
+    │   │   └── utils
+    │   └── main.tsx
+    ├── vite.config.ts
+    ├── index.html
+    └── ...
+  ```
+]
+
+
+Nella cartella `src` è contenuto il codice sorgente dell'applicazione.
+Al suo interno troviamo:
+- `main.tsx`: punto di ingresso dell'applicazione.
+- `components`: cartella contente le sotto-cartelle come `ui` e `magicui`. La prima contiene componenti di interfaccia utente generici come i bottoni e le card, la seconda invece componenti con effetti grafici come i bottoni arcobaleno.
+- `features`: contiene le funzionalità principali suddivise per nel seguente modo:
+  - `auth`: gestisce l'autenticazione (login, registrazione, conferma).
+  - `dashboard`: gestisce la dashboard utente.
+  - `edit`: gestisce a modifica di contenuti, con una sottocartella `nodes` per i vari tipi di nodi (es. `telegramSendBotMessage.tsx`).
+- `lib`: contiene utility e funzioni di supporto (`utils.ts`).
+
+I file di configurazione, come `vite.config.ts`, `tsconfig.json`, gestiscono la build, i tipi TypeScript e le dipendenze. Invece file come `index.html` e `index.css` gestiscono la struttura e lo stile globale.
+
+
+=== Componenti
+
+In questa sezione vengono descritte i vari componenti di interfaccia utente presenti nella cartella `components`.
+
+
+Di seguito vengono elencati i principali componenti presenti:
+- *alert-dialog*: componente per mostrare finestre di dialogo di avviso/conferma.
+- *button*: bottone personalizzato con varianti di stile e gestione degli stati.
+- *card*: contenitore visivo per raggruppare contenuti con struttura flessibile.
+- *input*, *textarea*, *input-otp*, *form*, *label*: gestiscono form e campi di input.
+- *menubar*, *navigation-menu*, *context-menu*: componenti per la navigazione e i menù di navigazione per organizzare le azioni disponibili all’utente.
+
+=== Composizione
+Avendo adoperato un'architettura modulare, i componenti
+seguono un pattern di composizione modulare permettendo di combinare più elementi. Questo approccio favorisce la riusabilità e la manutenibilità del codice.
+
+Viene riportato un esempio di codice che mostra come viene composto un _dialog_ per la creazione di un nuovo workflow utilizzando vari componenti riutilizzabili:
+
+
+```tsx
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button>Create a Workflow</Button>
+            </DialogTrigger>
+            <DialogContent className='sm:max-w-[500px]'>
+              <DialogHeader>
+                <DialogTitle>Create a new workflow</DialogTitle>
+              </DialogHeader>
+              <div className='grid gap-4'>
+                <div className='grid gap-2'>
+                  <Label htmlFor='name-1'>Name</Label>
+                  <Input
+                    onChange={e => setNewWorkflowName(e.target.value)}
+                    type='text'
+                    placeholder='Enter the name of your workflow'
+                    className='resize-none'
+                  />
+                </div>
+              </div>
+              <DialogFooter>
+                <DialogClose asChild>
+                  <Button variant='outline'>Cancel</Button>
+                </DialogClose>
+                <Button type='submit' onClick={() =>  createNewWorkflow(newWorkflowName)}>
+                  Create
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+```
+
+== Architettura Backend
