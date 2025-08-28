@@ -4,12 +4,17 @@
   abstract: "",
   responsabili: ("Pietro Crotti", "Carmelo Russello"),
   redattori: ("Aleena Mathew", "Matteo Marangon", "Pietro Crotti"),
-  verificatori: ("Pietro Crotti", "Marco Egidi", "Alessandro Bernardello"),
+  verificatori: ("Pietro Crotti", "Marco Egidi", "Alessandro Bernardello", "Aleena Mathew"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.4.0",
+  versioneAttuale: "0.4.1",
   content: content,
   versioni: (
+    "0.4.1",
+    "2025/08/28",
+    "Matteo Marangon",
+    "Aleena Mathew",
+    "Correzioni e rifiniture varie",
     "0.4.0",
     "2025/08/27",
     "Aleena Mathew",
@@ -93,25 +98,15 @@ Si raccomanda tuttavia di utilizzare dispositivi con risoluzione schermo minima 
 
 I requisiti software indicano le dipendenze e i programmi che devono essere installati sul sistema dell'utente per consentire l'avvio e il corretto funzionamento del prodotto.
 
-
 Data la natura dell'applicativo che è ospitato su #glossario("AWS"), per il suo utilizzo sono sufficienti un browser moderno e una connessione internet stabile.\
 Gli utenti possono accedere all'applicazione direttamente tramite link fornito di seguito.
 //TODO aggiungi link
-
-
 
 
 Tuttavia, è possibile effettuare un deployment locale dell'applicativo seguendo le istruzioni riportate nella #link(<repo>)[sezione 3].
 Il sistema si appoggia a #glossario("Docker") per garantire la corretta esecuzione dell'applicativo. Pertanto, è necessario che Docker sia installato sulla propria macchina prima di procedere con l'utilizzo in locale del prodotto.
 
 Se non è presente, è possibile installarlo seguendo le istruzioni disponibili sul #link("https://docs.docker.com/get-docker/")[sito ufficiale] [ultimo accesso il: 18/08/2025].
-
-== Requisiti di sistema operativo
-È garantito il corretto funzionamento del prodotto sui seguenti sistemi operativi:
-//TODO elenco
-
-Si raccomanda di utilizzare sistemi aggiornati per assicurare la massima stabilità e sicurezza.
-
 
 
 == Requisiti browser
@@ -225,7 +220,6 @@ Di seguito viene presentata una guida dettagliata all'utilizzo dell'applicativo,
 #figure(image("../../assets/img/manualeutente/login.png", width: 35%), caption: [Schermata di login])
 All'avvio dell'applicativo viene presentata la schermata di _login_. L'utente che possiede già un account può accedere al servizio inserendo le proprie credenziali (email e password) negli appositi campi, come illustrato in figura.
 
-
 Se l'utente non dispone di un account, può procedere con la registrazione seguendo le istruzioni riportate nella #link(<registrazione>)[sezione 4.2].
 
 === Errori
@@ -248,20 +242,18 @@ L'errore 500 si verifica quando si presenta un errore diverso da quelli preceden
 
 == Registrazione
 <registrazione>
-#figure(image("../../assets/img/manualeutente/register.png", width: 35%), caption: [Schermata di registrazione])
 La pagina di registrazione consente all'utente di creare un nuovo account per accedere all'applicativo.
 Per completare la registrazione, è necessario inserire un indirizzo email valido, una password e confermare la password negli appositi campi, come mostrato in figura.
+#figure(image("../../assets/img/manualeutente/register.png", width: 35%), caption: [Schermata di registrazione])
 
+La password deve contenere almeno 8 caratteri. Se la password inserita non rispetta questo requisito, il sistema mostrerà un messaggio di errore, come illustrato in figura.
 #figure(
   image("../../assets/img/manualeutente/error_password_8char.png", width: 35%),
   caption: [Error: lunghezza minima password non rispettata],
 )
 
-La password deve contenere almeno 8 caratteri. Se la password inserita non rispetta questo requisito, il sistema mostrerà un messaggio di errore, come illustrato in figura.
-
-#figure(image("../../assets/img/manualeutente/error_password_match.png", width: 35%), caption: [Error: le password non coincidono])
 Se la password e la conferma della password non coincidono, il sistema mostrerà un messaggio di errore, come mostrato in figura.
-
+#figure(image("../../assets/img/manualeutente/error_password_match.png", width: 35%), caption: [Error: le password non coincidono])
 
 Per verificare l'account, seguire le istruzioni definite nella #link(<confirm>)[sezione 4.3].
 
@@ -271,7 +263,7 @@ L'errore 409 si verifica quando l'utente tenta di registrarsi con un'email già 
 #figure(image("../../assets/img/manualeutente/error409.png", width: 35%), caption: [Error: Email già in uso])
 ==== Error 500
 
-L'errore 500 si verifica quando si verifica un problema diverso da quelli precedenti. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
+L'errore 500 si verifica quando si presenta un problema diverso da quelli precedenti. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
 
 #figure(image("../../assets/img/manualeutente/error500reg.png", width: 35%), caption: [Error 500])
 
@@ -282,15 +274,9 @@ L'utente dovrà inserire email e codice di verifica negli appositi campi, come m
 #figure(image("../../assets/img/manualeutente/confirm_account.png", width: 40%), caption: [Schermata di verifica account])
 
 
-Dopo la verifica dell'account, il sistema reindirizza automaticamente l'utente alla pagina _dashboard_ iniziale, che risulterà vuota in quanto non sono ancora presenti workflow associati all’account appena creato (vedi figura).
+Dopo la verifica dell'account, il sistema reindirizza automaticamente l'utente alla pagina _dashboard_ iniziale, che risulterà vuota in quanto non sono ancora presenti _workflow_ associati all’account appena creato (vedi figura).
 
-#figure(
-  [
-    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
-    #image("../../assets/img/manualeutente/dashboard_empty.png", width: 60%)
-  ],
-  caption: [Dashboard vuota],
-)
+#figure(image("../../assets/img/manualeutente/dashboard_empty.png", width: 80%), caption: [Dashboard vuota])
 
 Nella #link(<dashboard>)[sez. 4.4] è possibile trovare le istruzioni da eseguire per sfruttare le varie funzionalità.
 
@@ -308,7 +294,7 @@ L'errore 404 si verifica nei seguenti casi:
 
 ==== Error 500
 
-L'errore 500 si verifica quando si verifica un problema diverso da quelli precedentemente trattati. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
+L'errore 500 si verifica quando si presenta un problema diverso da quelli precedentemente trattati. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
 
 
 
@@ -318,96 +304,77 @@ L'errore 500 si verifica quando si verifica un problema diverso da quelli preced
 Dopo aver effettuato l'accesso attraverso la pagina di _login_, l'utente viene indirizzato alla pagina della _dashboard_ dell'applicativo.
 
 
-#figure(
-  [
-    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
-    #image("../../assets/img/manualeutente/dashboard.png", width: 80%)
-  ],
-  caption: [Dashboard],
-)
+#figure(image("../../assets/img/manualeutente/dashboard.png", width: 80%), caption: [Dashboard])
 
 
-Da questa pagina è possibile effettuare le azione base dell'applicativo come creare nuovi workflow, eseguire un workflow, visualizzare i dettagli del workflow oppure effettuare il logout tramite i comandi disponibili nell'interfaccia.
+Da questa pagina è possibile effettuare le azione base dell'applicativo come creare nuovi _workflow_, eseguire un _workflow_, visualizzare i dettagli del _workflow_ oppure effettuare il logout, tramite i comandi disponibili nell'interfaccia.
 
-=== Creazione nuovo workflow
+=== Creazione nuovo _workflow_
 
 #h(1em)
-#figure(
-  [
-    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
-    #image("../../assets/img/manualeutente/navbar_dashboard.png", width: 80%),
-  ],
-  caption: [Navbar dashboard],
-)
+#figure(image("../../assets/img/manualeutente/navbar_dashboard.png"), caption: [Navbar dashboard])
 
-Per creare un nuovo workflow è sufficiente selezionare l'apposito pulsante _*Create a Workflow*_ , situato in alto a destra, come mostrato in figura.
+Per creare un nuovo _workflow_ è sufficiente selezionare l'apposito pulsante _*Create a Workflow*_, situato in alto a destra, come mostrato in figura.
 
-#figure(image("../../assets/img/manualeutente/workflow_create.png", width: 45%), caption: [Nome nuovo workflow])
+#figure(image("../../assets/img/manualeutente/workflow_create.png", width: 45%), caption: [Nome nuovo _workflow_])
 
-A questo punto viene visualizzato un popup che permette all'utente di inserire il nome desiderato per il nuovo workflow.
-Dopo aver inserito il nome, è sufficiente premere il pulsante _*Create*_ per creare un workflow vuoto.
+A questo punto viene visualizzato un popup che permette all'utente di inserire il nome desiderato per il nuovo _workflow_.
+Dopo aver inserito il nome, è sufficiente premere il pulsante _*Create*_ per creare un _workflow_ vuoto.
 
 ==== Errori
 ===== Error 400
 <errori-nome>
 L'errore 400 si verifica nei due casi elencati di seguito:
-+ L'utente tenta di creare un workflow senza inserire un nome. In questo caso, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"workflow name is required"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/emptyname.png", width: 35%), caption: [Error: nome mancante])
-+ L'utente tenta di creare un workflow con un nome che supera i 25 caratteri. In questo caso, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"workflow name must be less than 25 characters"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/nametoolong.png", width: 35%), caption: [Error: nome troppo lungo])
++ L'utente tenta di creare un _workflow_ senza inserire un nome. In questo caso, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"workflow name is required"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/emptyname.png", width: 35%), caption: [Error: nome mancante])
++ L'utente tenta di creare un _workflow_ con un nome che supera i 25 caratteri. In questo caso, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"workflow name must be less than 25 characters"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/nametoolong.png", width: 35%), caption: [Error: nome troppo lungo])
 
 ===== Error 500
 
-L'errore 500 si verifica quando si verifica un problema diverso da quelli precedentemente trattati. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
+L'errore 500 si verifica quando si presenta un problema diverso da quelli precedentemente trattati. In questo caso, il sistema mostra un messaggio di errore generico che indica un problema interno del server.
 
 
-=== Eseguire un workflow dalla pagina Dashboard
-Per avviare un workflow, l'utente deve selezionare l'icona _play_ situata accanto al nome del workflow che si desidera eseguire.
-Una volta premuto il pulsante, il sistema provvederà a iniziare l'esecuzione del workflow scelto.
+=== Eseguire un _workflow_ dalla pagina Dashboard
+Per avviare un _workflow_, l'utente deve selezionare l'icona _play_ situata accanto al nome del _workflow_ che si desidera eseguire.
+Una volta premuto il pulsante, il sistema provvederà ad avviare l'esecuzione del _workflow_ scelto.
 
 
-#figure(image("../../assets/img/manualeutente/workflow_runfromdashboard.png", width: 35%), caption: [Avviare un workflow dalla dashboard])
+#figure(image("../../assets/img/manualeutente/workflow_runfromdashboard.png", width: 35%), caption: [Avviare un _workflow_ dalla dashboard])
 
-=== Visualizzazione dettagli workflow
-Per visualizzare i dettagli di un workflow è sufficiente selezionare il nome del workflow desiderato.
-L'utente verrà quindi reindirizzato automaticamente alla pagina dedicata alla visualizzazione e alla modifica del workflow.
+=== Visualizzazione dettagli _workflow_
+Per visualizzare i dettagli di un _workflow_ è sufficiente selezionare il nome del _workflow_ desiderato.
+L'utente verrà quindi reindirizzato automaticamente alla pagina dedicata alla visualizzazione e alla modifica del _workflow_.
 
 == Modifica flusso
 
 Per modificare un _workflow_, l'utente deve selezionare dalla _dashboard_ il flusso desiderato; verrà quindi reindirizzato alla pagina di dettaglio, come illustrato nella figura seguente.
 
 
-#figure(
-  [
-    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
-    #image("../../assets/img/manualeutente/grid.png", width: 80%),
-  ],
-  caption: [Visualizzazione dettagliata del workflow],
-)
+#figure(image("../../assets/img/manualeutente/grid.png", width: 80%), caption: [Visualizzazione dettagliata del _workflow_])
 
-L'utente può visualizzare la struttura completa del workflow, con tutti i blocchi e le relazioni tra essi. L’utente può interagire direttamente con i blocchi per modificarli, aggiungerne di nuovi, rimuoverli o modificarne le relazioni.
+L'utente può visualizzare la struttura completa del _workflow_, con tutti i blocchi e le relazioni tra essi. L’utente può interagire direttamente con i blocchi per modificarli, aggiungerne di nuovi, rimuoverli o modificarne le relazioni.
 
 
 #h(1em)
-#figure(image("../../assets/img/manualeutente/navbar_workflow.png"), caption: [Barra di navigazione della pagina workflow])
+#figure(image("../../assets/img/manualeutente/navbar_workflow.png"), caption: [Barra di navigazione della pagina _workflow_])
 #h(1em)
 
-L'utente potrà modificare il workflow adoperando uno dei due metodi possibili accessibili con i due bottoni presenti nella navbar, come mostrato in figura.
+L'utente potrà modificare il _workflow_ adoperando uno dei due metodi possibili accessibili con i due bottoni presenti nella _navbar_, come mostrato in figura.
 
 === Modifica tramite _AI Workflow Builder_
-Per modificare il workflow tramite _AI Workflow Builder_, l'utente deve premere il primo bottone evidenziato nella barra di navigazione, come mostrato in figura.
+Per modificare il _workflow_ tramite _AI Workflow Builder_, l'utente deve premere il primo bottone evidenziato nella barra di navigazione, come mostrato in figura.
 #figure(image("../../assets/img/manualeutente/workflow_page_aibuilder.png", width: 80%), caption: [Button: AI Workflow Builder])
 
-Si aprirà quindi un modale dedicato, nel quale l'utente può descrivere in linguaggio naturale le modifiche desiderate al workflow, come mostrato nella figura seguente.
+Si aprirà quindi un modale dedicato, nel quale l'utente può descrivere in linguaggio naturale le modifiche desiderate al _workflow_, come mostrato nella figura seguente.
 
 #figure(image("../../assets/img/manualeutente/ai_workflowbuilder.png", width: 50%), caption: [Modale _AI Builder_])
 
 ==== Error 400
 
-//TODO inserire errore giusto
-Nel caso l'utente non inserisca nulla nel prompt, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"prompt is required"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/emptyname.png", width: 35%), caption: [Error: prompt mancante])
+Nel caso l'utente non inserisca nulla nel prompt, il sistema mostrerà un messaggio di errore in basso a destra, con la dicitura _"prompt is required"_, come mostrato in figura. #figure(image("../../assets/img/manualeutente/error_promptrequired.png", width: 35%), caption: [Error: prompt mancante])
 
 === Aggiunta di blocchi tramite _Add a Block_
 
-Per aggiungere manualmente un blocco al workflow, l'utente deve selezionare il pulsante _*Add a Block*_ evidenziato nella barra di navigazione, come mostrato in figura.
+Per aggiungere manualmente un blocco al _workflow_, l'utente deve selezionare il pulsante _*Add a Block*_ evidenziato nella barra di navigazione, come mostrato in figura.
 #figure(
   image("../../assets/img/manualeutente/workflow_page_addablock.png", width: 80%),
   caption: [Button: Add a Block],
@@ -418,63 +385,57 @@ Successivamente verrà visualizzato un menù laterale che consente all'utente di
 
 === Rimozione di un blocco
 
-Per rimuovere un blocco dal workflow, l'utente deve selezionare l'icona delle _impostazioni_ del blocco che desidera eliminare. Successivamente, nel menù che si apre, è sufficiente premere il bottone rosso _*Remove Block*_, come illustrato in figura.
+Per rimuovere un blocco dal _workflow_, l'utente deve selezionare l'icona delle _impostazioni_ del blocco che desidera eliminare. Successivamente, nel menù che si apre, è sufficiente premere il bottone rosso _*Remove Block*_, come illustrato in figura.
 #figure(image("../../assets/img/manualeutente/remove_block.png", width: 45%), caption: [Button: Remove Block])
 
-Ad eccezione del blocco _AI: Summarize_, di cui i dettagli sono forniti nella #link("<ai-summarize>")[sez. 4.7.3].
+Fa eccezione il blocco _AI: Summarize_, i cui dettagli sono forniti nella #link("<ai-summarize>")[sez. 4.7.3].
 
-== Funzionalità di un flusso //cambia nome
-Dopo la creazione o la modifica di un flusso, l'utente può accedere a diverse funzionalità relative al workflow tramite il modale che si aprirà quando si ritorna alla dashboard, premendo il bottone indicato in figura.
+== Funzionalità del Menu _workflow_
+Dopo la creazione o la modifica di un flusso, l'utente può accedere a diverse funzionalità relative al _workflow_ tramite il modale che si aprirà quando si ritorna alla dashboard, premendo il bottone indicato in figura o il tasto destro del mouse in uno spazio vuoto del _workflow_.
 
-#figure(
-  [
-    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
-    #image("../../assets/img/manualeutente/workflowmenu.png", width: 80%),
-  ],
-  caption: [Button: Workflow Menu],
-)
+#figure(image("../../assets/img/manualeutente/workflowmenu.png", width: 80%), caption: [Button: _workflow_ Menu])
 
 Di seguito vengono elencate le operazioni possibili.
 
 === Salvataggio di un flusso
 
-#figure(image("../../assets/img/manualeutente/workflow_menu_save.png", width: 50%), caption: [Salvataggio di un workflow])
-Per salvare il workflow, dopo la sua creazione o modifica è sufficiente premere il bottone _Save_ evidenziato in figura.\
-Il workflow verrà così memorizzato e sarà disponibile nella dashboard dell'utente.
+#figure(image("../../assets/img/manualeutente/workflow_menu_save.png", width: 50%), caption: [Salvataggio di un _workflow_])
+Per salvare il _workflow_ dopo la sua creazione o modifica, è sufficiente premere il bottone _Save_ evidenziato in figura.\
+Il _workflow_ verrà così memorizzato e sarà disponibile nella dashboard dell'utente.
 
 
 === Esecuzione di un flusso
-#figure(image("../../assets/img/manualeutente/workflow_menu_run.png", width: 50%), caption: [Esecuzione di un workflow])
+#figure(image("../../assets/img/manualeutente/workflow_menu_run.png", width: 50%), caption: [Esecuzione di un _workflow_])
 
-Per eseguire un workflow, l'utente deve selezionare l'icona _Run_ come evidenziato in figura.
+Per eseguire un _workflow_, l'utente deve selezionare l'icona _Run_ come evidenziato in figura.
 
-In assenza di errori, il sistema avvierà l'esecuzione del workflow e mostrerà una notifica di avvio con successo in basso a destra, come mostrato in figura.
+In assenza di errori, il sistema avvierà l'esecuzione del _workflow_ e mostrerà una notifica di avvio con successo in basso a destra, come mostrato in figura.
 
 #figure(image("../../assets/img/manualeutente/successful_workflow.png", width: 50%), caption: [Notifica di avvio con successo])
 
 
 
-=== Eliminazione di un workflow
-#figure(image("../../assets/img/manualeutente/workflow_menu_delete.png", width: 50%), caption: [Eliminazione di un workflow])
-Per eliminare un workflow, l'utente deve selezionare il pulsante _Delete Workflow_ dal menù, come indicato in figura.
+=== Eliminazione di un _workflow_
+#figure(image("../../assets/img/manualeutente/workflow_menu_delete.png", width: 50%), caption: [Eliminazione di un _workflow_])
+Per eliminare un _workflow_, l'utente deve selezionare il pulsante _Delete Workflow_ dal menù, come indicato in figura.
 
-A questo punto, il sistema mostrerà un popup di conferma; per completare l'eliminazione, è necessario premere il pulsante rosso _*Delete Workflow*_, visibile nella figura di seguito.
-#figure(image("../../assets/img/manualeutente/delete_workflow.png", width: 50%), caption: [Popup di conferma eliminazione di un workflow])
+A questo punto, il sistema mostrerà un popup di conferma; per completare l'eliminazione è necessario premere il pulsante rosso _*Delete Workflow*_, visibile nella figura di seguito.
+#figure(image("../../assets/img/manualeutente/delete_workflow.png", width: 50%), caption: [Popup di conferma eliminazione di un _workflow_])
 
-Dopo la conferma, il workflow verrà rimosso definitivamente dal sistema e l'utente sarà automaticamente reindirizzato alla dashboard, dove non sarà più visibile tra i flussi disponibili.
+Dopo la conferma, il _workflow_ verrà rimosso definitivamente dal sistema e l'utente sarà automaticamente reindirizzato alla dashboard, dove non sarà più visibile tra i flussi disponibili.
 
 
 
-=== Rinominazione di un workflow
+=== Rinominazione di un _workflow_
 
 Nel caso l'utente desideri cambiare il nome del flusso deve selezionare _Edit Workflow Name_, come evidenziato in figura.
-#figure(image("../../assets/img/manualeutente/workflow_menu_edit.png", width: 50%), caption: [Rinominazione di un workflow])
+#figure(image("../../assets/img/manualeutente/workflow_menu_edit.png", width: 50%), caption: [Rinominazione di un _workflow_])
 
-Si aprirà un modale che consente all'utente di inserire il nuovo nome desiderato per il workflow, come mostrato nella figura di seguito.
-Il nome del workflow verrà aggiornato e sarà immediatamente visibile sia nella dashboard che nella relativa schermata di dettaglio.
-#figure(image("../../assets/img/manualeutente/workflow_rename.png", width: 50%), caption: [Rinominazione di un workflow])
+Si aprirà un modale che consente all'utente di inserire il nuovo nome desiderato per il _workflow_, come mostrato nella figura di seguito.
+Il nome del _workflow_ verrà aggiornato e sarà immediatamente visibile sia nella dashboard che nella relativa schermata di dettaglio.
+#figure(image("../../assets/img/manualeutente/workflow_rename.png", width: 50%), caption: [Rinominazione di un _workflow_])
 
-È possibile che si verifichino errori analoghi a quelli già descritti nella #link(<errori-nome>)[sez. 4.4.1.1.1], se l'utente tenta di rinominare il workflow con un nome non valido.
+È possibile che si verifichino errori analoghi a quelli già descritti nella #link(<errori-nome>)[sez. 4.4.1.1.1], se l'utente tenta di rinominare il _workflow_ con un nome non valido.
 
 === Back to Dashboard
 
@@ -487,7 +448,7 @@ Di seguito verranno descritte le impostazioni disponibili dei vari blocchi, a cu
 #figure(image("../../assets/img/manualeutente/impostazioni.png", width: 40%), caption: [Icona impostazioni])
 
 === System: Wait Seconds
-Il blocco _System: Wait Seconds_ consente di inserire una pausa nell'esecuzione del workflow per un numero specifico di secondi.
+Il blocco _System: Wait Seconds_ consente di inserire una pausa nell'esecuzione del _workflow_ per un numero specifico di secondi.
 L'utente può configurare il numero di secondi di attesa tramite il menù delle impostazioni del blocco, come mostrato in figura.
 #figure(image("../../assets/img/manualeutente/remove_block.png", width: 35%), caption: [Blocco _System: Wait Seconds_])
 
@@ -500,14 +461,14 @@ L'utente deve configurare il blocco inserendo negli appositi campi il token del 
 
 === Notion: Get Page
 Il blocco _Notion: Get Page_ consente di recuperare i contenuti di una pagina di Notion.
-L'utente deve configurare il blocco compilando gli appositi campi.
+L'utente deve configurare il blocco inserendo negli appositi campi il token di integrazione con Notion e l'ID della pagina desiderata.
 #figure(image("../../assets/img/manualeutente/notion_block.png", width: 35%), caption: [Blocco _Notion: Get Page_])
 
 === AI: Summarize
 <ai-summarize>
 Il blocco _AI: Summarize_ consente di generare un riassunto del contenuto fornito.
 Dato che si tratta di un blocco che riassume le informazioni ottenute dal blocco precedente non ci sono campi che l'utente deve compilare, motivo per cui non sono presenti impostazioni aggiuntive.\
-Al posto dell'icona delle impostazioni, il blocco presenta un'icona di un cestino che, se selezionata, permette di rimuovere il blocco dal workflow, come mostrato in figura.
+Al posto dell'icona delle impostazioni, il blocco presenta un'icona di un cestino che, se selezionata, permette di rimuovere il blocco dal _workflow_, come mostrato in figura.
 #figure(image("../../assets/img/manualeutente/ai_summarize_block.png", width: 40%), caption: [Blocco _AI: Summarize_])
 
 
@@ -515,13 +476,7 @@ Al posto dell'icona delle impostazioni, il blocco presenta un'icona di un cestin
 == Logout
 
 #h(1em)
-#figure(
-  [
-    #show image.where(): set block(stroke: rgb("#cccccc"), inset: 0.5em)
-    #image("../../assets/img/manualeutente/navbar_dashboard.png", width: 80%),
-  ],
-  caption: [Navbar dashboard],
-)
+#figure(image("../../assets/img/manualeutente/navbar_dashboard.png"),caption: [Navbar dashboard])
 
 Per effettuare il logout, l'utente deve selezionare il pulsante rosso _*Logout*_, situato nell'interfaccia in alto a destra, all'interno della _navbar_, visibile in figura.
 Il sistema terminerà la sessione in corso, l'utente verrà disconnesso e reindirizzato alla pagina di _login_.
@@ -530,7 +485,7 @@ Il sistema terminerà la sessione in corso, l'utente verrà disconnesso e reindi
 
 L'utente può scegliere tra due temi per l'interfaccia dell'applicativo: il tema chiaro e il tema scuro.
 
-Nella navbar, l'utente può selezionare l'icona della _luna_ per attivare il tema scuro o l'icona del _sole_ per tornare al tema chiaro, come mostrato in figura.
+Nella _navbar_, l'utente può selezionare l'icona della _luna_ per attivare il tema scuro o l'icona del _sole_ per tornare al tema chiaro, come mostrato in figura.
 
 #grid(
   columns: (1fr, 1fr),
@@ -538,13 +493,13 @@ Nella navbar, l'utente può selezionare l'icona della _luna_ per attivare il tem
   figure(
     image("../../assets/img/manualeutente/temachiaro.png", width: 100%),
     caption: [
-      Dashboard in modalità chiara.
+      Dashboard in modalità chiara
     ],
   ),
   figure(
     image("../../assets/img/manualeutente/temascuro.png", width: 100%),
     caption: [
-      Dashboard in modalità scura.
+      Dashboard in modalità scura
     ],
   ),
 )
