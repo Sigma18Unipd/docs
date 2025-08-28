@@ -254,8 +254,13 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente può ripetere l'inserimento delle credenziali precedentemente errate.
 
 
+//User account not confirmed
 
+// User not found
 
+//Too many login attempts. Please try again later
+
+// Errore Generico
 
 === UC[5]: Errore generico <UC5>
 
@@ -270,6 +275,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema non riesce a processare i dati e mostra un messaggio di errore all'utente.
 
 #figure(image("../../assets/usecasediagrams/1,2,3,4,5.svg"), caption: [Diagramma casi d'uso UC[1], UC[2], UC[3], UC[4], UC[5]])
+
+
+
+
+
+
+
+
 
 
 
@@ -317,6 +330,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente inserisce la propria _password_ per la creazione dell'_account_.
 
+// Diventa "User already exists"
 === UC[9]: Errore "_E-mail_ già in uso" <UC9>
 - *Attore principale*: utente non autenticato.
 
@@ -329,8 +343,33 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema individua che esiste già un _account_ che utilizza la _e-mail_ scelta.
   3. Il sistema ritorna un messaggio di errore all'utente.
 
+// Email quota limit exceeded
+
+// Errore Generico
 
 #figure(image("../../assets/usecasediagrams/2,5,6,7,8,9.svg"), caption: [Diagramma casi d'uso UC[2], UC[5], UC[6], UC[7], UC[8], UC[9]])
+
+
+
+
+
+
+
+
+
+// Conferma email OTP
+
+//Errori:
+// User not found
+// Code not valid
+// Code expired
+// Errore Generico
+
+//Diagramma per conferma
+
+
+
+
 
 
 
@@ -353,17 +392,18 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema crea una nuova _routine_ e l'utente viene portato alla pagina di modifica del flusso.
 
 - *Estensioni*:
-  - Nome _routine_ già in uso (#link(<UC11>)[*UC[11]*])
   - Errore generico (#link(<UC5>)[*UC[5]*]).
 
+// Errore: Workflow name required
+
+// Errore: Workflow name must be less than 25 characters
 
 
 
 
 
 
-
-
+// NON ESISTE
 === UC[11]: Errore "Nome _routine_ già in uso" <UC11>
 - *Attore principale*: utente autenticato.
 
@@ -378,6 +418,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Se il nome non è univoco, il sistema mostra un messaggio di errore all'utente.
 
 #figure(image("../../assets/usecasediagrams/5,10,11.svg"), caption: [Diagramma casi d'uso UC[5], UC[10], UC[11]])
+
+
+
+
+
 
 
 
@@ -397,11 +442,15 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Il sistema mostra il flusso generato all'utente.
 
 - *Estensioni*:
-  - Errore "Impossibile generare il flusso" (#link(<UC15>)[*UC[15]*]).
   - Errore generico (#link(<UC5>)[*UC[5]*]).
 
+// ERRORE: Prompt is required
 
 
+
+
+
+// NON ESISTE PIU
 === UC[15]: Visualizzazione dell'errore "Impossibile generare il flusso" <UC15>
 
 - *Attore principale*: utente autenticato.
@@ -417,6 +466,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 #figure(image("../../assets/usecasediagrams/5,12,13,14,15.svg"), caption: [Diagramma casi d'uso UC[5], UC[12], UC[13], UC[14], UC[15]])
+
+
 
 
 
@@ -468,8 +519,6 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*
   1. l'utente visualizza il diagramma dei blocchi della routine selezionata.
 
-
-
 #figure(image("../../assets/usecasediagrams/16,17,18.svg"), caption: [Diagramma casi d'uso UC[16], UC[17], UC[18]])
 
 
@@ -489,6 +538,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. L'utente seleziona l'opzione di eliminazione della _routine_.
   3. Il sistema mostra un messaggio di conferma dell'eliminazione.
   4. Se l'utente conferma l'eliminazione, il sistema elimina la _routine_ e ritorna l'utente alla _dashboard_.
+
+// AGGIUNGERE ERRORE GENERICO
+
+// Errore: Workflow not found
 
 #figure(image("../../assets/usecasediagrams/19.svg"), caption: [Diagramma casi d'uso UC[19]])
 
@@ -510,12 +563,6 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme nel tasto dedicato alla modifica del nome della _routine_.
   2. Il sistema mostra un campo di testo per la modifica del nome della _routine_.
   3. L'utente inserisce e conferma il nuovo nome della _routine_.
-  4. Il sistema verifica che il nome della _routine_ sia univoco.
-  5. Il sistema salva il nuovo nome della _routine_.
-
-- *Estensioni*:
-  - Nome _routine_ già in uso (#link(<UC11>)[*UC[11]*]).
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
 
 #figure(image("../../assets/usecasediagrams/5,11,20.svg"), caption: [Diagramma casi d'uso UC[5], UC[11], UC[20]])
 \
@@ -541,6 +588,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore generico (#link(<UC5>)[*UC[5]*]).
+// Errore: Workflow not found
+
+
+
 
 
 
@@ -559,6 +610,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
+
+
+
 === UC[23]: Avviare una _routine_ esistente tramite la pagina di modifica del flusso <UC23>
 
 - *Attore principale*: utente autenticato.
@@ -571,9 +627,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona di avvio della _routine_ interessata.
   2. Il sistema avvia la _routine_.
 
-
-
 #figure(image("../../assets/usecasediagrams/5,21,22,23.svg"), caption: [Diagramma casi d'uso UC[5], UC[21], UC[22], UC[23]])
+
+
+
+
+
+
+
 
 
 === UC[28]: Aggiunta di un blocco ad una _routine_ esistente <UC28>
@@ -588,8 +649,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra il blocco aggiunto.
 
 
-- *Estensioni*:
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+
 
 
 
@@ -672,6 +732,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
+
+
 === UC[34]: Visualizza le impostazioni di un singolo blocco <UC34>
 
 - *Attore principale*: utente autenticato.
@@ -682,6 +746,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente visualizza le impostazioni di un blocco.
+
+
+
+
 
 
 
@@ -697,6 +765,12 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
   2. Il sistema mostra impostazioni del blocco, come il messaggio da inviare e le chiavi di accesso all'API.
+
+
+
+
+
+
 
 === UC[37]: Visualizzazione impostazioni del blocco "_System_ - Wait Second(s)" <UC37>
 
@@ -731,6 +805,12 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 #figure(image("../../assets/usecasediagrams/34,35,36,37,38.svg"), caption: [Diagramma casi d'uso UC[34], UC[35], UC[36], UC[37], UC[38]])
 
 
+
+
+
+
+
+
 === UC[39]: Modificare le impostazioni di un singolo blocco <UC39>
 
 - *Attore principale*: utente autenticato.
@@ -744,8 +824,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema salva le modifiche del blocco.
 
 
-- *Estensioni*:
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+
+
+
+
 
 === UC[40]: Modifica impostazioni del blocco "_Telegram_ - Send Bot Message" <UC40>
 
@@ -759,6 +841,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme il pulsante dedicato per visualizzare le impostazioni del blocco.
   2. L'utente modifica le impostazioni del blocco, come il messaggio da inviare.
   3. Il sistema salva le modifiche apportate.
+
+
+
+
+
 
 
 === UC[42]: Modifica impostazioni del blocco "_System_ - Wait Second(s)" <UC42>
@@ -797,6 +884,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   caption: [Diagramma casi d'uso UC[5], UC[39], UC[40], UC[41], UC[42], UC[43], UC[44]],
 )
 
+
+
+
+
+
+
+
+
 === UC[45]: Salvare una _routine_ <UC45>
 
 - *Attore principale*: utente autenticato.
@@ -812,6 +907,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore generico (#link(<UC5>)[*UC[5]*]).
+// Errore: Workflow not found
+// Errore: Workflow name must be less than 25 characters
 
 #figure(image("../../assets/usecasediagrams/5,45,46.svg"), caption: [Diagramma casi d'uso UC[5], UC[45], UC[46]])
 
@@ -833,8 +930,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. Il sistema rimuove il blocco dalla routine.
 
-- *Estensioni*:
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+
+
 
 
 
@@ -873,6 +970,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
+
+
+
 === UC[50]: Collegare due blocchi di una _routine_ esistente <UC50>
 
 - *Attore principale*: utente esperto autenticato.
@@ -884,7 +986,6 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente preme e trascina l'_handle_ destro di un blocco all'_handle_ sinistro di un altro blocco creando un collegamento.
   2. Il sistema crea un collegamento tra i due blocchi.
-
 
 #figure(image("../../assets/usecasediagrams/50.svg"), caption: [Diagramma casi d'uso UC[50]])
 
@@ -930,6 +1031,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+
+
 === UC[54]: _Logout_ <UC54>
 
 - *Attore principale*: utente autenticato.
@@ -942,8 +1045,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona per effettuare il _logout_.
   2. Il sistema disconnette l'utente e lo riporta alla pagina di _login_.
 
-
 #figure(image("../../assets/usecasediagrams/54.svg"), caption: [Diagramma casi d'uso UC[54]])
+
+
+
+
 
 
 
@@ -960,6 +1066,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 #figure(image("../../assets/usecasediagrams/55.svg"), caption: [Diagramma casi d'uso UC[55]])
 
+
+
+
+
+
 === UC[56]: Ritornare alla dashboard dalla pagina di modifica di un flusso <UC56>
 - *Attore principale*: utente autenticato.
 
@@ -972,6 +1083,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema riporta l'utente alla _dashboard_.
 
 #figure(image("../../assets/usecasediagrams/56.svg"), caption: [Diagramma casi d'uso UC[56]])
+
+
+
+
+
 
 === UC[57] Visualizzazione dell'errore "È richiesta la password" <UC57>
 
@@ -986,6 +1102,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra un messaggio di errore "È richiesta la password".
 
 
+
+
+
 === UC[58] Errore "Le password non corrispondono" <UC58>
 
 - *Attore principale*: utente non autenticato.
@@ -997,6 +1116,14 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente inserisce una password e una conferma password non corrispondente.
   2. Il sistema mostra un messaggio di errore "_Passwords don't match_".
+
+
+
+
+
+
+//*- DA SPOSTARE A MODO -**
+
 
 === UC[59] Errore "Password troppo corta" <UC59>
 
@@ -1010,6 +1137,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente inserisce una password con meno di 8 caratteri.
   2. Il sistema mostra un messaggio di errore "_Your password must have at least 8 characters_".
 
+
+
+
+
 === UC[60] Visualizzazione dell'errore "È richiesto un codice di verifica" <UC60>
 
 - *Attore principale*: utente non autenticato.
@@ -1022,6 +1153,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente tenta di autenticarsi senza inserire un codice di verifica.
   2. Il sistema mostra un messaggio di errore "_Verification code is required_".
 
+
+
+
+
 === UC[61] Visualizzazione dell'errore "Impossibile eseguire il flusso" <UC61>
 
 - *Attore principale*: utente autenticato.
@@ -1032,7 +1167,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente tenta di eseguire un flusso.
-  2. Il sistema mostra un messaggio di errore "_An error occurred while while running the workflow_".
+  2. Il sistema mostra un messaggio di errore "_An error occurred while running the workflow_".
+
+
+
+
 
 === UC[62] Visualizzazione dell'errore "Il Workflow deve avere un nome" <UC62>
 
@@ -1048,6 +1187,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente prova ad avanzare senza inserire un nome per il flusso
   4. Il sistema mostra un messaggio di errore "_Workflow name is required_".
 
+
+
+
+
+
 === UC[63] Visualizzazione dell'errore "Account non verificato" <UC63>
 
 - *Attore principale*: utente autenticato.
@@ -1059,6 +1203,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente tenta di eseguire il login con un account creato ma non verificato con codice di conferma.
   2. Il sistema mostra un messaggio di errore "_User account not confirmed_".
+
+
+
+
+
 
 === UC[64] Visualizzazione dell'errore "Utente non trovato" <UC64>
 
@@ -1072,6 +1221,12 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente tenta di eseguire il login con una mail non registrata.
   2. Il sistema mostra un messaggio di errore "_User not found_".
 
+
+
+
+
+
+
 === UC[65] Visualizzazione dell'errore "Codice di conferma scaduto" <UC65>
 
 - *Attore principale*: utente autenticato.
@@ -1084,6 +1239,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente inserisce il codice di conferma in seguito alla sua scadenza.
   2. Il sistema mostra un messaggio di errore "_Code expired_".
 
+
+
+
+
 === UC[66] Visualizzazione dell'errore "Codice di conferma non valido" <UC66>
 
 - *Attore principale*: utente autenticato.
@@ -1095,6 +1254,21 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente inserisce un codice di conferma errato.
   2. Il sistema mostra un messaggio di errore "_Code not valid_".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #pagebreak()
 = Requisiti
