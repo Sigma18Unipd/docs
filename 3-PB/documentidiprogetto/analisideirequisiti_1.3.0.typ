@@ -7,9 +7,14 @@
   verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello", "Marco Egidi"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "1.2.0",
+  versioneAttuale: "1.3.0",
   content: content,
   versioni: (
+    "1.3.0",
+    "2025/08/28",
+    "Carmelo Russello",
+    "Matteo Marangon",
+    "Rimozione casi d'uso, aggiunta casi d'uso errori",
     "1.2.0",
     "2025/07/17",
     "Carmelo Russello",
@@ -245,7 +250,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Scenario principale*:
   1. L'utente inserisce le proprie credenziali.
-  2. Il sistema individua le credenziali errate e invia un messaggio di errore all'utente.
+  2. Il sistema mostra un messaggio di errore "_Invalid email or password_".
   3. L'utente può ripetere l'inserimento delle credenziali precedentemente errate.
 
 
@@ -1029,6 +1034,68 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente tenta di eseguire un flusso.
   2. Il sistema mostra un messaggio di errore "_An error occurred while while running the workflow_".
 
+=== UC[62] Visualizzazione dell'errore "Il Workflow deve avere un nome" <UC62>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di creazione di un flusso.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di creare un flusso.
+  2. Viene richiesto all'utente di assegnare un nome al flusso.
+  3. L'utente prova ad avanzare senza inserire un nome per il flusso
+  4. Il sistema mostra un messaggio di errore "_Workflow name is required_".
+
+=== UC[63] Visualizzazione dell'errore "Account non verificato" <UC63>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di login.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di eseguire il login con un account creato ma non verificato con codice di conferma.
+  2. Il sistema mostra un messaggio di errore "_User account not confirmed_".
+
+=== UC[64] Visualizzazione dell'errore "Utente non trovato" <UC64>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di login.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di eseguire il login con una mail non registrata.
+  2. Il sistema mostra un messaggio di errore "_User not found_".
+
+=== UC[65] Visualizzazione dell'errore "Codice di conferma scaduto" <UC65>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di verifica dell'account tramite codice di conferma.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente inserisce il codice di conferma in seguito alla sua scadenza.
+  2. Il sistema mostra un messaggio di errore "_Code expired_".
+
+=== UC[66] Visualizzazione dell'errore "Codice di conferma non valido" <UC66>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di verifica dell'account tramite codice di conferma.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente inserisce un codice di conferma errato.
+  2. Il sistema mostra un messaggio di errore "_Code not valid_".
+
 #pagebreak()
 = Requisiti
 Questa sezione del documento descrive i requisiti del progetto proposto da _Var Group S.p.A._, individuati tramite un'attenta analisi del capitolato, colloqui interni tra i membri del gruppo e riunioni esterne con l'azienda proponente.\
@@ -1263,8 +1330,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [UC9], [ROF-10],
   [UC10], [ROF-12, ROF-14],
   [UC11], [ROF-13],
-  [UC12], [ROF-14, ROF-15, ROF-17],
-  [UC13], [ROF-15],
+  [UC12], [ROF-14,  ROF-17],
   [UC15], [ROF-17],
   [UC16], [ROF-18, ROF-19],
   [UC17], [ROF-19],
@@ -1274,17 +1340,16 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [UC21], [ROF-22, ROF-23, ROF-24],
   [UC22], [ROF-23],
   [UC23], [ROF-24],
-  [UC28], [ROF-29, ROF-30, ROF-31, ROF-32, ROF-33, ROF-34],
+  [UC28], [ROF-29, ROF-30, ROF-32, ROF-33, ROF-34],
   [UC29], [ROF-30],
   [UC31], [ROF-32],
   [UC32], [ROF-33],
   [UC33], [ROF-34],
-  [UC34], [ROF-35, ROF-37, ROF-38, ROF-39],
+  [UC34], [ROF-35, ROF-38, ROF-39],
   [UC35], [ROF-36],
-  [UC36], [ROF-37],
   [UC37], [ROF-38],
   [UC38], [ROF-39],
-  [UC39], [ROF-41, ROF-42, ROF-43, ROF-44],
+  [UC39], [ROF-41, ROF-43, ROF-44],
   [UC40], [ROF-41],
   [UC42], [ROF-43],
   [UC43], [ROF-44],
@@ -1299,7 +1364,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [UC55], [ROF-56],
   [UC56], [ROF-57],
   [Capitolato], [ROF-12, ROF-14, ROF-51, ROF-52, ROQ-1, ROQ-2, ROQ-3, ROQ-4, ROQ-5, ROQ-6, ROQ-7, ROV-1, ROV-2, ROV-3, ROV-4],
-  [Riunioni interne], [ROF-45, ROF-46, ROF-47, ROF-53, ROF-55, ROF-56, ROQ-1, ROQ-6, ROQ-7],
+  [Riunioni interne], [ROF-46, ROF-55, ROF-56, ROQ-1, ROQ-6, ROQ-7],
   [Riunioni esterne], [ROF-1, ROF-2, ROF-3, ROF-5, ROF-6, ROF-21, RDF-54, ROF-58, ROV-1],
 )
 #pagebreak()
