@@ -254,6 +254,51 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente può ripetere l'inserimento delle credenziali precedentemente errate.
 
 
+
+
+
+
+
+
+=== UC[5] Errore "Utente non trovato" <UC5>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di login.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di eseguire il login con una mail non registrata.
+  2. Il sistema mostra un messaggio di errore "_User not found_".
+
+
+=== UC[6] Errore "Troppi tentativi di accesso" <UC6>
+
+- *Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente ha effettuato più tentativi di accesso falliti.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di accedere all'applicativo ripetutamente.
+  2. Il sistema mostra un messaggio di errore "_Too many login attempts. Please try again later_".
+
+
+
+=== UC[7] Errore "Account non verificato" <UC7>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di login.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di eseguire il login con un account creato ma non verificato con codice di conferma.
+  2. Il sistema mostra un messaggio di errore "_User account not confirmed_".
+
 //User account not confirmed
 
 // User not found
@@ -262,7 +307,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 // Errore Generico
 
-=== UC[5]: Errore generico <UC5>
+=== UC[8]: Errore generico <UC8>
 
 - *Attore principale*: utente.
 
@@ -288,7 +333,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[6]: Registrazione <UC6>
+=== UC[9]: Registrazione <UC9>
 
 - *Attore principale*: utente non autenticato.
 
@@ -308,7 +353,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Errore generico (#link(<UC5>)[*UC[5]*]).
 
 
-=== UC[7]: Creazione Password <UC7>
+=== UC[10]: Creazione Password <UC10>
 
 - *Attore principale*: utente non autenticato.
 
@@ -319,7 +364,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente inserisce la propria _password_ per la creazione dell'_account_.
 
-=== UC[8]: Conferma Password <UC8>
+=== UC[11]: Conferma Password <UC11>
 
 - *Attore principale*: utente non autenticato.
 
@@ -331,7 +376,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente inserisce la propria _password_ per la creazione dell'_account_.
 
 // Diventa "User already exists"
-=== UC[9]: Errore "_E-mail_ già in uso" <UC9>
+=== UC[12]: Errore "_User already exists_" <UC12>
 - *Attore principale*: utente non autenticato.
 
 - *Pre-condizioni*: l'utente non possiede un _account_, l'utente ha confermato il _form_ di registrazione.
@@ -341,7 +386,79 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente inserisce i suoi dati nell'apposito form di registrazione.
   2. Il sistema individua che esiste già un _account_ che utilizza la _e-mail_ scelta.
-  3. Il sistema ritorna un messaggio di errore all'utente.
+  3. Il sistema ritorna un messaggio di errore all'utente "_User already exists_".
+
+
+
+
+
+=== UC[13] Errore "È richiesta la password" <UC13>
+
+- *Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di registrarsi senza inserire una password.
+  2. Il sistema mostra un messaggio di errore "È richiesta la password".
+
+
+=== UC[14] Errore "È richiesto un codice di verifica" <UC14>
+
+- *Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di registrarsi senza inserire un codice di verifica.
+  2. Il sistema mostra un messaggio di errore "_Verification code is required_".
+
+
+
+=== UC[15] Errore "Le password non corrispondono" <UC15>
+
+- *Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente inserisce una password e una conferma password non corrispondente.
+  2. Il sistema mostra un messaggio di errore "_Passwords don't match_".
+
+
+
+
+
+  === UC[16] Errore "Password troppo corta" <UC16>
+
+- *Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente inserisce una password con meno di 8 caratteri.
+  2. Il sistema mostra un messaggio di errore "_Your password must have at least 8 characters_".
+
+
+
+=== UC[17] Errore "Email quota limit exceeded" <UC17>
+*Attore principale*: utente non autenticato.
+
+- *Pre-condizioni*: l'utente ha tentato di registrarsi con un'email già utilizzata.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di registrarsi con un'email già utilizzata.
+  2. Il sistema mostra un messaggio di errore "_Email quota limit exceeded_".
 
 // Email quota limit exceeded
 
@@ -356,8 +473,58 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+=== UC[18] Conferma email OTP <UC18>
+- *Attore principale*: utente non autenticato.
 
-// Conferma email OTP
+- *Pre-condizioni*: l'utente si trova nella pagina di verifica.
+
+- *Post-condizioni*: l'utente conferma la sua email utilizzando un codice OTP.
+
+- *Scenario principale*:
+  1. L'utente si registra nell'applicazione.
+  2. Il sistema invia un'email di conferma all'utente.
+  3. L'utente riceve l'email e inserisce il codice OTP nella pagina di verifica.
+  4. Il sistema verifica il codice OTP e conferma l'email dell'utente.
+
+
+=== UC[19] Errore "Codice di conferma scaduto" <UC19>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di verifica dell'account tramite codice di conferma.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente inserisce il codice di conferma in seguito alla sua scadenza.
+  2. Il sistema mostra un messaggio di errore "_Code expired_".
+
+
+
+
+
+=== UC[20] Errore "Codice di conferma non valido" <UC20>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di verifica dell'account tramite codice di conferma.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente inserisce un codice di conferma errato.
+  2. Il sistema mostra un messaggio di errore "_Code not valid_".
+
+
+
+
+
+
+
+
+
+
+
 
 //Errori:
 // User not found
@@ -366,20 +533,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 // Errore Generico
 
 //Diagramma per conferma
-
-
-
-
-
-
-
-
-
-
-
-
-
-=== UC[10]: Creazione nuova _routine_ <UC10>
+=== UC[21]: Creazione nuova _routine_ <UC21>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente ha effettuato l'accesso e si trova nella _dashboard_.
@@ -393,6 +547,40 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore generico (#link(<UC5>)[*UC[5]*]).
+//errore "il workflow deve avere un nome"
+//errore "il nome del workflow deve avere meno di 25 char"
+
+
+=== UC[22] Errore "Il Workflow deve avere un nome" <UC22>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di modificare un flusso.
+  2. Viene richiesto all'utente di assegnare un nome al flusso.
+  3. L'utente prova ad avanzare senza inserire un nome per il flusso
+  4. Il sistema mostra un messaggio di errore "_Workflow name is required_".
+
+
+=== UC[23] Errore "Il nome del workflow deve avere meno di 25 caratteri" <UC23>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di modificare un flusso.
+  2. Viene richiesto all'utente di assegnare un nome al flusso.
+  3. L'utente prova ad inserire un nome più lungo di 25 caratteri
+  4. Il sistema mostra un messaggio di errore "_Workflow name must be less than 25 characters_".
+
+
 
 // Errore: Workflow name required
 
@@ -401,33 +589,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-
-// NON ESISTE
-=== UC[11]: Errore "Nome _routine_ già in uso" <UC11>
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: il sistema riceve il nome della _routine_ da creare.
-
-- *Post-condizioni*: il sistema verifica se il nome della _routine_ è univoco.
-
-- *Scenario principale*:
-  1. L'utente inserisce il nome della _routine_.
-  2. Il sistema verifica se il nome della _routine_ è univoco.
-  3. Se il nome è univoco, il sistema crea la _routine_ e l'utente viene portato alla pagina di modifica del flusso.
-  4. Se il nome non è univoco, il sistema mostra un messaggio di errore all'utente.
-
-#figure(image("../../assets/usecasediagrams/5,10,11.svg"), caption: [Diagramma casi d'uso UC[5], UC[10], UC[11]])
-
-
-
-
-
-
-
-
-
-=== UC[12]: Generare una _routine_ mediante linguaggio naturale <UC12>
+=== UC[24]: Generare una _routine_ mediante linguaggio naturale <UC24>
 
 - *Attore principale*: utente autenticato.
 
@@ -444,26 +606,18 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Estensioni*:
   - Errore generico (#link(<UC5>)[*UC[5]*]).
 
-// ERRORE: Prompt is required
-
-
-
-
-
-// NON ESISTE PIU
-=== UC[15]: Visualizzazione dell'errore "Impossibile generare il flusso" <UC15>
+=== UC[25] Errore "_Prompt is required_" <UC25>
 
 - *Attore principale*: utente autenticato.
 
-- *Pre-condizioni*: l'utente sta tentando di generare i blocchi del flusso tramite linguaggio naturale, ma si verifica un errore.
+- *Pre-condizioni*: l'utente si trova nella pagina di creazione di un flusso.
 
-- *Post-condizioni*: il sistema mostra il messaggio di errore all'utente.
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
 
-- *Scenario principale*:
-  1. L'utente l'inserisce il _prompt_ in linguaggio naturale.
-  2. L'LLM non riesce a generare il flusso dei blocchi
-  3. Il sistema mostra un messaggio di errore.
+1. L'utente tenta di generare un flusso utilizzando il linguaggio naturale senza fornire un prompt.
+2. Il sistema mostra un messaggio di errore "_Prompt is required_".
 
+// ERRORE: Prompt is required
 
 #figure(image("../../assets/usecasediagrams/5,12,13,14,15.svg"), caption: [Diagramma casi d'uso UC[5], UC[12], UC[13], UC[14], UC[15]])
 
@@ -474,7 +628,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[16]: Visualizzare i dettagli di una _routine_ esistente <UC16>
+=== UC[26]: Visualizzare i dettagli di una _routine_ esistente <UC26>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella _dashboard_.
@@ -489,7 +643,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[17]: Visualizzazione nome di una _routine_ esistente <UC17>
+=== UC[27]: Visualizzazione nome di una _routine_ esistente <UC27>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*:
@@ -506,7 +660,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[18]: Visualizzazione diagramma dei blocchi di una _routine_ esistente <UC18>
+=== UC[28]: Visualizzazione diagramma dei blocchi di una _routine_ esistente <UC28>
 
 - *Attore principale*: utente autenticato.
 
@@ -526,7 +680,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[19]: Eliminare una _routine_ esistente <UC19>
+=== UC[29]: Eliminare una _routine_ esistente <UC29>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
@@ -541,6 +695,19 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 // AGGIUNGERE ERRORE GENERICO
 
+
+=== UC[30] Errore "Workflow non trovato" <UC30>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di interagire con un workflow che non esiste.
+  2. Il sistema mostra un messaggio di errore "_Workflow not found_".
+
 // Errore: Workflow not found
 
 #figure(image("../../assets/usecasediagrams/19.svg"), caption: [Diagramma casi d'uso UC[19]])
@@ -551,7 +718,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[20]: Modifica del nome di una _routine_ <UC20>
+=== UC[31]: Modifica del nome di una _routine_ <UC31>
 
 - *Attore principale*: utente autenticato.
 
@@ -565,17 +732,15 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. L'utente inserisce e conferma il nuovo nome della _routine_.
 
 #figure(image("../../assets/usecasediagrams/5,11,20.svg"), caption: [Diagramma casi d'uso UC[5], UC[11], UC[20]])
+
 \
+- *Estensioni*:
+// aggiungere errori
 
 
 
 
-
-
-
-
-
-=== UC[21]: Avviare una _routine_ esistente <UC21>
+=== UC[32]: Avviare una _routine_ esistente <UC32>
 
 - *Attore principale*: utente autenticato.
 
@@ -596,7 +761,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[22]: Avviare una _routine_ esistente dalla _dashboard_ <UC22>
+=== UC[33]: Avviare una _routine_ esistente dalla _dashboard_ <UC33>
 
 - *Attore principale*: utente autenticato.
 
@@ -615,7 +780,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[23]: Avviare una _routine_ esistente tramite la pagina di modifica del flusso <UC23>
+=== UC[34]: Avviare una _routine_ esistente tramite la pagina di modifica del flusso <UC34>
 
 - *Attore principale*: utente autenticato.
 
@@ -634,10 +799,24 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
+=== UC[35] Errore "Impossibile eseguire il flusso" <UC35>
+
+- *Attore principale*: utente autenticato.
+
+- *Pre-condizioni*: l'utente si trova nella dashboard e tenta di eseguire un flusso.
+
+- *Post-condizioni*: l'utente visualizza il messaggio di errore.
+
+- *Scenario principale*:
+  1. L'utente tenta di eseguire un flusso.
+  2. Il sistema mostra un messaggio di errore "_An error occurred while running the workflow_".
 
 
 
-=== UC[28]: Aggiunta di un blocco ad una _routine_ esistente <UC28>
+
+
+
+=== UC[36]: Aggiunta di un blocco ad una _routine_ esistente <UC36>
 - *Attore principale*: utente esperto autenticato.
 
 - *Pre-condizioni*: l'utente si trova sulla pagina di modifica di un flusso.
@@ -656,7 +835,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[29]: Aggiunta del blocco "_Telegram_ - Send Bot Message" ad una _routine_ esistente <UC29>
+=== UC[37]: Aggiunta del blocco "_Telegram_ - Send Bot Message" ad una _routine_ esistente <UC37>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -672,7 +851,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[31]: Aggiunta del blocco "_AI_ - Summarize" ad una _routine_ esistente <UC31>
+=== UC[38]: Aggiunta del blocco "_AI_ - Summarize" ad una _routine_ esistente <UC38>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -690,7 +869,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[32]: Aggiunta del blocco "_System_ - Wait Second(s)" ad una _routine_ esistente <UC32>
+=== UC[39]: Aggiunta del blocco "_System_ - Wait Second(s)" ad una _routine_ esistente <UC39>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -708,7 +887,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[33]: Aggiunta del blocco "_Notion_ - Get Page" ad una _routine_ esistente <UC33>
+=== UC[40]: Aggiunta del blocco "_Notion_ - Get Page" ad una _routine_ esistente <UC40>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -736,7 +915,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[34]: Visualizza le impostazioni di un singolo blocco <UC34>
+=== UC[41]: Visualizza le impostazioni di un singolo blocco <UC41>
 
 - *Attore principale*: utente autenticato.
 
@@ -754,7 +933,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[35]: Visualizzazione impostazioni del blocco "_Telegram_ - Send Bot Message" <UC35>
+=== UC[42]: Visualizzazione impostazioni del blocco "_Telegram_ - Send Bot Message" <UC42>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -772,7 +951,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[37]: Visualizzazione impostazioni del blocco "_System_ - Wait Second(s)" <UC37>
+=== UC[43]: Visualizzazione impostazioni del blocco "_System_ - Wait Second(s)" <UC43>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -789,7 +968,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[38]: Visualizzazione impostazioni del blocco "_Notion_ - Get Page" <UC38>
+=== UC[44]: Visualizzazione impostazioni del blocco "_Notion_ - Get Page" <UC44>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -811,7 +990,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[39]: Modificare le impostazioni di un singolo blocco <UC39>
+=== UC[45]: Modificare le impostazioni di un singolo blocco <UC45>
 
 - *Attore principale*: utente autenticato.
 
@@ -829,7 +1008,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[40]: Modifica impostazioni del blocco "_Telegram_ - Send Bot Message" <UC40>
+=== UC[46]: Modifica impostazioni del blocco "_Telegram_ - Send Bot Message" <UC46>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -848,7 +1027,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[42]: Modifica impostazioni del blocco "_System_ - Wait Second(s)" <UC42>
+=== UC[47]: Modifica impostazioni del blocco "_System_ - Wait Second(s)" <UC47>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -865,7 +1044,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[43]: Modifica impostazioni del blocco "_Notion_ - Get Page" <UC43>
+=== UC[48]: Modifica impostazioni del blocco "_Notion_ - Get Page" <UC48>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -892,7 +1071,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[45]: Salvare una _routine_ <UC45>
+=== UC[49]: Salvare una _routine_ <UC49>
 
 - *Attore principale*: utente autenticato.
 
@@ -907,6 +1086,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore generico (#link(<UC5>)[*UC[5]*]).
+
+
 // Errore: Workflow not found
 // Errore: Workflow name must be less than 25 characters
 
@@ -919,7 +1100,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[47]: Eliminare un blocco da una _routine_ esistente <UC47>
+=== UC[50]: Eliminare un blocco da una _routine_ esistente <UC50>
 
 - *Attore principale*: utente autenticato.
 
@@ -936,7 +1117,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[48]: Eliminare un blocco da una _routine_ esistente da tastiera <UC48>
+=== UC[51]: Eliminare un blocco da una _routine_ esistente da tastiera <UC51>
 
 - *Attore principale*: utente autenticato.
 
@@ -952,7 +1133,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[49]: Eliminare un blocco da una _routine_ esistente da interfaccia grafica <UC49>
+=== UC[52]: Eliminare un blocco da una _routine_ esistente da interfaccia grafica <UC52>
 
 - *Attore principale*: utente autenticato.
 
@@ -975,7 +1156,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[50]: Collegare due blocchi di una _routine_ esistente <UC50>
+=== UC[53]: Collegare due blocchi di una _routine_ esistente <UC53>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -993,7 +1174,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[51]: Scollegare due blocchi di una _routine_ esistente <UC51>
+=== UC[54]: Scollegare due blocchi di una _routine_ esistente <UC54>
 
 - *Attore principale*: utente esperto autenticato.
 
@@ -1012,7 +1193,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[53]: Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC53>
+=== UC[55]: Impostare _Dark Mode_ o _Light Mode_ del _client_ <UC55>
 
 - *Attore principale*: utente autenticato o non autenticato.
 
@@ -1033,7 +1214,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[54]: _Logout_ <UC54>
+=== UC[56]: _Logout_ <UC56>
 
 - *Attore principale*: utente autenticato.
 
@@ -1053,7 +1234,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[55]: Visualizzare la dashboard / lista automazioni in seguito al login <UC55>
+=== UC[57]: Visualizzare la dashboard / lista automazioni in seguito al login <UC57>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella pagina di login.
@@ -1071,7 +1252,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[56]: Ritornare alla dashboard dalla pagina di modifica di un flusso <UC56>
+=== UC[58]: Ritornare alla dashboard dalla pagina di modifica di un flusso <UC58>
 - *Attore principale*: utente autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella pagina di modifica di un flusso.
@@ -1083,191 +1264,6 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema riporta l'utente alla _dashboard_.
 
 #figure(image("../../assets/usecasediagrams/56.svg"), caption: [Diagramma casi d'uso UC[56]])
-
-
-
-
-
-
-=== UC[57] Visualizzazione dell'errore "È richiesta la password" <UC57>
-
-- *Attore principale*: utente non autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente tenta di registrarsi senza inserire una password.
-  2. Il sistema mostra un messaggio di errore "È richiesta la password".
-
-
-
-
-
-=== UC[58] Errore "Le password non corrispondono" <UC58>
-
-- *Attore principale*: utente non autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente inserisce una password e una conferma password non corrispondente.
-  2. Il sistema mostra un messaggio di errore "_Passwords don't match_".
-
-
-
-
-
-
-//*- DA SPOSTARE A MODO -**
-
-
-=== UC[59] Errore "Password troppo corta" <UC59>
-
-- *Attore principale*: utente non autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di registrazione.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente inserisce una password con meno di 8 caratteri.
-  2. Il sistema mostra un messaggio di errore "_Your password must have at least 8 characters_".
-
-
-
-
-
-=== UC[60] Visualizzazione dell'errore "È richiesto un codice di verifica" <UC60>
-
-- *Attore principale*: utente non autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di login.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente tenta di autenticarsi senza inserire un codice di verifica.
-  2. Il sistema mostra un messaggio di errore "_Verification code is required_".
-
-
-
-
-
-=== UC[61] Visualizzazione dell'errore "Impossibile eseguire il flusso" <UC61>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella dashboard e tenta di eseguire un flusso.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente tenta di eseguire un flusso.
-  2. Il sistema mostra un messaggio di errore "_An error occurred while running the workflow_".
-
-
-
-
-
-=== UC[62] Visualizzazione dell'errore "Il Workflow deve avere un nome" <UC62>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di creazione di un flusso.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente tenta di creare un flusso.
-  2. Viene richiesto all'utente di assegnare un nome al flusso.
-  3. L'utente prova ad avanzare senza inserire un nome per il flusso
-  4. Il sistema mostra un messaggio di errore "_Workflow name is required_".
-
-
-
-
-
-
-=== UC[63] Visualizzazione dell'errore "Account non verificato" <UC63>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di login.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente tenta di eseguire il login con un account creato ma non verificato con codice di conferma.
-  2. Il sistema mostra un messaggio di errore "_User account not confirmed_".
-
-
-
-
-
-
-=== UC[64] Visualizzazione dell'errore "Utente non trovato" <UC64>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di login.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente tenta di eseguire il login con una mail non registrata.
-  2. Il sistema mostra un messaggio di errore "_User not found_".
-
-
-
-
-
-
-
-=== UC[65] Visualizzazione dell'errore "Codice di conferma scaduto" <UC65>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di verifica dell'account tramite codice di conferma.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente inserisce il codice di conferma in seguito alla sua scadenza.
-  2. Il sistema mostra un messaggio di errore "_Code expired_".
-
-
-
-
-
-=== UC[66] Visualizzazione dell'errore "Codice di conferma non valido" <UC66>
-
-- *Attore principale*: utente autenticato.
-
-- *Pre-condizioni*: l'utente si trova nella pagina di verifica dell'account tramite codice di conferma.
-
-- *Post-condizioni*: l'utente visualizza il messaggio di errore.
-
-- *Scenario principale*:
-  1. L'utente inserisce un codice di conferma errato.
-  2. Il sistema mostra un messaggio di errore "_Code not valid_".
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #pagebreak()
@@ -1354,17 +1350,10 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [#link(<UC4>)[*UC[4]*], #link(<UC6>)[*UC[6]*]],
 
   [ROF-12], [L'utente deve poter creare una nuova _routine_ ], [#link(<UC10>)[*UC[10]*], Capitolato],
-  [ROF-13],
-  [Il sistema deve restituire un errore se il nome della _routine_ da creare o modificare è già in uso],
-  [#link(<UC11>)[*UC[11]*]],
 
   [ROF-14],
   [L'utente deve poter generare una _routine_ tramite linguaggio naturale],
   [#link(<UC10>)[*UC[10]*], #link(<UC12>)[*UC[12]*], Capitolato],
-
-  [ROF-17],
-  [Il sistema deve restituire un errore se non é possibile generare il flusso],
-  [#link(<UC12>)[*UC[12]*], #link(<UC15>)[*UC[15]*]],
 
   [ROF-18], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC16>)[*UC[16]*]],
   [ROF-19], [L'utente deve poter visualizzare il nome di una _routine_ esistente], [#link(<UC16>)[*UC[16]*], #link(<UC17>)[*UC[17]*]],
@@ -1440,7 +1429,7 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 
   [ROF-51], [L'utente deve potere collegare due blocchi di una _routine_ esistente], [#link(<UC50>)[*UC[50]*], Capitolato ],
   [ROF-52], [L'utente deve potere scollegare due blocchi di una _routine esistente_], [#link(<UC51>)[*UC[51]*], Capitolato ],
-  [RDF-54], [L’utente può impostare la modalità del client in dark mode o light mode], [#link(<UC53>)[*UC[53]*], Riunione esterna],
+  [RDF-54], [L'utente può impostare la modalità del client in dark mode o light mode], [#link(<UC53>)[*UC[53]*], Riunione esterna],
   [ROF-55], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC54>)[*UC[54]*], Riunione interna],
   [ROF-56],
   [L'utente deve poter visualizzare la dashboard in seguito al login nell'applicativo],
@@ -1505,7 +1494,6 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [UC10], [ROF-12, ROF-14],
   [UC11], [ROF-13],
   [UC12], [ROF-14,  ROF-17],
-  [UC15], [ROF-17],
   [UC16], [ROF-18, ROF-19],
   [UC17], [ROF-19],
   [UC18], [ROF-20],
