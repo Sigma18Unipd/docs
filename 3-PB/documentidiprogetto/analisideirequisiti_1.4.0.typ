@@ -356,8 +356,13 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   5. L'utente reinserisce la _password_ creata.
   6. Il sistema crea l'_account_ e salva le credenziali nel _database_.
 - *Estensioni*:
-  - _E-mail_ già in uso (#link(<UC9>)[*UC[9]*]).
   - Errore generico (#link(<UC8>)[*UC[8]*]).
+  - Errore "_User already exists_" (#link(<UC12>)[*UC[12]*]).
+  - Errore "È richiesta la password" (#link(<UC13>)[*UC[13]*]).
+  - Errore "È richiesto un codice di verifica" (#link(<UC14>)[*UC[14]*]).
+  - Errore "Le password non corrispondono" (#link(<UC15>)[*UC[15]*]).
+  - Errore "Password troppo corta" (#link(<UC16>)[*UC[16]*]).
+  - Errore "_Email quota limit exceeded_" (#link(<UC17>)[*UC[17]*]).
 
 
 === UC[10]: Creazione Password <UC10>
@@ -495,7 +500,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema invia un'email di conferma all'utente.
   3. L'utente riceve l'email e inserisce il codice OTP nella pagina di verifica.
   4. Il sistema verifica il codice OTP e conferma l'email dell'utente.
-
+- *Estensioni*:
+  - Errore "Utente non trovato" (#link(<UC5>)[*UC[5]*]).
+  - Errore Generico (#link(<UC8>)[*UC[8]*]).
+  - Errore "Codice di conferma scaduto" (#link(<UC19>)[*UC[19]*]).
+  - Errore "Codice di conferma non valido" (#link(<UC20>)[*UC[20]*]).
 
 === UC[19] Errore "Codice di conferma scaduto" <UC19>
 
@@ -560,9 +569,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore generico (#link(<UC8>)[*UC[8]*]).
-//errore "il workflow deve avere un nome"
-//errore "il nome del workflow deve avere meno di 25 char"
-
+  - Errore "Il _workflow_ deve avere un nome" (#link(<UC22>)[*UC[22]*]).
+  - Errore "Il nome del _workflow_ deve avere meno di 25 caratteri" (#link(<UC23>)[*UC[23]*]).
 
 === UC[22] Errore "Il _workflow_ deve avere un nome" <UC22>
 
@@ -620,6 +628,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore generico (#link(<UC8>)[*UC[8]*]).
+  - Errore "_Prompt is required_" (#link(<UC25>)[*UC[25]*]).
 
 === UC[25] Errore "_Prompt is required_" <UC25>
 
@@ -705,6 +714,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. L'utente seleziona l'opzione di eliminazione della _routine_.
   3. Il sistema mostra un messaggio di conferma dell'eliminazione.
   4. Se l'utente conferma l'eliminazione, il sistema elimina la _routine_ e ritorna l'utente alla _dashboard_.
+- *Estensioni*:
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
+  - Errore "_Workflow_ non trovato" (#link(<UC30>)[*UC[30]*]).
 
 // AGGIUNGERE ERRORE GENERICO
 
@@ -746,11 +758,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 \
 - *Estensioni*:
-  aggiungere errori
-
-// Errore: Workflow name required
-
-// Errore: Workflow name must be less than 25 characters
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
+  - Errore "Il _workflow_ deve avere un nome" (#link(<UC22>)[*UC[22]*]).
+  - Errore "Il nome del _workflow_ deve avere meno di 25 caratteri" (#link(<UC23>)[*UC[23]*]).
 
 #figure(image("../../assets/usecasediagrams/ModificaNome.svg"), caption: [Diagramma casi d'uso UC[8], UC[22], UC[23], UC[31]])
 === UC[32]: Avviare una _routine_ esistente <UC32>
@@ -766,7 +776,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore generico (#link(<UC8>)[*UC[8]*]).
-// Errore: Workflow not found
+  - Errore "_Workflow_ non trovato" (#link(<UC30>)[*UC[30]*]).
+  - Errore "impossibile eseguire il flusso" (#link(<UC35>)[*UC[35]*]).
 
 
 
@@ -839,6 +850,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. L'utente aggiunge un blocco alla _routine_.
   2. Il sistema mostra il blocco aggiunto.
+- *Estensioni*:
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
 
 
 
@@ -1018,6 +1031,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente modifica le impostazioni di un blocco.
   2. Il sistema salva le modifiche del blocco.
 
+- *Estensioni*:
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
+
 
 
 
@@ -1102,11 +1118,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 - *Estensioni*:
   - Errore generico (#link(<UC8>)[*UC[8]*]).
-
-
-// Errore: Workflow not found
-// Errore: Workflow name must be less than 25 characters
-
+  - Errore "Workflow non trovato" (#link(<UC30>)[*UC[30]*]).
+  - Errore "Il nome del _workflow_ deve avere meno di 25 caratteri" (#link(<UC23>)[*UC[23]*]).
 #figure(image("../../assets/usecasediagrams/Salvare.svg"), caption: [Diagramma casi d'uso UC[8], UC[23], UC[30], UC[49]])
 
 
@@ -1127,7 +1140,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*:
   1. Il sistema rimuove il blocco dalla _routine_.
 
-
+- *Estensioni*:
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
 
 
 
@@ -1357,49 +1371,81 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
   [Il sistema restituisce un errore per credenziali non valide inserite dall'utente],
   [#link(<UC1>)[*UC[1]*], #link(<UC4>)[*UC[4]*], #link(<UC9>)[*UC[9]*]],
 
-  [ROF-9], [Il sistema restituisce un errore se si tenta di eseguire il login con una mail non registrata], [#link(<UC1>)[*UC[1]*], #link(<UC5>)[*UC[5]*]],
+  [ROF-9],
+  [Il sistema restituisce un errore se si tenta di eseguire il login con una mail non registrata],
+  [#link(<UC1>)[*UC[1]*], #link(<UC5>)[*UC[5]*]],
 
-  [ROF-10], [Il sistema restituisce un errore se rileva ripetuti tentativi di accesso], [#link(<UC1>)[*UC[1]*], #link(<UC6>)[*UC[6]*], Riunione interna],
+  [ROF-10],
+  [Il sistema restituisce un errore se rileva ripetuti tentativi di accesso],
+  [#link(<UC1>)[*UC[1]*], #link(<UC6>)[*UC[6]*], Riunione interna],
 
-  [ROF-11], [Il sistema restituisce un errore se si tenta di eseguire il login con una mail non verificata], [#link(<UC1>)[*UC[1]*], #link(<UC7>)[*UC[7]*]],
+  [ROF-11],
+  [Il sistema restituisce un errore se si tenta di eseguire il login con una mail non verificata],
+  [#link(<UC1>)[*UC[1]*], #link(<UC7>)[*UC[7]*]],
 
   [ROF-12], [Il sistema restituisce un errore nel caso si riscontrino problemi], [#link(<UC8>)[*UC[8]*]],
 
-  [ROF-13], [Il sistema restituisce un errore se l'_e-mail_ è già in uso in fase di registrazione], [#link(<UC9>)[*UC[9]*], #link(<UC12>)[*UC[12]*]],
+  [ROF-13],
+  [Il sistema restituisce un errore se l'_e-mail_ è già in uso in fase di registrazione],
+  [#link(<UC9>)[*UC[9]*], #link(<UC12>)[*UC[12]*]],
 
   [ROF-14], [Il sistema restituisce un errore se si lascia il campo password vuoto], [#link(<UC9>)[*UC[9]*], #link(<UC18>)[*UC[18]*]],
 
-  [ROF-15], [L'utente deve verificare l'account creato tramite codice OTP ricevuto per _e-mail_], [#link(<UC9>)[*UC[9]*], #link(<UC13>)[*UC[13]*], #link(<UC18>)[*UC[18]*], Riunione interna],
+  [ROF-15],
+  [L'utente deve verificare l'account creato tramite codice OTP ricevuto per _e-mail_],
+  [#link(<UC9>)[*UC[9]*], #link(<UC13>)[*UC[13]*], #link(<UC18>)[*UC[18]*], Riunione interna],
 
-  [ROF-16], [Il sistema restituisce un errore se l'utente tenta di concludere la registrazione senza inserire il codice di verifica], [#link(<UC9>)[*UC[9]*], #link(<UC14>)[*UC[14]*], #link(<UC18>)[*UC[18]*]],
+  [ROF-16],
+  [Il sistema restituisce un errore se l'utente tenta di concludere la registrazione senza inserire il codice di verifica],
+  [#link(<UC9>)[*UC[9]*], #link(<UC14>)[*UC[14]*], #link(<UC18>)[*UC[18]*]],
 
-  [ROF-17], [Il sistema restituisce un errore se le _password_ non corrispondono tra loro in fase di registrazione], [#link(<UC9>)[*UC[9]*], #link(<UC15>)[*UC[15]*]],
+  [ROF-17],
+  [Il sistema restituisce un errore se le _password_ non corrispondono tra loro in fase di registrazione],
+  [#link(<UC9>)[*UC[9]*], #link(<UC15>)[*UC[15]*]],
 
-  [ROF-18], [Il sistema restituisce un errore se la _password_ creata è inferiore a 8 caratteri in fase di registrazione], [#link(<UC9>)[*UC[9]*], #link(<UC16>)[*UC[16]*], Riunione interna],
+  [ROF-18],
+  [Il sistema restituisce un errore se la _password_ creata è inferiore a 8 caratteri in fase di registrazione],
+  [#link(<UC9>)[*UC[9]*], #link(<UC16>)[*UC[16]*], Riunione interna],
 
-  [ROF-19], [Il sistema restituisce un errore se l'_e-mail_ è già in uso in fase di verifica], [#link(<UC17>)[*UC[17]*], #link(<UC18>)[*UC[18]*]],
+  [ROF-19],
+  [Il sistema restituisce un errore se l'_e-mail_ è già in uso in fase di verifica],
+  [#link(<UC17>)[*UC[17]*], #link(<UC18>)[*UC[18]*]],
 
-  [ROF-20], [Il sistema restituisce un errore se il codice di conferma inserito dall'utente è scaduto], [#link(<UC18>)[*UC[18]*], #link(<UC19>)[*UC[19]*], Riunione interna],
+  [ROF-20],
+  [Il sistema restituisce un errore se il codice di conferma inserito dall'utente è scaduto],
+  [#link(<UC18>)[*UC[18]*], #link(<UC19>)[*UC[19]*], Riunione interna],
 
-  [ROF-21], [Il sistema restituisce un errore se il codice di conferma inserito dall'utente è errato], [#link(<UC18>)[*UC[18]*], #link(<UC20>)[*UC[20]*]],
+  [ROF-21],
+  [Il sistema restituisce un errore se il codice di conferma inserito dall'utente è errato],
+  [#link(<UC18>)[*UC[18]*], #link(<UC20>)[*UC[20]*]],
 
   [ROF-22], [L'utente deve poter creare una nuova _routine_], [#link(<UC21>)[*UC[21]*], Capitolato],
 
   [ROF-23], [L'utente deve poter modificare il nome di una _routine_], [#link(<UC31>)[*UC[31]*]],
 
-  [ROF-24], [Il sistema restituisce un errore se il nome del _workflow_ viene lasciato vuoto], [#link(<UC31>)[*UC[31]*], #link(<UC22>)[*UC[22]*]],
+  [ROF-24],
+  [Il sistema restituisce un errore se il nome del _workflow_ viene lasciato vuoto],
+  [#link(<UC31>)[*UC[31]*], #link(<UC22>)[*UC[22]*]],
 
-  [ROF-25], [Il sistema restituisce un errore se il nome del _workflow_ ha più di 25 caratteri], [#link(<UC31>)[*UC[31]*], #link(<UC23>)[*UC[23]*], Riunione interna],
+  [ROF-25],
+  [Il sistema restituisce un errore se il nome del _workflow_ ha più di 25 caratteri],
+  [#link(<UC31>)[*UC[31]*], #link(<UC23>)[*UC[23]*], Riunione interna],
 
-  [ROF-26], [L'utente deve poter generare una _routine_ tramite linguaggio naturale], [#link(<UC21>)[*UC[21]*], #link(<UC24>)[*UC[24]*], Capitolato],
+  [ROF-26],
+  [L'utente deve poter generare una _routine_ tramite linguaggio naturale],
+  [#link(<UC21>)[*UC[21]*], #link(<UC24>)[*UC[24]*], Capitolato],
 
-  [ROF-27], [Il sistema restituisce un errore se il prompt di generazione di una _routine_ tramite linguaggio naturale viene lasciato vuoto], [#link(<UC21>)[*UC[21]*], #link(<UC24>)[*UC[24]*], #link(<UC25>)[*UC[25]*]],
+  [ROF-27],
+  [Il sistema restituisce un errore se il prompt di generazione di una _routine_ tramite linguaggio naturale viene lasciato vuoto],
+  [#link(<UC21>)[*UC[21]*], #link(<UC24>)[*UC[24]*], #link(<UC25>)[*UC[25]*]],
 
   [ROF-28], [L'utente deve poter visualizzare i dettagli di una _routine_ esistente], [#link(<UC26>)[*UC[26]*]],
-  
+
   [ROF-29], [L'utente deve poter visualizzare il nome di una _routine_ esistente], [#link(<UC26>)[*UC[26]*], #link(<UC27>)[*UC[27]*]],
 
-  [ROF-30], [L'utente deve poter visualizzare il diagramma dei blocchi di una _routine_ esistente], [#link(<UC26>)[*UC[26]*], #link(<UC28>)[*UC[28]*]],
+  [ROF-30],
+  [L'utente deve poter visualizzare il diagramma dei blocchi di una _routine_ esistente],
+  [#link(<UC26>)[*UC[26]*], #link(<UC28>)[*UC[28]*]],
 
   [ROF-31], [L'utente deve poter eliminare una _routine_ esistente], [#link(<UC29>)[*UC[29]*], Riunione esterna],
 
@@ -1409,55 +1455,89 @@ Nella colonna "fonti" di della tabella viene indicato in quale contesto è stato
 
   [ROF-34], [L'utente deve poter avviare una _routine_ esistente dalla dashboard], [#link(<UC32>)[*UC[32]*], #link(<UC33>)[*UC[33]*]],
 
-  [ROF-35], [L'utente deve poter avviare una _routine_ esistente dalla pagina di modifica del flusso], [#link(<UC32>)[*UC[32]*], #link(<UC34>)[*UC[34]*]],
+  [ROF-35],
+  [L'utente deve poter avviare una _routine_ esistente dalla pagina di modifica del flusso],
+  [#link(<UC32>)[*UC[32]*], #link(<UC34>)[*UC[34]*]],
 
-  [ROF-36], [Il sistema restituisce un errore se l'esecuzione del flusso non va a buon fine], [#link(<UC32>)[*UC[32]*], #link(<UC35>)[*UC[35]*]],
+  [ROF-36],
+  [Il sistema restituisce un errore se l'esecuzione del flusso non va a buon fine],
+  [#link(<UC32>)[*UC[32]*], #link(<UC35>)[*UC[35]*]],
 
   [ROF-37], [L'utente deve poter aggiungere un blocco ad una _routine_ esistente], [#link(<UC36>)[*UC[36]*]],
 
-  [ROF-38], [L'utente deve poter aggiungere un blocco del tipo "_Telegram_ - Send Bot Message" ad una _routine_ esistente], [#link(<UC36>)[*UC[36]*],#link(<UC37>)[*UC[37]*]],
+  [ROF-38],
+  [L'utente deve poter aggiungere un blocco del tipo "_Telegram_ - Send Bot Message" ad una _routine_ esistente],
+  [#link(<UC36>)[*UC[36]*],#link(<UC37>)[*UC[37]*]],
 
-  [ROF-39], [L'utente deve poter aggiungere un blocco del tipo "_AI_ - Summarize" ad una _routine_ esistente], [#link(<UC36>)[*UC[36]*], #link(<UC38>)[*UC[38]*]],
+  [ROF-39],
+  [L'utente deve poter aggiungere un blocco del tipo "_AI_ - Summarize" ad una _routine_ esistente],
+  [#link(<UC36>)[*UC[36]*], #link(<UC38>)[*UC[38]*]],
 
-  [ROF-40], [L'utente deve poter aggiungere un blocco del tipo "_System_ - Wait Second(s)" ad una _routine_ esistente], [#link(<UC36>)[*UC[36]*], #link(<UC39>)[*UC[39]*]],
+  [ROF-40],
+  [L'utente deve poter aggiungere un blocco del tipo "_System_ - Wait Second(s)" ad una _routine_ esistente],
+  [#link(<UC36>)[*UC[36]*], #link(<UC39>)[*UC[39]*]],
 
-  [ROF-41], [L'utente deve poter aggiungere un blocco del tipo "_Notion_ - Get Page" ad una _routine_ esistente], [#link(<UC36>)[*UC[36]*], #link(<UC40>)[*UC[40]*], Riunione interna],
+  [ROF-41],
+  [L'utente deve poter aggiungere un blocco del tipo "_Notion_ - Get Page" ad una _routine_ esistente],
+  [#link(<UC36>)[*UC[36]*], #link(<UC40>)[*UC[40]*], Riunione interna],
 
   [ROF-42], [L'utente deve poter visualizzare le impostazioni di un singolo blocco], [#link(<UC41>)[*UC[41]*]],
-  
-  [ROF-43], [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [#link(<UC41>)[*UC[41]*], #link(<UC42>)[*UC[42]*]],
 
-  [ROF-44], [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"],[#link(<UC41>)[*UC[41]*], #link(<UC43>)[*UC[43]*]],
+  [ROF-43],
+  [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"],
+  [#link(<UC41>)[*UC[41]*], #link(<UC42>)[*UC[42]*]],
 
-  [ROF-45], [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [#link(<UC41>)[*UC[41]*], #link(<UC44>)[*UC[44]*]],
+  [ROF-44],
+  [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"],
+  [#link(<UC41>)[*UC[41]*], #link(<UC43>)[*UC[43]*]],
+
+  [ROF-45],
+  [L'utente deve poter visualizzare le impostazioni di un blocco del tipo "_Notion_ - Get Page"],
+  [#link(<UC41>)[*UC[41]*], #link(<UC44>)[*UC[44]*]],
 
   [ROF-46], [L'utente deve poter modificare le impostazioni di un singolo blocco"], [#link(<UC45>)[*UC[45]*]],
-  
-  [ROF-47], [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [#link(<UC45>)[*UC[45]*],#link(<UC46>)[*UC[46]*]],
 
-  [ROF-48], [L'utente deve poter modificare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [#link(<UC45>)[*UC[45]*], #link(<UC47>)[*UC[47]*] ],
+  [ROF-47],
+  [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"],
+  [#link(<UC45>)[*UC[45]*],#link(<UC46>)[*UC[46]*]],
 
-  [ROF-49], [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [#link(<UC45>)[*UC[45]*], #link(<UC48>)[*UC[48]*] ],
+  [ROF-48],
+  [L'utente deve poter modificare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"],
+  [#link(<UC45>)[*UC[45]*], #link(<UC47>)[*UC[47]*] ],
 
-  [ROF-50], [Il sistema deve salvare le modifiche apportate dall'utente alla _routine_ appena viene premuto il tasto di salvataggio], [#link(<UC49>)[*UC[49]*], Riunione interna],
+  [ROF-49],
+  [L'utente deve poter modificare le impostazioni di un blocco del tipo "_Notion_ - Get Page"],
+  [#link(<UC45>)[*UC[45]*], #link(<UC48>)[*UC[48]*] ],
 
-  [ROF-51], [L'utente deve potere eliminare un blocco da una _routine_ esistente ], [#link(<UC50>)[*UC[50]*], #link(<UC51>)[*UC[51]*], #link(<UC52>)[*UC[52]*]],
+  [ROF-50],
+  [Il sistema deve salvare le modifiche apportate dall'utente alla _routine_ appena viene premuto il tasto di salvataggio],
+  [#link(<UC49>)[*UC[49]*], Riunione interna],
 
-  [ROF-52], [L'utente deve potere eliminare un blocco da una _routine_ esistente da tastiera], [#link(<UC50>)[*UC[50]*], #link(<UC51>)[*UC[51]*], Riunione interna],
+  [ROF-51],
+  [L'utente deve potere eliminare un blocco da una _routine_ esistente ],
+  [#link(<UC50>)[*UC[50]*], #link(<UC51>)[*UC[51]*], #link(<UC52>)[*UC[52]*]],
 
-  [ROF-53], [L'utente deve potere eliminare un blocco da una _routine_ esistente da interfaccia grafica], [#link(<UC50>)[*UC[50]*], #link(<UC52>)[*UC[52]*]],
+  [ROF-52],
+  [L'utente deve potere eliminare un blocco da una _routine_ esistente da tastiera],
+  [#link(<UC50>)[*UC[50]*], #link(<UC51>)[*UC[51]*], Riunione interna],
+
+  [ROF-53],
+  [L'utente deve potere eliminare un blocco da una _routine_ esistente da interfaccia grafica],
+  [#link(<UC50>)[*UC[50]*], #link(<UC52>)[*UC[52]*]],
 
   [ROF-54], [L'utente deve potere collegare due blocchi di una _routine_ esistente], [#link(<UC53>)[*UC[53]*], Capitolato],
-  
-  [ROF-55], [L'utente deve potere scollegare due blocchi di una _routine esistente_], [#link(<UC54>)[*UC[54]*], Capitolato],
-  
-  [RDF-56], [L'utente può impostare la modalità del client in dark mode o light mode], [#link(<UC55>)[*UC[55]*], Riunione esterna],
-  
-  [ROF-57], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC56>)[*UC[56]*], Riunione interna],
-  
-  [ROF-58], [L'utente deve poter visualizzare la dashboard in seguito al login nell'applicativo], [#link(<UC57>)[*UC[57]*], Riunione interna],
 
-  [ROF-59], [L'utente deve poter ritornare alla dashboard dalla pagina di modifica flusso], [#link(<UC58>)[*UC[58]*]]
+  [ROF-55], [L'utente deve potere scollegare due blocchi di una _routine esistente_], [#link(<UC54>)[*UC[54]*], Capitolato],
+
+  [RDF-56], [L'utente può impostare la modalità del client in dark mode o light mode], [#link(<UC55>)[*UC[55]*], Riunione esterna],
+
+  [ROF-57], [L'utente deve poter effettuare il _logout_ dall'applicativo], [#link(<UC56>)[*UC[56]*], Riunione interna],
+
+  [ROF-58],
+  [L'utente deve poter visualizzare la dashboard in seguito al login nell'applicativo],
+  [#link(<UC57>)[*UC[57]*], Riunione interna],
+
+  [ROF-59], [L'utente deve poter ritornare alla dashboard dalla pagina di modifica flusso], [#link(<UC58>)[*UC[58]*]],
 )
 
 
