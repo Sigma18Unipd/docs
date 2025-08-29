@@ -216,7 +216,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Il sistema verifica le credenziali e permette di accedere alla #glossario("dashboard").
 - *Estensioni*:
   - Credenziali non valide (#link(<UC4>)[*UC[4]*]).
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Errore "Utente non trovato" (#link(<UC5>)[*UC[5]*]).
+  - Errore "Troppi tentativi di accesso" (#link(<UC6>)[*UC[6]*]).
+  - Errore "Account non verificato" (#link(<UC7>)[*UC[7]*]).
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
 
 === UC[2]: Inserimento _E-mail_ <UC2>
 
@@ -256,13 +259,9 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-
-
-
-
 === UC[5] Errore "Utente non trovato" <UC5>
 
-- *Attore principale*: utente autenticato.
+- *Attore principale*: utente non autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella pagina di login.
 
@@ -289,7 +288,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 === UC[7] Errore "Account non verificato" <UC7>
 
-- *Attore principale*: utente autenticato.
+- *Attore principale*: utente non autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella pagina di login.
 
@@ -319,7 +318,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. Il sistema riceve dei dati da processare.
   2. Il sistema non riesce a processare i dati e mostra un messaggio di errore all'utente.
 
-#figure(image("../../assets/usecasediagrams/1,2,3,4,5.svg"), caption: [Diagramma casi d'uso UC[1], UC[2], UC[3], UC[4], UC[5]])
+#figure(
+  image("../../assets/usecasediagrams/Login.svg"),
+  caption: [Diagramma casi d'uso UC[1], UC[2], UC[3], UC[4], UC[5], UC[6], UC[7], UC[8]],
+)
 
 
 
@@ -350,7 +352,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   6. Il sistema crea l'_account_ e salva le credenziali nel _database_.
 - *Estensioni*:
   - _E-mail_ già in uso (#link(<UC9>)[*UC[9]*]).
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
 
 
 === UC[10]: Creazione Password <UC10>
@@ -464,7 +466,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 // Errore Generico
 
-#figure(image("../../assets/usecasediagrams/2,5,6,7,8,9.svg"), caption: [Diagramma casi d'uso UC[2], UC[5], UC[6], UC[7], UC[8], UC[9]])
+#figure(
+  image("../../assets/usecasediagrams/Registrazione.svg"),
+  caption: [Diagramma casi d'uso UC[2], UC[9], UC[10], UC[11], UC[12], UC[13], UC[14], UC[15], UC[16], UC[17]],
+)
 
 
 
@@ -516,7 +521,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra un messaggio di errore "_Code not valid_".
 
 
-
+#figure(
+  image("../../assets/usecasediagrams/OTP.svg"),
+  caption: [Diagramma casi d'uso UC[5], UC[8], UC[18], UC[19], UC[20]],
+)
 
 
 
@@ -546,7 +554,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema crea una nuova _routine_ e l'utente viene portato alla pagina di modifica del flusso.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
 //errore "il workflow deve avere un nome"
 //errore "il nome del workflow deve avere meno di 25 char"
 
@@ -586,8 +594,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 // Errore: Workflow name must be less than 25 characters
 
-
-
+#figure(
+  image("../../assets/usecasediagrams/CreazioneRoutine.svg"),
+  caption: [Diagramma casi d'uso UC[8], UC[21], UC[22], UC[23]],
+)
 
 === UC[24]: Generare una _routine_ mediante linguaggio naturale <UC24>
 
@@ -604,7 +614,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Il sistema mostra il flusso generato all'utente.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
 
 === UC[25] Errore "_Prompt is required_" <UC25>
 
@@ -619,13 +629,11 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 // ERRORE: Prompt is required
 
-#figure(image("../../assets/usecasediagrams/5,12,13,14,15.svg"), caption: [Diagramma casi d'uso UC[5], UC[12], UC[13], UC[14], UC[15]])
 
-
-
-
-
-
+#figure(
+  image("../../assets/usecasediagrams/Generazione.svg"),
+  caption: [Diagramma casi d'uso UC[8], UC[24], UC[25]],
+)
 
 
 === UC[26]: Visualizzare i dettagli di una _routine_ esistente <UC26>
@@ -673,7 +681,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 - *Scenario principale*
   1. l'utente visualizza il diagramma dei blocchi della routine selezionata.
 
-#figure(image("../../assets/usecasediagrams/16,17,18.svg"), caption: [Diagramma casi d'uso UC[16], UC[17], UC[18]])
+#figure(image("../../assets/usecasediagrams/VisDettagli.svg"), caption: [Diagramma casi d'uso UC[26], UC[27], UC[28]])
 
 
 
@@ -710,7 +718,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 // Errore: Workflow not found
 
-#figure(image("../../assets/usecasediagrams/19.svg"), caption: [Diagramma casi d'uso UC[19]])
+#figure(image("../../assets/usecasediagrams/Eliminare.svg"), caption: [Diagramma casi d'uso UC[8], UC[29], UC[30]])
 
 
 
@@ -731,15 +739,15 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra un campo di testo per la modifica del nome della _routine_.
   3. L'utente inserisce e conferma il nuovo nome della _routine_.
 
-#figure(image("../../assets/usecasediagrams/5,11,20.svg"), caption: [Diagramma casi d'uso UC[5], UC[11], UC[20]])
-
 \
 - *Estensioni*:
-// aggiungere errori
+  aggiungere errori
 
+// Errore: Workflow name required
 
+// Errore: Workflow name must be less than 25 characters
 
-
+#figure(image("../../assets/usecasediagrams/ModificaNome.svg"), caption: [Diagramma casi d'uso UC[8], UC[22], UC[23], UC[31]])
 === UC[32]: Avviare una _routine_ esistente <UC32>
 
 - *Attore principale*: utente autenticato.
@@ -752,7 +760,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. Il sistema avvia la _routine_.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
 // Errore: Workflow not found
 
 
@@ -792,7 +800,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona di avvio della _routine_ interessata.
   2. Il sistema avvia la _routine_.
 
-#figure(image("../../assets/usecasediagrams/5,21,22,23.svg"), caption: [Diagramma casi d'uso UC[5], UC[21], UC[22], UC[23]])
+
 
 
 
@@ -812,7 +820,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra un messaggio di errore "_An error occurred while running the workflow_".
 
 
-
+#figure(image("../../assets/usecasediagrams/Avviare.svg"), caption: [Diagramma casi d'uso UC[8], UC[30], UC[32], UC[34], UC[35]])
 
 
 
@@ -902,8 +910,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 #figure(
-  image("../../assets/usecasediagrams/5,28,29,30,31,32,33.svg"),
-  caption: [Diagramma casi d'uso UC[5], UC[28], UC[29], UC[30], UC[31], UC[32], UC[33]],
+  image("../../assets/usecasediagrams/AggiuntaBlocco.svg"),
+  caption: [Diagramma casi d'uso UC[8], UC[36], UC[37], UC[38], UC[39], UC[40]],
 )
 
 
@@ -981,7 +989,10 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra impostazioni del blocco, l'Internal Integration Token e il Page ID.
 
 
-#figure(image("../../assets/usecasediagrams/34,35,36,37,38.svg"), caption: [Diagramma casi d'uso UC[34], UC[35], UC[36], UC[37], UC[38]])
+#figure(
+  image("../../assets/usecasediagrams/VisualizzaImpostazioniBlocco.svg"),
+  caption: [Diagramma casi d'uso UC[41], UC[42], UC[43], UC[44]],
+)
 
 
 
@@ -1059,8 +1070,8 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 #figure(
-  image("../../assets/usecasediagrams/5,39,40,41,42,43,44.svg"),
-  caption: [Diagramma casi d'uso UC[5], UC[39], UC[40], UC[41], UC[42], UC[43], UC[44]],
+  image("../../assets/usecasediagrams/ModificaImpostazioniBlocco.svg"),
+  caption: [Diagramma casi d'uso UC[8], UC[45], UC[46], UC[47], UC[48]],
 )
 
 
@@ -1085,13 +1096,13 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema salva le modifiche.
 
 - *Estensioni*:
-  - Errore generico (#link(<UC5>)[*UC[5]*]).
+  - Errore generico (#link(<UC8>)[*UC[8]*]).
 
 
 // Errore: Workflow not found
 // Errore: Workflow name must be less than 25 characters
 
-#figure(image("../../assets/usecasediagrams/5,45,46.svg"), caption: [Diagramma casi d'uso UC[5], UC[45], UC[46]])
+#figure(image("../../assets/usecasediagrams/Salvare.svg"), caption: [Diagramma casi d'uso UC[8], UC[23], UC[30], UC[49]])
 
 
 
@@ -1147,7 +1158,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   3. Il sistema rimuove il blocco dalla _routine_.
 
 
-#figure(image("../../assets/usecasediagrams/5,47,48,49.svg"), caption: [Diagramma casi d'uso UC[5], UC[47], UC[48], UC[49]])
+#figure(image("../../assets/usecasediagrams/EliminareBlocco.svg"), caption: [Diagramma casi d'uso UC[8], UC[50], UC[51], UC[52]])
 
 
 
@@ -1168,7 +1179,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme e trascina l'_handle_ destro di un blocco all'_handle_ sinistro di un altro blocco creando un collegamento.
   2. Il sistema crea un collegamento tra i due blocchi.
 
-#figure(image("../../assets/usecasediagrams/50.svg"), caption: [Diagramma casi d'uso UC[50]])
+#figure(image("../../assets/usecasediagrams/CollegareBlocchi.svg"), caption: [Diagramma casi d'uso UC[53]])
 
 
 
@@ -1187,7 +1198,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. L'utente preme il tasto dedicato sulla tastiera (_backspace_) per scollegare i due blocchi.
   3. Il sistema rimuove il collegamento tra i due blocchi.
 
-#figure(image("../../assets/usecasediagrams/51.svg"), caption: [Diagramma casi d'uso UC[51]])
+#figure(image("../../assets/usecasediagrams/ScollegareBlocchi.svg"), caption: [Diagramma casi d'uso UC[54]])
 
 
 
@@ -1205,7 +1216,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona del cambio tema del _client_.
   2. Il sistema cambia il tema selezionato del _client_.
 
-#figure(image("../../assets/usecasediagrams/53.svg"), caption: [Diagramma casi d'uso UC[53]])
+#figure(image("../../assets/usecasediagrams/DarkMode.svg"), caption: [Diagramma casi d'uso UC[55]])
 
 
 
@@ -1226,7 +1237,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme l'icona per effettuare il _logout_.
   2. Il sistema disconnette l'utente e lo riporta alla pagina di _login_.
 
-#figure(image("../../assets/usecasediagrams/54.svg"), caption: [Diagramma casi d'uso UC[54]])
+#figure(image("../../assets/usecasediagrams/Logout.svg"), caption: [Diagramma casi d'uso UC[56]])
 
 
 
@@ -1245,7 +1256,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente effettua l'accesso.
   2. Il sistema rimanda l'utente alla _dashboard_.
 
-#figure(image("../../assets/usecasediagrams/55.svg"), caption: [Diagramma casi d'uso UC[55]])
+#figure(image("../../assets/usecasediagrams/VisualizzaDashboard.svg"), caption: [Diagramma casi d'uso UC[57]])
 
 
 
@@ -1263,7 +1274,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   1. L'utente preme il tasto dedicato per tornare alla _dashboard_.
   2. Il sistema riporta l'utente alla _dashboard_.
 
-#figure(image("../../assets/usecasediagrams/56.svg"), caption: [Diagramma casi d'uso UC[56]])
+#figure(image("../../assets/usecasediagrams/RitornareDashboard.svg"), caption: [Diagramma casi d'uso UC[58]])
 
 
 #pagebreak()
