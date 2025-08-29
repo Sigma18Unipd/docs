@@ -365,8 +365,47 @@ Viene riportato un esempio di codice che mostra come viene composto un _dialog_ 
 
 == Architettura Backend
 
-Il backend è stato sviluppato in _Python_ ed eseguito in un contesto Flask avviato tramite lo _singleton_ _FlasjkAppSingleton_ e containerizzabile con un dockerfile che prepara un'immagine basata su python3.13 e definisce vari target.
+Il backend è stato sviluppato in _Python_ ed eseguito in un contesto Flask avviato tramite lo _singleton_ _FlaskAppSingleton_ e containerizzabile con un dockerfile che prepara un'immagine basata su python3.13 e definisce vari target.
 Le variabili d'ambiente vengono caricate e usate per configurare il client AWS Cognito e la connessione a MongoDB, quest'ultima gestita dal singleton _MongoDBSingleton_.
+
+
+=== Struttura del codice
+Viene riportata una panoramica della struttura delle cartelle e dei file principali riguardanti il backend:
+
+#align(center)[
+  ```
+  backend
+  ├── db
+  │   └── ...
+  ├── flow
+  │   ├── blocks
+  │   │   ├── aiSummarize.py
+  │   │   ├── notionGetPage.py
+  │   │   ├── syswait.py
+  │   │   └── telegramSend.py
+  │   ├── block.py
+  │   ├── flowIterator.py
+  │   ├── flowManager.py
+  │   └── ...
+  ├── llm
+  │   └── ...
+  ├── utils
+  │   └── ...
+  ├── backend.py
+  ├── Dockerfile
+  ├── flaskAppSingleton.py
+  ├── test.py
+  └── ...
+  ```
+]
+
+Nella cartella `flow/blocks` sono contenute le implementazioni dei vari blocchi disponibili nel sistema, ognuno in un file separato.
+Il file `block.py` definisce la classe base dei blocchi, implementando il _design pattern Visitor_ e una gerarchia di classi astratte. Questa struttura consente di gestire in modo uniforme stato, _input_, _output_ e _log_ di esecuzione per ogni blocco concreto.
+
+I file`flowIterator.py` e `flowManager.py` lavorano inseme per implementare un sistema modulare e scalabile per l'esecuzione di flussi di lavoro. Il `FlowManager` si occupa della configurazione e dell'orchestrazione, mentre `FlowIterator` gestisce l'effettiva esecuzione dei blocchi.
+
+Infine, `backend.py` è il punto d'ingresso dell'applicativo. Infatti esso inizializza l'app _Flask_ tramite `FlaskAppSingleton`, configura il supporto per _CORS( Cross-Origin Resource Sharing)_ e i vari servizi di _AWS_. Gestisce le _route HTTPS_.
+
 
 === Gestione dell'autenticazione delle _Route_
 
