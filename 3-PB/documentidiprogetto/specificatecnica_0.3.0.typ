@@ -793,4 +793,10 @@ dove:
 )
 
 
-== Grafici riassuntivi
+== Grafico riassuntivo
+#figure(image("../../assets/img/specificatecnica/Requisiti_funzionali_soddisfatti.svg", width: 45%), caption: [
+  Grafico dei requisiti funzionali soddisfatti
+])
+
+Il gruppo ha implementato con successo i requisiti funzionali obbligatori e desiderabili, come evidenziato nel grafico sopra.
+La copertura completa dei requisiti funzionali garantisce che il prodotto sia conforme alle aspettative iniziali e alle specifiche definite durante la fase di analisi.
