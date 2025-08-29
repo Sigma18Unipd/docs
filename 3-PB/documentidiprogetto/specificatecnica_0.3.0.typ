@@ -455,6 +455,174 @@ Il processo di sanitizzazione dei _workflow_ ha 3 principali fasi:
 === Diagramma delle classi
 //TODO inserire immagine diagramma classi
 
+=== Struttura delle classi
+==== AiSummarize
+La classe 'AiSummarize' è un Block che riassume un testo sfruttando un agente Bedrock (Facade)
+
+===== Attributi
+- ```py -id: str ```: identificativo ereditato da 'Block'.
+- ```py -name: str ```: nome del blocco, ereditato da 'Block'.
+- ```py -status: Status ```: stato del blocco, ereditato da 'Block'.
+- ```py -input: dict[str, Any] | None ```: input del blocco, ereditato da 'Block'.
+- ```py -output: dict[str, Any] ```: output del blocco, ereditato da 'Block'.
+
+===== Costruttore
+- ```py +AiSummarize(...) ```: ereditato da 'Block' (nessun init personalizzato).
+===== Metodi
+- ```py +validate_inputs(): boolean = true```: sempre True.
+- ```py +execute(): dict[str, Any] ```: prende il testo da 'properOut' o 'logOut' dell'input, invoca 'summary_facade'. scrive 'properOut' in output e ritorna stato/type/sommario.
+
+
+==== Block
+La classe 'Block' rappresenta il blocco astratto base per tutti i nodi eseguibili del workflow.
+
+===== Attributi
+- ```py -id: str ```: identificativo univoco del blocco.
+- ```py -name: str ```: nome del blocco.
+- ```py -shortname: str ```: nome breve del blocco.
+- ```py -status: Status ```: stato del blocco.
+- ```py -input: dict[str, Any] | None ```: input del blocco.
+- ```py -settings: dict[str, Any] | None ```: impostazioni del blocco.
+- ```py -output: dict[str, Any] ```: output del blocco.
+- ```py -_execution_logs: list[ExecutionLog] ```: log di esecuzione del blocco.
+- ```py -start_time: datetime | None ```: timestamp di inizio esecuzione del blocco.
+- ```py -end_time: datetime | None ```: timestamp di fine esecuzione del blocco.
+
+===== Costruttore
+- ```py +Block(block_id: str | None = None, name: str | None = None, shortname: str | None = None, settings: dict[str, Any] | None = None) ```: costruttore della classe Block.
+
+===== Metodi
+- ```py +validate_inputs(): bool```: astratto.
+- ```py +execute(): bool ```: astratto; imposta lo stato 'RUNNING' e log base (da chiamare con 'super().execute()').
+- ```py +accept(visitor: BlockVisitor) : Any ```:
+- ```py -_get_input(key: str, default: Any = None) : Any```:
+- ```py -_get_setting(key: str, default: Any = None) : Any```:
+- ```py -_set_output(key: str, value: Any) : None```:
+- ```py +get_output() : dict[str, Any]```:
+- ```py -_log(message: str, level: str = "INFO") : None```:
+- ```py +get_logs() : list[ExecutionLog]```:
+- ```py +run(input: dict[str, Any]) : dict[str, Any]```:orchestration (validazione, timing, stati, log).
+- ```py +cancel() : None```:
+- ```py +__str__() : str```:
+
+==== BlockFactory
+La classe 'BlockFactory' è una factory singleton thread-safe che registra e inizializza i Block per tipo.
+
+===== Attributi
+- ```py -_instance: BlockFactory | None ```
+- ```py -_lock: threading.Lock ```
+- ```py -_initialized: bool ```
+- ```py -_imported: bool ```
+- ```py -_registry: dict[str, type[Block]] ```
+- ```py -_registry_lock: threading.RLock ```
+
+===== Costruttore
+- ```py +BlockFactory() ```: inizializza i registri interni.
+
+===== Metodi
+- ```py +get_block_factory() : BlockFactory ```: (classmethod):restituisce l'istanza singleton.
+- ```py -_import_block_types() : None ```: auto-import dei moduli in 'flow.blocks' per notificare le registrazioni
+- ```py +register_block(block_type: str, block_cls: type[Block]) : None ```: registra una classe 'Block' per un tipo.
+- ```py +create_block(block_type: str, **kwargs) : Block ```:istanzia un 'Block' del registro.
+- ```py +get_supported_types() : list[str] ```: elenca i tipi registrati.
+- ```py +lookup_implemented(block_type: str) : bool ```: verifica se un tipo esiste nel registro.
+
+==== FlaskAppSingleton
+La classe 'FlaskAppSingleton' fornisce un'istanza unica di Flask.
+
+===== Attributi
+- ```py -_instance: FlaskAppSingleton | None ```
+- ```py -app: Flask ```
+===== Costruttore
+- ```py +__new__() : FlaskAppSingleton ```: garantisce il singleton.
+- ```py +__init__() : FlaskAppSingleton ```: inizializza 'app' se non presente.
+===== Metodi
+- ```py +get_app() : Flask ```: inizializza l'istanza Flask.
+
+==== FlowIterator
+La classe 'FlowIterator' esegue in sequenza i blocchi di un workflow e colleziona i log.
+
+===== Attributi
+- ```py -logs: list[ExecutionLog] ```
+- ```py -blocks: list[Block] ```
+- ```py -status: Status ```
+- ```py -_thread: threading.Thread | None ```
+
+===== Costruttore
+- ```py +FlowIterator(blocks: list[Block]) ```
+===== Metodi
+- ```py -_run_blocks(input: dict[str, Any]) : None ```:esegue i blocchi, accumula output e log, gestisce errori.
+- ```py +run(input: dict[str, Any]) : None ```: avvia l’esecuzione in un thread.
+- ```py +get_logs() : list[ExecutionLog] ```
+- ```py +get_status() : Status ```
+
+==== FlowManager
+La classe 'FlowManager' costruisce i blocchi da JSON, avvia il workflow e aggrega i log.
+===== Attributi
+- ```py -blocks: list[Block] ```
+- ```py -factory: BlockFactory ```
+- ```py -parser: JsonParserStrategy ```
+- ```py -runner: FlowIterator ```
+
+===== Costruttore
+- ```py +FlowManager(json_data: dict[str, Any]) ```: parse del JSON, costruzione blocchi e FlowIterator.
+
+===== Metodi
+- ```py +parse_json(json_data: dict[str, Any]) : None ```:usa JsonParser, valida tipi, crea i blocchi via BlockFactory.
+- ```py -_get_all_logs() : list[ExecutionLog] ```restituisce i log.
+- ```py +start_workflow() : Any ```:avvia runner.run({}), gestisce errori.
+- ```py +get_status() : Any ```:stato corrente e log.
+
+==== JsonParser
+La classe 'JsonParser' ordina i nodi per dipendenze e struttura i dati per la factory.
+
+===== Attributi
+- nessuno specifico
+
+===== Costruttore
+- ```py +JsonParser() ```
+
+===== Metodi
+- ```py +parse(json_data: dict[str, Any] | str) : dict[str, Any] ```: accetta JSON o stringa, ordina i nodi, ritorna {"nodes": [...], "node_data": {...}}.
+- ```py -_order_nodes(json_data: dict[str, Any]) : list[str] ```: topological sort con 'graphlib.TopologicalSorter'.
+
+
+==== MongoDBSingleton
+La classe 'MongoDBSingleton' fornisce un'istanza unica di PyMongo legata all'app Flask.
+===== Attributi
+- ```py -_instance: MongoDBSingleton | None ```
+- ```py -mongo: PyMongo | None ```
+
+===== Costruttore
+- ```py +__new__(app: Flask | None = None) : MongoDBSingleton ``` inizializza 'PyMongo(app)' la prima volta
+
+===== Metodi
+- ```py +get_db() : Any ```: restituisce l'istanza di PyMongo.
+
+==== NotionGetPage
+La classe 'NotionGetPage' è un Block che legge una pagina Notion e concatena il testo.
+
+===== Attributi
+- ```py -id: str ```: ereditato
+- ```py -name: str ```: ereditato
+- ```py -status: Status ```: ereditato
+- ```py -input: dict[str, Any] | None ```: ereditato
+- ```py -output: dict[str, Any] ```: ereditato
+
+===== Costruttore
+- ```py +NotionGetPage(...) ``` ereditato da 'Block'
+
+===== Metodi
+- ```py +validate_inputs() : bool ```: richiede 'internalIntegrationToken' e 'pageID' (in settings).
+- ```py +execute() : dict[str, Any] ```: usa 'notion_client' per leggere blocchi figli, concatena 'plain_text', popola 'properOut', ritorna 'stato/type', gestisce errori.
+
+
+
+
+
+
+
+
 
 
 
