@@ -68,7 +68,8 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 
 
 = Tecnologie
-== Linguaggi utilizzati
+In questa sezione si presentano le tecnologie e gli strumenti impiegati per lo sviluppo dell'applicativo, illustrandone il ruolo e le funzionalità nel sistema. Per facilitarne la consultazione, sono organizzati in base alle responsabilità che ricoprono all'interno dell'architettura.
+== Linguaggi di Sviluppo
 === TypeScript
 _TypeScript_ è un superset di _JavaScript_ che aggiunge tipizzazione statica e altre funzionalità avanzate scelto per la sua capacità di migliorare la manutenibilità del codice e ridurre gli errori durante lo sviluppo.
 
@@ -207,58 +208,52 @@ Si può accedere al servizio dal link http://54.78.223.77:5173/
 In questa sezione vengono descritti i design pattern adottati e il loro utilizzo.
 
 === Decorator
-Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto, senza modificarne la struttura interna.\
-Ciò è possibile grazie al _decoratore_, ovvero un oggetto che implementa la stessa interfaccia dell'oggetto originale aggiungendo nuovi comportamenti in modo modulare.
-In questo modo, è possibile comporre più decoratori per arricchire progressivamente le funzionalità, favorendo la flessibilità e la riusabilità del codice.
+Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
 
-
-
-//TODO check
-Nel contesto del nostro progetto, il pattern è stato adottato nella seguente classe:
-- *_ProtectedDecorator_*: si tratta di una classe che implementa l'interfaccia _ProtectedDecoratorInterface_ per fornire un sistema di autenticazione e autorizzazione basato su JWT (JSON Web Token).
+Nel contesto del progetto, il pattern è adottato così:
+- la funzione decoratrice '_protected_' in '_backend/backend.py_'. Verifica il JWT nel cookie '_jwtToken_', imposta '_g.email_' e, se non valido, reindirizza a '_/login_'. Usata come _`@protected`_ sulle route.
 
 
 
 
 === Facade
 
-Si tratta di un design pattern strutturale che fornisce un'interfaccia unica e semplice per un sottosistema complesso, nascondendo la complessità sottostante e facilitando l'interazione con esso fornendo un punto di accesso unico e intuitivo per l'utente.
+Si tratta di un design Pattern strutturale che espone un'interfaccia unica e semplice a un sottosistema complesso.
 
-
-//TODO finish
-
-Nel contesto del nostro progetto, il pattern è stato adottato nel seguente caso:
-- *_LLMFacade_*: fornisce un'interfaccia semplificata per l'interazione con i servizi di LLM. La classe offre metodi come _generate_workflow(_) e _summarize()_.
-
-
+Nel contesto del progetto, il pattern è adottato così:
+- modulo '_llm/llmFacade.py_' come facciata verso i servizi LLM. Espone funzioni semplificate (es. _'summary_facade'_) usate dai blocchi senza esporre i dettagli d'integrazione.
 
 
 === Iterator
-Si tratta di un design pattern comportamentale che consente di accedere agli elementi di una collezione in modo sequenziale senza esporre la struttura interna della collezione stessa.\
+Si tratta di un design Pattern comportamentale per accedere sequenzialmente agli elementi senza esporre la struttura interna.
 
-Nel contesto del nostro progetto, il pattern è stato adottato nel seguente caso:
-- *_FlowIterator_*: fornisce un'implementazione dell'interfaccia _FlowIteratorInterface_ per consentire l'accesso sequenziale ai blocchi di un workflow.
+Nel contesto del progetto, il pattern è adottato così:
+- la classe *_FlowIterator_* in _'flow/flowIterator.py'_. Esegue in sequenza i _'Block'_, aggrega _'ExecutionLog'_ e gestisce lo stato; usata da _'FlowManager'_.
 
 
 === Singleton
 
-Si tratta di un design pattern creazionale che assicura che una classe abbia una sola istanza e fornisce un punto di accesso globale a tale istanza.\
-Alcune componenti del sistema devono mantenere la propria integrità per tutta la durata dell'esecuzione del prodotto, evitando la creazione di istanze multiple. Questo pattern garantisce che, ovunque venga richiesto il componente, venga sempre restituita la stessa istanza.
+Si tratta di un design Pattern creazionale che garantisce un'unica istanza globale.
 
-
-//TODO controlla FlaskApp
-Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
-- *_BlockFactorySingleton_*: si tratta di una classe che garantisce che esista una sola istanza globale della _factory_ di blocchi all'interno dell'applicazione.\
-
-- *_FlaskAppSingleton_*: si tratta di una classe che garantisce che esista una sola istanza globale dell'applicazione Flask all'interno del sistema. Questo assicura che tutti i componenti dell'architettura facciano riferimento alla stessa istanza dell'applicazione web, evitando conflitti di configurazione e garantendo coerenza nell'handling delle richieste HTTP.
-
+Nel contesto del progetto, il pattern è adottato così:
+- _'BlockFactory'_ in _'flow/blockFactory.py'_ esposta come singleton tramite 'get_block_factory'.
+- _'FlaskAppSingleton'_ in _'flaskAppSingleton.py'_ fornisce l'unica istanza dell'app Flask.
+- _'MongoDBSingleton'_ in _'db/mongodbSingleton.py'_ fornisce l'unica istanza di PyMongo legata all'app Flask.
 === Strategy
 
-Si tratta di un design pattern comportamentale che consente di definire una famiglia di algoritmi, rendendoli intercambiabili.
+Si tratta di un design  Pattern comportamentale per definire una famiglia di algoritmi intercambiabili.
 
 Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
-- *_JsonParserStrategy_*: fornisce un'interfaccia per la definizione di diverse strategie di parsing dei documenti JSON, consentendo di selezionare l'algoritmo più appropriato in base al contesto.
-- *_SanitizationStrategy_*: fornisce un'interfaccia per la definizione di diverse strategie di sanitizzazione dei dati, consentendo di selezionare l'algoritmo più appropriato in base al contesto.
+
+- *_'JsonParserStrategy'_* (interfaccia) e implementazione 'JsonParser' in 'flow/jsonParser.py', usate da 'FlowManager' per il parsing dei workflow.
+
+- *_'llm/llmSanitizer.py'_* implementa una Sanitization Strategy.
+Interfaccia: _'SanitizationStrategy' (Protocol) e base astratta 'BaseSanitizationStrategy'_.
+
+Strategie concrete: _'BasicFieldsStrategy', 'TelegramSendBotMessageStrategy', 'SystemWaitSecondsStrategy', 'DefaultNodeStrategy'_.
+
+Selettore: _'SanitizationStrategyRegistry'_ mappa 'type' del nodo alla strategia corretta e applica una pre-sanitizzazione di campi base.
+Utilizzo: _'process_prompt'_ invoca l'agente _('agent_facade')_, fa _'sanitize_response'_ che applica _'registry.sanitize_node(...)'_ a ogni nodo. Importato e usato in _'backend/backend.py'_.
 
 
 #pagebreak()
