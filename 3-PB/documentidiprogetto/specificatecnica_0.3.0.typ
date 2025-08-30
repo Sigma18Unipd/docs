@@ -211,7 +211,7 @@ In questa sezione vengono descritti i design pattern adottati e il loro utilizzo
 Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
 
 Nel contesto del progetto, il pattern è adottato così:
-- la funzione decoratrice '_protected_' in '_backend/backend.py_'. Verifica il JWT nel cookie '_jwtToken_', imposta '_g.email_' e, se non valido, reindirizza a '_/login_'. Usata come _`@protected`_ sulle route.
+- la funzione decoratrice `protected` in `backend/backend.py`. Verifica il JWT nel cookie `jwtToken`, imposta `g.email` e, se non valido, reindirizza a `/login`. Usata come _`@protected`_ sulle route.
 
 
 
@@ -221,14 +221,14 @@ Nel contesto del progetto, il pattern è adottato così:
 Si tratta di un design Pattern strutturale che espone un'interfaccia unica e semplice a un sottosistema complesso.
 
 Nel contesto del progetto, il pattern è adottato così:
-- modulo '_llm/llmFacade.py_' come facciata verso i servizi LLM. Espone funzioni semplificate (es. _'summary_facade'_) usate dai blocchi senza esporre i dettagli d'integrazione.
+- modulo `llm/llmFacade.py` come facciata verso i servizi LLM. Espone funzioni semplificate (es. `summary_facade`) usate dai blocchi senza esporre i dettagli d'integrazione.
 
 
 === Iterator
 Si tratta di un design Pattern comportamentale per accedere sequenzialmente agli elementi senza esporre la struttura interna.
 
 Nel contesto del progetto, il pattern è adottato così:
-- la classe *_FlowIterator_* in _'flow/flowIterator.py'_. Esegue in sequenza i _'Block'_, aggrega _'ExecutionLog'_ e gestisce lo stato; usata da _'FlowManager'_.
+- la classe *_FlowIterator_* in `flow/flowIterator.py`. Esegue in sequenza i `Block`, aggrega `ExecutionLog` e gestisce lo stato; usata da `FlowManager`.
 
 
 === Singleton
@@ -236,24 +236,24 @@ Nel contesto del progetto, il pattern è adottato così:
 Si tratta di un design Pattern creazionale che garantisce un'unica istanza globale.
 
 Nel contesto del progetto, il pattern è adottato così:
-- _'BlockFactory'_ in _'flow/blockFactory.py'_ esposta come singleton tramite 'get_block_factory'.
-- _'FlaskAppSingleton'_ in _'flaskAppSingleton.py'_ fornisce l'unica istanza dell'app Flask.
-- _'MongoDBSingleton'_ in _'db/mongodbSingleton.py'_ fornisce l'unica istanza di PyMongo legata all'app Flask.
+- `BlockFactory` in `flow/blockFactory.py` esposta come singleton tramite 'get_block_factory'.
+- `FlaskAppSingleton` in `flaskAppSingleton.py` fornisce l'unica istanza dell'app Flask.
+- `MongoDBSingleton` in `db/mongodbSingleton.py` fornisce l'unica istanza di PyMongo legata all'app Flask.
 === Strategy
 
 Si tratta di un design  Pattern comportamentale per definire una famiglia di algoritmi intercambiabili.
 
 Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
 
-- *_'JsonParserStrategy'_* (interfaccia) e implementazione 'JsonParser' in 'flow/jsonParser.py', usate da 'FlowManager' per il parsing dei workflow.
+- *`JsonParserStrategy`* (interfaccia) e implementazione 'JsonParser' in 'flow/jsonParser.py', usate da 'FlowManager' per il parsing dei workflow.
 
-- *_'llm/llmSanitizer.py'_* implementa una Sanitization Strategy.
-Interfaccia: _'SanitizationStrategy' (Protocol) e base astratta 'BaseSanitizationStrategy'_.
+- *`llm/llmSanitizer.py`* implementa una Sanitization Strategy.
+Interfaccia: `SanitizationStrategy' (Protocol) e base astratta 'BaseSanitizationStrategy`.
 
-Strategie concrete: _'BasicFieldsStrategy', 'TelegramSendBotMessageStrategy', 'SystemWaitSecondsStrategy', 'DefaultNodeStrategy'_.
+Strategie concrete: `BasicFieldsStrategy', 'TelegramSendBotMessageStrategy', 'SystemWaitSecondsStrategy', 'DefaultNodeStrategy`.
 
-Selettore: _'SanitizationStrategyRegistry'_ mappa 'type' del nodo alla strategia corretta e applica una pre-sanitizzazione di campi base.
-Utilizzo: _'process_prompt'_ invoca l'agente _('agent_facade')_, fa _'sanitize_response'_ che applica _'registry.sanitize_node(...)'_ a ogni nodo. Importato e usato in _'backend/backend.py'_.
+Selettore: `SanitizationStrategyRegistry` mappa 'type' del nodo alla strategia corretta e applica una pre-sanitizzazione di campi base.
+Utilizzo: `process_prompt` invoca l'agente _('agent_facade')_, fa `sanitize_response` che applica `registry.sanitize_node(...)` a ogni nodo. Importato e usato in `backend/backend.py`.
 
 
 #pagebreak()
