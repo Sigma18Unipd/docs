@@ -1,7 +1,7 @@
 #import "../../templates/templateRelazione.typ": *
 
 #show: content => verbale(
-  titoloDocumento: "Relazione avanzamento 2025/08/25",
+  titoloDocumento: "Relazione avanzamento 2025/09/01",
   componenti: (
     "Alessandro Bernardello",
     "Mirco Borella",
