@@ -18,14 +18,14 @@
 
 Egregio Prof. Tullio Vardanega,\
 
-la seguente relazione riassume lo stato di avanzamento dei capitolato del gruppo Sigma18 per il periodo fino al 9 settembre 2025.
+la seguente relazione riassume lo stato di avanzamento dei capitolato del gruppo Sigma18 per il periodo fino al 1 settembre 2025.
 
 == 1. Progressi raggiunti
 Nel periodo considerato, il gruppo Sigma18 ha proseguito nello sviluppo del progetto:
 
 Il gruppo ha portato a termine lo sviluppo del Minimum Viable Product, completando tutte le funzionalità core identificate durante la fase di analisi dei requisiti. L'MVP è ora pronto per la dimostrazione all'azienda proponente.
 
-È stata quasi completata la fase di testing sistematico dell'applicazione.
+È stata quasi completata la fase di testing dell'applicazione.
 
 Il gruppo ha finalizzato la stesura del documento Manuale Utente, fornendo una guida completa e dettagliata per l'utilizzo dell'applicazione da parte degli utenti finali.
 
