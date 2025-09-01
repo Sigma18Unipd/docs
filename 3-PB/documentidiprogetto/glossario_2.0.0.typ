@@ -7,8 +7,13 @@
   verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.1",
+  versioneAttuale: "2.0.0",
   versioni: (
+    "2.0.0",
+    "2025/09/03",
+    "Matteo Marangon",
+    "Aleena Mathew",
+    "Merge dei termini specifica tecnica",
     "1.1.1",
     "2025/08/29",
     "Matteo Marangon",
@@ -313,6 +318,9 @@ Fase del processo di sviluppo software in cui vengono definiti i requisiti del s
 
 == Script
 File di testo che contiene una sequenza di istruzioni o comandi da eseguire.
+
+== SDK (_Software Development Kit_)
+Insieme di strumenti, librerie e documentazione forniti da un produttore di software per facilitare lo sviluppo di applicazioni su una specifica piattaforma o tecnologia.
 
 == Server
 Macchina o programma che fornisce un qualsiasi tipo di servizio ad altre componenti connesse.
