@@ -36,7 +36,7 @@ Il seguente documento riporta il resoconto della riunione esterna del gruppo _Si
 - Francesco Battistella (_Var Group S.p.A._)
 = Ordine del giorno
 == Presentazione del prodotto
-Durante la riunione in sede di _Var Group S.p.A._, il gruppo _Sigma18_ ha presentato il prodotto sviluppato, illustrando le tutte funzionalità, le architetture software utilizzate, motivato le decisioni di alcune tecnologie utilizzate e i benefici che il prodotto può portare. La presentazione ha incluso una dimostrazione pratica del software, dove il responsabile dell'azienda proponente ha provato in prima persona il prodotto.
+Durante la riunione in sede di _Var Group S.p.A._, il gruppo _Sigma18_ ha presentato il prodotto sviluppato, illustrando tutte le funzionalità, le architetture software utilizzate, motivato le decisioni di alcune tecnologie utilizzate e i benefici che il prodotto può portare. La presentazione ha incluso una dimostrazione pratica del software, dove il responsabile dell'azienda proponente ha provato in prima persona il prodotto.
 == Feedback ricevuti
 L'azienda _Var Group S.p.A._ ha fornito feedback positivi riguardo al prodotto presentato, apprezzando in particolare:
 - L'interfaccia utente intuitiva e facile da usare.
