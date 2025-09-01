@@ -180,7 +180,7 @@ _React Flow_ è una libreria per la creazione di diagrammi e flussi di lavoro in
 
 
 === Shadcn/ui
-_Shadcn/ui_ è una raccolta di componenti React preconfigurati con Tailwind CSS, pensata per facilitare lo sviluppo di interfacce moderne. I componenti vengono integrati direttamente nel progetto, offrendo pieno controllo sul codice e garantendo flessibilità nella personalizzazione e nella manutenzione. É sviluppato per offrire un design coerente e accessibile out-of-the-box, riducendo il tempo di sviluppo.
+_Shadcn/ui_ è una raccolta di componenti React preconfigurati con Tailwind CSS, pensata per facilitare lo sviluppo di interfacce moderne. I componenti vengono integrati direttamente nel progetto, offrendo pieno controllo sul codice e garantendo flessibilità nella personalizzazione e nella manutenzione. É sviluppato per offrire un design coerente e accessibile _out-of-the-box_, riducendo il tempo di sviluppo.
 
 - *Versione*: 2.9.0
 
@@ -264,10 +264,8 @@ In questa sezione vengono descritti i design pattern adottati e il loro utilizzo
 === Decorator
 Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
 
-Nel contesto del progetto, il pattern è adottato così:
-- la funzione decoratrice `protected` in `backend/backend.py`. Verifica il JWT nel cookie `jwtToken`, imposta `g.email` e, se non valido, reindirizza a `/login`. Usata come _`@protected`_ sulle route.Es // riscrivere meglio
-
-
+Nel progetto viene utilizzzato un un decorator `@protected` all'interno della classe `Backend` per proteggere le route che richiedono autenticazione. Il decorator estende il comportamento delle _route_ _Flask_ aggiungendo la logica di verifica per i token _JWT_ forniti con le richieste.
+// TODO: finire spiegazione
 
 
 === Facade
@@ -296,29 +294,23 @@ Nel progetto viene utilizzato nella classe `FlowIterator` la quale si occupa di 
 Si tratta di un design Pattern creazionale che garantisce un'unica istanza globale.
 
 Nel progetto il pattern è adottato in:
-- `Blockfactory`, facente parte del modulo `flow`. La `BlockFactory`, responsabile della creazione di oggetti di tipo `Block`, è implementata come singleton
+- `Blockfactory`, facente parte del modulo `flow`. La `BlockFactory`, responsabile della creazione di oggetti di tipo `Block`, è implementata come singleton con il metodo `get_block_factory()` per evitare di dover registrare più volte i tipi di blocchi istanziabili nella classe.
+- `FlaskAppSingleton`, compreso nel modulo `backend` ed implementato con il metodo `get_app()`, si occupa dell'inizializzazione di _Flask_.
+- `MongoDBSingleton`, presente nel modulo `db` ed implementato con il metodo `get_db()` gestisce la connessione a _MongoDB_ e fornisce un'istanza condivisa per l'accesso al database.
 
 
-Nel contesto del progetto, il pattern è adottato così:
-- `BlockFactory` in `flow/blockFactory.py` esposta come singleton tramite 'get_block_factory'.
-- `FlaskAppSingleton` in `flaskAppSingleton.py` fornisce l'unica istanza dell'app Flask.
-- `MongoDBSingleton` in `db/mongodbSingleton.py` fornisce l'unica istanza di PyMongo legata all'app Flask.
 === Strategy
 
-Si tratta di un design  Pattern comportamentale per definire una famiglia di algoritmi intercambiabili.
+Lo _strategy_ è un design pattern comportamentale che consente di definire una famiglia di algoritmi, incapsularli in classi separate e rendere i loro oggetti intercambiabili.
 
 Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
 
-- *`JsonParserStrategy`* (interfaccia) e implementazione 'JsonParser' in 'flow/jsonParser.py', usate da 'FlowManager' per il parsing dei workflow.
+// In the context class, identify an algorithm that’s prone to frequent changes. It may also be a massive conditional that selects and executes a variant of the same algorithm at runtime.
 
-- *`llm/llmSanitizer.py`* implementa una Sanitization Strategy.
-Interfaccia: `SanitizationStrategy' (Protocol) e base astratta 'BaseSanitizationStrategy`.
+- `JsonParserStrategy`, presente nel modulo `flow` è responsabile del parsing dei dati in formato _JSON_ ricevuti dal _frontend_, identificando gli elementi di tipo `Block` da creare e ordinandoli sequenzialmente in base alle loro connessioni nel flusso di lavoro. L'utilizzo del pattern _strategy_ consente di effettuare facilmente modifiche alla logica di parsing o di ordinamento per rispecchiare possibili cambiamenti nel formato di dati utilizzato dalla libreria _React Flow_ utilizzata nel frontend senza avere impatti sul resto del sistema.
 
-Strategie concrete: `BasicFieldsStrategy', 'TelegramSendBotMessageStrategy', 'SystemWaitSecondsStrategy', 'DefaultNodeStrategy`.
 
-Selettore: `SanitizationStrategyRegistry` mappa 'type' del nodo alla strategia corretta e applica una pre-sanitizzazione di campi base.
-Utilizzo: `process_prompt` invoca l'agente _('agent_facade')_, fa `sanitize_response` che applica `registry.sanitize_node(...)` a ogni nodo. Importato e usato in `backend/backend.py`.
-
+- `llmSanitizerStrategy`, utilizzato all'interno del modulo `llm`, viene impiegato per la sanitizzazione delle risposte fornite dall'agente _LLM_ per la creazione di un _workflow_. L'utilizzo dello _strategy_ consente di definire diverse strategie di sanitizzazione per i vari tipi di nodi, cosa necessaria in quanto ogni tipo di nodo presenta impostazioni differenti rendendo necessaria una logica specifica per ogni blocco.
 
 #pagebreak()
 
