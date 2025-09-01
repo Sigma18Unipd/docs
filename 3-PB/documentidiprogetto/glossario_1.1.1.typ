@@ -332,6 +332,9 @@ Intervallo di tempo fisso, definito nella metodologia di sviluppo software Agile
 == Sprint Planning
 Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (sprint).
 
+== Superset
+Un superset è un linguaggio che contiene tutte le funzionalità di un altro linguaggio e ne aggiunge di nuove. TypeScript, ad esempio, è un superset di JavaScript: include tutto JavaScript e aggiunge funzionalità come i tipi statici.
+
 
 #pagebreak()
 = T
