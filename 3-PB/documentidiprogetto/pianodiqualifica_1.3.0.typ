@@ -8,9 +8,19 @@
   verificatori: ("Carmelo Russello", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello", "Mirco Borella", "Marco Egidi"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "1.1.0",
+  versioneAttuale: "1.3.0",
   versioni: (
-    "1.0.0",
+    "1.3.0",
+    "2025/08/20",
+    "Carmelo Russello",
+    "Marco Egidi",
+    "Aggiornamento cruscotto di valutazione concluso il decimo sprint",
+    "1.2.0",
+    "2025/08/06",
+    "Aleena Mathew ",
+    "Pietro Crotti",
+    "Aggiornamento cruscotto di valutazione concluso il nono sprint",
+    "1.1.0",
     "2025/07/17",
     "Matteo Marangon",
     "Pietro Crotti",
@@ -421,33 +431,39 @@ Il loro successo è fondamentale per garantire il rilascio definitivo del prodot
 
 
 = Cruscotto di Valutazione
+
+//TODO: aggiungere linea fine RTB su sprint 8
 <cruscotto>
 La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
 
 == Estimated at Completion (MPC-EAC)
-#figure(image("../../assets/chart/EAC_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/EAC_chart.svg", width: 90%), caption: [
   Stima del costo totale nel tempo
 ])
 === RTB
 Dal grafico si osserva che il valore di *MPC-EAC* rimane sempre entro una variazione massima del *5% rispetto al BAC*, indicato come _limite superiore_, quindi il progetto è in linea con le aspettative di budget.
 
 
+=== PB
+
+
 
 
 #pagebreak()
 == Planned Value (MPC-PV) & Earned Value (MPC-EV)
-#figure(image("../../assets/chart/PV_EV_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/PV_EV_chart.svg", width: 90%), caption: [
   Stima dei valori EV e PV nel tempo
 ])
 === RTB
 Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *MPC-PV*, indicando che il lavoro viene effettivamente svolto rispettando la pianificazione.
 
+=== PB
 
 
 
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
-#figure(image("../../assets/chart/AC_ETC_EAC_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/AC_ETC_EAC_chart.svg", width: 90%), caption: [
   Stima dei valori AC, ETC e EAC nel tempo
 ])
 === RTB
@@ -455,10 +471,12 @@ Il grafico mostra l'andamento dei valori di *MPC-AC*, *MPC-ETC* e *MPC-EAC* nel 
 Si può osservare che il valore di *MPC-AC* cresce in modo costante, mentre il valore di *MPC-ETC* decresce progressivamente con l'avanzare degli sprint, entrambi i valori sono inferiori al valore di *MPC-EAC*.\
 Si può affermare quindi che il progetto è in linea con le aspettative di budget.
 
+=== PB
+
 #pagebreak()
 
 == Cost Variance (MPC-CV) & Schedule Variance (MPC-SV)
-#figure(image("../../assets/chart/CV_SV_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/CV_SV_chart.svg", width: 90%), caption: [
   Stima dei valori CV e SV nel tempo
 ])
 === RTB
@@ -466,6 +484,7 @@ Dal grafico si può notare che i valore di *MPC-CV* e *MPC-SV* sono sempre entro
 Si può notare che il valore di *MPC-SV* ha subito un picco negativo durante il sesto e settimo sprint causato dalla concomitanza con la sessione di esami estiva che ha causato un rallentamento soprattutto negli sprint in questione.
 Tuttavia, il valore è tornato a crescere, indicando una ripresa del progetto e un ritorno alla pianificazione iniziale.
 
+=== PB
 
 
 
@@ -474,19 +493,20 @@ Tuttavia, il valore è tornato a crescere, indicando una ripresa del progetto e 
 #pagebreak()
 
 == Cost Performance Index (MPC-CPI)
-#figure(image("../../assets/chart/CPI_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/CPI_chart.svg", width: 90%), caption: [
   Stima dei valori CPI nel tempo
 ])
 === RTB
 Il grafico mostra l'andamento del valore di *MPC-CPI* nel tempo, si può notare che è sempre superiore al limite inferiore e che si avvicina sempre di più al valore ottimo 1, indicando che i costi per completare i lavori sono in linea con quanto stabilito.
 
+=== PB
 
 
 
 #pagebreak()
 
 == Requirements Stability Index (MPC-RSI)
-#figure(image("../../assets/chart/RSI_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/RSI_chart.svg", width: 90%), caption: [
   Stima dei valori RSI nel tempo
 ])
 === RTB
@@ -494,37 +514,51 @@ Dal grafico si può notare che nei due sprint iniziali il valore di *MPC-RSI* è
 Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e valori accettabili, indicando che i requisiti sono stati stabiliti e non sono soggetti a modifiche frequenti.\
 Si può osservare una diminuzione del valore nell'ottavo sprint, a seguito della revisione con il professor Cardin, il quale ha richiesto un maggior dettaglio nella definizione dei requisiti.
 
+=== PB
+
+
 
 #pagebreak()
 
 
 
 == Correttezza ortografica (MPC-CO)
-#figure(image("../../assets/chart/CO_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/CO_chart.svg", width: 90%), caption: [
   Stima dei valori CO nel tempo
 ])
 === RTB
 Si può notare che il gruppo si è sempre impegnato a correggere gli eventuali errori ortografici presenti inizialmente nei documenti redatti, per raggiungere un valore pari a 0.
 
 
+=== PB
+
+
 
 #pagebreak()
 
 == Satisfaction of Quality Metrics (MPC-SQM)
-#figure(image("../../assets/chart/SQM_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/SQM_chart.svg", width: 90%), caption: [
   Stima dei valori SQM nel tempo
 ])
 === RTB
 Dal grafico emerge che la percentuale di metriche soddisfatte nei primi due sprint era inferiore al _limite inferiore_, ciò è dato dall'iniziale inesperienza del gruppo. Tuttavia, la percentuale cresce progressivamente con l'avanzare degli sprint raggiungendo valori accettabili.
 
 
+=== PB
+
+
 #pagebreak()
 
 == Efficienza temporale (MPC-ET)
-#figure(image("../../assets/chart/ET_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/ET_chart.svg", width: 90%), caption: [
   Stima dei valori ET nel tempo
 ])
 
 === RTB
 Il grafico mostra l'andamento dell'efficienza temporale del gruppo, che cresce progressivamente con l'avanzare degli sprint.
 Nei primi sprint si ha un'efficienza temporale bassa, dovuta all'inesperienza del gruppo e alla mancanza di conoscenze sulle tecnologie utilizzate.
+
+
+
+=== PB
+

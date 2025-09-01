@@ -7,8 +7,23 @@
   verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.0.0",
+  versioneAttuale: "1.1.1",
   versioni: (
+    "1.1.1",
+    "2025/08/29",
+    "Matteo Marangon",
+    "Aleena Mathew",
+    "Fix layout",
+    "1.1.0",
+    "2025/08/19",
+    "Aleena Mathew",
+    "Marco Egidi",
+    "Aggiunta termini",
+    "1.0.1",
+    "2025/08/18",
+    "Aleena Mathew",
+    "Matteo Marangon",
+    "Aggiunta termini",
     "1.0.0",
     "2025/07/23",
     "Matteo Marangon",
@@ -95,7 +110,7 @@ Un agente è un'entità software che esegue attività in maniera autonoma per co
 Metodologia di sviluppo che si basa su un approccio iterativo e adattivo, favorendo la collaborazione con il cliente e la consegna continua.
 
 == Amazon Bedrock
-Piattaforma cloud che permette di accedere via API a modelli fondamentali di AI generativa offerti da più provider e di integrarli direttamente in applicazioni personalizzate con il supporto di strumenti per l’orchestrazione, la sicurezza e il monitoraggio.
+Piattaforma cloud che permette di accedere via API a modelli fondamentali di AI generativa offerti da più provider e di integrarli direttamente in applicazioni personalizzate con il supporto di strumenti per l'orchestrazione, la sicurezza e il monitoraggio.
 
 == Amazon Nova
 Famiglia di modelli di base di Amazon AWS per l'intelligenza artificiale generativa, progettati per essere facilmente integrati con Amazon Bedrock.
@@ -108,6 +123,10 @@ Il processo di "Audit" ha lo scopo di determinare in maniera indipendente la con
 
 == AWS
 Amazon Web Services (AWS) è una piattaforma di servizi _cloud_ offerta da Amazon. Si suddivide in base al servizio offerto come ad esempio: calcolo, archiviazione, database, _machine learning_ e altro.
+
+== AWS Cognito
+Piattaforma di identità per app web e per dispositivi mobili. È una directory utente, un server di autenticazione e un servizio di autorizzazione per token e AWS credenziali di accesso OAuth 2.0.
+Permette di autenticare e autorizzare gli utenti dalla directory utente integrata, dalla directory aziendale e dai provider di identità utente come Google e Facebook.
 
 == Axios
 Axios è una libreria _JavaScript_ utilizzata per effettuare richieste #glossario("HTTP") in modo semplice e intuitivo in applicazioni web per comunicare con le API.
@@ -157,6 +176,10 @@ Approccio di progettazione di un software centrato sull'esperienza utente che pr
 == Diagrammi UML
 Un diagramma UML è uno schema che permette di analizzare, descrivere e documentare un sistema software mediante l'utilizzo di modelli visuali.
 
+
+== Docker
+Piattaforma open source che consente di creare, distribuire ed eseguire applicazioni all'interno di container, ambienti isolati che includono tutte le dipendenze necessarie per il funzionamento dell'applicazione. L'utilizzo dei container assicura coerenza, portabilità e semplicità di gestione tra diversi ambienti di sviluppo e produzione.
+
 == Drag & Drop
 Tecnica di interazione grafica che si basa sul trascinamento di elementi a schermo. Si tratta di una rappresentazione intuitiva anche per utenti inesperti poiché si basa su
 intuizione e facilità d'uso.
@@ -200,6 +223,12 @@ Standard internazionale che definisce i processi di ciclo di vita del software, 
 
 == Issue
 Un problema o un difetto identificato in un progetto software e registrato in una piattaforma di gestione dei problemi. Le issue possono riguardare bug, funzionalità mancanti o miglioramenti richiesti.
+
+#pagebreak()
+= J
+
+== JWT (JSON Web Token)
+Standard che definisce un modo compatto e sicuro per trasmettere informazioni tra le parti sotto forma di oggetto JSON. I JWT possono essere utilizzati per l'autenticazione e l'autorizzazione degli utenti.
 
 
 #pagebreak()
