@@ -4,7 +4,7 @@
   abstract: "",
   responsabili: "Pietro Crotti",
   redattori: ("Pietro Crotti", "Matteo Marangon", "Carmelo Russello", "Mirco Borella", "Alessandro Bernardello"),
-  verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello", "Marco Egidi"),
+  verificatori: ("Pietro Crotti", "Matteo Marangon", "Aleena Mathew", "Carmelo Russello", "Marco Egidi", "Mirco Borella"),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
   versioneAttuale: "2.0.0",
@@ -13,7 +13,8 @@
     "2.0.0",
     "2025/08/29",
     "Matteo Marangon",
-    "Carmelo Russello",
+    "Carmelo Russello
+Mirco Borella",
     "Ristrutturazione requisiti, tracciamento e riepilogo",
     "1.2.0",
     "2025/07/17",
@@ -135,9 +136,9 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 
 - #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf")[Glossario (2.0.0)]
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")[Dispensa T05: Analisi dei requisiti] (*Ultimo accesso il: 16/07/2025*)
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")[Dispensa T05: Analisi dei requisiti] (*Ultimo accesso il: 15/08/2025*)
 
-- #link("https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf")[Diagrammi dei casi  d'uso] (*Ultimo accesso il: 16/07/2025*)
+- #link("https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf")[Diagrammi dei casi  d'uso] (*Ultimo accesso il: 18/08/2025*)
 #pagebreak()
 
 
@@ -272,7 +273,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra un messaggio di errore "_User not found_".
 
 
-=== UC[6] Errore "Troppi tentativi di accesso" <UC6>
+=== UC[6]: Errore "Troppi tentativi di accesso" <UC6>
 
 - *Attore principale*: utente non autenticato.
 
@@ -286,7 +287,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[7] Errore "Account non verificato" <UC7>
+=== UC[7]: Errore "Account non verificato" <UC7>
 
 - *Attore principale*: utente non autenticato.
 
@@ -399,7 +400,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[13] Errore "È richiesta la password" <UC13>
+=== UC[13]: Errore "È richiesta la password" <UC13>
 
 - *Attore principale*: utente non autenticato.
 
@@ -412,7 +413,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   2. Il sistema mostra un messaggio di errore "È richiesta la password".
 
 
-=== UC[14] Errore "È richiesto un codice di verifica" <UC14>
+=== UC[14]: Errore "È richiesto un codice di verifica" <UC14>
 
 - *Attore principale*: utente non autenticato.
 
@@ -426,7 +427,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[15] Errore "Le password non corrispondono" <UC15>
+=== UC[15]: Errore "Le password non corrispondono" <UC15>
 
 - *Attore principale*: utente non autenticato.
 
@@ -442,7 +443,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-  === UC[16] Errore "Password troppo corta" <UC16>
+  === UC[16]: Errore "Password troppo corta" <UC16>
 
 - *Attore principale*: utente non autenticato.
 
@@ -456,7 +457,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[17] Errore "Email quota limit exceeded" <UC17>
+=== UC[17]: Errore "Email quota limit exceeded" <UC17>
 *Attore principale*: utente non autenticato.
 
 - *Pre-condizioni*: l'utente ha tentato di registrarsi con un'email già utilizzata.
@@ -483,7 +484,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[18] Conferma email OTP <UC18>
+=== UC[18]: Conferma email OTP <UC18>
 - *Attore principale*: utente non autenticato.
 
 - *Pre-condizioni*: l'utente si trova nella pagina di verifica.
@@ -501,7 +502,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Errore "Codice di conferma scaduto" (#link(<UC19>)[*UC[19]*]).
   - Errore "Codice di conferma non valido" (#link(<UC20>)[*UC[20]*]).
 
-=== UC[19] Errore "Codice di conferma scaduto" <UC19>
+=== UC[19]: Errore "Codice di conferma scaduto" <UC19>
 
 - *Attore principale*: utente autenticato.
 
@@ -517,7 +518,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[20] Errore "Codice di conferma non valido" <UC20>
+=== UC[20]: Errore "Codice di conferma non valido" <UC20>
 
 - *Attore principale*: utente autenticato.
 
@@ -567,7 +568,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Errore "Il _workflow_ deve avere un nome" (#link(<UC22>)[*UC[22]*]).
   - Errore "Il nome del _workflow_ deve avere meno di 25 caratteri" (#link(<UC23>)[*UC[23]*]).
 
-=== UC[22] Errore "Il _workflow_ deve avere un nome" <UC22>
+=== UC[22]: Errore "Il _workflow_ deve avere un nome" <UC22>
 
 - *Attore principale*: utente autenticato.
 
@@ -582,7 +583,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   4. Il sistema mostra un messaggio di errore "_Workflow name is required_".
 
 
-=== UC[23] Errore "Il nome del _workflow_ deve avere meno di 25 caratteri" <UC23>
+=== UC[23]: Errore "Il nome del _workflow_ deve avere meno di 25 caratteri" <UC23>
 
 - *Attore principale*: utente autenticato.
 
@@ -625,7 +626,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
   - Errore generico (#link(<UC8>)[*UC[8]*]).
   - Errore "_Prompt is required_" (#link(<UC25>)[*UC[25]*]).
 
-=== UC[25] Errore "_Prompt is required_" <UC25>
+=== UC[25]: Errore "_Prompt is required_" <UC25>
 
 - *Attore principale*: utente autenticato.
 
@@ -716,7 +717,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 // AGGIUNGERE ERRORE GENERICO
 
 
-=== UC[30] Errore "_Workflow_ non trovato" <UC30>
+=== UC[30]: Errore "_Workflow_ non trovato" <UC30>
 
 - *Attore principale*: utente autenticato.
 
@@ -818,7 +819,7 @@ Il gruppo _Sigma18_ ha deciso di dedicare certi _use case_ a categorie di utenza
 
 
 
-=== UC[35] Errore "Impossibile eseguire il flusso" <UC35>
+=== UC[35]: Errore "Impossibile eseguire il flusso" <UC35>
 
 - *Attore principale*: utente autenticato.
 
