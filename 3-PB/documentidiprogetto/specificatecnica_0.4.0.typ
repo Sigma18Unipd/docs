@@ -16,7 +16,7 @@
 Alessandro Bernardello",
     "Matteo Marangon
 Marco Egidi",
-    "Aggiunte e descrizione di architettura e design patterns",
+    "Tecnologie e descrizione dei design patterns",
     "0.3.0",
     "2025/08/28",
     "Pietro Crotti",
@@ -35,29 +35,39 @@ Marco Egidi",
   ),
 )
 
+#outline(title: "Elenco delle figure", target: figure.where(kind: image, outlined: true))
+#pagebreak()
+
 
 = Introduzione
 == Scopo del documento
-Questo documento ha l'obiettivo di illustrare in modo approfondito le decisioni tecniche e le soluzioni tecnologiche adottate dal team per lo sviluppo del prodotto richiesto dal capitolato C3 "Automatizzare le _routine_ digitali tramite l'intelligenza generativa" proposto da Var Group S.p.A.\
+Questo documento ha l'obiettivo di illustrare in modo approfondito le decisioni tecniche e le soluzioni tecnologiche adottate durante lo sviluppo del prodotto del capitolato C3 "Automatizzare le _routine_ digitali tramite l'intelligenza generativa" proposto da Var Group S.p.A.\
 
-La Specifica Tecnica fornisce una descrizione completa delle tecnologie selezionate, delle architetture software progettate e delle metodologie implementative scelte per costruire il prodotto proposto dal capitolato.
+La specifica tecnica fornisce una descrizione completa delle tecnologie selezionate, delle architetture software progettate e delle metodologie implementative scelte per costruire quanto proposto dal capitolato.
 
 
 == Scopo del prodotto
-Il prodotto fornisce un servizio che permette agli utenti di generare automazioni e #glossario("routine").\
-In particolare, grazie all'ausilio dell'intelligenza artificiale, l'applicativo può interpretare descrizioni di automazioni fornite in linguaggio naturale e generare flussi di lavoro a partire da esse.
-Il flusso di lavoro verrà quindi visualizzato attraverso un #glossario("client") che permette all'utente di modificare l'automazione creata grazie ad un'interfaccia #glossario("drag & drop").\
+Il prodotto fornisce un servizio che permette agli utenti di generare automazioni e #glossario("routine") digitali tramite l'intelligenza artificiale generativa in _cloud_.
+
+In particolare, l'applicativo interpreta descrizioni di automazioni fornite in linguaggio naturale e genera flussi di lavoro eseguibili a partire da esse.
+Il flusso di lavoro verrà quindi visualizzato attraverso un #glossario("client") che permette all'utente di modificare, in caso di bisogno, l'automazione creata grazie ad un'interfaccia #glossario("drag & drop") di qualità e intuitiva.
 Nell'interfaccia, i *blocchi* rappresentano le azioni effettuabili, mentre gli *archi* che li collegano tra loro corrispondono a relazioni tra i singoli componenti dell'automazione.
 
 == Glossario
 Per assicurare la massima chiarezza e prevenire possibili malintesi legati all'interpretazione dei termini utilizzati nei documenti, è stato redatto un glossario. #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf")[Questo] strumento raccoglie e definisce in maniera precisa tutti i termini che potrebbero risultare ambigui, tecnici o comunque soggetti a interpretazioni diverse.
 
-All'interno dei documenti, ogni termine presente nel Glossario sarà opportunamente segnalato tramite la seguente notazione: #glossario("parola"), in modo da permettere al lettore di identificarne facilmente il significato esatto facendo riferimento al glossario stesso.
+All'interno dei documenti, ogni termine presente nel Glossario sarà opportunamente segnalato tramite la seguente notazione:
+
+#set align(center)
+#glossario("parola")
+#set align(left)
+
+in modo da permettere al lettore di identificarne facilmente il significato esatto facendo riferimento al glossario stesso.
 
 == Riferimenti
 === Riferimenti normativi
 
-- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf")[Norme di progetto (1.0.0)]
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_2.0.0.pdf")[Norme di progetto (2.0.0)]
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa] (*Ultimo accesso il: 16/07/2025*)
 
@@ -66,25 +76,18 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 - #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] (*Ultimo accesso il: 16/07/2025*)
 
 === Riferimenti informativi
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa] (*Ultimo accesso il: 16/07/2025*)
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa] (*Ultimo accesso il: 27/08/2025*)
 
-- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario (0.11.0)]
-
-
+- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario (2.0.0)]
 
 
-
+#pagebreak()
 = Tecnologie
 In questa sezione si presentano le tecnologie e gli strumenti impiegati per lo sviluppo dell'applicativo, illustrandone il ruolo e le funzionalità nel sistema.
 
 Per facilitarne la consultazione, esse sono state organizzate in base alle responsabilità che ricoprono all'interno dell'architettura.
 
-== Infrastruttura del sistema
-=== Docker
 
-=== Configurazione di Docker
-
-=== Servizi Docker implementati
 
 == Linguaggi di Sviluppo
 === TypeScript
@@ -109,6 +112,8 @@ L'HTML (HyperText Markup Language) è il linguaggio di markup utilizzato per la 
 
 
 
+
+
 === CSS
 Il CSS (Cascading Style Sheets) è un linguaggio di stile utilizzato per descrivere l'aspetto e la formattazione dei documenti scritti in HTML, consentendo di definire elementi come layout, colori e tipografia e mantenendo la separazione tra struttura dei contenuti e presentazione visiva.
 
@@ -130,6 +135,15 @@ _Python_ è un linguaggio di programmazione interpretato ad alto livello che sup
 
 - *Documentazione*: https://docs.python.org/3.10/ (*Ultimo accesso il: 17/08/2025*)
 
+
+
+
+=== JSON
+_JSON_ (JavaScript Object Notation) è un formato leggero di scambio dati, leggibile sia da esseri umani sia da macchine. Viene utilizzato per rappresentare strutture dati complesse come oggetti e array e nella comunicazione tra client e server nelle applicazioni web.
+
+- *Utilizzo nel codice*: I dati dei workflow vengono scambiati tra il client e il server in formato JSON, facilitando la comunicazione e l'interscambio di informazioni. Anche le risposte del'API fornite dal _backend_ sono formattate in JSON.
+
+- *Documentazione*: https://www.json.org/json-en.html (*Ultimo accesso il: 28/08/2025*)
 
 
 
@@ -184,61 +198,136 @@ _Shadcn/ui_ è una raccolta di componenti React preconfigurati con Tailwind CSS,
 
 - *Versione*: 2.9.0
 
-- *Utilizzo nel codice*:  I componenti _UI_ sono generati secondo lo schema _shadcn_ (`components.json`) e implementati con _Radix_ e _class-variance-authority_, come nel pulsante riutilizzabile _Button_.
+- *Utilizzo nel codice*:  Tutti i componenti grafici utilizzati sono stati implementati utilizzando _Shadcn/ui_, che ha semplificato notevolmente il processo di sviluppo e garantito coerenza stilistica tra le pagine e le funzionalità.
 
-- *Documentazione*: https://ui.shadcn.com/docs (*Ultimo accesso il: XX/0X/2025*)
+- *Documentazione*: https://ui.shadcn.com/docs (*Ultimo accesso il: 27/08/2025*)
 
 
 
 
 === Flask
+_Flask_ è un _framework_ per _Python_ progettato per facilitare lo sviluppo di applicazioni web. Fornisce strumenti essenziali per la gestione delle richieste HTTP, dei template e del routing.
 
-_Flask_ è un _framework_ per _Python_ progettato per facilitare lo sviluppo di applicazioni web.
+- *Versione*: 3.1.2
 
-- *Versione*: X.X.X
+- *Utilizzo nel codice*: Il _backend_ è basato su _Flask_ per la gestione delle API di funzionamento dell'applicativo. Il processo di _Flask_ viene instanziato attraverso _FlaskAppSingleton_, con _CORS policy_ disabilitata (attraverso il modulo esterno `flask_cors`).
 
-- *Utilizzo nel codice*: Il _server web_ è basato su _Flask_; l'applicazione viene creata tramite _FlaskAppSingleton_, con _CORS_ abilitato e definizione di route per _login_ e gestione dei _workflow_.
+- *Documentazione*: https://flask.palletsprojects.com/en/stable/# (*Ultimo accesso il: 29/08/2025*)
 
-- *Documentazione*: https://flask.palletsprojects.com/en/stable/# \ (*Ultimo accesso il: XX/0X/2025*)
+
 
 
 
 
 === Boto3
+Boto3 è l'#glossario("SDK") di Amazon Web Services (AWS) per Python, che permette agli sviluppatori di interagire in modo programmatico con i servizi AWS. La libreria fornisce un'interfaccia per gestire risorse cloud come S3, EC2 e Cognito, facilitando l'integrazione dei servizi AWS all'interno di applicazioni Python.
 
-_Boto3_ è la libreria _Amazon Web Services (AWS) SDK_ per _Python_, che consente di interagire con i servizi _AWS_.
+- *Versione*: 1.24.0
 
-- *Versione*: X.X.X
+- *Utilizzo nel codice*:  Il client boto3 è stato sfruttato per la gestione delle richieste dell'autenticazione con _AWS Cognito_ e le richieste ai modelli AI tramite il servizio _Amazon Bedrock_.
 
-- *Utilizzo nel codice*:  L'autenticazione sfrutta _AWS Cognito_ tramite il _client boto3 cognito-idp_, configurato con le credenziali e la regione _AWS_ specificata.
-
-- *Documentazione*: https://boto3.amazonaws.com/v1/documentation/api/latest/index.html\ (*Ultimo accesso il: XX/0X/2025*)
-
+- *Documentazione*: https://boto3.amazonaws.com/v1/documentation/api/latest/index.html (*Ultimo accesso il: 22/08/2025*)
 
 
 
 
 
-== _Database_
+== Persistenza dei dati
 === MongoDB
-_MongoDB_ è un database _NoSQL_ orientato ai documenti che utilizza un modello di dati flessibile e scalabile.
+_MongoDB_ è un database NoSQL orientato ai documenti, progettato per gestire dati in formato flessibile e scalabile. Utilizza collezioni di documenti in formato simile a JSON.
 
-- *Versione*: X.X.X
+- *Versione*: 8.0.0
 
-- *Utilizzo nel codice*: La persistenza dei dati avviene in _MongoDB_, con connessione gestita da _MongoDBSingleton_ (basato su _flask_pymongo_) e utilizzo del _database_ nelle _route_ dell'app.
+- *Utilizzo nel codice*: La persistenza dei dati avviene attraverso _MongoDB_, che si occupa di gestire il salvataggio e la restituzione dei workflow generati dall'utente. Il collegamento con il backend avviene attraverso un _MongoDBSingleton_ (basato sul modulo `flask_pymongo`).
 
-- *Documentazione*: https://docs.mongodb.com/ (*Ultimo accesso il: XX/0X/2025*)
-
-
+- *Documentazione*: https://docs.mongodb.com/ (*Ultimo accesso il: 22/08/2025*)
 
 
 
 
+//My name is Giovanni Giorgio, but everybody calls me, GIORGIO
+
+
+== Servizi e strumenti
+=== Docker
+_Docker_ è una piattaforma per la containerizzazione delle applicazioni, che consente di creare, distribuire e eseguire software in ambienti isolati e portabili chiamati container. I container includono tutte le dipendenze necessarie, garantendo coerenza tra ambienti di sviluppo, test e produzione, semplificando la scalabilità e la gestione delle applicazioni
+
+- *Versione*: 28.1.1
+
+- *Utilizzo nel progetto*: Docker è stato utilizzato per la gestione dei container del _frontend_, _backend_ e database, garantendo un ambiente di sviluppo coerente e unificato tra i membri del gruppo. In produzione, i container sono stati deployati su una istanza _AWS EC2_ per l'utilizzo e il rilascio di quanto sviluppato.
+
+- *Documentazione*: https://docs.docker.com/reference/ (*Ultimo accesso il: 25/08/2025*)
+
+
+
+
+=== AWS Cognito
+_AWS Cognito_ è un servizio di Amazon Web Services che fornisce autenticazione, autorizzazione e gestione degli utenti per applicazioni web e mobili.
+
+- *Utilizzo nel progetto*: Cognito è stato utilizzato per gestire l'autenticazione e l'autorizzazione degli utenti nell'applicazione.
+
+- *Documentazione*: https://docs.aws.amazon.com/cognito/ (*Ultimo accesso il: 21/08/2025*)
+
+
+
+
+=== AWS SES
+_Amazon Simple Email Service (SES)_ è un servizio cloud di AWS per l'invio, la ricezione e il monitoraggio di email in modo scalabile e sicuro. Viene utilizzato per campagne di marketing, notifiche transazionali e comunicazioni di sistema, garantendo alta deliverability e integrazione con altri servizi AWS.
+
+- *Utilizzo nel progetto*: SES è stato utilizzato l'invio delle email con all'interno il codice OTP necessario per confermare un account appena registrato.
+
+- *Documentazione*: https://docs.aws.amazon.com/ses/ (*Ultimo accesso il: 21/08/2025*)
+
+
+
+=== Amazon Bedrock
+_Amazon Bedrock_ è un servizio gestito di AWS che consente di creare agenti utilizzanti modelli di intelligenza artificiale generativa senza dover gestire l'infrastruttura sottostante. Fornisce accesso a modelli di diversi provider, semplificando l'integrazione di funzionalità di AI avanzata in applicazioni web e aziendali.
+
+- *Utilizzo nel progetto*: _Bedrock_ è responsabile della generazione dei flussi attraverso la funzionalità di conversione da linguaggio naturale a workflow e nel blocco `AI:Summarize` per le funzionalità di sintesi del contenuto.
+
+- *Documentazione*: https://docs.aws.amazon.com/bedrock/ (*Ultimo accesso il: 23/08/2025*)
+
+
+
+=== AWS EC2
+_Amazon Elastic Compute Cloud (EC2)_ è un servizio di AWS che fornisce capacità di calcolo scalabile nel cloud. Permette di creare e gestire istanze virtuali, configurare ambienti di esecuzione personalizzati e adattare le risorse di calcolo in base alle esigenze delle applicazioni, garantendo flessibilità e alta disponibilità.
+
+- *Utilizzo nel progetto*: _EC2_ è stato utilizzato per ospitare tutti i servizi necessari per il funzionamento dell'applicativo (_frontend_, _backend_ e _database_) tramite _Docker_. Nello specifico è stata scelta un'istanza di tipo _t2.micro_ per il suo basso costo e perchè sufficiente a gestire il carico di lavoro previsto (pur avendo risorse limitate: 1 vCPU, 1 GiB di RAM).
+
+- *Documentazione*: https://docs.aws.amazon.com/ec2/ (*Ultimo accesso il: 23/08/2025*)
+
+
+
+
+=== AWS VPC
+_Amazon Virtual Private Cloud (VPC)_ è un servizio AWS che consente di creare reti virtuali isolate all'interno del cloud. Permette di configurare subnet, route, gateway e regole di sicurezza, offrendo il controllo completo sul traffico di rete e la possibilità di collegare in modo sicuro le risorse cloud tra loro e con infrastrutture on-premise.
+
+- *Utilizzo nel progetto*: _VPC_ è stato utilizzato per esporre i servizi dell'applicativo ad internet. Nello specifico è stata creata una subnet pubblica per esporre attraverso un _internet gateway_ le porte necessarie per il funzionamento dei servizi.
+
+- *Documentazione*: https://docs.aws.amazon.com/vpc/ (*Ultimo accesso il: 27/08/2025*)
+
+
+
+=== AWS Elastic IP
+Un Elastic IP è un indirizzo IP statico fornito da AWS che può essere associato dinamicamente a istanze EC2 o ad altre risorse cloud. Consente di mantenere un indirizzo IP costante anche in caso di riavvio o sostituzione delle istanze, garantendo continuità di accesso e stabilità nella connettività delle applicazioni.
+
+- *Utilizzo nel progetto*: _Elastic IP_ è stato utilizzato per garantire un indirizzo IP statico collegato alla scheda di rete virtuale dell'istanza EC2.
+
+- *Documentazione*: https://docs.aws.amazon.com/it_it/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html (*Ultimo accesso il: 28/08/2025*)
+
+// GUAI CHI TOCCA FINO A QUI
 
 
 
 
 
+
+
+
+
+
+
+#pagebreak()
 = Architettura
 
 == Architettura di deployment
@@ -691,7 +780,7 @@ La classe 'NotionGetPage' è un Block che legge una pagina Notion e concatena il
 
 
 = Stato dei requisiti funzionali
-Nella seguente sezione permette di avere una panoramica sullo stato di avanzamento dei requisiti funzionali individuati durante la fase di analisi, è possibile trovare una spiegazione più approfondita sul documento #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_1.2.0.pdf")[Analisi dei Requisiti v2.0.0.].
+Nella seguente sezione permette di avere una panoramica sullo stato di avanzamento dei requisiti funzionali individuati durante la fase di analisi, è possibile trovare una spiegazione più approfondita sul documento #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_1.2.0.pdf")[Analisi dei Requisiti v2.0.0].
 
 == Tracciamento dei requisiti funzionali
 
