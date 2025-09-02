@@ -433,11 +433,11 @@ Il secondo, invece, è responsabile della funzione di sintesi del blocco `Ai: Su
 Il primo agente, è stato configurato con la funzionalità di memoria disattivata, in modo tale da rendere ogni richiesta indipendente, senza alcuna informazione contestuale tra le diverse invocazioni.
 Dopo aver provato tutti i principali modelli forniti, abbiamo scelto di utilizzare il modello `Llama 3.3 70B Instruct` per la sua capacità di generare output ragionevoli e per i suoi costi contenuti. Al modello è stato fornito un contesto creato "ad-hoc" per la funzionalità:
 
-//TODO INSERIRE CONTESTO
+//TODO INSERIRE CONTESTO COME CODICE
 
 Anche il secondo agente è stato configurato con la funzionalità di memoria disattivata. Considerato lo scopo diverso, la scelta del modello è ricaduta su `DeepSeek-R1`, che si è distinto per la capacità di produrre sintesi coerenti e concise. Anche in questo caso, al modello è stato fornito un contesto specifico per la funzionalità:
 
-//TODO INSERIRE CONTESTO
+//TODO INSERIRE CONTESTO COME CODICE
 
 Entrambi i modelli sono stati deployati attraverso il sistema di versionamento e _tags_ presente in _Bedrock_, che ci permetteva di tenere traccia delle modifiche ai relativi contesti e configurazioni.
 
@@ -469,9 +469,13 @@ In particolare, sono state aperte le porte:
 ])
 
 === Deployment dei servizi tramite Docker
+Come precedentemente descritto, i servizi sono stati containerizzati utilizzando Docker. Di seguito è riportato il file di configurazione `docker-compose.yml` utilizzato per il deployment:
+
+//TODO INSERIRE COMPOSE DEV COME CODICE
 
 
 
+Notiamo che per i servizi del _frontend_ e del _backend_ sono stati esposti i volumi per permettere la persistenza dei dati e delle configurazioni.
 
 
 #pagebreak()
