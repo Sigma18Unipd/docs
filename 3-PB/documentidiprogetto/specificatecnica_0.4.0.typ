@@ -34,6 +34,15 @@ Marco Egidi",
     "Stesura iniziale documento",
   ),
 )
+#import "@preview/codly:1.2.0": *
+#show: codly-init
+
+#import "@preview/codly-languages:0.1.8": *
+#codly(languages: codly-languages)
+#codly(stroke: 1pt + rgb("#7b7676"))
+#codly(zebra-fill: rgb("#b2a7a729"))
+#codly(breakable: false)
+
 
 #outline(title: "Elenco delle figure", target: figure.where(kind: image, outlined: true))
 #pagebreak()
@@ -493,24 +502,87 @@ Notiamo che per i servizi del _frontend_ e del _backend_ sono stati esposti i vo
 
 
 == Design pattern
-In questa sezione vengono descritti i design pattern adottati e il loro utilizzo.
-
 === Decorator
-Si tratta di un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
+Il _decorator_ è un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
 
-Nel progetto viene utilizzzato un un decorator `@protected` all'interno della classe `Backend` per proteggere le route che richiedono autenticazione. Il decorator estende il comportamento delle _route_ _Flask_ aggiungendo la logica di verifica per i token _JWT_ forniti con le richieste.
-// TODO: finire spiegazione
+==== Utilizzo del pattern nel progetto
+Nel progetto viene utilizzzato un un decorator `@protected` all'interno della classe `Backend` per proteggere le _route_ che richiedono autenticazione. Il decorator estende il comportamento delle _route_ _Flask_ aggiungendo la logica di verifica per i token _JWT_ forniti con le richieste.
+
+==== Motivazioni dell'utilizzo del pattern
+L'utilizzo del _decorator_ ha consentito di separare la logica di autenticazione dal codice dall'implementazione stessa di ogni _route_, evitando duplicazioni di codice e migliorandone la manutenibilità. Ogni route protetta è facilmente identificabile e la logica può essere modificata in un singolo punto
+
+
+==== Implementazione ed esempio di utilizzo
+#codly(header: [utils/protected.py])
+```py
+from functools import wraps
+from flask import request, g
+def protected(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        try:
+            jwtToken = request.cookies.get("jwtToken")
+            payload = verifyJwt(jwtToken)
+            if not jwtToken or not payload:
+                return redirect("/login"), 302
+            g.email = payload["email"]
+        except Exception as e:
+            logger.debug("Protected route auth failed: %s", e)
+            return redirect("/login"), 302
+        return f(*args, **kwargs)
+
+    return decorated_function
+```
+#codly(header: [backend.py])
+```py
+@app.route("/dashboard", methods=["POST"])
+@protected
+def dashboard():
+    cursor = db.workflows.find({"email": g.email})
+    flows = [{
+          "id": str(flow["_id"]),
+          "name": flow["name"],
+          "contents": flow["contents"],
+        } for flow in cursor
+    ]
+    return jsonify({"flows": flows}), 200
+```
 
 
 === Facade
 
 Si tratta di un design Pattern strutturale che espone un'interfaccia unica e semplice ad un sottosistema complesso.
 
-// Nel contesto del progetto, il pattern è adottato così:
-// - modulo `llm/llmFacade.py` come facciata verso i servizi LLM. Espone funzioni semplificate (es. `summary_facade`) usate dai blocchi senza esporre i dettagli d'integrazione.
+==== Utilizzo del pattern nel progetto e Motivazioni
 
 Il pattern viene utilizzato nella classe `llmFacade` facente parte del modulo `llm`.
-La classe espone i metodi semplificati `summary_facade` e `agent_facade` che astraggono la complessità della libreria `boto3` sottostante utilizzata per interagire con i servizi di intelligenza artificiale di AWS Bedrock.
+La classe espone i metodi semplificati `summary_facade` e `agent_facade` necessari per astrarre la complessità della libreria `boto3` sottostante utilizzata per interagire con i servizi di intelligenza artificiale di AWS Bedrock.
+
+==== Implementazione
+#codly(header: [llm/llmFacade.py])
+#codly(skips: ((1, 4),))
+```py
+class LLMFacade:
+    def __init__(self):
+        self._agents_runtime_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
+
+    def _decode_response(self, response):
+        completion = ""
+        for event in response.get("completion"):
+            chunk = event["chunk"]
+            completion += chunk["bytes"].decode()
+        return completion
+
+    def agent_facade(self, prompt):
+        response = self._agents_runtime_client.invoke_agent(
+            agentId="XKFFWBWHGM",
+            inputText=prompt,
+            agentAliasId="TBVZ2OBWOR",
+            sessionId=f"session-{uuid.uuid4()}",
+        )
+        return self._decode_response(response)
+```
+
 
 
 === Iterator
