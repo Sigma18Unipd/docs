@@ -81,5 +81,3 @@ Data l'udienza a cui l'applicativo si rivolge, è stato concluso che si tratta d
 
 
 Complessivamente l'azienda proponente si è ritenuta soddisfatta del lavoro svolto e presentato in quanto conforme alle aspettative espresse e dettagliate nell'incontro di design thinking tenutosi ad inizio capitolato.
-
-La riunione è terminata con l'invito da parte di Var Group S.p.A. a considerare eventuali opportunità di tirocinio per i membri del gruppo Sigma18.
