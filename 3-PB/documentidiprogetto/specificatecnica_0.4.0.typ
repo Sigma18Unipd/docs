@@ -147,6 +147,22 @@ _JSON_ (JavaScript Object Notation) è un formato leggero di scambio dati, leggi
 
 
 
+
+
+=== YAML
+YAML (YAML Ain't Markup Language) è un formato di serializzazione dei dati, leggibile dall'uomo, utilizzato per rappresentare strutture dati in modo semplice e intuitivo. È impiegato comunemente per file di configurazione.
+
+- *Versione*: 1.2
+
+- *Utilizzo nel codice*: I file di configurazione dei container docker, come `docker-compose.yaml`, sono scritti in YAML.
+
+- *Documentazione*: https://yaml.org/spec/1.2/spec.html (*Ultimo accesso il: 11/08/2025*)
+
+
+
+
+
+
 == Framework e librerie
 === Tailwind CSS
 _Tailwind CSS_ è un framework _CSS_ che consente di costruire interfacce utente personalizzate rapidamente utilizzando classi predefinite per la gestione del layout, dei colori, della tipografia e di altri aspetti stilistici.
@@ -245,10 +261,46 @@ _MongoDB_ è un database NoSQL orientato ai documenti, progettato per gestire da
 
 
 
-//My name is Giovanni Giorgio, but everybody calls me, GIORGIO
+
+== Testing
+=== Cypress
+Cypress è un framework di testing end-to-end per applicazioni web, progettato per semplificare l'automazione dei test nel browser. Fornisce un ambiente integrato per scrivere, eseguire e debuggare test, consentendo di validare funzionalità, interazioni utente e prestazioni.
+
+- *Versione*: 14.5.4
+
+- *Utilizzo nel codice*: Cypress è stato utilizzato per testare il frontend in tutte le sue funzionalità e sfaccettature.
+
+- *Documentazione*: https://docs.cypress.io/ (*Ultimo accesso il: 28/08/2025*)
+
+
+=== Pytest
+Pytest è un framework di testing per Python, pensato per semplificare la scrittura e l'esecuzione di test unitari, funzionali e di integrazione. Supporta la creazione di test concisi e leggibili e un'estensibilità elevata tramite plugin, rendendolo adatto a progetti di qualsiasi dimensione.
+
+- *Versione*: 8.4.1
+
+- *Utilizzo nel codice*: Pytest è stato utilizzato per testare il backend e le API, garantendo il corretto funzionamento delle funzionalità implementate.
+
+- *Documentazione*: https://docs.pytest.org/en/stable/ (*Ultimo accesso il: 27/08/2025*)
+
+
+
+
+
 
 
 == Servizi e strumenti
+=== Vite
+_Vite_ è un build tool per applicazioni web moderne, progettato per fornire un'esperienza di sviluppo veloce e ottimizzata. Utilizza una combinazione di tecnologie come ES modules e hot module replacement (HMR) per migliorare le prestazioni durante lo sviluppo e la produzione.
+
+- *Versione*: 7.0.6
+
+- *Utilizzo nel progetto*: Vite è stato utilizzato per la gestione della build e dello sviluppo del _frontend_, garantendo un'esperienza di sviluppo veloce ed efficace attraverso le funzionalità di live refresh ad ogni modifica.
+
+- *Documentazione*: https://vitejs.dev/ (*Ultimo accesso il: 02/08/2025*)
+
+
+
+
 === Docker
 _Docker_ è una piattaforma per la containerizzazione delle applicazioni, che consente di creare, distribuire e eseguire software in ambienti isolati e portabili chiamati container. I container includono tutte le dipendenze necessarie, garantendo coerenza tra ambienti di sviluppo, test e produzione, semplificando la scalabilità e la gestione delle applicazioni
 
@@ -259,6 +311,16 @@ _Docker_ è una piattaforma per la containerizzazione delle applicazioni, che co
 - *Documentazione*: https://docs.docker.com/reference/ (*Ultimo accesso il: 25/08/2025*)
 
 
+
+
+=== Docker Compose
+_Docker Compose_ è uno strumento per definire e gestire applicazioni multi-container Docker. Utilizzando un file di configurazione YAML, consente di specificare i servizi, le reti e i volumi necessari per l'applicazione, semplificando l'orchestrazione e la gestione dei container.
+
+- *Versione*: 2.38.0
+
+- *Utilizzo nel progetto*: Docker Compose è stato utilizzato per definire le configurazioni dei container e il modo con la quale essi dialogano tra loro.
+
+- *Documentazione*: https://docs.docker.com/compose/ (*Ultimo accesso il: 25/08/2025*)
 
 
 === AWS Cognito
@@ -315,12 +377,6 @@ Un Elastic IP è un indirizzo IP statico fornito da AWS che può essere associat
 
 - *Documentazione*: https://docs.aws.amazon.com/it_it/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html (*Ultimo accesso il: 28/08/2025*)
 
-// GUAI CHI TOCCA FINO A QUI
-
-
-
-
-
 
 
 
@@ -331,21 +387,106 @@ Un Elastic IP è un indirizzo IP statico fornito da AWS che può essere associat
 = Architettura
 
 == Architettura di deployment
-L'architettura di deployment del sistema è composta da tre componenti principali: il _frontend_, il _backend_ e il _database_.
+L'architettura di deployment del sistema è organizzata in due macrocategorie complementari, che interagiscono tra loro garantendo affidabilità, scalabilità e manutenibilità:
+- L'infrastruttura AWS
+- Servizi containerizzati con Docker
 
-//TODO inserire immagine struttura
+=== Infrastruttura Cloud con AWS
+Essa, costituisce il layer infrastrutturale sul quale viene eseguito l'intero sistema. L'utilizzo di Amazon Web Services permette di astrarre l'hardware e di disporre di un ambiente cloud-native con il quale sviluppare e gestire applicazioni.
 
-Il _frontend_ è l'interfaccia grafica sviluppata in React che consente agli utenti di visualizzare, creare e modificare i workflow.
+Il deployment su AWS ha rappresentato un elemento centrale per il progetto, in linea con le richieste del capitolato e le esigenze dell'azienda proponente, Var Group S.p.A., partner ufficiale AWS. \
+Questa scelta ha permesso al gruppo di acquisire competenze sui servizi cloud offerti da AWS e di applicare soluzioni infrastrutturali moderne.
 
-Tutte le interazioni dell'utente vengono gestite dal _backend_, realizzato in Python, che si occupa di elaborare le richieste, orchestrare la logica applicativa e comunicare con l'agente per l'esecuzione delle automazioni.
+#figure(image("../../assets/img/specificatecnica/awsSchema.drawio.png", width: 100%), caption: [
+  Schema infrastruttura AWS
+])
 
-Il _database_ MongoDB memorizza in modo sicuro i dati relativi ai workflow e agli utenti, garantendo persistenza e integrità.
+Segue una descrizione specifica dell'utilizzo e della configurazione dei servizi usati.
 
-//TO DO check
-L'intera infrastruttura si appoggia a AWS, che fornisce i servizi di hosting, gestione del database e scalabilità necessari per garantire un funzionamento efficiente e affidabile del sistema.
-Si può accedere al servizio dal link http://54.78.223.77:5173/
+==== Descrizione della VPC
+La risorsa EC2 che contiene tutti i componenti _Docker_ è collocata all'interno di una VPC (Virtual Private Cloud) dedicata. Questa VPC è stata configurata con subnet pubblica che ospita i servizi esposti all'esterno. Non abbiamo ritenuto necessario la creazione di una subnet privata in quanto il _database_ giace nella stessa macchina virtuale del _backend_, non andando quindi ad effettuare chiamate a risorse esterne.
+
+Alla VPC è stata assegnata una subnet interna con indirizzo IP 10.0.0.0/28, che permette di allocare fino a 16 indirizzi IP successivamente esposti ad internet attraverso un _Internet Gateway_ e una _routing table_ dedicata.
+
+#figure(image("../../assets/img/specificatecnica/dettaglioAWSVPC.png", width: 100%), caption: [
+  Dettaglio della mappa di risorse dedicate alla VPC
+])
+
+==== AWS Cognito, User Pools e SES
+Per la gestione dell'autenticazione, è stato configurato il servizio AWS Cognito in base alle esigenze del progetto. È stato creato uno User Pools per gestire gli utenti e le loro credenziali in modo sicuro, configurando le stesse _password policy_ del _frontend_ e del _backend_ in modo da garantire una coerenza nei requisiti minini delle credenziali. A fine di sviluppo, la _policy_ adottata è "password di almeno 8 caratteri".
+A questo fine, sono stati disattivati tutti i meccanismi di _login_ supportati da Cognito come OAUTH, passkey, SAML e pannello di login ospitato da Amazon.
+
+A Cognito è stato collegato il servizio SES (Simple Email Service) per l'invio ad un nuovo utente registrato del codice OTP necessario a confermare l'acccount. Dato lo stato dell'applicazione, SES è stato scelto per il suo piano gratuito che permette l'invio di 50 _e-mail_ al giorno senza spese aggiuntive.
+La validità del codice OTP è stata impostata a 60 minuti.
+
+Abbiamo disattivato la possibilità di ricezione dei codici via SMS causa costi elevati e per garantire una maggiore sicurezza nella gestione delle credenziali.
+
+==== Amazon Bedrock, Agenti e modelli
+Abbiamo scelto di configurare Amazon Bedrock in una regione diversa, nello specifico nella regione us-east-1 (North Virginia) data la differenza di costi a parità di risorse e per la maggiore disponibilità di modelli AI. Inoltre, l'aumentata latenza causata dalla distanza del modello dal backend è stata presa in considerazione, ma non ha avuto un impatto significativo sulle prestazioni complessive del sistema in quanto i tempi di attesa del modello possono talvolta risultare tanto lunghi da rendere insignificante i circa 100ms aggiunti.
+
+Per il funzionamento dell'applicativo allo stato attuale, sono necessari 2 agenti.
+
+Il primo, dedicato all'elaborazione delle descrizioni in linguaggio naturale fornite dall'utente per generare i workflow.
+
+Il secondo, invece, è responsabile della funzione di sintesi del blocco `Ai: Summarize`.
+
+Il primo agente, è stato configurato con la funzionalità di memoria disattivata, in modo tale da rendere ogni richiesta indipendente, senza alcuna informazione contestuale tra le diverse invocazioni.
+Dopo aver provato tutti i principali modelli forniti, abbiamo scelto di utilizzare il modello `Llama 3.3 70B Instruct` per la sua capacità di generare output ragionevoli e per i suoi costi contenuti. Al modello è stato fornito un contesto creato "ad-hoc" per la funzionalità:
+
+//TODO INSERIRE CONTESTO
+
+Anche il secondo agente è stato configurato con la funzionalità di memoria disattivata. Considerato lo scopo diverso, la scelta del modello è ricaduta su `DeepSeek-R1`, che si è distinto per la capacità di produrre sintesi coerenti e concise. Anche in questo caso, al modello è stato fornito un contesto specifico per la funzionalità:
+
+//TODO INSERIRE CONTESTO
+
+Entrambi i modelli sono stati deployati attraverso il sistema di versionamento e _tags_ presente in _Bedrock_, che ci permetteva di tenere traccia delle modifiche ai relativi contesti e configurazioni.
+
+==== Istanza EC2 e configurazione
+Il sistema basato su docker gira su una macchina virtuale fornita dal servizio EC2 di AWS. Questa istanza (t2.micro) da 1vCPU e 1GiB di RAM è stata scelta per garantire un costo basso (dato che rimane accesa 24 ore su 24) e perchè sufficente per le esigenze attuali.
+
+#figure(image("../../assets/img/specificatecnica/dettaglioAWSEC2Performance.png", width: 100%), caption: [
+  Dettaglio dell'uso delle risorse dell'istanza EC2 durante il testing in presenza in azienda \ (1 Settembre 2025, 14:30-16:00)
+])
+
+
+Durante la fase di configurazione, è stato scelto di utilizzare il sistema operativo `Ubuntu 24.04 LTS`, disattivando tutte le funzionalità di monitoring offerte da AWS non necessarie per ridurre il costo. Per accedere all'istanza è stato configurato un sistema di autenticazione basato su chiavi SSH.
+
+A questo punto, l'istanza è stata configurata aggiornando i pacchetti e installando _Docker_ e _Docker Compose_.
+
+Le immagini sono state copiate nel sistema tramite file sharing via SSH e successivamente avviate come container Docker attraverso `docker-compose up`.
+
+Per avere un'indirizzo IP pubblico per l'istanza EC2, è stata associata alla scheda di rete virtuale `eth0` un'Elastic IP.
+
+Per non esporre l'intero range di porte su internet, è stato configurato un _Security Group_ che svolge da firewall con regole di accesso specifiche per permettere ai servizi di funzionare.
+
+In particolare, sono state aperte le porte:
+- 5173, per il _frontend_;
+- 5000, per il _backend_;
+- 22, per l'accesso SSH.
+
+#figure(image("../../assets/img/specificatecnica/dettaglioAWSEC2SecurityGroup.png", width: 100%), caption: [
+  Dettaglio delle regole in ingresso del firewall
+])
+
+=== Deployment dei servizi tramite Docker
+
+
+
+
+
+#pagebreak()
+
+
+
+
+
+
+
 == Architettura logica
 //TO DO maybe da mettere sopra
+#pagebreak()
+
+
 
 == Design pattern
 In questa sezione vengono descritti i design pattern adottati e il loro utilizzo.
