@@ -158,7 +158,7 @@ Misura la differenza tra il valore guadagnato (EV) e il valore pianificato (PV) 
 È utile per identificare eventuali ritardi o anticipi rispetto alla pianificazione, nello specifico valori negativi indicano ritardi.
 
 ==== Cost performance index (MPC-CPI)
-Misura l’efficienza del costo per il lavoro svolto fino a un determinato momento, in base al valore ottenuto per ogni unità monetaria spesa.
+Misura l'efficienza del costo per il lavoro svolto fino a un determinato momento, in base al valore ottenuto per ogni unità monetaria spesa.
 #figure(kind: table, caption: [Valori accettabili e ottimi del processo di fornitura], table(
   columns: (auto, 1fr, auto, auto),
   align: center,
@@ -260,7 +260,7 @@ Il valore è ottenuto dal rapporto tra il numero di metriche di qualità soddisf
 ))
 
 == Processi organizzativi
-I processi organizzativi riguardano la gestione e l’organizzazione del progetto come la gestione dei processi, il miglioramento e la formazione.
+I processi organizzativi riguardano la gestione e l'organizzazione del progetto come la gestione dei processi, il miglioramento e la formazione.
 
 === Efficienza temporale (MPC-ET)
 Valuta l'efficienza con cui il tempo disponibile viene impiegato in attività produttive, ovvero quelle contribuiscono al raggiungimento degli obiettivi del progetto.
@@ -414,8 +414,235 @@ Un valore alto implica che i moduli sono strettamente interconnessi, rendendo di
 = Metodi di testing
 La seguente sezione descrive le attività di testing effettuate per garantire la qualità del prodotto.
 
+
+
+== Nomenclatura
+
+
+Ciascun test è identificato univocamente da un codice composto come segue:
+
+#set align(center)
+[*T[Tipologia]-[ID]*]
+#set align(left)
+
+dove:
+- *T* : indica che si tratta di un test.
+
+- *Tipologia* : indica la tipologia del test, che può essere:
+  - *U* : test di unità;
+  - *I* : test di integrazione;
+  - *S* : test di sistema;
+  - *A* : test di accettazione;
+- *ID* : un numero progressivo del test, univoco all'interno della sua tipologia.
+
+Per ogni test viene specificato lo stato di esecuzione, che può assumere i seguenti valori:
+- *S*: superato;
+- *F*: fallito;
+- *N*: non eseguito.
+
+
+
+
 == Test di unità
 I test di unità verificano il funzionamento corretto di componenti software più piccoli e indipendenti, sviluppati soprattutto nella fase di progettazione.
+
+=== Test backend
+Di seguito viene fornita una tabella contenente i test di unità del backend, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
+
+
+#show figure: set block(breakable: true)
+#figure(kind: table, caption: [Test di unità del backend], table(
+  columns: (auto, 1fr, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Codice*], [*Descrizione*], [*Stato*]),
+
+  //bozza con test_log.py
+  [TU-01], [Verifica che la configurazione del logging sia in modalità produzione, in assenza di variabili d'ambiente specifiche], [S],
+
+  [TU-0X], [Verifica che la configurazione del logging sia in modalità sviluppo, se la variabile d'ambiente _ENV_ è impostata a "dev"], [S],
+
+  [TU-0X], [Verifica che la variabile d'ambiente _ENV_ sia case insensitive], [S],
+  [TU-0X],
+  [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a uno dei seguenti valori: "true, "1", "yes" o "TRUE"],
+  [S],
+
+  [TU-0X],
+  [Verifica che modalità sviluppo non sia attiva se la variabile d'ambiente _DEV_ è impostata a valori diversi da "true", "1", "yes" o "TRUE"],
+  [S],
+
+  [TU-0X], [Verifica che se _ENV_ è posta a "production" e _DEV_ a "1" prevalga la modalità sviluppo], [S],
+  [TU-0X], [Verifica che se le variabili sono impostate, sovrascrivano quelle di default], [S],
+  [TU-0X], [Verifica che il valore della variabile d'ambiente `LOG_LEVEL` sia convertito in maiuscolo], [S],
+  [TU-0X], [Verifica che il formatter del logging sia configurato con una stringa con il corretto formato], [S],
+  [TU-0X], [Verifica che l'aggiunta di uno `StreamHandler`, se non presente], [S],
+  [TU-0X], [Verifica che non venga aggiunto uno `StreamHandler`, se già presente], [S],
+
+  // block Factory
+  [TU-0X], [Verifica che la classe `BlockFactory`implementi senza errori il pattern _singleton_], [S],
+  [TU-0X], [Verifica che la creazione del _singleton_ sia thread-safe], [S],
+  [TU-0X], [Verifica che l'istanza di  `BlockFactory` sia inizializzata correttamente], [S],
+  [TU-0X], [Verifica che la funzione di registrazione dei blocchi di `BlockFactory` funzioni correttamente], [S],
+  [TU-0X], [Verifica che la funzione di registrazione di `BlockFactory` accetti solo classi che derivano da _Block_], [S],
+  [TU-0X], [Verifica che la funzione di registrazione di `BlockFactory` sia thread-safe], [S],
+  [TU-0X], [Verifica la corretta creazione di un blocco], [S],
+  [TU-0X], [Verifica che la creazione di un blocco con un tipo non registrato sollevi un errore], [S],
+  [TU-0X], [Verifica il comportamento della funzione `get_supported_types` quando il registro dei blocchi è vuoto], [S],
+  [TU-0X], [Verifica il comportamento della funzione `get_supported_types` quando sono presenti dei blocchi registrati], [S],
+  [TU-0X],
+  [Verifica che la funzione `lookup_implemented` ritorni _true_ per i tipi di blocco registrati e _false_ per quelli non registrati],
+  [S],
+
+  [TU-0X], [Verifica che la registrazione di un blocco venga loggata dal sistema], [S],
+  [TU-0X], [Verifica che la creazione di un blocco venga loggata dal sistema], [S],
+
+  //test block.py
+  [TU-0X], [Verifica l'inizializzazione di un blocco sia con parametri personalizzati sia senza], [S],
+  [TU-0X], [Verifica che il metodo `_get_setting` recuperi correttamente i valori dalle impostazioni], [S],
+  [TU-0X], [Verifica il flusso di esecuzione di un blocco], [S],
+  [TU-0X], [Verifica la funzionalità di logging all'interno di un blocco], [S],
+  [TU-0X], [Verifica la corretta implementazione del pattern _visitor_], [S],
+  [TU-0X], [Verifica la corretta rappresentazione degli oggetti blocco], [S],
+  [TU-0X], [Verifica che la classe astratta `Block` non sia istanziabile], [S],
+  [TU-0X], [Verifica il comportamento classe astratta `Block` sia corretto], [S],
+
+  //test executionLog
+  [TU-0X], [Verifica la correttezza delle classi `ExecutionLog` e di `Status` usati per tracciare l'esecuzione dei blocchi], [S],
+
+  //flaskAppSingleton
+  [TU-0X], [Verifica che la classe `FlaskAppSingleton` rispetti il pattern _singleton_], [S],
+  [TU-0X], [Verifica che la classe `FlaskAppSingleton` venga inizializzata correttamente], [S],
+  [TU-0X], [Verifica che la classe `FlaskAppSingleton` gestisca correttamente le richieste], [S],
+  [TU-0X], [Verifica che la classe `FlaskAppSingleton` non consenta l'istanziazione multipla], [S],
+
+  //mongoDB
+
+  [TU-0X], [Verifica che la classe `MongoDBSingleton` rispetti il pattern _singleton_], [S],
+  [TU-0X], [Verifica che la corretta istanzazione della classe `MongoDBSingleton` in presenza di un oggetto _Flask_ app], [S],
+  [TU-0X], [Verifica che la corretta istanzazione della classe `MongoDBSingleton` in assenza di un oggetto _Flask_ app], [S],
+  [TU-0X], [Verifica che il metodo `get_db` della classe `MongoDBSingleton` restituisca l'oggetto database corretto], [S],
+  [TU-0X], [Verifica che l'attributo `mongo` venga inizializzato correttamente], [S],
+  [TU-0X], [Verifica che l'istanza _singleton_ persista anche se acceduta in modi diversi], [S],
+  [TU-0X], [Verifica che venga sollevata un'eccezione se fallisce l'inizializzazione di `PyMongo`], [S],
+  [TU-0X], [Verifica che venga sollevata un'eccezione se si prova a chiamare il metodo `get_db` e l'attributo `mongo` è _None_], [S],
+
+  // test jwt.utils
+  [TU-0X], [Verifica che la funzione `generateJwt` generi correttamente un token JWT contente email e scadenza], [S],
+  [TU-0X], [Verifica che la funzione `verifyJwt` decodifichi e verifichi correttamente un token], [S],
+  [TU-0X], [Verifica che la funzione `generateJwt` gestisca correttamente il caso in cui l'email sia una stringa vuota], [S],
+
+  //llmfacade
+  [TU-0X], [Verifica che la funzione `agent_facade` funzioni correttamente in condizioni normali, simulando l'interazione con AWS], [S],
+  [TU-0X], [Verifica che la funzione `agent_facade` gestisca correttamente il caso in cui il prompt sia vuoto], [S],
+  [TU-0X],
+  [Verifica che la funzione `agent_facade` gestisca correttamente il caso in cui il prompt contenga caratteri speciali e emoji],
+  [S],
+
+  // JsonParser
+  [TU-0X], [Verifica che la classe astratta `JsonParserStrategy` non possa essere istanziata direttamente], [S],
+  [TU-0X], [Verifica che le sottoclassi di `JsonParserStrategy` implementino il metodo `parse`], [S],
+  [TU-0X], [Verifica che il metodo `parse` gestisca correttamente le stringhe JSON], [S],
+
+  //AI summarize
+
+  [TU-0X],
+  [Verifica che il comportamento della classe `AISummarize` assicurando che il metodo `execute` restituisca un riassunto corretto],
+  [S],
+
+  //syswait
+  [TU-0X],
+  [Verifica che la classe `SystemWaitSeconds` gestisca correttamente i vari tipi di input come interi, numeri float e stringhe],
+  [S],
+
+  [TU-0X],
+  [Verifica che funzione `validate_inputs` della classe `SystemWaitSeconds` restituisca _True_ per i tipi di input validi come interi, numeri float e stringhe],
+  [S],
+
+  [TU-0X],
+  [Verifica che funzione `validate_inputs` della classe `SystemWaitSeconds` restituisca _False_ in presenza di valori negativi, stringhe non numeriche o in assenza di input],
+  [S],
+
+  [TU-0X], [Verifica che funzione `execute` della classe `SystemWaitSeconds` sia eseguita correttamente], [S],
+
+  //telegram
+  [TU-0X],
+  [Verifica che la funzione `validate_inputs` della classe `TelegramSendMessage` restituisca _True_ se sono presenti tutti gli input richiesti, ovvero `botToken`, `chatId`  e `message`],
+  [S],
+
+  [TU-0X],
+  [Verifica che la funzione `validate_inputs` della classe `TelegramSendMessage` restituisca _False_ se non sono presenti tutti gli input richiesti],
+  [S],
+
+  [TU-0X], [Verifica che funzione `execute` della classe `TelegramSendMessage` sia eseguita correttamente], [S],
+  [TU-0X],
+  [Verifica che funzione `execute` della classe `TelegramSendMessage` sia eseguita correttamente quando `"message": "{{LASTOUTPUT}}"`],
+  [S],
+
+  [TU-0X], [Verifica il comportamento di `execute` in presenza di errori di rete ], [S],
+
+  //notion
+
+  [TU-0X],
+  [Verifica che la funzione `validate_inputs` della classe `NotionGetPage` restituisca _True_ se sono presenti tutti gli input richiesti, ovvero `pageID` e `internalIntegrationToken`],
+  [S],
+
+  [TU-0X],
+  [Verifica che la funzione `validate_inputs` della classe `NotionGetPage` restituisca _False_ se non sono presenti tutti gli input richiesti],
+  [S],
+
+  [TU-0X], [Verifica che la funzione `execute` della classe `NotionGetPage` sia implementata correttamente], [S],
+
+  [TU-0X],
+  [Verifica che la funzione `execute` della classe `NotionGetPage` restituisca uno stato di errore in presenza di un errore nella Notion API],
+  [S],
+
+  [TU-0X],
+  [Verifica che la funzione `execute` della classe `NotionGetPage` restituisca uno stato di errore in presenza di token invalido],
+  [S],
+
+  //flow iterator
+  [TU-0X], [Verifica che la classe `FlowIterator` sia inizializzata correttamente], [S],
+  [TU-0X], [Verifica che l'esecuzione dei blocchi avvenga in sequenza e che ogni blocco venga eseguito], [S],
+  [TU-0X],
+  [Verifica la gestione dell'esecuzione dei blocchi in presenza di errori nell'esecuzione di un blocco, verificando che l'esecuzione si interrompa e che siano presenti i log di errore],
+  [S],
+
+  //llm sanitize
+  [TU-0X],
+  [Verifica che il metodo `add_json` della classe `BaseSanitizationStrategy` funzioni correttamente gestendo vari tipi di input],
+  [S],
+
+  [TU-0X], [Verifica che il metodo `add_json` della classe `BaseSanitizationStrategy` non sovrascrivi valori esistenti ], [S],
+  [TU-0X],
+  [Verifica che il metodo `add_field_if_missing` della classe `BaseSanitizationStrategy` imposti il tipo di default, se mancante],
+  [S],
+
+  [TU-0X],
+  [Verifica che più chiamate a `_position_counter` della classe `BaseSanitizationStrategy` generino una griglia di posizioni corretta],
+  [S],
+
+  //flowManager.
+  [TU-0X], [Verifica che l'inizializzazione della classe `FlowManager` crei tutti i componenti necessari], [S],
+  [TU-0X], [Verifica che il metodo `parse_json` della classe `FlowManager` crei i blocchi corretti dopo aver ricevuto i dati JSON], [S],
+  [TU-0X],
+  [Verifica che il metodo `parse_json` della classe `FlowManager` sollevi un errore se si cerca di implementare un blocco di tipo non implementato],
+  [S],
+
+  [TU-0X],
+  [Verifica che il metodo `start_workflow` della classe `FlowManager` ritorni uno stato _completed_ se il flusso viene eseguito correttamente],
+  [S],
+
+  [TU-0X],
+  [Verifica che il metodo `start_workflow` della classe `FlowManager` ritorni uno stato _failed_ se il flusso non viene eseguito],
+  [S],
+
+  [TU-0X], [Verifica che il metodo `get_status` della classe `FlowManager` ritorni gli stati], [S],
+
+  [TU-0X], [Verifica che la classe `FlowManagerFactory` rispetti il pattern _singleton_], [S],
+  [TU-0X], [Verifica che la classe `FlowManagerFactory` restituisca un'istanza di `FlowManager`], [S],
+))
+
 
 == Test di integrazione
 I test di integrazione vengono eseguiti successivamente ai test di unità e verificano l'interazione tra più unità software per garantire una corretta integrazione e funzionamento del sistema.
