@@ -14,7 +14,7 @@
     "2025/08/20",
     "Carmelo Russello",
     "Marco Egidi",
-    "Aggiornamento cruscotto di valutazione concluso il decimo sprint",
+    "Aggiornamento cruscotto di valutazione concluso il decimo sprint e aggiunta scheletro dei test",
     "1.2.0",
     "2025/08/06",
     "Aleena Mathew ",
@@ -649,6 +649,193 @@ Di seguito viene fornita una tabella contenente i test di unità effettuati, di 
 == Test di integrazione
 I test di integrazione vengono eseguiti successivamente ai test di unità e verificano l'interazione tra più unità software per garantire una corretta integrazione e funzionamento del sistema.
 
+Di seguito vengono fornite due tabelle che riportano i test di integrazione effettuati, la prima relativa al backend e la seconda al frontened, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
+
+=== Test di integrazione backend
+#show figure: set block(breakable: true)
+#figure(kind: table, caption: [Test di integrazione backend], table(
+  columns: (auto, 1fr, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Codice*], [*Descrizione*], [*Stato*]),
+  //backend
+  [TI-0X],
+  [Verificare che il login di un utente tramite l'endpoint `/login` funzioni correttamente quando le credenziali sono corrette],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 401 se si effettua il login con credenziali errate e che il messaggio d'errore sia "Invalid email or password"],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 401 se si effettua il login con credenziali errate e che il messaggio d'errore sia "Invalid email or password"],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 401 se si effettua il login con un'account non verificato e che il messaggio d'errore sia "User account not confirmed"],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 401 se si effettua il login con un'account non esistente e che il messaggio d'errore sia "User not found"],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 429 se si effettuano troppi tentativi di login e che il messaggio d'errore sia "Too many login attempts. Please try again later"],
+  [S],
+
+  [TI-0X],
+  [Verificare che la registrazione di un nuovo utente tramite l'endpoint \ `/register` funzioni correttamente quando i dati sono validi ],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 409 se si effettua la registrazione con un'email già in uso e che il messaggio d'errore sia "User already exists"],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 500 se si effettuano più registrazioni di quelle consentite e che il messaggio d'errore sia "Email quota limit exceeded"],
+  [S],
+
+  [TI-0X], [Verificare che la verifica di un utente tramite l'endpoint `/confirm` funzioni correttamente quando i dati sono corretti], [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si effettua la verifica di un account non esistente e che il messaggio d'errore sia "User not found"],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si effettua la verifica di un account se si inserisce un codice non valido e che il messaggio d'errore sia "Code not valid"],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si effettua la verifica di un account se si inserisce un codice scaduto e che il messaggio d'errore sia "Code Expired"],
+  [S],
+
+  [TI-0X], [Verificare che l'endpoint `/dashboard` restituisca correttamente la lista dei workflow dell'utente autenticato], [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/dashboard` neghi l'accesso e reindirizzi l'utente quando la verifica JWT fallisce, lanciando un'eccezione con HTTP status 302],
+  [S],
+
+  [TI-0X], [Verificare che l'endpoint `/logout` funzioni correttamente per un utente autenticato], [S],
+
+  [TI-0X], [Verificare che l'endpoint `/api/new` permetta la creazione di un nuovo _workflow_ per un utente autenticato], [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/new` lanci un'eccezione con HTTP status 400 se si cerca di creare un workflow lasciando il campo nome vuoto e che il messaggio d'errore sia "Workflow name is required"],
+  [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/new` lanci un'eccezione con HTTP status 400 se si cerca di creare un workflow con nome che supera i 25 caratteri e che il messaggio d'errore sia "Workflow name must be less than 25 characters"],
+  [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/flows/id>` restituisca correttamente i dati di un workflow esistente per un utente autenticato],
+  [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/flows/<id>` lanci un'eccezione con HTTP status 404 se si richiede un workflow inesistente e che il messaggio d'errore sia "Workflow not found"],
+  [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/flows/<id>/delete` permetta la cancellazione di un workflow esistente per un utente autenticato],
+  [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/flows/<id>/delete` lanci un'eccezione con HTTP status 404 se si tenta di eliminare un workflow inesistente e che il messaggio d'errore sia "Workflow not found"],
+  [S],
+
+  [TI-0X], [Verificare che l'endpoint `/api/flows/<id>/save` permetta la salvare correttamente un workflow per un utente autenticato], [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/flows/<id>/save` lanci un'eccezione con HTTP status 400 se si tenta di salvare un workflow con un nome troppo lungo e che il messaggio d'errore sia "Workflow name must be less than 25 characters"],
+  [S],
+
+  [TI-0X], [Verificare che l'endpoint `/api/flows/<id>/run` permetta l'esecuzione di un workflow esistente per un utente autenticato], [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/flows/<id>/run` lanci un'eccezione con HTTP status 404 se si tenta di eseguire un workflow inesistente e che il messaggio d'errore sia "Workflow not found"],
+  [S],
+
+  [TI-0X], [Verificare che l'endpoint `/api/prompt` generi correttamente un workflow tramite AI per un utente autenticato], [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/prompt` lanci un'eccezione con HTTP status 400 se si tenta di generare un workflow tramite AI senza il campo prompt e che il messaggio d'errore sia "Prompt is required"],
+  [S],
+
+  [TI-0X],
+  [Verificare che l'endpoint `/api/prompt` lanci un'eccezione con HTTP status 400 se si tenta di generare un workflow tramite AI con il campo prompt vuoto e che il messaggio d'errore sia "Prompt is required"],
+  [S],
+))
+
+=== Test di integrazione frontend
+
+Per effettuare i test di integrazione del frontend sono stati realizzati test end-to-end utilizzando Cypress che permettono di simulare l'interazione dell’utente con l’applicazione.
+
+È stato deciso di utilizzare questo approccio perché consente di testare l'intera applicazione in un ambiente che simula l'uso reale, garantendo che tutte le componenti funzionino correttamente insieme e di trovare errori che potrebbero sfuggire ai test di unità o di integrazione tradizionali.
+
+#show figure: set block(breakable: true)
+#figure(kind: table, caption: [Test di integrazione frontend], table(
+  columns: (auto, 1fr, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Codice*], [*Descrizione*], [*Stato*]),
+
+  //LOGIN
+  [TI-0X], [Verificare che la pagina di login venga visualizzata correttamente], [S],
+  [TI-0X],
+  [Verificare che vengano mostrati messaggi di errore se si tenta di effettuare il login lasciando i campi vuoti, verificando che il messaggio d'errore sia "Invalid email address" per il campo email e "Password cannot be empty" per il campo password],
+  [S],
+
+  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina _dashboard_ dopo aver effettuato correttamente il login], [S],
+
+  [TI-0X],
+  [Verificare che vengano mostrati messaggi di errore se si tenta di effettuare il login lasciando i campi vuoti, verificando che il messaggio d'errore sia "Invalid email address" per il campo email e "Password cannot be empty" per il campo password],
+  [S],
+
+  [TI-0X],
+  [Verificare che vengano gestiti correttamente gli errori proveniente dal backend simulando un login effettuato con credenziali errate],
+  [S],
+
+  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di registrazione dopo aver cliccato sul bottone "Register], [S],
+
+  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account], [S],
+
+  //REGISTRAZIONE
+
+  [TI-0X], [Verificare che la pagina di _register_ venga visualizzata correttamente], [S],
+  [TI-0X],
+  [Verificare che vengano mostrati messaggi di errore se si tenta di effettuare la registrazione lasciando i campi vuoti, verificando che il messaggio d'errore sia "Invalid email address" per il campo _email_ e "Your password must have at least 8 characters" per il campo _password_ e _conferma password_ ],
+  [S],
+
+  [TI-0X],
+  [Verificare che venga mostrato un messaggio di errore se, in fase di registrazione, la password e la conferma password non corrispondono, verificando che il messaggio d'errore sia "Passwords don't match"],
+  [S],
+
+  [TI-0X],
+  [Verificare che l'utente venga reindirizzato alla pagina di conferma account dopo aver effettuato correttamente la registrazione],
+  [S],
+
+  [TI-0X],
+  [Verificare che vengano gestiti correttamente gli errori proveniente dal backend simulando una registrazione effettuata con un'email già in uso],
+  [S],
+
+  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver cliccato sul bottone "Login], [S],
+
+  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account], [S],
+
+  //CONFERMA
+  [TI-0X], [Verificare che la pagina di conferma venga visualizzata correttamente], [S],
+  [TI-0X], [Verificare che vengano mostrati messaggi di errore se i dati non sono validi quando si conferma l'account], [S],
+  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver confermato correttamente l'account], [S],
+  [TI-0X],
+  [Verificare che vengano gestiti correttamente gli errori proveniente dal backend simulando una verifica effettuata con codice errato],
+  [S],
+
+  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver cliccato sul bottone "Login"], [S],
+
+  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di registrazione dopo aver cliccato sul bottone "Register], [S],
+))
 
 
 == Test di sistema
