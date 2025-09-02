@@ -446,12 +446,13 @@ Per ogni test viene specificato lo stato di esecuzione, che può assumere i segu
 == Test di unità
 I test di unità verificano il funzionamento corretto di componenti software più piccoli e indipendenti, sviluppati soprattutto nella fase di progettazione.
 
-=== Test backend
-Di seguito viene fornita una tabella contenente i test di unità del backend, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
+Di seguito viene fornita una tabella contenente i test di unità effettuati, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
+
+È stato raggiunto un _code coverage_ del 95%.
 
 
 #show figure: set block(breakable: true)
-#figure(kind: table, caption: [Test di unità del backend], table(
+#figure(kind: table, caption: [Test di unità], table(
   columns: (auto, 1fr, auto),
   align: center,
   rows: auto,
@@ -464,9 +465,10 @@ Di seguito viene fornita una tabella contenente i test di unità del backend, di
   [TU-0X], [Verifica che la configurazione del logging sia in modalità sviluppo, se la variabile d'ambiente _ENV_ è impostata a "dev"], [S],
 
   [TU-0X], [Verifica che la variabile d'ambiente _ENV_ sia case insensitive], [S],
-  [TU-0X],
-  [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a uno dei seguenti valori: "true, "1", "yes" o "TRUE"],
-  [S],
+  [TU-0X], [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a "true], [S],
+  [TU-0X], [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a "1"], [S],
+  [TU-0X], [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a "yes"], [S],
+  [TU-0X], [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a "TRUE"], [S],
 
   [TU-0X],
   [Verifica che modalità sviluppo non sia attiva se la variabile d'ambiente _DEV_ è impostata a valori diversi da "true", "1", "yes" o "TRUE"],
@@ -647,12 +649,218 @@ Di seguito viene fornita una tabella contenente i test di unità del backend, di
 == Test di integrazione
 I test di integrazione vengono eseguiti successivamente ai test di unità e verificano l'interazione tra più unità software per garantire una corretta integrazione e funzionamento del sistema.
 
+
+
 == Test di sistema
-I test di sistema verificano il funzionamento del sistema software nel suo complesso per garantire il soddisfacimento delle specifiche funzionali, prestazionali e di qualità concordate, presenti nel documento dell' #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/analisideirequisiti_1.2.0.pdf")[analisi dei requisiti] [versione 1.2.0].
+I test di sistema verificano il funzionamento del sistema software nel suo complesso per garantire il soddisfacimento delle specifiche funzionali, prestazionali e di qualità concordate, presenti nel documento dell' #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_2.0.0.pdf")[analisi dei requisiti] [versione 2.0.0].
+
+Di seguito viene fornita una tabella contenente i test di sistema effettuati, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
+
+
+
+#show figure: set block(breakable: true)
+#figure(kind: table, caption: [Test di sistema], table(
+  columns: (auto, 1fr, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Codice*], [*Descrizione*], [*Stato*]),
+
+  //LOGIN
+  [TS-0X], [Verificare che l'utente possa effettuare _login_ con il proprio account per accedere al servizio], [S],
+
+  [TS-0X], [Verificare che l'utente autenticato possa inserire la sua _e-mail_ per accedere all'applicativo], [S],
+
+  [TS-0X], [Verificare che l'utente possa inserire la sua _password_ per accedere all'applicativo], [S],
+  [TS-0X], [Verificare che il sistema restituisca un errore se si tenta di eseguire il login con una mail non registrata], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se rileva ripetuti tentativi di accesso], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se si tenta di eseguire il login con una mail non verificata], [S],
+
+  //REGISTRAZIONE
+
+  [TS-0X], [Verificare che l'utente non autenticato possa registrarsi con  un nuovo account], [S],
+
+  [TS-0X], [Verificare che l'utente non autenticato possa inserire la sua _e-mail_ per registrarsi nell'applicativo], [S],
+
+  [TS-0X], [Verificare che l'utente possa creare la sua _password_ per registrarsi nell'applicativo], [S],
+
+  [TS-0X], [Verificare che l'utente possa reinserire la sua password per la registrazione nell'applicativo], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore per credenziali non valide inserite dall'utente], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se l'_e-mail_ è già in uso in fase di registrazione], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se le _password_ non corrispondono tra loro in fase di registrazione], [S],
+
+  [TS-0X],
+  [Verificare che il sistema restituisca un errore se la _password_ creata è inferiore a 8 caratteri in fase di registrazione],
+  [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se l'_e-mail_ è già in uso in fase di verifica], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se si lascia il campo password vuoto], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore nel caso si riscontrino problemi], [S],
+
+  //VERIFICA
+
+  [TS-0X], [Verificare che l'utente possa verificare l'account creato tramite codice di verifica ricevuto per _e-mail_], [S],
+
+  [TS-0X],
+  [Verificare che il sistema restituisca un errore se l'utente tenta di concludere la registrazione senza inserire il codice di verifica],
+  [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se il codice di conferma inserito dall'utente è scaduto], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se il codice di conferma inserito dall'utente è errato], [S],
+
+  //CREAZIONE
+  [TS-0X], [Verificare che l'utente possa visualizzare la dashboard in seguito al login nell'applicativo], [S],
+  [TS-0X], [Verificare che l'utente autenticato possa vedere i workflow creati nella dashboard], [S],
+
+  [TS-0X], [Verificare che l'utente possa creare una nuova _routine_], [S],
+
+  [TS-0X], [Verificare che l'utente possa modificare il nome di una _routine_], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se il nome del _workflow_ viene lasciato vuoto], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se il nome del _workflow_ ha più di 25 caratteri], [S],
+
+  [TS-0X], [Verificare che l'utente possa generare una _routine_ tramite linguaggio naturale], [S],
+
+  [TS-0X],
+  [Verificare che il sistema restituisca un errore se il prompt di generazione di una _routine_ tramite linguaggio naturale viene lasciato vuoto],
+  [S],
+
+  [TS-0X], [Verificare che l'utente possa visualizzare il nome di una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa visualizzare i dettagli di una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa visualizzare il diagramma dei blocchi di una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa eliminare una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se si tenta di interagire con un _workflow_ inesistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa avviare una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa avviare una _routine_ esistente dalla dashboard], [S],
+
+  [TS-0X], [Verificare che l'utente possa avviare una _routine_ esistente dalla pagina di modifica del flusso], [S],
+
+  [TS-0X], [Verificare che il sistema restituisca un errore se l'esecuzione del flusso non va a buon fine], [S],
+
+  [TS-0X], [Verificare che l'utente possa aggiungere un blocco ad una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa aggiungere un blocco del tipo "_Telegram_ - Send Bot Message" ad una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa aggiungere un blocco del tipo "_AI_ - Summarize" ad una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa aggiungere un blocco del tipo "_System_ - Wait Second(s)" ad una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa aggiungere un blocco del tipo "_Notion_ - Get Page" ad una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa visualizzare le impostazioni di un singolo blocco], [S],
+
+  [TS-0X], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [S],
+
+  [TS-0X], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [S],
+
+  [TS-0X], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [S],
+
+  [TS-0X], [Verificare che l'utente possa modificare le impostazioni di un singolo blocco], [S],
+
+  [TS-0X], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [S],
+
+  [TS-0X], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [S],
+
+  [TS-0X], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [S],
+
+  [TS-0X],
+  [Verificare che il sistema salvi le modifiche apportate dall'utente alla _routine_ se viene premuto il tasto di salvataggio],
+  [S],
+
+  [TS-0X], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente da tastiera premendo il tasto "backspace"], [S],
+
+  [TS-0X], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente da interfaccia grafica], [S],
+
+  [TS-0X], [Verificare che l'utente possa collegare due blocchi di una _routine_ esistente], [S],
+
+  [TS-0X], [Verificare che l'utente possa scollegare due blocchi di una _routine esistente_], [S],
+
+  [TS-0X], [Verificare che l'utente possa ritornare alla dashboard dalla pagina di modifica flusso], [S],
+
+  [TS-0X], [Verificare che l'utente possa impostare la modalità del client in dark mode o light mode], [S],
+
+  [TS-0X], [Verificare che l'utente possa effettuare il _logout_ dall'applicativo], [S],
+))
 
 == Test di accettazione
 I test di accettazione sono condotti per verificare che il sistema soddisfi i requisiti e le aspettative del contrattuali, motivo per cui sono condotti insieme al committente.\
 Il loro successo è fondamentale per garantire il rilascio definitivo del prodotto.
+
+Di seguito viene fornita una tabella contenente i test di accettazione effettuati in presenza dell'azienda proponente, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
+
+#show figure: set block(breakable: true)
+#figure(kind: table, caption: [Test di accettazione], table(
+  columns: (auto, 1fr, auto),
+  align: center,
+  rows: auto,
+  inset: 7pt,
+  table.header([*Codice*], [*Descrizione*], [*Stato*]),
+  [TA-0X],
+  [Verificare che l'utente non autenticato possa effettuare la registrazione per accedere al servizio, inserendo mail, password e conferma password],
+  [S],
+
+  [TA-0X], [Verificare che se le due password non corrispondono venga restituito un messaggio di errore], [S],
+  [TA-0X], [Verificare che se le due password non corrispondono venga restituito un messaggio di errore], [S],
+  [TA-0X], [Verificare che la password debba contenere almeno 8 caratteri, in caso contrario che venga mostrato un messaggio d'errore], [S],
+  [TA-0X],
+  [Verificare che l'utente non autenticato possa verificare il proprio account inserendo il codice di verifica ricevuto via email],
+  [S],
+
+  [TA-0X], [Verificare che l'utente non autenticato possa effettuare il login inserendo email e password], [S],
+  [TA-0X],
+  [Verificare che l'utente non autenticato riceva un messaggio di errore se tenta di effettuare il login con credenziali errate],
+  [S],
+
+  [TA-0X], [Verificare che l'utente autenticato acceda direttamente alla dashboard], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa vedere i workflow creati nella dashboard], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa creare nuovi workflow], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa inserire il nome del workflow che desidera creare], [S],
+  [TA-0X],
+  [Verificare che l'utente autenticato riceva un messaggio di errore se prova a creare un nuovo workflow lasciando vuoto il campo nome o se inserisce un nome con più di 25 caratteri],
+  [S],
+
+  [TA-0X],
+  [Verificare che l'utente autenticato possa vedere in dettaglio il workflow premendo il workflow di interesse dalla dashboard],
+  [S],
+
+  [TA-0X], [Verificare che l'utente autenticato possa generare un workflow usando il linguaggio naturale, sfruttando _LLM_], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa creare un workflow manualmente selezionando i blocchi desiderati], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa modificare il workflow selezionato], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa aggiungere un blocco manualmente tramite l'interfaccia drag & drop], [S],
+  [TA-0X],
+  [Verificare che l'utente autenticato possa cercare il blocco di interesse nel menù laterale a cui si accede tramite il bottone _Add a Block_],
+  [S],
+
+  [TA-0X], [Verificare che l'utente autenticato possa modificare le impostazioni di un singolo blocco], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa eliminare un blocco da interfaccia grafica], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa eliminare un blocco da tastiera, premendo il tasto _backspace_], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa salvare un workflow], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa rinominare un workflow], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa eseguire un workflow dalla pagina dettagli flusso], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa eseguire un workflow dalla dashboard], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa eliminare un workflow], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa rinominare un workflow], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa effettuare il logout], [S],
+  [TA-0X], [Verificare che l'utente autenticato possa selezionare il tema che preferisce tra scuro e chiaro], [S],
+  [TA-0X], [Verificare che siano stati implementati almeno 3 blocchi di automazione], [S],
+))
 
 #pagebreak()
 
