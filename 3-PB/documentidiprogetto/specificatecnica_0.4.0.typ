@@ -40,7 +40,7 @@ Marco Egidi",
 #import "@preview/codly-languages:0.1.8": *
 #codly(languages: codly-languages)
 #codly(stroke: 1pt + rgb("#7b7676"))
-#codly(zebra-fill: rgb("#b2a7a729"))
+#codly(zebra-fill: rgb("#c9c4c429"))
 #codly(breakable: false)
 
 
@@ -163,7 +163,7 @@ YAML (YAML Ain't Markup Language) è un formato di serializzazione dei dati, leg
 
 - *Versione*: 1.2
 
-- *Utilizzo nel codice*: I file di configurazione dei container docker, come `docker-compose.yaml`, sono scritti in YAML.
+- *Utilizzo nel codice*: I file di configurazione dei container docker, come `docker-compose.yml`, sono scritti in YAML.
 
 - *Documentazione*: https://yaml.org/spec/1.2/spec.html (*Ultimo accesso il: 11/08/2025*)
 
@@ -442,11 +442,17 @@ Il secondo, invece, è responsabile della funzione di sintesi del blocco `Ai: Su
 Il primo agente, è stato configurato con la funzionalità di memoria disattivata, in modo tale da rendere ogni richiesta indipendente, senza alcuna informazione contestuale tra le diverse invocazioni.
 Dopo aver provato tutti i principali modelli forniti, abbiamo scelto di utilizzare il modello `Llama 3.3 70B Instruct` per la sua capacità di generare output ragionevoli e per i suoi costi contenuti. Al modello è stato fornito un contesto creato "ad-hoc" per la funzionalità:
 
-//TODO INSERIRE CONTESTO COME CODICE
+#codly(header: [Contesto agente per la generazione dei workflow])
+```
+//TODO
+```
 
 Anche il secondo agente è stato configurato con la funzionalità di memoria disattivata. Considerato lo scopo diverso, la scelta del modello è ricaduta su `DeepSeek-R1`, che si è distinto per la capacità di produrre sintesi coerenti e concise. Anche in questo caso, al modello è stato fornito un contesto specifico per la funzionalità:
 
-//TODO INSERIRE CONTESTO COME CODICE
+#codly(header: [Contesto agente per riassumere])
+```
+//TODO
+```
 
 Entrambi i modelli sono stati deployati attraverso il sistema di versionamento e _tags_ presente in _Bedrock_, che ci permetteva di tenere traccia delle modifiche ai relativi contesti e configurazioni.
 
@@ -454,9 +460,8 @@ Entrambi i modelli sono stati deployati attraverso il sistema di versionamento e
 Il sistema basato su docker gira su una macchina virtuale fornita dal servizio EC2 di AWS. Questa istanza (t2.micro) da 1vCPU e 1GiB di RAM è stata scelta per garantire un costo basso (dato che rimane accesa 24 ore su 24) e perchè sufficente per le esigenze attuali.
 
 #figure(image("../../assets/img/specificatecnica/dettaglioAWSEC2Performance.png", width: 100%), caption: [
-  Dettaglio dell'uso delle risorse dell'istanza EC2 durante il testing in presenza in azienda \ (1 Settembre 2025, 14:30-16:00)
+  Dettaglio dell'uso delle risorse dell'istanza EC2 durante il testing in presenza in azienda (1 Settembre 2025, 14:30-16:00)
 ])
-
 
 Durante la fase di configurazione, è stato scelto di utilizzare il sistema operativo `Ubuntu 24.04 LTS`, disattivando tutte le funzionalità di monitoring offerte da AWS non necessarie per ridurre il costo. Per accedere all'istanza è stato configurato un sistema di autenticazione basato su chiavi SSH.
 
@@ -478,14 +483,105 @@ In particolare, sono state aperte le porte:
 ])
 
 === Deployment dei servizi tramite Docker
-Come precedentemente descritto, i servizi sono stati containerizzati utilizzando Docker. Di seguito è riportato il file di configurazione `docker-compose.yml` utilizzato per il deployment:
+Come precedentemente descritto, i servizi sono stati containerizzati utilizzando Docker. Di seguito è riportato il file di configurazione `docker-compose.prod.yml` utilizzato per il deployment:
 
-//TODO INSERIRE COMPOSE DEV COME CODICE
+#codly(header: [./docker-compose.prod.yml])
+```yaml
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/usr/src
+      - /usr/src/node_modules
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: prod
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/www
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
+```
+
+Notiamo che per tutti i servizi sono stati esposti i volumi per permettere la persistenza dei dati e il corretto caricamento delle configurazioni. Per ogni servizio sono state anche mappate le porte necessario al corretto funzionamento, attraverso la sintassi: `HOST_PORT:CONTAINER_PORT`, che permette di mappare una porta del container ad una dell'host.
+
+Per i servizi del _frontend_ e del _backend_ è associato un `Dockerfile` che descrive i passaggi per creare l'immagine del container.
 
 
+#codly(header: [.frontend/Dockerfile])
+```Dockerfile
+FROM docker.io/node:24-alpine3.20 AS base
+WORKDIR /usr/src
+COPY ./package.json pnpm-lock.yaml ./
+RUN npm install -g pnpm@latest && pnpm install
 
-Notiamo che per i servizi del _frontend_ e del _backend_ sono stati esposti i volumi per permettere la persistenza dei dati e delle configurazioni.
+FROM base AS dev
+EXPOSE 5173
+CMD ["pnpm", "run", "dev", "--host", "0.0.0.0"]
 
+FROM base AS build
+COPY . .
+RUN pnpm run build
+
+FROM docker.io/nginx:mainline AS prod
+COPY --from=build /usr/src/dist /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 5173
+CMD ["nginx", "-g", "daemon off;"]
+
+```
+
+Nello specifico, ogni Dockerfile è stato configurato per eseguire delle azioni in comune e generali all'ambiente di deploy, e dei passi specifici per ogni fase del ciclo di vita dell'applicazione (development e production).
+
+Nell'istanza EC2 deployata come production, il _frontend_ copia (riga 3) ed installa tutte le dipendenze attraverso il comando `pnpm install` a riga 4. Successivamente vengono eseguiti i passi da riga 10 a riga 14 per costruire l'immagine di produzione. Infine, viene avviato un server nginx che espone i file statici generati (a riga 12 con `pnpm run build`).
+
+Nella fase di sviluppo, partendo dallo stage base, viene avviato il _frontend_ con il comando `pnpm run dev --host 0.0.0.0`.
+
+#codly(header: [.backend/Dockerfile])
+```Dockerfile
+FROM python:3.13.6-alpine3.22 AS base
+RUN pip install --no-cache-dir uv
+ENV PYTHONUNBUFFERED=1
+
+RUN mkdir /www
+WORKDIR /www
+COPY ./requirements.txt /www/
+RUN uv pip install --system --no-cache-dir -r requirements.txt
+
+FROM base AS dev
+ENV FLASK_APP=backend.py
+RUN uv pip install --system --no-cache-dir flask
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+
+FROM base as prod
+RUN uv pip install --system --no-cache-dir gunicorn
+COPY . .
+ENV FLASK_ENV=production
+ENV GUNICORN_CMD_ARGS="--bind 0.0.0.0:5000 --workers 4"
+CMD ["gunicorn", "backend:app"]
+```
+
+Per quanto riguarda il _backend_, il Dockerfile (similmente al _frontend_) installa `uv` (un installer di pacchetti alternativo a `pip`) e dopo aver impostato `/www` come cartella di lavoro, utilizza `uv` per installare le dipendenze.
+
+Nella fase di sviluppo, partendo dallo stage base, viene installato `flask` e avviato il server di sviluppo.
+
+In produzione, installa un server _Gunicorn_, che è un server WSGI (specifica che descrive la comunicazione tra server e applicazioni web scritte in Python), e avvia l'applicazione _Flask_ con esso.
 
 #pagebreak()
 
