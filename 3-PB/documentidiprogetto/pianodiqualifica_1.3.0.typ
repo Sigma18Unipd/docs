@@ -1054,7 +1054,7 @@ Di seguito viene fornita una tabella contenente i test di accettazione effettuat
 
 = Cruscotto di Valutazione
 
-//TODO: aggiungere linea fine RTB su sprint 8
+//TODO: aggiungere linea fine RTB su sprint 9 inizio PB
 <cruscotto>
 La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
 
@@ -1067,6 +1067,10 @@ Dal grafico si osserva che il valore di *MPC-EAC* rimane sempre entro una variaz
 
 
 === PB
+
+Dal grafico si può notare che dallo sprint 8 il valore di *MPC-EAC* si è leggermente alzato in seguito al colloquio RTB, in concomitanza dell'ottavo sprint, a causa delle alcune correzioni da effettuare che hanno portato ad un rallentamento.
+Tuttavia, si è riusciti a terminare portando il valore al di sotto del BAC.
+
 
 
 
@@ -1081,7 +1085,9 @@ Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *
 
 === PB
 
-
+Il grafico mostra che il valore dell’EV abbia continuato a crescere in modo proporzionale al valore del
+PV, dimostrando che il gruppo è riuscito a pianificare correttamente le attività per tutta la durata del progetto.
+I due valori si avvicinano sempre di più a quello di BAC indicando che il gruppo è riuscito a essere coerente con il preventivo prodotto.
 
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
@@ -1095,6 +1101,10 @@ Si può affermare quindi che il progetto è in linea con le aspettative di budge
 
 === PB
 
+Dal grafico si può notare come il valore di *MPC-AC* cresca in maniera inversamente proporzionale alla crescita di *MPC-ETC*.
+Si può notare che alla fine i valori di *MPC-AC* e *MPC-EAC* finiscono per sovrapporsi e quello di *MPC-ETC* diventa 0.
+Si può quindi affermare che il progetto è stato completato rispettando il budget preventivato.
+
 #pagebreak()
 
 == Cost Variance (MPC-CV) & Schedule Variance (MPC-SV)
@@ -1107,9 +1117,7 @@ Si può notare che il valore di *MPC-SV* ha subito un picco negativo durante il 
 Tuttavia, il valore è tornato a crescere, indicando una ripresa del progetto e un ritorno alla pianificazione iniziale.
 
 === PB
-
-
-
+Si può notare che i valori di *MPC-SV* e *MPC-CV* si sono stabilizzati subendo un piccolo picco verso la fine, indicando un recupero di eventuali ritardi.
 
 
 #pagebreak()
@@ -1122,6 +1130,7 @@ Tuttavia, il valore è tornato a crescere, indicando una ripresa del progetto e 
 Il grafico mostra l'andamento del valore di *MPC-CPI* nel tempo, si può notare che è sempre superiore al limite inferiore e che si avvicina sempre di più al valore ottimo 1, indicando che i costi per completare i lavori sono in linea con quanto stabilito.
 
 === PB
+Il grafico mostra l'andamento del valore di *MPC-CPI* nel tempo, si può notare che rimasto costante anche in fase di PB, indicando che i costi per completare i lavori sono in linea con quanto stabilito
 
 
 
@@ -1137,8 +1146,7 @@ Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e va
 Si può osservare una diminuzione del valore nell'ottavo sprint, a seguito della revisione con il professor Cardin, il quale ha richiesto un maggior dettaglio nella definizione dei requisiti.
 
 === PB
-
-
+Si può notare che il valore di *MPC-RSI* ha subito dei picchi a causa di alcuni requisiti emersi dopo un'analisi più approfondita in vista dello sviluppo del MVP, tuttavia il valore rimane sempre entro i limiti accettabili.
 
 #pagebreak()
 
@@ -1153,6 +1161,7 @@ Si può notare che il gruppo si è sempre impegnato a correggere gli eventuali e
 
 
 === PB
+Si può notare che il gruppo si è sempre impegnato a correggere gli eventuali errori ortografici presenti per raggiungere un valore pari a 0 anche nei documenti redatti in fase di PB.
 
 
 
@@ -1167,6 +1176,7 @@ Dal grafico emerge che la percentuale di metriche soddisfatte nei primi due spri
 
 
 === PB
+Dal grafico si può notare che la percentuale di metriche soddisfatte cresce costante terminando con un valore pari al massimo, indicando che il gruppo è riuscito a mantenere un buon livello di qualità del prodotto in fase di PB.
 
 
 #pagebreak()
@@ -1183,4 +1193,88 @@ Nei primi sprint si ha un'efficienza temporale bassa, dovuta all'inesperienza de
 
 
 === PB
+Dal grafico emerge che in fase di PB il gruppo è riuscito a mantenere un'efficienza temporale elevata, dimostrando una buona gestione del tempo.
 
+//AGGIORNARE 11
+
+#pagebreak()
+
+//TODO GRAFICO
+== Requisiti obbligatori soddisfatti (MPD-RO)
+#figure(image("../../assets/chart/PB/RO_chart.svg", width: 90%), caption: [
+  Stima dei valori RO nel tempo
+])
+
+
+
+=== PB
+
+Dal grafico si può vedere che il gruppo è partito da una buona base del PoC.
+Il gruppo si è impegnato a soddisfare la maggior parte dei requisiti obbligatori entro lo sprint 10, fino allo soddisfacimento di tutti i requisiti obbligatori entro la fine del progetto.
+
+
+
+
+
+#pagebreak()
+
+//TODO GRAFICO
+== Requisiti desiderabili e facoltativi soddisfatti (MPD-RD e MPD-RF)
+#figure(image("../../assets/chart/PB/RD_RF_chart.svg", width: 90%), caption: [
+  Stima dei valori RD e RF nel tempo
+])
+
+
+
+=== PB
+Dal grafico si può osservare che il gruppo si è impegnato fin dallo sprint 9 a soddisfare il requisito desiderabile individuato, ovvero la possibilità di cambiare tema, raggiungendo così una maggiore soddisfazione dell’utente.
+
+
+#pagebreak()
+
+//TODO GRAFICO
+== Code Coverage (MPD-CCO)
+#figure(image("../../assets/chart/PB/CCO_chart.svg", width: 90%), caption: [
+  Stima dei valori CCO nel tempo
+])
+
+
+
+=== PB
+Dal grafico si può notare che il gruppo ha iniziato a lavorare sulla copertura del codice appena terminata la progettazione, passo passo con la stesura del codice.
+Questo approccio ha permesso di ottenere una copertura del codice superiore a quella richiesta del 70%.
+
+
+// #pagebreak()
+
+// //TODO GRAFICO
+// == Branch Coverage (MPD-BC)
+// #figure(image("../../assets/chart/PB/BC_chart.svg", width: 90%), caption: [
+//   Stima dei valori BC nel tempo
+// ])
+
+
+
+// === PB
+// Dal grafico si può notare che il valore branch coverage ha iniziato a salire nel nono sprint, avvicinandosi molto al valore accettabile.
+// A fine progetto, si è raggiunto un valore superiore a quello ottimo, dimostrando che il gruppo ha implementato test efficaci, inoltre dimostra l’affidabilità del codice.
+
+
+
+#pagebreak()
+
+//TODO GRAFICO
+== Test superati in percentuale (MPC-TSP)
+#figure(image("../../assets/chart/PB/TSP_chart.svg", width: 90%), caption: [
+  Stima dei valori TSP nel tempo
+])
+
+
+
+=== PB
+Dal grafico si può notare che il valore dei test superati è sempre stato elevato.
+Questo dimostra che i test sviluppati sono sempre stati superati.
+Si è consapevoli che il fatto che i test vengano completamente superati non è garanzia di un software privo di errori o lacune, tuttavia è pur sempre indice di qualità del codice.
+
+
+//valuta inserimento del coupling
