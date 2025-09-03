@@ -483,6 +483,9 @@ In particolare, sono state aperte le porte:
 ])
 
 === Deployment dei servizi tramite Docker
+#figure(image("../../assets/img/specificatecnica/awsIstanza.drawio.png", width: 45%), caption: [
+  Dettaglio di deploy sull'istanza EC2
+])
 Come precedentemente descritto, i servizi sono stati containerizzati utilizzando Docker. Di seguito è riportato il file di configurazione `docker-compose.prod.yml` utilizzato per il deployment:
 
 #codly(header: [./docker-compose.prod.yml])
