@@ -126,19 +126,19 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 
 - #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/normediprogetto_2.0.0.pdf")[Norme di progetto (2.0.0)]
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa] (*Ultimo accesso il: 16/07/2025*)
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le _routine_ digitali tramite l'intelligenza generativa] (*Ultimo accesso il: 27/08/2025*)
 
 - #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico] (*Ultimo accesso il: 16/07/2025*)
 
-- #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] (*Ultimo accesso il: 16/07/2025*)
+- #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] (*Ultimo accesso il: 27/08/2025*)
 
 === Riferimenti informativi
 
 - #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf")[Glossario (2.0.0)]
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")[Dispensa T05: Analisi dei requisiti] (*Ultimo accesso il: 15/08/2025*)
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")[Dispensa T05: Analisi dei requisiti] (*Ultimo accesso il: 29/08/2025*)
 
-- #link("https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf")[Diagrammi dei casi  d'uso] (*Ultimo accesso il: 18/08/2025*)
+- #link("https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf")[Diagrammi dei casi  d'uso] (*Ultimo accesso il: 28/08/2025*)
 #pagebreak()
 
 
