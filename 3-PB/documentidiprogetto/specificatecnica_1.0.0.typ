@@ -1302,12 +1302,16 @@ La classe `Block` rappresenta il blocco astratto base per tutti i nodi eseguibil
 - ```py +run(input: dict[str, Any]) : dict[str, Any] ```: metodo principale per eseguire il blocco. viene implementato nelle classi derivate.
 - ```py +get_output () : Any ```: Getter per l'output del blocco.
 
+
+Di seguito vengono descritte le classi derivate da `Block` implementate nel sistema, assieme ad eventuali attributi specifici
 ==== AiSummarize
 Estende la classe `Block`, rappresenta il blocco `AiSummarize` il quale utilizza un agente LLM per riassumere un testo fornito in input.
 
 ===== Attributi
+- ```py -agent: LLMFacade ```: istanza della classe `LLMFacade` per interagire con l'agente LLM.
 
-
+==== SysWait
+Implementazione del blocco `SysWait`, il quale introduce una pausa nell'esecuzione del flusso per un numero specificato di secondi.
 
 /// DDCCC
 ==== AiSummarize
