@@ -81,7 +81,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 - #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] (*Ultimo accesso il: 23/07/2025*)
 
 === Riferimenti informativi
-- #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario.pdf")[Glossario] [versione 2.0.0]
+- #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf")[Glossario] [versione 2.0.0]
 
 - #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/specificatecnica_1.0.0.pdf")[Specifica tecnica] [versione 1.0.0]
 
