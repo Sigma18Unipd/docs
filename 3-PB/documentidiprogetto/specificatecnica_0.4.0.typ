@@ -206,6 +206,28 @@ _React Router_ è una libreria per React che consente di gestire in modo dinamic
 
 
 
+=== Axios
+Axios è una libreria JavaScript per effettuare richieste HTTP sia nel browser che in Node.js. Fornisce un'interfaccia semplice e potente per gestire chiamate API, con supporto per _interceptors_, trasformazioni di dati, gestione degli errori e cancellazione delle richieste.
+
+- *Versione*: 1.11.0
+
+- *Utilizzo nel codice*: Utilizzata per gestire tutte le comunicazioni HTTP con il backend, incluse le chiamate API per autenticazione, recupero e invio dei dati dei workflow, con configurazioni personalizzate per headers e gestione degli errori.
+
+- *Documentazione*: https://axios-http.com/ (Ultimo accesso il: 13/09/2025)
+
+
+
+=== Zod
+Zod è una libreria TypeScript per la dichiarazione e validazione di schemi. Consente di definire schemi di validazione che garantiscono type safety sia a runtime che a compile-time, offrendo un approccio moderno e performante alla validazione dei dati.
+
+- *Versione* 4.1.5
+
+- *Utilizzo nel codice*: Impiegata per la validazione dei dati e definizione degli schemi per i form con il relativo error handling.
+
+- *Documentazione*: https://zod.dev/ (Ultimo accesso il: 13/09/2025)
+
+
+
 
 === React Flow
 _React Flow_ è una libreria per la creazione di diagrammi e flussi di lavoro interattivi in _React_. Fornisce una serie di componenti e strumenti per costruire interfacce utente complesse in modo semplice e intuitivo.
@@ -658,20 +680,31 @@ In produzione, installa un server _Gunicorn_, che è un server WSGI (specifica c
 
 
 
-
-
 = Architetttura del sistema
 
 == Architettura logica
-//TO DO maybe da mettere sopra
-Monolitica? :(
+Il backend è stato realizzato come un’applicazione monolitica basata su _Flask_, che integra in un unico servizio le principali responsabilità come l'autenticazione e la registrazione degli utenti tramite AWS Cognito e JWT, la gestione e persistenza dei dati dei workflow su MongoDB, il routing delle richieste HTTP e la gestione delle sessioni, e l’elaborazione di prompt AI con la relativa logica di business dei _workflow_ (creazione, modifica, esecuzione e cancellazione).
 
+=== Pro
+Considerato il prodotto da costruire, abbiamo ritenuto fondamentale sviluppare, testare e iterare nuove funzionalitá senza introdurre complessità infrastrutturali non necessarie.
 
+L'architettura monolitica ci ha permesso di lavorare su un unico repository e un’unica codebase, riducendo tempi di setup e di coordinamento e mantenere la concentrazione sul valore funzionale (gestione workflow, autenticazione, AI) anziché sulla gestione dei microservizi o dell’orchestrazione di essi.
 
+Questa scelta, considerando il contesto del prodotto e il ritardo accumulato, è stata motivata dal fatto che il gruppo non riteneva necessario dividere ulteriormente l'applicativo creato, in quanto per sua natura, il _backend_ ha lo scopo primario di gestire e inviare richieste ad altri servizi esterni, non svolgendo quindi importanti manipolazioni di dati.
 
+=== Contro e soluzioni proposte
+Siamo consapevoli che questa soluzione presenta alcuni limiti.
+Secondo l'architettura, la scalabilità avviene principalmente in senso verticale. Considerata la struttura di deployment su AWS è possibile aumentare il numero di istanze EC2 e configurare "ad-hoc" un sistema di load balancing esterno per garantire performance elevate. Inoltre, è possibile scegliere di passare al sistema ECS (Elastic Container Service) di AWS che gestisce in autonomia il numero di container necessari in base al carico di richieste, a discapito di un costo che potrebbe essere maggiore.
 
+Con il continuo dello sviluppo, l’applicazione tenderà a diventare meno modulare e ogni modifica richiede la ridistribuzione dell’intero pacchetto. Nel contesto attuale, il rilascio di nuovi aggiornamenti riguarderà tendenzialmente l'aggiunta di nuovi blocchi, che richiederanno comunque un riavvio del sistema.
 
-== Design pattern
+=== Confronto con altre architetture
+Il confronto che abbiamo effettuato con altre architetture hanno confermato questa scelta:
+- I microservizi offrono scalabilità granulare e indipendenza dei componenti, ma introducono complessità di orchestrazione, sicurezza e manutenzione. Avendo un solo componente che essenzialmente gestisce e redirecta dati, non la ritenevamo la scelta corretta;
+
+- Il modello serverless consente un’elevata elasticità e un modello di costo pay-per-use, ma rende più difficile la gestione dello stato e introduce latenze dovute ai cold start. L'utilizzo di AWS Lambda, il servizio di calcolo serverless che consente di eseguire codice in risposta ad eventi, era stato preso in considerazione ma aumentava la difficoltá di sviluppo e testing in locale durante la fase di sviluppo. Inoltre, considerato il contesto del prodotto, alcuni _workflow_ potevano andare oltre il limite di timeout di AWS (standard a 20 minuti), portando ad esecuzioni incomplete e/o fallite.
+
+== Design patterns
 === Decorator
 Il _decorator_ è un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
 
@@ -736,34 +769,28 @@ Tra i vantaggi ottenuti dall'adozione del pattern vi sono:
 
 ==== Implementazione
 #codly(header: [llm/llmFacade.py])
-#codly(skips: ((1, 4),))
-#codly(ranges: ((1, 3), (12, 43)))
+//#codly(skips: ((1, 4),))
+//#codly(ranges: ((12, 43)))
 #codly(smart-skip: true)
 #local(
   breakable: true,
   [
     ```py
     class LLMFacade:
-      def __init__(self):
-          self._agents_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
-
-      def _decode_response(self, response):
-        completion = ""
-        for event in response.get("completion"):
-            chunk = event["chunk"]
-            completion += chunk["bytes"].decode()
-        return completion
-
-      def agent_facade(self, prompt):
-        return self._decode_response(self._agents_client.invoke_agent(
+    @staticmethod
+    def agent_facade(prompt):
+        agents_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
+        return LLMFacade._decode_response(agents_client.invoke_agent(
             agentId="XKFFWBWHGM",
             inputText=prompt,
             agentAliasId="TBVZ2OBWOR",
             sessionId=f"session-{uuid.uuid4()}"))
 
-      def summary_facade(self, text):
-        return self._decode_response (
-          self._agents_client.invoke_agent(
+    @staticmethod
+    def summary_facade(text):
+        agents_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
+        return LLMFacade._decode_response(
+          agents_client.invoke_agent(
             agentId="JSMYPKV9QR",
             inputText=text,
             agentAliasId="Q4EOBUZOHP",
@@ -781,8 +808,50 @@ Si tratta di un design Pattern comportamentale per accedere sequenzialmente agli
 ==== Integrazione del pattern nel progetto
 Il pattern _iterator_ viene utilizzato nella classe `FlowIterator` la quale consente di iterare in modo ordinato attraverso la struttura complessa `Flow`.\
 Questo consente di nascondere la complessità della struttura interna e fornire un'interfaccia semplice per iterare sui blocchi alla classe `FlowManager`, ottenendo quindi una migliore manutenibilità grazie alla separazione delle responsabilità.
-// Nel contesto del progetto, il pattern è adottato così:
-// - la classe `FlowIterator` in `flow/flowIterator.py`. egue in sequenza i `Block`, aggrega `ExecutionLog` e gestisce lo stato; usata da `FlowManager`.
+#codly(header: [flow/blockIterator.py])
+```py
+class FlowIterator(Iterator):
+    _position: int = 0
+    _reverse: bool = False
+
+    def __init__(self, flow: Flow, reverse: bool = False) -> None:
+        self._flow = flow
+        self._reverse = reverse
+        self._ordered_nodes = None
+        self._position = 0
+
+    def __next__(self) -> Any:
+        if self._ordered_nodes is None:
+            self._ordered_nodes = self._topological_sort()
+            if self._reverse:
+                self._ordered_nodes = list(reversed(self._ordered_nodes))
+
+        if self._position >= len(self._ordered_nodes):
+            raise StopIteration()
+
+        node_id = self._ordered_nodes[self._position]
+        node = next((n for n in self._flow.nodes if n.get("id") == node_id), None)
+        self._position += 1
+
+        if node is None:
+            raise ValueError(f"Node with id {node_id} not found in flow")
+
+        return node
+
+    def _topological_sort(self) -> List[str]:
+        nodes = {node["id"]: node for node in self._flow.get_nodes()}
+        ts = TopologicalSorter()
+        for node_id in nodes:
+            ts.add(node_id)
+        for edge in self._flow.get_edges():
+            ts.add(edge["target"], edge["source"])
+        try:
+            ordered = list(ts.static_order())
+            logger.debug(f"Topologically sorted nodes: {ordered}")
+            return ordered
+        except Exception as e:
+            raise ValueError(f"Error in topological sorting: {str(e)}")
+```
 
 
 === Singleton
@@ -833,8 +902,6 @@ class BlockFactory():
                 if cls._instance is None:
                     cls._instance = cls()
         return cls._instance
-
-
 ```
 
 === Strategy
@@ -851,12 +918,114 @@ Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi
 - `llmSanitizerStrategy`, utilizzato all'interno del modulo `llm`, viene impiegato per la sanitizzazione delle risposte fornite dall'agente _LLM_ per la creazione di un _workflow_. L'utilizzo dello _strategy_ consente di definire diverse strategie di sanitizzazione per i vari tipi di nodi, cosa necessaria in quanto ogni tipo di nodo presenta impostazioni differenti rendendo necessaria una logica specifica per ogni blocco.
 
 ==== Implementazione
+// TODO: spiegare
+#codly(header: [llm/llmSanitizer.py])
+#codly(skips: ((1, 6),))
+#codly(ranges: ((1, 81),))
+#codly(smart-skip: true)
+```py
+class LLMSanitizer:
+    def __init__(self, strategy: NodeSanitizationStrategy) -> None:
+        self._strategy = strategy
+
+    @property
+    def strategy(self) -> NodeSanitizationStrategy:
+        return self._strategy
+
+    @strategy.setter
+    def strategy(self, strategy: NodeSanitizationStrategy) -> None:
+        self._strategy = strategy
+
+    def _sanitize_node(self, node: Dict[str, Any]) -> Dict[str, Any]:
+        return self._strategy.sanitize(node)
+
+    def sanitize_flow(self, flow: Dict[str, Any]) -> Dict[str, Any]:
+        if not isinstance(flow, dict):
+            return {}
+
+        flow["nodes"] = [self.sanitize_node(node) for node in flow.get("nodes", [])]
+        return flow
+
+
+class NodeSanitizationStrategy(ABC):
+    # counters are class-level for a consistent generation in a given workflow
+    _id_counter = 0
+    _position_counter = [0, 0]
+
+    @abstractmethod
+    def sanitize(self, node: Dict[str, Any]) -> Dict[str, Any]:
+        pass
+
+    @staticmethod
+    def add_field_if_missing(data: Dict[str, Any], key: str, value: Any) -> None:
+        if key not in data:
+            data[key] = value
+
+    @classmethod
+    def generate_id(cls) -> str:
+        cls._id_counter += 1
+        return f"node-{cls._id_counter}"
+
+    @classmethod
+    def generate_position(cls) -> Dict[str, int]:
+        cls._position_counter[0] += 400
+        if cls._position_counter[0] > 800:
+            cls._position_counter[0] = 0
+            cls._position_counter[1] += 400
+        return {"x": cls._position_counter[0], "y": cls._position_counter[1]}
+
+
+class BasicNodeSanitizationStrategy(NodeSanitizationStrategy):
+    def sanitize(self, node: Dict[str, Any]) -> Dict[str, Any]:
+        # Fields common to all nodes
+        if "id" not in node:
+            node["id"] = self.generate_id()
+
+        if "type" not in node:
+            node["type"] = "systemWaitSeconds"
+
+        if "data" not in node:
+            node["data"] = {}
+
+        if "position" not in node:
+            node["position"] = self.generate_position()
+
+        return node
+
+
+class TelegramBotMessageSanitizationStrategy(NodeSanitizationStrategy):
+    def sanitize(self, node: Dict[str, Any]) -> Dict[str, Any]:
+        basic_strategy = BasicNodeSanitizationStrategy()
+        node = basic_strategy.sanitize(node)
+
+        node_data = node.get("data", {})
+        self.add_field_if_missing(node_data, "botToken", "")
+        self.add_field_if_missing(node_data, "chatId", "")
+        self.add_field_if_missing(node_data, "message", "")
+
+        node["data"] = node_data
+        return node
+
+```
+
+
+
+
+
+
+
+
+
+
 
 
 == Struttura del Backend
 
-Il backend è stato sviluppato in _Python_ ed eseguito in un contesto Flask avviato tramite lo _singleton_ _FlaskAppSingleton_ e containerizzabile con un dockerfile che prepara un'immagine basata su python3.13 e definisce vari target.
-Le variabili d'ambiente vengono caricate e usate per configurare il client AWS Cognito e la connessione a MongoDB, quest'ultima gestita dal singleton _MongoDBSingleton_.
+== Diagramma delle classi
+
+
+// Il backend è stato sviluppato in _Python_ ed eseguito in un contesto Flask avviato tramite lo _singleton_ _FlaskAppSingleton_ e containerizzabile con un dockerfile che prepara un'immagine basata su python3.13 e definisce vari target.
+// Le variabili d'ambiente vengono caricate e usate per configurare il client AWS Cognito e la connessione a MongoDB, quest'ultima gestita dal singleton _MongoDBSingleton_.
 
 
 === Struttura del codice
@@ -890,65 +1059,195 @@ Viene riportata una panoramica della struttura delle cartelle e dei file princip
     ```
   ]]
 
-Nella cartella `flow/blocks` sono contenute le implementazioni dei vari blocchi disponibili nel sistema, ognuno in un file separato.
-Il file `block.py` definisce la classe base dei blocchi, implementando il _design pattern Visitor_ e una gerarchia di classi astratte. Questa struttura consente di gestire in modo uniforme stato, _input_, _output_ e _log_ di esecuzione per ogni blocco concreto.
-
-I file`flowIterator.py` e `flowManager.py` lavorano inseme per implementare un sistema modulare e scalabile per l'esecuzione di flussi di lavoro. Il `FlowManager` si occupa della configurazione e dell'orchestrazione, mentre `FlowIterator` gestisce l'effettiva esecuzione dei blocchi.
-
-Infine, `backend.py` è il punto d'ingresso dell'applicativo. Infatti esso inizializza l'app _Flask_ tramite `FlaskAppSingleton`, configura il supporto per _CORS( Cross-Origin Resource Sharing)_ e i vari servizi di _AWS_. Inoltre gestisce le _route HTTPS_ .
-
-
-=== Gestione dell'autenticazione delle _Route_
-
-Il file `backend.py` costituisce il nucleo applicativo del sistema, occupandosi sia della definizione delle principali _route_ _REST_ sia della gestione dei meccanismi di autenticazione basati su _JWT_ e _AWS Cognito_.
-
-Le _route_ pubbliche, come `/login`, `/register` e `/confirm`, consentono l'interazione con _Cognito_ per la registrazione e l'accesso degli utenti. In tale contesto, i _token JWT_ vengono generati e successivamente verificati mediante le funzioni disponibili in `jwtUtils.py`, che implementano la logica di creazione, decodifica e validazione.
-
-Un ruolo centrale è ricoperto dal decoratore di autenticazione `protected`, definito all'interno dello stesso `backend.py`. Esso utilizza la direttiva `@wraps` per mantenere i metadati della funzione decorata e incapsula la logica di verifica dei _token_. In particolare:
-
-- recupera dalla richiesta il _cookie_ `jwtToken`;
-
-- lo valida attraverso la funzione `verifyJwt`, che decodifica il _token_ utilizzando la chiave segreta configurata e restituisce None in caso di firma scaduta o non valida;
-
-- se il _token_ è assente o non valido, effettua un _redirect_ automatico alla pagina di login (`/login`, `HTTP 302`);
-
-- se la validazione ha successo, associa l'indirizzo e-mail dell'utente autenticato al contesto globale di _Flask_ (`g.email`), permettendo così di identificarlo nelle successive elaborazioni.
-
-Tutte le _API_ che richiedono autenticazione sono annotate con il decoratore `@protected`, posto immediatamente sotto la definizione della rotta (`@app.route`). Tra queste rientrano la _dashboard_ e le _route_ relative alla gestione dei _workflow_ - creazione (`/api/new`), recupero, salvataggio, cancellazione ed esecuzione (`/api/flows/<id>`) - nonché le _API_ per l'elaborazione dei prompt verso l'_LLM_ (`/api/prompt`) e le operazioni di _logout_.
-
-Grazie a questa architettura, la logica di validazione dei _JWT_ viene centralizzata e riutilizzata in maniera uniforme, semplificando lo sviluppo e garantendo al contempo un livello di sicurezza costante su tutte le _route_ protette.
+//Nella cartella `flow/blocks` sono contenute le implementazioni dei vari blocchi disponibili nel sistema, ognuno in un file separato.
+//Il file `block.py` definisce la classe base dei blocchi, implementando il _design pattern Visitor_ e una gerarchia di classi astratte. Questa struttura consente di gestire in modo uniforme stato, _input_, _output_ e _log_ di esecuzione per ogni blocco concreto.
+//
+//I file`flowIterator.py` e `flowManager.py` lavorano inseme per implementare un sistema modulare e scalabile per l'esecuzione di flussi di lavoro. Il `FlowManager` si occupa della configurazione e dell'orchestrazione, mentre `FlowIterator` gestisce l'effettiva esecuzione dei blocchi.
+//
+//Infine, `backend.py` è il punto d'ingresso dell'applicativo. Infatti esso inizializza l'app _Flask_ tramite `FlaskAppSingleton`, configura il supporto per _CORS( Cross-Origin Resource Sharing)_ e i vari servizi di _AWS_. Inoltre gestisce le _route HTTPS_ .
+// dio ladro
 
 
-=== Processo di generazione dei workflow
+//Nella cartella `flow/blocks` sono contenute le implementazioni dei vari blocchi disponibili nel sistema, ognuno in un file separato.
+//Il file `block.py` definisce la classe base dei blocchi, implementando il _design pattern Visitor_ e una gerarchia di classi astratte. Questa struttura consente di gestire in modo uniforme stato, _input_, _output_ e _log_ di esecuzione per ogni blocco concreto.
+//
+//I file`flowIterator.py` e `flowManager.py` lavorano inseme per implementare un sistema modulare e scalabile per l'esecuzione di flussi di lavoro. Il `FlowManager` si occupa della configurazione e dell'orchestrazione, mentre `FlowIterator` gestisce l'effettiva esecuzione dei blocchi.
+//
+//Infine, `backend.py` è il punto d'ingresso dell'applicativo. Infatti esso inizializza l'app _Flask_ tramite `FlaskAppSingleton`, configura il supporto per _CORS( Cross-Origin Resource Sharing)_ e i vari servizi di _AWS_. Inoltre gestisce le _route HTTPS_ .
+// dio ladro
 
-Il processo di generazione dei workflow avviene in diverse fasi:
-
-1. *Invocazione dell'agente LLM* - La generazione parte da `agent_facade`, che invia il _prompt_ a un agente _AWS Bedrock_ e concatena i _chunk_ di risposta in una stringa _JSON_.
-
-2. *Parsing e sanitizzazione preliminare* - `process_prompt` usa `agent_facade`, prova a deserializzare il _JSON_ e passa il risultato a `sanitize_response`, che prepara l'albero di nodi per l'uso interno.
-
-3. *Ordinamento topologico dei nodi* - `JsonParser` applica un _TopologicalSorter_ per ricostruire l'ordine di esecuzione basandosi sulle dipendenze tra nodi (edge → source/target), restituendo sia la sequenza ordinata sia i metadati dei nodi.
-
-4. *Istanziazione dei blocchi* - `FlowManager` scorre i nodi ordinati e, per ciascuno, chiede a `BlockFactory` di creare l'istanza corretta. La _factory_ importa dinamicamente tutte le implementazioni disponibili (`flow.blocks`) e registra ogni tipo di blocco. Se un tipo non è supportato, viene sollevato un errore esplicativo.
-
-5. *Esecuzione sequenziale e logging* - I blocchi vengono eseguiti da `FlowIterator`, che avvia un _thread_, passa l'output del blocco precedente come input al successivo e accumula gli `ExecutionLog`. Ogni blocco deriva da `Block`, che gestisce _status_, _timing_ e _log_ e solleva eccezioni in caso di validazione fallita.
-
-=== Processo di sanitizzazione dei workflow
-
-Il processo di sanitizzazione dei _workflow_ ha 3 principali fasi:
-
-1. *Strategia base e campi comuni* - `BasicFieldsStrategy` garantisce la presenza dei campi obbligatori (id, type, data, position). Gli ID vengono generati progressivamente e le posizioni sono assegnate in griglia 400x400 per facilitare il _rendering_ grafico.
-
-2. *Strategie specifiche per tipo di nodo* - Strategie dedicate completano i dati caratteristici dei vari blocchi: ad esempio, per `telegramSendBotMessage` si aggiungono _botToken_, _chatId_ e _message_; per `systemWaitSeconds` si imposta il campo _seconds_ con _default_ a 5.
-
-3. *Registry ed estensibilità* - `SanitizationStrategyRegistry` applica prima la strategia base, poi seleziona quella specifica in base al tipo di nodo; se assente, usa una `DefaultNodeStrategy`. Il _registry_ è estendibile tramite `register_node_strategy`, consentendo di supportare nuovi tipi senza toccare il _core_.
-
-=== Diagramma delle classi
-//TODO inserire immagine diagramma classi
-
+//=== Gestione dell'autenticazione delle _Route_
+//
+//Il file `backend.py` costituisce il nucleo applicativo del sistema, occupandosi sia della definizione delle principali _route_ _REST_ sia della gestione dei meccanismi di autenticazione basati su _JWT_ e _AWS Cognito_.
+//
+//Le _route_ pubbliche, come `/login`, `/register` e `/confirm`, consentono l'interazione con _Cognito_ per la registrazione e l'accesso degli utenti. In tale contesto, i _token JWT_ vengono generati e successivamente verificati mediante le funzioni disponibili in `jwtUtils.py`, che implementano la logica di creazione, decodifica e validazione.
+//
+//Un ruolo centrale è ricoperto dal decoratore di autenticazione `protected`, definito all'interno dello stesso `backend.py`. Esso utilizza la direttiva `@wraps` per mantenere i metadati della funzione decorata e incapsula la logica di verifica dei _token_. In particolare:
+//
+//- recupera dalla richiesta il _cookie_ `jwtToken`;
+//
+//- lo valida attraverso la funzione `verifyJwt`, che decodifica il _token_ utilizzando la chiave segreta configurata e restituisce None in caso di firma scaduta o non valida;
+//
+//- se il _token_ è assente o non valido, effettua un _redirect_ automatico alla pagina di login (`/login`, `HTTP 302`);
+//
+//- se la validazione ha successo, associa l'indirizzo e-mail dell'utente autenticato al contesto globale di _Flask_ (`g.email`), permettendo così di identificarlo nelle successive elaborazioni.
+//
+//Tutte le _API_ che richiedono autenticazione sono annotate con il decoratore `@protected`, posto immediatamente sotto la definizione della rotta (`@app.route`). Tra queste rientrano la _dashboard_ e le _route_ relative alla gestione dei _workflow_ - creazione (`/api/new`), recupero, salvataggio, cancellazione ed esecuzione (`/api/flows/<id>`) - nonché le _API_ per l'elaborazione dei prompt verso l'_LLM_ (`/api/prompt`) e le operazioni di _logout_.
+//
+//Grazie a questa architettura, la logica di validazione dei _JWT_ viene centralizzata e riutilizzata in maniera uniforme, semplificando lo sviluppo e garantendo al contempo un livello di sicurezza costante su tutte le _route_ protette.
+//
+//
+//=== Processo di generazione dei workflow
+//
+//Il processo di generazione dei workflow avviene in diverse fasi:
+//
+//1. *Invocazione dell'agente LLM* - La generazione parte da `agent_facade`, che invia il _prompt_ a un agente _AWS Bedrock_ e concatena i _chunk_ di risposta in una stringa _JSON_.
+//
+//2. *Parsing e sanitizzazione preliminare* - `process_prompt` usa `agent_facade`, prova a deserializzare il _JSON_ e passa il risultato a `sanitize_response`, che prepara l'albero di nodi per l'uso interno.
+//
+//3. *Ordinamento topologico dei nodi* - `JsonParser` applica un _TopologicalSorter_ per ricostruire l'ordine di esecuzione basandosi sulle dipendenze tra nodi (edge → source/target), restituendo sia la sequenza ordinata sia i metadati dei nodi.
+//
+//4. *Istanziazione dei blocchi* - `FlowManager` scorre i nodi ordinati e, per ciascuno, chiede a `BlockFactory` di creare l'istanza corretta. La _factory_ importa dinamicamente tutte le implementazioni disponibili (`flow.blocks`) e registra ogni tipo di blocco. Se un tipo non è supportato, viene sollevato un errore esplicativo.
+//
+//5. *Esecuzione sequenziale e logging* - I blocchi vengono eseguiti da `FlowIterator`, che avvia un _thread_, passa l'output del blocco precedente come input al successivo e accumula gli `ExecutionLog`. Ogni blocco deriva da `Block`, che gestisce _status_, _timing_ e _log_ e solleva eccezioni in caso di validazione fallita.
+//
+//=== Processo di sanitizzazione dei workflow
+//
+//Il processo di sanitizzazione dei _workflow_ ha 3 principali fasi:
+//
+//1. *Strategia base e campi comuni* - `BasicFieldsStrategy` garantisce la presenza dei campi obbligatori (id, type, data, position). Gli ID vengono generati progressivamente e le posizioni sono assegnate in griglia 400x400 per facilitare il _rendering_ grafico.
+//
+//2. *Strategie specifiche per tipo di nodo* - Strategie dedicate completano i dati caratteristici dei vari blocchi: ad esempio, per `telegramSendBotMessage` si aggiungono _botToken_, _chatId_ e _message_; per `systemWaitSeconds` si imposta il campo _seconds_ con _default_ a 5.
+//
+//3. *Registry ed estensibilità* - `SanitizationStrategyRegistry` applica prima la strategia base, poi seleziona quella specifica in base al tipo di nodo; se assente, usa una `DefaultNodeStrategy`. Il _registry_ è estendibile tramite `register_node_strategy`, consentendo di supportare nuovi tipi senza toccare il _core_.
+//
+//=== Diagramma delle classi
+////TODO inserire immagine diagramma classi
+// CERTAMENTE
+//
 === Struttura delle classi
+==== Backend
+La classe `Backend` gestisce le _route_ presenti nell'applicazione, fungendo da punto d'ingresso per le varie funzioni.
+
+===== Attrributi
+- ```py -db: MongoDBSingleton```: istanza del singleton per la connessione a MongoDB.
+- ```py -cognito_client: boto3.cognito_client```: client AWS Cognito per l'autenticazione e la gestione degli utenti.
+- ```py -app: FlaskAppSingleton```: istanza del singleton per l'app Flask.
+
+===== Metodi
+- ```py +login()```: metodo associato alla _route_ di login, interagendo con AWS Cognito per autenticare l'utente e generare un _token JWT_.
+- ```py +register()```: crea un nuovo utente sul servizio AWS Cognito.
+- ```py +confirm()```: metodo per la verifica di un account utente, il quale valida il codice di conferma fornito dall'utente.
+- ```py +dashboard()```: restituisce i _workflow_ associati all'utente autenticato.
+- ```py +new_workflow()```: crea un nuovo _workflow_ e lo salva nel database associandolo all'utente autenticato.
+- ```py +get_workflow(id)```: recupera un _workflow_ in base al suo ID.
+- ```py +delete_workflow(id)```: elimina un _workflow_
+- ```py +save_workflow(id)```: aggiorna i dettagli di un workflow esistente.
+- ```py +run_workflow(id)```: esegue un _workflow_ specifico.
+- ```py +ai_workflow()```: elabora un _prompt_ fornito dall'utente tramite un agente LLM e genera un _workflow_.
+
+
+==== MongoDBSingleton
+La classe `MongoDBSingleton` rappresenta il singleton della classe `MongoClient` fornita dalla libreria _Pymongo_. Questa viene utilizzata istanziare la connessione al database _MongoDB_ in maniera univoca per tutta l'esecuzione del backend.
+
+===== Attributi
+- ```py -_instance: Mongo | None ```: istanza della classe `Pymongo` creata globalmente per l'intero processo.
+
+===== Metodi
+- ```py +__new__(cls, app=None) : MongoDBSingleton ```: metodo che implementa il pattern singleton, garantendo un'unica istanza della connessione al database.
+- ```py +get_db() : Database ```: restituisce l'oggetto `Database`
+
+==== FlaskAppSingleton
+La classe `FlaskAppSingleton` fornisce un'istanza unica di Flask per l'intera applicazione backend.
+
+===== Attributi
+- ```py -_instance: FlaskAppSingleton | None ```: istanza singleton della classe
+
+===== Metodi
+- ```py +__new__() : FlaskAppSingleton ```: garantisce che venga creata una sola istanza della classe.
+- ```py +get_app() : Flask ```: restituisce l'istanza di Flask.
+
+==== JWT
+La classe `JWT` fornisce metodi statici per la creazione e la verifica di JSON Web Token (JWT) utilizzati per l'autenticazione degli utenti.
+
+===== Metodi
+- ```py +generateJwt(email: str) : str ```: genera un JWT con l'email e una scadenza di 1 ora.
+- ```py +verifyJwt(token: str) : dict | None ```: verifica la validità del token e restituisce il payload decodificato o None se non valido.
+
+==== ProtectedDecorator
+La funzione `protected` è un _decorator_ che protegge le _route_ di Flask richiedendo un token JWT valido.
+//TODO: Riscrivere
+
+===== Metodi
+- ```py +protected(f) : function ```: decoratore che verifica il token JWT nella richiesta e gestisce l'autenticazione.
+TODO //todo
+
+==== FlowManager
+La classe `FlowManager` è responsabile della gestione e dell'esecuzione di un workflow composto da blocchi interconnessi. Fa uso di della classe `JsonParser` per il parsing del flusso e di `BlockFactory` per l'istanziazione dei blocchi, inoltre sfrutta un oggetto di tipo `FlowIterator` per eseguire i blocchi in sequenza.
+
+===== Attributi
+- ```py -flow: Flow ```: rappresenta il flusso di lavoro da eseguire.
+- ```py -parser: JsonParser ```: istanza del parser per analizzare la struttura del flusso.
+- ```py -iterator: FlowIterator```: iteratore per eseguire i blocchi in sequenza.
+- ```py -flow_data: dict[str, Any] ```: dati grezzi del flusso in formato dizionario.
+
+===== Metodi
+- ```py +start_workflow() : None ```: avvia l'esecuzione del workflow in un thread separato.
+- ```py +get_status() : dict ```: restituisce lo stato corrente del workflow ed i log di esecuzione.
+
+
+==== Flow
+La classe `Flow` rappresenta la struttura di un flusso di lavoro, composta da nodi (blocchi) e archi (connessioni tra blocchi). Utilizza `BlockFactory` per creare i blocchi in base ai nodi forniti.
+===== Attributi
+- ```py +nodes: list[dict[str, Any]] ```: lista dei nodi
+- ```py +edges: list[dict[str, str]] ```: lista degli archi
+- ```py -factory: BlockFactory ```: istanza della factory per la creazione dei blocchi.
+
+===== Metodi
+- ```py +__init__(nodes: list[dict[str, Any], edges: list[dict[str, str]]) ```: costruttore della classe, crea i nodi con i relativi settaggi utilizzando la factory e salva gli archi.
+- ```py +get_nodes() : list[dict[str, Any]] ```: restituisce la lista dei nodi.
+- ```py +get_edges() : list[dict[str, str]] ```: restituisce la lista degli archi.
+
+==== FlowIterator
+La classe `FlowIterator` implementa il pattern _iterator_ per iterare su un oggetto `Flow`, eseguendo i blocchi in ordine topologico.
+
+===== Attributi
+- ```py -_flow: Flow ```: il flusso di lavoro da iterare
+- ```py -_position: int ```: posizione corrente nell'iterazione
+- ```-_ordered_nodes: list[str] | None ```: lista ordinata dei nodi
+
+===== Metodi
+- ```py +__init__(flow: Flow, reverse: bool = False) ```: costruttore della classe, inizializza l'iteratore con il flusso e l'ordine di iterazione.
+- ```py +__next__() : dict[str, Any] ```: restituisce il
+  prossimo nodo nel flusso
+- ```py -_topological_sort() : list[str] ```: esegue l'ordinamento topologico dei nodi basato sulle dipendenze definite dagli archi.
+
+
+==== Block
+La classe `Block` rappresenta il blocco astratto base per tutti i nodi eseguibili del workflow. Fornisce metodi e attributi comuni per la gestione dello stato, degli input, degli output e dei log di esecuzione.
+
+===== Attributi
+- ```py -id: str ```: identificativo univoco del blocco.
+- ```py -name: str ```: nome del blocco. Utilizzato per identificare il blocco nei log.
+- ```py -status: Status ```: stato del blocco.
+- ```py -input: dict[str, Any] | None ```: input del blocco. Viene passato al momento dell'esecuzione.
+- ```py -settings: dict[str, Any] | None ```: impostazioni del blocco, impostate al momento della sua creazione.
+- ```py -output: dict[str, Any] ```: output del blocco. Viene popolato al termine dell'esecuzione.
+
+===== Metodi
+- ```py +run(input: dict[str, Any]) : dict[str, Any] ```: metodo principale per eseguire il blocco. viene implementato nelle classi derivate.
+- ```py +get_output () : Any ```: Getter per l'output del blocco.
+
 ==== AiSummarize
-La classe 'AiSummarize' è un Block che riassume un testo sfruttando un agente Bedrock (Facade)
+Estende la classe `Block`, rappresenta il blocco `AiSummarize` il quale utilizza un agente LLM per riassumere un testo fornito in input.
+
+===== Attributi
+
+
+
+/// DDCCC
+==== AiSummarize
+La classe 'AiSummarize' è un Block che riassume un testo sfruttando un agente Bedrock (Facacade)
 
 ===== Attributi
 - ```py -id: str ```: identificativo ereditato da 'Block'.
@@ -1116,12 +1415,13 @@ La classe 'NotionGetPage' è un Block che legge una pagina Notion e concatena il
 #pagebreak()
 
 = Struttura del Frontend
+Per lo sviluppo del frontend, è stata adottato un approccio a componenti riutilizzabili, tipicamente forniti da _Shadcn/ui_. Questa scelta ci ha permesso permette aggiungere facilimente nuove _feature_ mantenendo inalterato lo stile artistico e sfruttando la documentazione ben scritta del fornitore dei componenti.
 
-Per lo sviluppo del frontend, è stata adottata un'architettura modulare e scalabile basata su componenti riutilizzabili.
-Questa scelta permette di aggiungere facilimente nuove _feature_ o componenti senza compromettere il resto.
-Viene quindi facilitata la manutenzione e l'estendibilità.
+Tutte le validazioni per l'autentificazione (registrazione, login e conferma) vengono effettuate attraverso `zod`. È stato descritto uno schema tipizzato per ogni campo dell'auth per garantire la correttezza del formato dei dati lato _frontend_. Questo schema è stato sincronizzato con le policy fornite da Cognito, in modo da mantenere coerenza dei dati tra i due servizi. Inoltre, permette di fornire feedback immediato all'utente senza attendere la risposta del server.
 
-Per il suo sviluppo sono stati utlizzati React, Vite e TypeScript.
+Per la parte di comunicazione con il _backend_, utilizziamo `axios`.
+Axios viene inizializzato con `axios.defaults.withCredentials = true`, che ci consente di gestire i cookie di sessione senza dover intervenire manualmente, mantenendo la sicurezza lato server.
+In caso di errore, gli errori vengono mostrati all'utente attraverso una notifica in basso a destra nella pagina (tramite `toast.error`). È presente un meccanismo attraverso il quale le pagine possono impostare degli errori o degli avvisi da mostrare nelle pagine seguenti: ad esempio la pagina di registrazione fa comparire sulla pagina di conferma dell'account un messaggio relativo alla corretta creazione dell'utente.
 
 == Struttura del codice
 Viene riportata una panoramica della struttura delle cartelle e dei file principali riguardanti il frontend:
@@ -1130,20 +1430,25 @@ Viene riportata una panoramica della struttura delle cartelle e dei file princip
   #align(center)[
     ```
     frontend
-      ├── node_modules
+      ├── cypress
       │   └── ....
       ├── src
       │   └── components
-      │   │   └── ui
+      │   │   └── ...
       │   └── features
       │   │   └── auth
-      │   │     └── ....
+      │   │   │   └── login.tsx
+      │   │   │   └── register.tsx
+      │   │   │   └── confirm.tsx
       │   │   └── dashboard
-      │   │     └── ....
+      │   │   │   └── dashboard.tsx
       │   │   └── edit
-      │   │     └── nodes
-      │   └── lib
-      │   │   └── utils
+      │   │       └── nodes
+      │   │       │   └── notionGetPage.tsx
+      │   │       │   └── aiSummarize.tsx
+      │   │       │   └── systemWaitSeconds.tsx
+      │   │       │   └── telegramSendBotMessage.tsx
+      │   │       └── edit.tsx
       │   └── main.tsx
       ├── vite.config.ts
       ├── index.html
@@ -1154,66 +1459,78 @@ Viene riportata una panoramica della struttura delle cartelle e dei file princip
 Nella cartella `src` è contenuto il codice sorgente dell'applicazione.
 Al suo interno troviamo:
 - `main.tsx`: punto di ingresso dell'applicazione.
-- `components`: cartella contente le sotto-cartelle come `ui` e `magicui`. La prima contiene componenti di interfaccia utente generici come i bottoni e le card, la seconda invece componenti con effetti grafici come i bottoni arcobaleno.
-- `features`: contiene le funzionalità principali suddivise per nel seguente modo:
-  - `auth`: gestisce l'autenticazione (login, registrazione, conferma).
-  - `dashboard`: gestisce la dashboard utente.
-  - `edit`: gestisce a modifica di contenuti, con una sottocartella `nodes` per i vari tipi di nodi (es. `telegramSendBotMessage.tsx`).
-- `lib`: contiene utility e funzioni di supporto (`utils.ts`).
+- `components`: cartella contente le sotto-cartelle come `ui` e `magicui`. La prima contiene componenti di interfaccia utente generici come i bottoni e le card diretti da `shadcn`, la seconda invece componenti decorati con effetti e derivati dai principali.
+- `features`: contiene le cartelle delle funzionalitá principali suddivise nel seguente modo:
+  - `auth`: contiene i file dediti all'autenticazione (login, registrazione, conferma).
+  - `dashboard`: contiene il file `dashboard.tsx`.
+  - `edit`: contiene i file per la modifica di contenuti, con una sottocartella `nodes` per i vari tipi di nodi (es. `telegramSendBotMessage.tsx`).
 
 I file di configurazione, come `vite.config.ts`, `tsconfig.json`, gestiscono la build, i tipi TypeScript e le dipendenze. Invece file come `index.html` e `index.css` gestiscono la struttura e lo stile globale.
 
 
+Nel contesto del nostro capitolato, sono stati di fondamentale importanza anche gli "hooks" di `React`, utilizzati per gestire stato, effetti collaterali e logica riutilizzabile all’interno dei componenti.
+
+Gli hook principali impiegati sono:
+- useState: serve a gestire lo stato locale dei componenti, ad esempio memorizzare il nome di un nuovo workflow (newWorkflowName) o visualizzare la lista di workflow caricati (workflows). Ogni volta che lo stato cambia, il componente si aggiorna in automatico.
+- useEffect: permette di eseguire effetti collaterali dopo il "render" della pagina. Usato per: recuperare i dati iniziali dal backend (es. la lista di workflow o i contenuti di un workflow specifico) e gestire "side-effect" legati al localStorage (es. notifiche o il cambio tema);
+- useCallback: utilizzato in `edit.tsx` per ottimizzare la definizione di funzioni come `onNodesChange`, `onEdgesChange` e `onConnect`, in quanto le funzioni non vengono ricreate a ogni render, evitando aggiornamenti inutili e migliorando le performance.
+
+Hook di routing (useNavigate, useParams): forniti da React Router, permettono di gestire la navigazione e recuperare parametri dinamici dalla URL (es. l’id del workflow).
+
+
+
+
+
+
+
 == Componenti
-
-In questa sezione vengono descritte i vari componenti di interfaccia utente presenti nella cartella `components`.
-
-
-Di seguito vengono elencati i principali componenti presenti:
-- *alert-dialog*: componente per mostrare finestre di dialogo di avviso/conferma.
+In questa sezione vengono descritte i principali componenti di interfaccia utente utilizzati:
+- *alert-dialog*: per mostrare finestre di dialogo di avviso/conferma.
 - *button*: bottone personalizzato con varianti di stile e gestione degli stati.
 - *card*: contenitore visivo per raggruppare contenuti con struttura flessibile.
 - *input*, *textarea*, *input-otp*, *form*, *label*: gestiscono form e campi di input.
-- *menubar*, *navigation-menu*, *context-menu*: componenti per la navigazione e i menù di navigazione per organizzare le azioni disponibili all'  utente.
+- *context-menu*: componenti per la navigazione e i menù di navigazione per organizzare le azioni disponibili all'  utente.
 
 == Composizione
-Avendo adoperato un'architettura modulare, i componenti
-seguono un pattern di composizione modulare permettendo di combinare più elementi. Questo approccio favorisce la riusabilità e la manutenibilità del codice.
+Utilizzando `React`, abbiamo sfruttato il fatto che i componenti seguono un pattern di composizione modulare. Questo approccio mette in primo piano la riusabilità e la manutenibilità del codice, portando benefici di tempo a lungo termine, e contribuendo a creare un'interfaccia grafica omogenea tra le pagine.
 
-Viene riportato un esempio di codice che mostra come viene composto un _dialog_ per la creazione di un nuovo workflow utilizzando vari componenti riutilizzabili:
-
+Viene riportato un esempio di codice che mostra come viene composto un _dialog_ per la creazione di un nuovo workflow utilizzando vari componenti:
 
 ```tsx
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button>Create a Workflow</Button>
-            </DialogTrigger>
-            <DialogContent className='sm:max-w-[500px]'>
-              <DialogHeader>
-                <DialogTitle>Create a new workflow</DialogTitle>
-              </DialogHeader>
-              <div className='grid gap-4'>
-                <div className='grid gap-2'>
-                  <Label htmlFor='name-1'>Name</Label>
-                  <Input
-                    onChange={e => setNewWorkflowName(e.target.value)}
-                    type='text'
-                    placeholder='Enter the name of your workflow'
-                    className='resize-none'
-                  />
-                </div>
-              </div>
-              <DialogFooter>
-                <DialogClose asChild>
-                  <Button variant='outline'>Cancel</Button>
-                </DialogClose>
-                <Button type='submit' onClick={() =>  createNewWorkflow(newWorkflowName)}>
-                  Create
-                </Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
+<Dialog>
+  <DialogTrigger asChild>
+    <Button>Create a Workflow</Button>
+  </DialogTrigger>
+  <DialogContent className='sm:max-w-[500px]'>
+    <DialogHeader>
+      <DialogTitle>Create a new workflow</DialogTitle>
+    </DialogHeader>
+    <div className='grid gap-4'>
+      <div className='grid gap-2'>
+        <Label htmlFor='name-1'>Name</Label>
+        <Input
+          onChange={e => setNewWorkflowName(e.target.value)}
+          type='text'
+          placeholder='Enter the name of your workflow'
+          className='resize-none'
+        />
+      </div>
+    </div>
+    <DialogFooter>
+      <DialogClose asChild>
+        <Button variant='outline'>Cancel</Button>
+      </DialogClose>
+      <Button type='submit' onClick={() =>  createNewWorkflow(newWorkflowName)}>
+        Create
+      </Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
 ```
+
+
+
+
 
 
 
@@ -1223,6 +1540,20 @@ Viene riportato un esempio di codice che mostra come viene composto un _dialog_ 
 
 #pagebreak()
 = Persistenza dei dati
+== Schema della basi di dati
+
+
+== La scelta di MongoDB
+
+
+
+
+== Utilizzo di Cognito per l'autenticazione
+
+
+
+
+
 
 
 
