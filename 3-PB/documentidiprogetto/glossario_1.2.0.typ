@@ -4,11 +4,24 @@
   titoloDocumento: "Glossario",
   responsabili: "Matteo Marangon",
   redattori: ("Mirco Borella", "Matteo Marangon", "Aleena Mathew", "Pietro Crotti"),
-  verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
+  verificatori: (
+    "Alessandro Bernardello",
+    "Carmelo Russello",
+    "Marco Egidi",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Aleena Mathew",
+    "Mirco Borella",
+  ),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.1",
+  versioneAttuale: "1.2.0",
   versioni: (
+    "1.2.0",
+    "2025/08/29",
+    "Aleena Mathew",
+    "Mirco Borella",
+    "Aggiunta termini",
     "1.1.1",
     "2025/08/29",
     "Matteo Marangon",
@@ -331,6 +344,9 @@ Intervallo di tempo fisso, definito nella metodologia di sviluppo software Agile
 
 == Sprint Planning
 Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (sprint).
+
+== StreamHandler
+Classe nel framework di logging di un linguaggio di programmazione (es. Python) che invia i messaggi di log a uno stream. Serve come un gestore di base per incanalare i log a una destinazione di output, permettendo di specificare dove devono essere scritti i record di log.
 
 
 #pagebreak()
