@@ -8,8 +8,13 @@
   verificatori: ("Carmelo Russello", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello", "Mirco Borella", "Marco Egidi"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A.", "Sigma18"),
-  versioneAttuale: "1.3.0",
+  versioneAttuale: "2.0.0",
   versioni: (
+    "2.0.0",
+    "2025/09/03",
+    "Aleena Mathew",
+    "Alessandro Bernardello",
+    "Stesura finale della sezione dei test e migliorie varie",
     "1.3.0",
     "2025/08/20",
     "Carmelo Russello",
@@ -17,8 +22,8 @@
     "Aggiornamento cruscotto di valutazione concluso il decimo sprint e aggiunta scheletro dei test",
     "1.2.0",
     "2025/08/06",
-    "Aleena Mathew ",
     "Pietro Crotti",
+    "Matteo Marangon",
     "Aggiornamento cruscotto di valutazione concluso il nono sprint",
     "1.1.0",
     "2025/07/17",
@@ -573,7 +578,7 @@ Di seguito viene fornita una tabella contenente i test di unità effettuati, di 
   //AI summarize
 
   [TU-63],
-  [Verificare che il comportamento della classe `AISummarize` assicurando che il metodo `execute` restituisca un riassunto corretto],
+  [Verificare che il comportamento della classe `AISummarize`, assicurando che il metodo `execute` restituisca un riassunto corretto],
   [S],
 
   //syswait
@@ -650,11 +655,11 @@ Di seguito viene fornita una tabella contenente i test di unità effettuati, di 
 
   [TU-86], [Verificare che il metodo `add_json` della classe `BaseSanitizationStrategy` non sovrascrivi valori esistenti ], [S],
   [TU-87],
-  [Verificare che il metodo `add_field_if_missing` della classe `BaseSanitizationStrategy` imposti il tipo di default, se mancante],
+  [Verificare che il metodo `add_field_if_missing` della classe\ `BaseSanitizationStrategy` imposti il tipo di default, se mancante],
   [S],
 
   [TU-88],
-  [Verificare che più chiamate a `_position_counter` della classe `BaseSanitizationStrategy` generino una griglia di posizioni corretta],
+  [Verificare che più chiamate a `_position_counter` della classe \ `BaseSanitizationStrategy` generino una griglia di posizioni corretta],
   [S],
 
   //flowManager.
@@ -820,9 +825,13 @@ L'approccio end-to-end garantisce che tutte le componenti funzionino correttamen
   [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando un login effettuato con credenziali errate],
   [S],
 
-  [TI-34], [Verificare che l'utente venga reindirizzato alla pagina di registrazione dopo aver cliccato sul bottone "Register"], [S],
+  [TI-34],
+  [Verificare che l'utente venga reindirizzato dalla pagina _login_ alla pagina di registrazione dopo aver cliccato sul bottone "Register"],
+  [S],
 
-  [TI-35], [Verificare che l'utente venga reindirizzato alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account"], [S],
+  [TI-35],
+  [Verificare che l'utente venga reindirizzato dalla pagina _login_ alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account"],
+  [S],
 
   //REGISTRAZIONE
 
@@ -843,9 +852,13 @@ L'approccio end-to-end garantisce che tutte le componenti funzionino correttamen
   [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando una registrazione effettuata con un'email già in uso],
   [S],
 
-  [TI-41], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver cliccato sul bottone "Login"], [S],
+  [TI-41],
+  [Verificare che l'utente venga reindirizzato dalla pagina di registrazione alla pagina di login dopo aver cliccato sul bottone "Login"],
+  [S],
 
-  [TI-42], [Verificare che l'utente venga reindirizzato alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account"], [S],
+  [TI-42],
+  [Verificare che l'utente venga reindirizzato dalla pagina di registrazione alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account"],
+  [S],
 
   //CONFERMA
   [TI-43], [Verificare che la pagina di conferma venga visualizzata correttamente], [S],
@@ -855,9 +868,13 @@ L'approccio end-to-end garantisce che tutte le componenti funzionino correttamen
   [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando una verifica effettuata con codice errato],
   [S],
 
-  [TI-47], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver cliccato sul bottone "Login"], [S],
+  [TI-47],
+  [Verificare che l'utente venga reindirizzato  dalla pagina di conferma alla pagina di login dopo aver cliccato sul bottone "Login"],
+  [S],
 
-  [TI-48], [Verificare che l'utente venga reindirizzato alla pagina di registrazione dopo aver cliccato sul bottone "Register"], [S],
+  [TI-48],
+  [Verificare che l'utente venga reindirizzato dalla pagina di conferma alla pagina di registrazione dopo aver cliccato sul bottone "Register"],
+  [S],
 ))
 
 
@@ -1053,7 +1070,7 @@ Di seguito viene riportata una tabella contenente i test di accettazione effettu
   [TA-13], [Verificare che l'utente autenticato possa generare un _workflow_ usando il linguaggio naturale], [S],
   [TA-14], [Verificare che l'utente autenticato possa creare un _workflow_ manualmente selezionando i blocchi desiderati], [S],
   [TA-15], [Verificare che l'utente autenticato possa modificare il _workflow_ selezionato], [S],
-  [TA-16], [Verificare che l'utente autenticato possa aggiungere un blocco manualmente tramite l'interfaccia drag & drop], [S],
+  [TA-16], [Verificare che l'utente autenticato possa aggiungere un blocco manualmente tramite l'interfaccia _drag & drop_], [S],
   [TA-17],
   [Verificare che l'utente autenticato possa cercare il blocco di interesse nel menù laterale, a cui si accede tramite il bottone _Add a Block_],
   [S],
@@ -1092,7 +1109,7 @@ Dal grafico si osserva che il valore di *MPC-EAC* rimane sempre entro una variaz
 === PB
 
 Osservando il grafico emerge che nello sprint 8 il valore di *MPC-EAC* si è leggermente alzato in seguito al colloquio RTB, in concomitanza dell'ottavo sprint, a causa delle alcune correzioni da effettuare che hanno portato ad un rallentamento.
-Tuttavia, si è riusciti a terminare portando il valore al di sotto del BAC.
+Tuttavia, si è riusciti a terminare portando il valore al di sotto del *BAC*.
 
 
 
@@ -1108,9 +1125,8 @@ Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *
 
 === PB
 
-Il grafico mostra che il valore dell’EV abbia continuato a crescere in modo proporzionale al valore del
-PV, dimostrando che il gruppo è riuscito a pianificare correttamente le attività da svolgere.\
-I due valori si avvicinano sempre di più a quello di BAC indicando che il gruppo è riuscito a essere coerente con il preventivo prodotto.
+Il grafico mostra che il valore del *MPC-EV* abbia continuato a crescere in modo proporzionale al valore del *MPC-PV*, dimostrando che il gruppo è riuscito a pianificare correttamente le attività da svolgere.\
+I due valori si avvicinano sempre di più a quello di *BAC* indicando che il gruppo è riuscito a essere coerente con il preventivo prodotto.
 
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
@@ -1281,6 +1297,16 @@ Questo approccio ha permesso di ottenere una copertura del codice superiore a qu
 // Dal grafico si può notare che il valore branch coverage ha iniziato a salire nel nono sprint, avvicinandosi molto al valore accettabile.
 // A fine progetto, si è raggiunto un valore superiore a quello ottimo, dimostrando che il gruppo ha implementato test efficaci, inoltre dimostra l’affidabilità del codice.
 
+#pagebreak()
+
+=== Complessità ciclomatica (MPD-CC)
+#figure(image("../../assets/chart/PB/CC_chart.svg", width: 90%), caption: [
+  Stima dei valori CC nel tempo
+])
+
+
+Dal grafico si può osservare che il valore *MPD-CC* è inizialmente elevato ma ha subito una riduzione costante nel tempo, grazie ad una progettazione migliore e a pratiche di refactoring.
+Indica che il codice è facilmente leggibile e ben strutturato, portando a una maggiore manutenibilità e testabilità.
 
 
 #pagebreak()
@@ -1299,5 +1325,3 @@ Dal grafico si può notare che il valore dei test superati è sempre stato eleva
 Questo dimostra che i test sviluppati sono sempre stati superati.\
 Si è consapevoli che una quantità elevata  di test superati non sia garanzia di un software privo di errori o lacune, tuttavia è pur sempre indice di qualità del codice.
 
-
-//valuta inserimento del coupling

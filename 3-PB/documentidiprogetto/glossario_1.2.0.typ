@@ -15,7 +15,7 @@
   ),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
-  versioneAttuale: "1.1.1",
+  versioneAttuale: "1.2.0",
   versioni: (
     "1.2.0",
     "2025/08/29",
