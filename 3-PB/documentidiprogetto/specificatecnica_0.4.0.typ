@@ -3,30 +3,81 @@
   titoloDocumento: "Specifica Tecnica",
   abstract: "",
   responsabili: "Pietro Crotti",
-  redattori: ("Carmelo Russello", "Aleena Mathew", "Pietro Crotti", "Mirco Borella", "Alessandro Bernardello"),
-  verificatori: ("Pietro Crotti", "Carmelo Russello", "Matteo Marangon", "Marco Egidi"),
+  redattori: (
+    "Carmelo Russello",
+    "Aleena Mathew",
+    "Pietro Crotti",
+    "Mirco Borella",
+    "Alessandro Bernardello",
+    "Matteo Marangon",
+    "Marco Egidi",
+  ),
+  verificatori: (
+    "Pietro Crotti",
+    "Carmelo Russello",
+    "Matteo Marangon",
+    "Marco Egidi",
+    "Aleena Mathew",
+    "Alessandro Bernardello",
+    "Mirco Borella",
+  ),
   tipo: "Documento Esterno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.p.A."),
-  versioneAttuale: "0.4.0",
+  versioneAttuale: "1.0.0",
   content: content,
   versioni: (
-    "0.4.0",
+    "1.0.0",
+    "2025/09/03",
+    "Mirco Borella
+Alessandro Bernardello
+Matteo Marangon",
+    "Carmelo Russello
+Aleena Mathew
+Marco Egidi
+Pietro Crotti",
+    "Conclusione del documento e migliorie",
+    "0.8.0",
     "2025/09/01",
+    "Mirco Borella
+Marco Egidi",
+    "Carmelo Russello
+Alessandro Bernardello",
+    "Struttura del frontend e aggiunta immagini",
+    "0.7.0",
+    "2025/08/29",
+    "Aleena Mathew",
+    "Carmelo Russello",
+    "Errori grammaticali e stato dei requisiti",
+    "0.6.0",
+    "2025/08/26",
+    "Matteo Marangon",
+    "Pietro Crotti
+Mirco Borella",
+    "Architettura Logica e aggiunta alle tecnologie",
+    "0.5.0",
+    "2025/09/25",
+    "Mirco Borella
+Alessandro Bernardello
+Carmelo Russello",
+    "Aleena Mathew",
+    "Architettura di deployment",
+    "0.4.0",
+    "2025/09/22",
     "Mirco Borella
 Alessandro Bernardello",
     "Matteo Marangon
 Marco Egidi",
-    "Tecnologie e descrizione dei design patterns",
+    "Descrizione dei design patterns",
     "0.3.0",
-    "2025/08/28",
+    "2025/08/21",
     "Pietro Crotti",
     "Matteo Marangon",
-    "Aggiunti dettagli su sezione Tecnologie",
+    "Aggiunta Tecnologie",
     "0.2.0",
-    "2025/08/22",
+    "2025/08/17",
     "Aleena Mathew",
     "Carmelo Russello",
-    "Stesura iniziale del paragrafo 3",
+    "Stesura iniziale persistenza dei dati",
     "0.1.0",
     "2025/08/13",
     "Carmelo Russello",
@@ -260,6 +311,16 @@ _Flask_ è un _framework_ per _Python_ progettato per facilitare lo sviluppo di 
 - *Utilizzo nel codice*: Il _backend_ è basato su _Flask_ per la gestione delle API di funzionamento dell'applicativo. Il processo di _Flask_ viene instanziato attraverso _FlaskAppSingleton_, con _CORS policy_ disabilitata (attraverso il modulo esterno `flask_cors`).
 
 - *Documentazione*: https://flask.palletsprojects.com/en/stable/# (*Ultimo accesso il: 29/08/2025*)
+
+
+=== PyMongo
+`PyMongo` è il driver ufficiale di MongoDB per Python. Fornisce un’interfaccia semplice ed efficiente per connettersi a un database MongoDB, eseguire query, inserimenti, aggiornamenti e cancellazioni di documenti. Supporta le principali funzionalità CRUD di MongoDB, gestione delle transazioni e connessioni sicure tramite URI e autenticazione.
+
+- *Versione*: 4.13.1
+
+- *Utilizzo nel codice*: PyMongo è stato utilizzato per tutte le operazioni con il database dei _workflow_.
+
+- *Documentazione*: https://pymongo.readthedocs.io/en/4.13.1/ (*Ultimo accesso il: 29/08/2025*)
 
 
 
@@ -1022,6 +1083,7 @@ class TelegramBotMessageSanitizationStrategy(NodeSanitizationStrategy):
 == Struttura del Backend
 
 == Diagramma delle classi
+#image("Main.svg")
 
 
 // Il backend è stato sviluppato in _Python_ ed eseguito in un contesto Flask avviato tramite lo _singleton_ _FlaskAppSingleton_ e containerizzabile con un dockerfile che prepara un'immagine basata su python3.13 e definisce vari target.
@@ -1124,7 +1186,7 @@ Viene riportata una panoramica della struttura delle cartelle e dei file princip
 //=== Diagramma delle classi
 ////TODO inserire immagine diagramma classi
 // CERTAMENTE
-//
+
 === Struttura delle classi
 ==== Backend
 La classe `Backend` gestisce le _route_ presenti nell'applicazione, fungendo da punto d'ingresso per le varie funzioni.
@@ -1412,8 +1474,10 @@ La classe 'NotionGetPage' è un Block che legge una pagina Notion e concatena il
 
 
 
-#pagebreak()
 
+
+
+#pagebreak()
 = Struttura del Frontend
 Per lo sviluppo del frontend, è stata adottato un approccio a componenti riutilizzabili, tipicamente forniti da _Shadcn/ui_. Questa scelta ci ha permesso permette aggiungere facilimente nuove _feature_ mantenendo inalterato lo stile artistico e sfruttando la documentazione ben scritta del fornitore dei componenti.
 
@@ -1473,15 +1537,8 @@ Nel contesto del nostro capitolato, sono stati di fondamentale importanza anche 
 Gli hook principali impiegati sono:
 - useState: serve a gestire lo stato locale dei componenti, ad esempio memorizzare il nome di un nuovo workflow (newWorkflowName) o visualizzare la lista di workflow caricati (workflows). Ogni volta che lo stato cambia, il componente si aggiorna in automatico.
 - useEffect: permette di eseguire effetti collaterali dopo il "render" della pagina. Usato per: recuperare i dati iniziali dal backend (es. la lista di workflow o i contenuti di un workflow specifico) e gestire "side-effect" legati al localStorage (es. notifiche o il cambio tema);
-- useCallback: utilizzato in `edit.tsx` per ottimizzare la definizione di funzioni come `onNodesChange`, `onEdgesChange` e `onConnect`, in quanto le funzioni non vengono ricreate a ogni render, evitando aggiornamenti inutili e migliorando le performance.
-
-Hook di routing (useNavigate, useParams): forniti da React Router, permettono di gestire la navigazione e recuperare parametri dinamici dalla URL (es. l’id del workflow).
-
-
-
-
-
-
+- useCallback: utilizzato in `edit.tsx` per ottimizzare la definizione di funzioni come `onNodesChange`, `onEdgesChange` e `onConnect`, in quanto così facendo, le funzioni non vengono ricreate a ogni render, evitando aggiornamenti inutili e migliorando le performance.
+- hooks di routing (useNavigate, useParams): forniti da `React Router`, permettono di gestire la navigazione e recuperare parametri dinamici dalla URL (es. l’id del workflow).
 
 == Componenti
 In questa sezione vengono descritte i principali componenti di interfaccia utente utilizzati:
@@ -1496,6 +1553,8 @@ Utilizzando `React`, abbiamo sfruttato il fatto che i componenti seguono un patt
 
 Viene riportato un esempio di codice che mostra come viene composto un _dialog_ per la creazione di un nuovo workflow utilizzando vari componenti:
 
+#codly(skips: ((1, 90),))
+#codly(header: [frontend/src/features/dashboard/dashboard.tsx])
 ```tsx
 <Dialog>
   <DialogTrigger asChild>
@@ -1540,17 +1599,36 @@ Viene riportato un esempio di codice che mostra come viene composto un _dialog_ 
 
 #pagebreak()
 = Persistenza dei dati
-== Schema della basi di dati
-
 
 == La scelta di MongoDB
+MongoDB è un database NoSQL orientato ai documenti, progettato per gestire dati in formato flessibile e scalabile. La scelta di MongoDB come strumento di persistenza dei dati è stata influenzata dalla sua capacità di gestire grandi volumi di dati non strutturati e per la sua integrazione nativa con Python tramite la libreria `PyMongo`.
+
+MongoDB utilizza come unità di archiviazione i documenti in formato BSON, utili per lo scambio di dati con API REST che usano file JSON, al contrario di altre tecnologie come SQL. Questi per limitare la necessità di conversioni e trasformazioni tra formati differenti.
+Inoltre, la sua scalabilità orizzontale consente di gestire un numero crescente di utenti e dati senza compromettere le prestazioni.
+
+=== Analisi all'alternativa AWS
+È stata presa in considerazione l’adozione di DynamoDB come soluzione per la persistenza dei dati.\
+Tuttavia, a seguito di un’analisi approfondita, si è concluso che MongoDB rappresenta l’opzione più adatta al caso d’uso del nostro progetto, garantendo al contempo una maggiore convenienza economica rispetto all’alternativa proposta da AWS in quanto hostata nell'istanza EC2 senza costi aggiuntivi.
 
 
+== Schema della basi di dati
+#figure(image("../../assets/img/specificatecnica/Diagramma.png", width: 20%), caption: [
+  Schema della base di dati
+])
+
+
+I dati relativi ai workflow vengono salvati in un documento BSON che contiene:
+
+- `_id` (ObjectId): Identificativo univoco del flusso di lavoro.
+- `email` (String): Email dell'utente proprietario del flusso.
+- `name` (String): Nome del flusso di lavoro, con una lunghezza massima di 25 caratteri.
+- `contents` (Object): Struttura JSON che rappresenta i dettagli del flusso di lavoro (nodes, edges).
 
 
 == Utilizzo di Cognito per l'autenticazione
+L'utilizzo di Cognito permette di garantire uno storage sicuro dei dati di autenticazione degli utenti e allo stesso tempo, di esternare la gestione delle identità a un servizio affidabile e scalabile offerto da AWS. Il meccanismo integrato di invio dei codici OTP per la conferma dell'account ha permesso al gruppo di risparmiare tempo nella fase di development, a discapito della configurazione del servizio "ad-hoc".
 
-
+Un ulteriore motivo che ha guidato la scelta di adottare Cognito è stato il suo valore didattico, in quanto l’utilizzo di questo servizio ci ha permesso di approfondire in maniera pratica i meccanismi di gestione delle identità attraverso i flussi di autenticazione moderni oltre che a differenziare i servizi AWS studiati.
 
 
 
