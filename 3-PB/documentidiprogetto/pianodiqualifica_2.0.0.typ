@@ -138,7 +138,7 @@ Di seguito sono riportati gli obiettivi di qualità che il gruppo si impegna a r
 I processi primari comprendono attività di acquisizione, gestione operativa, manutenzione del software, fornitura e sviluppo. Verranno esaminati solo gli ultimi due, data la natura didattica del progetto.
 
 === Fornitura
-Si intendono le attività e i compiti svolti dal fornitore, in accordo con l'azienda proponente nel stabilire i vincoli e requisiti del progetto.\
+Si intendono le attività e i compiti svolti dal fornitore, in accordo con l'azienda proponente nello stabilire i vincoli e requisiti del progetto.\
 Con l'acronimo _MPC_ (Minimum Predictive Capability) si indica il valore minimo da raggiungere.
 
 ==== Earned Value (MPC-EV)
@@ -325,7 +325,7 @@ Indica la percentuale di rami decisionali del codice eseguiti durante i test, ut
 Un valore alto suggerisce che il codice è stato testato approfonditamente e che ha una bassa probabilità di contenere errori.
 
 === Statement coverage (MPD-SC)
-Indica la percentuale di istruzioni eseguite durante i test.\ Un valore alto alto suggerisce un'analisi pù approfondita del codice e una bassa probabilità di contenere errori.
+Indica la percentuale di istruzioni eseguite durante i test.\ Un valore alto suggerisce un'analisi pù approfondita del codice e una bassa probabilità di contenere errori.
 Il valore è dati dal rapporto tra il numero di istruzioni eseguite e il numero totale di istruzioni nel codice, moltiplicato per 100.
 
 
@@ -357,7 +357,7 @@ L'usabilità indica la facilità con cui gli utenti possono utilizzare il softwa
 
 === Tempo di apprendimento (MPD-TA)
 Indica il tempo necessario per un utente per imparare ad utilizzare il software.\
-Un valore basso indica che il prodotto è facile da usare e richiede poco tempo per essere appreso donando un'esperienza utente migliore.
+Un valore basso indica che il prodotto è facile da usare e richiede poco tempo per essere appreso offrendo un'esperienza utente migliore.
 
 === Facilità d'uso (MPD-FU)
 Indica il numero di errori commessi dagli utenti durante l'interazione con il software.\
@@ -487,7 +487,7 @@ Di seguito viene fornita una tabella contenente i test di unità effettuati, di 
   [TU-10], [Verificare che le variabili, se impostate, sovrascrivano quelle di default], [S],
   [TU-11], [Verificare che il valore della variabile d'ambiente `LOG_LEVEL` sia convertito in maiuscolo], [S],
   [TU-12], [Verificare che il formatter del logging sia configurato con una stringa con il corretto formato], [S],
-  [TU-13], [Verificare che l'aggiunta di uno #glossario("StreamHandler"), se non presente], [S],
+  [TU-13], [Verificare che venga aggiunto uno #glossario("StreamHandler"), se non presente], [S],
   [TU-14], [Verificare che non venga aggiunto uno `StreamHandler`, se già presente], [S],
 
   // block Factory
@@ -550,8 +550,8 @@ Di seguito viene fornita una tabella contenente i test di unità effettuati, di 
   //mongoDB
 
   [TU-46], [Verificare che la classe `MongoDBSingleton` rispetti il pattern _singleton_], [S],
-  [TU-47], [Verificare che la corretta istanzazione della classe `MongoDBSingleton` in presenza di un oggetto _Flask_ app], [S],
-  [TU-48], [Verificare che la corretta istanzazione della classe `MongoDBSingleton` in assenza di un oggetto _Flask_ app], [S],
+  [TU-47], [Verificare che la corretta istanziazione della classe `MongoDBSingleton` in presenza di un oggetto _Flask_ app], [S],
+  [TU-48], [Verificare che la corretta istanziazione della classe `MongoDBSingleton` in assenza di un oggetto _Flask_ app], [S],
   [TU-49], [Verificare che il metodo `get_db` della classe `MongoDBSingleton` restituisca l'oggetto database corretto], [S],
   [TU-50], [Verificare che l'attributo `mongo` venga inizializzato correttamente], [S],
   [TU-51], [Verificare che l'istanza _singleton_ persista anche se acceduta in modi diversi], [S],
@@ -822,7 +822,7 @@ L'approccio end-to-end garantisce che tutte le componenti funzionino correttamen
   [TI-32], [Verificare che l'utente venga reindirizzato alla pagina _dashboard_ dopo aver effettuato correttamente il login], [S],
 
   [TI-33],
-  [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando un login effettuato con credenziali errate],
+  [Verificare che vengano gestiti correttamente gli errori provenienti dal _backend_ simulando un login effettuato con credenziali errate],
   [S],
 
   [TI-34],
@@ -849,7 +849,7 @@ L'approccio end-to-end garantisce che tutte le componenti funzionino correttamen
   [S],
 
   [TI-40],
-  [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando una registrazione effettuata con un'email già in uso],
+  [Verificare che vengano gestiti correttamente gli errori provenienti dal _backend_ simulando una registrazione effettuata con un'email già in uso],
   [S],
 
   [TI-41],
@@ -865,7 +865,7 @@ L'approccio end-to-end garantisce che tutte le componenti funzionino correttamen
   [TI-44], [Verificare che vengano mostrati messaggi di errore se i dati non sono validi quando si conferma l'account], [S],
   [TI-45], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver confermato correttamente l'account], [S],
   [TI-46],
-  [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando una verifica effettuata con codice errato],
+  [Verificare che vengano gestiti correttamente gli errori provenienti dal _backend_ simulando una verifica effettuata con codice errato],
   [S],
 
   [TI-47],
@@ -1108,7 +1108,7 @@ Dal grafico si osserva che il valore di *MPC-EAC* rimane sempre entro una variaz
 
 === PB
 
-Osservando il grafico emerge che nello sprint 8 il valore di *MPC-EAC* si è leggermente alzato in seguito al colloquio RTB, in concomitanza dell'ottavo sprint, a causa delle alcune correzioni da effettuare che hanno portato ad un rallentamento.
+Osservando il grafico emerge che il valore di *MPC-EAC* si è leggermente alzato in seguito al colloquio RTB, in concomitanza dell'ottavo sprint, a causa di alcune correzioni da effettuare che hanno portato ad un rallentamento.
 Tuttavia, si è riusciti a terminare portando il valore al di sotto del *BAC*.
 
 
@@ -1125,8 +1125,8 @@ Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *
 
 === PB
 
-Il grafico mostra che il valore del *MPC-EV* abbia continuato a crescere in modo proporzionale al valore del *MPC-PV*, dimostrando che il gruppo è riuscito a pianificare correttamente le attività da svolgere.\
-I due valori si avvicinano sempre di più a quello di *BAC* indicando che il gruppo è riuscito a essere coerente con il preventivo prodotto.
+Il grafico mostra come il valore del *MPC-EV* abbia continuato a crescere in modo proporzionale al valore del *MPC-PV*, dimostrando che il gruppo è riuscito a pianificare correttamente le attività da svolgere.\
+I due valori si avvicinano sempre di più a quello di *BAC* indicando che il gruppo è rimasto coerente con il preventivo prodotto.
 
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
@@ -1215,7 +1215,7 @@ Dal grafico emerge che la percentuale di metriche soddisfatte nei primi due spri
 
 
 === PB
-Osservando il grafico si può notare che la percentuale di metriche soddisfatte cresce costante terminando con un valore pari al massimo, indicando che il gruppo è riuscito a mantenere un buon livello di qualità del prodotto in fase di PB.
+Osservando il grafico si può notare che la percentuale di metriche soddisfatte cresce costantemente, terminando con un valore pari al massimo, indicando che il gruppo è riuscito a mantenere un buon livello di qualità del prodotto in fase di PB.
 
 
 #pagebreak()
@@ -1247,7 +1247,7 @@ Dal grafico emerge che in fase di PB il gruppo è riuscito a mantenere un'effici
 === PB
 
 Dal grafico si può notare che il gruppo è partito da una buona base del PoC.\
-Il gruppo si è impegnato a soddisfare la maggior parte dei requisiti obbligatori entro lo sprint 10, fino allo soddisfacimento di tutti i requisiti obbligatori entro la fine del progetto.
+Il gruppo si è impegnato a soddisfare la maggior parte dei requisiti obbligatori entro lo sprint 10, fino al soddisfacimento di tutti i requisiti obbligatori entro la fine del progetto.
 
 
 
@@ -1264,7 +1264,7 @@ Il gruppo si è impegnato a soddisfare la maggior parte dei requisiti obbligator
 
 
 === PB
-Dal grafico si può osservare che il gruppo si è impegnato fin dall'inizio a soddisfare il requisito desiderabile individuato, ovvero la possibilità di cambiare tema, raggiungendo così una maggiore soddisfazione dell’utente.
+Dal grafico si può osservare che il gruppo si è impegnato fin dall'inizio a soddisfare il requisito desiderabile individuato, ovvero la possibilità di cambiare tema, raggiungendo così una maggiore soddisfazione dell'utente.
 
 
 
@@ -1295,7 +1295,7 @@ Questo approccio ha permesso di ottenere una copertura del codice superiore a qu
 
 // === PB
 // Dal grafico si può notare che il valore branch coverage ha iniziato a salire nel nono sprint, avvicinandosi molto al valore accettabile.
-// A fine progetto, si è raggiunto un valore superiore a quello ottimo, dimostrando che il gruppo ha implementato test efficaci, inoltre dimostra l’affidabilità del codice.
+// A fine progetto, si è raggiunto un valore superiore a quello ottimo, dimostrando che il gruppo ha implementato test efficaci, inoltre dimostra l'affidabilità del codice.
 
 #pagebreak()
 
@@ -1323,5 +1323,5 @@ Indica che il codice è facilmente leggibile e ben strutturato, portando a una m
 === PB
 Dal grafico si può notare che il valore dei test superati è sempre stato elevato.
 Questo dimostra che i test sviluppati sono sempre stati superati.\
-Si è consapevoli che una quantità elevata  di test superati non sia garanzia di un software privo di errori o lacune, tuttavia è pur sempre indice di qualità del codice.
+Si è consapevoli che una quantità elevata di test superati non sia garanzia di un software privo di errori o lacune, tuttavia è pur sempre indice di qualità del codice.
 
