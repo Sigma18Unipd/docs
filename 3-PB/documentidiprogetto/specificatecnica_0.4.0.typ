@@ -441,17 +441,27 @@ Il secondo, invece, è responsabile della funzione di sintesi del blocco `Ai: Su
 Il primo agente, è stato configurato con la funzionalità di memoria disattivata, in modo tale da rendere ogni richiesta indipendente, senza alcuna informazione contestuale tra le diverse invocazioni.
 Dopo aver provato tutti i principali modelli forniti, abbiamo scelto di utilizzare il modello `Llama 3.3 70B Instruct` per la sua capacità di generare output ragionevoli e per i suoi costi contenuti. Al modello è stato fornito un contesto creato "ad-hoc" per la funzionalità:
 
-#codly(header: [Contesto agente per la generazione dei workflow])
-```
-//TODO
-```
+#local(
+  header: [Contesto agente per la generazione dei workflow],
+  header-cell-args: (align: center),
+  zebra-fill: none,
+  number-format: none,
+  ```
+  //TODO
+  ```,
+)
 
 Anche il secondo agente è stato configurato con la funzionalità di memoria disattivata. Considerato lo scopo diverso, la scelta del modello è ricaduta su `DeepSeek-R1`, che si è distinto per la capacità di produrre sintesi coerenti e concise. Anche in questo caso, al modello è stato fornito un contesto specifico per la funzionalità:
 
-#codly(header: [Contesto agente per riassumere])
-```
-//TODO
-```
+#local(
+  header: [Contesto agente per riassumere],
+  header-cell-args: (align: center),
+  zebra-fill: none,
+  number-format: none,
+  ```
+  //TODO
+  ```,
+)
 
 Entrambi i modelli sono stati deployati attraverso il sistema di versionamento e _tags_ presente in _Bedrock_, che ci permetteva di tenere traccia delle modifiche ai relativi contesti e configurazioni.
 
@@ -487,7 +497,7 @@ In particolare, sono state aperte le porte:
 ])
 Come precedentemente descritto, i servizi sono stati containerizzati utilizzando Docker. Di seguito è riportato il file di configurazione `docker-compose.prod.yml` utilizzato per il deployment:
 
-#codly(header: [./docker-compose.prod.yml])
+#codly(header: [docker-compose.prod.yml])
 ```yaml
 services:
   frontend:
@@ -525,8 +535,17 @@ Notiamo che per tutti i servizi sono stati esposti i volumi per permettere la pe
 
 Per i servizi del _frontend_ e del _backend_ è associato un `Dockerfile` che descrive i passaggi per creare l'immagine del container.
 
-
-#codly(header: [.frontend/Dockerfile])
+//#codly(annotations: (
+//  (
+//    start: 9,
+//    end: 13,
+//    content: block(
+//      width: 4em,
+//      rotate(-90deg, reflow: true, align(center)[Creazione file statici]),
+//    ),
+//  ),
+//))
+#codly(header: [frontend/Dockerfile])
 ```Dockerfile
 FROM docker.io/node:24-alpine3.20 AS base
 WORKDIR /usr/src
@@ -555,7 +574,7 @@ Nell'istanza EC2 deployata come production, il _frontend_ copia (riga 3) ed inst
 
 Nella fase di sviluppo, partendo dallo stage base, viene avviato il _frontend_ con il comando `pnpm run dev --host 0.0.0.0`.
 
-#codly(header: [.backend/Dockerfile])
+#codly(header: [backend/Dockerfile])
 ```Dockerfile
 FROM python:3.13.6-alpine3.22 AS base
 RUN pip install --no-cache-dir uv
@@ -595,6 +614,7 @@ In produzione, installa un server _Gunicorn_, che è un server WSGI (specifica c
 
 == Architettura logica
 //TO DO maybe da mettere sopra
+Monolitica? :(
 #pagebreak()
 
 
@@ -603,10 +623,9 @@ In produzione, installa un server _Gunicorn_, che è un server WSGI (specifica c
 === Decorator
 Il _decorator_ è un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
 
-==== Utilizzo del pattern nel progetto
+==== Integrazione del pattern nel progetto
 Nel progetto viene utilizzzato un un decorator `@protected` all'interno della classe `Backend` per proteggere le _route_ che richiedono autenticazione. Il decorator estende il comportamento delle _route_ _Flask_ aggiungendo la logica di verifica per i token _JWT_ forniti con le richieste.
 
-==== Motivazioni dell'utilizzo del pattern
 L'utilizzo del _decorator_ ha consentito di separare la logica di autenticazione dal codice dall'implementazione stessa di ogni _route_, evitando duplicazioni di codice e migliorandone la manutenibilità. Ogni route protetta è facilmente identificabile e la logica può essere modificata in un singolo punto
 
 
@@ -632,6 +651,9 @@ def protected(f):
     return decorated_function
 ```
 #codly(header: [backend.py])
+#codly(smart-skip: true)
+#codly(skips: ((1, 150),))
+#codly(ranges: ((1, 11),))
 ```py
 @app.route("/dashboard", methods=["POST"])
 @protected
@@ -644,6 +666,7 @@ def dashboard():
         } for flow in cursor
     ]
     return jsonify({"flows": flows}), 200
+
 ```
 
 
@@ -651,70 +674,132 @@ def dashboard():
 
 Si tratta di un design Pattern strutturale che espone un'interfaccia unica e semplice ad un sottosistema complesso.
 
-==== Utilizzo del pattern nel progetto e Motivazioni
-
+==== Integrazione del pattern nel progetto
 Il pattern viene utilizzato nella classe `llmFacade` facente parte del modulo `llm`.
-La classe espone i metodi semplificati `summary_facade` e `agent_facade` necessari per astrarre la complessità della libreria `boto3` sottostante utilizzata per interagire con i servizi di intelligenza artificiale di AWS Bedrock.
+La classe espone i metodi semplificati `summary_facade` e `agent_facade` necessari per astrarre la complessità della libreria `boto3` sottostante utilizzata per interagire con i servizi di intelligenza artificiale di AWS Bedrock.\
+Tra i vantaggi ottenuti dall'adozione del pattern vi sono:
+- La possibilità di cambiare i modelli ed i provider di modelli di intelligenza artificiale senza impattare sul resto del codice
+- La semplificazione della scrittura di test per il progetto, in quanto è semplice creare un _mock_ della classe per simulare le risposte del modello senza dover interagire con il servizio reale.
+- La riduzione della complessità del codice, in quanto le chiamate ai modelli sono incapsulate in un'unica classe con un'interfaccia semplice e chiara.
 
 ==== Implementazione
 #codly(header: [llm/llmFacade.py])
 #codly(skips: ((1, 4),))
-```py
-class LLMFacade:
-    def __init__(self):
-        self._agents_runtime_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
+#codly(ranges: ((1, 3), (12, 43)))
+#codly(smart-skip: true)
+#local(
+  breakable: true,
+  [
+    ```py
+    class LLMFacade:
+      def __init__(self):
+          self._agents_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
 
-    def _decode_response(self, response):
+      def _decode_response(self, response):
         completion = ""
         for event in response.get("completion"):
             chunk = event["chunk"]
             completion += chunk["bytes"].decode()
         return completion
 
-    def agent_facade(self, prompt):
-        response = self._agents_runtime_client.invoke_agent(
+      def agent_facade(self, prompt):
+        return self._decode_response(self._agents_client.invoke_agent(
             agentId="XKFFWBWHGM",
             inputText=prompt,
             agentAliasId="TBVZ2OBWOR",
-            sessionId=f"session-{uuid.uuid4()}",
-        )
-        return self._decode_response(response)
-```
+            sessionId=f"session-{uuid.uuid4()}"))
+
+      def summary_facade(self, text):
+        return self._decode_response (
+          self._agents_client.invoke_agent(
+            agentId="JSMYPKV9QR",
+            inputText=text,
+            agentAliasId="Q4EOBUZOHP",
+            sessionId=f"session-{uuid.uuid4()}"))
+    ```
+  ],
+)
+
 
 
 
 === Iterator
 Si tratta di un design Pattern comportamentale per accedere sequenzialmente agli elementi senza esporre la struttura interna.
 
-Nel progetto viene utilizzato nella classe `FlowIterator` la quale si occupa di iterare su una lista ordinata di blocchi eseguendoli in sequenza.
-
-
+==== Integrazione del pattern nel progetto
+Il pattern _iterator_ viene utilizzato nella classe `FlowIterator` la quale consente di iterare in modo ordinato attraverso la struttura complessa `Flow`.\
+Questo consente di nascondere la complessità della struttura interna e fornire un'interfaccia semplice per iterare sui blocchi alla classe `FlowManager`, ottenendo quindi una migliore manutenibilità grazie alla separazione delle responsabilità.
 // Nel contesto del progetto, il pattern è adottato così:
 // - la classe `FlowIterator` in `flow/flowIterator.py`. egue in sequenza i `Block`, aggrega `ExecutionLog` e gestisce lo stato; usata da `FlowManager`.
 
 
 === Singleton
 
-Si tratta di un design Pattern creazionale che garantisce un'unica istanza globale.
+Si tratta di un _design pattern_ creazionale che garantisce un'unica istanza globale.
 
-Nel progetto il pattern è adottato in:
-- `Blockfactory`, facente parte del modulo `flow`. La `BlockFactory`, responsabile della creazione di oggetti di tipo `Block`, è implementata come singleton con il metodo `get_block_factory()` per evitare di dover registrare più volte i tipi di blocchi istanziabili nella classe.
-- `FlaskAppSingleton`, compreso nel modulo `backend` ed implementato con il metodo `get_app()`, si occupa dell'inizializzazione di _Flask_.
-- `MongoDBSingleton`, presente nel modulo `db` ed implementato con il metodo `get_db()` gestisce la connessione a _MongoDB_ e fornisce un'istanza condivisa per l'accesso al database.
+==== Integrazione del pattern nel progetto
+Questo _pattern_ è stato adottato in varie parti del nostro progetto. In particolare viene utilizzato per garantire singole istanze di:
 
+- `BlockFactory`: classe responsabile della creazione di oggetti di tipo `Block`. L'utilizzo del _pattern_ ha permesso di:
+  - Registrare i tipi di blocchi istanziabili una sola volta all'avvio dell'applicazione
+  - Garantire consistenza nella creazione dei blocchi attraverso un registry centralizzato
+  - Evitare duplicazioni di istanze che potrebbero causare conflitti nella registrazione dei tipi
+
+- `MongoClient`: classe di utilità fornita dalla libreria _PyMongo_ per gestire connessioni ad un database _MongoDB_. Il _pattern_ assicura:
+  - Ottimizzazione delle risorse evitando frequenti connessioni e disconnessioni
+  - Gestione centralizzata della configurazione di connessione
+
+- `Flask`: oggetto centrale del backend per la gestione delle API. L'implementazione _singleton_ garantisce la prevenzione di incoerenze nella gestione delle richieste e garantisce una configurazione unificata delle _route_ dell'applicazione.
+
+==== Implementazione
+Di seguito viene riportata una delle implementazioni del _pattern singleton_ adottate nel progetto:
+#codly(header: [flow/blockFactory.py])
+#codly(skips: ((1, 12),))
+#codly(ranges: ((1, 22),))
+#codly(smart-skip: true)
+
+```py
+class BlockFactory():
+    _instance: Optional["BlockFactory"] = None
+    _lock = threading.Lock()
+    _initialized = False
+
+    def __init__(self):
+        self._registry: Dict[str, type[Block]] = {}
+        self._registry_lock = threading.RLock()
+
+        if not self._initialized:
+            with self._registry_lock:
+                    self._import_block_types()
+                    self._initialized = True
+                    logging.debug("BlockFactory initialized")
+
+    @classmethod
+    def get_block_factory(cls) -> "BlockFactory":
+        if cls._instance is None:
+            with cls._lock:
+                if cls._instance is None:
+                    cls._instance = cls()
+        return cls._instance
+
+
+```
 
 === Strategy
 
-Lo _strategy_ è un design pattern comportamentale che consente di definire una famiglia di algoritmi, incapsularli in classi separate e rendere i loro oggetti intercambiabili.
+Lo _strategy_ è un design pattern comportamentale che consente di definire una famiglia di algoritmi ed incapsularli in classe separate con un interfaccia comune, rendendo i loro oggetti intercambiabili e permettendo di variare parti di codice in modo semplice e flessibile.
+
+==== Integrazione del pattern nel progetto
 
 Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
 
-// In the context class, identify an algorithm that’s prone to frequent changes. It may also be a massive conditional that selects and executes a variant of the same algorithm at runtime.
-
-- `JsonParserStrategy`, presente nel modulo `flow` è responsabile del parsing dei dati in formato _JSON_ ricevuti dal _frontend_, identificando gli elementi di tipo `Block` da creare e ordinandoli sequenzialmente in base alle loro connessioni nel flusso di lavoro. L'utilizzo del pattern _strategy_ consente di effettuare facilmente modifiche alla logica di parsing o di ordinamento per rispecchiare possibili cambiamenti nel formato di dati utilizzato dalla libreria _React Flow_ utilizzata nel frontend senza avere impatti sul resto del sistema.
+- `JsonParserStrategy`, presente nel modulo `flow` è responsabile del parsing dei dati in formato _JSON_ ricevuti dal _frontend_, identificando gli elementi di tipo `Block` da creare.\ L'utilizzo del pattern _strategy_ consente di effettuare facilmente modifiche alla logica di parsing o di ordinamento per rispecchiare possibili cambiamenti nel formato di dati utilizzato dalla libreria _React Flow_ utilizzata nel frontend senza avere impatti sul resto del sistema.
 
 
 - `llmSanitizerStrategy`, utilizzato all'interno del modulo `llm`, viene impiegato per la sanitizzazione delle risposte fornite dall'agente _LLM_ per la creazione di un _workflow_. L'utilizzo dello _strategy_ consente di definire diverse strategie di sanitizzazione per i vari tipi di nodi, cosa necessaria in quanto ogni tipo di nodo presenta impostazioni differenti rendendo necessaria una logica specifica per ogni blocco.
+
+==== Implementazione
+
 
 #pagebreak()
 
@@ -729,30 +814,30 @@ Per il suo sviluppo sono stati utlizzati React, Vite e TypeScript.
 === Struttura del codice
 Viene riportata una panoramica della struttura delle cartelle e dei file principali riguardanti il frontend:
 
-#align(center)[
-  ```
-  frontend
-    ├── node_modules
-    │   └── ....
-    ├── src
-    │   └── components
-    │   │   └── ui
-    │   └── features
-    │   │   └── auth
-    │   │     └── ....
-    │   │   └── dashboard
-    │   │     └── ....
-    │   │   └── edit
-    │   │     └── nodes
-    │   └── lib
-    │   │   └── utils
-    │   └── main.tsx
-    ├── vite.config.ts
-    ├── index.html
-    └── ...
-  ```
-]
-
+#no-codly()[
+  #align(center)[
+    ```
+    frontend
+      ├── node_modules
+      │   └── ....
+      ├── src
+      │   └── components
+      │   │   └── ui
+      │   └── features
+      │   │   └── auth
+      │   │     └── ....
+      │   │   └── dashboard
+      │   │     └── ....
+      │   │   └── edit
+      │   │     └── nodes
+      │   └── lib
+      │   │   └── utils
+      │   └── main.tsx
+      ├── vite.config.ts
+      ├── index.html
+      └── ...
+    ```
+  ]]
 
 Nella cartella `src` è contenuto il codice sorgente dell'applicazione.
 Al suo interno troviamo:
@@ -827,32 +912,33 @@ Le variabili d'ambiente vengono caricate e usate per configurare il client AWS C
 === Struttura del codice
 Viene riportata una panoramica della struttura delle cartelle e dei file principali riguardanti il backend:
 
-#align(center)[
-  ```
-  backend
-  ├── db
-  │   └── ...
-  ├── flow
-  │   ├── blocks
-  │   │   ├── aiSummarize.py
-  │   │   ├── notionGetPage.py
-  │   │   ├── syswait.py
-  │   │   └── telegramSend.py
-  │   ├── block.py
-  │   ├── flowIterator.py
-  │   ├── flowManager.py
-  │   └── ...
-  ├── llm
-  │   └── ...
-  ├── utils
-  │   └── ...
-  ├── backend.py
-  ├── Dockerfile
-  ├── flaskAppSingleton.py
-  ├── test.py
-  └── ...
-  ```
-]
+#no-codly()[
+  #align(center)[
+    ```
+    backend
+    ├── db
+    │   └── ...
+    ├── flow
+    │   ├── blocks
+    │   │   ├── aiSummarize.py
+    │   │   ├── notionGetPage.py
+    │   │   ├── syswait.py
+    │   │   └── telegramSend.py
+    │   ├── block.py
+    │   ├── flowIterator.py
+    │   ├── flowManager.py
+    │   └── ...
+    ├── llm
+    │   └── ...
+    ├── utils
+    │   └── ...
+    ├── backend.py
+    ├── Dockerfile
+    ├── flaskAppSingleton.py
+    ├── test.py
+    └── ...
+    ```
+  ]]
 
 Nella cartella `flow/blocks` sono contenute le implementazioni dei vari blocchi disponibili nel sistema, ognuno in un file separato.
 Il file `block.py` definisce la classe base dei blocchi, implementando il _design pattern Visitor_ e una gerarchia di classi astratte. Questa struttura consente di gestire in modo uniforme stato, _input_, _output_ e _log_ di esecuzione per ogni blocco concreto.
