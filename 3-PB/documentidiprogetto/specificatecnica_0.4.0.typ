@@ -393,14 +393,13 @@ Un Elastic IP è un indirizzo IP statico fornito da AWS che può essere associat
 
 
 #pagebreak()
-= Architettura
 
-== Architettura di deployment
+= Architettura di deployment
 L'architettura di deployment del sistema è organizzata in due macrocategorie complementari, che interagiscono tra loro garantendo affidabilità, scalabilità e manutenibilità:
 - L'infrastruttura AWS
 - Servizi containerizzati con Docker
 
-=== Infrastruttura Cloud con AWS
+== Infrastruttura Cloud con AWS
 Essa, costituisce il layer infrastrutturale sul quale viene eseguito l'intero sistema. L'utilizzo di Amazon Web Services permette di astrarre l'hardware e di disporre di un ambiente cloud-native con il quale sviluppare e gestire applicazioni.
 
 Il deployment su AWS ha rappresentato un elemento centrale per il progetto, in linea con le richieste del capitolato e le esigenze dell'azienda proponente, Var Group S.p.A., partner ufficiale AWS. \
@@ -412,7 +411,7 @@ Questa scelta ha permesso al gruppo di acquisire competenze sui servizi cloud of
 
 Segue una descrizione specifica dell'utilizzo e della configurazione dei servizi usati.
 
-==== Descrizione della VPC
+=== Descrizione della VPC
 La risorsa EC2 che contiene tutti i componenti _Docker_ è collocata all'interno di una VPC (Virtual Private Cloud) dedicata. Questa VPC è stata configurata con subnet pubblica che ospita i servizi esposti all'esterno. Non abbiamo ritenuto necessario la creazione di una subnet privata in quanto il _database_ giace nella stessa macchina virtuale del _backend_, non andando quindi ad effettuare chiamate a risorse esterne.
 
 Alla VPC è stata assegnata una subnet interna con indirizzo IP 10.0.0.0/28, che permette di allocare fino a 16 indirizzi IP successivamente esposti ad internet attraverso un _Internet Gateway_ e una _routing table_ dedicata.
@@ -421,7 +420,7 @@ Alla VPC è stata assegnata una subnet interna con indirizzo IP 10.0.0.0/28, che
   Dettaglio della mappa di risorse dedicate alla VPC
 ])
 
-==== AWS Cognito, User Pools e SES
+=== AWS Cognito, User Pools e SES
 Per la gestione dell'autenticazione, è stato configurato il servizio AWS Cognito in base alle esigenze del progetto. È stato creato uno User Pools per gestire gli utenti e le loro credenziali in modo sicuro, configurando le stesse _password policy_ del _frontend_ e del _backend_ in modo da garantire una coerenza nei requisiti minini delle credenziali. A fine di sviluppo, la _policy_ adottata è "password di almeno 8 caratteri".
 A questo fine, sono stati disattivati tutti i meccanismi di _login_ supportati da Cognito come OAUTH, passkey, SAML e pannello di login ospitato da Amazon.
 
@@ -430,7 +429,7 @@ La validità del codice OTP è stata impostata a 60 minuti.
 
 Abbiamo disattivato la possibilità di ricezione dei codici via SMS causa costi elevati e per garantire una maggiore sicurezza nella gestione delle credenziali.
 
-==== Amazon Bedrock, Agenti e modelli
+=== Amazon Bedrock, Agenti e modelli
 Abbiamo scelto di configurare Amazon Bedrock in una regione diversa, nello specifico nella regione us-east-1 (North Virginia) data la differenza di costi a parità di risorse e per la maggiore disponibilità di modelli AI. Inoltre, l'aumentata latenza causata dalla distanza del modello dal backend è stata presa in considerazione, ma non ha avuto un impatto significativo sulle prestazioni complessive del sistema in quanto i tempi di attesa del modello possono talvolta risultare tanto lunghi da rendere insignificante i circa 100ms aggiunti.
 
 Per il funzionamento dell'applicativo allo stato attuale, sono necessari 2 agenti.
@@ -456,7 +455,7 @@ Anche il secondo agente è stato configurato con la funzionalità di memoria dis
 
 Entrambi i modelli sono stati deployati attraverso il sistema di versionamento e _tags_ presente in _Bedrock_, che ci permetteva di tenere traccia delle modifiche ai relativi contesti e configurazioni.
 
-==== Istanza EC2 e configurazione
+=== Istanza EC2 e configurazione
 Il sistema basato su docker gira su una macchina virtuale fornita dal servizio EC2 di AWS. Questa istanza (t2.micro) da 1vCPU e 1GiB di RAM è stata scelta per garantire un costo basso (dato che rimane accesa 24 ore su 24) e perchè sufficente per le esigenze attuali.
 
 #figure(image("../../assets/img/specificatecnica/dettaglioAWSEC2Performance.png", width: 100%), caption: [
@@ -482,7 +481,7 @@ In particolare, sono state aperte le porte:
   Dettaglio delle regole in ingresso del firewall
 ])
 
-=== Deployment dei servizi tramite Docker
+== Deployment dei servizi tramite Docker
 #figure(image("../../assets/img/specificatecnica/awsIstanza.drawio.png", width: 45%), caption: [
   Dettaglio di deploy sull'istanza EC2
 ])
@@ -592,7 +591,7 @@ In produzione, installa un server _Gunicorn_, che è un server WSGI (specifica c
 
 
 
-
+= Architetttura del sistema
 
 == Architettura logica
 //TO DO maybe da mettere sopra
@@ -1082,13 +1081,10 @@ La classe 'NotionGetPage' è un Block che legge una pagina Notion e concatena il
 
 
 
-= Limiti e criticità
 
-
-
-
+#pagebreak()
 = Stato dei requisiti funzionali
-Nella seguente sezione permette di avere una panoramica sullo stato di avanzamento dei requisiti funzionali individuati durante la fase di analisi, è possibile trovare una spiegazione più approfondita sul documento #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_1.2.0.pdf")[Analisi dei Requisiti v2.0.0].
+Nella seguente sezione permette di avere una panoramica sullo stato di avanzamento dei requisiti funzionali individuati durante la fase di analisi, è possibile trovare una spiegazione più approfondita sul documento #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_2.0.0.pdf")[Analisi dei Requisiti v2.0.0].
 
 == Tracciamento dei requisiti funzionali
 
@@ -1247,7 +1243,6 @@ dove:
 
   [ROF-59], [L'utente deve poter ritornare alla dashboard dalla pagina di modifica flusso], [Soddisfatto],
 )
-
 
 == Grafico riassuntivo
 #figure(image("../../assets/img/specificatecnica/Requisiti_funzionali_soddisfatti.svg", width: 45%), caption: [
