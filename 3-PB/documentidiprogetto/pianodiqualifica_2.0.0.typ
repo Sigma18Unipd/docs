@@ -110,23 +110,22 @@ Sarà possibile salvare le automazioni generate e avviarle in un secondo momento
 == Glossario
 //TODO fix link
 Data la presenza di termini tecnici e acronimi, è stato redatto un glossario per facilitare la comprensione del documento.\
-Alla prima occorrenza, tali termini saranno opportunamente segnalati tramite la seguente notazione: #glossario("parola"), e sarà fornita un'accurata definizione nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario].
+Alla prima occorrenza, tali termini saranno opportunamente segnalati tramite la seguente notazione: #glossario("parola"), e sarà fornita un'accurata definizione nel #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf")[Glossario].
 
 == Riferimenti
 === Riferimenti normativi
 - *Norme di progetto* [versione 2.0.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/normediprogetto_2.0.0.pdf")[https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/normediprogetto_2.0.0.pdf]
 
-- * ISO/IEC 12207:1995* [ultimo accesso il: 11/07/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf]
+- * ISO/IEC 12207:1995* [ultimo accesso il: 28/08/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf]
 
-- *Capitolato C3 - Automatizzare le routine digitali tramite l'intelligenza generativa* [ultimo accesso il: 01/09/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf]
+- *Capitolato C3 - Automatizzare le routine digitali tramite l'intelligenza generativa* [ultimo accesso il: 30/08/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf]
 
 === Riferimenti informativi
-//TODO fix
-- *Glossario* [versione 1.0.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf]
+- *Glossario* [versione 2.0.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf")[https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf]
 
-- *Slide T07 - Qualità del prodotto* [ultimo accesso il: 01/09/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf]
+- *Slide T07 - Qualità del prodotto* [ultimo accesso il: 30/08/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf]
 
-- *Slide T08 - Qualità del processo* [ ultimo accesso il: 01/09/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf]
+- *Slide T08 - Qualità del processo* [ ultimo accesso il: 30/08/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf]
 
 #pagebreak()
 
@@ -411,7 +410,7 @@ Un valore alto implica che i moduli sono strettamente interconnessi, rendendo di
   rows: auto,
   inset: 7pt,
   table.header([*Metrica*], [*Nome*], [*Valore Accettabile*], [*Valore Ottimo*]),
-  [MPD-CC], [Complessità ciclomatica], [≤15], [≤6],
+  [MPD-CC], [Complessità ciclomatica], [≤20], [≤10],
   [MPD-CS], [Code Smell ], [≤10], [0],
   [MPD-COC], [Coefficient of Coupling ], [≤0.5], [≤0.3],
 ))
@@ -967,8 +966,6 @@ Di seguito viene fornita una tabella contenente i test di sistema effettuati, di
 
   [TS-32], [Verificare che l'utente possa visualizzare il diagramma dei blocchi di una _routine_ esistente], [S],
 
-  [TS-32], [Verificare che l'utente possa visualizzare il diagramma dei blocchi di una _routine_ esistente], [S],
-
   [TS-33], [Verificare che l'utente possa eliminare una _routine_ esistente], [S],
 
   [TS-34], [Verificare che il sistema restituisca un errore se si tenta di interagire con un _workflow_ inesistente], [S],
@@ -1094,12 +1091,11 @@ Di seguito viene riportata una tabella contenente i test di accettazione effettu
 
 = Cruscotto di Valutazione
 
-//TODO: aggiungere linea fine RTB su sprint 9 inizio PB
 <cruscotto>
 La seguente sezione riporta un'analisi dell'andamento delle metriche di qualità del prodotto e del processo, in modo da monitorare il progresso del progetto e verificare se gli obiettivi di qualità sono stati raggiunti.\
 
 == Estimated at Completion (MPC-EAC)
-#figure(image("../../assets/chart/PB/EAC_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/EAC_chart.svg", width: 100%), caption: [
   Stima del costo totale nel tempo
 ])
 === RTB
@@ -1117,7 +1113,7 @@ Tuttavia, si è riusciti a terminare portando il valore al di sotto del *BAC*.
 
 #pagebreak()
 == Planned Value (MPC-PV) & Earned Value (MPC-EV)
-#figure(image("../../assets/chart/PB/PV_EV_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/PV_EV_chart.svg", width: 100%), caption: [
   Stima dei valori EV e PV nel tempo
 ])
 === RTB
@@ -1130,7 +1126,7 @@ I due valori si avvicinano sempre di più a quello di *BAC* indicando che il gru
 
 #pagebreak()
 == Actual Cost (MPC-AC), Estimated To Complete (MPC-ETC) & Estimated At Completion (MPC-EAC)
-#figure(image("../../assets/chart/PB/AC_ETC_EAC_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/AC_ETC_EAC_chart.svg", width: 100%), caption: [
   Stima dei valori AC, ETC e EAC nel tempo
 ])
 === RTB
@@ -1147,7 +1143,7 @@ Si può quindi affermare che il progetto è stato completato rispettando il budg
 #pagebreak()
 
 == Cost Variance (MPC-CV) & Schedule Variance (MPC-SV)
-#figure(image("../../assets/chart/PB/CV_SV_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/CV_SV_chart.svg", width: 100%), caption: [
   Stima dei valori CV e SV nel tempo
 ])
 === RTB
@@ -1162,7 +1158,7 @@ Si può notare che i valori di *MPC-SV* e *MPC-CV* si sono stabilizzati subendo 
 #pagebreak()
 
 == Cost Performance Index (MPC-CPI)
-#figure(image("../../assets/chart/PB/CPI_chart.svg", width: 90%), caption: [
+#figure(image("../../assets/chart/PB/CPI_chart.svg", width: 100%), caption: [
   Stima dei valori CPI nel tempo
 ])
 === RTB
@@ -1236,7 +1232,6 @@ Dal grafico emerge che in fase di PB il gruppo è riuscito a mantenere un'effici
 
 #pagebreak()
 
-//TODO GRAFICO
 == Requisiti obbligatori soddisfatti (MPD-RO)
 #figure(image("../../assets/chart/PB/RO_chart.svg", width: 90%), caption: [
   Stima dei valori RO nel tempo
