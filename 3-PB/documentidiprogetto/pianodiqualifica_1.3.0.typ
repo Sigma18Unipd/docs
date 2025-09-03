@@ -103,23 +103,25 @@ Sarà possibile salvare le automazioni generate e avviarle in un secondo momento
 
 
 == Glossario
+//TODO fix link
 Data la presenza di termini tecnici e acronimi, è stato redatto un glossario per facilitare la comprensione del documento.\
 Alla prima occorrenza, tali termini saranno opportunamente segnalati tramite la seguente notazione: #glossario("parola"), e sarà fornita un'accurata definizione nel #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario].
 
 == Riferimenti
 === Riferimenti normativi
-- *Norme di progetto* [versione 1.0.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf")[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/normediprogetto_1.0.0.pdf]
+- *Norme di progetto* [versione 2.0.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/normediprogetto_2.0.0.pdf")[https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/normediprogetto_2.0.0.pdf]
 
 - * ISO/IEC 12207:1995* [ultimo accesso il: 11/07/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")[https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf]
 
-- *Capitolato C3 - Automatizzare le routine digitali tramite l'intelligenza generativa* [ultimo accesso il: 11/07/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf]
+- *Capitolato C3 - Automatizzare le routine digitali tramite l'intelligenza generativa* [ultimo accesso il: 01/09/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf]
 
 === Riferimenti informativi
+//TODO fix
 - *Glossario* [versione 1.0.0] \ #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf]
 
-- *Slide T07 - Qualità del prodotto* [ultimo accesso il: 11/07/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf]
+- *Slide T07 - Qualità del prodotto* [ultimo accesso il: 01/09/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T07.pdf]
 
-- *Slide T08 - Qualità del processo* [ ultimo accesso il: 11/07/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf]
+- *Slide T08 - Qualità del processo* [ ultimo accesso il: 01/09/2025] \ #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf")[https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf]
 
 #pagebreak()
 
@@ -459,190 +461,221 @@ Di seguito viene fornita una tabella contenente i test di unità effettuati, di 
   inset: 7pt,
   table.header([*Codice*], [*Descrizione*], [*Stato*]),
 
-  //bozza con test_log.py
-  [TU-01], [Verifica che la configurazione del logging sia in modalità produzione, in assenza di variabili d'ambiente specifiche], [S],
+  // test_log.py
+  [TU-01], [Verificare che la configurazione del logging sia in modalità produzione, in assenza di variabili d'ambiente specifiche], [S],
 
-  [TU-0X], [Verifica che la configurazione del logging sia in modalità sviluppo, se la variabile d'ambiente _ENV_ è impostata a "dev"], [S],
-
-  [TU-0X], [Verifica che la variabile d'ambiente _ENV_ sia case insensitive], [S],
-  [TU-0X], [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a "true], [S],
-  [TU-0X], [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a "1"], [S],
-  [TU-0X], [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a "yes"], [S],
-  [TU-0X], [Verifica che modalità sviluppo sia attiva se la variabile d'ambiente _DEV_ è impostata a "TRUE"], [S],
-
-  [TU-0X],
-  [Verifica che modalità sviluppo non sia attiva se la variabile d'ambiente _DEV_ è impostata a valori diversi da "true", "1", "yes" o "TRUE"],
+  [TU-02],
+  [Verificare che la configurazione del logging sia in modalità sviluppo, se la variabile d'ambiente `ENV` è impostata a "dev"],
   [S],
 
-  [TU-0X], [Verifica che se _ENV_ è posta a "production" e _DEV_ a "1" prevalga la modalità sviluppo], [S],
-  [TU-0X], [Verifica che se le variabili sono impostate, sovrascrivano quelle di default], [S],
-  [TU-0X], [Verifica che il valore della variabile d'ambiente `LOG_LEVEL` sia convertito in maiuscolo], [S],
-  [TU-0X], [Verifica che il formatter del logging sia configurato con una stringa con il corretto formato], [S],
-  [TU-0X], [Verifica che l'aggiunta di uno `StreamHandler`, se non presente], [S],
-  [TU-0X], [Verifica che non venga aggiunto uno `StreamHandler`, se già presente], [S],
+  [TU-03], [Verificare che la variabile d'ambiente `ENV` sia case insensitive], [S],
+  [TU-04], [Verificare che modalità sviluppo sia attiva se la variabile d'ambiente `DEV` è impostata a "true"], [S],
+  [TU-05], [Verificare che modalità sviluppo sia attiva se la variabile d'ambiente `DEV` è impostata a "1"], [S],
+  [TU-06], [Verificare che modalità sviluppo sia attiva se la variabile d'ambiente `DEV` è impostata a "yes"], [S],
+  [TU-07], [Verificare che modalità sviluppo sia attiva se la variabile d'ambiente `DEV` è impostata a "TRUE"], [S],
+
+  [TU-08],
+  [Verificare che modalità sviluppo non sia attiva se la variabile d'ambiente `DEV` è impostata a valori diversi da "true", "1", "yes" o "TRUE"],
+  [S],
+
+  [TU-09], [Verificare che se `ENV` è posta a "production" e `DEV` a "1" prevalga la modalità sviluppo], [S],
+  [TU-10], [Verificare che le variabili, se impostate, sovrascrivano quelle di default], [S],
+  [TU-11], [Verificare che il valore della variabile d'ambiente `LOG_LEVEL` sia convertito in maiuscolo], [S],
+  [TU-12], [Verificare che il formatter del logging sia configurato con una stringa con il corretto formato], [S],
+  [TU-13], [Verificare che l'aggiunta di uno #glossario("StreamHandler"), se non presente], [S],
+  [TU-14], [Verificare che non venga aggiunto uno `StreamHandler`, se già presente], [S],
 
   // block Factory
-  [TU-0X], [Verifica che la classe `BlockFactory`implementi senza errori il pattern _singleton_], [S],
-  [TU-0X], [Verifica che la creazione del _singleton_ sia thread-safe], [S],
-  [TU-0X], [Verifica che l'istanza di  `BlockFactory` sia inizializzata correttamente], [S],
-  [TU-0X], [Verifica che la funzione di registrazione dei blocchi di `BlockFactory` funzioni correttamente], [S],
-  [TU-0X], [Verifica che la funzione di registrazione di `BlockFactory` accetti solo classi che derivano da _Block_], [S],
-  [TU-0X], [Verifica che la funzione di registrazione di `BlockFactory` sia thread-safe], [S],
-  [TU-0X], [Verifica la corretta creazione di un blocco], [S],
-  [TU-0X], [Verifica che la creazione di un blocco con un tipo non registrato sollevi un errore], [S],
-  [TU-0X], [Verifica il comportamento della funzione `get_supported_types` quando il registro dei blocchi è vuoto], [S],
-  [TU-0X], [Verifica il comportamento della funzione `get_supported_types` quando sono presenti dei blocchi registrati], [S],
-  [TU-0X],
-  [Verifica che la funzione `lookup_implemented` ritorni _true_ per i tipi di blocco registrati e _false_ per quelli non registrati],
+  [TU-15], [Verificare che la classe `BlockFactory` implementi senza errori il pattern _singleton_], [S],
+  [TU-16], [Verificare che la creazione del _singleton_ sia thread-safe], [S],
+  [TU-17], [Verificare che l'istanza di  `BlockFactory` sia inizializzata correttamente], [S],
+  [TU-18], [Verificare che la funzione di registrazione dei blocchi di `BlockFactory` funzioni correttamente], [S],
+  [TU-19], [Verificare che la funzione di registrazione di `BlockFactory` accetti solo classi che sono sottoclassi di `Block`], [S],
+  [TU-20], [Verificare che la funzione di registrazione di `BlockFactory` sia _thread-safe_], [S],
+  [TU-21], [Verificare la corretta creazione di un blocco], [S],
+  [TU-22], [Verificare che la creazione di un blocco con un tipo non registrato sollevi un errore], [S],
+  [TU-23],
+  [Verificare il corretto comportamento della funzione `get_supported_types` della classe `BlockFactory` quando il registro dei blocchi è vuoto],
   [S],
 
-  [TU-0X], [Verifica che la registrazione di un blocco venga loggata dal sistema], [S],
-  [TU-0X], [Verifica che la creazione di un blocco venga loggata dal sistema], [S],
+  [TU-24],
+  [Verificare il corretto comportamento della funzione `get_supported_types` della classe `BlockFactory` in presenza di blocchi registrati],
+  [S],
+
+  [TU-25],
+  [Verificare che la funzione `lookup_implemented` ritorni _true_ per i tipi di blocco registrati e _false_ per quelli non registrati],
+  [S],
+
+  [TU-26], [Verificare che la registrazione di un blocco venga correttamente tracciata nei log dal sistema], [S],
+  [TU-27], [Verificare che la creazione di un blocco venga correttamente tracciata nei log dal sistema], [S],
 
   //test block.py
-  [TU-0X], [Verifica l'inizializzazione di un blocco sia con parametri personalizzati sia senza], [S],
-  [TU-0X], [Verifica che il metodo `_get_setting` recuperi correttamente i valori dalle impostazioni], [S],
-  [TU-0X], [Verifica il flusso di esecuzione di un blocco], [S],
-  [TU-0X], [Verifica la funzionalità di logging all'interno di un blocco], [S],
-  [TU-0X], [Verifica la corretta implementazione del pattern _visitor_], [S],
-  [TU-0X], [Verifica la corretta rappresentazione degli oggetti blocco], [S],
-  [TU-0X], [Verifica che la classe astratta `Block` non sia istanziabile], [S],
-  [TU-0X], [Verifica il comportamento classe astratta `Block` sia corretto], [S],
+  [TU-28], [Verificare l'inizializzazione di un blocco con parametri di default], [S],
+  [TU-29], [Verificare l'inizializzazione di un blocco con parametri personalizzati], [S],
+  [TU-30],
+  [Verificare che il metodo `_get_input` della classe `Block` recuperi correttamente i valori dal dizionario, gestendo chiavi mancanti e valori di default.],
+  [S],
+
+  [TU-31], [Verificare che il metodo `_get_setting` della classe `Block` recuperi correttamente i valori dalle impostazioni], [S],
+
+  [TU-32],
+  [Verificare che il metodo `_set_output` della classe `Block` aggiorni l'output e registri i log di esecuzione correttamente],
+  [S],
+
+  [TU-33], [Verificare che il metodo `_get_output` della classe `Block` ritorni correttamente i dati di output], [S],
+  [TU-34], [Verificare il flusso di esecuzione di un blocco], [S],
+  [TU-35], [Verificare la funzionalità di logging all'interno di un blocco], [S],
+  [TU-36], [Verificare la corretta implementazione del pattern _visitor_], [S],
+  [TU-37], [Verificare la corretta rappresentazione degli oggetti blocco], [S],
+  [TU-38], [Verificare che la classe astratta `Block` non sia istanziabile], [S],
+  [TU-39], [Verificare il comportamento classe astratta `Block` sia corretto], [S],
 
   //test executionLog
-  [TU-0X], [Verifica la correttezza delle classi `ExecutionLog` e di `Status` usati per tracciare l'esecuzione dei blocchi], [S],
+
+  [TU-40], [Verificare che i valori di `Status` usati per la rappresentazione dello stato siano corretti], [S],
+
+  [TU-41], [Verificare che la classe `ExecutionLog` venga istanziata correttamente], [S],
 
   //flaskAppSingleton
-  [TU-0X], [Verifica che la classe `FlaskAppSingleton` rispetti il pattern _singleton_], [S],
-  [TU-0X], [Verifica che la classe `FlaskAppSingleton` venga inizializzata correttamente], [S],
-  [TU-0X], [Verifica che la classe `FlaskAppSingleton` gestisca correttamente le richieste], [S],
-  [TU-0X], [Verifica che la classe `FlaskAppSingleton` non consenta l'istanziazione multipla], [S],
+  [TU-42], [Verificare che la classe `FlaskAppSingleton` rispetti il pattern _singleton_], [S],
+  [TU-43], [Verificare che la classe `FlaskAppSingleton` venga inizializzata correttamente], [S],
+  [TU-44], [Verificare che la classe `FlaskAppSingleton` gestisca correttamente le richieste], [S],
+  [TU-45], [Verifica che la classe `FlaskAppSingleton` non consenta l'istanziazione multipla], [S],
 
   //mongoDB
 
-  [TU-0X], [Verifica che la classe `MongoDBSingleton` rispetti il pattern _singleton_], [S],
-  [TU-0X], [Verifica che la corretta istanzazione della classe `MongoDBSingleton` in presenza di un oggetto _Flask_ app], [S],
-  [TU-0X], [Verifica che la corretta istanzazione della classe `MongoDBSingleton` in assenza di un oggetto _Flask_ app], [S],
-  [TU-0X], [Verifica che il metodo `get_db` della classe `MongoDBSingleton` restituisca l'oggetto database corretto], [S],
-  [TU-0X], [Verifica che l'attributo `mongo` venga inizializzato correttamente], [S],
-  [TU-0X], [Verifica che l'istanza _singleton_ persista anche se acceduta in modi diversi], [S],
-  [TU-0X], [Verifica che venga sollevata un'eccezione se fallisce l'inizializzazione di `PyMongo`], [S],
-  [TU-0X], [Verifica che venga sollevata un'eccezione se si prova a chiamare il metodo `get_db` e l'attributo `mongo` è _None_], [S],
+  [TU-46], [Verificare che la classe `MongoDBSingleton` rispetti il pattern _singleton_], [S],
+  [TU-47], [Verificare che la corretta istanzazione della classe `MongoDBSingleton` in presenza di un oggetto _Flask_ app], [S],
+  [TU-48], [Verificare che la corretta istanzazione della classe `MongoDBSingleton` in assenza di un oggetto _Flask_ app], [S],
+  [TU-49], [Verificare che il metodo `get_db` della classe `MongoDBSingleton` restituisca l'oggetto database corretto], [S],
+  [TU-50], [Verificare che l'attributo `mongo` venga inizializzato correttamente], [S],
+  [TU-51], [Verificare che l'istanza _singleton_ persista anche se acceduta in modi diversi], [S],
+  [TU-52], [Verificare che venga sollevata un'eccezione se fallisce l'inizializzazione di `PyMongo`], [S],
+  [TU-53], [Verificare che venga sollevata un'eccezione se si prova a chiamare il metodo `get_db` quando l'attributo `mongo` è _None_], [S],
 
   // test jwt.utils
-  [TU-0X], [Verifica che la funzione `generateJwt` generi correttamente un token JWT contente email e scadenza], [S],
-  [TU-0X], [Verifica che la funzione `verifyJwt` decodifichi e verifichi correttamente un token], [S],
-  [TU-0X], [Verifica che la funzione `generateJwt` gestisca correttamente il caso in cui l'email sia una stringa vuota], [S],
+  [TU-54], [Verificare che la funzione `generateJwt` generi correttamente un token JWT contente email e scadenza], [S],
+  [TU-55], [Verificare che la funzione `verifyJwt` decodifichi e verifichi correttamente un token], [S],
+  [TU-56], [Verificare che la funzione `generateJwt` gestisca correttamente il caso in cui l'email sia una stringa vuota], [S],
 
   //llmfacade
-  [TU-0X], [Verifica che la funzione `agent_facade` funzioni correttamente in condizioni normali, simulando l'interazione con AWS], [S],
-  [TU-0X], [Verifica che la funzione `agent_facade` gestisca correttamente il caso in cui il prompt sia vuoto], [S],
-  [TU-0X],
-  [Verifica che la funzione `agent_facade` gestisca correttamente il caso in cui il prompt contenga caratteri speciali e emoji],
+  [TU-57], [Verificare che la funzione `agent_facade` funzioni correttamente in condizioni normali, simulando l'interazione con AWS], [S],
+  [TU-58], [Verificare che la funzione `agent_facade` gestisca correttamente il caso in cui il prompt sia vuoto], [S],
+  [TU-59],
+  [Verificare che la funzione `agent_facade` gestisca correttamente il caso in cui il prompt contenga caratteri speciali e emoji],
   [S],
 
   // JsonParser
-  [TU-0X], [Verifica che la classe astratta `JsonParserStrategy` non possa essere istanziata direttamente], [S],
-  [TU-0X], [Verifica che le sottoclassi di `JsonParserStrategy` implementino il metodo `parse`], [S],
-  [TU-0X], [Verifica che il metodo `parse` gestisca correttamente le stringhe JSON], [S],
+  [TU-60], [Verificare che la classe astratta `JsonParserStrategy` non possa essere istanziata direttamente], [S],
+  [TU-61], [Verificare che le sottoclassi di `JsonParserStrategy` implementino il metodo `parse`], [S],
+  [TU-62], [Verificare che il metodo `parse` gestisca correttamente le stringhe JSON], [S],
 
   //AI summarize
 
-  [TU-0X],
-  [Verifica che il comportamento della classe `AISummarize` assicurando che il metodo `execute` restituisca un riassunto corretto],
+  [TU-63],
+  [Verificare che il comportamento della classe `AISummarize` assicurando che il metodo `execute` restituisca un riassunto corretto],
   [S],
 
   //syswait
-  [TU-0X],
-  [Verifica che la classe `SystemWaitSeconds` gestisca correttamente i vari tipi di input come interi, numeri float e stringhe],
+
+  [TU-64], [Verificare che la classe `SystemWaitSeconds` gestisca correttamente input di tipo _int_], [S],
+
+  [TU-65], [Verificare che la classe `SystemWaitSeconds` gestisca correttamente input di tipo _float_], [S],
+
+  [TU-66], [Verificare che la classe `SystemWaitSeconds` gestisca correttamente input di tipo _string_], [S],
+
+  [TU-67],
+  [Verificare che funzione `validate_inputs` della classe `SystemWaitSeconds` restituisca _True_ per i tipi di input validi come _int_, _float_ e stringhe],
   [S],
 
-  [TU-0X],
-  [Verifica che funzione `validate_inputs` della classe `SystemWaitSeconds` restituisca _True_ per i tipi di input validi come interi, numeri float e stringhe],
+  [TU-68],
+  [Verificare che funzione `validate_inputs` della classe `SystemWaitSeconds` restituisca _False_ in presenza di valori negativi],
   [S],
 
-  [TU-0X],
-  [Verifica che funzione `validate_inputs` della classe `SystemWaitSeconds` restituisca _False_ in presenza di valori negativi, stringhe non numeriche o in assenza di input],
+  [TU-69],
+  [Verificare che funzione `validate_inputs` della classe `SystemWaitSeconds` restituisca _False_ in presenza di stringhe non numeriche],
   [S],
 
-  [TU-0X], [Verifica che funzione `execute` della classe `SystemWaitSeconds` sia eseguita correttamente], [S],
+  [TU-70], [Verificare che funzione `validate_inputs` della classe `SystemWaitSeconds` restituisca _False_ in assenza di input], [S],
+
+  [TU-71], [Verificare che funzione `execute` della classe `SystemWaitSeconds` sia eseguita correttamente], [S],
 
   //telegram
-  [TU-0X],
-  [Verifica che la funzione `validate_inputs` della classe `TelegramSendMessage` restituisca _True_ se sono presenti tutti gli input richiesti, ovvero `botToken`, `chatId`  e `message`],
+  [TU-72],
+  [Verificare che la funzione `validate_inputs` della classe\ `TelegramSendMessage` restituisca _True_ se sono presenti tutti gli input richiesti, ovvero `botToken`, `chatId`  e `message`],
   [S],
 
-  [TU-0X],
-  [Verifica che la funzione `validate_inputs` della classe `TelegramSendMessage` restituisca _False_ se non sono presenti tutti gli input richiesti],
+  [TU-73],
+  [Verificare che la funzione `validate_inputs` della classe\ `TelegramSendMessage` restituisca _False_ se non sono presenti tutti gli input richiesti],
   [S],
 
-  [TU-0X], [Verifica che funzione `execute` della classe `TelegramSendMessage` sia eseguita correttamente], [S],
-  [TU-0X],
-  [Verifica che funzione `execute` della classe `TelegramSendMessage` sia eseguita correttamente quando `"message": "{{LASTOUTPUT}}"`],
+  [TU-74], [Verificare che funzione `execute` della classe `TelegramSendMessage` sia eseguita correttamente], [S],
+  [TU-75],
+  [Verificare che funzione `execute` della classe `TelegramSendMessage` sia eseguita correttamente quando `"message": "{{LASTOUTPUT}}"`],
   [S],
 
-  [TU-0X], [Verifica il comportamento di `execute` in presenza di errori di rete ], [S],
+  [TU-76], [Verificare il comportamento di `execute` in presenza di errori di rete ], [S],
 
   //notion
 
-  [TU-0X],
-  [Verifica che la funzione `validate_inputs` della classe `NotionGetPage` restituisca _True_ se sono presenti tutti gli input richiesti, ovvero `pageID` e `internalIntegrationToken`],
+  [TU-77],
+  [Verificare che la funzione `validate_inputs` della classe `NotionGetPage` restituisca _True_ se sono presenti tutti gli input richiesti, ovvero `pageID` e `internalIntegrationToken`],
   [S],
 
-  [TU-0X],
-  [Verifica che la funzione `validate_inputs` della classe `NotionGetPage` restituisca _False_ se non sono presenti tutti gli input richiesti],
+  [TU-78],
+  [Verificare che la funzione `validate_inputs` della classe `NotionGetPage` restituisca _False_ se non sono presenti tutti gli input richiesti],
   [S],
 
-  [TU-0X], [Verifica che la funzione `execute` della classe `NotionGetPage` sia implementata correttamente], [S],
+  [TU-79], [Verificare che la funzione `execute` della classe `NotionGetPage` sia implementata correttamente], [S],
 
-  [TU-0X],
-  [Verifica che la funzione `execute` della classe `NotionGetPage` restituisca uno stato di errore in presenza di un errore nella Notion API],
+  [TU-80],
+  [Verificare che la funzione `execute` della classe `NotionGetPage` restituisca uno stato di errore in presenza di un errore nella Notion API],
   [S],
 
-  [TU-0X],
-  [Verifica che la funzione `execute` della classe `NotionGetPage` restituisca uno stato di errore in presenza di token invalido],
+  [TU-81],
+  [Verificare che la funzione `execute` della classe `NotionGetPage` restituisca uno stato di errore in presenza di token invalido],
   [S],
 
   //flow iterator
-  [TU-0X], [Verifica che la classe `FlowIterator` sia inizializzata correttamente], [S],
-  [TU-0X], [Verifica che l'esecuzione dei blocchi avvenga in sequenza e che ogni blocco venga eseguito], [S],
-  [TU-0X],
-  [Verifica la gestione dell'esecuzione dei blocchi in presenza di errori nell'esecuzione di un blocco, verificando che l'esecuzione si interrompa e che siano presenti i log di errore],
+  [TU-82], [Verificare che la classe `FlowIterator` sia inizializzata correttamente], [S],
+  [TU-83], [Verificare che l'esecuzione dei blocchi avvenga in sequenza e che ogni blocco venga eseguito], [S],
+  [TU-84],
+  [Verificare la gestione dell'esecuzione dei blocchi in presenza di errori nell'esecuzione di un blocco, verificando che l'esecuzione si interrompa e che siano presenti i log di errore],
   [S],
 
   //llm sanitize
-  [TU-0X],
-  [Verifica che il metodo `add_json` della classe `BaseSanitizationStrategy` funzioni correttamente gestendo vari tipi di input],
+  [TU-85],
+  [Verificare che il metodo `add_json` della classe `BaseSanitizationStrategy` funzioni correttamente gestendo vari tipi di input],
   [S],
 
-  [TU-0X], [Verifica che il metodo `add_json` della classe `BaseSanitizationStrategy` non sovrascrivi valori esistenti ], [S],
-  [TU-0X],
-  [Verifica che il metodo `add_field_if_missing` della classe `BaseSanitizationStrategy` imposti il tipo di default, se mancante],
+  [TU-86], [Verificare che il metodo `add_json` della classe `BaseSanitizationStrategy` non sovrascrivi valori esistenti ], [S],
+  [TU-87],
+  [Verificare che il metodo `add_field_if_missing` della classe `BaseSanitizationStrategy` imposti il tipo di default, se mancante],
   [S],
 
-  [TU-0X],
-  [Verifica che più chiamate a `_position_counter` della classe `BaseSanitizationStrategy` generino una griglia di posizioni corretta],
+  [TU-88],
+  [Verificare che più chiamate a `_position_counter` della classe `BaseSanitizationStrategy` generino una griglia di posizioni corretta],
   [S],
 
   //flowManager.
-  [TU-0X], [Verifica che l'inizializzazione della classe `FlowManager` crei tutti i componenti necessari], [S],
-  [TU-0X], [Verifica che il metodo `parse_json` della classe `FlowManager` crei i blocchi corretti dopo aver ricevuto i dati JSON], [S],
-  [TU-0X],
-  [Verifica che il metodo `parse_json` della classe `FlowManager` sollevi un errore se si cerca di implementare un blocco di tipo non implementato],
+  [TU-89], [Verificare che l'inizializzazione della classe `FlowManager` crei tutti i componenti necessari], [S],
+  [TU-90], [Verificare  che il metodo `parse_json` della classe `FlowManager` crei i blocchi corretti dopo aver ricevuto i dati JSON], [S],
+  [TU-91],
+  [Verificare che il metodo `parse_json` della classe `FlowManager` sollevi un errore se si cerca di implementare un blocco di tipo non implementato],
   [S],
 
-  [TU-0X],
-  [Verifica che il metodo `start_workflow` della classe `FlowManager` ritorni uno stato _completed_ se il flusso viene eseguito correttamente],
+  [TU-92],
+  [Verificare che il metodo `start_workflow` della classe `FlowManager` ritorni uno stato _completed_ se il flusso viene eseguito correttamente],
   [S],
 
-  [TU-0X],
-  [Verifica che il metodo `start_workflow` della classe `FlowManager` ritorni uno stato _failed_ se il flusso non viene eseguito],
+  [TU-93],
+  [Verificare che il metodo `start_workflow` della classe `FlowManager` ritorni uno stato _failed_ se il flusso non viene eseguito],
   [S],
 
-  [TU-0X], [Verifica che il metodo `get_status` della classe `FlowManager` ritorni gli stati], [S],
+  [TU-94], [Verifica che il metodo `get_status` della classe `FlowManager` ritorni gli stati], [S],
 
-  [TU-0X], [Verifica che la classe `FlowManagerFactory` rispetti il pattern _singleton_], [S],
-  [TU-0X], [Verifica che la classe `FlowManagerFactory` restituisca un'istanza di `FlowManager`], [S],
+  [TU-95], [Verifica che la classe `FlowManagerFactory` rispetti il pattern _singleton_], [S],
+  [TU-96], [Verifica che la classe `FlowManagerFactory` restituisca un'istanza di `FlowManager`], [S],
 ))
 
 
@@ -660,118 +693,112 @@ Di seguito vengono fornite due tabelle che riportano i test di integrazione effe
   inset: 7pt,
   table.header([*Codice*], [*Descrizione*], [*Stato*]),
   //backend
-  [TI-0X],
+  [TI-01],
   [Verificare che il login di un utente tramite l'endpoint `/login` funzioni correttamente quando le credenziali sono corrette],
   [S],
 
-  [TI-0X],
+  [TI-02],
   [Verificare che venga lanciata un'eccezione con HTTP status 401 se si effettua il login con credenziali errate e che il messaggio d'errore sia "Invalid email or password"],
   [S],
 
-  [TI-0X],
-  [Verificare che venga lanciata un'eccezione con HTTP status 401 se si effettua il login con credenziali errate e che il messaggio d'errore sia "Invalid email or password"],
-  [S],
-
-  [TI-0X],
+  [TI-03],
   [Verificare che venga lanciata un'eccezione con HTTP status 401 se si effettua il login con un'account non verificato e che il messaggio d'errore sia "User account not confirmed"],
   [S],
 
-  [TI-0X],
+  [TI-04],
   [Verificare che venga lanciata un'eccezione con HTTP status 401 se si effettua il login con un'account non esistente e che il messaggio d'errore sia "User not found"],
   [S],
 
-  [TI-0X],
+  [TI-05],
   [Verificare che venga lanciata un'eccezione con HTTP status 429 se si effettuano troppi tentativi di login e che il messaggio d'errore sia "Too many login attempts. Please try again later"],
   [S],
 
-  [TI-0X],
+  [TI-06],
   [Verificare che la registrazione di un nuovo utente tramite l'endpoint \ `/register` funzioni correttamente quando i dati sono validi ],
   [S],
 
-  [TI-0X],
+  [TI-07],
   [Verificare che venga lanciata un'eccezione con HTTP status 409 se si effettua la registrazione con un'email già in uso e che il messaggio d'errore sia "User already exists"],
   [S],
 
-  [TI-0X],
+  [TI-08],
   [Verificare che venga lanciata un'eccezione con HTTP status 500 se si effettuano più registrazioni di quelle consentite e che il messaggio d'errore sia "Email quota limit exceeded"],
   [S],
 
-  [TI-0X], [Verificare che la verifica di un utente tramite l'endpoint `/confirm` funzioni correttamente quando i dati sono corretti], [S],
+  [TI-09], [Verificare che la verifica di un utente tramite l'endpoint `/confirm` funzioni correttamente quando i dati sono corretti], [S],
 
-  [TI-0X],
-  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si effettua la verifica di un account non esistente e che il messaggio d'errore sia "User not found"],
+  [TI-10],
+  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si tenta di verificare un account non esistente e che il messaggio d'errore sia "User not found"],
   [S],
 
-  [TI-0X],
-  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si effettua la verifica di un account se si inserisce un codice non valido e che il messaggio d'errore sia "Code not valid"],
+  [TI-11],
+  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si inserisce un codice non valido per verificare un account e che il messaggio d'errore sia "Code not valid"],
   [S],
 
-  [TI-0X],
-  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si effettua la verifica di un account se si inserisce un codice scaduto e che il messaggio d'errore sia "Code Expired"],
+  [TI-12],
+  [Verificare che venga lanciata un'eccezione con HTTP status 404 se si inserisce un codice scaduto per verificare un account e che il messaggio d'errore sia "Code Expired"],
   [S],
 
-  [TI-0X], [Verificare che l'endpoint `/dashboard` restituisca correttamente la lista dei workflow dell'utente autenticato], [S],
+  [TI-13], [Verificare che l'endpoint `/dashboard` restituisca correttamente la lista dei workflow dell'utente autenticato], [S],
 
-  [TI-0X],
+  [TI-14],
   [Verificare che l'endpoint `/dashboard` neghi l'accesso e reindirizzi l'utente quando la verifica JWT fallisce, lanciando un'eccezione con HTTP status 302],
   [S],
 
-  [TI-0X], [Verificare che l'endpoint `/logout` funzioni correttamente per un utente autenticato], [S],
+  [TI-15], [Verificare che l'endpoint `/logout` funzioni correttamente per un utente autenticato], [S],
 
-  [TI-0X], [Verificare che l'endpoint `/api/new` permetta la creazione di un nuovo _workflow_ per un utente autenticato], [S],
+  [TI-16], [Verificare che l'endpoint `/api/new` permetta la creazione di un nuovo _workflow_ ad un utente autenticato], [S],
 
-  [TI-0X],
-  [Verificare che l'endpoint `/api/new` lanci un'eccezione con HTTP status 400 se si cerca di creare un workflow lasciando il campo nome vuoto e che il messaggio d'errore sia "Workflow name is required"],
+  [TI-17],
+  [Verificare che l'endpoint `/api/new` lanci un'eccezione con HTTP status 400 se si cerca di creare un _workflow_ con il campo nome vuoto e che il messaggio d'errore sia "Workflow name is required"],
   [S],
 
-  [TI-0X],
-  [Verificare che l'endpoint `/api/new` lanci un'eccezione con HTTP status 400 se si cerca di creare un workflow con nome che supera i 25 caratteri e che il messaggio d'errore sia "Workflow name must be less than 25 characters"],
+  [TI-18],
+  [Verificare che l'endpoint `/api/new` lanci un'eccezione con HTTP status 400 se si cerca di creare un _workflow_ con nome che supera i 25 caratteri e che il messaggio d'errore sia "Workflow name must be less than 25 characters"],
   [S],
 
-  [TI-0X],
-  [Verificare che l'endpoint `/api/flows/id>` restituisca correttamente i dati di un workflow esistente per un utente autenticato],
+  [TI-19],
+  [Verificare che l'endpoint `/api/flows/<id>` restituisca correttamente i dati di un _workflow_ esistente ad un utente autenticato],
   [S],
 
-  [TI-0X],
-  [Verificare che l'endpoint `/api/flows/<id>` lanci un'eccezione con HTTP status 404 se si richiede un workflow inesistente e che il messaggio d'errore sia "Workflow not found"],
+  [TI-20],
+  [Verificare che l'endpoint `/api/flows/<id>` lanci un'eccezione con HTTP status 404 se si richiede un _workflow_ inesistente e che il messaggio d'errore sia "Workflow not found"],
   [S],
 
-  [TI-0X],
-  [Verificare che l'endpoint `/api/flows/<id>/delete` permetta la cancellazione di un workflow esistente per un utente autenticato],
+  [TI-21], [Verificare che l'endpoint `/api/flows/<id>/delete` permetta ad un utente autenticato di eliminare un _workflow_ esistente], [S],
+
+  [TI-22],
+  [Verificare che l'endpoint `/api/flows/<id>/delete` lanci un'eccezione con HTTP status 404 se si tenta di eliminare un _workflow_ inesistente e che il messaggio d'errore sia "Workflow not found"],
   [S],
 
-  [TI-0X],
-  [Verificare che l'endpoint `/api/flows/<id>/delete` lanci un'eccezione con HTTP status 404 se si tenta di eliminare un workflow inesistente e che il messaggio d'errore sia "Workflow not found"],
+  [TI-23], [Verificare che l'endpoint `/api/flows/<id>/save` permetta ad un utente autenticato di salvare correttamente un _workflow_], [S],
+
+  [TI-24],
+  [Verificare che l'endpoint `/api/flows/<id>/save` lanci un'eccezione con HTTP status 400 se si tenta di salvare un _workflow_ con un nome troppo lungo e che il messaggio d'errore sia "Workflow name must be less than 25 characters"],
   [S],
 
-  [TI-0X], [Verificare che l'endpoint `/api/flows/<id>/save` permetta la salvare correttamente un workflow per un utente autenticato], [S],
+  [TI-25], [Verificare che l'endpoint `/api/flows/<id>/run` permetta l'esecuzione di un _workflow_ esistente ad un utente autenticato], [S],
 
-  [TI-0X],
-  [Verificare che l'endpoint `/api/flows/<id>/save` lanci un'eccezione con HTTP status 400 se si tenta di salvare un workflow con un nome troppo lungo e che il messaggio d'errore sia "Workflow name must be less than 25 characters"],
+  [TI-26],
+  [Verificare che l'endpoint `/api/flows/<id>/run` lanci un'eccezione con HTTP status 404 se si tenta di eseguire un _workflow_ inesistente e che il messaggio d'errore sia "Workflow not found"],
   [S],
 
-  [TI-0X], [Verificare che l'endpoint `/api/flows/<id>/run` permetta l'esecuzione di un workflow esistente per un utente autenticato], [S],
+  [TI-27], [Verificare che l'endpoint `/api/prompt` generi correttamente un _workflow_ tramite AI ad un utente autenticato], [S],
 
-  [TI-0X],
-  [Verificare che l'endpoint `/api/flows/<id>/run` lanci un'eccezione con HTTP status 404 se si tenta di eseguire un workflow inesistente e che il messaggio d'errore sia "Workflow not found"],
+  [TI-28],
+  [Verificare che l'endpoint `/api/prompt` lanci un'eccezione con HTTP status 400 se si tenta di generare un _workflow_ tramite AI senza il campo prompt e che il messaggio d'errore sia "Prompt is required"],
   [S],
 
-  [TI-0X], [Verificare che l'endpoint `/api/prompt` generi correttamente un workflow tramite AI per un utente autenticato], [S],
-
-  [TI-0X],
-  [Verificare che l'endpoint `/api/prompt` lanci un'eccezione con HTTP status 400 se si tenta di generare un workflow tramite AI senza il campo prompt e che il messaggio d'errore sia "Prompt is required"],
-  [S],
-
-  [TI-0X],
-  [Verificare che l'endpoint `/api/prompt` lanci un'eccezione con HTTP status 400 se si tenta di generare un workflow tramite AI con il campo prompt vuoto e che il messaggio d'errore sia "Prompt is required"],
+  [TI-29],
+  [Verificare che l'endpoint `/api/prompt` lanci un'eccezione con HTTP status 400 se si tenta di generare un _workflow_ tramite AI con il campo prompt vuoto e che il messaggio d'errore sia "Prompt is required"],
   [S],
 ))
 
 === Test di integrazione frontend
 
-Per effettuare i test di integrazione del frontend sono stati realizzati test end-to-end utilizzando Cypress che permettono di simulare l'interazione dell’utente con l’applicazione.
-
-È stato deciso di utilizzare questo approccio perché consente di testare l'intera applicazione in un ambiente che simula l'uso reale, garantendo che tutte le componenti funzionino correttamente insieme e di trovare errori che potrebbero sfuggire ai test di unità o di integrazione tradizionali.
+Per effettuare i test di integrazione del frontend sono stati realizzati test end-to-end utilizzando il framework Cypress.\
+La scelta è stata motivata dalla capacità del framework di fornire un ambiente integrato per scrivere, eseguire e debuggare test, permettendo di validare funzionalità, interazioni utente e prestazioni.
+L'approccio end-to-end garantisce che tutte le componenti funzionino correttamente insieme, identificando errori che potrebbero sfuggire ai test di unità o di integrazione tradizionali.
 
 #show figure: set block(breakable: true)
 #figure(kind: table, caption: [Test di integrazione frontend], table(
@@ -782,64 +809,60 @@ Per effettuare i test di integrazione del frontend sono stati realizzati test en
   table.header([*Codice*], [*Descrizione*], [*Stato*]),
 
   //LOGIN
-  [TI-0X], [Verificare che la pagina di login venga visualizzata correttamente], [S],
-  [TI-0X],
+  [TI-30], [Verificare che la pagina di login venga visualizzata correttamente], [S],
+  [TI-31],
   [Verificare che vengano mostrati messaggi di errore se si tenta di effettuare il login lasciando i campi vuoti, verificando che il messaggio d'errore sia "Invalid email address" per il campo email e "Password cannot be empty" per il campo password],
   [S],
 
-  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina _dashboard_ dopo aver effettuato correttamente il login], [S],
+  [TI-32], [Verificare che l'utente venga reindirizzato alla pagina _dashboard_ dopo aver effettuato correttamente il login], [S],
 
-  [TI-0X],
-  [Verificare che vengano mostrati messaggi di errore se si tenta di effettuare il login lasciando i campi vuoti, verificando che il messaggio d'errore sia "Invalid email address" per il campo email e "Password cannot be empty" per il campo password],
+  [TI-33],
+  [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando un login effettuato con credenziali errate],
   [S],
 
-  [TI-0X],
-  [Verificare che vengano gestiti correttamente gli errori proveniente dal backend simulando un login effettuato con credenziali errate],
-  [S],
+  [TI-34], [Verificare che l'utente venga reindirizzato alla pagina di registrazione dopo aver cliccato sul bottone "Register"], [S],
 
-  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di registrazione dopo aver cliccato sul bottone "Register], [S],
-
-  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account], [S],
+  [TI-35], [Verificare che l'utente venga reindirizzato alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account"], [S],
 
   //REGISTRAZIONE
 
-  [TI-0X], [Verificare che la pagina di _register_ venga visualizzata correttamente], [S],
-  [TI-0X],
+  [TI-36], [Verificare che la pagina di _register_ venga visualizzata correttamente], [S],
+  [TI-37],
   [Verificare che vengano mostrati messaggi di errore se si tenta di effettuare la registrazione lasciando i campi vuoti, verificando che il messaggio d'errore sia "Invalid email address" per il campo _email_ e "Your password must have at least 8 characters" per il campo _password_ e _conferma password_ ],
   [S],
 
-  [TI-0X],
+  [TI-38],
   [Verificare che venga mostrato un messaggio di errore se, in fase di registrazione, la password e la conferma password non corrispondono, verificando che il messaggio d'errore sia "Passwords don't match"],
   [S],
 
-  [TI-0X],
+  [TI-39],
   [Verificare che l'utente venga reindirizzato alla pagina di conferma account dopo aver effettuato correttamente la registrazione],
   [S],
 
-  [TI-0X],
-  [Verificare che vengano gestiti correttamente gli errori proveniente dal backend simulando una registrazione effettuata con un'email già in uso],
+  [TI-40],
+  [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando una registrazione effettuata con un'email già in uso],
   [S],
 
-  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver cliccato sul bottone "Login], [S],
+  [TI-41], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver cliccato sul bottone "Login"], [S],
 
-  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account], [S],
+  [TI-42], [Verificare che l'utente venga reindirizzato alla pagina di conferma dopo aver cliccato sul bottone "Confirm your account"], [S],
 
   //CONFERMA
-  [TI-0X], [Verificare che la pagina di conferma venga visualizzata correttamente], [S],
-  [TI-0X], [Verificare che vengano mostrati messaggi di errore se i dati non sono validi quando si conferma l'account], [S],
-  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver confermato correttamente l'account], [S],
-  [TI-0X],
-  [Verificare che vengano gestiti correttamente gli errori proveniente dal backend simulando una verifica effettuata con codice errato],
+  [TI-43], [Verificare che la pagina di conferma venga visualizzata correttamente], [S],
+  [TI-44], [Verificare che vengano mostrati messaggi di errore se i dati non sono validi quando si conferma l'account], [S],
+  [TI-45], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver confermato correttamente l'account], [S],
+  [TI-46],
+  [Verificare che vengano gestiti correttamente gli errori proveniente dal _backend_ simulando una verifica effettuata con codice errato],
   [S],
 
-  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver cliccato sul bottone "Login"], [S],
+  [TI-47], [Verificare che l'utente venga reindirizzato alla pagina di login dopo aver cliccato sul bottone "Login"], [S],
 
-  [TI-0X], [Verificare che l'utente venga reindirizzato alla pagina di registrazione dopo aver cliccato sul bottone "Register], [S],
+  [TI-48], [Verificare che l'utente venga reindirizzato alla pagina di registrazione dopo aver cliccato sul bottone "Register"], [S],
 ))
 
 
 == Test di sistema
-I test di sistema verificano il funzionamento del sistema software nel suo complesso per garantire il soddisfacimento delle specifiche funzionali, prestazionali e di qualità concordate, presenti nel documento dell' #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_2.0.0.pdf")[analisi dei requisiti] [versione 2.0.0].
+I test di sistema verificano il funzionamento del sistema software nel suo complesso per garantire il soddisfacimento delle specifiche funzionali, prestazionali e di qualità concordate, presenti nel documento dell'#link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_2.0.0.pdf")[analisi dei requisiti] [versione 2.0.0].
 
 Di seguito viene fornita una tabella contenente i test di sistema effettuati, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
 
@@ -854,143 +877,145 @@ Di seguito viene fornita una tabella contenente i test di sistema effettuati, di
   table.header([*Codice*], [*Descrizione*], [*Stato*]),
 
   //LOGIN
-  [TS-0X], [Verificare che l'utente possa effettuare _login_ con il proprio account per accedere al servizio], [S],
+  [TS-01], [Verificare che l'utente possa effettuare _login_ con il proprio account per accedere al servizio], [S],
 
-  [TS-0X], [Verificare che l'utente autenticato possa inserire la sua _e-mail_ per accedere all'applicativo], [S],
+  [TS-02], [Verificare che l'utente autenticato possa inserire la sua _e-mail_ per accedere all'applicativo], [S],
 
-  [TS-0X], [Verificare che l'utente possa inserire la sua _password_ per accedere all'applicativo], [S],
-  [TS-0X], [Verificare che il sistema restituisca un errore se si tenta di eseguire il login con una mail non registrata], [S],
+  [TS-03], [Verificare che l'utente possa inserire la sua _password_ per accedere all'applicativo], [S],
+  [TS-04], [Verificare che il sistema restituisca un errore se si tenta di eseguire il login con una mail non registrata], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se rileva ripetuti tentativi di accesso], [S],
+  [TS-05], [Verificare che il sistema restituisca un errore se rileva ripetuti tentativi di accesso], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se si tenta di eseguire il login con una mail non verificata], [S],
+  [TS-06], [Verificare che il sistema restituisca un errore se si tenta di eseguire il login con una mail non verificata], [S],
 
   //REGISTRAZIONE
 
-  [TS-0X], [Verificare che l'utente non autenticato possa registrarsi con  un nuovo account], [S],
+  [TS-07], [Verificare che l'utente non autenticato possa registrarsi con  un nuovo account], [S],
 
-  [TS-0X], [Verificare che l'utente non autenticato possa inserire la sua _e-mail_ per registrarsi nell'applicativo], [S],
+  [TS-08], [Verificare che l'utente non autenticato possa inserire la sua _e-mail_ per registrarsi nell'applicativo], [S],
 
-  [TS-0X], [Verificare che l'utente possa creare la sua _password_ per registrarsi nell'applicativo], [S],
+  [TS-09], [Verificare che l'utente possa creare la sua _password_ per registrarsi nell'applicativo], [S],
 
-  [TS-0X], [Verificare che l'utente possa reinserire la sua password per la registrazione nell'applicativo], [S],
+  [TS-10], [Verificare che l'utente possa reinserire la sua password per la registrazione nell'applicativo], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore per credenziali non valide inserite dall'utente], [S],
+  [TS-11], [Verificare che il sistema restituisca un errore per credenziali non valide inserite dall'utente], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se l'_e-mail_ è già in uso in fase di registrazione], [S],
+  [TS-12], [Verificare che il sistema restituisca un errore se l'_e-mail_ è già in uso in fase di registrazione], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se le _password_ non corrispondono tra loro in fase di registrazione], [S],
+  [TS-13], [Verificare che il sistema restituisca un errore se le _password_ non corrispondono tra loro in fase di registrazione], [S],
 
-  [TS-0X],
+  [TS-14],
   [Verificare che il sistema restituisca un errore se la _password_ creata è inferiore a 8 caratteri in fase di registrazione],
   [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se l'_e-mail_ è già in uso in fase di verifica], [S],
+  [TS-15], [Verificare che il sistema restituisca un errore se l'_e-mail_ è già in uso in fase di verifica], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se si lascia il campo password vuoto], [S],
+  [TS-16], [Verificare che il sistema restituisca un errore se si lascia il campo password vuoto], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore nel caso si riscontrino problemi], [S],
+  [TS-17], [Verificare che il sistema restituisca un errore nel caso si riscontrino problemi], [S],
 
   //VERIFICA
 
-  [TS-0X], [Verificare che l'utente possa verificare l'account creato tramite codice di verifica ricevuto per _e-mail_], [S],
+  [TS-18], [Verificare che l'utente possa verificare l'account creato tramite codice di verifica ricevuto per _e-mail_], [S],
 
-  [TS-0X],
+  [TS-19],
   [Verificare che il sistema restituisca un errore se l'utente tenta di concludere la registrazione senza inserire il codice di verifica],
   [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se il codice di conferma inserito dall'utente è scaduto], [S],
+  [TS-20], [Verificare che il sistema restituisca un errore se il codice di conferma inserito dall'utente è scaduto], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se il codice di conferma inserito dall'utente è errato], [S],
+  [TS-21], [Verificare che il sistema restituisca un errore se il codice di conferma inserito dall'utente è errato], [S],
 
   //CREAZIONE
-  [TS-0X], [Verificare che l'utente possa visualizzare la dashboard in seguito al login nell'applicativo], [S],
-  [TS-0X], [Verificare che l'utente autenticato possa vedere i workflow creati nella dashboard], [S],
+  [TS-22], [Verificare che l'utente possa visualizzare la dashboard in seguito al login nell'applicativo], [S],
+  [TS-23], [Verificare che l'utente autenticato possa vedere i _workflow_ creati nella dashboard], [S],
 
-  [TS-0X], [Verificare che l'utente possa creare una nuova _routine_], [S],
+  [TS-24], [Verificare che l'utente possa creare una nuova _routine_], [S],
 
-  [TS-0X], [Verificare che l'utente possa modificare il nome di una _routine_], [S],
+  [TS-25], [Verificare che l'utente possa modificare il nome di una _routine_], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se il nome del _workflow_ viene lasciato vuoto], [S],
+  [TS-26], [Verificare che il sistema restituisca un errore se il nome del _workflow_ viene lasciato vuoto], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se il nome del _workflow_ ha più di 25 caratteri], [S],
+  [TS-27], [Verificare che il sistema restituisca un errore se il nome del _workflow_ ha più di 25 caratteri], [S],
 
-  [TS-0X], [Verificare che l'utente possa generare una _routine_ tramite linguaggio naturale], [S],
+  [TS-28], [Verificare che l'utente possa generare una _routine_ tramite linguaggio naturale], [S],
 
-  [TS-0X],
+  [TS-29],
   [Verificare che il sistema restituisca un errore se il prompt di generazione di una _routine_ tramite linguaggio naturale viene lasciato vuoto],
   [S],
 
-  [TS-0X], [Verificare che l'utente possa visualizzare il nome di una _routine_ esistente], [S],
+  [TS-30], [Verificare che l'utente possa visualizzare il nome di una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa visualizzare i dettagli di una _routine_ esistente], [S],
+  [TS-31], [Verificare che l'utente possa visualizzare i dettagli di una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa visualizzare il diagramma dei blocchi di una _routine_ esistente], [S],
+  [TS-32], [Verificare che l'utente possa visualizzare il diagramma dei blocchi di una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa eliminare una _routine_ esistente], [S],
+  [TS-32], [Verificare che l'utente possa visualizzare il diagramma dei blocchi di una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se si tenta di interagire con un _workflow_ inesistente], [S],
+  [TS-33], [Verificare che l'utente possa eliminare una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa avviare una _routine_ esistente], [S],
+  [TS-34], [Verificare che il sistema restituisca un errore se si tenta di interagire con un _workflow_ inesistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa avviare una _routine_ esistente dalla dashboard], [S],
+  [TS-35], [Verificare che l'utente possa avviare una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa avviare una _routine_ esistente dalla pagina di modifica del flusso], [S],
+  [TS-36], [Verificare che l'utente possa avviare una _routine_ esistente dalla dashboard], [S],
 
-  [TS-0X], [Verificare che il sistema restituisca un errore se l'esecuzione del flusso non va a buon fine], [S],
+  [TS-37], [Verificare che l'utente possa avviare una _routine_ esistente dalla pagina di modifica del flusso], [S],
 
-  [TS-0X], [Verificare che l'utente possa aggiungere un blocco ad una _routine_ esistente], [S],
+  [TS-38], [Verificare che il sistema restituisca un errore se l'esecuzione del flusso non va a buon fine], [S],
 
-  [TS-0X], [Verificare che l'utente possa aggiungere un blocco del tipo "_Telegram_ - Send Bot Message" ad una _routine_ esistente], [S],
+  [TS-39], [Verificare che l'utente possa aggiungere un blocco ad una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa aggiungere un blocco del tipo "_AI_ - Summarize" ad una _routine_ esistente], [S],
+  [TS-40], [Verificare che l'utente possa aggiungere un blocco del tipo "_Telegram_ - Send Bot Message" ad una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa aggiungere un blocco del tipo "_System_ - Wait Second(s)" ad una _routine_ esistente], [S],
+  [TS-41], [Verificare che l'utente possa aggiungere un blocco del tipo "_AI_ - Summarize" ad una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa aggiungere un blocco del tipo "_Notion_ - Get Page" ad una _routine_ esistente], [S],
+  [TS-42], [Verificare che l'utente possa aggiungere un blocco del tipo "_System_ - Wait Second(s)" ad una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa visualizzare le impostazioni di un singolo blocco], [S],
+  [TS-43], [Verificare che l'utente possa aggiungere un blocco del tipo "_Notion_ - Get Page" ad una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [S],
+  [TS-44], [Verificare che l'utente possa visualizzare le impostazioni di un singolo blocco], [S],
 
-  [TS-0X], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [S],
+  [TS-45], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [S],
 
-  [TS-0X], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [S],
+  [TS-46], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [S],
 
-  [TS-0X], [Verificare che l'utente possa modificare le impostazioni di un singolo blocco], [S],
+  [TS-47], [Verificare che l'utente possa visualizzare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [S],
 
-  [TS-0X], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [S],
+  [TS-48], [Verificare che l'utente possa modificare le impostazioni di un singolo blocco], [S],
 
-  [TS-0X], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [S],
+  [TS-49], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_Telegram_ - Send Bot Message"], [S],
 
-  [TS-0X], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [S],
+  [TS-50], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_System_ - Wait Second(s)"], [S],
 
-  [TS-0X],
+  [TS-51], [Verificare che l'utente possa modificare le impostazioni di un blocco del tipo "_Notion_ - Get Page"], [S],
+
+  [TS-52],
   [Verificare che il sistema salvi le modifiche apportate dall'utente alla _routine_ se viene premuto il tasto di salvataggio],
   [S],
 
-  [TS-0X], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente], [S],
+  [TS-53], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente da tastiera premendo il tasto "backspace"], [S],
+  [TS-54], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente da tastiera premendo il tasto "backspace"], [S],
 
-  [TS-0X], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente da interfaccia grafica], [S],
+  [TS-55], [Verificare che l'utente possa eliminare un blocco da una _routine_ esistente da interfaccia grafica], [S],
 
-  [TS-0X], [Verificare che l'utente possa collegare due blocchi di una _routine_ esistente], [S],
+  [TS-56], [Verificare che l'utente possa collegare due blocchi di una _routine_ esistente], [S],
 
-  [TS-0X], [Verificare che l'utente possa scollegare due blocchi di una _routine esistente_], [S],
+  [TS-57], [Verificare che l'utente possa scollegare due blocchi di una _routine esistente_], [S],
 
-  [TS-0X], [Verificare che l'utente possa ritornare alla dashboard dalla pagina di modifica flusso], [S],
+  [TS-58], [Verificare che l'utente possa ritornare alla dashboard dalla pagina di modifica flusso], [S],
 
-  [TS-0X], [Verificare che l'utente possa impostare la modalità del client in dark mode o light mode], [S],
+  [TS-59], [Verificare che l'utente possa impostare la modalità del client in dark mode o light mode], [S],
 
-  [TS-0X], [Verificare che l'utente possa effettuare il _logout_ dall'applicativo], [S],
+  [TS-60], [Verificare che l'utente possa effettuare il _logout_ dall'applicativo], [S],
 ))
 
 == Test di accettazione
 I test di accettazione sono condotti per verificare che il sistema soddisfi i requisiti e le aspettative del contrattuali, motivo per cui sono condotti insieme al committente.\
 Il loro successo è fondamentale per garantire il rilascio definitivo del prodotto.
 
-Di seguito viene fornita una tabella contenente i test di accettazione effettuati in presenza dell'azienda proponente, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
+Di seguito viene riportata una tabella contenente i test di accettazione effettuati in presenza dell'azienda proponente, di ogni test viene riportato il codice univoco, descrizione e stato di esecuzione.
 
 #show figure: set block(breakable: true)
 #figure(kind: table, caption: [Test di accettazione], table(
@@ -999,54 +1024,52 @@ Di seguito viene fornita una tabella contenente i test di accettazione effettuat
   rows: auto,
   inset: 7pt,
   table.header([*Codice*], [*Descrizione*], [*Stato*]),
-  [TA-0X],
+  [TA-01],
   [Verificare che l'utente non autenticato possa effettuare la registrazione per accedere al servizio, inserendo mail, password e conferma password],
   [S],
 
-  [TA-0X], [Verificare che se le due password non corrispondono venga restituito un messaggio di errore], [S],
-  [TA-0X], [Verificare che se le due password non corrispondono venga restituito un messaggio di errore], [S],
-  [TA-0X], [Verificare che la password debba contenere almeno 8 caratteri, in caso contrario che venga mostrato un messaggio d'errore], [S],
-  [TA-0X],
+  [TA-02], [Verificare che venga restituito un messaggio di errore se le due password non corrispondono ], [S],
+
+  [TA-03], [Verificare che venga mostrato un messaggio d'errore se la password non contiene almeno 8 caratteri ], [S],
+  [TA-04],
   [Verificare che l'utente non autenticato possa verificare il proprio account inserendo il codice di verifica ricevuto via email],
   [S],
 
-  [TA-0X], [Verificare che l'utente non autenticato possa effettuare il login inserendo email e password], [S],
-  [TA-0X],
+  [TA-05], [Verificare che l'utente non autenticato possa effettuare il login inserendo email e password], [S],
+  [TA-06],
   [Verificare che l'utente non autenticato riceva un messaggio di errore se tenta di effettuare il login con credenziali errate],
   [S],
 
-  [TA-0X], [Verificare che l'utente autenticato acceda direttamente alla dashboard], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa vedere i workflow creati nella dashboard], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa creare nuovi workflow], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa inserire il nome del workflow che desidera creare], [S],
-  [TA-0X],
-  [Verificare che l'utente autenticato riceva un messaggio di errore se prova a creare un nuovo workflow lasciando vuoto il campo nome o se inserisce un nome con più di 25 caratteri],
+  [TA-07], [Verificare che l'utente autenticato acceda direttamente alla dashboard], [S],
+  [TA-08], [Verificare che l'utente autenticato possa vedere i _workflow_ creati nella dashboard], [S],
+  [TA-09], [Verificare che l'utente autenticato possa creare nuovi _workflow_], [S],
+  [TA-10], [Verificare che l'utente autenticato possa inserire il nome del _workflow_ che desidera creare], [S],
+  [TA-11],
+  [Verificare che l'utente autenticato riceva un messaggio di errore se prova a creare un nuovo _workflow_ lasciando vuoto il campo nome o se inserisce un nome con più di 25 caratteri],
   [S],
 
-  [TA-0X],
-  [Verificare che l'utente autenticato possa vedere in dettaglio il workflow premendo il workflow di interesse dalla dashboard],
+  [TA-12], [Verificare che l'utente possa visualizzare il diagramma dei blocchi di una _routine_ esistente], [S],
+
+  [TA-13], [Verificare che l'utente autenticato possa generare un _workflow_ usando il linguaggio naturale], [S],
+  [TA-14], [Verificare che l'utente autenticato possa creare un _workflow_ manualmente selezionando i blocchi desiderati], [S],
+  [TA-15], [Verificare che l'utente autenticato possa modificare il _workflow_ selezionato], [S],
+  [TA-16], [Verificare che l'utente autenticato possa aggiungere un blocco manualmente tramite l'interfaccia drag & drop], [S],
+  [TA-17],
+  [Verificare che l'utente autenticato possa cercare il blocco di interesse nel menù laterale, a cui si accede tramite il bottone _Add a Block_],
   [S],
 
-  [TA-0X], [Verificare che l'utente autenticato possa generare un workflow usando il linguaggio naturale, sfruttando _LLM_], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa creare un workflow manualmente selezionando i blocchi desiderati], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa modificare il workflow selezionato], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa aggiungere un blocco manualmente tramite l'interfaccia drag & drop], [S],
-  [TA-0X],
-  [Verificare che l'utente autenticato possa cercare il blocco di interesse nel menù laterale a cui si accede tramite il bottone _Add a Block_],
-  [S],
-
-  [TA-0X], [Verificare che l'utente autenticato possa modificare le impostazioni di un singolo blocco], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa eliminare un blocco da interfaccia grafica], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa eliminare un blocco da tastiera, premendo il tasto _backspace_], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa salvare un workflow], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa rinominare un workflow], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa eseguire un workflow dalla pagina dettagli flusso], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa eseguire un workflow dalla dashboard], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa eliminare un workflow], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa rinominare un workflow], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa effettuare il logout], [S],
-  [TA-0X], [Verificare che l'utente autenticato possa selezionare il tema che preferisce tra scuro e chiaro], [S],
-  [TA-0X], [Verificare che siano stati implementati almeno 3 blocchi di automazione], [S],
+  [TA-18], [Verificare che l'utente autenticato possa modificare le impostazioni di un singolo blocco], [S],
+  [TA-19], [Verificare che l'utente autenticato possa eliminare un blocco da interfaccia grafica], [S],
+  [TA-20], [Verificare che l'utente autenticato possa eliminare un blocco da tastiera, premendo il tasto _backspace_], [S],
+  [TA-21], [Verificare che l'utente autenticato possa salvare un _workflow_], [S],
+  [TA-22], [Verificare che l'utente autenticato possa rinominare un _workflow_], [S],
+  [TA-23], [Verificare che l'utente autenticato possa eseguire un _workflow_ dalla pagina _dettagli flusso_], [S],
+  [TA-24], [Verificare che l'utente autenticato possa eseguire un _workflow_ dalla _dashboard_], [S],
+  [TA-25], [Verificare che l'utente autenticato possa eliminare un _workflow_], [S],
+  [TA-26], [Verificare che l'utente autenticato possa rinominare un _workflow_], [S],
+  [TA-27], [Verificare che l'utente autenticato possa effettuare il logout], [S],
+  [TA-28], [Verificare che l'utente autenticato possa selezionare il tema che preferisce tra scuro e chiaro], [S],
+  [TA-29], [Verificare che siano stati implementati almeno 3 blocchi di automazione], [S],
 ))
 
 #pagebreak()
@@ -1068,7 +1091,7 @@ Dal grafico si osserva che il valore di *MPC-EAC* rimane sempre entro una variaz
 
 === PB
 
-Dal grafico si può notare che dallo sprint 8 il valore di *MPC-EAC* si è leggermente alzato in seguito al colloquio RTB, in concomitanza dell'ottavo sprint, a causa delle alcune correzioni da effettuare che hanno portato ad un rallentamento.
+Osservando il grafico emerge che nello sprint 8 il valore di *MPC-EAC* si è leggermente alzato in seguito al colloquio RTB, in concomitanza dell'ottavo sprint, a causa delle alcune correzioni da effettuare che hanno portato ad un rallentamento.
 Tuttavia, si è riusciti a terminare portando il valore al di sotto del BAC.
 
 
@@ -1086,7 +1109,7 @@ Dal grafico si può notare che il valore di *MPC-EV* è in linea con il valore *
 === PB
 
 Il grafico mostra che il valore dell’EV abbia continuato a crescere in modo proporzionale al valore del
-PV, dimostrando che il gruppo è riuscito a pianificare correttamente le attività per tutta la durata del progetto.
+PV, dimostrando che il gruppo è riuscito a pianificare correttamente le attività da svolgere.\
 I due valori si avvicinano sempre di più a quello di BAC indicando che il gruppo è riuscito a essere coerente con il preventivo prodotto.
 
 #pagebreak()
@@ -1101,8 +1124,8 @@ Si può affermare quindi che il progetto è in linea con le aspettative di budge
 
 === PB
 
-Dal grafico si può notare come il valore di *MPC-AC* cresca in maniera inversamente proporzionale alla crescita di *MPC-ETC*.
-Si può notare che alla fine i valori di *MPC-AC* e *MPC-EAC* finiscono per sovrapporsi e quello di *MPC-ETC* diventa 0.
+Dal grafico si può notare come il valore di *MPC-AC* cresca in maniera inversamente proporzionale alla crescita di *MPC-ETC*.\
+Si osserva che nell'ultimo sprint i valori di *MPC-AC* e *MPC-EAC* si sovrappongono e quello di *MPC-ETC* diventa 0.\
 Si può quindi affermare che il progetto è stato completato rispettando il budget preventivato.
 
 #pagebreak()
@@ -1130,7 +1153,7 @@ Si può notare che i valori di *MPC-SV* e *MPC-CV* si sono stabilizzati subendo 
 Il grafico mostra l'andamento del valore di *MPC-CPI* nel tempo, si può notare che è sempre superiore al limite inferiore e che si avvicina sempre di più al valore ottimo 1, indicando che i costi per completare i lavori sono in linea con quanto stabilito.
 
 === PB
-Il grafico mostra l'andamento del valore di *MPC-CPI* nel tempo, si può notare che rimasto costante anche in fase di PB, indicando che i costi per completare i lavori sono in linea con quanto stabilito
+Osservando l'andamento del valore di *MPC-CPI* nel tempo, si può notare che rimasto costante anche in fase di PB, indicando che i costi per completare i lavori sono in linea con quanto stabilito
 
 
 
@@ -1146,7 +1169,7 @@ Con l'avanzare del progetto, il valore cresce fino a raggiungere stabilità e va
 Si può osservare una diminuzione del valore nell'ottavo sprint, a seguito della revisione con il professor Cardin, il quale ha richiesto un maggior dettaglio nella definizione dei requisiti.
 
 === PB
-Si può notare che il valore di *MPC-RSI* ha subito dei picchi a causa di alcuni requisiti emersi dopo un'analisi più approfondita in vista dello sviluppo del MVP, tuttavia il valore rimane sempre entro i limiti accettabili.
+Si può notare che il valore di *MPC-RSI* ha subito delle variazioni a causa di alcune modifiche ai requisiti emersi dopo un'analisi più approfondita in vista dello sviluppo del MVP, tuttavia il valore rimane sempre entro i limiti accettabili.
 
 #pagebreak()
 
@@ -1161,7 +1184,7 @@ Si può notare che il gruppo si è sempre impegnato a correggere gli eventuali e
 
 
 === PB
-Si può notare che il gruppo si è sempre impegnato a correggere gli eventuali errori ortografici presenti per raggiungere un valore pari a 0 anche nei documenti redatti in fase di PB.
+Si osserva che il gruppo ha mantenuto alta l'attenzione alla correttezza ortografica per raggiungere un valore pari a 0 anche nei documenti redatti in fase di PB.
 
 
 
@@ -1172,11 +1195,11 @@ Si può notare che il gruppo si è sempre impegnato a correggere gli eventuali e
   Stima dei valori SQM nel tempo
 ])
 === RTB
-Dal grafico emerge che la percentuale di metriche soddisfatte nei primi due sprint era inferiore al _limite inferiore_, ciò è dato dall'iniziale inesperienza del gruppo. Tuttavia, la percentuale cresce progressivamente con l'avanzare degli sprint raggiungendo valori accettabili.
+Dal grafico emerge che la percentuale di metriche soddisfatte nei primi due sprint è inferiore al _limite inferiore_, ciò è dato dall'iniziale inesperienza del gruppo. Tuttavia, la percentuale cresce progressivamente con l'avanzare degli sprint raggiungendo valori accettabili.
 
 
 === PB
-Dal grafico si può notare che la percentuale di metriche soddisfatte cresce costante terminando con un valore pari al massimo, indicando che il gruppo è riuscito a mantenere un buon livello di qualità del prodotto in fase di PB.
+Osservando il grafico si può notare che la percentuale di metriche soddisfatte cresce costante terminando con un valore pari al massimo, indicando che il gruppo è riuscito a mantenere un buon livello di qualità del prodotto in fase di PB.
 
 
 #pagebreak()
@@ -1193,9 +1216,7 @@ Nei primi sprint si ha un'efficienza temporale bassa, dovuta all'inesperienza de
 
 
 === PB
-Dal grafico emerge che in fase di PB il gruppo è riuscito a mantenere un'efficienza temporale elevata, dimostrando una buona gestione del tempo.
-
-//AGGIORNARE 11
+Dal grafico emerge che in fase di PB il gruppo è riuscito a mantenere un'efficienza temporale elevata, dimostrando una buona gestione del tempo, grazie all'esperienza acquisita durante la fase di RTB.
 
 #pagebreak()
 
@@ -1209,7 +1230,7 @@ Dal grafico emerge che in fase di PB il gruppo è riuscito a mantenere un'effici
 
 === PB
 
-Dal grafico si può vedere che il gruppo è partito da una buona base del PoC.
+Dal grafico si può notare che il gruppo è partito da una buona base del PoC.\
 Il gruppo si è impegnato a soddisfare la maggior parte dei requisiti obbligatori entro lo sprint 10, fino allo soddisfacimento di tutti i requisiti obbligatori entro la fine del progetto.
 
 
@@ -1227,7 +1248,8 @@ Il gruppo si è impegnato a soddisfare la maggior parte dei requisiti obbligator
 
 
 === PB
-Dal grafico si può osservare che il gruppo si è impegnato fin dallo sprint 9 a soddisfare il requisito desiderabile individuato, ovvero la possibilità di cambiare tema, raggiungendo così una maggiore soddisfazione dell’utente.
+Dal grafico si può osservare che il gruppo si è impegnato fin dall'inizio a soddisfare il requisito desiderabile individuato, ovvero la possibilità di cambiare tema, raggiungendo così una maggiore soddisfazione dell’utente.
+
 
 
 #pagebreak()
@@ -1271,10 +1293,11 @@ Questo approccio ha permesso di ottenere una copertura del codice superiore a qu
 
 
 
+
 === PB
 Dal grafico si può notare che il valore dei test superati è sempre stato elevato.
-Questo dimostra che i test sviluppati sono sempre stati superati.
-Si è consapevoli che il fatto che i test vengano completamente superati non è garanzia di un software privo di errori o lacune, tuttavia è pur sempre indice di qualità del codice.
+Questo dimostra che i test sviluppati sono sempre stati superati.\
+Si è consapevoli che una quantità elevata  di test superati non sia garanzia di un software privo di errori o lacune, tuttavia è pur sempre indice di qualità del codice.
 
 
 //valuta inserimento del coupling
