@@ -314,7 +314,7 @@ _Flask_ è un _framework_ per _Python_ progettato per facilitare lo sviluppo di 
 
 
 === PyMongo
-`PyMongo` è il driver ufficiale di MongoDB per Python. Fornisce un’interfaccia semplice ed efficiente per connettersi a un database MongoDB, eseguire query, inserimenti, aggiornamenti e cancellazioni di documenti. Supporta le principali funzionalità CRUD di MongoDB, gestione delle transazioni e connessioni sicure tramite URI e autenticazione.
+`PyMongo` è il driver ufficiale di MongoDB per Python. Fornisce un'interfaccia semplice ed efficiente per connettersi a un database MongoDB, eseguire query, inserimenti, aggiornamenti e cancellazioni di documenti. Supporta le principali funzionalità CRUD di MongoDB, gestione delle transazioni e connessioni sicure tramite URI e autenticazione.
 
 - *Versione*: 4.13.1
 
@@ -744,12 +744,12 @@ In produzione, installa un server _Gunicorn_, che è un server WSGI (specifica c
 = Architetttura del sistema
 
 == Architettura logica
-Il backend è stato realizzato come un’applicazione monolitica basata su _Flask_, che integra in un unico servizio le principali responsabilità come l'autenticazione e la registrazione degli utenti tramite AWS Cognito e JWT, la gestione e persistenza dei dati dei workflow su MongoDB, il routing delle richieste HTTP e la gestione delle sessioni, e l’elaborazione di prompt AI con la relativa logica di business dei _workflow_ (creazione, modifica, esecuzione e cancellazione).
+Il backend è stato realizzato come un'applicazione monolitica basata su _Flask_, che integra in un unico servizio le principali responsabilità come l'autenticazione e la registrazione degli utenti tramite AWS Cognito e JWT, la gestione e persistenza dei dati dei workflow su MongoDB, il routing delle richieste HTTP e la gestione delle sessioni, e l'elaborazione di prompt AI con la relativa logica di business dei _workflow_ (creazione, modifica, esecuzione e cancellazione).
 
 === Pro
 Considerato il prodotto da costruire, abbiamo ritenuto fondamentale sviluppare, testare e iterare nuove funzionalitá senza introdurre complessità infrastrutturali non necessarie.
 
-L'architettura monolitica ci ha permesso di lavorare su un unico repository e un’unica codebase, riducendo tempi di setup e di coordinamento e mantenere la concentrazione sul valore funzionale (gestione workflow, autenticazione, AI) anziché sulla gestione dei microservizi o dell’orchestrazione di essi.
+L'architettura monolitica ci ha permesso di lavorare su un unico repository e un'unica codebase, riducendo tempi di setup e di coordinamento e mantenere la concentrazione sul valore funzionale (gestione workflow, autenticazione, AI) anziché sulla gestione dei microservizi o dell'orchestrazione di essi.
 
 Questa scelta, considerando il contesto del prodotto e il ritardo accumulato, è stata motivata dal fatto che il gruppo non riteneva necessario dividere ulteriormente l'applicativo creato, in quanto per sua natura, il _backend_ ha lo scopo primario di gestire e inviare richieste ad altri servizi esterni, non svolgendo quindi importanti manipolazioni di dati.
 
@@ -757,13 +757,13 @@ Questa scelta, considerando il contesto del prodotto e il ritardo accumulato, è
 Siamo consapevoli che questa soluzione presenta alcuni limiti.
 Secondo l'architettura, la scalabilità avviene principalmente in senso verticale. Considerata la struttura di deployment su AWS è possibile aumentare il numero di istanze EC2 e configurare "ad-hoc" un sistema di load balancing esterno per garantire performance elevate. Inoltre, è possibile scegliere di passare al sistema ECS (Elastic Container Service) di AWS che gestisce in autonomia il numero di container necessari in base al carico di richieste, a discapito di un costo che potrebbe essere maggiore.
 
-Con il continuo dello sviluppo, l’applicazione tenderà a diventare meno modulare e ogni modifica richiede la ridistribuzione dell’intero pacchetto. Nel contesto attuale, il rilascio di nuovi aggiornamenti riguarderà tendenzialmente l'aggiunta di nuovi blocchi, che richiederanno comunque un riavvio del sistema.
+Con il continuo dello sviluppo, l'applicazione tenderà a diventare meno modulare e ogni modifica richiede la ridistribuzione dell'intero pacchetto. Nel contesto attuale, il rilascio di nuovi aggiornamenti riguarderà tendenzialmente l'aggiunta di nuovi blocchi, che richiederanno comunque un riavvio del sistema.
 
 === Confronto con altre architetture
 Il confronto che abbiamo effettuato con altre architetture hanno confermato questa scelta:
 - I microservizi offrono scalabilità granulare e indipendenza dei componenti, ma introducono complessità di orchestrazione, sicurezza e manutenzione. Avendo un solo componente che essenzialmente gestisce e redirecta dati, non la ritenevamo la scelta corretta;
 
-- Il modello serverless consente un’elevata elasticità e un modello di costo pay-per-use, ma rende più difficile la gestione dello stato e introduce latenze dovute ai cold start. L'utilizzo di AWS Lambda, il servizio di calcolo serverless che consente di eseguire codice in risposta ad eventi, era stato preso in considerazione ma aumentava la difficoltá di sviluppo e testing in locale durante la fase di sviluppo. Inoltre, considerato il contesto del prodotto, alcuni _workflow_ potevano andare oltre il limite di timeout di AWS (standard a 20 minuti), portando ad esecuzioni incomplete e/o fallite.
+- Il modello serverless consente un'elevata elasticità e un modello di costo pay-per-use, ma rende più difficile la gestione dello stato e introduce latenze dovute ai cold start. L'utilizzo di AWS Lambda, il servizio di calcolo serverless che consente di eseguire codice in risposta ad eventi, era stato preso in considerazione ma aumentava la difficoltá di sviluppo e testing in locale durante la fase di sviluppo. Inoltre, considerato il contesto del prodotto, alcuni _workflow_ potevano andare oltre il limite di timeout di AWS (standard a 20 minuti), portando ad esecuzioni incomplete e/o fallite.
 
 == Design patterns
 === Decorator
@@ -1082,8 +1082,10 @@ class TelegramBotMessageSanitizationStrategy(NodeSanitizationStrategy):
 
 == Struttura del Backend
 
-== Diagramma delle classi
-#image("Main.svg")
+=== Diagramma delle classi
+#figure(image("../../assets/img/specificatecnica/Main.svg", width: 92%), caption: [
+  Diagramma delle classi
+])
 
 
 // Il backend è stato sviluppato in _Python_ ed eseguito in un contesto Flask avviato tramite lo _singleton_ _FlaskAppSingleton_ e containerizzabile con un dockerfile che prepara un'immagine basata su python3.13 e definisce vari target.
@@ -1404,7 +1406,7 @@ La classe 'FlowIterator' esegue in sequenza i blocchi di un workflow e collezion
 - ```py +FlowIterator(blocks: list[Block]) ```
 ===== Metodi
 - ```py -_run_blocks(input: dict[str, Any]) : None ```:esegue i blocchi, accumula output e log, gestisce errori.
-- ```py +run(input: dict[str, Any]) : None ```: avvia l’esecuzione in un thread.
+- ```py +run(input: dict[str, Any]) : None ```: avvia l'esecuzione in un thread.
 - ```py +get_logs() : list[ExecutionLog] ```
 - ```py +get_status() : Status ```
 
@@ -1532,13 +1534,13 @@ Al suo interno troviamo:
 I file di configurazione, come `vite.config.ts`, `tsconfig.json`, gestiscono la build, i tipi TypeScript e le dipendenze. Invece file come `index.html` e `index.css` gestiscono la struttura e lo stile globale.
 
 
-Nel contesto del nostro capitolato, sono stati di fondamentale importanza anche gli "hooks" di `React`, utilizzati per gestire stato, effetti collaterali e logica riutilizzabile all’interno dei componenti.
+Nel contesto del nostro capitolato, sono stati di fondamentale importanza anche gli "hooks" di `React`, utilizzati per gestire stato, effetti collaterali e logica riutilizzabile all'interno dei componenti.
 
 Gli hook principali impiegati sono:
 - useState: serve a gestire lo stato locale dei componenti, ad esempio memorizzare il nome di un nuovo workflow (newWorkflowName) o visualizzare la lista di workflow caricati (workflows). Ogni volta che lo stato cambia, il componente si aggiorna in automatico.
 - useEffect: permette di eseguire effetti collaterali dopo il "render" della pagina. Usato per: recuperare i dati iniziali dal backend (es. la lista di workflow o i contenuti di un workflow specifico) e gestire "side-effect" legati al localStorage (es. notifiche o il cambio tema);
 - useCallback: utilizzato in `edit.tsx` per ottimizzare la definizione di funzioni come `onNodesChange`, `onEdgesChange` e `onConnect`, in quanto così facendo, le funzioni non vengono ricreate a ogni render, evitando aggiornamenti inutili e migliorando le performance.
-- hooks di routing (useNavigate, useParams): forniti da `React Router`, permettono di gestire la navigazione e recuperare parametri dinamici dalla URL (es. l’id del workflow).
+- hooks di routing (useNavigate, useParams): forniti da `React Router`, permettono di gestire la navigazione e recuperare parametri dinamici dalla URL (es. l'id del workflow).
 
 == Componenti
 In questa sezione vengono descritte i principali componenti di interfaccia utente utilizzati:
@@ -1607,8 +1609,8 @@ MongoDB utilizza come unità di archiviazione i documenti in formato BSON, utili
 Inoltre, la sua scalabilità orizzontale consente di gestire un numero crescente di utenti e dati senza compromettere le prestazioni.
 
 === Analisi all'alternativa AWS
-È stata presa in considerazione l’adozione di DynamoDB come soluzione per la persistenza dei dati.\
-Tuttavia, a seguito di un’analisi approfondita, si è concluso che MongoDB rappresenta l’opzione più adatta al caso d’uso del nostro progetto, garantendo al contempo una maggiore convenienza economica rispetto all’alternativa proposta da AWS in quanto hostata nell'istanza EC2 senza costi aggiuntivi.
+È stata presa in considerazione l'adozione di DynamoDB come soluzione per la persistenza dei dati.\
+Tuttavia, a seguito di un'analisi approfondita, si è concluso che MongoDB rappresenta l'opzione più adatta al caso d'uso del nostro progetto, garantendo al contempo una maggiore convenienza economica rispetto all'alternativa proposta da AWS in quanto hostata nell'istanza EC2 senza costi aggiuntivi.
 
 
 == Schema della basi di dati
@@ -1628,7 +1630,7 @@ I dati relativi ai workflow vengono salvati in un documento BSON che contiene:
 == Utilizzo di Cognito per l'autenticazione
 L'utilizzo di Cognito permette di garantire uno storage sicuro dei dati di autenticazione degli utenti e allo stesso tempo, di esternare la gestione delle identità a un servizio affidabile e scalabile offerto da AWS. Il meccanismo integrato di invio dei codici OTP per la conferma dell'account ha permesso al gruppo di risparmiare tempo nella fase di development, a discapito della configurazione del servizio "ad-hoc".
 
-Un ulteriore motivo che ha guidato la scelta di adottare Cognito è stato il suo valore didattico, in quanto l’utilizzo di questo servizio ci ha permesso di approfondire in maniera pratica i meccanismi di gestione delle identità attraverso i flussi di autenticazione moderni oltre che a differenziare i servizi AWS studiati.
+Un ulteriore motivo che ha guidato la scelta di adottare Cognito è stato il suo valore didattico, in quanto l'utilizzo di questo servizio ci ha permesso di approfondire in maniera pratica i meccanismi di gestione delle identità attraverso i flussi di autenticazione moderni oltre che a differenziare i servizi AWS studiati.
 
 
 
