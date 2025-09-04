@@ -770,13 +770,13 @@ Il confronto che abbiamo effettuato con altre architetture hanno confermato ques
 Il _decorator_ è un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
 
 ==== Integrazione del pattern nel progetto
-Nel progetto viene utilizzato un un decorator `@protected` all'interno della classe `Backend` per proteggere le _route_ che richiedono autenticazione. Il decorator estende il comportamento delle _route_ _Flask_ aggiungendo la logica di verifica per i token _JWT_ forniti con le richieste.
+Nel progetto viene utilizzato un un decorator `@ProtectedDecorator()` all'interno della classe `Backend` per proteggere le _route_ che richiedono autenticazione. Il decorator estende il comportamento delle _route_ _Flask_ aggiungendo la logica di verifica per i token _JWT_ forniti con le richieste.
 
 L'utilizzo del _decorator_ ha consentito di separare la logica di autenticazione dal codice dall'implementazione stessa di ogni _route_, evitando duplicazioni di codice e migliorandone la manutenibilità. Ogni route protetta è facilmente identificabile e la logica può essere modificata in un singolo punto
 
 
 ==== Implementazione ed esempio di utilizzo
-#codly(header: [utils/protected.py])
+#codly(header: [utils/protectedDecorator.py])
 ```py
 from collections.abc import Callable
 from functools import wraps
@@ -887,7 +887,7 @@ Il pattern _iterator_ viene utilizzato nella classe `FlowIterator` la quale cons
 Questo consente di nascondere la complessità della struttura interna e fornire un'interfaccia semplice per iterare sui blocchi alla classe `FlowManager`, ottenendo quindi una migliore manutenibilità grazie alla separazione delle responsabilità.
 #codly(header: [flow/blockIterator.py])
 ```py
-class FlowIterator(Iterator):
+class FlowIterator(FlowIteratorInterface):
     _position: int = 0
     _reverse: bool = False
 
@@ -925,6 +925,9 @@ class FlowIterator(Iterator):
             return ordered
         except Exception as e:
             raise ValueError(f"Error in topological sorting: {str(e)}")
+
+    def has_next(self) -> bool:
+        return self._position < len(self._flow.get_nodes())
 ```
 
 
@@ -1184,6 +1187,7 @@ La classe `FlowIterator` implementa il pattern _iterator_ per iterare su un ogge
 ===== Metodi
 - ```py +__init__(flow: Flow, reverse: bool = False)```: costruttore della classe, inizializza l'iteratore con il flusso e l'ordine di iterazione.
 - ```py +__next__() : dict[str, Any]```: restituisce il prossimo nodo nel flusso.
+- ```py +has_next() : bool```: verifica se ci sono ancora nodi da iterare.
 - ```py -topological_sort() : list[str]```: esegue l'ordinamento topologico dei nodi basato sulle dipendenze definite dagli archi.
 
 ==== Block
