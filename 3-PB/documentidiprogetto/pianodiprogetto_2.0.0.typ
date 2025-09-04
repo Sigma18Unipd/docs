@@ -8,8 +8,15 @@
   verificatori: ("Carmelo Russello", "Mirco Borella", "Marco Egidi", "Matteo Marangon", "Pietro Crotti", "Alessandro Bernardello"),
   tipo: "Documento Esterno",
   destinatari: ("Prof. Tullio Vardanega", "Prof. Riccardo Cardin", "Var Group S.P.A", "Sigma18"),
-  versioneAttuale: "1.3.0",
+  versioneAttuale: "2.0.0",
   versioni: (
+    "2.0.0",
+    "2025/09/03",
+    "Mirco Borella",
+    "Carmelo Russello
+Matteo Marangon
+Aleena Mathew",
+    "Aggiornamento retrospettiva undicesimo sprint",
     "1.3.0",
     "2025/08/19",
     "Marco Egidi",
@@ -103,15 +110,15 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 == Riferimenti
 === Riferimenti normativi
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le routine digitali tramite l'intelligenza generativa] [ultimo accesso il: 09/07/2025]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Progetto/C3.pdf")[Capitolato C3: Automatizzare le routine digitali tramite l'intelligenza generativa] [ultimo accesso il: 22/08/2025]
 
-- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico] [ultimo accesso il: 09/07/2025]
+- #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/PD1.pdf")[Regolamento progetto didattico] [ultimo accesso il: 14/08/2025]
 
-- #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] [ultimo accesso il: 09/07/2025]
+- #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] [ultimo accesso il: 16/08/2025]
 
 === Riferimenti informativi
 
-- #link("https://sigma18unipd.github.io/documentiCompilati/2-RTB/documentidiprogetto/glossario.pdf")[Glossario] [versione 1.0.0]
+- #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf")[Glossario] [versione 2.0.0]
 
 #pagebreak()
 
@@ -1190,7 +1197,7 @@ Il gruppo si impegna a:
   [*Totali*], [*7*], [*3*], [*32*], [*36*], [*6*], [*25*], [*109*],
 )
 
-==== *Consultivo orario*:
+==== *Consuntivo orario*:
 #table(
   columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
   align: center,
@@ -1251,7 +1258,7 @@ L'eccellente pianificazione ha permesso di mantenere alta la qualità del lavoro
 ==== Dettagli
 
 *Data di inizio*: 19/08/2025 \
-*Data di fine*: 01/09/2025 \
+*Data di fine*: 03/09/2025 \
 
 *Rischi attesi*: RT1, RT2, RO1, RO2, RO3
 
@@ -1262,8 +1269,7 @@ Il gruppo si impegna a:
 - Stendere il "Manuale Utente";
 - Stendere la "Specifica Tecnica";
 - Organizzare l'incontro di revisione finale del _MVP_ con l'azienda proponente;
-- Revisione PB con il professore Cardin;
-- Revisione PB con il professore Vardanega.
+- Revisione PB con i professori Cardin e Vardanega.
 
 ==== *Preventivo orario*:
 #table(
@@ -1281,3 +1287,50 @@ Il gruppo si impegna a:
   [Carmelo Russello], [4], [2], [1], [2], [0], [4], [*13*],
   [*Totali*], [*7*], [*12*], [*14*], [*27*], [*6*], [*28*], [*94*],
 )
+
+==== *Consuntivo orario*:
+#table(
+  columns: (3fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  align: center,
+  rows: auto,
+  inset: 6pt,
+  table.header([], [*Amm*], [*Ana*], [*Prg*], [*Pro*], [*Res*], [*Ver*], [*Totale*]),
+  [Alessandro Bernardello], [0], [4 (+2)], [6 (+3)], [6], [0], [2], [*18*],
+  [Mirco Borella], [0], [2 (+1)], [5.5 (+3.5)], [6], [0], [5], [*18.5*],
+  [Pietro Crotti], [0], [2], [2], [4], [0], [6], [*14*],
+  [Marco Egidi], [0], [2], [2], [3], [3], [4], [*14*],
+  [Matteo Marangon], [0], [2], [4 (+2)], [4], [0], [4], [*14*],
+  [Aleena Mathew], [3], [1], [4 (+2)], [2], [3], [3], [*16*],
+  [Carmelo Russello], [4], [1 (-1)], [4(+3)], [2], [0], [4], [*15*],
+  [*Totali*], [*7*], [*14*], [*27.5*], [*27*], [*6*], [*28*], [*109.5*],
+)
+
+==== *Consuntivo costo*:
+#table(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  rows: auto,
+  inset: 6pt,
+  table.header([*Ruolo*], [*Ore per ruolo*], [*Costo orario ruolo*], [*Costo figura*]),
+  [Amministratore], [7], [€20], [€140.00],
+  [Analista], [14], [€25], [€350.00],
+  [Progettista], [27.5], [€25], [€687.50],
+  [Programmatore], [27], [€15], [€405.00],
+  [Responsabile], [6], [€30], [€180.00],
+  [Verificatore], [28], [€15], [€420.00],
+  [*Totali*], [*109.5*], [], [*€2182.50*],
+)
+
+==== *Analisi retrospettiva*: \
+_Sigma18_ dichiara che il undicesimo sprint è stato molto proficuo all'avanzamento del capitolato.
+
+Nello specifico è stato ultimato il _MVP (Minimum Viable Product)_ con tutte le funzionalità richieste e i relativi test automatici ad esso associati.
+
+Il prodotto sviluppato è stato presentato all'azienda proponente in data 01 settembre 2025 in un incontro svolto in presenza nel quale un rappresentante dell'azienda ha avuto modo di testare tutte le funzionalità implementate in prima persona e ad assistere al passaggio di tutti i test di accettazione.
+
+L'azienda proponente ha espresso il proprio apprezzamento per il lavoro svolto e ha approvato il _MVP (Minimum Viable Product)_ senza richiedere modifiche.
+
+Nello stesso periodo, è stato verificato il documento di Manuale Utente e sono state apportate le ultime modifiche alla specifica tecnica.
+
+In seguito, è stata verificata la specifica tecnica, approvandone il rilascio.
+
+Il gruppo ha programmato una email in data 04 settembre 2025 per iniziare la revisione PB con il professor Cardin, per poi proseguire, semaforo verde permettendo, con la revisione PB con il professor Vardanega.

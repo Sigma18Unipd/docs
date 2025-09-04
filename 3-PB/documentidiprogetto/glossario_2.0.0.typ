@@ -4,16 +4,29 @@
   titoloDocumento: "Glossario",
   responsabili: "Matteo Marangon",
   redattori: ("Mirco Borella", "Matteo Marangon", "Aleena Mathew", "Pietro Crotti"),
-  verificatori: ("Alessandro Bernardello", "Carmelo Russello", "Marco Egidi", "Pietro Crotti", "Matteo Marangon", "Aleena Mathew"),
+  verificatori: (
+    "Alessandro Bernardello",
+    "Carmelo Russello",
+    "Marco Egidi",
+    "Pietro Crotti",
+    "Matteo Marangon",
+    "Aleena Mathew",
+    "Mirco Borella",
+  ),
   tipo: "Documento Interno",
   destinatari: ("Sigma18", "Prof. Tullio Vardanega", "Prof. Riccardo Cardin"),
   versioneAttuale: "2.0.0",
   versioni: (
     "2.0.0",
     "2025/09/03",
-    "Matteo Marangon",
+    "Marco Egidi",
+    "Alessandro Bernardello",
+    "Merge con termini specifica tecnica",
+    "1.2.0",
+    "2025/08/29",
     "Aleena Mathew",
-    "Merge dei termini specifica tecnica",
+    "Mirco Borella",
+    "Aggiunta termini",
     "1.1.1",
     "2025/08/29",
     "Matteo Marangon",
@@ -319,6 +332,7 @@ Fase del processo di sviluppo software in cui vengono definiti i requisiti del s
 == Script
 File di testo che contiene una sequenza di istruzioni o comandi da eseguire.
 
+
 == SDK (_Software Development Kit_)
 Insieme di strumenti, librerie e documentazione forniti da un produttore di software per facilitare lo sviluppo di applicazioni su una specifica piattaforma o tecnologia.
 
@@ -342,6 +356,9 @@ Processo nel quale si definiscono le attività da svolgere e i prodotti attesi d
 
 == Superset
 Un superset è un linguaggio che contiene tutte le funzionalità di un altro linguaggio e ne aggiunge di nuove. TypeScript, ad esempio, è un superset di JavaScript: include tutto JavaScript e aggiunge funzionalità come i tipi statici.
+
+== StreamHandler
+Classe nel framework di logging di un linguaggio di programmazione (es. Python) che invia i messaggi di log a uno stream. Serve come un gestore di base per incanalare i log a una destinazione di output, permettendo di specificare dove devono essere scritti i record di log.
 
 
 #pagebreak()
