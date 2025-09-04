@@ -979,7 +979,7 @@ Lo _strategy_ è un design pattern comportamentale che consente di definire una 
 
 Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi:
 
-- `JsonParserStrategy`, presente nel modulo `flow` è responsabile del parsing dei dati in formato _JSON_ ricevuti dal _frontend_, identificando gli elementi di tipo `Block` da creare.\ L'utilizzo del pattern _strategy_ consente di effettuare facilmente modifiche alla logica di parsing o di ordinamento per rispecchiare possibili cambiamenti nel formato di dati utilizzato dalla libreria _React Flow_ utilizzata nel frontend senza avere impatti sul resto del sistema.
+- `JsonParserStrategy`, presente nel modulo `flow` è responsabile del parsing dei dati in formato _JSON_ ricevuti dal _frontend_, identificando gli elementi di tipo `Block` da creare.\ L'utilizzo del pattern _strategy_ consente di effettuare facilmente modifiche alla logica di parsing per rispecchiare possibili cambiamenti nel formato di dati utilizzato dalla libreria _React Flow_ utilizzata nel frontend senza avere impatti sul resto del sistema.
 
 
 - `llmSanitizerStrategy`, utilizzato all'interno del modulo `llm`, viene impiegato per la sanitizzazione delle risposte fornite dall'agente _LLM_ per la creazione di un _workflow_. L'utilizzo dello _strategy_ consente di definire diverse strategie di sanitizzazione per i vari tipi di nodi, cosa necessaria in quanto ogni tipo di nodo presenta impostazioni differenti rendendo necessaria una logica specifica per ogni blocco.
