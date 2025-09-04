@@ -778,12 +778,19 @@ L'utilizzo del _decorator_ ha consentito di separare la logica di autenticazione
 ==== Implementazione ed esempio di utilizzo
 #codly(header: [utils/protected.py])
 ```py
+from collections.abc import Callable
 from functools import wraps
 from utils.jwtUtils import verifyJwt
 from flask import request, g, redirect
 import logging
+from typing import Protocol
 logger = logging.getLogger(__name__)
-class ProtectedDecorator:
+
+class ProtectedDecoratorInterface(Protocol):
+    def __call__(self, f: Callable) -> Callable:
+        ...
+
+class ProtectedDecorator(ProtectedDecoratorInterface):
     def __call__(self, f):
         @wraps(f)
         def decorated_function(*args, **kwargs):
