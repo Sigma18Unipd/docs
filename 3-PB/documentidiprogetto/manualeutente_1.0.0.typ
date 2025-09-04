@@ -81,7 +81,7 @@ All'interno dei documenti, ogni termine presente nel Glossario sarà opportuname
 - #link("https://www.iso.org/standard/65694.html")[ISO/IEC 31000:2018] (*Ultimo accesso il: 23/07/2025*)
 
 === Riferimenti informativi
-- #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario.pdf")[Glossario] [versione 2.0.0]
+- #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/glossario_2.0.0.pdf")[Glossario] [versione 2.0.0]
 
 - #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/specificatecnica_1.0.0.pdf")[Specifica tecnica] [versione 1.0.0]
 
@@ -171,7 +171,7 @@ L'errore generico si verifica quando si presenta un problema diverso da quelli p
 == Verifica account
 <confirm>
 L'utente riceverà un codice di verifica all'indirizzo email fornito nella fase di registrazione (vedi #link(<registrazione>)[sezione 3.2]).
-L'utente dovrà inserire email e codice di verifica negli appositi campi, come mostrato in figura. Se la verifica viene effettutata subito dopo la registrazione, il campo relativo all'email verrà precompilato dal sistema.
+L'utente dovrà inserire email e codice di verifica negli appositi campi, come mostrato in figura. Se la verifica viene effettuata subito dopo la registrazione, il campo relativo all'email verrà precompilato dal sistema.
 #figure(image("../../assets/img/manualeutente/confirm_account.png", width: 40%), caption: [Schermata di verifica account])
 
 Dopo la verifica dell'account, il sistema reindirizza automaticamente l'utente alla pagina _dashboard_ iniziale, che risulterà vuota in quanto non sono ancora presenti _workflow_ associati all'account appena creato (vedi figura).

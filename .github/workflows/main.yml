@@ -29,15 +29,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKENSEGRETISSIMO }}
         run: |
           git clone "https://oauth2:$GITHUB_TOKEN@github.com/Sigma18Unipd/sigma18unipd.github.io.git" RepoSito
-          mkdir -p temp/candidatura temp/rtb
+          mkdir -p temp/candidatura temp/rtb temp/pb
           cd RepoSito
           mv ./documentiCompilati/1-candidatura/verbali/esterni/* ../temp/candidatura
           mv ./documentiCompilati/2-RTB/verbali/esterni/* ../temp/rtb
+          mv ./documentiCompilati/3-PB/verbali/esterni/* ../temp/pb
           rm -rf ./documentiCompilati/*
           cp -r ../compiled/* ./documentiCompilati
           rm -rf ./documentiCompilati/templates
           mv ../temp/candidatura/* ./documentiCompilati/1-candidatura/verbali/esterni
           mv ../temp/rtb/* ./documentiCompilati/2-RTB/verbali/esterni
+          mv ../temp/pb/* ./documentiCompilati/3-PB/verbali/esterni
           cd ..
           python3 .github/workflows/generate_html.py
           cd RepoSito

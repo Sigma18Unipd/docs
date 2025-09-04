@@ -40,12 +40,6 @@ def generate_project_section(project_folder):
         <div class="accordionContent" id="{project_folder}">
     """
     if project_folder == "2-RTB":
-        html += """
-            <h2>Release</h2>
-            <ul class="document-list">
-                <li><a href="https://github.com/Sigma18Unipd/ProofOfConcept/archive/refs/tags/1.0.0.zip">PoC</a></li>
-            </ul>
-        """
         relazioni_dir = os.path.join(project_path, "relazioni")
         if os.path.exists(relazioni_dir):
             relazioni_pdfs = sorted(glob.glob(os.path.join(relazioni_dir, "*.pdf")), reverse=True)
