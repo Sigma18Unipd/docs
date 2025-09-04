@@ -779,22 +779,25 @@ L'utilizzo del _decorator_ ha consentito di separare la logica di autenticazione
 #codly(header: [utils/protected.py])
 ```py
 from functools import wraps
-from flask import request, g
-def protected(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        try:
-            jwtToken = request.cookies.get("jwtToken")
-            payload = verifyJwt(jwtToken)
-            if not jwtToken or not payload:
+from utils.jwtUtils import verifyJwt
+from flask import request, g, redirect
+import logging
+logger = logging.getLogger(__name__)
+class ProtectedDecorator:
+    def __call__(self, f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            try:
+                jwtToken = request.cookies.get("jwtToken")
+                payload = verifyJwt(jwtToken)
+                if not jwtToken or not payload:
+                    return redirect("/login"), 302
+                g.email = payload["email"]
+            except Exception as e:
+                logger.debug("Protected route auth failed: %s", e)
                 return redirect("/login"), 302
-            g.email = payload["email"]
-        except Exception as e:
-            logger.debug("Protected route auth failed: %s", e)
-            return redirect("/login"), 302
-        return f(*args, **kwargs)
-
-    return decorated_function
+            return f(*args, **kwargs)
+        return decorated_function
 ```
 #codly(header: [backend.py])
 #codly(smart-skip: true)
@@ -802,7 +805,7 @@ def protected(f):
 #codly(ranges: ((1, 11),))
 ```py
 @app.route("/dashboard", methods=["POST"])
-@protected
+@ProtectedDecorator()
 def dashboard():
     cursor = db.workflows.find({"email": g.email})
     flows = [{
