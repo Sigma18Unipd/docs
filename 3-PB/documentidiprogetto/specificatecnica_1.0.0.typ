@@ -770,7 +770,7 @@ Il confronto che abbiamo effettuato con altre architetture hanno confermato ques
 Il _decorator_ è un design pattern strutturale che permette di estendere dinamicamente le funzionalità di un oggetto senza modificarne la struttura interna.
 
 ==== Integrazione del pattern nel progetto
-Nel progetto viene utilizzzato un un decorator `@protected` all'interno della classe `Backend` per proteggere le _route_ che richiedono autenticazione. Il decorator estende il comportamento delle _route_ _Flask_ aggiungendo la logica di verifica per i token _JWT_ forniti con le richieste.
+Nel progetto viene utilizzato un un decorator `@protected` all'interno della classe `Backend` per proteggere le _route_ che richiedono autenticazione. Il decorator estende il comportamento delle _route_ _Flask_ aggiungendo la logica di verifica per i token _JWT_ forniti con le richieste.
 
 L'utilizzo del _decorator_ ha consentito di separare la logica di autenticazione dal codice dall'implementazione stessa di ogni _route_, evitando duplicazioni di codice e migliorandone la manutenibilità. Ogni route protetta è facilmente identificabile e la logica può essere modificata in un singolo punto
 
@@ -883,15 +883,12 @@ class FlowIterator(Iterator):
 
     def __init__(self, flow: Flow, reverse: bool = False) -> None:
         self._flow = flow
-        self._reverse = reverse
         self._ordered_nodes = None
         self._position = 0
 
     def __next__(self) -> Any:
         if self._ordered_nodes is None:
             self._ordered_nodes = self._topological_sort()
-            if self._reverse:
-                self._ordered_nodes = list(reversed(self._ordered_nodes))
 
         if self._position >= len(self._ordered_nodes):
             raise StopIteration()
@@ -928,7 +925,7 @@ Si tratta di un _design pattern_ creazionale che garantisce un'unica istanza glo
 ==== Integrazione del pattern nel progetto
 Questo _pattern_ è stato adottato in varie parti del nostro progetto. In particolare viene utilizzato per garantire singole istanze di:
 
-- `BlockFactory`: classe responsabile della creazione di oggetti di tipo `Block`. L'utilizzo del _pattern_ ha permesso di:
+- `BlockCreatorSingleton`: classe responsabile della creazione di oggetti di tipo `Block`. L'utilizzo del _pattern_ ha permesso di:
   - Registrare i tipi di blocchi istanziabili una sola volta all'avvio dell'applicazione
   - Garantire consistenza nella creazione dei blocchi attraverso un registry centralizzato
   - Evitare duplicazioni di istanze che potrebbero causare conflitti nella registrazione dei tipi
@@ -941,14 +938,14 @@ Questo _pattern_ è stato adottato in varie parti del nostro progetto. In partic
 
 ==== Implementazione
 Di seguito viene riportata una delle implementazioni del _pattern singleton_ adottate nel progetto:
-#codly(header: [flow/blockFactory.py])
+#codly(header: [flow/BlockCreatorSingleton.py])
 #codly(skips: ((1, 12),))
 #codly(ranges: ((1, 22),))
 #codly(smart-skip: true)
 
 ```py
-class BlockFactory():
-    _instance: Optional["BlockFactory"] = None
+class BlockCreatorSingleton():
+    _instance: Optional["BlockCreatorSingleton"] = None
     _lock = threading.Lock()
     _initialized = False
 
@@ -960,10 +957,10 @@ class BlockFactory():
             with self._registry_lock:
                     self._import_block_types()
                     self._initialized = True
-                    logging.debug("BlockFactory initialized")
+                    logging.debug("BlockCreatorSingleton initialized")
 
     @classmethod
-    def get_block_factory(cls) -> "BlockFactory":
+    def get_block_factory(cls) -> "BlockCreatorSingleton":
         if cls._instance is None:
             with cls._lock:
                 if cls._instance is None:
@@ -985,7 +982,6 @@ Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi
 - `llmSanitizerStrategy`, utilizzato all'interno del modulo `llm`, viene impiegato per la sanitizzazione delle risposte fornite dall'agente _LLM_ per la creazione di un _workflow_. L'utilizzo dello _strategy_ consente di definire diverse strategie di sanitizzazione per i vari tipi di nodi, cosa necessaria in quanto ogni tipo di nodo presenta impostazioni differenti rendendo necessaria una logica specifica per ogni blocco.
 
 ==== Implementazione
-// TODO: spiegare
 #codly(header: [llm/llmSanitizer.py])
 #codly(skips: ((1, 10),))
 #codly(ranges: ((1, 81),))
@@ -1058,11 +1054,6 @@ class TelegramBotMessageSanitizationStrategy(NodeSanitizationStrategy):
 
 
 
-
-
-
-
-
 == Struttura del Backend
 
 === Diagramma delle classi
@@ -1074,114 +1065,133 @@ class TelegramBotMessageSanitizationStrategy(NodeSanitizationStrategy):
 ==== Backend
 La classe `Backend` gestisce le _route_ presenti nell'applicazione, fungendo da punto d'ingresso per le varie funzioni.
 
-===== Attrributi
+===== Attributi
 - ```py -db: MongoDBSingleton```: istanza del singleton per la connessione a MongoDB.
-- ```py -cognito_client: boto3.cognito_client```: client AWS Cognito per l'autenticazione e la gestione degli utenti.
 - ```py -app: FlaskAppSingleton```: istanza del singleton per l'app Flask.
+- ```py -cognito_client: boto3.cognito_client```: client AWS Cognito per l'autenticazione e la gestione degli utenti.
+- ```py -agent: LLMFacade```: istanza della classe `LLMFacade` per interagire con l'agente LLM.
 
 ===== Metodi
-- ```py +login()```: metodo associato alla _route_ di login, interagendo con AWS Cognito per autenticare l'utente e generare un _token JWT_.
+- ```py +login()```: metodo associato alla _route_ di login. Interagisce con AWS Cognito per autenticare l'utente e generare un _token JWT_.
 - ```py +register()```: crea un nuovo utente sul servizio AWS Cognito.
 - ```py +confirm()```: metodo per la verifica di un account utente, il quale valida il codice di conferma fornito dall'utente.
 - ```py +dashboard()```: restituisce i _workflow_ associati all'utente autenticato.
 - ```py +new_workflow()```: crea un nuovo _workflow_ e lo salva nel database associandolo all'utente autenticato.
 - ```py +get_workflow(id)```: recupera un _workflow_ in base al suo ID.
-- ```py +delete_workflow(id)```: elimina un _workflow_
+- ```py +delete_workflow(id)```: elimina un _workflow_.
 - ```py +save_workflow(id)```: aggiorna i dettagli di un workflow esistente.
 - ```py +run_workflow(id)```: esegue un _workflow_ specifico.
 - ```py +ai_workflow()```: elabora un _prompt_ fornito dall'utente tramite un agente LLM e genera un _workflow_.
 
-
 ==== MongoDBSingleton
-La classe `MongoDBSingleton` rappresenta il singleton della classe `MongoClient` fornita dalla libreria _Pymongo_. Questa viene utilizzata istanziare la connessione al database _MongoDB_ in maniera univoca per tutta l'esecuzione del backend.
+La classe `MongoDBSingleton` rappresenta il singleton della classe `MongoClient` fornita dalla libreria _Pymongo_. Questa viene utilizzata per istanziare la connessione al database _MongoDB_ in maniera univoca per tutta l'esecuzione del backend.
 
 ===== Attributi
-- ```py -_instance: Mongo | None ```: istanza della classe `Pymongo` creata globalmente per l'intero processo.
+- ```py -_instance: Mongo | None```: istanza della classe `Pymongo` creata globalmente per l'intero processo.
+- ```py -Mongo: MongoClient | None```: oggetto `MongoClient` di Pymongo.
 
 ===== Metodi
-- ```py +__new__(cls, app=None) : MongoDBSingleton ```: metodo che implementa il pattern singleton, garantendo un'unica istanza della connessione al database.
-- ```py +get_db() : Database ```: restituisce l'oggetto `Database`
+- ```py +__new__(cls, app=None) : MongoDBSingleton```: metodo che implementa il pattern singleton, garantendo un'unica istanza della connessione al database.
+- ```py +get_db() : Database```: restituisce l'oggetto `Database`.
 
 ==== FlaskAppSingleton
 La classe `FlaskAppSingleton` fornisce un'istanza unica di Flask per l'intera applicazione backend.
 
 ===== Attributi
-- ```py -_instance: FlaskAppSingleton | None ```: istanza singleton della classe
+- ```py -_instance: FlaskAppSingleton | None```: istanza singleton della classe.
 
 ===== Metodi
-- ```py +__new__() : FlaskAppSingleton ```: garantisce che venga creata una sola istanza della classe.
-- ```py +get_app() : Flask ```: restituisce l'istanza di Flask.
+- ```py +__new__() : FlaskAppSingleton```: garantisce che venga creata una sola istanza della classe.
+- ```py +get_app() : Flask```: restituisce l'istanza di Flask.
 
 ==== JWT
 La classe `JWT` fornisce metodi statici per la creazione e la verifica di JSON Web Token (JWT) utilizzati per l'autenticazione degli utenti.
 
 ===== Metodi
-- ```py +generateJwt(email: str) : str ```: genera un JWT con l'email e una scadenza di 1 ora.
-- ```py +verifyJwt(token: str) : dict | None ```: verifica la validità del token e restituisce il payload decodificato o None se non valido.
+- ```py +generateJwt(email: str) : str```: genera un JWT con l'email e una scadenza di 1 ora.
+- ```py +verifyJwt(token: str) : dict | None```: verifica la validità del token e restituisce il payload decodificato o None se non valido.
 
 ==== ProtectedDecorator
-La funzione `protected` è un _decorator_ che protegge le _route_ di Flask richiedendo un token JWT valido.
-//TODO: Riscrivere
+La classe `ProtectedDecorator` fornisce un _decorator_ che protegge le _route_ di Flask richiedendo un token JWT valido.
 
 ===== Metodi
-- ```py +protected(f) : function ```: decoratore che verifica il token JWT nella richiesta e gestisce l'autenticazione.
-//todo
+- ```py +__call__(f: function) : function```: decoratore che verifica il token JWT nella richiesta e gestisce l'autenticazione.
 
 ==== FlowManager
-La classe `FlowManager` è responsabile della gestione e dell'esecuzione di un workflow composto da blocchi interconnessi. Fa uso di della classe `JsonParser` per il parsing del flusso e di `BlockFactory` per l'istanziazione dei blocchi, inoltre sfrutta un oggetto di tipo `FlowIterator` per eseguire i blocchi in sequenza.
+La classe `FlowManager` è responsabile della gestione e dell'esecuzione di un workflow composto da blocchi interconnessi. Fa uso della classe `JsonParser` per il parsing del flusso e di `BlockCreatorSingleton` per l'istanziazione dei blocchi, inoltre sfrutta un oggetto di tipo `FlowIterator` per eseguire i blocchi in sequenza.
 
 ===== Attributi
-- ```py -flow: Flow ```: rappresenta il flusso di lavoro da eseguire.
-- ```py -parser: JsonParser ```: istanza del parser per analizzare la struttura del flusso.
-- ```py -iterator: FlowIterator```: iteratore per eseguire i blocchi in sequenza.
-- ```py -flow_data: dict[str, Any] ```: dati grezzi del flusso in formato dizionario.
+- ```py -flow: Flow```: rappresenta il flusso di lavoro da eseguire.
+- ```py -parser: JsonParser```: istanza del parser per analizzare la struttura del flusso.
+- ```py -flow_data: dict[str, Any]```: dati grezzi del flusso in formato dizionario.
+- ```creator: BlockCreatorSingleton```: istanza del singleton per la creazione dei blocchi.
 
 ===== Metodi
-- ```py +start_workflow() : None ```: avvia l'esecuzione del workflow in un thread separato.
-- ```py +get_status() : dict ```: restituisce lo stato corrente del workflow ed i log di esecuzione.
-
+- ```py +start_workflow() : None```: avvia l'esecuzione del workflow in un thread separato.
+- ```py +get_status() : dict```: restituisce lo stato corrente del workflow ed i log di esecuzione.
 
 ==== Flow
-La classe `Flow` rappresenta la struttura di un flusso di lavoro, composta da nodi (blocchi) e archi (connessioni tra blocchi). Utilizza `BlockFactory` per creare i blocchi in base ai nodi forniti.
+La classe `Flow` rappresenta la struttura di un flusso di lavoro, composta da nodi (blocchi) e archi (connessioni tra blocchi).
+
 ===== Attributi
-- ```py +nodes: list[dict[str, Any]] ```: lista dei nodi
-- ```py +edges: list[dict[str, str]] ```: lista degli archi
-- ```py -factory: BlockFactory ```: istanza della factory per la creazione dei blocchi.
+- ```py +nodes: list[dict[str, Any]]```: lista dei nodi.
+- ```py +edges: list[dict[str, str]]```: lista degli archi.
 
 ===== Metodi
-- ```py +__init__(nodes: list[dict[str, Any], edges: list[dict[str, str]]) ```: costruttore della classe, crea i nodi con i relativi settaggi utilizzando la factory e salva gli archi.
-- ```py +get_nodes() : list[dict[str, Any]] ```: restituisce la lista dei nodi.
-- ```py +get_edges() : list[dict[str, str]] ```: restituisce la lista degli archi.
+- ```py +add_node(node: Block) : None```: aggiunge un nodo (blocco) al flusso.
+- ```py +set_edges(edges: list[dict[str, str]]) : None```: imposta gli archi del flusso.
+- ```py +get_item(id: str) : Block | None```: restituisce il nodo con l'ID specificato.
+- ```py __iter__() : FlowIterator```: restituisce un iteratore per il flusso.
+
+==== BlockCreatorSingleton
+La classe `BlockCreatorSingleton` implementa il pattern singleton per la creazione di blocchi di vario tipo in base ai dati forniti.
+
+===== Attributi
+- ```py -_instance: BlockCreatorSingleton | None```: istanza singleton della classe
+- ```py -initialized: bool```: flag per indicare se l'istanza è stata inizializzata.
+- ```py -lock: threading.Lock```: lock per garantire la thread-safety durante l'istanza.
+
+===== Metodi
+- ```py +__init__()```: costruttore della classe, inizializza il lock.
+- ```py +create_block(node_data: dict[str, Any]) : Block | None```: crea un blocco in base ai dati forniti.
+- ```py +get_supported_types() : list[str]```: restituisce la lista dei tipi di blocchi supportati.
+- ```py +lookup_implemented(type: str) : bool```: verifica se un tipo di blocco è implementato.
+
+==== JsonParser
+La classe `JsonParser` è responsabile del parsing di un flusso di lavoro rappresentato in formato JSON. Trasforma la struttura JSON in una lista di nodi ed archi da creare.
+
+===== Metodi
+- ```py +parse(flow_data: dict[str, Any]) : dict[str, list[dict[str, Any]]]```: metodo principale che esegue il parsing del flusso JSON e restituisce un dizionario contenente le chiavi "nodes" e "edges" con le rispettive liste di nodi e archi.
 
 ==== FlowIterator
 La classe `FlowIterator` implementa il pattern _iterator_ per iterare su un oggetto `Flow`, eseguendo i blocchi in ordine topologico.
 
 ===== Attributi
-- ```py -_flow: Flow ```: il flusso di lavoro da iterare
-- ```py -_position: int ```: posizione corrente nell'iterazione
-- ```-_ordered_nodes: list[str] | None ```: lista ordinata dei nodi
+- ```py -position: int```: posizione corrente nell'iterazione.
+- ```py -flow: Flow```: il flusso di lavoro su cui iterare.
+- ```py -ordered_nodes: list[str] | None```: lista ordinata dei nodi.
 
 ===== Metodi
-- ```py +__init__(flow: Flow, reverse: bool = False) ```: costruttore della classe, inizializza l'iteratore con il flusso e l'ordine di iterazione.
-- ```py +__next__() : dict[str, Any] ```: restituisce il
-  prossimo nodo nel flusso
-- ```py -_topological_sort() : list[str] ```: esegue l'ordinamento topologico dei nodi basato sulle dipendenze definite dagli archi.
-
+- ```py +__init__(flow: Flow, reverse: bool = False)```: costruttore della classe, inizializza l'iteratore con il flusso e l'ordine di iterazione.
+- ```py +__next__() : dict[str, Any]```: restituisce il prossimo nodo nel flusso.
+- ```py -topological_sort() : list[str]```: esegue l'ordinamento topologico dei nodi basato sulle dipendenze definite dagli archi.
 
 ==== Block
 La classe `Block` rappresenta il blocco astratto base per tutti i nodi eseguibili del workflow. Fornisce metodi e attributi comuni per la gestione dello stato, degli input, degli output e dei log di esecuzione.
 
 ===== Attributi
-- ```py -id: str ```: identificativo univoco del blocco.
-- ```py -name: str ```: nome del blocco. Utilizzato per identificare il blocco nei log.
-- ```py -status: Status ```: stato del blocco.
-- ```py -input: dict[str, Any] | None ```: input del blocco. Viene passato al momento dell'esecuzione.
-- ```py -settings: dict[str, Any] | None ```: impostazioni del blocco, impostate al momento della sua creazione.
-- ```py -output: dict[str, Any] ```: output del blocco. Viene popolato al termine dell'esecuzione.
+- ```py -id: str```: identificativo univoco del blocco.
+- ```py -name: str```: nome del blocco. Utilizzato per identificare il blocco nei log.
+- ```py -status: Status```: stato del blocco.
+- ```py -input: dict[str, Any] | None```: input del blocco. Viene passato al momento dell'esecuzione.
+- ```py -settings: dict[str, Any] | None```: impostazioni del blocco, impostate al momento della sua creazione.
+- ```py -output: dict[str, Any]```: output del blocco. Viene popolato al termine dell'esecuzione.
 
 ===== Metodi
-- ```py +run(input: dict[str, Any]) : dict[str, Any] ```: metodo principale per eseguire il blocco. viene implementato nelle classi derivate.
-- ```py +get_output () : Any ```: Getter per l'output del blocco.
+- ```py +__init__(id: str, name: str, settings: dict[str, Any] | None = None)```: costruttore della classe, inizializza gli attributi del blocco.
+- ```py +run(input: dict[str, Any]) : dict[str, Any]```: metodo principale per eseguire il blocco. Viene implementato nelle classi derivate.
+- ```py +get_output() : Any```: getter per l'output del blocco.
+- ```py +get_status() : Status```: getter per lo stato del blocco.
 
 
 Di seguito vengono descritte le classi derivate da `Block` implementate nel sistema, assieme ad eventuali attributi specifici
@@ -1189,7 +1199,7 @@ Di seguito vengono descritte le classi derivate da `Block` implementate nel sist
 Estende la classe `Block`, rappresenta il blocco `AiSummarize` il quale utilizza un agente LLM per riassumere un testo fornito in input.
 
 ===== Attributi
-- ```py -agent: LLMFacade ```: istanza della classe `LLMFacade` per interagire con l'agente LLM.
+- ```py -agent: LLMFacade```: istanza della classe `LLMFacade` per interagire con l'agente LLM.
 
 ==== SysWait
 Implementazione del blocco `SysWait`, il quale introduce una pausa nell'esecuzione del flusso per un numero specificato di secondi.
@@ -1203,31 +1213,32 @@ Implementazione del blocco `TelegramSend`, in grado di inviare un messaggio ad u
 ==== LLMFacade
 La classe `LLMFacade` fornisce un'interfaccia semplificata per interagire con agenti LLM astraendo i dettagli delle chiamate API.
 
+===== Attributi
+- ```py -agent: boto3_bedrock-agent_client```: client AWS Bedrock per interagire con l'agente LLM.
+- ```py -sanitizer: LLMSanitizer```: istanza della classe `LLMSanitizer` utilizzata per sanitizzare le risposte JSON generate dall'agente LLM.
+
 ===== Metodi
-- ```py +generate_workflow(prompt: str) : str ```: invia il prompt all'agente LLM configurato per la generazione di workflow e ne restituisce la risposta.
-- ```summarize(text: str) : str ```: invia il testo all'agente LLM configurato per il riassunto e ne restituisce la risposta.
+- ```py +generate_workflow(prompt: str) : str```: invia il prompt all'agente LLM configurato per la generazione di workflow e ne restituisce la risposta.
+- ```py +summarize(text: str) : str```: invia il testo all'agente LLM configurato per il riassunto e ne restituisce la risposta.
 
 ==== LLMSanitizer
-La classe `LLMSanitizer` interpreta la risposta JSON generata da un agente LLM e applica la `NodeSanitizationStrategy` appropriata in base al al tipo di nodo codificato nella risposta. Lo scopo è garantire che ogni nodo abbia i campi necessari per essere processato correttamente dalle varie parti del sistema.
-
-===== Attributi
-- ```py -response: dict[str, NodeSanitizationStrategy] ```: risposta da processare.
+La classe `LLMSanitizer` interpreta la risposta JSON generata da un agente LLM e applica la `NodeSanitizationStrategy` appropriata in base al tipo di nodo codificato nella risposta. Lo scopo è garantire che ogni nodo abbia i campi necessari per essere processato correttamente dalle varie parti del sistema.
 
 ===== Metodi
-- ```sanitize_node(node: dict[str, Any]) : dict[str, Any] ```: applica la strategia di sanitizzazione corretta in base al tipo di nodo.
-- ```py +sanitize_response(response: dict[str, Any]) : dict[str, Any]```: sanitizza l'intera risposta, iterando su tutti i nodi e applicando la
+- ```py -sanitize_node(node: dict[str, Any]) : dict[str, Any]```: applica la strategia di sanitizzazione corretta in base al tipo di nodo.
+- ```py +sanitize_flow(response: dict[str, Any]) : dict[str, Any]```: sanitizza l'intera risposta, iterando su tutti i nodi e applicando la strategia appropriata.
 
 ==== NodeSanitizationStrategy
 La classe astratta `NodeSanitizationStrategy` definisce l'interfaccia per le strategie di sanitizzazione dei nodi. Le classi derivate implementano la logica specifica per ogni tipo di nodo.
 
 ===== Metodi
-- ```py +sanitize(node: dict[str, Any]) : dict[str, Any] ```: metodo astratto che deve essere implementato dalle classi derivate per eseguire la sanitizzazione del nodo.
+- ```py +sanitize(node: dict[str, Any]) : dict[str, Any]```: metodo astratto che deve essere implementato dalle classi derivate per eseguire la sanitizzazione del nodo.
 
 ==== Classi derivate
-Seguono le varie implementaizoni di `NodeSanitizationStrategy` con i campi che vengono aggiunti nel caso fossero mancanti:
+Seguono le varie implementazioni di `NodeSanitizationStrategy` con i campi che vengono aggiunti nel caso fossero mancanti:
 - `BasicNodeSanitizationStrategy`: aggiunge i campi comuni a tutti i nodi, ossia `id`, `type`, `data` e `position`.
 - `TelegramBotMessageSanitizationStrategy`: sanitizza i nodi di tipo `telegramSendBotMessage` aggiungendo i campi `botToken`, `chatId` e `message`.
-- `SystemWaitSecondsSanitizationStrategy`: sanitizza i nodi di tipo `systemWaitSeconds` aggiungendo il campo `seconds`
+- `SystemWaitSecondsSanitizationStrategy`: sanitizza i nodi di tipo `systemWaitSeconds` aggiungendo il campo `seconds`.
 - `NotionGetPageSanitizationStrategy`: sanitizza i nodi di tipo `notionGetPage` aggiungendo i campi `internalIntegrationToken` e `pageId`.
 
 #pagebreak()
