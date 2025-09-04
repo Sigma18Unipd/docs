@@ -981,33 +981,10 @@ Nel contesto del nostro progetto, il pattern è stato adottato nei seguenti casi
 ==== Implementazione
 // TODO: spiegare
 #codly(header: [llm/llmSanitizer.py])
-#codly(skips: ((1, 6),))
+#codly(skips: ((1, 10),))
 #codly(ranges: ((1, 81),))
 #codly(smart-skip: true)
 ```py
-class LLMSanitizer:
-    def __init__(self, strategy: NodeSanitizationStrategy) -> None:
-        self._strategy = strategy
-
-    @property
-    def strategy(self) -> NodeSanitizationStrategy:
-        return self._strategy
-
-    @strategy.setter
-    def strategy(self, strategy: NodeSanitizationStrategy) -> None:
-        self._strategy = strategy
-
-    def _sanitize_node(self, node: Dict[str, Any]) -> Dict[str, Any]:
-        return self._strategy.sanitize(node)
-
-    def sanitize_flow(self, flow: Dict[str, Any]) -> Dict[str, Any]:
-        if not isinstance(flow, dict):
-            return {}
-
-        flow["nodes"] = [self.sanitize_node(node) for node in flow.get("nodes", [])]
-        return flow
-
-
 class NodeSanitizationStrategy(ABC):
     # counters are class-level for a consistent generation in a given workflow
     _id_counter = 0
@@ -1313,7 +1290,48 @@ Estende la classe `Block`, rappresenta il blocco `AiSummarize` il quale utilizza
 ==== SysWait
 Implementazione del blocco `SysWait`, il quale introduce una pausa nell'esecuzione del flusso per un numero specificato di secondi.
 
+==== NotionGetPage
+Implementazione del blocco `NotionGetPage`, in grado di recuperare tutti i contenuti testuali da una pagina Notion utilizzando le API ufficiali.
+
+==== TelegramSend
+Implementazione del blocco `TelegramSend`, in grado di inviare un messaggio ad un canale o ad un utente Telegram tramite la bot API di Telegram.
+
+==== LLMFacade
+La classe `LLMFacade` fornisce un'interfaccia semplificata per interagire con agenti LLM astraendo i dettagli delle chiamate API.
+
+===== Metodi
+- ```py +generate_workflow(prompt: str) : str ```: invia il prompt all'agente LLM configurato per la generazione di workflow e ne restituisce la risposta.
+- ```summarize(text: str) : str ```: invia il testo all'agente LLM configurato per il riassunto e ne restituisce la risposta.
+
+==== LLMSanitizer
+La classe `LLMSanitizer` interpreta la risposta JSON generata da un agente LLM e applica la `NodeSanitizationStrategy` appropriata in base al al tipo di nodo codificato nella risposta. Lo scopo è garantire che ogni nodo abbia i campi necessari per essere processato correttamente dalle varie parti del sistema.
+
+===== Attributi
+- ```py -response: dict[str, NodeSanitizationStrategy] ```: risposta da processare.
+
+===== Metodi
+- ```sanitize_node(node: dict[str, Any]) : dict[str, Any] ```: applica la strategia di sanitizzazione corretta in base al tipo di nodo.
+- ```py +sanitize_response(response: dict[str, Any]) : dict[str, Any]```: sanitizza l'intera risposta, iterando su tutti i nodi e applicando la
+
+==== NodeSanitizationStrategy
+La classe astratta `NodeSanitizationStrategy` definisce l'interfaccia per le strategie di sanitizzazione dei nodi. Le classi derivate implementano la logica specifica per ogni tipo di nodo.
+
+===== Metodi
+- ```py +sanitize(node: dict[str, Any]) : dict[str, Any] ```: metodo astratto che deve essere implementato dalle classi derivate per eseguire la sanitizzazione del nodo.
+
+==== Classi derivate
+Seguono le varie implementaizoni di `NodeSanitizationStrategy` con i campi che vengono aggiunti nel caso fossero mancanti:
+- `BasicNodeSanitizationStrategy`: aggiunge i campi comuni a tutti i nodi, ossia `id`, `type`, `data` e `position`.
+- `TelegramBotMessageSanitizationStrategy`: sanitizza i nodi di tipo `telegramSendBotMessage` aggiungendo i campi `botToken`, `chatId` e `message`.
+- `SystemWaitSecondsSanitizationStrategy`: sanitizza i nodi di tipo `systemWaitSeconds` aggiungendo il campo `seconds`
+- `NotionGetPageSanitizationStrategy`: sanitizza i nodi di tipo `notionGetPage` aggiungendo i campi `internalIntegrationToken` e `pageId`.
+
 /// DDCCC
+#pagebreak()
+#pagebreak()
+#pagebreak()
+#pagebreak()
+
 ==== AiSummarize
 La classe 'AiSummarize' è un Block che riassume un testo sfruttando un agente Bedrock (Facacade)
 
