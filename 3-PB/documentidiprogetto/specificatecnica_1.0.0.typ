@@ -1125,7 +1125,7 @@ La funzione `protected` è un _decorator_ che protegge le _route_ di Flask richi
 
 ===== Metodi
 - ```py +protected(f) : function ```: decoratore che verifica il token JWT nella richiesta e gestisce l'autenticazione.
-TODO //todo
+//todo
 
 ==== FlowManager
 La classe `FlowManager` è responsabile della gestione e dell'esecuzione di un workflow composto da blocchi interconnessi. Fa uso di della classe `JsonParser` per il parsing del flusso e di `BlockFactory` per l'istanziazione dei blocchi, inoltre sfrutta un oggetto di tipo `FlowIterator` per eseguire i blocchi in sequenza.
