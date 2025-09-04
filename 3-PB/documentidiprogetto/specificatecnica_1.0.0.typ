@@ -53,7 +53,7 @@ Alessandro Bernardello",
     "Matteo Marangon",
     "Pietro Crotti
 Mirco Borella",
-    "Architettura Logica e aggiunta alle tecnologie",
+    "Architettura di Sistema e aggiunta alle tecnologie",
     "0.5.0",
     "2025/09/25",
     "Mirco Borella
@@ -741,9 +741,9 @@ In produzione, installa un server _Gunicorn_, che è un server WSGI (specifica c
 
 
 
-= Architetttura del sistema
+= Architettura del software
 
-== Architettura logica
+== Architettura del sistema
 Il backend è stato realizzato come un'applicazione monolitica basata su _Flask_, che integra in un unico servizio le principali responsabilità come l'autenticazione e la registrazione degli utenti tramite AWS Cognito e JWT, la gestione e persistenza dei dati dei workflow su MongoDB, il routing delle richieste HTTP e la gestione delle sessioni, e l'elaborazione di prompt AI con la relativa logica di business dei _workflow_ (creazione, modifica, esecuzione e cancellazione).
 
 === Pro
