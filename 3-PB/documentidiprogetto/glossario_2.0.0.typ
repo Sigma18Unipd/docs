@@ -332,6 +332,10 @@ Fase del processo di sviluppo software in cui vengono definiti i requisiti del s
 == Script
 File di testo che contiene una sequenza di istruzioni o comandi da eseguire.
 
+
+== SDK (_Software Development Kit_)
+Insieme di strumenti, librerie e documentazione forniti da un produttore di software per facilitare lo sviluppo di applicazioni su una specifica piattaforma o tecnologia.
+
 == Server
 Macchina o programma che fornisce un qualsiasi tipo di servizio ad altre componenti connesse.
 
@@ -349,6 +353,9 @@ Intervallo di tempo fisso, definito nella metodologia di sviluppo software Agile
 
 == Sprint Planning
 Processo nel quale si definiscono le attività da svolgere e i prodotti attesi da ogni ciclo di sviluppo (sprint).
+
+== Superset
+Un superset è un linguaggio che contiene tutte le funzionalità di un altro linguaggio e ne aggiunge di nuove. TypeScript, ad esempio, è un superset di JavaScript: include tutto JavaScript e aggiunge funzionalità come i tipi statici.
 
 == StreamHandler
 Classe nel framework di logging di un linguaggio di programmazione (es. Python) che invia i messaggi di log a uno stream. Serve come un gestore di base per incanalare i log a una destinazione di output, permettendo di specificare dove devono essere scritti i record di log.
