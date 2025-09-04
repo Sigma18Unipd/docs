@@ -830,28 +830,34 @@ Tra i vantaggi ottenuti dall'adozione del pattern vi sono:
 
 ==== Implementazione
 #codly(header: [llm/llmFacade.py])
-//#codly(skips: ((1, 4),))
-//#codly(ranges: ((12, 43)))
+#codly(skips: ((1, 4),))
+#codly(ranges: ((1, 3), (12, 43)))
 #codly(smart-skip: true)
 #local(
   breakable: true,
   [
     ```py
     class LLMFacade:
-    @staticmethod
-    def agent_facade(prompt):
-        agents_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
-        return LLMFacade._decode_response(agents_client.invoke_agent(
+      def __init__(self):
+          self._agents_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
+
+      def _decode_response(self, response):
+        completion = ""
+        for event in response.get("completion"):
+            chunk = event["chunk"]
+            completion += chunk["bytes"].decode()
+        return completion
+
+      def agent_facade(self, prompt):
+        return self._decode_response(self._agents_client.invoke_agent(
             agentId="XKFFWBWHGM",
             inputText=prompt,
             agentAliasId="TBVZ2OBWOR",
             sessionId=f"session-{uuid.uuid4()}"))
 
-    @staticmethod
-    def summary_facade(text):
-        agents_client = boto3.client("bedrock-agent-runtime", region_name="us-east-1")
-        return LLMFacade._decode_response(
-          agents_client.invoke_agent(
+      def summary_facade(self, text):
+        return self._decode_response (
+          self._agents_client.invoke_agent(
             agentId="JSMYPKV9QR",
             inputText=text,
             agentAliasId="Q4EOBUZOHP",
@@ -1064,108 +1070,6 @@ class TelegramBotMessageSanitizationStrategy(NodeSanitizationStrategy):
   Diagramma delle classi
 ])
 
-
-// Il backend è stato sviluppato in _Python_ ed eseguito in un contesto Flask avviato tramite lo _singleton_ _FlaskAppSingleton_ e containerizzabile con un dockerfile che prepara un'immagine basata su python3.13 e definisce vari target.
-// Le variabili d'ambiente vengono caricate e usate per configurare il client AWS Cognito e la connessione a MongoDB, quest'ultima gestita dal singleton _MongoDBSingleton_.
-
-
-=== Struttura del codice
-Viene riportata una panoramica della struttura delle cartelle e dei file principali riguardanti il backend:
-
-#no-codly()[
-  #align(center)[
-    ```
-    backend
-    ├── db
-    │   └── ...
-    ├── flow
-    │   ├── blocks
-    │   │   ├── aiSummarize.py
-    │   │   ├── notionGetPage.py
-    │   │   ├── syswait.py
-    │   │   └── telegramSend.py
-    │   ├── block.py
-    │   ├── flowIterator.py
-    │   ├── flowManager.py
-    │   └── ...
-    ├── llm
-    │   └── ...
-    ├── utils
-    │   └── ...
-    ├── backend.py
-    ├── Dockerfile
-    ├── flaskAppSingleton.py
-    ├── test.py
-    └── ...
-    ```
-  ]]
-
-//Nella cartella `flow/blocks` sono contenute le implementazioni dei vari blocchi disponibili nel sistema, ognuno in un file separato.
-//Il file `block.py` definisce la classe base dei blocchi, implementando il _design pattern Visitor_ e una gerarchia di classi astratte. Questa struttura consente di gestire in modo uniforme stato, _input_, _output_ e _log_ di esecuzione per ogni blocco concreto.
-//
-//I file`flowIterator.py` e `flowManager.py` lavorano inseme per implementare un sistema modulare e scalabile per l'esecuzione di flussi di lavoro. Il `FlowManager` si occupa della configurazione e dell'orchestrazione, mentre `FlowIterator` gestisce l'effettiva esecuzione dei blocchi.
-//
-//Infine, `backend.py` è il punto d'ingresso dell'applicativo. Infatti esso inizializza l'app _Flask_ tramite `FlaskAppSingleton`, configura il supporto per _CORS( Cross-Origin Resource Sharing)_ e i vari servizi di _AWS_. Inoltre gestisce le _route HTTPS_ .
-// dio ladro
-
-
-//Nella cartella `flow/blocks` sono contenute le implementazioni dei vari blocchi disponibili nel sistema, ognuno in un file separato.
-//Il file `block.py` definisce la classe base dei blocchi, implementando il _design pattern Visitor_ e una gerarchia di classi astratte. Questa struttura consente di gestire in modo uniforme stato, _input_, _output_ e _log_ di esecuzione per ogni blocco concreto.
-//
-//I file`flowIterator.py` e `flowManager.py` lavorano inseme per implementare un sistema modulare e scalabile per l'esecuzione di flussi di lavoro. Il `FlowManager` si occupa della configurazione e dell'orchestrazione, mentre `FlowIterator` gestisce l'effettiva esecuzione dei blocchi.
-//
-//Infine, `backend.py` è il punto d'ingresso dell'applicativo. Infatti esso inizializza l'app _Flask_ tramite `FlaskAppSingleton`, configura il supporto per _CORS( Cross-Origin Resource Sharing)_ e i vari servizi di _AWS_. Inoltre gestisce le _route HTTPS_ .
-// dio ladro
-
-//=== Gestione dell'autenticazione delle _Route_
-//
-//Il file `backend.py` costituisce il nucleo applicativo del sistema, occupandosi sia della definizione delle principali _route_ _REST_ sia della gestione dei meccanismi di autenticazione basati su _JWT_ e _AWS Cognito_.
-//
-//Le _route_ pubbliche, come `/login`, `/register` e `/confirm`, consentono l'interazione con _Cognito_ per la registrazione e l'accesso degli utenti. In tale contesto, i _token JWT_ vengono generati e successivamente verificati mediante le funzioni disponibili in `jwtUtils.py`, che implementano la logica di creazione, decodifica e validazione.
-//
-//Un ruolo centrale è ricoperto dal decoratore di autenticazione `protected`, definito all'interno dello stesso `backend.py`. Esso utilizza la direttiva `@wraps` per mantenere i metadati della funzione decorata e incapsula la logica di verifica dei _token_. In particolare:
-//
-//- recupera dalla richiesta il _cookie_ `jwtToken`;
-//
-//- lo valida attraverso la funzione `verifyJwt`, che decodifica il _token_ utilizzando la chiave segreta configurata e restituisce None in caso di firma scaduta o non valida;
-//
-//- se il _token_ è assente o non valido, effettua un _redirect_ automatico alla pagina di login (`/login`, `HTTP 302`);
-//
-//- se la validazione ha successo, associa l'indirizzo e-mail dell'utente autenticato al contesto globale di _Flask_ (`g.email`), permettendo così di identificarlo nelle successive elaborazioni.
-//
-//Tutte le _API_ che richiedono autenticazione sono annotate con il decoratore `@protected`, posto immediatamente sotto la definizione della rotta (`@app.route`). Tra queste rientrano la _dashboard_ e le _route_ relative alla gestione dei _workflow_ - creazione (`/api/new`), recupero, salvataggio, cancellazione ed esecuzione (`/api/flows/<id>`) - nonché le _API_ per l'elaborazione dei prompt verso l'_LLM_ (`/api/prompt`) e le operazioni di _logout_.
-//
-//Grazie a questa architettura, la logica di validazione dei _JWT_ viene centralizzata e riutilizzata in maniera uniforme, semplificando lo sviluppo e garantendo al contempo un livello di sicurezza costante su tutte le _route_ protette.
-//
-//
-//=== Processo di generazione dei workflow
-//
-//Il processo di generazione dei workflow avviene in diverse fasi:
-//
-//1. *Invocazione dell'agente LLM* - La generazione parte da `agent_facade`, che invia il _prompt_ a un agente _AWS Bedrock_ e concatena i _chunk_ di risposta in una stringa _JSON_.
-//
-//2. *Parsing e sanitizzazione preliminare* - `process_prompt` usa `agent_facade`, prova a deserializzare il _JSON_ e passa il risultato a `sanitize_response`, che prepara l'albero di nodi per l'uso interno.
-//
-//3. *Ordinamento topologico dei nodi* - `JsonParser` applica un _TopologicalSorter_ per ricostruire l'ordine di esecuzione basandosi sulle dipendenze tra nodi (edge → source/target), restituendo sia la sequenza ordinata sia i metadati dei nodi.
-//
-//4. *Istanziazione dei blocchi* - `FlowManager` scorre i nodi ordinati e, per ciascuno, chiede a `BlockFactory` di creare l'istanza corretta. La _factory_ importa dinamicamente tutte le implementazioni disponibili (`flow.blocks`) e registra ogni tipo di blocco. Se un tipo non è supportato, viene sollevato un errore esplicativo.
-//
-//5. *Esecuzione sequenziale e logging* - I blocchi vengono eseguiti da `FlowIterator`, che avvia un _thread_, passa l'output del blocco precedente come input al successivo e accumula gli `ExecutionLog`. Ogni blocco deriva da `Block`, che gestisce _status_, _timing_ e _log_ e solleva eccezioni in caso di validazione fallita.
-//
-//=== Processo di sanitizzazione dei workflow
-//
-//Il processo di sanitizzazione dei _workflow_ ha 3 principali fasi:
-//
-//1. *Strategia base e campi comuni* - `BasicFieldsStrategy` garantisce la presenza dei campi obbligatori (id, type, data, position). Gli ID vengono generati progressivamente e le posizioni sono assegnate in griglia 400x400 per facilitare il _rendering_ grafico.
-//
-//2. *Strategie specifiche per tipo di nodo* - Strategie dedicate completano i dati caratteristici dei vari blocchi: ad esempio, per `telegramSendBotMessage` si aggiungono _botToken_, _chatId_ e _message_; per `systemWaitSeconds` si imposta il campo _seconds_ con _default_ a 5.
-//
-//3. *Registry ed estensibilità* - `SanitizationStrategyRegistry` applica prima la strategia base, poi seleziona quella specifica in base al tipo di nodo; se assente, usa una `DefaultNodeStrategy`. Il _registry_ è estendibile tramite `register_node_strategy`, consentendo di supportare nuovi tipi senza toccare il _core_.
-//
-//=== Diagramma delle classi
-////TODO inserire immagine diagramma classi
-// CERTAMENTE
-
 === Struttura delle classi
 ==== Backend
 La classe `Backend` gestisce le _route_ presenti nell'applicazione, fungendo da punto d'ingresso per le varie funzioni.
@@ -1325,181 +1229,6 @@ Seguono le varie implementaizoni di `NodeSanitizationStrategy` con i campi che v
 - `TelegramBotMessageSanitizationStrategy`: sanitizza i nodi di tipo `telegramSendBotMessage` aggiungendo i campi `botToken`, `chatId` e `message`.
 - `SystemWaitSecondsSanitizationStrategy`: sanitizza i nodi di tipo `systemWaitSeconds` aggiungendo il campo `seconds`
 - `NotionGetPageSanitizationStrategy`: sanitizza i nodi di tipo `notionGetPage` aggiungendo i campi `internalIntegrationToken` e `pageId`.
-
-/// DDCCC
-#pagebreak()
-#pagebreak()
-#pagebreak()
-#pagebreak()
-
-==== AiSummarize
-La classe 'AiSummarize' è un Block che riassume un testo sfruttando un agente Bedrock (Facacade)
-
-===== Attributi
-- ```py -id: str ```: identificativo ereditato da 'Block'.
-- ```py -name: str ```: nome del blocco, ereditato da 'Block'.
-- ```py -status: Status ```: stato del blocco, ereditato da 'Block'.
-- ```py -input: dict[str, Any] | None ```: input del blocco, ereditato da 'Block'.
-- ```py -output: dict[str, Any] ```: output del blocco, ereditato da 'Block'.
-
-===== Costruttore
-- ```py +AiSummarize(...) ```: ereditato da 'Block' (nessun init personalizzato).
-===== Metodi
-- ```py +validate_inputs(): boolean = true```: sempre True.
-- ```py +execute(): dict[str, Any] ```: prende il testo da 'properOut' o 'logOut' dell'input, invoca 'summary_facade'. scrive 'properOut' in output e ritorna stato/type/sommario.
-
-
-==== Block
-La classe 'Block' rappresenta il blocco astratto base per tutti i nodi eseguibili del workflow.
-
-===== Attributi
-- ```py -id: str ```: identificativo univoco del blocco.
-- ```py -name: str ```: nome del blocco.
-- ```py -shortname: str ```: nome breve del blocco.
-- ```py -status: Status ```: stato del blocco.
-- ```py -input: dict[str, Any] | None ```: input del blocco.
-- ```py -settings: dict[str, Any] | None ```: impostazioni del blocco.
-- ```py -output: dict[str, Any] ```: output del blocco.
-- ```py -_execution_logs: list[ExecutionLog] ```: log di esecuzione del blocco.
-- ```py -start_time: datetime | None ```: timestamp di inizio esecuzione del blocco.
-- ```py -end_time: datetime | None ```: timestamp di fine esecuzione del blocco.
-
-===== Costruttore
-- ```py +Block(block_id: str | None = None, name: str | None = None, shortname: str | None = None, settings: dict[str, Any] | None = None) ```: costruttore della classe Block.
-
-===== Metodi
-- ```py +validate_inputs(): bool```: astratto.
-- ```py +execute(): bool ```: astratto; imposta lo stato 'RUNNING' e log base (da chiamare con 'super().execute()').
-- ```py +accept(visitor: BlockVisitor) : Any ```:
-- ```py -_get_input(key: str, default: Any = None) : Any```:
-- ```py -_get_setting(key: str, default: Any = None) : Any```:
-- ```py -_set_output(key: str, value: Any) : None```:
-- ```py +get_output() : dict[str, Any]```:
-- ```py -_log(message: str, level: str = "INFO") : None```:
-- ```py +get_logs() : list[ExecutionLog]```:
-- ```py +run(input: dict[str, Any]) : dict[str, Any]```:orchestration (validazione, timing, stati, log).
-- ```py +cancel() : None```:
-- ```py +__str__() : str```:
-
-==== BlockFactory
-La classe 'BlockFactory' è una factory singleton thread-safe che registra e inizializza i Block per tipo.
-
-===== Attributi
-- ```py -_instance: BlockFactory | None ```
-- ```py -_lock: threading.Lock ```
-- ```py -_initialized: bool ```
-- ```py -_imported: bool ```
-- ```py -_registry: dict[str, type[Block]] ```
-- ```py -_registry_lock: threading.RLock ```
-
-===== Costruttore
-- ```py +BlockFactory() ```: inizializza i registri interni.
-
-===== Metodi
-- ```py +get_block_factory() : BlockFactory ```: (classmethod):restituisce l'istanza singleton.
-- ```py -_import_block_types() : None ```: auto-import dei moduli in 'flow.blocks' per notificare le registrazioni
-- ```py +register_block(block_type: str, block_cls: type[Block]) : None ```: registra una classe 'Block' per un tipo.
-- ```py +create_block(block_type: str, **kwargs) : Block ```:istanzia un 'Block' del registro.
-- ```py +get_supported_types() : list[str] ```: elenca i tipi registrati.
-- ```py +lookup_implemented(block_type: str) : bool ```: verifica se un tipo esiste nel registro.
-
-==== FlaskAppSingleton
-La classe 'FlaskAppSingleton' fornisce un'istanza unica di Flask.
-
-===== Attributi
-- ```py -_instance: FlaskAppSingleton | None ```
-- ```py -app: Flask ```
-===== Costruttore
-- ```py +__new__() : FlaskAppSingleton ```: garantisce il singleton.
-- ```py +__init__() : FlaskAppSingleton ```: inizializza 'app' se non presente.
-===== Metodi
-- ```py +get_app() : Flask ```: inizializza l'istanza Flask.
-
-==== FlowIterator
-La classe 'FlowIterator' esegue in sequenza i blocchi di un workflow e colleziona i log.
-
-===== Attributi
-- ```py -logs: list[ExecutionLog] ```
-- ```py -blocks: list[Block] ```
-- ```py -status: Status ```
-- ```py -_thread: threading.Thread | None ```
-
-===== Costruttore
-- ```py +FlowIterator(blocks: list[Block]) ```
-===== Metodi
-- ```py -_run_blocks(input: dict[str, Any]) : None ```:esegue i blocchi, accumula output e log, gestisce errori.
-- ```py +run(input: dict[str, Any]) : None ```: avvia l'esecuzione in un thread.
-- ```py +get_logs() : list[ExecutionLog] ```
-- ```py +get_status() : Status ```
-
-==== FlowManager
-La classe 'FlowManager' costruisce i blocchi da JSON, avvia il workflow e aggrega i log.
-===== Attributi
-- ```py -blocks: list[Block] ```
-- ```py -factory: BlockFactory ```
-- ```py -parser: JsonParserStrategy ```
-- ```py -runner: FlowIterator ```
-
-===== Costruttore
-- ```py +FlowManager(json_data: dict[str, Any]) ```: parse del JSON, costruzione blocchi e FlowIterator.
-
-===== Metodi
-- ```py +parse_json(json_data: dict[str, Any]) : None ```:usa JsonParser, valida tipi, crea i blocchi via BlockFactory.
-- ```py -_get_all_logs() : list[ExecutionLog] ```restituisce i log.
-- ```py +start_workflow() : Any ```:avvia runner.run({}), gestisce errori.
-- ```py +get_status() : Any ```:stato corrente e log.
-
-==== JsonParser
-La classe 'JsonParser' ordina i nodi per dipendenze e struttura i dati per la factory.
-
-===== Attributi
-- nessuno specifico
-
-===== Costruttore
-- ```py +JsonParser() ```
-
-===== Metodi
-- ```py +parse(json_data: dict[str, Any] | str) : dict[str, Any] ```: accetta JSON o stringa, ordina i nodi, ritorna {"nodes": [...], "node_data": {...}}.
-- ```py -_order_nodes(json_data: dict[str, Any]) : list[str] ```: topological sort con 'graphlib.TopologicalSorter'.
-
-
-==== MongoDBSingleton
-La classe 'MongoDBSingleton' fornisce un'istanza unica di PyMongo legata all'app Flask.
-===== Attributi
-- ```py -_instance: MongoDBSingleton | None ```
-- ```py -mongo: PyMongo | None ```
-
-===== Costruttore
-- ```py +__new__(app: Flask | None = None) : MongoDBSingleton ``` inizializza 'PyMongo(app)' la prima volta
-
-===== Metodi
-- ```py +get_db() : Any ```: restituisce l'istanza di PyMongo.
-
-==== NotionGetPage
-La classe 'NotionGetPage' è un Block che legge una pagina Notion e concatena il testo.
-
-===== Attributi
-- ```py -id: str ```: ereditato
-- ```py -name: str ```: ereditato
-- ```py -status: Status ```: ereditato
-- ```py -input: dict[str, Any] | None ```: ereditato
-- ```py -output: dict[str, Any] ```: ereditato
-
-===== Costruttore
-- ```py +NotionGetPage(...) ``` ereditato da 'Block'
-
-===== Metodi
-- ```py +validate_inputs() : bool ```: richiede 'internalIntegrationToken' e 'pageID' (in settings).
-- ```py +execute() : dict[str, Any] ```: usa 'notion_client' per leggere blocchi figli, concatena 'plain_text', popola 'properOut', ritorna 'stato/type', gestisce errori.
-
-
-
-
-
-
-
-
-
 
 #pagebreak()
 = Struttura del Frontend
