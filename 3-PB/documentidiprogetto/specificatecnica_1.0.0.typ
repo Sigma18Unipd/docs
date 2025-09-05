@@ -755,7 +755,7 @@ Questa scelta, considerando il contesto del prodotto e il ritardo accumulato, è
 
 === Contro e soluzioni proposte
 Siamo consapevoli che questa soluzione presenta alcuni limiti.
-Secondo l'architettura, la scalabilità avviene principalmente in senso verticale. Considerata la struttura di deployment su AWS è possibile aumentare il numero di istanze EC2 e configurare "ad-hoc" un sistema di load balancing esterno per garantire performance elevate. Inoltre, è possibile scegliere di passare al sistema ECS (Elastic Container Service) di AWS che gestisce in autonomia il numero di container necessari in base al carico di richieste, a discapito di un costo che potrebbe essere maggiore.
+Secondo l'architettura, la scalabilità può avvenire solo negli assi orizzontale e verticale, senza la possibilità di scalare in modo indipendente i singoli componenti. Considerata la struttura di deployment su AWS è possibile aumentare il numero di istanze EC2 e configurare "ad-hoc" un sistema di load balancing esterno per garantire performance elevate. Inoltre, è possibile scegliere di passare al sistema ECS (Elastic Container Service) di AWS che gestisce in autonomia il numero di container necessari in base al carico di richieste, a discapito di un costo che potrebbe essere maggiore.
 
 Con il continuo dello sviluppo, l'applicazione tenderà a diventare meno modulare e ogni modifica richiede la ridistribuzione dell'intero pacchetto. Nel contesto attuale, il rilascio di nuovi aggiornamenti riguarderà tendenzialmente l'aggiunta di nuovi blocchi, che richiederanno comunque un riavvio del sistema.
 
