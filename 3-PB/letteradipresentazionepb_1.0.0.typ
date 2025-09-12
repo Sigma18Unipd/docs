@@ -38,7 +38,7 @@ Nella sezione *PB* si possono consultare i seguenti documenti:
 - *Verbali interni ed esterni* svolti da inizio candidatura alla consegna PB.
 
 Il gruppo, rispettando gli impegni prestabiliti, ha terminato il progetto con una spesa di *€12904,50* inferiore alla spesa stimata di *€12945,00*.
-Il gruppo intende consegnare il progetto in data *12/09/2025* posticipata rispetto al *29/08/2025*.
+Il gruppo intende consegnare il progetto in data *12/09/2025*.
 
 #pagebreak()
 Di seguito viene riportata una tabella contenente i membri del gruppo e i relativi numeri di matricola:
