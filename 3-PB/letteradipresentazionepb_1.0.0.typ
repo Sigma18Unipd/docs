@@ -29,7 +29,7 @@ Nella sezione *PB* si possono consultare i seguenti documenti:
 - #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/pianodiprogetto_2.0.0.pdf")[*Piano di Progetto*]#footnote[https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/pianodiprogetto_2.0.0.pdf] [versione 2.0.0]
 
 - #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/pianodiqualifica_2.0.0.pdf")[*Piano di Qualifica*]#footnote[https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/pianodiqualifica_2.0.0.pdf] [versione 2.0.0]\;
-- #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_2.0.0.pdf")[*Analisi dei requisiti* ]#footnote[https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_2.0.0.pdf] [versione 1.2.0]\;
+- #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_2.0.0.pdf")[*Analisi dei requisiti* ]#footnote[https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/analisideirequisiti_2.0.0.pdf] [versione 2.0.0]\;
 
 - #link("https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/manualeutente_1.0.0.pdf")[*Manuale Utente*]#footnote[https://sigma18unipd.github.io/documentiCompilati/3-PB/documentidiprogetto/manualeutente_1.0.0.pdf] [versione 1.0.0]\;
 
